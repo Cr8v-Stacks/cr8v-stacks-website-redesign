@@ -53,7 +53,7 @@
       font-size: 0.88rem;
       font-weight: 700;
       padding: 0.9rem 2.2rem;
-      border-radius: 12px;
+      border-radius: 4px;
       border: none;
       position: relative;
       overflow: hidden;
@@ -170,12 +170,7 @@
       fill: currentColor;
     }
 
-    .c8-nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 2.25rem;
-      list-style: none;
-    }
+    .c8-nav-menu { display: none !important; }
 
     .c8-nav-menu a {
       font-family: 'DM Sans', sans-serif;
@@ -462,7 +457,7 @@
        ═══════════════════════════════════════════════════════════════════════════ */
     @media (max-width: 768px) {
       .c8-nav-header { padding: 0 1.25rem; }
-      .c8-nav-menu { display: none; }
+      .c8-nav-menu { display: none !important; }
       .c8-overlay-layer { padding: 0 1.25rem; }
       .pos-trigger-1, .pos-trigger-2 {
         left: 1rem !important;
@@ -877,12 +872,7 @@
       <span>Cr8v Stacks</span>
     </a>
 
-    <ul class="c8-nav-menu">
-      <li><a href="#web-design">Web Design</a></li>
-      <li><a href="#custom-dev">Custom Dev</a></li>
-      <li><a href="#ai-mvp">AI MVP</a></li>
-      <li><a href="#case-studies">Case Studies</a></li>
-    </ul>
+    
 
     <a href="#start" class="c8-btn-primary">Start a Project →</a>
   </header>
@@ -1753,7 +1743,7 @@
     .sdv-panel-visual {
       grid-column: 1 / -1;
       margin-bottom: 2rem;
-      border-radius: 12px;
+      border-radius: 4px;
       overflow: hidden;
       height: 200px;
       position: relative;
@@ -3739,7 +3729,7 @@
       font-size: 0.9rem;
       font-weight: 600;
       padding: 1rem 2.2rem;
-      border-radius: 12px;
+      border-radius: 4px;
       text-decoration: none;
       box-shadow: 0 10px 28px rgba(0, 71, 225, 0.28);
       transition: all 0.25s ease;
