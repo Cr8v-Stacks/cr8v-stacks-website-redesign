@@ -3434,85 +3434,96 @@
       line-height: 1.7;
     }
 
-    /* Showcase 2-Column Grid matching reference layout */
-    .tmn-showcase {
+    /* Seamless White Outer Wrapper Card */
+    .tmn-wrapper-card {
+      background: #FFFFFF;
+      border: 1px solid var(--c8-line);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.04);
       display: grid;
-      grid-template-columns: 170px 1fr;
-      gap: 1.5rem;
-      align-items: stretch;
+      grid-template-columns: 110px 1fr;
+      gap: 0;
+      overflow: hidden;
       max-width: 1040px;
       margin: 0 auto;
+      min-height: 480px;
     }
     .tmn-thumbs {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      justify-content: space-between;
+      gap: 0;
+      background: #F4F5F8;
+      border-right: 1px solid var(--c8-line);
     }
     .tmn-thumb-btn {
-      background: #FFFFFF;
-      border: 1px solid var(--c8-line);
-      border-radius: 12px;
-      padding: 0.8rem 1rem;
+      background: #F4F5F8;
+      border: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 0;
+      padding: 0;
       cursor: pointer;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
       transition: all 0.3s ease;
-      height: 110px;
+      height: 25%;
       width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: left;
-    }
-    .tmn-tech-badge {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.35rem;
-      width: 100%;
-      text-align: center;
+      justify-content: center;
+      position: relative;
     }
-    .tmn-tech-logo-svg {
-      width: 28px;
-      height: 28px;
-      fill: var(--c8-ink);
-      transition: fill 0.3s ease;
-    }
-    .tmn-tech-label {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--c8-ink);
-    }
-    .tmn-tech-tag {
-      font-family: var(--font-mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.06em;
-      color: var(--c8-muted);
-      text-transform: uppercase;
+    .tmn-thumb-btn:last-child {
+      border-bottom: none;
     }
     .tmn-thumb-btn:hover {
-      border-color: rgba(0, 71, 225, 0.4);
-      background: #FAFAFC;
+      background: #EAECEF;
     }
     .tmn-thumb-btn.is-active {
-      border: 2px solid var(--c8-blue);
       background: #FFFFFF;
-      box-shadow: 0 8px 24px rgba(0, 71, 225, 0.15);
+      box-shadow: inset -3px 0 0 var(--c8-blue);
     }
-    .tmn-thumb-btn.is-active .tmn-tech-label {
-      color: var(--c8-blue);
+    .tmn-thumb-logo-img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      filter: grayscale(25%);
+    }
+    .tmn-thumb-btn:hover .tmn-thumb-logo-img,
+    .tmn-thumb-btn.is-active .tmn-thumb-logo-img {
+      filter: grayscale(0%);
+      transform: scale(1.12);
     }
 
-    /* Big Card matching standardized 16px radius */
+    /* Auto-Scroll Loading Progress Bar */
+    .tmn-progress-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: transparent;
+      overflow: hidden;
+    }
+    .tmn-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--c8-blue);
+    }
+    .tmn-thumb-btn.is-active .tmn-progress-fill {
+      animation: tmnProgress 6s linear infinite;
+    }
+    @keyframes tmnProgress {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+
+    /* Main Card inside outer white wrapper */
     .tmn-card-main {
       background: #FFFFFF;
-      border: 1px solid var(--c8-line);
-      border-radius: 16px;
+      border: none;
+      border-radius: 0;
       padding: clamp(2.2rem, 4vw, 3.5rem);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.03);
       position: relative;
       overflow: hidden;
       min-height: 480px;
@@ -3658,36 +3669,25 @@
         <p class="tmn-sub">Direct feedback from founders and engineering leaders who trusted Cr8v Stacks to build, optimize, and launch their custom digital platforms.</p>
       </div>
 
-      <div class="tmn-showcase" id="tmn-showcase-container">
-        <!-- Thumbnails Column: Official Stack Logos on White Background -->
+      <!-- Outer White Wrapper Container -->
+      <div class="tmn-wrapper-card" id="tmn-showcase-container">
+        <!-- Thumbnails Column: Official CDN Logos without text -->
         <div class="tmn-thumbs" id="tmn-thumbs">
           <button class="tmn-thumb-btn is-active" data-index="0" aria-label="View Shopify Ecommerce testimony">
-            <div class="tmn-tech-badge">
-              <svg class="tmn-tech-logo-svg" viewBox="0 0 24 24" fill="#96BF48"><path d="M19.34 7.22c-.08-.04-.17-.06-.25-.04l-1.92.51c-.34.09-.69-.13-.78-.47L15.65 4.3a.62.62 0 0 0-.74-.44L12.5 4.5c-.17.04-.32.14-.4.3L9.67 9.87c-.12.24-.03.53.21.65l2.43 1.22c.24.12.53.03.65-.21l2.43-5.07 1.15-.3.8 3.01-4.7 1.26c-.34.09-.54.44-.45.78l1.32 4.93a.62.62 0 0 0 .74.44l4.71-1.26a.62.62 0 0 0 .44-.74l-1.32-4.93a.62.62 0 0 0-.15-.26z"/></svg>
-              <span class="tmn-tech-label">SHOPIFY</span>
-              <span class="tmn-tech-tag">ECOMMERCE</span>
-            </div>
+            <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" class="tmn-thumb-logo-img">
+            <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
           </button>
           <button class="tmn-thumb-btn" data-index="1" aria-label="View Next.js SaaS testimony">
-            <div class="tmn-tech-badge">
-              <svg class="tmn-tech-logo-svg" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.66 18.06l-5.61-7.85v7.85H10.1V5.94h1.95l5.59 7.84V5.94h1.95v12.12h-1.93z"/></svg>
-              <span class="tmn-tech-label">NEXT.JS</span>
-              <span class="tmn-tech-tag">SAAS PLATFORM</span>
-            </div>
+            <img src="https://cdn.simpleicons.org/nextdotjs/000000" alt="Next.js" class="tmn-thumb-logo-img">
+            <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
           </button>
           <button class="tmn-thumb-btn" data-index="2" aria-label="View OpenAI AI MVP testimony">
-            <div class="tmn-tech-badge">
-              <svg class="tmn-tech-logo-svg" viewBox="0 0 24 24" fill="#10A37F"><path d="M22.28 9.82a5.98 5.98 0 0 0-.52-4.91 6 6 0 0 0-6.51-2.9 6 6 0 0 0-4.63-2.07 6 6 0 0 0-5.74 4.14 5.98 5.98 0 0 0-4.14 3 6 6 0 0 0 .78 7.03 5.98 5.98 0 0 0 .52 4.91 6 6 0 0 0 6.51 2.9 6 6 0 0 0 4.63 2.07 6 6 0 0 0 5.74-4.14 5.98 5.98 0 0 0 4.14-3 6 6 0 0 0-.78-7.03z"/></svg>
-              <span class="tmn-tech-label">OPENAI</span>
-              <span class="tmn-tech-tag">AI MVP TOOL</span>
-            </div>
+            <img src="https://cdn.simpleicons.org/openai/10A37F" alt="OpenAI" class="tmn-thumb-logo-img">
+            <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
           </button>
-          <button class="tmn-thumb-btn" data-index="3" aria-label="View Custom Stack testimony">
-            <div class="tmn-tech-badge">
-              <svg class="tmn-tech-logo-svg" viewBox="0 0 24 24" fill="#21759B"><path d="M12.16 0C5.44 0 0 5.44 0 12.16c0 6.72 5.44 12.16 12.16 12.16 6.72 0 12.16-5.44 12.16-12.16C24.32 5.44 18.88 0 12.16 0zm0 22.56c-5.74 0-10.4-4.66-10.4-10.4 0-2.31.75-4.44 2.02-6.17l5.22 14.33c.18.5.52.88 1.02 1.08.31.12.63.16.94.16z"/></svg>
-              <span class="tmn-tech-label">CUSTOM DEV</span>
-              <span class="tmn-tech-tag">WORDPRESS</span>
-            </div>
+          <button class="tmn-thumb-btn" data-index="3" aria-label="View WordPress Custom Stack testimony">
+            <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress" class="tmn-thumb-logo-img">
+            <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
           </button>
         </div>
 
@@ -3784,7 +3784,7 @@
         autoScrollInterval = setInterval(function() {
           var nextIdx = (currentIndex + 1) % testimonials.length;
           activateTestimonial(nextIdx);
-        }, 4500);
+        }, 6000);
       }
 
       function stopAutoScroll() {

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cr8v Stacks - Interactive Button Animation Options</title>
+  <title>Cr8v Stacks - Ultra-Creative Button Animations</title>
   <style>
     :root {
       --c8-blue: #0047E1;
@@ -60,7 +60,7 @@
     p.subtitle {
       color: var(--c8-muted);
       font-size: 1.05rem;
-      max-width: 600px;
+      max-width: 650px;
       margin: 0 auto;
     }
 
@@ -89,10 +89,7 @@
       box-shadow: 0 10px 30px rgba(0, 71, 225, 0.06);
     }
 
-    .card-meta {
-      text-align: center;
-    }
-
+    .card-meta { text-align: center; }
     .card-num {
       font-family: var(--font-mono);
       font-size: 0.7rem;
@@ -101,25 +98,9 @@
       letter-spacing: 0.1em;
       margin-bottom: 0.25rem;
     }
+    .card-title { font-size: 1.15rem; font-weight: 600; color: var(--c8-ink); margin-bottom: 0.4rem; }
+    .card-desc { font-size: 0.85rem; color: var(--c8-muted); line-height: 1.4; }
 
-    .card-title {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--c8-ink);
-      margin-bottom: 0.4rem;
-    }
-
-    .card-desc {
-      font-size: 0.85rem;
-      color: var(--c8-muted);
-      line-height: 1.4;
-    }
-
-    /* ============================================================
-       BUTTON OPTION STYLES
-       ============================================================ */
-
-    /* BASE BUTTON COMMON RESETS */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -137,320 +118,273 @@
     }
 
     /* ------------------------------------------------------------
-       OPTION 1: Magnetic Radial Glow & Pill
+       HIGH-CONCEPT OPTION A: 3D Kinetic Split-Cube Flip
        ------------------------------------------------------------ */
-    .btn-opt-1 {
+    .btn-cube {
+      perspective: 800px;
+      background: transparent;
+      padding: 0;
+    }
+    .btn-cube-inner {
+      position: relative;
+      width: 260px;
+      height: 52px;
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-cube:hover .btn-cube-inner {
+      transform: rotateX(-90deg);
+    }
+    .btn-cube-front, .btn-cube-bottom {
+      position: absolute;
+      width: 100%; height: 100%;
+      border-radius: 50px;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      font-weight: 600;
+      backface-visibility: hidden;
+    }
+    .btn-cube-front {
       background: var(--c8-blue);
       color: #FFFFFF;
-      padding: 0.95rem 2.2rem;
-      border-radius: 50px;
+      transform: translateZ(26px);
       box-shadow: 0 10px 25px rgba(0, 71, 225, 0.25);
-      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      overflow: hidden;
     }
-    .btn-opt-1::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.35s ease;
-      pointer-events: none;
-    }
-    .btn-opt-1:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 15px 35px rgba(0, 71, 225, 0.38);
-      background: var(--c8-blue-dark);
-    }
-    .btn-opt-1:hover::after { opacity: 1; }
-    .btn-opt-1 .arrow { transition: transform 0.3s ease; }
-    .btn-opt-1:hover .arrow { transform: translateX(5px); }
-
-    /* ------------------------------------------------------------
-       OPTION 2: Sliding Arrow Pill & Glass Shimmer
-       ------------------------------------------------------------ */
-    .btn-opt-2 {
+    .btn-cube-bottom {
       background: #0B0F19;
       color: #FFFFFF;
-      padding: 0.9rem 1.8rem 0.9rem 2.2rem;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      overflow: hidden;
-    }
-    .btn-opt-2::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.6s ease;
-    }
-    .btn-opt-2:hover::before { left: 100%; }
-    .btn-opt-2 .arrow-circle {
-      width: 32px; height: 32px;
-      background: rgba(255,255,255,0.15);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.3s ease;
-    }
-    .btn-opt-2:hover { background: var(--c8-blue); }
-    .btn-opt-2:hover .arrow-circle {
-      background: #FFFFFF;
-      color: var(--c8-blue);
-      transform: translateX(4px);
+      transform: rotateX(90deg) translateZ(26px);
+      box-shadow: 0 10px 25px rgba(11, 15, 25, 0.3);
     }
 
     /* ------------------------------------------------------------
-       OPTION 3: Tech Terminal Code Badge (// CONSULTATION ->)
+       HIGH-CONCEPT OPTION B: Interactive Liquid Blob Expansion
        ------------------------------------------------------------ */
-    .btn-opt-3 {
+    .btn-liquid {
+      background: #0B0F19;
+      color: #FFFFFF;
+      padding: 1rem 2.4rem;
+      border-radius: 50px;
+      overflow: hidden;
+      z-index: 1;
+      transition: color 0.4s ease;
+    }
+    .btn-liquid .blob {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 0; height: 0;
+      background: var(--c8-blue);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1), height 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      z-index: -1;
+    }
+    .btn-liquid:hover .blob {
+      width: 320px;
+      height: 320px;
+    }
+    .btn-liquid:hover { color: #FFFFFF; }
+
+    /* ------------------------------------------------------------
+       HIGH-CONCEPT OPTION C: Electric Laser Beam Border Trace
+       ------------------------------------------------------------ */
+    .btn-laser {
+      background: #0B0F19;
+      color: #FFFFFF;
+      padding: 1rem 2.4rem;
+      border-radius: 50px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .btn-laser::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: conic-gradient(transparent, transparent, transparent, var(--c8-blue-light));
+      animation: rotateLaser 3s linear infinite;
+      z-index: -2;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .btn-laser::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      background: #0B0F19;
+      border-radius: 50px;
+      z-index: -1;
+      transition: background 0.3s ease;
+    }
+    .btn-laser:hover::before { opacity: 1; }
+    .btn-laser:hover::after { background: #111827; }
+    @keyframes rotateLaser { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    /* ------------------------------------------------------------
+       HIGH-CONCEPT OPTION D: Holographic Rainbow Shimmer Sweep
+       ------------------------------------------------------------ */
+    .btn-holo {
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      padding: 1rem 2.4rem;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 71, 225, 0.25);
+      transition: all 0.3s ease;
+    }
+    .btn-holo::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -100%;
+      width: 100%; height: 200%;
+      background: linear-gradient(115deg, transparent, rgba(255,255,255,0.4), rgba(255, 100, 200, 0.4), rgba(0, 255, 255, 0.4), transparent);
+      transform: rotate(25deg);
+      transition: left 0.75s ease;
+    }
+    .btn-holo:hover::before { left: 150%; }
+    .btn-holo:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0, 71, 225, 0.4); }
+
+    /* ------------------------------------------------------------
+       HIGH-CONCEPT OPTION E: Tech HUD Matrix Glitch Scanner
+       ------------------------------------------------------------ */
+    .btn-hud {
       background: #FFFFFF;
       color: var(--c8-ink);
       font-family: var(--font-mono);
       font-size: 0.85rem;
-      padding: 0.85rem 1.8rem;
+      padding: 0.9rem 2rem;
       border: 1.5px solid var(--c8-ink);
       border-radius: 8px;
-      transition: all 0.25s ease;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
-    .btn-opt-3 .slash { color: var(--c8-blue); transition: color 0.25s ease; }
-    .btn-opt-3:hover {
-      background: var(--c8-ink);
+    .btn-hud .scanline {
+      position: absolute;
+      top: -100%; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(180deg, transparent, rgba(0, 71, 225, 0.2), transparent);
+      transition: top 0.4s ease;
+    }
+    .btn-hud:hover .scanline { top: 100%; }
+    .btn-hud:hover {
+      background: #0B0F19;
       color: #FFFFFF;
+      border-color: #0B0F19;
       box-shadow: 0 8px 20px rgba(11, 15, 25, 0.2);
-      transform: translateY(-2px);
     }
-    .btn-opt-3:hover .slash { color: #3370FF; }
 
     /* ------------------------------------------------------------
-       OPTION 4: Fluid Liquid Fill / Color Wave Sweep
+       HIGH-CONCEPT OPTION F: Magnetic Parallax Orbit Arrow
        ------------------------------------------------------------ */
-    .btn-opt-4 {
-      background: transparent;
+    .btn-orbit {
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      padding: 0.9rem 1.8rem 0.9rem 2.2rem;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(0, 71, 225, 0.25);
+      transition: all 0.3s ease;
+    }
+    .btn-orbit .orbit-icon {
+      width: 30px; height: 30px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .btn-orbit:hover .orbit-icon {
+      transform: rotate(360deg) scale(1.15);
+      background: #FFFFFF;
       color: var(--c8-blue);
-      padding: 0.95rem 2.2rem;
-      border: 2px solid var(--c8-blue);
-      border-radius: 50px;
-      z-index: 1;
-      overflow: hidden;
-      transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .btn-opt-4::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: var(--c8-blue);
-      z-index: -1;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border-radius: 50px;
-    }
-    .btn-opt-4:hover { color: #FFFFFF; }
-    .btn-opt-4:hover::before {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-
-    /* ------------------------------------------------------------
-       OPTION 5: Neon Border Trace & Gradient Pulse
-       ------------------------------------------------------------ */
-    .btn-opt-5 {
-      background: linear-gradient(135deg, var(--c8-blue), #2563EB);
-      color: #FFFFFF;
-      padding: 1rem 2.4rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 71, 225, 0.2);
-      transition: all 0.3s ease;
-    }
-    .btn-opt-5:hover {
-      box-shadow: 0 0 25px rgba(0, 71, 225, 0.6), 0 8px 30px rgba(0, 71, 225, 0.4);
-      transform: translateY(-2px);
-    }
-
-    /* ------------------------------------------------------------
-       OPTION 6: Tactile 3D Lift & Layer Offset
-       ------------------------------------------------------------ */
-    .btn-opt-6 {
-      background: var(--c8-blue);
-      color: #FFFFFF;
-      padding: 0.9rem 2rem;
-      border-radius: 10px;
-      border: 2px solid #002DA1;
-      box-shadow: 0 6px 0 #002DA1;
-      transition: all 0.15s ease;
-    }
-    .btn-opt-6:hover {
-      transform: translateY(2px);
-      box-shadow: 0 4px 0 #002DA1;
-    }
-    .btn-opt-6:active {
-      transform: translateY(6px);
-      box-shadow: 0 0 0 #002DA1;
-    }
-
-    /* ------------------------------------------------------------
-       OPTION 7: Light Beam Sweep
-       ------------------------------------------------------------ */
-    .btn-opt-7 {
-      background: var(--c8-ink);
-      color: #FFFFFF;
-      padding: 0.95rem 2.2rem;
-      border-radius: 50px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .btn-opt-7::after {
-      content: '';
-      position: absolute;
-      top: -50%; left: -60%;
-      width: 20%; height: 200%;
-      background: rgba(255,255,255,0.4);
-      transform: rotate(30deg);
-      transition: all 0.6s ease;
-    }
-    .btn-opt-7:hover::after { left: 140%; }
-    .btn-opt-7:hover {
-      box-shadow: 0 10px 25px rgba(11, 15, 25, 0.25);
-      transform: translateY(-2px);
-    }
-
-    /* ------------------------------------------------------------
-       OPTION 8: Split-Text Reveal / Slide-Up
-       ------------------------------------------------------------ */
-    .btn-opt-8 {
-      background: var(--c8-blue);
-      color: #FFFFFF;
-      padding: 0.95rem 2.2rem;
-      border-radius: 50px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .btn-opt-8 .btn-text-wrap {
-      display: inline-flex;
-      flex-direction: column;
-      height: 1.2em;
-      overflow: hidden;
-    }
-    .btn-opt-8 .btn-text {
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .btn-opt-8:hover .btn-text {
-      transform: translateY(-100%);
-    }
+    .btn-orbit:hover { transform: translateY(-3px); }
   </style>
 </head>
 <body>
 
   <div class="container">
     <div class="header">
-      <div class="eyebrow">// CR8V STACKS AGENCY DESIGN SYSTEM</div>
-      <h1>Button Animation Standardization</h1>
-      <p class="subtitle">Interact with the 8 agency-level button animation options below and choose your favorite style to standardize across all pages.</p>
+      <div class="eyebrow">// HIGH-CONCEPT AGENCY DESIGN SYSTEM</div>
+      <h1>Ultra-Creative Button Animations</h1>
+      <p class="subtitle">Preview these 6 high-concept interactive button options designed specifically for modern creative and software agencies.</p>
     </div>
 
     <div class="grid">
 
-      <!-- OPTION 1 -->
+      <!-- OPTION A -->
       <div class="card">
         <div class="card-meta">
-          <div class="card-num">Option 01</div>
-          <div class="card-title">Magnetic Glow & Pill Scale</div>
-          <div class="card-desc">Vibrant blue pill with smooth scale elevation, radial glow flare, and sliding arrow.</div>
+          <div class="card-num">Option A</div>
+          <div class="card-title">3D Kinetic Split-Cube Flip</div>
+          <div class="card-desc">Button rolls 90° in 3D space like a casino/arcade cube to reveal the active dark agency CTA state.</div>
         </div>
-        <a href="#" class="btn btn-opt-1" onclick="return false;">
-          Book a Consultation <span class="arrow">&rarr;</span>
+        <div class="btn btn-cube">
+          <div class="btn-cube-inner">
+            <div class="btn-cube-front">Book a Consultation &rarr;</div>
+            <div class="btn-cube-bottom">Book a Consultation &rarr;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OPTION B -->
+      <div class="card">
+        <div class="card-meta">
+          <div class="card-num">Option B</div>
+          <div class="card-title">Interactive Liquid Blob Fill</div>
+          <div class="card-desc">An organic liquid fluid blob morphs and expands from center to fill the button smoothly on hover.</div>
+        </div>
+        <a href="#" class="btn btn-liquid" onclick="return false;">
+          <span class="blob"></span>
+          Book a Consultation &rarr;
         </a>
       </div>
 
-      <!-- OPTION 2 -->
+      <!-- OPTION C -->
       <div class="card">
         <div class="card-meta">
-          <div class="card-num">Option 02</div>
-          <div class="card-title">Dark Glass & Arrow Circle</div>
-          <div class="card-desc">Sleek dark pill with glass shimmer line and an arrow badge that turns white on hover.</div>
+          <div class="card-num">Option C</div>
+          <div class="card-title">Electric Laser Border Trace</div>
+          <div class="card-desc">Conic laser light beam continuously traces around the dark pill border on hover.</div>
         </div>
-        <a href="#" class="btn btn-opt-2" onclick="return false;">
-          Book a Consultation
-          <span class="arrow-circle">&rarr;</span>
+        <a href="#" class="btn btn-laser" onclick="return false;">
+          Book a Consultation &rarr;
         </a>
       </div>
 
-      <!-- OPTION 3 -->
+      <!-- OPTION D -->
       <div class="card">
         <div class="card-meta">
-          <div class="card-num">Option 03</div>
-          <div class="card-title">Developer Code Badge (//)</div>
-          <div class="card-desc">Monospace developer badge with double-slash accent. Inverts cleanly to dark ink on hover.</div>
+          <div class="card-num">Option D</div>
+          <div class="card-title">Holographic Rainbow Sweep</div>
+          <div class="card-desc">Multi-color holographic prism flare sweeps across the vibrant blue pill on hover.</div>
         </div>
-        <a href="#" class="btn btn-opt-3" onclick="return false;">
+        <a href="#" class="btn btn-holo" onclick="return false;">
+          Book a Consultation &rarr;
+        </a>
+      </div>
+
+      <!-- OPTION E -->
+      <div class="card">
+        <div class="card-meta">
+          <div class="card-num">Option E</div>
+          <div class="card-title">Tech HUD Scanline Glitch</div>
+          <div class="card-desc">Monospace code button with vertical radar scanline and inversion to dark terminal ink.</div>
+        </div>
+        <a href="#" class="btn btn-hud" onclick="return false;">
+          <span class="scanline"></span>
           <span class="slash">//</span> BOOK A CONSULTATION &rarr;
         </a>
       </div>
 
-      <!-- OPTION 4 -->
+      <!-- OPTION F -->
       <div class="card">
         <div class="card-meta">
-          <div class="card-num">Option 04</div>
-          <div class="card-title">Fluid Liquid Fill Sweep</div>
-          <div class="card-desc">Outline pill button with smooth fluid color fill animation on hover.</div>
+          <div class="card-num">Option F</div>
+          <div class="card-title">360° Orbit Arrow & Scale</div>
+          <div class="card-desc">The arrow badge detaches and performs a 360° spin while inverting color on hover.</div>
         </div>
-        <a href="#" class="btn btn-opt-4" onclick="return false;">
-          Book a Consultation &rarr;
-        </a>
-      </div>
-
-      <!-- OPTION 5 -->
-      <div class="card">
-        <div class="card-meta">
-          <div class="card-num">Option 05</div>
-          <div class="card-title">Neon Gradient Pulse</div>
-          <div class="card-desc">Modern gradient card button with neon aura drop-shadow pulse effect.</div>
-        </div>
-        <a href="#" class="btn btn-opt-5" onclick="return false;">
-          Book a Consultation &rarr;
-        </a>
-      </div>
-
-      <!-- OPTION 6 -->
-      <div class="card">
-        <div class="card-meta">
-          <div class="card-num">Option 06</div>
-          <div class="card-title">3D Tactile Push Layer</div>
-          <div class="card-desc">Tactile software UI button with physical depth offset and click press down state.</div>
-        </div>
-        <a href="#" class="btn btn-opt-6" onclick="return false;">
-          Book a Consultation &rarr;
-        </a>
-      </div>
-
-      <!-- OPTION 7 -->
-      <div class="card">
-        <div class="card-meta">
-          <div class="card-num">Option 07</div>
-          <div class="card-title">Dark Shimmer Beam</div>
-          <div class="card-desc">Dark agency button with light-beam lens flare sweeping across on hover.</div>
-        </div>
-        <a href="#" class="btn btn-opt-7" onclick="return false;">
-          Book a Consultation &rarr;
-        </a>
-      </div>
-
-      <!-- OPTION 8 -->
-      <div class="card">
-        <div class="card-meta">
-          <div class="card-num">Option 08</div>
-          <div class="card-title">Vertical Text Slide Reveal</div>
-          <div class="card-desc">Text slides up seamlessly to reveal a duplicate line on hover.</div>
-        </div>
-        <a href="#" class="btn btn-opt-8" onclick="return false;">
-          <span class="btn-text-wrap">
-            <span class="btn-text">Book a Consultation &rarr;</span>
-            <span class="btn-text">Book a Consultation &rarr;</span>
-          </span>
+        <a href="#" class="btn btn-orbit" onclick="return false;">
+          Book a Consultation
+          <span class="orbit-icon">&rarr;</span>
         </a>
       </div>
 
