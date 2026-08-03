@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -2239,18 +2239,18 @@
     /* ── Mascot: lives inside dp-half-left, overflows right to straddle split ── */
     .dp-mascot-wrap {
       position: absolute;
-      right: -190px;
-      bottom: -40px;
-      width: 380px;
+      right: -260px;
+      bottom: -50px;
+      width: 520px;
       z-index: 10;
       pointer-events: none;
     }
 
-    .dp-mascot-wrap img {
+    .dp-mascot-wrap img,
+    .dp-mascot-wrap video {
       width: 100%;
       height: auto;
       display: block;
-      mix-blend-mode: multiply;
       animation: dpFloat 4.5s ease-in-out infinite;
     }
 
@@ -2413,11 +2413,14 @@
 
       <!-- MASCOT: lives inside white half, overflows right to straddle the split on desktop -->
       <div class="dp-mascot-wrap">
-        <img src="assets/dev_mascot_fox.jpg" alt="Cr8v Stacks Fox Mascot">
+        <video autoplay muted loop playsinline preload="auto" aria-label="Cr8v Stacks Mascot">
+          <source src="assets/download_mascot.mp4" type="video/mp4">
+          <img src="assets/cartoon_fox_transparent.webp" alt="Cr8v Stacks Fox Mascot">
+        </video>
       </div>
 
       <div class="dp-left-content" style="position:relative;z-index:2;">
-        <div class="dp-eyebrow">Always Building</div>
+        <div class="dp-eyebrow"><span class="c8-eyebrow-slash">//</span> ALWAYS BUILDING</div>
         <h2 class="dp-h2">Built by us.<br><em>Built to be useful.</em></h2>
         <p class="dp-sub">
           Custom WordPress plugins and AI MVP tools we've built and use every day — some shipped, some still in progress. If we can build our own tools from scratch, we can build yours.
@@ -2742,7 +2745,7 @@
     <div class="hww-inner">
 
       <div class="hww-header">
-        <div class="hww-eyebrow">How We Work</div>
+        <div class="hww-eyebrow"><span class="c8-eyebrow-slash">//</span> HOW WE WORK</div>
         <h2 class="hww-h2">AI helps us move faster. <em>It doesn't make the decisions.</em></h2>
         <p class="hww-desc">
           We use Claude, Gemini, ChatGPT, and Perplexity throughout our process — for research, drafting, and speeding up repetitive work. But direction, judgment, and quality control stay with our team on every project. AI is a tool we use well, not a replacement for the expertise behind the work.
@@ -3225,7 +3228,7 @@
 
     <div class="wwa-inner">
       <div class="wwa-top">
-        <div class="wwa-eyebrow">About Cr8v Stacks</div>
+        <div class="wwa-eyebrow"><span class="c8-eyebrow-slash">//</span> ABOUT CR8V STACKS</div>
         <div class="wwa-top-tag">CREATIVE STACKS AGENCY</div>
       </div>
 
@@ -3450,47 +3453,72 @@
     /* Showcase 2-Column Grid matching reference layout */
     .tmn-showcase {
       display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 2rem;
-      align-items: center;
+      grid-template-columns: 170px 1fr;
+      gap: 1.5rem;
+      align-items: stretch;
       max-width: 1040px;
       margin: 0 auto;
     }
     .tmn-thumbs {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 0.5rem;
+      justify-content: space-between;
     }
     .tmn-thumb-btn {
-      background: #FFFFFF;
-      border: 2px solid transparent;
+      background: #0B0F19;
+      border: 1px solid rgba(0, 71, 225, 0.15);
       border-radius: 12px;
-      padding: 4px;
+      padding: 0.8rem 1rem;
       cursor: pointer;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
       transition: all 0.3s ease;
       height: 110px;
-      width: 150px;
-      display: block;
-    }
-    .tmn-thumb-btn img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 9px;
-      filter: grayscale(25%);
-      transition: filter 0.3s ease, transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
     }
-    .tmn-thumb-btn:hover img {
-      filter: grayscale(0%);
+    .tmn-tech-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      width: 100%;
+      text-align: center;
+    }
+    .tmn-tech-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .tmn-tech-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #FFFFFF;
+    }
+    .tmn-tech-tag {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.06em;
+      color: var(--c8-muted);
+      text-transform: uppercase;
+    }
+    .tmn-thumb-btn:hover {
+      border-color: rgba(0, 71, 225, 0.4);
+      background: #111827;
     }
     .tmn-thumb-btn.is-active {
       border-color: var(--c8-blue);
-      box-shadow: 0 8px 24px rgba(0, 71, 225, 0.2);
+      border-width: 2px;
+      background: #0F172A;
+      box-shadow: 0 8px 24px rgba(0, 71, 225, 0.3);
     }
-    .tmn-thumb-btn.is-active img {
-      filter: grayscale(0%);
+    .tmn-thumb-btn.is-active .tmn-tech-label {
+      color: var(--c8-blue-light);
     }
 
     /* Big Card matching standardized 16px radius */
@@ -3502,19 +3530,19 @@
       box-shadow: 0 10px 40px rgba(0,0,0,0.03);
       position: relative;
       overflow: hidden;
-      min-height: 310px;
+      min-height: 480px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
     .tmn-bg-quote {
       position: absolute;
-      top: -1.5rem;
-      right: 2rem;
-      font-size: 14rem;
+      top: -4.5rem;
+      right: 1.5rem;
+      font-size: 40rem;
       line-height: 1;
       font-family: Georgia, serif;
-      color: rgba(0, 71, 225, 0.04);
+      color: rgba(0, 71, 225, 0.035);
       pointer-events: none;
       user-select: none;
     }
@@ -3615,11 +3643,23 @@
       .tmn-thumbs {
         flex-direction: row;
         justify-content: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        gap: 0.4rem;
       }
       .tmn-thumb-btn {
-        width: 110px;
-        height: 85px;
+        width: 78px;
+        height: 75px;
+        padding: 0.3rem;
+      }
+      .tmn-tech-icon { font-size: 1.1rem; }
+      .tmn-tech-label { font-size: 0.58rem; }
+      .tmn-tech-tag { font-size: 0.5rem; }
+
+      .hww-section, .wwa-section {
+        text-align: left;
+      }
+      .hww-header, .wwa-header {
+        text-align: left;
       }
     }
   </style>
@@ -3634,19 +3674,35 @@
       </div>
 
       <div class="tmn-showcase" id="tmn-showcase-container">
-        <!-- Thumbnails Column -->
+        <!-- Thumbnails Column: Option C Tech Stack Badges -->
         <div class="tmn-thumbs" id="tmn-thumbs">
-          <button class="tmn-thumb-btn is-active" data-index="0" aria-label="View testimony by Sarah Whitfield">
-            <img src="assets/tmn_avatar_female.jpg" alt="Sarah Whitfield">
+          <button class="tmn-thumb-btn is-active" data-index="0" aria-label="View Shopify Ecommerce testimony">
+            <div class="tmn-tech-badge">
+              <span class="tmn-tech-icon">🛍️</span>
+              <span class="tmn-tech-label">SHOPIFY</span>
+              <span class="tmn-tech-tag">ECOMMERCE</span>
+            </div>
           </button>
-          <button class="tmn-thumb-btn" data-index="1" aria-label="View testimony by Daniel Voss">
-            <img src="assets/tmn_avatar_euro_male.jpg" alt="Daniel Voss">
+          <button class="tmn-thumb-btn" data-index="1" aria-label="View Next.js SaaS testimony">
+            <div class="tmn-tech-badge">
+              <span class="tmn-tech-icon">⚡</span>
+              <span class="tmn-tech-label">NEXT.JS</span>
+              <span class="tmn-tech-tag">SAAS PLATFORM</span>
+            </div>
           </button>
-          <button class="tmn-thumb-btn" data-index="2" aria-label="View testimony by Adaeze Nwosu">
-            <img src="assets/tmn_avatar_bearded.jpg" alt="Adaeze Nwosu">
+          <button class="tmn-thumb-btn" data-index="2" aria-label="View OpenAI AI MVP testimony">
+            <div class="tmn-tech-badge">
+              <span class="tmn-tech-icon">🤖</span>
+              <span class="tmn-tech-label">OPENAI</span>
+              <span class="tmn-tech-tag">AI MVP TOOL</span>
+            </div>
           </button>
-          <button class="tmn-thumb-btn" data-index="3" aria-label="View testimony by Marcus Vance">
-            <img src="assets/tmn_avatar_euro_male.jpg" alt="Marcus Vance">
+          <button class="tmn-thumb-btn" data-index="3" aria-label="View Custom Stack testimony">
+            <div class="tmn-tech-badge">
+              <span class="tmn-tech-icon">⚙️</span>
+              <span class="tmn-tech-label">CUSTOM DEV</span>
+              <span class="tmn-tech-tag">WORDPRESS</span>
+            </div>
           </button>
         </div>
 
@@ -3799,7 +3855,7 @@
   <section class="faq-section" id="faq">
     <div class="faq-inner">
       <div class="faq-aside">
-        <div class="faq-eyebrow">Common Questions</div>
+        <div class="faq-eyebrow"><span class="c8-eyebrow-slash">//</span> COMMON QUESTIONS</div>
         <h2 class="faq-h2">Before You Reach Out</h2>
         <p class="faq-sub">Can't find what you're looking for? Just ask &mdash; no sales script, no pitch.</p>
         <a href="/contact" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
@@ -3841,7 +3897,7 @@
   <!-- SECTION: FINAL CTA -->
   <style>
     .cta-section {
-      background: var(--c8-bg);
+      background: #FFFFFF;
       padding: clamp(5rem, 9vw, 8rem) 0;
       position: relative;
       overflow: hidden;
@@ -3857,17 +3913,29 @@
     .cta-arc-container {
       width: 100%;
       max-width: 780px;
-      margin: 0 auto 2.2rem;
+      margin: 0 auto 0;
       display: flex;
       justify-content: center;
     }
-    .cta-arc-img {
+    .cta-arc-img,
+    .cta-arc-video {
       width: 100%;
       max-width: 780px;
       height: auto;
       display: block;
       object-fit: contain;
       filter: drop-shadow(0 15px 30px rgba(0,0,0,0.06));
+    }
+    /* Unstyled wrapper div: easily shift all content subjects up or down together */
+    .cta-content-group {
+      margin-top: -6.5rem; /* Pulled up to -6.5rem on desktop */
+      position: relative;
+      z-index: 5;
+    }
+    @media (max-width: 768px) {
+      .cta-content-group {
+        margin-top: -3.5rem; /* Responsive scoping for mobile */
+      }
     }
     .cta-badge {
       display: inline-flex;
@@ -3948,23 +4016,28 @@
     <div class="cta-inner">
       <!-- Transparent PNG Arc image matching title width -->
       <div class="cta-arc-container">
-        <img src="assets/cta_stack_arc.png" alt="Cr8v Stacks Tech Stack Ecosystem" class="cta-arc-img">
+        <video autoplay muted loop playsinline preload="auto" class="cta-arc-video" aria-label="Cr8v Stacks Tech Stack Ecosystem">
+          <source src="assets/download.mp4" type="video/mp4">
+        </video>
       </div>
 
-      <div class="cta-badge">&#10022; EASY TO EXPLORE</div>
-      
-      <h2 class="cta-h2">
-        A simple approach to building your <em>custom digital stacks.</em>
-      </h2>
+      <!-- Pure positioning wrapper container: shift margin-top on .cta-content-group to push up or down -->
+      <div class="cta-content-group">
+        <div class="cta-badge"><span class="c8-eyebrow-slash">//</span> EASY TO EXPLORE</div>
+        
+        <h2 class="cta-h2">
+          A simple approach to building your <em>custom digital stacks.</em>
+        </h2>
 
-      <p class="cta-desc">
-        Cr8v Stacks requires no guesswork. Transparent fixed scoping, dedicated engineering, and custom digital systems tailored to your exact business goals.
-      </p>
+        <p class="cta-desc">
+          Cr8v Stacks requires no guesswork. Transparent fixed scoping, dedicated engineering, and custom digital systems tailored to your exact business goals.
+        </p>
 
-      <div>
-        <a href="https://cr8vstacks.com/contact/" class="cta-btn-pill" target="_blank" rel="noopener">
-          Book a Consultation <span class="cta-btn-arrow">&rarr;</span>
-        </a>
+        <div>
+          <a href="https://cr8vstacks.com/contact/" class="cta-btn-pill" target="_blank" rel="noopener">
+            Book a Consultation <span class="cta-btn-arrow">&rarr;</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
