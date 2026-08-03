@@ -3682,7 +3682,7 @@
             <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
           </button>
           <button class="tmn-thumb-btn" data-index="2" aria-label="View OpenAI AI MVP testimony">
-            <img src="https://cdn.simpleicons.org/openai/10A37F" alt="OpenAI" class="tmn-thumb-logo-img">
+            <svg class="tmn-thumb-logo-img" viewBox="0 0 24 24" fill="#10A37F" style="width:36px;height:36px;"><path d="M22.28 9.82a5.98 5.98 0 0 0-.52-4.91 6 6 0 0 0-6.51-2.9 6 6 0 0 0-4.63-2.07 6 6 0 0 0-5.74 4.14 5.98 5.98 0 0 0-4.14 3 6 6 0 0 0 .78 7.03 5.98 5.98 0 0 0 .52 4.91 6 6 0 0 0 6.51 2.9 6 6 0 0 0 4.63 2.07 6 6 0 0 0 5.74-4.14 5.98 5.98 0 0 0 4.14-3 6 6 0 0 0-.78-7.03z"/></svg>
             <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
           </button>
           <button class="tmn-thumb-btn" data-index="3" aria-label="View WordPress Custom Stack testimony">
@@ -3769,7 +3769,15 @@
         if (isNaN(idx) || !testimonials[idx]) return;
         currentIndex = idx;
 
-        thumbBtns.forEach(function(b) { b.classList.remove('is-active'); });
+        thumbBtns.forEach(function(b) {
+          b.classList.remove('is-active');
+          var fill = b.querySelector('.tmn-progress-fill');
+          if (fill) {
+            fill.style.animation = 'none';
+            void fill.offsetWidth; // Force DOM reflow to restart CSS progress animation cleanly
+            fill.style.animation = '';
+          }
+        });
         if (thumbBtns[idx]) thumbBtns[idx].classList.add('is-active');
 
         var data = testimonials[idx];

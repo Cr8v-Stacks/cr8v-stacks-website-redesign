@@ -118,74 +118,7 @@
     }
 
     /* ------------------------------------------------------------
-       HIGH-CONCEPT OPTION A: 3D Kinetic Split-Cube Flip
-       ------------------------------------------------------------ */
-    .btn-cube {
-      perspective: 800px;
-      background: transparent;
-      padding: 0;
-    }
-    .btn-cube-inner {
-      position: relative;
-      width: 260px;
-      height: 52px;
-      transform-style: preserve-3d;
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .btn-cube:hover .btn-cube-inner {
-      transform: rotateX(-90deg);
-    }
-    .btn-cube-front, .btn-cube-bottom {
-      position: absolute;
-      width: 100%; height: 100%;
-      border-radius: 50px;
-      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-      font-weight: 600;
-      backface-visibility: hidden;
-    }
-    .btn-cube-front {
-      background: var(--c8-blue);
-      color: #FFFFFF;
-      transform: translateZ(26px);
-      box-shadow: 0 10px 25px rgba(0, 71, 225, 0.25);
-    }
-    .btn-cube-bottom {
-      background: #0B0F19;
-      color: #FFFFFF;
-      transform: rotateX(90deg) translateZ(26px);
-      box-shadow: 0 10px 25px rgba(11, 15, 25, 0.3);
-    }
-
-    /* ------------------------------------------------------------
-       HIGH-CONCEPT OPTION B: Interactive Liquid Blob Expansion
-       ------------------------------------------------------------ */
-    .btn-liquid {
-      background: #0B0F19;
-      color: #FFFFFF;
-      padding: 1rem 2.4rem;
-      border-radius: 50px;
-      overflow: hidden;
-      z-index: 1;
-      transition: color 0.4s ease;
-    }
-    .btn-liquid .blob {
-      position: absolute;
-      top: 50%; left: 50%;
-      width: 0; height: 0;
-      background: var(--c8-blue);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1), height 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-      z-index: -1;
-    }
-    .btn-liquid:hover .blob {
-      width: 320px;
-      height: 320px;
-    }
-    .btn-liquid:hover { color: #FFFFFF; }
-
-    /* ------------------------------------------------------------
-       HIGH-CONCEPT OPTION C: Electric Laser Beam Border Trace
+       OPTION C: Electric Laser Beam Border Trace
        ------------------------------------------------------------ */
     .btn-laser {
       background: #0B0F19;
@@ -221,7 +154,7 @@
     @keyframes rotateLaser { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
     /* ------------------------------------------------------------
-       HIGH-CONCEPT OPTION D: Holographic Rainbow Shimmer Sweep
+       OPTION D: Holographic Rainbow Shimmer Sweep
        ------------------------------------------------------------ */
     .btn-holo {
       background: var(--c8-blue);
@@ -245,58 +178,30 @@
     .btn-holo:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0, 71, 225, 0.4); }
 
     /* ------------------------------------------------------------
-       HIGH-CONCEPT OPTION E: Tech HUD Matrix Glitch Scanner
+       HIGH-CONCEPT OPTION G: Holographic Rainbow + Tech Matrix Scramble
        ------------------------------------------------------------ */
-    .btn-hud {
-      background: #FFFFFF;
-      color: var(--c8-ink);
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      padding: 0.9rem 2rem;
-      border: 1.5px solid var(--c8-ink);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .btn-hud .scanline {
-      position: absolute;
-      top: -100%; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(180deg, transparent, rgba(0, 71, 225, 0.2), transparent);
-      transition: top 0.4s ease;
-    }
-    .btn-hud:hover .scanline { top: 100%; }
-    .btn-hud:hover {
-      background: #0B0F19;
-      color: #FFFFFF;
-      border-color: #0B0F19;
-      box-shadow: 0 8px 20px rgba(11, 15, 25, 0.2);
-    }
-
-    /* ------------------------------------------------------------
-       HIGH-CONCEPT OPTION F: Magnetic Parallax Orbit Arrow
-       ------------------------------------------------------------ */
-    .btn-orbit {
+    .btn-matrix-holo {
       background: var(--c8-blue);
       color: #FFFFFF;
-      padding: 0.9rem 1.8rem 0.9rem 2.2rem;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      padding: 1rem 2.4rem;
       border-radius: 50px;
+      overflow: hidden;
       box-shadow: 0 10px 25px rgba(0, 71, 225, 0.25);
       transition: all 0.3s ease;
     }
-    .btn-orbit .orbit-icon {
-      width: 30px; height: 30px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    .btn-matrix-holo::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -100%;
+      width: 100%; height: 200%;
+      background: linear-gradient(115deg, transparent, rgba(255,255,255,0.4), rgba(255, 100, 200, 0.4), rgba(0, 255, 255, 0.4), transparent);
+      transform: rotate(25deg);
+      transition: left 0.75s ease;
     }
-    .btn-orbit:hover .orbit-icon {
-      transform: rotate(360deg) scale(1.15);
-      background: #FFFFFF;
-      color: var(--c8-blue);
-    }
-    .btn-orbit:hover { transform: translateY(-3px); }
+    .btn-matrix-holo:hover::before { left: 150%; }
+    .btn-matrix-holo:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0, 71, 225, 0.4); }
   </style>
 </head>
 <body>
@@ -305,38 +210,10 @@
     <div class="header">
       <div class="eyebrow">// HIGH-CONCEPT AGENCY DESIGN SYSTEM</div>
       <h1>Ultra-Creative Button Animations</h1>
-      <p class="subtitle">Preview these 6 high-concept interactive button options designed specifically for modern creative and software agencies.</p>
+      <p class="subtitle">Preview these creative button animation options, including Option C, Option D, and the new Option G (Holographic + Tech Matrix Text Scramble).</p>
     </div>
 
     <div class="grid">
-
-      <!-- OPTION A -->
-      <div class="card">
-        <div class="card-meta">
-          <div class="card-num">Option A</div>
-          <div class="card-title">3D Kinetic Split-Cube Flip</div>
-          <div class="card-desc">Button rolls 90° in 3D space like a casino/arcade cube to reveal the active dark agency CTA state.</div>
-        </div>
-        <div class="btn btn-cube">
-          <div class="btn-cube-inner">
-            <div class="btn-cube-front">Book a Consultation &rarr;</div>
-            <div class="btn-cube-bottom">Book a Consultation &rarr;</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- OPTION B -->
-      <div class="card">
-        <div class="card-meta">
-          <div class="card-num">Option B</div>
-          <div class="card-title">Interactive Liquid Blob Fill</div>
-          <div class="card-desc">An organic liquid fluid blob morphs and expands from center to fill the button smoothly on hover.</div>
-        </div>
-        <a href="#" class="btn btn-liquid" onclick="return false;">
-          <span class="blob"></span>
-          Book a Consultation &rarr;
-        </a>
-      </div>
 
       <!-- OPTION C -->
       <div class="card">
@@ -362,34 +239,57 @@
         </a>
       </div>
 
-      <!-- OPTION E -->
+      <!-- OPTION G -->
       <div class="card">
         <div class="card-meta">
-          <div class="card-num">Option E</div>
-          <div class="card-title">Tech HUD Scanline Glitch</div>
-          <div class="card-desc">Monospace code button with vertical radar scanline and inversion to dark terminal ink.</div>
+          <div class="card-num">Option G (New)</div>
+          <div class="card-title">Holographic Rainbow + Matrix Text Scramble</div>
+          <div class="card-desc">Combines Option D's holographic prism sweep with live developer matrix text scrambling on hover!</div>
         </div>
-        <a href="#" class="btn btn-hud" onclick="return false;">
-          <span class="scanline"></span>
-          <span class="slash">//</span> BOOK A CONSULTATION &rarr;
-        </a>
-      </div>
-
-      <!-- OPTION F -->
-      <div class="card">
-        <div class="card-meta">
-          <div class="card-num">Option F</div>
-          <div class="card-title">360° Orbit Arrow & Scale</div>
-          <div class="card-desc">The arrow badge detaches and performs a 360° spin while inverting color on hover.</div>
-        </div>
-        <a href="#" class="btn btn-orbit" onclick="return false;">
-          Book a Consultation
-          <span class="orbit-icon">&rarr;</span>
+        <a href="#" class="btn btn-matrix-holo" id="btn-option-g" onclick="return false;">
+          <span class="btn-text-label">// BOOK A CONSULTATION &rarr;</span>
         </a>
       </div>
 
     </div>
   </div>
+
+  <script>
+    // Live Matrix Text Scramble Effect for Option G
+    (function() {
+      const btnG = document.getElementById('btn-option-g');
+      if (!btnG) return;
+
+      const label = btnG.querySelector('.btn-text-label');
+      const originalText = '// BOOK A CONSULTATION \u2192';
+      const matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      let scrambleInterval = null;
+
+      btnG.addEventListener('mouseenter', () => {
+        let iteration = 0;
+        clearInterval(scrambleInterval);
+
+        scrambleInterval = setInterval(() => {
+          label.innerText = originalText.split('')
+            .map((char, index) => {
+              if (index < iteration) return originalText[index];
+              return matrixChars[Math.floor(Math.random() * matrixChars.length)];
+            })
+            .join('');
+
+          if (iteration >= originalText.length) {
+            clearInterval(scrambleInterval);
+          }
+          iteration += 1 / 2;
+        }, 25);
+      });
+
+      btnG.addEventListener('mouseleave', () => {
+        clearInterval(scrambleInterval);
+        label.innerText = originalText;
+      });
+    })();
+  </script>
 
 </body>
 </html>
