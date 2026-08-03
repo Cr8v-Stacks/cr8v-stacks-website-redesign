@@ -28,12 +28,12 @@
       --c8-bg: #FAFAF7;
       --c8-white: #FFFFFF;
       --c8-line: rgba(8, 8, 8, 0.12);
-      --radius-sm: 8px;
-      --radius-md: 10px;
-      --radius-card: 12px;
-      --radius-btn: 12px;
-      --radius-pill: 12px;
-      --radius-lg: 12px;
+      --radius-sm: 4px;
+      --radius-md: 4px;
+      --radius-card: 4px;
+      --radius-btn: 4px;
+      --radius-pill: 4px;
+      --radius-lg: 4px;
       --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       /* Typography */
       --font-heading: 'Michroma', sans-serif;
@@ -156,7 +156,7 @@
       width: 32px;
       height: 32px;
       background: var(--c8-blue);
-      border-radius: var(--radius-sm);
+      border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -214,7 +214,7 @@
       margin-bottom: 1.2rem;
       padding: 5px 14px;
       background: var(--c8-blue-lite);
-      border-radius: var(--radius-sm);
+      border-radius: 4px;
       border: 1px solid rgba(0, 71, 225, 0.18);
     }
     .c8-eyebrow-slash {
@@ -259,7 +259,7 @@
       background: var(--c8-white);
       color: var(--c8-ink);
       padding: 0.75rem 1.6rem;
-      border-radius: var(--radius-pill);
+      border-radius: 4px;
       border: 1px solid var(--c8-line);
       font-family: 'Space Mono', monospace;
       font-size: 0.8rem;
@@ -416,7 +416,7 @@
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.6);
-      border-radius: var(--radius-card);
+      border-radius: 4px;
       padding: 1.25rem 1.5rem;
       margin-bottom: 1.75rem;
       box-shadow: 0 12px 40px rgba(0, 71, 225, 0.08);
@@ -468,7 +468,7 @@
         background: rgba(255, 255, 255, 0.94);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border-radius: var(--radius-card);
+        border-radius: 4px;
         padding: 1.15rem 1.35rem;
         border: 1px solid rgba(255, 255, 255, 0.7);
         box-shadow: 0 10px 30px rgba(0, 71, 225, 0.1);
@@ -482,7 +482,7 @@
         background: rgba(255, 255, 255, 0.94);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border-radius: var(--radius-card);
+        border-radius: 4px;
         padding: 1rem 1.25rem;
       }
       .pos-trigger-3-right {
@@ -494,7 +494,7 @@
         background: rgba(255, 255, 255, 0.94);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border-radius: var(--radius-card);
+        border-radius: 4px;
         padding: 1rem 1.25rem;
       }
     }
@@ -581,7 +581,7 @@
     .sw-testimonial-card {
       background: var(--c8-bg);
       border: 1px solid var(--c8-line);
-      border-radius: var(--radius-card);
+      border-radius: 4px;
       padding: 1.5rem 1.75rem 1.25rem 1.75rem;
       margin-bottom: 2rem;
       position: relative;
@@ -638,7 +638,7 @@
     /* SHOWCASE CARD DESIGN */
     .sw-card-wrapper {
       position: relative;
-      border-radius: var(--radius-card);
+      border-radius: 4px;
       overflow: visible; /* Allow stat card to overflow edge */
       background: #080808;
       box-shadow: 0 24px 60px rgba(0, 71, 225, 0.12);
@@ -647,7 +647,7 @@
 
     /* Clip only the image itself, not the overlay floats */
     .sw-card-img-wrapper {
-      border-radius: var(--radius-card);
+      border-radius: 4px;
       overflow: hidden;
       position: relative;
     }
@@ -664,7 +664,7 @@
       top: -1rem;
       right: -1.25rem; /* Bleeds outside the card edge */
       background: #FFFFFF;
-      border-radius: var(--radius-card);
+      border-radius: 4px;
       padding: 1rem 1.25rem;
       box-shadow: 0 8px 32px rgba(0, 71, 225, 0.15), 0 2px 8px rgba(0,0,0,0.08);
       text-align: right;
@@ -755,7 +755,7 @@
       background: rgba(8, 8, 8, 0.75);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-radius: var(--radius-pill);
+      border-radius: 4px;
       border: 1px solid rgba(255, 255, 255, 0.22);
       box-shadow: 0 10px 32px rgba(0, 0, 0, 0.22);
       transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -854,7 +854,7 @@
     @media (max-width: 768px) {
       .tmn-wrapper-card {
         grid-template-columns: 1fr;
-        border-radius: var(--radius-card);
+        border-radius: 4px;
       }
     }
   </style>
@@ -1506,7 +1506,7 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       padding: 6px 16px;
-      border-radius: 100px;
+      border-radius: 4px;
       white-space: nowrap;
     }
 
@@ -1588,7 +1588,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       padding: 4px 12px;
-      border-radius: 100px;
+      border-radius: 4px;
     }
 
     .sdv-item-tag.tag-build {
@@ -1607,7 +1607,7 @@
     .sdv-item-thumb {
       width: 160px;
       height: 84px;
-      border-radius: 10px;
+      border-radius: 4px;
       overflow: hidden;
       opacity: 0.4;
       transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -1773,7 +1773,7 @@
       text-transform: uppercase;
       color: #fff;
       background: rgba(0,71,225,0.85);
-      border-radius: 6px;
+      border-radius: 4px;
       padding: 3px 10px;
     }
   </style>
@@ -2206,7 +2206,7 @@
     .dp-tool-entry-icon {
       width: 32px;
       height: 32px;
-      border-radius: var(--radius-sm);
+      border-radius: 4px;
       background: rgba(0,71,225,0.07);
       border: 1px solid rgba(0,71,225,0.12);
       display: flex;
@@ -2378,7 +2378,7 @@
 
       <!-- MASCOT: lives inside white half, overflows right to straddle the split on desktop -->
       <div class="dp-mascot-wrap">
-        <video autoplay muted loop playsinline preload="auto" aria-label="Cr8v Stacks Mascot">
+        <video disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate" autoplay muted loop playsinline preload="auto" aria-label="Cr8v Stacks Mascot">
           <source src="assets/download_mascot.mp4" type="video/mp4">
           <img src="assets/cartoon_fox_transparent.webp" alt="Cr8v Stacks Fox Mascot">
         </video>
@@ -2505,7 +2505,7 @@
     .hww-inner { max-width: 1360px; margin: 0 auto; }
 
     /* Header */
-    .hww-header { text-align: center; max-width: 780px; margin: 0 auto 4.5rem auto; }
+    .hww-header { text-align: left; max-width: 780px; margin: 0 0 3.5rem 0; }
 
     .hww-eyebrow {
       font-family: var(--font-mono);
@@ -2540,7 +2540,7 @@
 
     /* Cards base */
     .hww-card {
-      border-radius: var(--radius-card); overflow: hidden;
+      border-radius: 4px; overflow: hidden;
       position: relative;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -2631,7 +2631,7 @@
       font-size: 0.7rem; font-weight: 500;
       color: rgba(255,255,255,0.75);
       border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 5px; padding: 4px 9px; letter-spacing: 0.02em;
+      border-radius: 4px; padding: 4px 9px; letter-spacing: 0.02em;
       transition: color 0.2s, border-color 0.2s, background 0.2s;
       display: inline-flex; align-items: center; gap: 5px;
     }
@@ -2871,7 +2871,7 @@
       }
       .wwa-visual-card {
         position: relative;
-        border-radius: var(--radius-card);
+        border-radius: 4px;
         overflow: hidden;
         border: 1px solid rgba(255,255,255,0.12);
         box-shadow: 0 20px 40px rgba(0,0,0,0.5);
@@ -2928,7 +2928,7 @@
         padding: 1.2rem 1.5rem;
         background: rgba(255,255,255,0.03);
         border: 1px solid rgba(255,255,255,0.06);
-        border-radius: var(--radius-card);
+        border-radius: 4px;
         transition: border-color 0.3s, background 0.3s;
       }
       .wwa-feat:hover {
@@ -2941,7 +2941,7 @@
         color: var(--c8-blue);
         background: rgba(0,71,225,0.12);
         width: 32px; height: 32px;
-        border-radius: var(--radius-sm);
+        border-radius: 4px;
         display: flex; align-items: center; justify-content: center;
         flex-shrink: 0;
       }
@@ -3165,11 +3165,7 @@
       margin: 0 auto;
       padding: 0 clamp(1.5rem, 5vw, 4rem);
     }
-    .tmn-header {
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto 3.5rem;
-    }
+    .tmn-header { text-align: left; max-width: 680px; margin: 0 0 3rem 0; }
     .tmn-eyebrow {
       font-family: var(--font-mono);
       font-size: 0.68rem;
@@ -3209,7 +3205,7 @@
     .tmn-wrapper-card {
       background: #FFFFFF;
       border: 1px solid var(--c8-line);
-      border-radius: var(--radius-card);
+      border-radius: 4px;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.04);
       display: grid;
       grid-template-columns: 110px 1fr;
@@ -3398,7 +3394,7 @@
       }
       .tmn-wrapper-card {
         grid-template-columns: 1fr;
-        border-radius: var(--radius-card);
+        border-radius: 4px;
       }
       .tmn-tech-icon { font-size: 1.1rem; }
       .tmn-tech-label { font-size: 0.58rem; }
@@ -3692,7 +3688,7 @@
       background: rgba(0, 71, 225, 0.06);
       border: 1px solid rgba(0, 71, 225, 0.2);
       padding: 0.4rem 1.1rem;
-      border-radius: 50px;
+      border-radius: 4px;
       margin-bottom: 1.5rem;
     }
     .cta-h2 {
@@ -3759,8 +3755,10 @@
     <div class="cta-inner">
       <!-- Transparent PNG Arc image matching title width -->
       <div class="cta-arc-container">
-        <video autoplay muted loop playsinline preload="auto" class="cta-arc-video" aria-label="Cr8v Stacks Tech Stack Ecosystem">
+        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate" class="cta-arc-video">
+          <source src="assets/seven_badges_alpha.webm" type="video/webm">
           <source src="assets/download.mp4" type="video/mp4">
+          <img src="assets/seven_badges_transparent.webp" alt="Cr8v Stacks Tech Stack Ecosystem" class="cta-arc-img">
         </video>
       </div>
 
