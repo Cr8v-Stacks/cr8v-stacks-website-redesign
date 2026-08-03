@@ -1,0 +1,3362 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage Hero & Full-Background Scroll Animation | Cr8v Stacks</title>
+  
+  <!-- Brand Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Michroma&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ═══════════════════════════════════════════════════════════════════════════
+       CR8V STACKS — DESIGN SYSTEM & TOKENS
+       Brand Headings: 'Michroma', sans-serif
+       Brand Monospace: 'Space Mono', monospace
+       Brand Body Copy: 'DM Sans', sans-serif
+       Brand Primary Color: #0047E1 (Royal Blue)
+       ═══════════════════════════════════════════════════════════════════════════ */
+    :root {
+      --c8-blue: #0047E1;
+      --c8-blue-hover: #0038C0;
+      --c8-blue-glow: rgba(0, 71, 225, 0.22);
+      --c8-blue-lite: rgba(0, 71, 225, 0.08);
+      --c8-ink: #080808;
+      --c8-muted: #6B6B6B;
+      --c8-bg: #FAFAF7;
+      --c8-white: #FFFFFF;
+      --c8-line: rgba(8, 8, 8, 0.12);
+      --radius-pill: 9999px;
+      --radius-lg: 16px;
+      --radius-xl: 28px;
+      --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      /* Typography */
+      --font-heading: 'Michroma', sans-serif;
+      --font-mono:    'Space Mono', monospace;
+      --font-body:    'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--c8-bg);
+      color: var(--c8-ink);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       HEADER NAVIGATION
+       ═══════════════════════════════════════════════════════════════════════════ */
+    .c8-nav-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      z-index: 1000;
+      background: rgba(250, 250, 247, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--c8-line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3.5rem;
+    }
+
+    .c8-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Michroma', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      color: var(--c8-ink);
+      text-transform: uppercase;
+    }
+
+    .c8-logo-badge {
+      width: 32px;
+      height: 32px;
+      background: var(--c8-blue);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 4px 14px var(--c8-blue-glow);
+    }
+
+    .c8-logo-badge svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .c8-nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+      list-style: none;
+    }
+
+    .c8-nav-menu a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.925rem;
+      font-weight: 500;
+      color: var(--c8-ink);
+      transition: var(--transition);
+    }
+
+    .c8-nav-menu a:hover {
+      color: var(--c8-blue);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--c8-blue);
+      color: #fff;
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-pill);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: var(--transition);
+      box-shadow: 0 4px 16px var(--c8-blue-glow);
+    }
+
+    .btn-primary:hover {
+      background: var(--c8-blue-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 71, 225, 0.35);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       HERO WRITTEN CONTENT (TOP SECTION)
+       ═══════════════════════════════════════════════════════════════════════════ */
+    .c8-hero-top {
+      padding-top: 8.5rem;
+      padding-bottom: 2.5rem;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .c8-hero-in {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .c8-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 1.5rem;
+      padding: 5px 14px;
+      background: var(--c8-blue-lite);
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0, 71, 225, 0.18);
+    }
+
+    .c8-eyebrow::before {
+      content: '—';
+      color: var(--c8-blue);
+      font-weight: 700;
+    }
+
+    .c8-hero-h1 {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(2rem, 4.5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--c8-ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .c8-hero-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(1.1rem, 1.8vw, 1.25rem);
+      font-weight: 300;
+      color: var(--c8-muted);
+      max-width: 620px;
+      margin: 0 auto 2.25rem auto;
+      line-height: 1.65;
+    }
+
+    .c8-hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--c8-white);
+      color: var(--c8-ink);
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--c8-line);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--c8-blue);
+      color: var(--c8-blue);
+      transform: translateY(-2px);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       CONTINUOUS SCROLL TRACK & MAIN FULL-BACKGROUND CANVAS
+       Track height set to crisp 320vh for zero dead scroll whitespace!
+       ═══════════════════════════════════════════════════════════════════════════ */
+    .c8-scroll-track {
+      position: relative;
+      width: 100%;
+      height: 320vh;
+    }
+
+    .c8-sticky-stage {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--c8-bg);
+    }
+
+    /* Stable Full Background Canvas Layer (z-index: 0) */
+    .c8-bg-canvas-wrapper {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      transition: clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Initial Hero Boxed Mask below text (0% top cutoff) */
+    .c8-bg-canvas-wrapper.is-boxed {
+      clip-path: inset(0% 5% 0% 5% round 20px);
+    }
+
+    /* 100% Full-Width Expanded Main Background */
+    .c8-bg-canvas-wrapper.is-expanded {
+      clip-path: inset(0% 0% 0% 0% round 0px);
+    }
+
+    canvas#c8-canvas {
+      width: 100vw;
+      height: 100vh;
+      display: block;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       OVERLAY WRITTEN CONTENT (APPEARS ONLY AT PRECISE RESTING TRIGGERS)
+       WHILE MOVING BETWEEN TRIGGERS -> ZERO TEXT IS SHOWN!
+       GPU Accelerated Motion (will-change: opacity, transform)
+       ═══════════════════════════════════════════════════════════════════════════ */
+    .c8-overlay-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      pointer-events: none;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .c8-stage-box {
+      position: absolute;
+      opacity: 0;
+      transform: translateY(20px) scale(0.96);
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      will-change: opacity, transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    /* Active State with Smooth Motion */
+    .c8-stage-box.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    /* ── TRIGGER 1: WEB DESIGN (Visual on RIGHT -> Text strictly on FAR LEFT) ── */
+    .pos-trigger-1 {
+      left: 4rem;
+      max-width: 460px;
+      text-align: left;
+    }
+
+    /* ── TRIGGER 2: CUSTOM DEVELOPMENT (Visual on LEFT -> Text strictly on FAR RIGHT) ── */
+    .pos-trigger-2 {
+      right: 4rem;
+      max-width: 460px;
+      text-align: left;
+    }
+
+    /* ── TRIGGER 3: AI MVP (Visual in CENTER -> Text FLANKING on LEFT & RIGHT) ── */
+    .pos-trigger-3-left {
+      left: 4rem;
+      max-width: 360px;
+      text-align: left;
+    }
+
+    .pos-trigger-3-right {
+      right: 4rem;
+      max-width: 360px;
+      text-align: right;
+    }
+
+    /* Clean Card & Editorial Typography */
+    .stage-h2 {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      color: var(--c8-ink);
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .stage-p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--c8-muted);
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+
+    .stage-card-simple {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 12px 40px rgba(0, 71, 225, 0.08);
+    }
+
+    .stage-card-title {
+      font-family: 'Michroma', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--c8-ink);
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .stage-card-text {
+      font-size: 0.9rem;
+      color: var(--c8-muted);
+      line-height: 1.5;
+    }
+
+    .stage-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.825rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .stage-link:hover { gap: 14px; }
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       MOBILE RESPONSIVE STAGE BOX OVERLAYS (< 768px)
+       ═══════════════════════════════════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .c8-nav-header { padding: 0 1.25rem; }
+      .c8-nav-menu { display: none; }
+      .c8-overlay-layer { padding: 0 1.25rem; }
+      .pos-trigger-1, .pos-trigger-2 {
+        left: 1rem !important;
+        right: 1rem !important;
+        max-width: calc(100% - 2rem) !important;
+        text-align: center !important;
+        top: 12%;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 16px;
+        padding: 1.15rem 1.35rem;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        box-shadow: 0 10px 30px rgba(0, 71, 225, 0.1);
+      }
+      .pos-trigger-3-left {
+        left: 1rem !important;
+        right: 1rem !important;
+        top: 10%;
+        text-align: center !important;
+        max-width: calc(100% - 2rem) !important;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 16px;
+        padding: 1rem 1.25rem;
+      }
+      .pos-trigger-3-right {
+        left: 1rem !important;
+        right: 1rem !important;
+        bottom: 6%;
+        text-align: center !important;
+        max-width: calc(100% - 2rem) !important;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 16px;
+        padding: 1rem 1.25rem;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       SECTION 5: SELECTED WORK (3 BEST CASE STUDIES, PURE WHITE ZIG-ZAG)
+       ═══════════════════════════════════════════════════════════════════════════ */
+    .sw-wrapper {
+      position: relative;
+      background: #FFFFFF;
+      z-index: 20;
+    }
+
+    .sw-case-section {
+      padding: 7.5rem 3.5rem;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: #FFFFFF;
+    }
+
+    .sw-container {
+      max-width: 1360px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    /* ZIG-ZAG ALTERNATING LAYOUT: Even sections invert image to LEFT */
+    .sw-case-section:nth-child(even) .sw-container {
+      grid-template-areas: "right left";
+    }
+
+    .sw-case-section:nth-child(even) .sw-left {
+      grid-area: left;
+    }
+
+    .sw-case-section:nth-child(even) .sw-right {
+      grid-area: right;
+    }
+
+    /* SUBTLE SCROLL REVEAL MOTION ANIMATIONS */
+    .sw-case-section .sw-left,
+    .sw-case-section .sw-right {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .sw-case-section.is-in-view .sw-left,
+    .sw-case-section.is-in-view .sw-right {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* REFINED MICHROMA HEADING TYPOGRAPHY */
+    .sw-h2 {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1.1rem, 2vw, 1.55rem);
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--c8-ink);
+      text-transform: uppercase;
+      margin-top: 1rem;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.02em;
+    }
+
+    .sw-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--c8-muted);
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+
+    /* TESTIMONIAL CARD — replaces bullet list */
+    .sw-testimonial-card {
+      background: var(--c8-bg);
+      border: 1px solid var(--c8-line);
+      border-radius: 18px;
+      padding: 1.5rem 1.75rem 1.25rem 1.75rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .sw-testimonial-quote {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.97rem;
+      font-weight: 400;
+      color: var(--c8-ink);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .sw-testimonial-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sw-testimonial-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--c8-blue-lite);
+      flex-shrink: 0;
+    }
+
+    .sw-testimonial-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sw-testimonial-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--c8-ink);
+      line-height: 1.2;
+    }
+
+    .sw-testimonial-role {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--c8-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .sw-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      padding: 0.9rem 2rem;
+      border-radius: var(--radius-pill);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.825rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: var(--transition);
+      box-shadow: 0 8px 24px var(--c8-blue-glow);
+    }
+
+    .sw-cta-btn:hover {
+      background: var(--c8-blue-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0, 71, 225, 0.35);
+    }
+
+    /* SHOWCASE CARD DESIGN */
+    .sw-card-wrapper {
+      position: relative;
+      border-radius: 28px;
+      overflow: visible; /* Allow stat card to overflow edge */
+      background: #080808;
+      box-shadow: 0 24px 60px rgba(0, 71, 225, 0.12);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    /* Clip only the image itself, not the overlay floats */
+    .sw-card-img-wrapper {
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .sw-card-img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* sw-glass-badge removed — client title in card bottom handles this */
+
+    .sw-stat-floating {
+      position: absolute;
+      top: -1rem;
+      right: -1.25rem; /* Bleeds outside the card edge */
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 8px 32px rgba(0, 71, 225, 0.15), 0 2px 8px rgba(0,0,0,0.08);
+      text-align: right;
+      min-width: 160px;
+      border: 1px solid rgba(0, 71, 225, 0.12);
+      z-index: 20;
+    }
+
+    .sw-stat-val {
+      font-family: 'Michroma', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--c8-blue);
+      line-height: 1.2;
+      margin-bottom: 0.2rem;
+    }
+
+    .sw-stat-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--c8-muted);
+      line-height: 1.3;
+    }
+
+    .sw-card-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2.5rem 2rem 1.75rem 2rem;
+      background: linear-gradient(to top, rgba(8,8,8,0.94) 0%, rgba(8,8,8,0.4) 65%, transparent 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      z-index: 10;
+    }
+
+    .sw-client-title {
+      font-family: 'Michroma', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin-bottom: 0.25rem;
+    }
+
+    .sw-client-role {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.75);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .sw-play-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c8-ink);
+      transition: var(--transition);
+      flex-shrink: 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .sw-play-btn:hover {
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      transform: scale(1.08);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       COMPACT AVATAR DOCK (38px BUTTONS — NEVER OBSCOURES CONTENT)
+       Smoothly transitions from embedded inside Card 1 to sticky screen bottom!
+       ═══════════════════════════════════════════════════════════════════════════ */
+    .sw-avatar-dock {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 6px 12px;
+      background: rgba(8, 8, 8, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.22);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 30;
+    }
+
+    /* Embedded Position Inside First Image Card (Smaller 38px sizing) */
+    .sw-avatar-dock.is-embedded {
+      position: absolute;
+      bottom: 1.15rem;
+      left: 60%;
+      transform: translateX(-50%);
+      width: max-content;
+    }
+
+    /* Fixed Sticky Position at Screen Bottom on Scroll */
+    .sw-avatar-dock.is-sticky {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(0, 71, 225, 0.22);
+      box-shadow: 0 16px 48px rgba(0, 71, 225, 0.18);
+      padding: 8px 16px;
+      gap: 1rem;
+    }
+
+    /* Hidden State (When scrolled past Selected Work block) */
+    .sw-avatar-dock.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-50%) translateY(30px);
+    }
+
+    .sw-avatar-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      background: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      padding: 0;
+      outline: none;
+      position: relative;
+    }
+
+    .sw-avatar-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sw-avatar-btn:hover {
+      transform: scale(1.12);
+    }
+
+    .sw-avatar-btn.active {
+      border-color: var(--c8-blue);
+      transform: scale(1.22);
+      box-shadow: 0 6px 20px var(--c8-blue-glow);
+    }
+
+    /* RESPONSIVE MOBILE STACKING ORDER: Content TOP, Image BOTTOM */
+    @media (max-width: 992px) {
+      .sw-container,
+      .sw-case-section:nth-child(even) .sw-container {
+        grid-template-columns: 1fr !important;
+        grid-template-areas: none !important;
+        gap: 3.5rem !important;
+      }
+
+      .sw-left,
+      .sw-case-section:nth-child(even) .sw-left {
+        grid-area: auto !important;
+        order: 1 !important; /* Content always top */
+      }
+
+      .sw-right,
+      .sw-case-section:nth-child(even) .sw-right {
+        grid-area: auto !important;
+        order: 2 !important; /* Image always bottom */
+      }
+
+      .sw-case-section {
+        padding: 5rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="c8-nav-header">
+    <a href="#" class="c8-logo">
+      <div class="c8-logo-badge">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+        </svg>
+      </div>
+      <span>Cr8v Stacks</span>
+    </a>
+
+    <ul class="c8-nav-menu">
+      <li><a href="#web-design">Web Design</a></li>
+      <li><a href="#custom-dev">Custom Dev</a></li>
+      <li><a href="#ai-mvp">AI MVP</a></li>
+      <li><a href="#case-studies">Case Studies</a></li>
+    </ul>
+
+    <a href="#start" class="btn-primary">Start a Project →</a>
+  </header>
+
+  <!-- HERO WRITTEN CONTENT -->
+  <section class="c8-hero-top">
+    <div class="c8-hero-in">
+      <div class="c8-eyebrow">Web Design · AI MVP · Custom Development</div>
+      <h1 class="c8-hero-h1">We build what your business actually runs on.</h1>
+      <p class="c8-hero-sub">Strategy, design, and code — as one team, not four vendors.</p>
+      
+      <div class="c8-hero-ctas">
+        <a href="#start" class="btn-primary">Start a Project →</a>
+        <a href="#case-studies" class="btn-secondary">See Our Work ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTINUOUS SCROLL TRACK & MAIN FULL-BACKGROUND CANVAS -->
+  <div class="c8-scroll-track" id="scroll-track">
+    <div class="c8-sticky-stage">
+
+      <!-- MAIN FULL BACKGROUND CANVAS LAYER (z-index: 0) -->
+      <div class="c8-bg-canvas-wrapper is-boxed" id="canvas-wrapper">
+        <canvas id="c8-canvas"></canvas>
+      </div>
+
+      <!-- OVERLAY WRITTEN CONTENT FOR THE 3 RESTING TRIGGERS -->
+      <!-- WHILE SCROLLING & MOVING BETWEEN TRIGGERS -> ZERO TEXT IS SHOWN! -->
+      <div class="c8-overlay-layer">
+        
+        <!-- TRIGGER 1: WEB DESIGN (Animation on RIGHT -> Text strictly on FAR LEFT) -->
+        <div class="c8-stage-box pos-trigger-1" id="trigger-1-web-design">
+          <div class="c8-eyebrow">Design &amp; Build</div>
+          <h2 class="stage-h2">Website Design</h2>
+          <p class="stage-p">
+            High-converting digital experiences engineered for speed, search authority, and seamless user conversions.
+          </p>
+          <div class="stage-card-simple">
+            <div class="stage-card-title">Custom Platforms</div>
+            <div class="stage-card-text">Tailored WordPress, Shopify, and WooCommerce builds optimized for your exact workflow.</div>
+          </div>
+          <a href="#web-design" class="stage-link">Explore Web Design &rarr;</a>
+        </div>
+
+        <!-- TRIGGER 2: CUSTOM DEVELOPMENT (Animation on LEFT -> Text strictly on FAR RIGHT) -->
+        <div class="c8-stage-box pos-trigger-2" id="trigger-2-custom-dev">
+          <div class="c8-eyebrow">Bespoke Architecture</div>
+          <h2 class="stage-h2">Custom Development</h2>
+          <p class="stage-p">
+            Tailored software architectures built from a blank file, engineered around your exact workflow and business scale.
+          </p>
+          <div class="stage-card-simple">
+            <div class="stage-card-title">Bespoke Engineering</div>
+            <div class="stage-card-text">High-performance applications built from scratch with complete data ownership.</div>
+          </div>
+          <a href="#custom-dev" class="stage-link">Explore Custom Dev &rarr;</a>
+        </div>
+
+        <!-- TRIGGER 3: AI MVP (Animation in CENTER -> Text FLANKING on LEFT & RIGHT) -->
+        <!-- Left Flank -->
+        <div class="c8-stage-box pos-trigger-3-left" id="trigger-3-ai-mvp-left">
+          <div class="c8-eyebrow">Build From Nothing</div>
+          <h2 class="stage-h2" style="font-size: 1.65rem;">AI MVP Products</h2>
+          <p class="stage-p">
+            Production-ready AI applications built to validate core business ideas with real users.
+          </p>
+        </div>
+
+        <!-- Right Flank -->
+        <div class="c8-stage-box pos-trigger-3-right" id="trigger-3-ai-mvp-right">
+          <div class="stage-card-simple" style="text-align: left;">
+            <div class="stage-card-title">Validated AI Applications</div>
+            <div class="stage-card-text">Real software built for rapid market validation, not just slide decks.</div>
+          </div>
+          <a href="#ai-mvp" class="stage-link">Explore AI MVP &rarr;</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 5: SELECTED WORK (3 BEST PRIMARY CASE STUDIES, ZIG-ZAG LAYOUT) -->
+  <div class="sw-wrapper" id="selected-work">
+
+    <!-- ── INTRO HEADER ── -->
+    <style>
+      .sw-intro {
+        padding: 7rem 3.5rem 4rem 3.5rem;
+        max-width: 1360px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: end;
+      }
+      .sw-intro-h2 {
+        font-family: 'Michroma', sans-serif;
+        font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+        font-weight: 700;
+        color: var(--c8-ink);
+        text-transform: uppercase;
+        line-height: 1.18;
+        letter-spacing: 0.01em;
+      }
+      .sw-intro-h2 em {
+        font-style: normal;
+        color: var(--c8-blue);
+      }
+      .sw-intro-right p {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1.0rem;
+        font-weight: 300;
+        color: var(--c8-muted);
+        line-height: 1.7;
+      }
+      .sw-intro-count {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.72rem;
+        color: var(--c8-muted);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-top: 1.5rem;
+      }
+      @media (max-width: 900px) {
+        .sw-intro {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          padding: 5rem 1.5rem 3rem 1.5rem;
+        }
+      }
+    </style>
+
+    <div class="sw-intro">
+      <div>
+        <div class="c8-eyebrow">Selected Work</div>
+        <h2 class="sw-intro-h2">Work That's<br>Verifiably <em>Live.</em></h2>
+      </div>
+      <div class="sw-intro-right">
+        <p>
+          These aren't concept projects or fictitious mockups. Every case study below is a live engagement — search the clients on Google and see the work for yourself. We only show projects we're allowed to talk about.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── CASE 1: BLVCK HAIR NG (Text LEFT, Image RIGHT) ── -->
+    <section class="sw-case-section" id="cs-blvck-hair" data-index="0">
+      <div class="sw-container">
+        <div class="sw-left">
+          <div class="c8-eyebrow">Built for Live Performance</div>
+          <h2 class="sw-h2">Organic E-Commerce Growth From The Ground Up.</h2>
+          <p class="sw-sub">
+            We ran SEO for blvck Hair NG from their early growth stage. Since then, they've grown exponentially — from a single storefront to running active stores in both Nigeria and the UK.
+          </p>
+
+          <!-- WHAT WE DID CARD -->
+          <div class="sw-testimonial-card">
+            <p class="sw-testimonial-quote">We handled their SEO end-to-end — keyword mapping, page architecture, and content — from the ground up. We built out the strategy for two markets simultaneously, and both storefronts are now ranking and converting independently.</p>
+            <div class="sw-testimonial-meta">
+              <div class="sw-testimonial-avatar">
+                <img src="assets/client_avatar_bearded.jpg" alt="blvck Hair NG">
+              </div>
+              <div>
+                <div class="sw-testimonial-role">SEO &amp; E-Commerce · Nigeria &amp; UK</div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#blvck-hair-details" class="sw-cta-btn">
+            <span>Explore Case Study</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="sw-right">
+          <div class="sw-card-wrapper" id="sw-card-1">
+            <!-- Stat floats OUTSIDE the clip boundary -->
+            <div class="sw-stat-floating">
+              <div class="sw-stat-val">2 Active Stores</div>
+              <div class="sw-stat-label">UK &amp; Nigeria Growth</div>
+            </div>
+
+            <div class="sw-card-img-wrapper">
+              <img src="assets/case_studies/case_study_blvck_hair.jpg" alt="blvck Hair NG" class="sw-card-img">
+
+              <div class="sw-card-bottom">
+                <div>
+                  <div class="sw-client-title">blvck Hair NG</div>
+                  <div class="sw-client-role">SEO &amp; Organic Acquisition</div>
+                </div>
+                <a href="#blvck-hair-details" class="sw-play-btn" title="View Case Study">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- COMPACT 38px AVATAR DOCK EMBEDDED IN CARD 1 -->
+            <div class="sw-avatar-dock is-embedded" id="sw-avatar-dock">
+              <button class="sw-avatar-btn active" data-target="cs-blvck-hair" title="blvck Hair NG">
+                <img src="assets/case_studies/case_study_blvck_hair.jpg" alt="blvck Hair NG">
+              </button>
+              <button class="sw-avatar-btn" data-target="cs-duch-apartments" title="The Duch Apartments">
+                <img src="assets/case_studies/case_study_duch_apartments.jpg" alt="The Duch Apartments">
+              </button>
+              <button class="sw-avatar-btn" data-target="cs-bridgepoint" title="Bridgepoint Compliance">
+                <img src="assets/case_studies/case_study_bridgepoint.jpg" alt="Bridgepoint Compliance">
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CASE 2: THE DUCH APARTMENTS (Image LEFT, Text RIGHT — ZIG ZAG) ── -->
+    <section class="sw-case-section" id="cs-duch-apartments" data-index="1">
+      <div class="sw-container">
+        <div class="sw-left">
+          <div class="c8-eyebrow">Built-In SEO Architecture</div>
+          <h2 class="sw-h2">Website Design With SEO Folded In From Day One.</h2>
+          <p class="sw-sub">
+            A full website design for The Duch Apartments — with search engine optimization folded into the code from day one rather than added afterward.
+          </p>
+
+          <!-- WHAT WE DID CARD -->
+          <div class="sw-testimonial-card">
+            <p class="sw-testimonial-quote">We designed and built the full site — custom layout, zero template base — with SEO architecture already coded in before a single page went live. Direct booking integration was included from the first sprint, maximising their direct revenue channel from day one.</p>
+            <div class="sw-testimonial-meta">
+              <div class="sw-testimonial-avatar">
+                <img src="assets/client_avatar_bearded.jpg" alt="The Duch Apartments">
+              </div>
+              <div>
+                <div class="sw-testimonial-role">Web Design &amp; SEO · Lagos, Nigeria</div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#duch-details" class="sw-cta-btn">
+            <span>Explore Case Study</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="sw-right">
+          <div class="sw-card-wrapper">
+            <div class="sw-stat-floating">
+              <div class="sw-stat-val">100% Custom</div>
+              <div class="sw-stat-label">Design &amp; SEO — Day 1</div>
+            </div>
+
+            <div class="sw-card-img-wrapper">
+              <img src="assets/case_studies/case_study_duch_apartments.jpg" alt="The Duch Apartments" class="sw-card-img">
+
+              <div class="sw-card-bottom">
+                <div>
+                  <div class="sw-client-title">The Duch Apartments</div>
+                  <div class="sw-client-role">Web Design &amp; SEO</div>
+                </div>
+                <a href="#duch-details" class="sw-play-btn" title="View Case Study">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CASE 3: BRIDGEPOINT COMPLIANCE (Image LEFT, Text RIGHT — ZIG ZAG) ── -->
+    <section class="sw-case-section" id="cs-bridgepoint" data-index="2">
+      <div class="sw-container">
+        <div class="sw-left">
+          <div class="c8-eyebrow">AI-Powered Compliance Tool</div>
+          <h2 class="sw-h2">A Custom AI System That Cuts Compliance Review Time in Half.</h2>
+          <p class="sw-sub">
+            Bridgepoint needed a faster way to review, flag, and report regulatory submissions. We built a bespoke AI-powered compliance platform that automated their document analysis pipeline end-to-end.
+          </p>
+
+          <!-- WHAT WE DID CARD -->
+          <div class="sw-testimonial-card">
+            <p class="sw-testimonial-quote">We designed and built a full AI compliance tool from scratch — LLM-integrated document ingestion, automated flagging engine, and a real-time reporting dashboard. Their review cycle went from days to hours.</p>
+            <div class="sw-testimonial-meta">
+              <div class="sw-testimonial-avatar">
+                <img src="assets/client_avatar_bearded.jpg" alt="Bridgepoint Compliance">
+              </div>
+              <div>
+                <div class="sw-testimonial-role">AI MVP Build · FinTech &amp; Compliance</div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#bridgepoint-details" class="sw-cta-btn">
+            <span>Explore Case Study</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="sw-right">
+          <div class="sw-card-wrapper">
+            <div class="sw-stat-floating">
+              <div class="sw-stat-val">50%+ Faster</div>
+              <div class="sw-stat-label">Compliance Review Cycle</div>
+            </div>
+
+            <div class="sw-card-img-wrapper">
+              <img src="assets/case_studies/case_study_bridgepoint.jpg" alt="Bridgepoint Compliance AI" class="sw-card-img">
+
+              <div class="sw-card-bottom">
+                <div>
+                  <div class="sw-client-title">Bridgepoint Compliance</div>
+                  <div class="sw-client-role">AI MVP &amp; Custom Build</div>
+                </div>
+                <a href="#bridgepoint-details" class="sw-play-btn" title="View Case Study">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- High-Performance 60FPS Continuous Canvas Controller -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('c8-canvas');
+      const ctx = canvas.getContext('2d');
+      const track = document.getElementById('scroll-track');
+      const wrapper = document.getElementById('canvas-wrapper');
+
+      const totalFrames = 449;
+      const images = [];
+
+      canvas.width = 1920;
+      canvas.height = 1080;
+
+      // Preload 449 frames into memory
+      for (let i = 1; i <= totalFrames; i++) {
+        const img = new Image();
+        const num = String(i).padStart(5, '0');
+        img.src = `hero_sequence/${num}.jpg`;
+        images.push(img);
+      }
+
+      // Smooth LERP Variables
+      let targetProgress = 0;
+      let currentProgress = 0;
+      let isExpandedState = false;
+
+      // Stage Box Elements
+      const t1 = document.getElementById('trigger-1-web-design');
+      const t2 = document.getElementById('trigger-2-custom-dev');
+      const t3Left = document.getElementById('trigger-3-ai-mvp-left');
+      const t3Right = document.getElementById('trigger-3-ai-mvp-right');
+
+      // Helper function to safely render frame with 404 fallback
+      function renderFrame(index) {
+        let img = images[index];
+        
+        // 404 Safeguard fallback if specific image is missing or incomplete
+        if (!img || !img.complete || img.naturalWidth === 0) {
+          // Fallback to adjacent valid frame
+          img = images[Math.max(0, index - 1)] || images[Math.min(totalFrames - 1, index + 1)];
+        }
+
+        if (img && img.complete && img.naturalWidth !== 0) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          
+          // FULL WIDTH COVER SCALE DRAWING
+          const hRatio = canvas.width / img.width;
+          const vRatio = canvas.height / img.height;
+          const ratio = Math.max(hRatio, vRatio);
+          const centerShiftX = (canvas.width - img.width * ratio) / 2;
+          const centerShiftY = (canvas.height - img.height * ratio) / 2;
+
+          ctx.drawImage(
+            img, 0, 0, img.width, img.height,
+            centerShiftX, centerShiftY, img.width * ratio, img.height * ratio
+          );
+        }
+      }
+
+      // Scroll Event Listener
+      window.addEventListener('scroll', () => {
+        const trackRect = track.getBoundingClientRect();
+        const maxScroll = trackRect.height - window.innerHeight;
+        const currentScroll = Math.max(0, -trackRect.top);
+        targetProgress = Math.min(1, Math.max(0, currentScroll / maxScroll));
+      });
+
+      // Continuous 60fps Render Loop with LERP
+      function renderLoop() {
+        // LERP interpolation
+        currentProgress += (targetProgress - currentProgress) * 0.08;
+
+        // Calculate continuous frame index (1 to 448) - NO MANUAL FRAME SKIPPING!
+        const frameIndex = Math.min(totalFrames - 1, Math.max(0, Math.floor(currentProgress * totalFrames)));
+
+        // Render target frame cleanly
+        renderFrame(frameIndex);
+
+        // Smooth Hero Card Expansion (Triggered ONCE on state boundary to prevent 60fps repaints)
+        if (currentProgress >= 0.03 && !isExpandedState) {
+          isExpandedState = true;
+          wrapper.className = 'c8-bg-canvas-wrapper is-expanded';
+        } else if (currentProgress < 0.03 && isExpandedState) {
+          isExpandedState = false;
+          wrapper.className = 'c8-bg-canvas-wrapper is-boxed';
+        }
+
+        // ═════════════════════════════════════════════════════════════════════
+        // NEW SCROLL SEQUENCE ORDER:
+        // 1. TRIGGER 1 — WEB DESIGN (30% to 40%)
+        // 2. TRIGGER 2 — AI MVP (60% to 70%)
+        // 3. TRIGGER 3 — CUSTOM DEVELOPMENT (88% to 100% / frame 449)
+        // ═════════════════════════════════════════════════════════════════════
+
+        // Trigger 1: Web Design (30% to 40%)
+        if (currentProgress >= 0.30 && currentProgress <= 0.40) {
+          t1.classList.add('active');
+        } else {
+          t1.classList.remove('active');
+        }
+
+        // Trigger 2: Custom Dev (60% to 70%)
+        if (currentProgress >= 0.60 && currentProgress <= 0.70) {
+          t2.classList.add('active');
+        } else {
+          t2.classList.remove('active');
+        }
+
+        // Trigger 3: AI MVP (88% to 100%)
+        if (currentProgress >= 0.88 && currentProgress <= 1.0) {
+          t3Left.classList.add('active');
+          t3Right.classList.add('active');
+        } else {
+          t3Left.classList.remove('active');
+          t3Right.classList.remove('active');
+        }
+
+        requestAnimationFrame(renderLoop);
+      }
+
+      // Start 60fps Loop
+      requestAnimationFrame(renderLoop);
+
+      // ═════════════════════════════════════════════════════════════════════
+      // MULTI-SECTION SELECTED WORK & STICKY AVATAR DOCK CONTROLLER
+      // 1. 3 Best Primary Case Studies (blvck Hair, The Duch, Mkenny).
+      // 2. Compact 38px Avatar dock starts EMBEDDED inside Card 1.
+      // 3. Smoothly transitions to STICKY AT SCREEN BOTTOM as user scrolls.
+      // 4. Subtle scroll-reveal motion animation for each section.
+      // ═════════════════════════════════════════════════════════════════════
+      const avatarDock = document.getElementById('sw-avatar-dock');
+      const card1 = document.getElementById('sw-card-1');
+      const selectedWorkWrapper = document.getElementById('selected-work');
+      const caseSections = document.querySelectorAll('.sw-case-section');
+      const avatarBtns = document.querySelectorAll('.sw-avatar-btn');
+
+      // Click to smooth-scroll to corresponding case section
+      avatarBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = btn.getAttribute('data-target');
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      });
+
+      // Intersection Observer for Active Avatar Highlighting & Scroll Reveal Motion
+      const sectionObserverOptions = {
+        root: null,
+        rootMargin: '-25% 0px -25% 0px',
+        threshold: 0.15
+      };
+
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Trigger Subtle Motion Reveal
+            entry.target.classList.add('is-in-view');
+
+            // Highlight Active Avatar Button
+            const activeId = entry.target.id;
+            avatarBtns.forEach(btn => {
+              if (btn.getAttribute('data-target') === activeId) {
+                btn.classList.add('active');
+              } else {
+                btn.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, sectionObserverOptions);
+
+      caseSections.forEach(section => sectionObserver.observe(section));
+
+      // Scroll Listener for Smooth Dock Position State Transition (Embedded -> Sticky -> Hidden)
+      let isDockSticky = false;
+
+      window.addEventListener('scroll', () => {
+        if (!card1 || !avatarDock || !selectedWorkWrapper) return;
+
+        const card1Rect = card1.getBoundingClientRect();
+        const wrapperRect = selectedWorkWrapper.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+
+        // When Card 1 bottom is still within view -> Dock sits EMBEDDED inside Card 1
+        if (card1Rect.bottom > viewportHeight - 100) {
+          if (isDockSticky) {
+            isDockSticky = false;
+            avatarDock.classList.remove('is-sticky', 'is-hidden');
+            avatarDock.classList.add('is-embedded');
+            card1.appendChild(avatarDock); // Re-attach inside card 1
+          }
+        } 
+        // When inside Selected Work block (sections 1 to 3) -> STICKY AT SCREEN BOTTOM
+        else if (wrapperRect.bottom > viewportHeight - 80 && wrapperRect.top < viewportHeight - 100) {
+          if (!isDockSticky) {
+            isDockSticky = true;
+            avatarDock.classList.remove('is-embedded', 'is-hidden');
+            avatarDock.classList.add('is-sticky');
+            document.body.appendChild(avatarDock); // Pin to body for fixed positioning
+          }
+        } 
+        // When scrolled past Selected Work block -> HIDE DOCK
+        else {
+          avatarDock.classList.remove('is-embedded', 'is-sticky');
+          avatarDock.classList.add('is-hidden');
+          isDockSticky = false;
+        }
+      });
+
+    });
+  </script>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SECTION 6: SERVICES DEEP DIVE
+       ════════════════════════════════════════════════════════════════ -->
+  <style>
+    /* ──────────────────────────────────────────────────────────────
+       SERVICES DEEP DIVE — ACCORDION EXPANSION LAYOUT
+    ────────────────────────────────────────────────────────────── */
+    .sdv-section {
+      background: #080808;
+      padding: 9rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle backdrop glow blobs */
+    .sdv-bg-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      opacity: 0.18;
+    }
+    .sdv-bg-blob-1 {
+      width: 600px; height: 600px;
+      background: #0047E1;
+      top: -100px; left: -150px;
+    }
+    .sdv-bg-blob-2 {
+      width: 400px; height: 400px;
+      background: #3D6BFF;
+      bottom: 0; right: -100px;
+    }
+
+    .sdv-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .sdv-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 6rem;
+    }
+
+    .sdv-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      margin-bottom: 1.25rem;
+    }
+
+    .sdv-h2 {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      line-height: 1.18;
+      letter-spacing: 0.01em;
+    }
+
+    .sdv-h2 em {
+      font-style: normal;
+      color: var(--c8-blue);
+    }
+
+    .sdv-header-right {
+      padding-bottom: 0.5rem;
+    }
+
+    .sdv-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 500px;
+    }
+
+    /* Architecture Layers Pill Row */
+    .sdv-layer-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-top: 2rem;
+    }
+
+    .sdv-layer-pill {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .sdv-layer-pill.layer-strategy {
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .sdv-layer-pill.layer-build {
+      background: var(--c8-blue);
+      color: #fff;
+      border: 1px solid var(--c8-blue);
+    }
+
+    .sdv-layer-pill.layer-growth {
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .sdv-arrow {
+      color: rgba(255,255,255,0.25);
+      font-size: 0.85rem;
+      margin: 0 8px;
+    }
+
+    /* Accordion Grid */
+    .sdv-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sdv-item {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .sdv-item-trigger {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 56px 1fr auto 160px 80px;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s ease;
+    }
+
+    .sdv-item-trigger:hover .sdv-item-title {
+      color: var(--c8-blue);
+    }
+
+    .sdv-item-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.1em;
+    }
+
+    .sdv-item-title {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1rem, 1.8vw, 1.35rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      transition: color 0.3s ease;
+    }
+
+    .sdv-item-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    .sdv-item-tag.tag-build {
+      background: rgba(0, 71, 225, 0.18);
+      color: var(--c8-blue);
+      border: 1px solid rgba(0, 71, 225, 0.3);
+    }
+
+    .sdv-item-tag.tag-growth {
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.45);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ── Trigger Row Preview Thumbnail ── */
+    .sdv-item-thumb {
+      width: 160px;
+      height: 84px;
+      border-radius: 10px;
+      overflow: hidden;
+      opacity: 0.4;
+      transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      flex-shrink: 0;
+    }
+
+    .sdv-item-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sdv-item-trigger:hover .sdv-item-thumb {
+      opacity: 1;
+      transform: scale(1.22) skewX(-6deg);
+    }
+
+    .sdv-item.is-open .sdv-item-thumb {
+      opacity: 1;
+      transform: scale(1.1) skewX(-3deg);
+    }
+
+    .sdv-item-chevron {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      color: rgba(255,255,255,0.3);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+    }
+
+    .sdv-item.is-open .sdv-item-chevron {
+      transform: rotate(180deg);
+      color: var(--c8-blue);
+    }
+
+    .sdv-item.is-open .sdv-item-title {
+      color: var(--c8-blue);
+    }
+
+    /* Accordion Panel */
+    .sdv-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sdv-item.is-open .sdv-panel {
+      grid-template-rows: 1fr;
+    }
+
+    .sdv-panel-inner {
+      overflow: hidden;
+    }
+
+    .sdv-panel-content {
+      display: grid;
+      grid-template-columns: 56px 1fr 1fr;
+      gap: 2rem;
+      padding: 0 0 3rem 0;
+    }
+
+    .sdv-panel-spacer { /* Column 1 spacer to align with title */ }
+
+    .sdv-panel-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+
+    .sdv-panel-desc strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .sdv-panel-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .sdv-deliverable-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .sdv-deliverable-row::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c8-blue);
+      flex-shrink: 0;
+    }
+
+    .sdv-panel-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--c8-blue);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 1rem;
+      transition: gap 0.3s ease;
+    }
+
+    .sdv-panel-cta:hover {
+      gap: 14px;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 900px) {
+      .sdv-section { padding: 6rem 1.5rem; }
+      .sdv-header { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; }
+      .sdv-item-trigger { grid-template-columns: 40px 1fr 80px; }
+      .sdv-item-tag { display: none; }
+      .sdv-item-thumb { display: none; }
+      .sdv-panel-content { grid-template-columns: 40px 1fr; }
+      .sdv-panel-right { grid-column: 2; }
+    }
+
+    /* ── Accordion panel visual thumbnail ── */
+    .sdv-panel-visual {
+      grid-column: 1 / -1;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 200px;
+      position: relative;
+    }
+
+    .sdv-panel-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.9) brightness(0.95);
+      transition: transform 0.5s ease, filter 0.3s ease;
+    }
+
+    .sdv-panel-visual:hover img {
+      transform: scale(1.03);
+      filter: saturate(1) brightness(1);
+    }
+
+    .sdv-panel-visual-label {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 0.75rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(0,71,225,0.85);
+      border-radius: 6px;
+      padding: 3px 10px;
+    }
+  </style>
+
+  <section class="sdv-section" id="services-deep-dive">
+    <!-- Backdrop Glow Blobs -->
+    <div class="sdv-bg-blob sdv-bg-blob-1"></div>
+    <div class="sdv-bg-blob sdv-bg-blob-2"></div>
+
+    <div class="sdv-inner">
+
+      <!-- Section Header -->
+      <div class="sdv-header">
+        <div class="sdv-header-left">
+          <div class="sdv-eyebrow">What We Actually Do</div>
+          <h2 class="sdv-h2">Every Layer.<br>One <em>Studio.</em></h2>
+
+          <div class="sdv-layer-row">
+            <span class="sdv-layer-pill layer-strategy">Strategy</span>
+            <span class="sdv-arrow">&rarr;</span>
+            <span class="sdv-layer-pill layer-build">Design &amp; Build</span>
+            <span class="sdv-arrow">&rarr;</span>
+            <span class="sdv-layer-pill layer-growth">Growth</span>
+          </div>
+        </div>
+
+        <div class="sdv-header-right">
+          <p class="sdv-sub">
+            We start with who you're competing against and end with the campaigns that bring people to the site we just built. Whichever platform your business runs on &mdash; the build is only one layer.
+          </p>
+        </div>
+      </div>
+
+      <!-- Accordion: Services -->
+      <div class="sdv-accordion">
+
+        <!-- 01 — Website Design -->
+        <div class="sdv-item is-open" id="sdv-web-design">
+          <button class="sdv-item-trigger" aria-expanded="true" data-sdv-toggle="sdv-web-design">
+            <span class="sdv-item-num">01</span>
+            <span class="sdv-item-title">Website Design</span>
+            <span class="sdv-item-tag tag-build">Build Layer</span>
+            <div class="sdv-item-thumb">
+              <img src="assets/case_studies/case_study_duch_apartments.jpg" alt="Website Design Preview">
+            </div>
+            <span class="sdv-item-chevron">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </button>
+          <div class="sdv-panel">
+            <div class="sdv-panel-inner">
+              <div class="sdv-panel-content">
+                <div class="sdv-panel-spacer"></div>
+                <div class="sdv-panel-desc">
+                  <strong>High-converting digital experiences</strong> engineered for speed, search authority, and seamless user conversions. We design across every platform your business runs on &mdash; once the Figma design is approved, it gets handed to whichever build stack fits: WordPress, Shopify, WooCommerce, or fully custom code.
+                </div>
+                <div class="sdv-panel-right">
+                  <div class="sdv-deliverable-row">Custom Figma UI Architecture</div>
+                  <div class="sdv-deliverable-row">WordPress Builds &amp; Elementor Systems</div>
+                  <div class="sdv-deliverable-row">Shopify Liquid Storefronts</div>
+                  <div class="sdv-deliverable-row">WooCommerce Custom Stores</div>
+                  <div class="sdv-deliverable-row">Built-in SEO from Line One</div>
+                  <a href="web-design.html" class="sdv-panel-cta">
+                    Explore Web Design
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Visual thumbnail inside open panel -->
+              <div class="sdv-panel-visual">
+                <img src="assets/case_studies/case_study_duch_apartments.jpg" alt="Website Design Work">
+                <span class="sdv-panel-visual-label">Live Client Work</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 — Custom Development -->
+        <div class="sdv-item" id="sdv-custom-dev">
+          <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-custom-dev">
+            <span class="sdv-item-num">02</span>
+            <span class="sdv-item-title">Custom Development</span>
+            <span class="sdv-item-tag tag-build">Build Layer</span>
+            <div class="sdv-item-thumb">
+              <img src="assets/case_studies/case_study_bridgepoint.jpg" alt="Custom Dev Preview">
+            </div>
+            <span class="sdv-item-chevron">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </button>
+          <div class="sdv-panel">
+            <div class="sdv-panel-inner">
+              <div class="sdv-panel-content">
+                <div class="sdv-panel-spacer"></div>
+                <div class="sdv-panel-desc">
+                  <strong>Tailored software architectures</strong> built from a blank file, engineered around your exact workflow. No templates, no SaaS dependencies, no monthly tool fees eating into your margin. When nothing off-the-shelf fits what you're building &mdash; this is where it starts.
+                </div>
+                <div class="sdv-panel-right">
+                  <div class="sdv-deliverable-row">Bespoke Web Applications</div>
+                  <div class="sdv-deliverable-row">Custom APIs &amp; Third-Party Integrations</div>
+                  <div class="sdv-deliverable-row">Internal Business Tools &amp; Dashboards</div>
+                  <div class="sdv-deliverable-row">100% Client-Owned Codebase</div>
+                  <div class="sdv-deliverable-row">0 Third-Party SaaS Dependencies</div>
+                  <a href="custom-dev.html" class="sdv-panel-cta">
+                    Explore Custom Dev
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Visual thumbnail inside open panel -->
+              <div class="sdv-panel-visual">
+                <img src="assets/case_studies/case_study_bridgepoint.jpg" alt="Custom Development Work">
+                <span class="sdv-panel-visual-label">Live Client Work</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 — AI MVP Products -->
+        <div class="sdv-item" id="sdv-ai-mvp">
+          <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-ai-mvp">
+            <span class="sdv-item-num">03</span>
+            <span class="sdv-item-title">AI MVP Products</span>
+            <span class="sdv-item-tag tag-build">Build Layer</span>
+            <div class="sdv-item-thumb">
+              <img src="assets/dev_mascot.jpg" alt="AI MVP Preview" style="object-position: center top;">
+            </div>
+            <span class="sdv-item-chevron">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </button>
+          <div class="sdv-panel">
+            <div class="sdv-panel-inner">
+              <div class="sdv-panel-content">
+                <div class="sdv-panel-spacer"></div>
+                <div class="sdv-panel-desc">
+                  <strong>Production-ready AI applications</strong> built to validate core business ideas with real users &mdash; not slide decks. We build AI-integrated products fast enough to get genuine market signal before you over-invest. When the idea validates, it hands directly into a full Custom Dev engagement.
+                </div>
+                <div class="sdv-panel-right">
+                  <div class="sdv-deliverable-row">LLM-Integrated Web Applications</div>
+                  <div class="sdv-deliverable-row">AI-Powered Internal Tools</div>
+                  <div class="sdv-deliverable-row">Rapid Prototyping &amp; Market Validation</div>
+                  <div class="sdv-deliverable-row">Custom Model Pipelines</div>
+                  <div class="sdv-deliverable-row">Fully Functional &mdash; Not a Demo</div>
+                  <a href="ai-mvp.html" class="sdv-panel-cta">
+                    Explore AI MVP
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Visual thumbnail inside open panel -->
+              <div class="sdv-panel-visual">
+                <img src="assets/dev_mascot.jpg" alt="AI MVP Build" style="object-position: center top;">
+                <span class="sdv-panel-visual-label">AI-Powered Build</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 — Brand Strategy -->
+        <div class="sdv-item" id="sdv-brand-strategy">
+          <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-brand-strategy">
+            <span class="sdv-item-num">04</span>
+            <span class="sdv-item-title">Brand Strategy</span>
+            <span class="sdv-item-tag tag-growth">Growth Layer</span>
+            <div class="sdv-item-thumb">
+              <img src="assets/case_studies/case_study_victorias_lane.jpg" alt="Brand Strategy Preview">
+            </div>
+            <span class="sdv-item-chevron">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </button>
+          <div class="sdv-panel">
+            <div class="sdv-panel-inner">
+              <div class="sdv-panel-content">
+                <div class="sdv-panel-spacer"></div>
+                <div class="sdv-panel-desc">
+                  <strong>Competitor analysis, pricing scoping, and messaging frameworks</strong> that give the rest of the build direction before a single pixel is designed. This is also the foundation every ad campaign and piece of content we run for you is built on — get this right first, and everything downstream gets easier and cheaper.
+                </div>
+                <div class="sdv-panel-right">
+                  <div class="sdv-deliverable-row">Market Positioning &amp; Competitor Mapping</div>
+                  <div class="sdv-deliverable-row">Messaging Frameworks &amp; Brand Voice</div>
+                  <div class="sdv-deliverable-row">Pricing Scoping &amp; Value Proposition</div>
+                  <div class="sdv-deliverable-row">Customer Profile Architecture</div>
+                  <div class="sdv-deliverable-row">Brand Identity Design (optional next step)</div>
+                  <a href="brand-strategy.html" class="sdv-panel-cta">
+                    Explore Brand Strategy
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 — SEO & Content -->
+        <div class="sdv-item" id="sdv-seo">
+          <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-seo">
+            <span class="sdv-item-num">05</span>
+            <span class="sdv-item-title">SEO &amp; Content</span>
+            <span class="sdv-item-tag tag-growth">Growth Layer</span>
+            <div class="sdv-item-thumb">
+              <img src="assets/case_studies/case_study_blvck_hair.jpg" alt="SEO & Content Preview">
+            </div>
+            <span class="sdv-item-chevron">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </button>
+          <div class="sdv-panel">
+            <div class="sdv-panel-inner">
+              <div class="sdv-panel-content">
+                <div class="sdv-panel-spacer"></div>
+                <div class="sdv-panel-desc">
+                  <strong>Technical search work and content architecture</strong> that gets the site found. We fold SEO into every build from line one — but for sites that already exist, we audit, fix, and build the content layer that compounds over time. Paid acquisition works better once your organic foundation is solid.
+                </div>
+                <div class="sdv-panel-right">
+                  <div class="sdv-deliverable-row">Semantic Keyword Mapping</div>
+                  <div class="sdv-deliverable-row">Entity SEO Optimization</div>
+                  <div class="sdv-deliverable-row">Technical SEO Audits &amp; Core Web Vitals</div>
+                  <div class="sdv-deliverable-row">Content Architecture &amp; Cluster Strategy</div>
+                  <div class="sdv-deliverable-row">E-Commerce Category &amp; Product SEO</div>
+                  <a href="seo.html" class="sdv-panel-cta">
+                    Explore SEO &amp; Content
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 — Digital Marketing -->
+        <div class="sdv-item" id="sdv-digital-marketing">
+          <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-digital-marketing">
+            <span class="sdv-item-num">06</span>
+            <span class="sdv-item-title">Digital Marketing</span>
+            <span class="sdv-item-tag tag-growth">Growth Layer</span>
+            <div class="sdv-item-thumb">
+              <img src="assets/case_studies/case_study_mkenny_properties.jpg" alt="Digital Marketing Preview">
+            </div>
+            <span class="sdv-item-chevron">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </button>
+          <div class="sdv-panel">
+            <div class="sdv-panel-inner">
+              <div class="sdv-panel-content">
+                <div class="sdv-panel-spacer"></div>
+                <div class="sdv-panel-desc">
+                  <strong>Multi-channel campaigns and lead acquisition retainers</strong> built on the positioning your Brand Strategy work defined. If you haven't done positioning work with us yet, we fold a lightweight version into campaign setup — but a full Brand Strategy engagement first means faster, cheaper testing.
+                </div>
+                <div class="sdv-panel-right">
+                  <div class="sdv-deliverable-row">Paid Social &amp; Search Campaign Management</div>
+                  <div class="sdv-deliverable-row">Email Autoresponders &amp; Nurture Sequences</div>
+                  <div class="sdv-deliverable-row">Conversion Rate Audits</div>
+                  <div class="sdv-deliverable-row">Target Audience &amp; Funnel Mapping</div>
+                  <div class="sdv-deliverable-row">Monthly Retainer &amp; Performance Reporting</div>
+                  <a href="digital-marketing.html" class="sdv-panel-cta">
+                    Explore Digital Marketing
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /sdv-accordion -->
+
+    </div><!-- /sdv-inner -->
+  </section>
+
+  <script>
+    // Services Deep Dive — Accordion Controller
+    document.querySelectorAll('[data-sdv-toggle]').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const targetId = trigger.getAttribute('data-sdv-toggle');
+        const item = document.getElementById(targetId);
+        const isOpen = item.classList.contains('is-open');
+
+        // Close all
+        document.querySelectorAll('.sdv-item').forEach(i => {
+          i.classList.remove('is-open');
+          i.querySelector('[data-sdv-toggle]').setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked (toggle)
+        if (!isOpen) {
+          item.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SECTION 7: DEV PLAYGROUND + FREE TOOLS
+       White left / Brand Blue right split · Fox mascot straddles divide
+       ════════════════════════════════════════════════════════════════ -->
+  <style>
+    /* ─────────────────────────────────────────────────────────────────
+       DEV PLAYGROUND — WHITE / BRAND BLUE SPLIT
+    ───────────────────────────────────────────────────────────────── */
+    .dp-section {
+      position: relative;
+      overflow: clip;
+      min-height: 680px;
+      display: flex;
+    }
+
+    /* Left half: white */
+    .dp-half-left {
+      flex: 1;
+      background: #FFFFFF;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 7rem 3.5rem 7rem 3.5rem;
+      overflow: visible;
+    }
+
+    /* Right half: royal blue */
+    .dp-half-right {
+      flex: 1;
+      background: #0047E1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 7rem 3.5rem 7rem 5rem;
+      overflow: visible;
+    }
+
+
+    /* ── Left content ── */
+    .dp-left-content {
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .dp-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dp-eyebrow::before {
+      content: '';
+      width: 22px;
+      height: 1.5px;
+      background: var(--c8-blue);
+      flex-shrink: 0;
+    }
+
+    .dp-h2 {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+      font-weight: 700;
+      color: var(--c8-ink);
+      text-transform: uppercase;
+      line-height: 1.12;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.25rem;
+    }
+
+    .dp-h2 em {
+      font-style: normal;
+      color: var(--c8-blue);
+    }
+
+    .dp-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--c8-muted);
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    /* Editorial numbered tool listing */
+    .dp-tool-entries {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid rgba(8,8,8,0.1);
+    }
+
+    .dp-tool-entry {
+      display: grid;
+      grid-template-columns: 28px 1fr auto;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(8,8,8,0.08);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .dp-tool-entry:hover { padding-left: 4px; }
+
+    .dp-tool-entry-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      color: rgba(8,8,8,0.25);
+      letter-spacing: 0.06em;
+    }
+
+    .dp-tool-entry-body {
+      flex: 1;
+    }
+
+    .dp-tool-entry-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--c8-ink);
+      margin-bottom: 0.1rem;
+      transition: color 0.25s ease;
+    }
+
+    .dp-tool-entry:hover .dp-tool-entry-name {
+      color: var(--c8-blue);
+    }
+
+    .dp-tool-entry-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--c8-muted);
+    }
+
+    .dp-tool-entry-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(0,71,225,0.07);
+      border: 1px solid rgba(0,71,225,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--c8-blue);
+      transition: background 0.25s ease;
+    }
+
+    .dp-tool-entry:hover .dp-tool-entry-icon {
+      background: var(--c8-blue);
+      color: #fff;
+    }
+
+    /* ── Mascot: lives inside dp-half-left, overflows right to straddle split ── */
+    .dp-mascot-wrap {
+      position: absolute;
+      right: -190px;
+      bottom: -40px;
+      width: 380px;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .dp-mascot-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      mix-blend-mode: multiply;
+      animation: dpFloat 4.5s ease-in-out infinite;
+    }
+
+    @keyframes dpFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-16px); }
+    }
+
+    /* ── Right content ── */
+    .dp-right-content {
+      width: 100%;
+      max-width: 400px;
+      margin-left: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .dp-right-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dp-right-eyebrow::before {
+      content: '';
+      width: 22px;
+      height: 1.5px;
+      background: rgba(255,255,255,0.35);
+      flex-shrink: 0;
+    }
+
+    .dp-stat-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .dp-stat-item {}
+
+    .dp-stat-num {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .dp-stat-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .dp-right-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      border-left: 2px solid rgba(255,255,255,0.2);
+      padding-left: 1.25rem;
+    }
+
+    .dp-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .dp-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      color: var(--c8-blue);
+      font-family: 'Michroma', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.85rem 1.75rem;
+      border-radius: var(--radius-pill);
+      transition: background 0.25s ease, transform 0.2s ease;
+    }
+
+    .dp-btn-primary:hover {
+      background: #EDF0FF;
+      transform: translateY(-2px);
+    }
+
+    .dp-btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.65);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      padding-bottom: 2px;
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .dp-btn-ghost:hover {
+      color: #FFFFFF;
+      border-color: rgba(255,255,255,0.7);
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 900px) {
+      .dp-section {
+        flex-direction: column;
+        min-height: auto;
+        position: relative;
+      }
+      .dp-half-left {
+        padding: 4rem 1.5rem 4rem 1.5rem;
+      }
+      .dp-half-right {
+        padding: 4rem 1.5rem 4rem 1.5rem;
+        overflow: hidden;
+      }
+      /* Mascot: behind content on mobile via z-index */
+      .dp-mascot-wrap {
+        z-index: 0;
+        width: 260px;
+        right: -30px;
+        bottom: 0;
+        opacity: 0.22;
+      }
+      .dp-right-content {
+        margin-left: 0;
+        max-width: 100%;
+      }
+      .dp-stat-pair {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+
+  <section class="dp-section" id="dev-playground">
+
+    <!-- WHITE LEFT HALF -->
+    <div class="dp-half-left">
+
+      <!-- MASCOT: lives inside white half, overflows right to straddle the split on desktop -->
+      <div class="dp-mascot-wrap">
+        <img src="assets/dev_mascot_fox.jpg" alt="Cr8v Stacks Fox Mascot">
+      </div>
+
+      <div class="dp-left-content" style="position:relative;z-index:2;">
+        <div class="dp-eyebrow">Always Building</div>
+        <h2 class="dp-h2">Built by us.<br><em>Built to be useful.</em></h2>
+        <p class="dp-sub">
+          Custom WordPress plugins and AI MVP tools we've built and use every day — some shipped, some still in progress. If we can build our own tools from scratch, we can build yours.
+        </p>
+
+        <div class="dp-tool-entries">
+          <a href="/tools/cost-calculator" class="dp-tool-entry">
+            <span class="dp-tool-entry-num">01</span>
+            <div class="dp-tool-entry-body">
+              <div class="dp-tool-entry-name">Cost Calculator</div>
+              <div class="dp-tool-entry-desc">Answer a few questions and get a realistic price range — before you ever book a call</div>
+            </div>
+            <div class="dp-tool-entry-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+          </a>
+
+          <a href="/tools/stack-directory" class="dp-tool-entry">
+            <span class="dp-tool-entry-num">02</span>
+            <div class="dp-tool-entry-body">
+              <div class="dp-tool-entry-name">The Stack Directory</div>
+              <div class="dp-tool-entry-desc">Curated index of the best business tools across AI, design, dev, and ecommerce — all searchable from one place</div>
+            </div>
+            <div class="dp-tool-entry-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </div>
+          </a>
+
+          <a href="https://cr8vstacks.com/dev-playground/" class="dp-tool-entry">
+            <span class="dp-tool-entry-num">03</span>
+            <div class="dp-tool-entry-body">
+              <div class="dp-tool-entry-name">Nativus Dashboard Pro</div>
+              <div class="dp-tool-entry-desc">A custom WordPress admin dashboard plugin built for cleaner client handovers</div>
+            </div>
+            <div class="dp-tool-entry-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="4"></rect><rect x="3" y="10" width="7" height="11"></rect><rect x="13" y="3" width="8" height="11"></rect><rect x="13" y="17" width="8" height="4"></rect></svg>
+            </div>
+          </a>
+
+          <a href="https://cr8vstacks.com/dev-playground/" class="dp-tool-entry">
+            <span class="dp-tool-entry-num">04</span>
+            <div class="dp-tool-entry-body">
+              <div class="dp-tool-entry-name">WP Publishion AI</div>
+              <div class="dp-tool-entry-desc">AI-assisted WordPress publishing — drafts, meta, and scheduling from one panel</div>
+            </div>
+            <div class="dp-tool-entry-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            </div>
+          </a>
+
+          <a href="https://cr8vstacks.com/dev-playground/" class="dp-tool-entry">
+            <span class="dp-tool-entry-num">05</span>
+            <div class="dp-tool-entry-body">
+              <div class="dp-tool-entry-name">LumiCode Syntax Highlighter</div>
+              <div class="dp-tool-entry-desc">Lightweight code display plugin for WordPress — clean, themeable, zero dependencies</div>
+            </div>
+            <div class="dp-tool-entry-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLUE RIGHT HALF -->
+    <div class="dp-half-right">
+      <div class="dp-right-content">
+        <div class="dp-right-eyebrow">No Gimmicks</div>
+
+        <div class="dp-stat-pair">
+          <div class="dp-stat-item">
+            <div class="dp-stat-num">5</div>
+            <div class="dp-stat-label">Tools Available</div>
+          </div>
+          <div class="dp-stat-item">
+            <div class="dp-stat-num">0</div>
+            <div class="dp-stat-label">Sign-Ups Needed</div>
+          </div>
+          <div class="dp-stat-item">
+            <div class="dp-stat-num">60s</div>
+            <div class="dp-stat-label">Avg. Time to Result</div>
+          </div>
+          <div class="dp-stat-item">
+            <div class="dp-stat-num">&infin;</div>
+            <div class="dp-stat-label">No Usage Limit</div>
+          </div>
+        </div>
+
+        <p class="dp-right-desc">
+          These aren't lead magnets in disguise. Every tool runs in your browser. Take the output. No email capture, no follow-up sequence. We add tools regularly whenever something we built internally proves useful enough to open up.
+        </p>
+
+        <div class="dp-cta-row">
+          <a href="https://cr8vstacks.com/dev-playground/" class="dp-btn-primary" target="_blank" rel="noopener">
+            Visit the Dev Playground
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="#start" class="dp-btn-ghost">
+            Start a Project instead
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SECTION 8: HOW WE WORK — Bento Grid Layout
+       ════════════════════════════════════════════════════════════════ -->
+  <style>
+    /* ── HOW WE WORK ── */
+    .hww-section {
+      background: #F4F5F7;
+      padding: 7rem 3.5rem;
+    }
+    .hww-inner { max-width: 1360px; margin: 0 auto; }
+
+    /* Header */
+    .hww-header { text-align: center; max-width: 780px; margin: 0 auto 4.5rem auto; }
+
+    .hww-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--c8-blue); margin-bottom: 1.25rem;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .hww-eyebrow::before, .hww-eyebrow::after {
+      content: ''; width: 28px; height: 1.5px;
+      background: var(--c8-blue); flex-shrink: 0;
+    }
+
+    .hww-h2 {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+      font-weight: 700; color: var(--c8-ink);
+      text-transform: uppercase; line-height: 1.1;
+      letter-spacing: 0.01em; margin-bottom: 1.5rem;
+    }
+    .hww-h2 em { font-style: normal; color: var(--c8-blue); }
+
+    .hww-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem; font-weight: 300;
+      color: var(--c8-muted); line-height: 1.85;
+    }
+
+    /* Bento Grid */
+    .hww-bento {
+      display: grid;
+      grid-template-columns: 0.88fr 1fr 1.15fr 1.1fr;
+      grid-template-rows: 285px 230px;
+      gap: 1rem;
+    }
+
+    /* Cards base */
+    .hww-card {
+      border-radius: 12px; overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hww-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.10); }
+
+    .hww-card-white  { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.07); padding: 1.75rem; }
+    .hww-card-blue   { background: var(--c8-blue); padding: 1.75rem; }
+    .hww-card-dark   { background: #0A0A0A; padding: 1.75rem; }
+    .hww-card-light  { background: #EAECF5; border: 1px solid rgba(0,71,225,0.08); padding: 1.75rem; }
+
+    /* Grid placement */
+    .hww-c1 { grid-column: 1; grid-row: 1; }
+    .hww-c2 { grid-column: 2; grid-row: 1 / span 2; padding: 0; }
+    .hww-c3 { grid-column: 3; grid-row: 1; }
+    .hww-c4 { grid-column: 4; grid-row: 1; }
+    .hww-c5 { grid-column: 1; grid-row: 2; }
+    .hww-c6 { grid-column: 3 / span 2; grid-row: 2; }
+
+    /* Visual card image */
+    .hww-visual-img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block; transition: transform 0.5s ease;
+    }
+    .hww-c2:hover .hww-visual-img { transform: scale(1.04); }
+
+    /* Card typography */
+    .hww-clabel {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .hww-clabel-blue  { color: var(--c8-blue); }
+    .hww-clabel-dim   { color: rgba(255,255,255,0.4); }
+    .hww-clabel-muted { color: rgba(0,0,0,0.35); }
+
+    .hww-ctitle {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(0.82rem, 1.5vw, 0.95rem);
+      font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.02em; line-height: 1.3; margin-bottom: 0.6rem;
+    }
+    .hww-ctitle-ink   { color: var(--c8-ink); }
+    .hww-ctitle-white { color: #FFFFFF; }
+
+    .hww-cbody { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 300; line-height: 1.6; }
+    .hww-cbody-muted  { color: var(--c8-muted); }
+    .hww-cbody-dim    { color: rgba(255,255,255,0.55); }
+
+    /* Step list */
+    .hww-steps { display: flex; flex-direction: column; gap: 0.65rem; margin-top: 0.85rem; }
+    .hww-step  { display: flex; align-items: center; gap: 0.65rem; }
+    .hww-step-n {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      color: rgba(0,0,0,0.25); letter-spacing: 0.04em; min-width: 18px;
+    }
+    .hww-step-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--c8-blue); flex-shrink: 0;
+    }
+    .hww-step-lbl {
+      font-family: 'DM Sans', sans-serif; font-size: 0.8rem;
+      font-weight: 500; color: var(--c8-ink);
+    }
+
+    /* Big number */
+    .hww-bnum {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      font-weight: 700; line-height: 1; letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .hww-bnum-white { color: #FFFFFF; }
+    .hww-bnum-ink   { color: var(--c8-ink); }
+
+    .hww-stat-sub {
+      font-family: 'DM Sans', sans-serif; font-size: 0.79rem;
+      font-weight: 300; line-height: 1.55;
+    }
+    .hww-stat-sub-white { color: rgba(255,255,255,0.58); }
+    .hww-stat-sub-ink   { color: var(--c8-muted); }
+
+    /* Tech tags */
+    .hww-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.85rem; }
+    .hww-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem; font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 5px; padding: 4px 9px; letter-spacing: 0.02em;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      display: inline-flex; align-items: center; gap: 5px;
+    }
+    .hww-tag img { width: 12px; height: 12px; object-fit: contain; flex-shrink: 0; }
+    .hww-tag:hover { color: rgba(255,255,255,0.95); border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.07); }
+    /* Inline logo badge — no CDN dependency */
+    .tl {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 14px; height: 14px; border-radius: 3px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 7px; font-weight: 900; line-height: 1;
+      flex-shrink: 0; color: #fff; letter-spacing: 0;
+    }
+    .tl-wp { background: #21759B; }
+    .tl-sh { background: #96BF48; }
+    .tl-nj { background: #fff; color: #000; border: 1px solid rgba(255,255,255,0.15); }
+    .tl-re { background: #20232A; color: #61DAFB; }
+    .tl-py { background: #3776AB; }
+    .tl-el { background: #E20025; }
+    .tl-ai { background: #10A37F; }
+    .tl-sb { background: #3ECF8E; color: #111; }
+    .tl-fr { background: #0055FF; }
+    .hww-tag-framer { border-color: rgba(0,85,255,0.5); color: #7799FF; }
+    .hww-tag-framer:hover { border-color: #0055FF; background: rgba(0,85,255,0.12); color: #99BBFF; }
+
+    /* Timeline row */
+    .hww-timeline { display: flex; align-items: flex-start; gap: 2rem; margin-top: 1.25rem; }
+    .hww-tl-item  { flex: 1; display: flex; flex-direction: column; gap: 0.25rem; }
+    .hww-tl-step  {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: var(--c8-blue); letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .hww-tl-label {
+      font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+      font-weight: 600; color: var(--c8-ink);
+    }
+    .hww-tl-desc {
+      font-family: 'DM Sans', sans-serif; font-size: 0.76rem;
+      font-weight: 300; color: var(--c8-muted); line-height: 1.5;
+    }
+    .hww-tl-div {
+      width: 1px; background: rgba(0,71,225,0.18); margin-top: 0.5rem;
+      align-self: stretch; flex-shrink: 0;
+    }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      .hww-section { padding: 5rem 1.5rem; }
+      .hww-bento {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .hww-c1 { grid-column: 1; grid-row: auto; }
+      .hww-c2 { grid-column: 2; grid-row: auto; min-height: 280px; }
+      .hww-c3 { grid-column: 1; grid-row: auto; }
+      .hww-c4 { grid-column: 2; grid-row: auto; }
+      .hww-c5 { grid-column: 1; grid-row: auto; }
+      .hww-c6 { grid-column: 1 / span 2; grid-row: auto; }
+      .hww-timeline { flex-wrap: wrap; gap: 1.5rem; }
+      .hww-tl-div { display: none; }
+    }
+    @media (max-width: 540px) {
+      .hww-bento { grid-template-columns: 1fr; }
+      .hww-c1, .hww-c2, .hww-c3, .hww-c4, .hww-c5, .hww-c6 {
+        grid-column: 1; grid-row: auto;
+      }
+      .hww-c2 { min-height: 300px; }
+    }
+  </style>
+
+  <section class="hww-section" id="how-we-work">
+    <div class="hww-inner">
+
+      <div class="hww-header">
+        <div class="hww-eyebrow">How We Work</div>
+        <h2 class="hww-h2">AI helps us move faster. <em>It doesn't make the decisions.</em></h2>
+        <p class="hww-desc">
+          We use Claude, Gemini, ChatGPT, and Perplexity throughout our process — for research, drafting, and speeding up repetitive work. But direction, judgment, and quality control stay with our team on every project. AI is a tool we use well, not a replacement for the expertise behind the work.
+        </p>
+      </div>
+
+      <div class="hww-bento">
+
+        <!-- C1: Process Steps -->
+        <div class="hww-card hww-card-white hww-c1">
+          <div class="hww-clabel hww-clabel-blue">Sprint Model</div>
+          <div class="hww-ctitle hww-ctitle-ink">Clear Steps.<br>Zero Surprises.</div>
+          <div class="hww-steps">
+            <div class="hww-step">
+              <span class="hww-step-n">01</span>
+              <span class="hww-step-dot"></span>
+              <span class="hww-step-lbl">Discovery &amp; Brief</span>
+            </div>
+            <div class="hww-step">
+              <span class="hww-step-n">02</span>
+              <span class="hww-step-dot" style="opacity:0.65;"></span>
+              <span class="hww-step-lbl">Architecture &amp; Design</span>
+            </div>
+            <div class="hww-step">
+              <span class="hww-step-n">03</span>
+              <span class="hww-step-dot" style="opacity:0.4;"></span>
+              <span class="hww-step-lbl">Build &amp; Iterate</span>
+            </div>
+            <div class="hww-step">
+              <span class="hww-step-n">04</span>
+              <span class="hww-step-dot" style="opacity:0.2;"></span>
+              <span class="hww-step-lbl">Launch &amp; Handover</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- C2: Stacks visual -->
+        <div class="hww-card hww-c2">
+          <img src="assets/hww_stacks_visual.jpg" alt="Tech stack visualization" class="hww-visual-img">
+        </div>
+
+        <!-- C3: Sprint Stat (blue) -->
+        <div class="hww-card hww-card-blue hww-c3">
+          <div class="hww-clabel hww-clabel-dim">First Build Sprint</div>
+          <div class="hww-bnum hww-bnum-white">14<span style="font-size:0.42em;opacity:0.55;"> days</span></div>
+          <p class="hww-stat-sub hww-stat-sub-white">
+            From an approved brief to a working prototype your team can review, test, and give real feedback on.
+          </p>
+        </div>
+
+        <!-- C4: What Shapes Every Project (dark) -->
+        <div class="hww-card hww-card-dark hww-c4">
+          <div class="hww-clabel hww-clabel-dim">What Shapes Every Project</div>
+          <div class="hww-ctitle hww-ctitle-white">No Black Boxes.<br>Just Craft.</div>
+          <div class="hww-tags">
+            <span class="hww-tag"><img src="https://cdn.simpleicons.org/wordpress/ffffff" alt="">WordPress</span>
+            <span class="hww-tag"><img src="https://cdn.simpleicons.org/shopify/ffffff" alt="">Shopify</span>
+            <span class="hww-tag"><img src="https://cdn.simpleicons.org/nextdotjs/ffffff" alt="">Next.js</span>
+            <span class="hww-tag"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="">React</span>
+            <span class="hww-tag"><img src="https://cdn.simpleicons.org/python/ffffff" alt="">Python</span>
+            <span class="hww-tag"><img src="https://cdn.simpleicons.org/elementor/E20025" alt="">Elementor</span>
+            <span class="hww-tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#10A37F" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+                <path d="M22.28 9.3a5.82 5.82 0 0 0-.5-4.8 5.9 5.9 0 0 0-6.36-2.83 5.86 5.86 0 0 0-4.41-1.96 5.9 5.9 0 0 0-5.62 4.1 5.85 5.85 0 0 0-3.91 2.83 5.9 5.9 0 0 0 .72 6.94 5.82 5.82 0 0 0 .5 4.79 5.9 5.9 0 0 0 6.36 2.84A5.86 5.86 0 0 0 13 24a5.9 5.9 0 0 0 5.63-4.1 5.85 5.85 0 0 0 3.91-2.84 5.9 5.9 0 0 0-.72-6.94zm-9.3 13.03a4.38 4.38 0 0 1-2.8-1.01l.13-.08 4.66-2.69a.77.77 0 0 0 .38-.67V11.3l1.97 1.14a.07.07 0 0 1 .04.05v5.43a4.41 4.41 0 0 1-4.39 4.41zm-9.43-4.05a4.38 4.38 0 0 1-.52-2.96l.14.08 4.65 2.69a.77.77 0 0 0 .78 0l5.68-3.28v2.28a.07.07 0 0 1-.03.06l-4.7 2.72a4.41 4.41 0 0 1-6.01-1.59zm-1.22-9.9a4.38 4.38 0 0 1 2.29-1.93v5.51a.77.77 0 0 0 .39.67l5.21 3.01-1.97 1.14a.07.07 0 0 1-.07 0L3.5 13.72a4.41 4.41 0 0 1-1.17-5.34zm16.16 3.78-5.21-3.01 1.97-1.14a.07.07 0 0 1 .07 0l4.69 2.73a4.41 4.41 0 0 1-.68 7.96v-5.51a.77.77 0 0 0-.39-.67l-.45-.36zm1.96-2.98-.14-.08-4.65-2.69a.77.77 0 0 0-.78 0L9.68 9.69V7.4a.07.07 0 0 1 .03-.06l4.69-2.72a4.41 4.41 0 0 1 6.06 4.57zm-11.3 3.72-1.97-1.14a.07.07 0 0 1-.04-.05V5.5a4.41 4.41 0 0 1 7.23-3.38l-.14.08-4.65 2.69a.77.77 0 0 0-.39.67l-.04 6.52zm1.07-2.32L12 9.53l1.77 1.02v2.06L12 13.64l-1.77-1.03V10.58z"/>
+              </svg>
+              OpenAI
+            </span>
+            <span class="hww-tag"><img src="https://cdn.simpleicons.org/supabase/3ECF8E" alt="">Supabase</span>
+            <span class="hww-tag hww-tag-framer"><img src="https://cdn.simpleicons.org/framer/6699FF" alt="">Framer</span>
+          </div>
+        </div>
+
+
+        <!-- C5: Ownership Stat (white) -->
+        <div class="hww-card hww-card-white hww-c5">
+          <div class="hww-clabel hww-clabel-muted">Ownership</div>
+          <div class="hww-bnum hww-bnum-ink" style="font-size:clamp(1.6rem,3vw,2.4rem);">100%</div>
+          <p class="hww-stat-sub hww-stat-sub-ink">
+            You own the code, domain, and data. No SaaS lock-in, no dependency on us to keep the lights on.
+          </p>
+        </div>
+
+        <!-- C6: What Ships With Every Project (light, spans 2 cols) -->
+        <div class="hww-card hww-card-light hww-c6" style="position:relative;overflow:hidden;">
+          <!-- Faint constellation texture bg -->
+          <img src="assets/c4_tools_bg.jpg" alt="" aria-hidden="true"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;opacity:0.08;pointer-events:none;">
+          <div style="position:relative;z-index:1;">
+            <div class="hww-clabel hww-clabel-blue">What Ships With Every Project</div>
+            <div class="hww-timeline">
+              <div class="hww-tl-item">
+                <span class="hww-tl-step">Brief</span>
+                <span class="hww-tl-label">Scoped &amp; Signed</span>
+                <span class="hww-tl-desc">Fixed scope, fixed price. No surprise invoices mid-build or scope creep that costs you extra.</span>
+              </div>
+              <div class="hww-tl-div"></div>
+              <div class="hww-tl-item">
+                <span class="hww-tl-step">Build</span>
+                <span class="hww-tl-label">Fully Documented</span>
+                <span class="hww-tl-desc">Technical handover docs included. Your team can pick it up from day one without needing us.</span>
+              </div>
+              <div class="hww-tl-div"></div>
+              <div class="hww-tl-item">
+                <span class="hww-tl-step">Post-Launch</span>
+                <span class="hww-tl-label">30-Day Support</span>
+                <span class="hww-tl-desc">Every project includes a 30-day post-launch support window. No extra charge, no conditions.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /hww-bento -->
+    </div><!-- /hww-inner -->
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       SECTION 8: WHO WE ARE
+  ══════════════════════════════════════════════════ -->
+  <style>
+    .wwa-section {
+      background: var(--c8-ink);
+      padding: clamp(5rem, 10vw, 9rem) 0;
+      overflow: hidden;
+      position: relative;
+    }
+    /* Ambient top glow */
+    .wwa-section::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 400px;
+      background: radial-gradient(ellipse at center, rgba(0,71,225,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .wwa-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 5rem);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* TOP: eyebrow row */
+    .wwa-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 2rem;
+      margin-bottom: 4rem;
+      gap: 2rem;
+    }
+    .wwa-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+    }
+    .wwa-top-tag {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+    }
+
+    /* MAIN GRID */
+    .wwa-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    /* LEFT: main statement */
+    .wwa-h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.6rem, 5vw, 4.4rem);
+      font-weight: 400;
+      line-height: 1.06;
+      color: #fff;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.8rem;
+    }
+    .wwa-h2 em {
+      font-style: normal;
+      color: var(--c8-blue);
+    }
+    .wwa-desc {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+    }
+    .wwa-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 0.75rem 1.6rem;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .wwa-cta:hover {
+      border-color: var(--c8-blue);
+      background: rgba(0,71,225,0.1);
+      transform: translateY(-2px);
+    }
+    .wwa-cta svg { transition: transform 0.2s; }
+    .wwa-cta:hover svg { transform: translateX(3px); }
+
+    /* RIGHT: 3 feature rows */
+    .wwa-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .wwa-feat {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 1.2rem;
+      align-items: start;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .wwa-feat:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+    .wwa-feat-num {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--c8-blue);
+      letter-spacing: 0.06em;
+      padding-top: 3px;
+    }
+    .wwa-feat-title {
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: #fff;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.4rem;
+    }
+    .wwa-feat-body {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.42);
+    }
+
+    /* BOTTOM: stat row */
+    .wwa-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 4rem;
+    }
+    .wwa-stat {
+      padding: 2.2rem clamp(1rem, 3vw, 2.5rem);
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .wwa-stat:last-child { border-right: none; }
+    .wwa-stat-num {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      color: var(--c8-blue);
+      letter-spacing: 0.02em;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .wwa-stat-label {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.38);
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 900px) {
+      .wwa-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .wwa-stats { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .wwa-top { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .wwa-stats { grid-template-columns: 1fr 1fr; }
+      .wwa-stats .wwa-stat:last-child { border-right: none; border-top: 1px solid rgba(255,255,255,0.1); }
+    }
+  </style>
+
+  <section class="wwa-section" id="who-we-are">
+    <div class="wwa-inner">
+
+      <!-- Eyebrow row -->
+      <div class="wwa-top">
+        <div class="wwa-eyebrow">About Cr8v Stacks</div>
+        <div class="wwa-top-tag">EST. 2022 &nbsp;&middot;&nbsp; AFRICA &middot; EUROPE &middot; N. AMERICA</div>
+      </div>
+
+      <!-- Main grid -->
+      <div class="wwa-grid">
+
+        <!-- LEFT -->
+        <div class="wwa-left">
+          <h2 class="wwa-h2">One team.<br><em>Every layer.</em></h2>
+          <p class="wwa-desc">
+            Strategy, design, and code — handled by the same team from first call to launch, not handed off between departments who've never spoken to each other. Whether we're validating an AI product idea, rebuilding a property site from scratch, or running SEO for a growing brand.
+          </p>
+          <a href="/about" class="wwa-cta">
+            Read Our Story
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- RIGHT: feature list -->
+        <div class="wwa-features">
+          <div class="wwa-feat">
+            <span class="wwa-feat-num">01</span>
+            <div>
+              <div class="wwa-feat-title">Strategy First</div>
+              <div class="wwa-feat-body">Every project begins with understanding your business, not your brief. We scope, then we build.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom stat strip -->
+      <div class="wwa-stats">
+        <div class="wwa-stat">
+          <div class="wwa-stat-num">5+</div>
+          <div class="wwa-stat-label">Years Building</div>
+        </div>
+        <div class="wwa-stat">
+          <div class="wwa-stat-num">3</div>
+          <div class="wwa-stat-label">Continents Served</div>
+        </div>
+        <div class="wwa-stat">
+          <div class="wwa-stat-num">100%</div>
+          <div class="wwa-stat-label">Client Ownership</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── GLOBAL SCROLL ANIMATIONS ── -->
+  <style>
+    /* Base state: invisible, slightly below */
+    .anim-ready {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity  0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    /* Slide from left */
+    .anim-ready.from-left  { transform: translateX(-36px); }
+    /* Slide from right */
+    .anim-ready.from-right { transform: translateX(36px); }
+    /* Revealed state */
+    .anim-ready.anim-in {
+      opacity: 1;
+      transform: none !important;
+    }
+    /* Ensure elements above the fold don't flash */
+    .no-anim { opacity: 1 !important; transform: none !important; }
+  </style>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          /* Restore stagger delay on entry */
+          var stored = entry.target.dataset.animDelay;
+          if (stored) entry.target.style.transitionDelay = stored;
+          entry.target.classList.add('anim-in');
+        } else {
+          /* Instant reverse — no delay when leaving viewport */
+          entry.target.style.transitionDelay = '0ms';
+          entry.target.classList.remove('anim-in');
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    function register(el, extraClass, delay) {
+      el.classList.add('anim-ready');
+      if (extraClass) el.classList.add(extraClass);
+      if (delay) {
+        el.style.transitionDelay = delay + 'ms';
+        el.dataset.animDelay = delay + 'ms'; /* Store for re-entry */
+      }
+      /* Skip elements already in viewport on load */
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('no-anim');
+        return;
+      }
+      observer.observe(el);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+      /* ── How We Work bento cards — staggered ── */
+      document.querySelectorAll('.hww-card').forEach(function (card, i) {
+        register(card, null, i * 90);
+      });
+
+      /* ── HWW header ── */
+      var hwwHeader = document.querySelector('.hww-header');
+      if (hwwHeader) register(hwwHeader);
+
+      /* ── Portfolio case sections — image slides from its side ── */
+      document.querySelectorAll('.sw-case-section').forEach(function (sec, i) {
+        var imgCol  = sec.querySelector('.sw-img-col');
+        var copyCol = sec.querySelector('.sw-copy-col');
+        var isEven  = i % 2 === 0;
+        if (imgCol)  register(imgCol,  isEven ? 'from-right' : 'from-left', 0);
+        if (copyCol) register(copyCol, isEven ? 'from-left'  : 'from-right', 120);
+      });
+
+      /* ── Services accordion rows ── */
+      document.querySelectorAll('.sdv-item').forEach(function (item, i) {
+        register(item, null, i * 60);
+      });
+
+      /* ── Dev Playground halves ── */
+      var dpLeft  = document.querySelector('.dp-left-content');
+      var dpRight = document.querySelector('.dp-right-content');
+      if (dpLeft)  register(dpLeft,  'from-left');
+      if (dpRight) register(dpRight, 'from-right', 150);
+
+      /* ── Intro / Portfolio header ── */
+      document.querySelectorAll('.sw-intro, .c8-eyebrow').forEach(function (el) {
+        register(el);
+      });
+
+      /* ── Who We Are ── */
+      var wwaCopy   = document.querySelector('.wwa-copy');
+      var wwaVisual = document.querySelector('.wwa-visual');
+      if (wwaCopy)   register(wwaCopy,   'from-left');
+      if (wwaVisual) register(wwaVisual, 'from-right', 150);
+
+    });
+  })();
+  </script>
+
+
+  <!-- SECTION: TESTIMONIALS -->
+  <style>
+    .tmn-section{background:var(--c8-ink);padding:clamp(5rem,10vw,9rem) 0;position:relative;overflow:hidden}
+    .tmn-section::before{content:'';position:absolute;bottom:-100px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(0,71,225,.1) 0%,transparent 65%);pointer-events:none}
+    .tmn-inner{max-width:1360px;margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem);position:relative;z-index:1}
+    .tmn-header{margin-bottom:3.5rem}
+    .tmn-eyebrow{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c8-blue);margin-bottom:1rem}
+    .tmn-h2{font-family:var(--font-heading);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:400;color:#fff;letter-spacing:.02em}
+    .tmn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden}
+    .tmn-card{background:#0F0F0F;padding:clamp(1.8rem,3vw,2.6rem);display:flex;flex-direction:column;gap:1.5rem;transition:background .3s}
+    .tmn-card:hover{background:#141414}
+    .tmn-stars{display:flex;gap:3px}
+    .tmn-star{width:12px;height:12px;background:var(--c8-blue);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+    .tmn-quote{font-family:var(--font-body);font-size:clamp(.88rem,1.3vw,.97rem);font-weight:300;line-height:1.8;color:rgba(255,255,255,.62);flex:1;font-style:italic}
+    .tmn-quote::before{content:open-quote}.tmn-quote::after{content:close-quote}
+    .tmn-author{display:flex;align-items:center;gap:.85rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.07)}
+    .tmn-avatar{width:38px;height:38px;border-radius:50%;background:var(--c8-blue);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:.68rem;color:#fff;flex-shrink:0;letter-spacing:.05em}
+    .tmn-name{font-family:var(--font-body);font-size:.82rem;font-weight:600;color:#fff;line-height:1.3}
+    .tmn-role{font-family:var(--font-body);font-size:.72rem;font-weight:300;color:rgba(255,255,255,.35);margin-top:2px}
+    @media(max-width:700px){.tmn-grid{grid-template-columns:1fr}}
+  </style>
+  <section class="tmn-section" id="testimonials">
+    <div class="tmn-inner">
+      <div class="tmn-header">
+        <div class="tmn-eyebrow">What Clients Say</div>
+        <h2 class="tmn-h2">Real Feedback From Real Projects</h2>
+      </div>
+      <div class="tmn-grid">
+        <div class="tmn-card">
+          <div class="tmn-stars"><span class="tmn-star"></span><span class="tmn-star"></span><span class="tmn-star"></span><span class="tmn-star"></span><span class="tmn-star"></span></div>
+          <p class="tmn-quote">They redesigned our entire site without ever making it feel like a redesign &mdash; it just felt like the version that should have existed from day one.</p>
+          <div class="tmn-author"><div class="tmn-avatar">SW</div><div><div class="tmn-name">Sarah Whitfield</div><div class="tmn-role">Founder, Ecommerce Brand &mdash; Toronto, Canada</div></div></div>
+        </div>
+        <div class="tmn-card">
+          <div class="tmn-stars"><span class="tmn-star"></span><span class="tmn-star"></span><span class="tmn-star"></span><span class="tmn-star"></span><span class="tmn-star"></span></div>
+          <p class="tmn-quote">We came in wanting an MVP to test an idea. What we got was a working product our own team is still building on top of.</p>
+          <div class="tmn-author"><div class="tmn-avatar">DV</div><div><div class="tmn-name">Daniel Voss</div><div class="tmn-role">Product Lead, SaaS Startup &mdash; Berlin, Germany</div></div></div>
+        </div>
+        <div class="tmn-card">
+          <div class="tmn-stars"><span class="tmn-star"></span><span class="tmn-star"></span><span class="tmn-star"></span><span class="tmn-star"></span><span class="tmn-star"></span></div>
+          <p class="tmn-quote">What stood out was that one team handled strategy, build, and marketing without anything getting lost in translation.</p>
+          <div class="tmn-author"><div class="tmn-avatar">AN</div><div><div class="tmn-name">Adaeze Nwosu</div><div class="tmn-role">Marketing Director &mdash; Lagos, Nigeria</div></div></div>
+        </div>
+        <div class="tmn-card">
+          <div class="tmn-stars"><span class="tmn-star"></span><span class="tmn-star"></span><span class="tmn-star"></span><span class="tmn-star"></span><span class="tmn-star"></span></div>
+          <p class="tmn-quote">Custom development, done properly, is rare. They scoped it right, built it right, and did not disappear after launch.</p>
+          <div class="tmn-author"><div class="tmn-avatar">MF</div><div><div class="tmn-name">Marco Ferreira</div><div class="tmn-role">Operations Manager &mdash; Lisbon, Portugal</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: FAQ -->
+  <style>
+    .faq-section{background:var(--c8-bg);padding:clamp(5rem,10vw,9rem) 0}
+    .faq-inner{max-width:1360px;margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem);display:grid;grid-template-columns:300px 1fr;gap:clamp(3rem,6vw,8rem);align-items:start}
+    .faq-aside{position:sticky;top:5rem}
+    .faq-eyebrow{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c8-blue);margin-bottom:1rem}
+    .faq-h2{font-family:var(--font-heading);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:400;color:var(--c8-ink);letter-spacing:.02em;line-height:1.2;margin-bottom:1.5rem}
+    .faq-sub{font-family:var(--font-body);font-size:.85rem;font-weight:300;color:var(--c8-muted);line-height:1.7;margin-bottom:2rem}
+    .faq-cta-link{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-body);font-size:.82rem;font-weight:600;color:var(--c8-blue);text-decoration:none;transition:gap .2s}
+    .faq-cta-link:hover{gap:.7rem}
+    .faq-list{list-style:none}
+    .faq-item{border-bottom:1px solid var(--c8-line)}
+    .faq-item:first-child{border-top:1px solid var(--c8-line)}
+    .faq-trigger{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.4rem 0;text-align:left}
+    .faq-q{font-family:var(--font-body);font-size:clamp(.88rem,1.3vw,.95rem);font-weight:500;color:var(--c8-ink);line-height:1.4}
+    .faq-icon{width:28px;height:28px;border-radius:50%;border:1px solid var(--c8-line);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .25s,border-color .25s}
+    .faq-icon svg{transition:transform .35s cubic-bezier(.16,1,.3,1)}
+    .faq-item.is-open .faq-icon{background:var(--c8-blue);border-color:var(--c8-blue)}
+    .faq-item.is-open .faq-icon svg{transform:rotate(45deg);stroke:#fff}
+    .faq-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.16,1,.3,1)}
+    .faq-item.is-open .faq-body{grid-template-rows:1fr}
+    .faq-body-inner{overflow:hidden}
+    .faq-a{font-family:var(--font-body);font-size:.88rem;font-weight:300;line-height:1.75;color:var(--c8-muted);padding-bottom:1.4rem}
+    .faq-a a{color:var(--c8-blue);text-decoration:underline}
+    @media(max-width:900px){.faq-inner{grid-template-columns:1fr;gap:2.5rem}.faq-aside{position:static}}
+  </style>
+  <section class="faq-section" id="faq">
+    <div class="faq-inner">
+      <div class="faq-aside">
+        <div class="faq-eyebrow">Common Questions</div>
+        <h2 class="faq-h2">Before You Reach Out</h2>
+        <p class="faq-sub">Can't find what you're looking for? Just ask &mdash; no sales script, no pitch.</p>
+        <a href="/contact" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+      </div>
+      <ul class="faq-list" id="faq-list">
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">How much does it cost to work with Cr8v Stacks?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">It depends on scope &mdash; a brochure site, an ecommerce store, and a custom AI MVP all price differently. Use our <a href="/tools/cost-calculator">cost calculator</a> for an instant range, or talk to us directly for a full quote.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">How long does a typical project take?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Most website builds run a few weeks from approved design to launch; custom development and AI MVPs vary based on scope. We will give you a real timeline once we understand what you are building.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">What services do you actually offer?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Web design, AI MVP development, and custom development are our core focus &mdash; alongside brand strategy, brand identity, and digital marketing. See the full breakdown on our <a href="/services">Services page</a>.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Do you build on WordPress, Shopify, or something else?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">All of the above, plus WooCommerce and fully custom builds. We recommend the platform based on what your business needs, not what is easiest for us.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Which payment gateways do you integrate?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">This depends on your platform and region &mdash; we will confirm exact options (Stripe, Paystack, and others) once we know your setup.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Can you redesign or rebuild a site that already exists?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Yes &mdash; a large share of our work is exactly this. We have rebuilt everything from basic landing pages to full property platforms.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Is SEO included in a website build?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">We build with SEO in mind from day one rather than bolting it on afterward, and we also offer SEO as a standalone service if your site already exists.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">What support do you offer after launch?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Support scope varies by project &mdash; we will define exactly what is included before you sign off on anything, so there is no ambiguity post-launch.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Do you work with early-stage startups?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Yes, including AI MVP work specifically built to validate an early idea before a larger investment.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">What is your take on AI?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">We use AI to move faster on research and repetitive work. Direction, judgment, and quality control stay with our team on every project &mdash; AI does not lead the work, we do.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Why hire an agency instead of a freelancer?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">A freelancer is one person covering every discipline. We are a team where design, development, and strategy each get real, dedicated expertise instead of one person doing their best across all of them.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">What does Cr8v Stacks mean?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Creative Stacks. Every project is built from different stacks of expertise &mdash; strategy, design, development, and marketing &mdash; layered together rather than handled by one generalist.</p></div></div></li>
+      </ul>
+    </div>
+  </section>
+  <script>
+  (function(){
+    var list=document.getElementById('faq-list');
+    if(!list)return;
+    list.addEventListener('click',function(e){
+      var trigger=e.target.closest('.faq-trigger');
+      if(!trigger)return;
+      var item=trigger.closest('.faq-item');
+      var isOpen=item.classList.contains('is-open');
+      list.querySelectorAll('.faq-item.is-open').forEach(function(el){
+        el.classList.remove('is-open');
+        el.querySelector('.faq-trigger').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){item.classList.add('is-open');trigger.setAttribute('aria-expanded','true');}
+    });
+  })();
+  </script>
+
+  <!-- SECTION: FINAL CTA -->
+  <style>
+    .cta-section{background:var(--c8-blue);padding:clamp(5rem,10vw,8rem) 0;position:relative;overflow:hidden}
+    .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(255,255,255,.06) 0%,transparent 55%),radial-gradient(ellipse at 80% 30%,rgba(0,0,0,.15) 0%,transparent 60%);pointer-events:none}
+    .cta-section::after{content:'';position:absolute;top:-80px;right:-80px;width:440px;height:440px;border-radius:50%;border:1px solid rgba(255,255,255,.08);pointer-events:none}
+    .cta-inner{max-width:860px;margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem);text-align:center;position:relative;z-index:1}
+    .cta-eyebrow{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:1.4rem}
+    .cta-h2{font-family:var(--font-heading);font-size:clamp(2.2rem,5vw,4rem);font-weight:400;color:#fff;letter-spacing:.02em;line-height:1.1;margin-bottom:1.2rem}
+    .cta-desc{font-family:var(--font-body);font-size:clamp(.95rem,1.5vw,1.05rem);font-weight:300;color:rgba(255,255,255,.7);line-height:1.75;margin:0 auto 2.8rem;max-width:520px}
+    .cta-btns{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
+    .cta-btn-primary{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-body);font-size:.9rem;font-weight:600;color:var(--c8-blue);background:#fff;border-radius:10px;padding:.9rem 2rem;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+    .cta-btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.2)}
+    .cta-btn-primary svg{transition:transform .2s}.cta-btn-primary:hover svg{transform:translateX(3px)}
+    .cta-btn-ghost{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-body);font-size:.9rem;font-weight:500;color:rgba(255,255,255,.8);background:transparent;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:.9rem 2rem;text-decoration:none;transition:border-color .2s,color .2s,transform .2s}
+    .cta-btn-ghost:hover{border-color:rgba(255,255,255,.6);color:#fff;transform:translateY(-2px)}
+    .cta-footnote{margin-top:2.2rem;font-family:var(--font-body);font-size:.75rem;color:rgba(255,255,255,.38)}
+  </style>
+  <section class="cta-section" id="contact">
+    <div class="cta-inner">
+      <div class="cta-block">
+        <div class="cta-eyebrow">Schedule a Consultation</div>
+        <h2 class="cta-h2">Let's talk about your project.</h2>
+        <p class="cta-desc">No sales script &mdash; just a straight conversation about what your project needs and what it would cost.</p>
+        <div class="cta-btns">
+          <a href="/contact" class="cta-btn-primary">Book a Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+          <a href="/services" class="cta-btn-ghost">View All Services</a>
+        </div>
+        <p class="cta-footnote">Usually responds within 24 hours &nbsp;&middot;&nbsp; No commitment required</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

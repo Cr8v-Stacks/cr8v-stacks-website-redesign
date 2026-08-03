@@ -1,0 +1,1584 @@
+<div class="c8blog-root">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+/* Scoped under .c8blog-root to prevent Elementor/WordPress theme leakage */
+.c8blog-root, .c8blog-root * {
+  box-sizing: border-box !important;
+}
+.c8blog-root a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+.c8blog-root ul {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.c8blog-root button {
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* ── Header Shell ── */
+.c8blog-root .c8blog-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9500 !important;
+  background: #FAFAF7 !important;
+  border-bottom: 1px solid rgba(8,8,8,0.09) !important;
+  transition: box-shadow .3s !important;
+}
+.c8blog-root .c8blog-header.c8blog-scrolled {
+  box-shadow: 0 4px 40px rgba(0,0,0,0.07) !important;
+}
+
+/* ── WP Admin Bar Offset ── */
+body.admin-bar .c8blog-root .c8blog-header {
+  top: 32px !important;
+}
+body.admin-bar .c8blog-root .c8blog-mega, 
+body.admin-bar .c8blog-root .c8blog-mega-back {
+  top: calc(84px + 32px) !important; /* Header is 84px tall with the blog strip */
+}
+body.admin-bar .c8blog-root .c8blog-md-drawer, 
+body.admin-bar .c8blog-root .c8blog-md-overlay {
+  top: 32px !important;
+}
+@media (max-width: 782px) {
+  body.admin-bar .c8blog-root .c8blog-header {
+    top: 46px !important;
+  }
+  body.admin-bar .c8blog-root .c8blog-md-drawer, 
+  body.admin-bar .c8blog-root .c8blog-md-overlay {
+    top: 46px !important;
+  }
+}
+
+/* ── Blog Top Strip ── */
+.c8blog-root .c8blog-top-strip {
+  background: #080808 !important;
+  height: 32px !important;
+  border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+  display: flex !important;
+  align-items: center;
+}
+.c8blog-root .c8blog-strip-inner {
+  width: 100% !important;
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  padding: 0 3.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+@media (max-width: 1100px) {
+  .c8blog-root .c8blog-strip-inner {
+    padding: 0 1.25rem !important;
+  }
+}
+.c8blog-root .c8blog-strip-label {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 8.5px !important;
+  letter-spacing: 0.28em !important;
+  text-transform: uppercase !important;
+  color: rgba(250,250,247,0.45) !important;
+}
+.c8blog-root .c8blog-strip-label span {
+  color: #4A9EFF !important;
+}
+.c8blog-root .c8blog-strip-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+}
+.c8blog-root .c8blog-strip-link {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 8.5px !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: rgba(250,250,247,0.45) !important;
+  transition: color 0.2s !important;
+}
+.c8blog-root .c8blog-strip-link:hover {
+  color: #FAFAF7 !important;
+}
+
+/* ── Main Nav Row ── */
+.c8blog-root .c8blog-main-row {
+  height: 52px !important;
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  padding: 0 3.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1.5rem !important;
+}
+@media (max-width: 1100px) {
+  .c8blog-root .c8blog-main-row {
+    padding: 0 1.25rem !important;
+  }
+}
+
+/* Logo */
+.c8blog-root .c8blog-logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-shrink: 0 !important;
+}
+.c8blog-root .c8blog-logo-box {
+  width: 24px !important;
+  height: 24px !important;
+  background: #0047E1 !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+}
+.c8blog-root .c8blog-logo-box::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 4px !important;
+  left: 4px !important;
+  width: 10px !important;
+  height: 10px !important;
+  border: 1.5px solid #FAFAF7 !important;
+}
+.c8blog-root .c8blog-logo-box::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 3px !important;
+  right: 3px !important;
+  width: 7px !important;
+  height: 7px !important;
+  background: #FAFAF7 !important;
+}
+.c8blog-root .c8blog-logo-text {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 1.2rem !important;
+  letter-spacing: 0.1em !important;
+  color: #080808 !important;
+}
+.c8blog-root .c8blog-logo-text span {
+  color: #0047E1 !important;
+}
+
+/* Desktop Navigation */
+.c8blog-root .c8blog-nav {
+  display: flex !important;
+  align-items: center !important;
+}
+.c8blog-root .c8blog-nav-item {
+  position: static !important;
+}
+.c8blog-root .c8blog-nav-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: #080808 !important;
+  padding: 0 0.75rem !important;
+  height: 52px !important;
+  letter-spacing: .01em !important;
+  cursor: pointer !important;
+  position: relative !important;
+  transition: color .2s !important;
+  white-space: nowrap !important;
+  user-select: none !important;
+}
+.c8blog-root .c8blog-nav-link::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0.75rem !important;
+  right: 0.75rem !important;
+  height: 2px !important;
+  background: #0047E1 !important;
+  transform: scaleX(0) !important;
+  transform-origin: left !important;
+  transition: transform .25s cubic-bezier(.4,0,.2,1) !important;
+}
+.c8blog-root .c8blog-nav-link:hover, 
+.c8blog-root .c8blog-nav-link.c8blog-open {
+  color: #0047E1 !important;
+}
+.c8blog-root .c8blog-nav-link:hover::after, 
+.c8blog-root .c8blog-nav-link.c8blog-open::after {
+  transform: scaleX(1) !important;
+}
+.c8blog-root .c8blog-chev {
+  width: 11px !important;
+  height: 11px !important;
+  opacity: .45 !important;
+  transition: transform .22s ease, opacity .2s !important;
+  flex-shrink: 0 !important;
+}
+.c8blog-root .c8blog-nav-link.c8blog-open .c8blog-chev {
+  transform: rotate(180deg) !important;
+  opacity: 1 !important;
+}
+@media (max-width: 1100px) {
+  .c8blog-root .c8blog-nav {
+    display: none !important;
+  }
+}
+
+/* Header Right / Search & Hamburger */
+.c8blog-root .c8blog-hdr-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  flex-shrink: 0 !important;
+}
+.c8blog-root .c8blog-search-trigger {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 12px !important;
+  color: #6B6B6B !important;
+  background: #F4F3EE !important;
+  border: 1px solid rgba(8,8,8,0.09) !important;
+  padding: 6px 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  transition: background 0.15s !important;
+}
+.c8blog-root .c8blog-search-trigger:hover {
+  background: #EEF3FF !important;
+}
+.c8blog-root .c8blog-search-trigger svg {
+  width: 12px;
+  height: 12px;
+  stroke: #6B6B6B;
+  stroke-width: 2;
+  fill: none;
+}
+@media (max-width: 1100px) {
+  .c8blog-root .c8blog-search-trigger {
+    display: none !important;
+  }
+}
+
+.c8blog-root .c8blog-hbg {
+  display: none !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+  padding: 10px !important;
+  cursor: pointer !important;
+  background: none !important;
+  border: none !important;
+  margin-left: .25rem !important;
+}
+.c8blog-root .c8blog-hbg span {
+  display: block !important;
+  width: 22px !important;
+  height: 1.5px !important;
+  background: #080808 !important;
+  transition: all .25s !important;
+}
+.c8blog-root .c8blog-hbg.c8blog-open span:nth-child(1) {
+  transform: rotate(45deg) translate(4.5px, 4.5px) !important;
+}
+.c8blog-root .c8blog-hbg.c8blog-open span:nth-child(2) {
+  opacity: 0 !important;
+  transform: scaleX(0) !important;
+}
+.c8blog-root .c8blog-hbg.c8blog-open span:nth-child(3) {
+  transform: rotate(-45deg) translate(4.5px, -4.5px) !important;
+}
+@media (max-width: 1100px) {
+  .c8blog-root .c8blog-hbg {
+    display: flex !important;
+  }
+}
+
+/* ── Desktop Mega Menu Dropdowns ── */
+.c8blog-root .c8blog-mega-back {
+  position: fixed !important;
+  top: 84px !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(8,8,8,0.22) !important;
+  backdrop-filter: blur(3px) !important;
+  z-index: 9400 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity .3s ease !important;
+}
+.c8blog-root .c8blog-mega-back.c8blog-show {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.c8blog-root .c8blog-mega {
+  position: fixed !important;
+  top: 84px !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9450 !important;
+  background: #FAFAF7 !important;
+  border-bottom: 1px solid rgba(8,8,8,0.09) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1) !important;
+  transform: translateY(-6px) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: transform .3s cubic-bezier(.4,0,.2,1), opacity .25s ease !important;
+}
+.c8blog-root .c8blog-mega.c8blog-open {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+@media (max-width: 1100px) {
+  .c8blog-root .c8blog-mega, 
+  .c8blog-root .c8blog-mega-back {
+    display: none !important;
+  }
+}
+
+.c8blog-root .c8blog-mega-wrap {
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  padding: 0 3.5rem !important;
+  display: grid !important;
+}
+.c8blog-root .c8blog-cols-3 {
+  grid-template-columns: 1fr 1.3fr 1.2fr !important;
+}
+.c8blog-root .c8blog-cols-4 {
+  grid-template-columns: 1fr 1.2fr 1fr 1fr !important;
+}
+
+.c8blog-root .c8blog-mcol {
+  padding: 2.2rem 0 !important;
+  border-right: 1px solid rgba(8,8,8,0.09) !important;
+  padding-right: 2.2rem !important;
+}
+.c8blog-root .c8blog-mcol:not(:first-child) {
+  padding-left: 2.2rem !important;
+}
+.c8blog-root .c8blog-mcol:last-child {
+  border-right: none !important;
+}
+.c8blog-root .c8blog-mcol.c8blog-flush {
+  padding: 0 !important;
+}
+
+.c8blog-root .c8blog-mcol-label {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 8.5px !important;
+  letter-spacing: .35em !important;
+  text-transform: uppercase !important;
+  color: #0047E1 !important;
+  margin-bottom: 1.25rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+.c8blog-root .c8blog-mcol-label::before {
+  content: '' !important;
+  width: 16px !important;
+  height: 1px !important;
+  background: #0047E1 !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
+}
+
+/* Category header */
+.c8blog-root .c8blog-cat-header {
+  display: flex !important;
+  gap: 12px !important;
+  margin-bottom: 1.5rem !important;
+}
+.c8blog-root .c8blog-cat-icon {
+  width: 36px !important;
+  height: 36px !important;
+  background: #D6E2FF !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+.c8blog-root .c8blog-cat-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: #0047E1;
+  stroke-width: 1.75;
+  fill: none;
+}
+.c8blog-root .c8blog-cat-title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #080808 !important;
+  margin-bottom: 2px !important;
+}
+.c8blog-root .c8blog-cat-desc {
+  font-size: 11.5px !important;
+  color: #6B6B6B !important;
+  line-height: 1.4 !important;
+  font-weight: 300 !important;
+}
+
+/* Sub-links structure */
+.c8blog-root .c8blog-sublinks {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+.c8blog-root .c8blog-sublink {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 10px 0 !important;
+  border-bottom: 1px solid rgba(8,8,8,0.06) !important;
+  font-size: 13px !important;
+  color: #080808 !important;
+  transition: color 0.2s, padding-left 0.2s !important;
+}
+.c8blog-root .c8blog-sublink:last-child {
+  border-bottom: none !important;
+}
+.c8blog-root .c8blog-sublink:hover {
+  color: #0047E1 !important;
+  padding-left: 4px !important;
+}
+.c8blog-root .c8blog-sublink-arr {
+  font-size: 12px !important;
+  opacity: 0.3 !important;
+  transition: opacity 0.2s, transform 0.2s !important;
+}
+.c8blog-root .c8blog-sublink:hover .c8blog-sublink-arr {
+  opacity: 1 !important;
+  transform: translateX(3px) !important;
+}
+
+/* ── Service Upsell Card (Middle Panel) ── */
+.c8blog-root .c8blog-fp {
+  background: #080808 !important;
+  padding: 2.2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  min-height: 310px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  height: 100% !important;
+}
+.c8blog-root .c8blog-fp::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: radial-gradient(circle at 75% 25%, rgba(0,71,225,0.4) 0%, transparent 60%), 
+              radial-gradient(circle at 20% 80%, rgba(0,56,192,0.25) 0%, transparent 55%) !important;
+  z-index: 1 !important;
+}
+/* SVG Grain/Noise Overlay - Scoped and Clean (No slant lines) */
+.c8blog-root .c8blog-fp::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") !important;
+  background-size: 140px 140px !important;
+  mix-blend-mode: screen !important;
+  z-index: 2 !important;
+}
+.c8blog-root .c8blog-fp-tag {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 8.5px !important;
+  letter-spacing: .25em !important;
+  text-transform: uppercase !important;
+  color: rgba(0,160,255,0.85) !important;
+  margin-bottom: 12px !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+.c8blog-root .c8blog-fp-title {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 1.85rem !important;
+  line-height: .98 !important;
+  color: #FAFAF7 !important;
+  letter-spacing: .02em !important;
+  margin-bottom: 10px !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+.c8blog-root .c8blog-fp-meta {
+  font-size: 12px !important;
+  color: rgba(250,250,247,0.55) !important;
+  margin-bottom: 1.25rem !important;
+  position: relative !important;
+  z-index: 3 !important;
+  font-weight: 300 !important;
+  line-height: 1.55 !important;
+}
+.c8blog-root .c8blog-fp-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  color: #FAFAF7 !important;
+  border: 1px solid rgba(255,255,255,0.25) !important;
+  padding: 8px 14px !important;
+  position: relative !important;
+  z-index: 3 !important;
+  transition: background .2s, border-color .2s !important;
+  width: fit-content !important;
+}
+.c8blog-root .c8blog-fp-link:hover {
+  background: #0047E1 !important;
+  border-color: #0047E1 !important;
+}
+
+/* ── More Posts Column ── */
+.c8blog-root .c8blog-post-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+.c8blog-root .c8blog-post-item {
+  display: flex !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+  padding: 4px 0 !important;
+  transition: transform 0.2s !important;
+}
+.c8blog-root .c8blog-post-item:hover {
+  transform: translateX(3px) !important;
+}
+.c8blog-root .c8blog-post-num {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: #0047E1 !important;
+  opacity: 0.6 !important;
+  margin-top: 1px !important;
+}
+.c8blog-root .c8blog-post-info {
+  display: flex !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+}
+.c8blog-root .c8blog-post-tag {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 7.5px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.15em !important;
+  color: #6B6B6B !important;
+}
+.c8blog-root .c8blog-post-title {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #080808 !important;
+  line-height: 1.35 !important;
+  transition: color 0.15s !important;
+}
+.c8blog-root .c8blog-post-item:hover .c8blog-post-title {
+  color: #0047E1 !important;
+}
+.c8blog-root .c8blog-view-all {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  color: #0047E1 !important;
+  margin-top: 1rem !important;
+  transition: gap 0.2s !important;
+}
+.c8blog-root .c8blog-view-all:hover {
+  gap: 10px !important;
+  text-decoration: underline !important;
+}
+
+/* ══════════════════════════════════════════════
+   MOBILE DRAWER (elaborate - dark top / list body)
+   ══════════════════════════════════════════════ */
+.c8blog-root .c8blog-md-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(8,8,8,0.5) !important;
+  z-index: 9600 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity .3s !important;
+}
+.c8blog-root .c8blog-md-overlay.c8blog-show {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.c8blog-root .c8blog-md-drawer {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9700 !important;
+  background: #FAFAF7 !important;
+  transform: translateX(100%) !important;
+  transition: transform .38s cubic-bezier(.4,0,.2,1) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+.c8blog-root .c8blog-md-drawer.c8blog-open {
+  transform: translateX(0) !important;
+}
+
+/* Mobile Drawer Top Zone */
+.c8blog-root .c8blog-md-top {
+  background: #080808 !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding-bottom: 1.25rem !important;
+}
+.c8blog-root .c8blog-md-top::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: radial-gradient(circle at 85% 15%, rgba(0,71,225,0.45) 0%, transparent 55%), 
+              radial-gradient(circle at 10% 90%, rgba(0,56,192,0.2) 0%, transparent 50%) !important;
+  z-index: 1 !important;
+}
+.c8blog-root .c8blog-md-top::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") !important;
+  background-size: 140px 140px !important;
+  mix-blend-mode: screen !important;
+  z-index: 2 !important;
+}
+.c8blog-root .c8blog-md-top-bar {
+  height: 60px !important;
+  padding: 0 1.25rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+.c8blog-root .c8blog-md-top-logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 1.25rem !important;
+  letter-spacing: 0.1rem !important;
+  color: #FAFAF7 !important;
+}
+.c8blog-root .c8blog-md-top-logo span {
+  color: #4A9EFF !important;
+}
+
+/* Close Icon: Scoped, structured with solid stroke for Elementor pasting reliability */
+.c8blog-root .c8blog-md-close {
+  width: 34px !important;
+  height: 34px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  cursor: pointer !important;
+  transition: background .2s !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+}
+.c8blog-root .c8blog-md-close:hover {
+  background: rgba(255,255,255,0.16) !important;
+}
+.c8blog-root .c8blog-md-close svg {
+  width: 14px !important;
+  height: 14px !important;
+  display: block !important;
+}
+.c8blog-root .c8blog-md-close svg path {
+  stroke: #FAFAF7 !important;
+  stroke-width: 2px !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+/* Mobile Featured Article Pick (No Lagos/Nigeria mentions) */
+.c8blog-root .c8blog-md-feat {
+  padding: 1.25rem 1.25rem 0.5rem !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+.c8blog-root .c8blog-md-feat-tag {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 8px !important;
+  letter-spacing: 0.28em !important;
+  text-transform: uppercase !important;
+  color: #4A9EFF !important;
+  margin-bottom: 6px !important;
+}
+.c8blog-root .c8blog-md-feat-title {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 1.6rem !important;
+  line-height: 0.98 !important;
+  color: #FAFAF7 !important;
+  letter-spacing: 0.02em !important;
+  margin-bottom: 10px !important;
+}
+.c8blog-root .c8blog-md-feat-meta {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-size: 11px !important;
+  color: rgba(250,250,247,0.55) !important;
+}
+.c8blog-root .c8blog-md-feat-av {
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 50% !important;
+  background: rgba(0,71,225,0.6) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 8px !important;
+  font-weight: 700 !important;
+  color: #FAFAF7 !important;
+}
+
+/* Mobile Drawer Body */
+.c8blog-root .c8blog-md-body {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  background: #FAFAF7 !important;
+}
+.c8blog-root .c8blog-md-section-label {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 8px !important;
+  letter-spacing: .32em !important;
+  text-transform: uppercase !important;
+  color: #0047E1 !important;
+  padding: 1.25rem 1.25rem 0.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+.c8blog-root .c8blog-md-section-label::before {
+  content: '' !important;
+  width: 14px !important;
+  height: 1px !important;
+  background: #0047E1 !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+/* Accordion categories list */
+.c8blog-root .c8blog-md-cat-list {
+  padding: 0 1.25rem !important;
+}
+.c8blog-root .c8blog-md-cat-item {
+  display: flex !important;
+  align-items: center !important;
+  border-bottom: 1px solid rgba(8,8,8,0.08) !important;
+  text-decoration: none !important;
+  position: relative !important;
+  cursor: pointer !important;
+  background: transparent !important;
+  transition: background 0.2s !important;
+}
+.c8blog-root .c8blog-md-cat-item.c8blog-active {
+  background: #EEF3FF !important;
+  margin: 0 -1.25rem !important;
+  padding: 0 1.25rem !important;
+}
+.c8blog-root .c8blog-md-cat-accent {
+  width: 3px !important;
+  align-self: stretch !important;
+  background: transparent !important;
+  transition: background 0.2s !important;
+  margin-right: 12px !important;
+}
+.c8blog-root .c8blog-md-cat-item.c8blog-active .c8blog-md-cat-accent {
+  background: #0047E1 !important;
+}
+.c8blog-root .c8blog-md-cat-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex: 1 !important;
+  padding: 12px 0 !important;
+}
+.c8blog-root .c8blog-md-cat-left {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+.c8blog-root .c8blog-md-cat-name {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #080808 !important;
+  transition: color 0.2s !important;
+}
+.c8blog-root .c8blog-md-cat-item.c8blog-active .c8blog-md-cat-name {
+  color: #0047E1 !important;
+}
+.c8blog-root .c8blog-md-cat-subs {
+  font-size: 10px !important;
+  color: #6B6B6B !important;
+  font-weight: 300 !important;
+}
+.c8blog-root .c8blog-md-cat-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+.c8blog-root .c8blog-md-cat-arr {
+  width: 10px !important;
+  height: 10px !important;
+  stroke: #0047E1 !important;
+  stroke-width: 1.5 !important;
+  fill: none !important;
+  opacity: 0.3 !important;
+  transition: opacity 0.2s, transform 0.2s !important;
+}
+.c8blog-root .c8blog-md-cat-item.c8blog-active .c8blog-md-cat-arr {
+  opacity: 1 !important;
+  transform: rotate(180deg) !important;
+}
+
+/* Accordion Sub-Panel */
+.c8blog-root .c8blog-md-sub-panel {
+  display: none !important;
+  background: #F4F3EE !important;
+  padding: 6px 1.25rem 10px 1.85rem !important;
+  border-bottom: 1px solid rgba(8,8,8,0.06) !important;
+}
+.c8blog-root .c8blog-md-sub-panel.c8blog-expanded {
+  display: block !important;
+}
+.c8blog-root .c8blog-md-sub-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 8px 0 !important;
+  font-size: 13px !important;
+  color: #080808 !important;
+  transition: color 0.15s !important;
+}
+.c8blog-root .c8blog-md-sub-link::before {
+  content: '' !important;
+  width: 4px !important;
+  height: 4px !important;
+  border-radius: 50% !important;
+  background: #D6E2FF !important;
+  flex-shrink: 0 !important;
+  transition: background 0.15s !important;
+}
+.c8blog-root .c8blog-md-sub-link:hover {
+  color: #0047E1 !important;
+}
+.c8blog-root .c8blog-md-sub-link:hover::before {
+  background: #0047E1 !important;
+}
+
+/* Plain Links */
+.c8blog-root .c8blog-md-plain-links {
+  padding: 4px 1.25rem 8px !important;
+}
+.c8blog-root .c8blog-md-plain-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 12px 0 !important;
+  border-bottom: 1px solid rgba(8,8,8,0.08) !important;
+  font-size: 14.5px !important;
+  color: #080808 !important;
+  transition: color 0.15s, padding-left 0.15s !important;
+}
+.c8blog-root .c8blog-md-plain-link:last-child {
+  border-bottom: none !important;
+}
+.c8blog-root .c8blog-md-plain-link:hover {
+  color: #0047E1 !important;
+  padding-left: 5px !important;
+}
+.c8blog-root .c8blog-md-plain-arr {
+  font-size: 12px !important;
+  opacity: 0.3 !important;
+  transition: opacity 0.15s, transform 0.15s !important;
+}
+.c8blog-root .c8blog-md-plain-link:hover .c8blog-md-plain-arr {
+  opacity: 1 !important;
+  transform: translateX(3px) !important;
+  color: #0047E1 !important;
+}
+
+/* Drawer Footer */
+.c8blog-root .c8blog-md-foot {
+  padding: 1rem 1.25rem 1.5rem !important;
+  border-top: 1px solid rgba(8,8,8,0.08) !important;
+  background: #FAFAF7 !important;
+  flex-shrink: 0 !important;
+}
+.c8blog-root .c8blog-md-subscribe-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  height: 48px !important;
+  padding: 0 1.2rem !important;
+  background: #0047E1 !important;
+  color: #FAFAF7 !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500;
+  transition: background 0.2s !important;
+  margin-bottom: 12px !important;
+}
+.c8blog-root .c8blog-md-subscribe-btn:hover {
+  background: #0038C0 !important;
+}
+.c8blog-root .c8blog-md-subscribe-btn span {
+  font-size: 14px;
+}
+.c8blog-root .c8blog-md-back-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  font-size: 12px !important;
+  color: #6B6B6B !important;
+  font-weight: 300 !important;
+}
+.c8blog-root .c8blog-md-back-link a {
+  color: #080808 !important;
+  font-weight: 500 !important;
+}
+.c8blog-root .c8blog-md-back-link a:hover {
+  text-decoration: underline !important;
+}
+
+/* Stagger-in Animation */
+@keyframes c8blogSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.c8blog-root .c8blog-md-drawer.c8blog-open .c8blog-md-top,
+.c8blog-root .c8blog-md-drawer.c8blog-open .c8blog-md-section-label,
+.c8blog-root .c8blog-md-drawer.c8blog-open .c8blog-md-cat-list,
+.c8blog-root .c8blog-md-drawer.c8blog-open .c8blog-md-plain-links,
+.c8blog-root .c8blog-md-drawer.c8blog-open .c8blog-md-foot {
+  animation: c8blogSlideUp .36s cubic-bezier(.4,0,.2,1) both !important;
+}
+.c8blog-root .c8blog-md-drawer.c8blog-open .c8blog-md-top { animation-delay: .04s !important; }
+.c8blog-root .c8blog-md-drawer.c8blog-open .c8blog-md-section-label { animation-delay: .08s !important; }
+.c8blog-root .c8blog-md-drawer.c8blog-open .c8blog-md-cat-list { animation-delay: .12s !important; }
+.c8blog-root .c8blog-md-drawer.c8blog-open .c8blog-md-plain-links { animation-delay: .18s !important; }
+.c8blog-root .c8blog-md-drawer.c8blog-open .c8blog-md-foot { animation-delay: .22s !important; }
+</style>
+
+<!-- ── Backdrop for desktop mega dropdowns ── -->
+<div class="c8blog-mega-back" id="c8blog-mega-back"></div>
+
+<!-- ── Header ── -->
+<header class="c8blog-header" id="c8blog-header">
+  
+  <!-- Top Strip (Desktop) -->
+  <div class="c8blog-top-strip">
+    <div class="c8blog-strip-inner">
+      <span class="c8blog-strip-label">CR8V STACKS — <span>The Blog</span></span>
+      <div class="c8blog-strip-links">
+        <a href="https://cr8vstacks.com/" class="c8blog-strip-link">Main Site</a>
+        <a href="https://cr8vstacks.com/contact/" class="c8blog-strip-link">Subscribe</a>
+        <a href="https://cr8vstacks.com/services/" class="c8blog-strip-link">About</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Nav Bar -->
+  <div class="c8blog-main-row">
+    
+    <!-- Logo -->
+    <a href="https://cr8vstacks.com/blog/" class="c8blog-logo">
+      <div class="c8blog-logo-box"></div>
+      <span class="c8blog-logo-text">CR8V <span>BLOG</span></span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav>
+      <ul class="c8blog-nav" id="c8blog-nav">
+        
+        <li class="c8blog-nav-item">
+          <a href="https://cr8vstacks.com/" class="c8blog-nav-link">Home</a>
+        </li>
+
+        <li class="c8blog-nav-item" data-mega="c8blog-mega-brand">
+          <span class="c8blog-nav-link" tabindex="0">Brand Strategy
+            <svg class="c8blog-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
+        <li class="c8blog-nav-item" data-mega="c8blog-mega-biztips">
+          <span class="c8blog-nav-link" tabindex="0">Biz Tips
+            <svg class="c8blog-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
+        <li class="c8blog-nav-item" data-mega="c8blog-mega-digimkt">
+          <span class="c8blog-nav-link" tabindex="0">Digital Marketing
+            <svg class="c8blog-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
+        <li class="c8blog-nav-item">
+          <a href="https://cr8vstacks.com/career-planning/" class="c8blog-nav-link">Career Planning</a>
+        </li>
+
+        <li class="c8blog-nav-item">
+          <a href="https://cr8vstacks.com/content-creation/" class="c8blog-nav-link">Content Creation</a>
+        </li>
+
+        <li class="c8blog-nav-item" data-mega="c8blog-mega-webdesign">
+          <span class="c8blog-nav-link" tabindex="0">Web Design
+            <svg class="c8blog-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
+        <li class="c8blog-nav-item">
+          <a href="https://cr8vstacks.com/tutorials/" class="c8blog-nav-link">Tutorials</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right-Side CTA / Hamburger Trigger -->
+    <div class="c8blog-hdr-right">
+      <div class="c8blog-search-trigger">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        Search articles
+      </div>
+      <button class="c8blog-hbg" id="c8blog-hbg">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- ── MEGA: Brand Strategy ── -->
+<div class="c8blog-mega" id="c8blog-mega-brand">
+  <div class="c8blog-mega-wrap c8blog-cols-3">
+    
+    <!-- Sublinks -->
+    <div class="c8blog-mcol">
+      <div class="c8blog-cat-header">
+        <div class="c8blog-cat-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div>
+          <div class="c8blog-cat-title">Brand Strategy</div>
+          <div class="c8blog-cat-desc">Crafting a unique and memorable identity for your business.</div>
+        </div>
+      </div>
+      <div class="c8blog-sublinks">
+        <a href="https://cr8vstacks.com/business-brand-strategy/business-marketing/" class="c8blog-sublink">Business Marketing <span class="c8blog-sublink-arr">→</span></a>
+        <a href="https://cr8vstacks.com/business-brand-strategy/business-productivity/" class="c8blog-sublink">Business Productivity <span class="c8blog-sublink-arr">→</span></a>
+      </div>
+    </div>
+
+    <!-- Upsell Card (No Slant Line, Radial Gradients + SVG Noise) -->
+    <div class="c8blog-mcol c8blog-flush" style="border-right:1px solid rgba(8,8,8,0.09)">
+      <div class="c8blog-fp">
+        <div class="c8blog-fp-tag">↳ Brand Services</div>
+        <div class="c8blog-fp-title">BUILD A BRAND<br>CUSTOMERS<br>TRUST & CHOOSE</div>
+        <div class="c8blog-fp-meta">Get a professional, comprehensive brand strategy & visual design system to stand out from competitors.</div>
+        <a href="https://cr8vstacks.com/services/brand-strategy/" class="c8blog-fp-link">Get Brand Strategy →</a>
+      </div>
+    </div>
+
+    <!-- Recent Posts -->
+    <div class="c8blog-mcol">
+      <div class="c8blog-mcol-label">Recent Articles</div>
+      <div class="c8blog-post-list">
+        <a href="#" class="c8blog-post-item">
+          <div class="c8blog-post-num">01</div>
+          <div class="c8blog-post-info">
+            <div class="c8blog-post-tag">Marketing</div>
+            <div class="c8blog-post-title">5 Brand Strategy Mistakes Small Businesses Make</div>
+          </div>
+        </a>
+        <a href="#" class="c8blog-post-item">
+          <div class="c8blog-post-num">02</div>
+          <div class="c8blog-post-info">
+            <div class="c8blog-post-tag">Productivity</div>
+            <div class="c8blog-post-title">How Documented Workflows Boost Brand Consistency</div>
+          </div>
+        </a>
+        <a href="#" class="c8blog-post-item">
+          <div class="c8blog-post-num">03</div>
+          <div class="c8blog-post-info">
+            <div class="c8blog-post-tag">Marketing</div>
+            <div class="c8blog-post-title">Positioning Your Brand to Capture More Market Share</div>
+          </div>
+        </a>
+      </div>
+      <a href="https://cr8vstacks.com/business-brand-strategy/" class="c8blog-view-all">All Brand Strategy posts <span>→</span></a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── MEGA: Biz Tips ── -->
+<div class="c8blog-mega" id="c8blog-mega-biztips">
+  <div class="c8blog-mega-wrap c8blog-cols-3">
+    
+    <!-- Sublinks -->
+    <div class="c8blog-mcol">
+      <div class="c8blog-cat-header">
+        <div class="c8blog-cat-icon"><svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+        <div>
+          <div class="c8blog-cat-title">Biz Tips</div>
+          <div class="c8blog-cat-desc">Valuable growth tactics, operational tips, and software reviews.</div>
+        </div>
+      </div>
+      <div class="c8blog-sublinks">
+        <a href="https://cr8vstacks.com/business-tips/ecommerce-hub/" class="c8blog-sublink">Ecommerce Hub <span class="c8blog-sublink-arr">→</span></a>
+        <a href="https://cr8vstacks.com/business-tips/small-business-hub/" class="c8blog-sublink">Small Business Hub <span class="c8blog-sublink-arr">→</span></a>
+        <a href="https://cr8vstacks.com/business-tips/product-review/" class="c8blog-sublink">Product Review <span class="c8blog-sublink-arr">→</span></a>
+      </div>
+    </div>
+
+    <!-- Upsell Card (No Slant Line, Radial Gradients + SVG Noise) -->
+    <div class="c8blog-mcol c8blog-flush" style="border-right:1px solid rgba(8,8,8,0.09)">
+      <div class="c8blog-fp">
+        <div class="c8blog-fp-tag">↳ Business Scaling</div>
+        <div class="c8blog-fp-title">SCALE YOUR<br>OPERATIONS<br>&amp; ONLINE REVENUE</div>
+        <div class="c8blog-fp-meta">Ready to streamline your marketing, improve conversion rates, and build a high-performance business website?</div>
+        <a href="https://cr8vstacks.com/services/" class="c8blog-fp-link">Get Free Consultation →</a>
+      </div>
+    </div>
+
+    <!-- Recent Posts -->
+    <div class="c8blog-mcol">
+      <div class="c8blog-mcol-label">Recent Articles</div>
+      <div class="c8blog-post-list">
+        <a href="#" class="c8blog-post-item">
+          <div class="c8blog-post-num">01</div>
+          <div class="c8blog-post-info">
+            <div class="c8blog-post-tag">Ecommerce</div>
+            <div class="c8blog-post-title">A Step-by-Step Guide to Profitable E-commerce Stores</div>
+          </div>
+        </a>
+        <a href="#" class="c8blog-post-item">
+          <div class="c8blog-post-num">02</div>
+          <div class="c8blog-post-info">
+            <div class="c8blog-post-tag">Reviews</div>
+            <div class="c8blog-post-title">Best Cloud Accounting Tools for Growing Businesses</div>
+          </div>
+        </a>
+        <a href="#" class="c8blog-post-item">
+          <div class="c8blog-post-num">03</div>
+          <div class="c8blog-post-info">
+            <div class="c8blog-post-tag">Growth</div>
+            <div class="c8blog-post-title">10 Cost-Reduction Strategies That Protect Your Growth</div>
+          </div>
+        </a>
+      </div>
+      <a href="https://cr8vstacks.com/business-tips/" class="c8blog-view-all">All Biz Tips posts <span>→</span></a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── MEGA: Digital Marketing ── -->
+<div class="c8blog-mega" id="c8blog-mega-digimkt">
+  <div class="c8blog-mega-wrap c8blog-cols-4">
+    
+    <!-- Sublinks -->
+    <div class="c8blog-mcol">
+      <div class="c8blog-cat-header">
+        <div class="c8blog-cat-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div>
+          <div class="c8blog-cat-title">Digital Marketing</div>
+          <div class="c8blog-cat-desc">Strategies to acquire online traffic and increase customer acquisition.</div>
+        </div>
+      </div>
+      <div class="c8blog-sublinks">
+        <a href="https://cr8vstacks.com/digital-marketing-news/email-marketing/" class="c8blog-sublink">Email Marketing <span class="c8blog-sublink-arr">→</span></a>
+        <a href="https://cr8vstacks.com/digital-marketing-news/seo/" class="c8blog-sublink">SEO <span class="c8blog-sublink-arr">→</span></a>
+        <a href="https://cr8vstacks.com/digital-marketing-news/marketing-software/" class="c8blog-sublink">Marketing Software <span class="c8blog-sublink-arr">→</span></a>
+        <a href="https://cr8vstacks.com/digital-marketing-news/social-media-management/" class="c8blog-sublink">Social Media Management <span class="c8blog-sublink-arr">→</span></a>
+        <a href="https://cr8vstacks.com/digital-marketing-news/sem/" class="c8blog-sublink">SEM <span class="c8blog-sublink-arr">→</span></a>
+      </div>
+    </div>
+
+    <!-- Upsell Card (No Slant Line, Radial Gradients + SVG Noise) -->
+    <div class="c8blog-mcol c8blog-flush" style="border-right:1px solid rgba(8,8,8,0.09)">
+      <div class="c8blog-fp">
+        <div class="c8blog-fp-tag">↳ Marketing Services</div>
+        <div class="c8blog-fp-title">ACQUIRE MORE<br>CUSTOMERS &amp;<br>GROW SALES</div>
+        <div class="c8blog-fp-meta">Let us design and execute multi-channel digital campaigns (SEO, SEM, Paid Social, & Email) to accelerate your business.</div>
+        <a href="https://cr8vstacks.com/services/digital-marketing/" class="c8blog-fp-link">Explore Marketing Services →</a>
+      </div>
+    </div>
+
+    <!-- Recent Posts -->
+    <div class="c8blog-mcol">
+      <div class="c8blog-mcol-label">Recent Articles</div>
+      <div class="c8blog-post-list">
+        <a href="#" class="c8blog-post-item">
+          <div class="c8blog-post-num">01</div>
+          <div class="c8blog-post-info">
+            <div class="c8blog-post-tag">SEO</div>
+            <div class="c8blog-post-title">How We Scaled Organic Traffic for a Fintech Brand</div>
+          </div>
+        </a>
+        <a href="#" class="c8blog-post-item">
+          <div class="c8blog-post-num">02</div>
+          <div class="c8blog-post-info">
+            <div class="c8blog-post-tag">Social</div>
+            <div class="c8blog-post-title">Best Times to Publish Social Media Content</div>
+          </div>
+        </a>
+        <a href="#" class="c8blog-post-item">
+          <div class="c8blog-post-num">03</div>
+          <div class="c8blog-post-info">
+            <div class="c8blog-post-tag">Email</div>
+            <div class="c8blog-post-title">Creating Automated Email Flows That Capture Leads</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Trending Posts -->
+    <div class="c8blog-mcol">
+      <div class="c8blog-mcol-label">Trending Now</div>
+      <div class="c8blog-post-list">
+        <a href="#" class="c8blog-post-item">
+          <div class="c8blog-post-num">04</div>
+          <div class="c8blog-post-info">
+            <div class="c8blog-post-tag">SEM</div>
+            <div class="c8blog-post-title">A Step-by-Step Search Engine Ads Setup for Small Businesses</div>
+          </div>
+        </a>
+        <a href="#" class="c8blog-post-item">
+          <div class="c8blog-post-num">05</div>
+          <div class="c8blog-post-info">
+            <div class="c8blog-post-tag">Software</div>
+            <div class="c8blog-post-title">Top 5 Marketing Tools Agencies Are Using This Year</div>
+          </div>
+        </a>
+      </div>
+      <a href="https://cr8vstacks.com/digital-marketing-news/" class="c8blog-view-all">All Digital Marketing <span>→</span></a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── MEGA: Web Design ── -->
+<div class="c8blog-mega" id="c8blog-mega-webdesign">
+  <div class="c8blog-mega-wrap c8blog-cols-3">
+    
+    <!-- Sublinks -->
+    <div class="c8blog-mcol">
+      <div class="c8blog-cat-header">
+        <div class="c8blog-cat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div>
+          <div class="c8blog-cat-title">Web Design</div>
+          <div class="c8blog-cat-desc">Optimizing layout, UI design, WordPress/Shopify, and site performance.</div>
+        </div>
+      </div>
+      <div class="c8blog-sublinks">
+        <a href="https://cr8vstacks.com/web-design-and-development/ecommerce-website/" class="c8blog-sublink">Ecommerce Website <span class="c8blog-sublink-arr">→</span></a>
+        <a href="https://cr8vstacks.com/web-design-and-development/website-design-website-design/" class="c8blog-sublink">Website Design <span class="c8blog-sublink-arr">→</span></a>
+        <a href="https://cr8vstacks.com/web-design-and-development/shopify/" class="c8blog-sublink">Shopify <span class="c8blog-sublink-arr">→</span></a>
+        <a href="https://cr8vstacks.com/web-design-and-development/wordpress/" class="c8blog-sublink">WordPress <span class="c8blog-sublink-arr">→</span></a>
+        <a href="https://cr8vstacks.com/web-design-and-development/web-development/" class="c8blog-sublink">Web Development <span class="c8blog-sublink-arr">→</span></a>
+      </div>
+    </div>
+
+    <!-- Upsell Card (No Slant Line, Radial Gradients + SVG Noise) -->
+    <div class="c8blog-mcol c8blog-flush" style="border-right:1px solid rgba(8,8,8,0.09)">
+      <div class="c8blog-fp">
+        <div class="c8blog-fp-tag">↳ Dev Services</div>
+        <div class="c8blog-fp-title">GET A HIGHLY<br>CONVERTING &amp;<br>FAST WEBSITE</div>
+        <div class="c8blog-fp-meta">Our team builds stunning, fast, and SEO-optimized sites on WordPress &amp; Shopify to turn visitors into paying customers.</div>
+        <a href="https://cr8vstacks.com/services/website-design-development/" class="c8blog-fp-link">Get Web Design →</a>
+      </div>
+    </div>
+
+    <!-- Recent Posts -->
+    <div class="c8blog-mcol">
+      <div class="c8blog-mcol-label">Recent Articles</div>
+      <div class="c8blog-post-list">
+        <a href="#" class="c8blog-post-item">
+          <div class="c8blog-post-num">01</div>
+          <div class="c8blog-post-info">
+            <div class="c8blog-post-tag">WordPress</div>
+            <div class="c8blog-post-title">WordPress vs Webflow: Which Fits Your Operations?</div>
+          </div>
+        </a>
+        <a href="#" class="c8blog-post-item">
+          <div class="c8blog-post-num">02</div>
+          <div class="c8blog-post-info">
+            <div class="c8blog-post-tag">Shopify</div>
+            <div class="c8blog-post-title">How to Properly Configure a Shopify Store Step by Step</div>
+          </div>
+        </a>
+        <a href="#" class="c8blog-post-item">
+          <div class="c8blog-post-num">03</div>
+          <div class="c8blog-post-info">
+            <div class="c8blog-post-tag">UX/UI</div>
+            <div class="c8blog-post-title">10 Conversion-Killing Design Mistakes to Fix Today</div>
+          </div>
+        </a>
+      </div>
+      <a href="https://cr8vstacks.com/web-design-and-development/" class="c8blog-view-all">All Web Design posts <span>→</span></a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Mobile Drawer (Elaborate Category & Editorial Styling) ── -->
+<div class="c8blog-md-overlay" id="c8blog-md-overlay"></div>
+<div class="c8blog-md-drawer" id="c8blog-md-drawer">
+  
+  <!-- Dark Top Zone -->
+  <div class="c8blog-md-top">
+    <div class="c8blog-md-top-bar">
+      <div class="c8blog-md-top-logo">
+        <div class="c8blog-logo-box"></div>
+        CR8V <span>BLOG</span>
+      </div>
+      <!-- Highly visible Close Button scoped specifically for Elementor paste -->
+      <button class="c8blog-md-close" id="c8blog-md-close">
+        <svg viewBox="0 0 24 24">
+          <path d="M18 6L6 18M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Editor's Pick (No Lagos/Nigeria mentions) -->
+    <div class="c8blog-md-feat">
+      <div class="c8blog-md-feat-tag">↳ Editor's pick · Digital Marketing</div>
+      <div class="c8blog-md-feat-title">WHY YOUR BUSINESS NEEDS A DIGITAL-FIRST GROWTH STRATEGY THIS YEAR</div>
+      <div class="c8blog-md-feat-meta">
+        <div class="c8blog-md-feat-av">CK</div>
+        <span>Cr8v Editorial</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scrollable Category Body -->
+  <div class="c8blog-md-body">
+    
+    <div class="c8blog-md-section-label">Browse Categories</div>
+    
+    <div class="c8blog-md-cat-list">
+      
+      <!-- Accordion: Brand Strategy -->
+      <div class="c8blog-md-cat-item" data-accordion="brand">
+        <div class="c8blog-md-cat-accent"></div>
+        <div class="c8blog-md-cat-inner">
+          <div class="c8blog-md-cat-left">
+            <span class="c8blog-md-cat-name">Brand Strategy</span>
+            <span class="c8blog-md-cat-subs">Business Marketing · Productivity</span>
+          </div>
+          <div class="c8blog-md-cat-right">
+            <svg class="c8blog-md-cat-arr" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="c8blog-md-sub-panel" id="c8blog-panel-brand">
+        <a href="https://cr8vstacks.com/business-brand-strategy/business-marketing/" class="c8blog-md-sub-link">Business Marketing</a>
+        <a href="https://cr8vstacks.com/business-brand-strategy/business-productivity/" class="c8blog-md-sub-link">Business Productivity</a>
+      </div>
+
+      <!-- Accordion: Biz Tips -->
+      <div class="c8blog-md-cat-item" data-accordion="biztips">
+        <div class="c8blog-md-cat-accent"></div>
+        <div class="c8blog-md-cat-inner">
+          <div class="c8blog-md-cat-left">
+            <span class="c8blog-md-cat-name">Biz Tips</span>
+            <span class="c8blog-md-cat-subs">Ecommerce Hub · Small Business · Product Reviews</span>
+          </div>
+          <div class="c8blog-md-cat-right">
+            <svg class="c8blog-md-cat-arr" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="c8blog-md-sub-panel" id="c8blog-panel-biztips">
+        <a href="https://cr8vstacks.com/business-tips/ecommerce-hub/" class="c8blog-md-sub-link">Ecommerce Hub</a>
+        <a href="https://cr8vstacks.com/business-tips/small-business-hub/" class="c8blog-md-sub-link">Small Business Hub</a>
+        <a href="https://cr8vstacks.com/business-tips/product-review/" class="c8blog-md-sub-link">Product Review</a>
+      </div>
+
+      <!-- Accordion: Digital Marketing -->
+      <div class="c8blog-md-cat-item" data-accordion="digimkt">
+        <div class="c8blog-md-cat-accent"></div>
+        <div class="c8blog-md-cat-inner">
+          <div class="c8blog-md-cat-left">
+            <span class="c8blog-md-cat-name">Digital Marketing</span>
+            <span class="c8blog-md-cat-subs">Email · SEO · Marketing Software · Social · SEM</span>
+          </div>
+          <div class="c8blog-md-cat-right">
+            <svg class="c8blog-md-cat-arr" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="c8blog-md-sub-panel" id="c8blog-panel-digimkt">
+        <a href="https://cr8vstacks.com/digital-marketing-news/email-marketing/" class="c8blog-md-sub-link">Email Marketing</a>
+        <a href="https://cr8vstacks.com/digital-marketing-news/seo/" class="c8blog-md-sub-link">SEO</a>
+        <a href="https://cr8vstacks.com/digital-marketing-news/marketing-software/" class="c8blog-md-sub-link">Marketing Software</a>
+        <a href="https://cr8vstacks.com/digital-marketing-news/social-media-management/" class="c8blog-md-sub-link">Social Media Management</a>
+        <a href="https://cr8vstacks.com/digital-marketing-news/sem/" class="c8blog-md-sub-link">SEM</a>
+      </div>
+
+      <!-- Accordion: Web Design -->
+      <div class="c8blog-md-cat-item" data-accordion="webdesign">
+        <div class="c8blog-md-cat-accent"></div>
+        <div class="c8blog-md-cat-inner">
+          <div class="c8blog-md-cat-left">
+            <span class="c8blog-md-cat-name">Web Design</span>
+            <span class="c8blog-md-cat-subs">Ecommerce · Shopify · WordPress · Web Dev</span>
+          </div>
+          <div class="c8blog-md-cat-right">
+            <svg class="c8blog-md-cat-arr" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="c8blog-md-sub-panel" id="c8blog-panel-webdesign">
+        <a href="https://cr8vstacks.com/web-design-and-development/ecommerce-website/" class="c8blog-md-sub-link">Ecommerce Website</a>
+        <a href="https://cr8vstacks.com/web-design-and-development/website-design-website-design/" class="c8blog-md-sub-link">Website Design</a>
+        <a href="https://cr8vstacks.com/web-design-and-development/shopify/" class="c8blog-md-sub-link">Shopify</a>
+        <a href="https://cr8vstacks.com/web-design-and-development/wordpress/" class="c8blog-md-sub-link">WordPress</a>
+        <a href="https://cr8vstacks.com/web-design-and-development/web-development/" class="c8blog-md-sub-link">Web Development</a>
+      </div>
+
+    </div>
+
+    <!-- Plain Links (Career, Content, Tutorials) -->
+    <div class="c8blog-md-section-label" style="border-top:1px solid rgba(8,8,8,0.06);margin-top:0.5rem">Other Topics</div>
+    <div class="c8blog-md-plain-links">
+      <a href="https://cr8vstacks.com/career-planning/" class="c8blog-md-plain-link">Career Planning <span class="c8blog-md-plain-arr">→</span></a>
+      <a href="https://cr8vstacks.com/content-creation/" class="c8blog-md-plain-link">Content Creation <span class="c8blog-md-plain-arr">→</span></a>
+      <a href="https://cr8vstacks.com/tutorials/" class="c8blog-md-plain-link">Tutorials <span class="c8blog-md-plain-arr">→</span></a>
+    </div>
+
+  </div>
+
+  <!-- Drawer Footer -->
+  <div class="c8blog-md-foot">
+    <button class="c8blog-md-subscribe-btn">
+      Subscribe to Newsletter <span>→</span>
+    </button>
+    <div class="c8blog-md-back-link">
+      ← Back to <a href="https://cr8vstacks.com">cr8vstacks.com</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var header = document.getElementById('c8blog-header');
+  var back = document.getElementById('c8blog-mega-back');
+  var active = null, timer = null;
+
+  function open(id){
+    clearTimeout(timer);
+    var panel = document.getElementById(id);
+    if (active && active !== panel){
+      active.classList.remove('c8blog-open');
+      document.querySelectorAll('#c8blog-nav .c8blog-nav-link').forEach(function(l){ l.classList.remove('c8blog-open'); });
+    }
+    panel.classList.add('c8blog-open');
+    back.classList.add('c8blog-show');
+    active = panel;
+    document.querySelectorAll('[data-mega="'+id+'"] .c8blog-nav-link').forEach(function(l){ l.classList.add('c8blog-open'); });
+  }
+  
+  function close(immediate){
+    clearTimeout(timer);
+    var fn = function(){
+      if (active){ active.classList.remove('c8blog-open'); active = null; }
+      back.classList.remove('c8blog-show');
+      document.querySelectorAll('#c8blog-nav .c8blog-nav-link').forEach(function(l){ l.classList.remove('c8blog-open'); });
+    };
+    if (immediate) fn(); else timer = setTimeout(fn, 180);
+  }
+
+  // Bind desktop hover/click events
+  document.querySelectorAll('#c8blog-nav .c8blog-nav-item[data-mega]').forEach(function(item){
+    var link = item.querySelector('.c8blog-nav-link');
+    var id = item.getAttribute('data-mega');
+    link.addEventListener('mouseenter', function(){ open(id); });
+    link.addEventListener('click', function(){
+      if (active && active.id === id) close(true); else open(id);
+    });
+    item.addEventListener('mouseleave', function(){ close(false); });
+  });
+
+  document.querySelectorAll('.c8blog-mega').forEach(function(p){
+    p.addEventListener('mouseenter', function(){ clearTimeout(timer); });
+    p.addEventListener('mouseleave', function(){ close(false); });
+  });
+
+  back.addEventListener('click', function(){ close(true); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(true); });
+
+  window.addEventListener('scroll', function(){
+    header.classList.toggle('c8blog-scrolled', window.scrollY > 8);
+  });
+
+  /* ── Mobile Drawer Event Handlers ── */
+  var hbg = document.getElementById('c8blog-hbg');
+  var drawer = document.getElementById('c8blog-md-drawer');
+  var overlay = document.getElementById('c8blog-md-overlay');
+  var closeBtn = document.getElementById('c8blog-md-close');
+
+  function toggleDrawer(){
+    var isOpen = drawer.classList.toggle('c8blog-open');
+    overlay.classList.toggle('c8blog-show', isOpen);
+    hbg.classList.toggle('c8blog-open', isOpen);
+  }
+  
+  hbg.addEventListener('click', toggleDrawer);
+  closeBtn.addEventListener('click', toggleDrawer);
+  overlay.addEventListener('click', toggleDrawer);
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && drawer.classList.contains('c8blog-open')) toggleDrawer();
+  });
+
+  // Mobile drawer accordion toggling
+  document.querySelectorAll('.c8blog-root .c8blog-md-cat-item[data-accordion]').forEach(function(item) {
+    item.addEventListener('click', function() {
+      var id = this.getAttribute('data-accordion');
+      var panel = document.getElementById('c8blog-panel-' + id);
+      var isExpanded = panel.classList.contains('c8blog-expanded');
+      
+      // Close all sub-panels
+      document.querySelectorAll('.c8blog-root .c8blog-md-sub-panel').forEach(function(p) {
+        p.classList.remove('c8blog-expanded');
+      });
+      document.querySelectorAll('.c8blog-root .c8blog-md-cat-item').forEach(function(i) {
+        i.classList.remove('c8blog-active');
+      });
+
+      // Open clicked if it wasn't already open
+      if (!isExpanded) {
+        panel.classList.add('c8blog-expanded');
+        this.classList.add('c8blog-active');
+      }
+    });
+  });
+})();
+</script>
+</div>

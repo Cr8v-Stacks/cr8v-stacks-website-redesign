@@ -1,0 +1,494 @@
+Created At: 2026-07-07T11:01:04Z
+Completed At: 2026-07-07T11:01:04Z
+File Path: `file:///c:/Users/HP/Downloads/Mega%20Menu/Service%20Page/individual-service-website-design%20%283%29.html`
+Total Lines: 486
+Total Bytes: 40140
+Showing lines 1 to 486
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: <div class="c8isv-root">
+2: <style>
+3: @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
+4: 
+5: /* ═══════════════════════════════════════════
+6:    CR8V STACKS — INDIVIDUAL SERVICE PAGE v3.0
+7:    Website Design & Development
+8:    Kept: before/after compare, founder quote.
+9:    New: scroll-reversible "stack" family reused
+10:    twice (process steps, testimonial fan) — same
+11:    underlying mechanic as the About page's pinned
+12:    stack and the Services page's hover fan, just
+13:    reinterpreted. Plus pricing split + FAQ.
+14:    ═══════════════════════════════════════════ */
+15: .c8isv-root, .c8isv-root * { box-sizing: border-box !important; }
+16: .c8isv-root { background: #FFFFFF !important; color: #080808 !important; font-family: 'DM Sans', sans-serif !important; line-height: 1.65 !important; position: relative !important; }
+17: .c8isv-root .c8isv-wrap { padding: 4rem 3.5rem !important; max-width: 1440px !important; margin: 0 auto !important; position: relative !important; z-index: 2 !important; }
+18: @media (max-width: 1100px) { .c8isv-root .c8isv-wrap { padding: 3rem 1.25rem !important; } }
+19: .c8isv-root h1, .c8isv-root h2, .c8isv-root h3, .c8isv-root h4 { margin: 0 !important; font-weight: inherit !important; line-height: 1.1 !important; }
+20: .c8isv-root p { margin: 0 0 1rem 0 !important; }
+21: .c8isv-root p:last-child { margin-bottom: 0 !important; }
+22: .c8isv-root button { font-family: inherit !important; cursor: pointer !important; border: none !important; background: none !important; }
+23: .c8isv-root a { text-decoration: none !important; }
+24: 
+25: .c8isv-root .c8isv-breadcrumb { font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: .08em !important; text-transform: uppercase !important; color: #8A8A8A !important; margin-bottom: 1.5rem !important; display: flex !important; align-items: center !important; gap: 8px !important; }
+26: .c8isv-root .c8isv-breadcrumb a { color: #8A8A8A !important; }
+27: .c8isv-root .c8isv-breadcrumb a:hover { color: #0047E1 !important; }
+28: .c8isv-root .c8isv-breadcrumb span.is-current { color: #0047E1 !important; }
+29: 
+30: .c8isv-root .c8isv-label { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: .25em !important; text-transform: uppercase !important; color: #0047E1 !important; display: flex !important; align-items: center !important; gap: 10px !important; margin-bottom: 1.75rem !important; }
+31: .c8isv-root .c8isv-label::before { content: '—' !important; color: #0047E1 !important; font-weight: 700 !important; }
+32: .c8isv-root .c8isv-label.is-light { color: #7C93FF !important; }
+33: .c8isv-root .c8isv-label.is-light::before { color: #7C93FF !important; }
+34: 
+35: .c8isv-root .c8isv-tearline { display: flex !important; align-items: center !important; margin: 0 0 5rem 0 !important; }
+36: .c8isv-root .c8isv-tearline-dot { width: 9px !important; height: 9px !important; border-radius: 50% !important; background: #080808 !important; flex-shrink: 0 !important; }
+37: .c8isv-root .c8isv-tearline-line { flex: 1 !important; border-top: 1px dashed rgba(8,8,8,0.28) !important; margin: 0 10px !important; }
+38: 
+39: .c8isv-root .c8isv-reveal { opacity: 0 !important; transform: translateY(24px) !important; transition: opacity 0.7s cubic-bezier(.16,.8,.24,1), transform 0.7s cubic-bezier(.16,.8,.24,1) !important; }
+40: .c8isv-root .c8isv-reveal.is-visible { opacity: 1 !important; transform: translateY(0) !important; }
+41: .c8isv-root .c8isv-reveal-d1 { transition-delay: 0.08s !important; }
+42: .c8isv-root .c8isv-reveal-d2 { transition-delay: 0.16s !important; }
+43: @media (prefers-reduced-motion: reduce) { .c8isv-root .c8isv-reveal { opacity: 1 !important; transform: none !important; transition: none !important; } }
+44: 
+45: .c8isv-root .c8isv-explore { font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: .08em !important; text-transform: uppercase !important; color: #0047E1 !important; display: inline-flex !important; align-items: center !important; gap: 6px !important; transition: gap 0.2s ease !important; }
+46: .c8isv-root .c8isv-explore:hover { gap: 10px !important; }
+47: 
+48: .c8isv-root .c8isv-icon-sq { width: 40px !important; height: 40px !important; background: #0047E1 !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; }
+49: .c8isv-root .c8isv-icon-sq svg { width: 20px !important; height: 20px !important; stroke: #FFFFFF !important; }
+50: 
+51: .c8isv-root .c8isv-headline { font-family: 'Bebas Neue', sans-serif !important; font-size: clamp(2.6rem, 5.5vw, 4.6rem) !important; letter-spacing: 0.01em !important; line-height: 0.94 !important; text-transform: uppercase !important; }
+52: .c8isv-root .c8isv-section-title { font-family: 'Bebas Neue', sans-serif !important; font-size: clamp(1.8rem, 3vw, 2.5rem) !important; letter-spacing: 0.01em !important; text-transform: uppercase !important; margin-bottom: 1.25rem !important; }
+53: .c8isv-root .c8isv-lead { font-size: 16.5px !important; font-weight: 400 !important; color: #6B6B6B !important; max-width: 680px !important; line-height: 1.65 !important; }
+54: 
+55: /* ── Hero ── */
+56: .c8isv-root .c8isv-hero { position: relative !important; z-index: 2 !important; margin-bottom: 1rem !important; padding-top: 1rem !important; max-width: 760px !important; }
+57: .c8isv-root .c8isv-hero-intro { font-size: 17px !important; font-weight: 300 !important; color: #6B6B6B !important; margin-top: 1.5rem !important; line-height: 1.6 !important; }
+58: .c8isv-root .c8isv-pill-row { display: flex !important; flex-wrap: wrap !important; gap: 0.6rem !important; margin-top: 2.25rem !important; }
+59: .c8isv-root .c8isv-pill { border: 1px solid rgba(8,8,8,0.15) !important; background: #FFFFFF !important; padding: 8px 15px !important; font-size: 12px !important; font-weight: 500 !important; }
+60: 
+61: /* ── Overview ── */
+62: .c8isv-root .c8isv-overview { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 4rem !important; align-items: center !important; margin: 5rem 0 !important; }
+63: @media (max-width: 950px) { .c8isv-root .c8isv-overview { grid-template-columns: 1fr !important; gap: 2.5rem !important; } }
+64: .c8isv-root .c8isv-img-frame { border: 1px solid rgba(8,8,8,0.09) !important; background: #FFFFFF !important; padding: 12px !important; position: relative !important; box-shadow: 10px 10px 0px rgba(0,71,225,0.05) !important; }
+65: .c8isv-root .c8isv-img-frame img { width: 100% !important; height: auto !important; display: block !important; object-fit: cover !important; }
+66: .c8isv-root .c8isv-hud-tag { position: absolute !important; bottom: 20px !important; right: -10px !important; background: #080808 !important; color: #FAFAF7 !important; font-family: 'Space Mono', monospace !important; font-size: 8.5px !important; letter-spacing: 0.2em !important; text-transform: uppercase !important; padding: 6px 12px !important; border-top: 2px solid #0047E1 !important; z-index: 3 !important; }
+67: .c8isv-root .c8isv-overview-body { font-size: 14px !important; font-weight: 300 !important; color: #6B6B6B !important; line-height: 1.75 !important; }
+68: 
+69: /* ── Before/after drag comparison (kept) ── */
+70: .c8isv-root .c8isv-compare-outer { position: relative !important; z-index: 2 !important; margin-bottom: 6rem !important; }
+71: .c8isv-root .c8isv-compare-hint { font-family: 'Space Mono', monospace !important; font-size: 10.5px !important; letter-spacing: .12em !important; text-transform: uppercase !important; color: #0047E1 !important; text-align: center !important; margin-bottom: 1.25rem !important; }
+72: .c8isv-root .c8isv-compare { position: relative !important; width: 100% !important; aspect-ratio: 16/9 !important; overflow: hidden !important; border: 1px solid rgba(8,8,8,0.1) !important; user-select: none !important; cursor: ew-resize !important; touch-action: pan-y !important; }
+73: .c8isv-root .c8isv-compare-after, .c8isv-root .c8isv-compare-before { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; pointer-events: none !important; }
+74: .c8isv-root .c8isv-compare-before-wrap { position: absolute !important; top: 0 !important; left: 0 !important; height: 100% !important; width: 50% !important; overflow: hidden !important; }
+75: .c8isv-root .c8isv-compare-before-wrap img { max-width: none !important; }
+76: .c8isv-root .c8isv-compare-handle { position: absolute !important; top: 0 !important; bottom: 0 !important; left: 50% !important; width: 3px !important; background: #FFFFFF !important; transform: translateX(-50%) !important; box-shadow: 0 0 12px rgba(0,0,0,0.3) !important; }
+77: .c8isv-root .c8isv-compare-grip { position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%,-50%) !important; width: 44px !important; height: 44px !important; border-radius: 50% !important; background: #0047E1 !important; display: flex !important; align-items: center !important; justify-content: center !important; box-shadow: 0 6px 18px rgba(8,8,8,0.3) !important; }
+78: .c8isv-root .c8isv-compare-grip svg { width: 20px !important; height: 20px !important; stroke: #FFFFFF !important; }
+79: .c8isv-root .c8isv-compare-label { position: absolute !important; top: 1rem !important; font-family: 'Space Mono', monospace !important; font-size: 9.5px !important; letter-spacing: .12em !important; text-transform: uppercase !important; color: #FAFAF7 !important; background: rgba(8,8,8,0.55) !important; padding: 6px 12px !important; pointer-events: none !important; }
+80: .c8isv-root .c8isv-compare-label.is-left { left: 1rem !important; }
+81: .c8isv-root .c8isv-compare-label.is-right { right: 1rem !important; }
+82: 
+83: /* ── STACK FAMILY #1: Process steps un-stack on scroll (reversible) ── */
+84: .c8isv-root .c8isv-stack-outer { padding-top: 1rem !important; margin-bottom: 6rem !important; position: relative !important; z-index: 2 !important; }
+85: .c8isv-root .c8isv-stack-hint { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: .1em !important; text-transform: uppercase !important; color: #8A8A8A !important; margin: -0.5rem 0 2rem 0 !important; }
+86: .c8isv-root .c8isv-stack-row { display: grid !important; grid-template-columns: repeat(4,1fr) !important; gap: 1.5rem !important; }
+87: @media (max-width: 900px) { .c8isv-root .c8isv-stack-row { grid-template-columns: 1fr !important; gap: 1.25rem !important; } }
+88: .c8isv-root .c8isv-stack-card { background: #FFFFFF !important; border: 1px solid rgba(8,8,8,0.1) !important; padding: 2rem 1.75rem !important; will-change: transform, opacity !important; position: relative !important; }
+89: .c8isv-root .c8isv-stack-num { font-family: 'Space Mono', monospace !important; font-size: 10px !important; color: #0047E1 !important; letter-spacing: .1em !important; text-transform: uppercase !important; display: block !important; margin-bottom: 1.25rem !important; }
+90: .c8isv-root .c8isv-stack-title { font-family: 'Bebas Neue', sans-serif !important; font-size: 1.7rem !important; text-transform: uppercase !important; margin-bottom: 0.6rem !important; }
+91: .c8isv-root .c8isv-stack-desc { font-size: 12.5px !important; color: #6B6B6B !important; font-weight: 300 !important; line-height: 1.6 !important; }
+92: 
+93: /* ── Pricing split ── */
+94: .c8isv-root .c8isv-pricing-outer { padding-top: 1rem !important; margin-bottom: 1rem !important; position: relative !important; z-index: 2 !important; }
+95: .c8isv-root .c8isv-pricing-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 1.25rem !important; margin-top: 2.5rem !important; }
+96: @media (max-width: 900px) { .c8isv-root .c8isv-pricing-grid { grid-template-columns: 1fr !important; } }
+97: .c8isv-root .c8isv-price-card { padding: 2.75rem 2.25rem !important; display: flex !important; flex-direction: column !important; }
+98: .c8isv-root .c8isv-price-card.is-light { background: #F4F1EA !important; }
+99: .c8isv-root .c8isv-price-card.is-dark { background: #0A0E1F !important; color: #FAFAF7 !important; }
+100: .c8isv-root .c8isv-price-title { font-family: 'Bebas Neue', sans-serif !important; font-size: 1.9rem !important; text-transform: uppercase !important; margin-bottom: 0.6rem !important; }
+101: .c8isv-root .c8isv-price-card.is-dark .c8isv-price-title { color: #FAFAF7 !important; }
+102: .c8isv-root .c8isv-price-desc { font-size: 13.5px !important; font-weight: 300 !important; margin-bottom: 1.5rem !important; }
+103: .c8isv-root .c8isv-price-card.is-light .c8isv-price-desc { color: #6B6B6B !important; }
+104: .c8isv-root .c8isv-price-card.is-dark .c8isv-price-desc { color: rgba(250,250,247,0.65) !important; }
+105: .c8isv-root .c8isv-price-list { display: flex !important; flex-direction: column !important; gap: 0.85rem !important; margin-bottom: 2rem !important; flex-grow: 1 !important; }
+106: .c8isv-root .c8isv-price-item { display: flex !important; gap: 10px !important; font-size: 13px !important; font-weight: 300 !important; align-items: flex-start !important; }
+107: .c8isv-root .c8isv-price-check { flex-shrink: 0 !important; margin-top: 2px !important; color: #0047E1 !important; }
+108: .c8isv-root .c8isv-price-card.is-dark .c8isv-price-check { color: #7C93FF !important; }
+109: .c8isv-root .c8isv-price-btn { display: inline-flex !important; align-items: center !important; gap: 10px !important; font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: .08em !important; text-transform: uppercase !important; padding: 14px 24px !important; align-self: flex-start !important; }
+110: .c8isv-root .c8isv-price-card.is-light .c8isv-price-btn { background: #080808 !important; color: #FAFAF7 !important; }
+111: .c8isv-root .c8isv-price-card.is-dark .c8isv-price-btn { background: #0047E1 !important; color: #FFFFFF !important; }
+112: .c8isv-root .c8isv-pricing-note { font-size: 12.5px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-top: 1.75rem !important; max-width: 640px !important; }
+113: 
+114: /* ── STACK FAMILY #2: Testimonial fan (reversible) ── */
+115: .c8isv-root .c8isv-testi-outer { padding-top: 1rem !important; margin-bottom: 1rem !important; position: relative !important; z-index: 2 !important; }
+116: .c8isv-root .c8isv-testi-row { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1.5rem !important; margin-top: 3rem !important; align-items: center !important; }
+117: @media (max-width: 900px) { .c8isv-root .c8isv-testi-row { grid-template-columns: 1fr !important; gap: 1.25rem !important; } }
+118: .c8isv-root .c8isv-testi-card { background: #FFFFFF !important; border: 1px solid rgba(8,8,8,0.1) !important; padding: 2.25rem !important; box-shadow: 0 20px 40px rgba(8,8,8,0.06) !important; will-change: transform, opacity !important; }
+119: .c8isv-root .c8isv-testi-quote-mark { font-family: 'Bebas Neue', sans-serif !important; font-size: 2.5rem !important; color: #0047E1 !important; line-height: 0.5 !important; margin-bottom: 1rem !important; display: block !important; }
+120: .c8isv-root .c8isv-testi-text { font-size: 14.5px !important; font-weight: 400 !important; color: #080808 !important; line-height: 1.6 !important; margin-bottom: 1.5rem !important; }
+121: .c8isv-root .c8isv-testi-author { font-family: 'Space Mono', monospace !important; font-size: 10.5px !important; letter-spacing: .06em !important; text-transform: uppercase !important; color: #6B6B6B !important; border-top: 1px solid rgba(8,8,8,0.1) !important; padding-top: 1rem !important; }
+122: .c8isv-root .c8isv-testi-note { font-size: 12.5px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-top: 2rem !important; font-style: italic !important; }
+123: 
+124: /* ── Founder quote (kept) ── */
+125: .c8isv-root .c8isv-quote-outer { overflow-x: hidden !important; position: relative !important; z-index: 2 !important; margin: 6rem 0 !important; }
+126: .c8isv-root .c8isv-quote-breakout { width: 100vw !important; margin-left: 50% !important; transform: translateX(-50%) !important; background: linear-gradient(180deg, #050813 0%, #0A0E1F 100%) !important; padding: 5rem 3.5rem !important; position: relative !important; overflow: hidden !important; text-align: center !important; }
+127: @media (max-width: 700px) { .c8isv-root .c8isv-quote-breakout { padding: 3.5rem 1.5rem !important; } }
+128: .c8isv-root .c8isv-quote-glyph { font-family: 'Bebas Neue', sans-serif !important; font-size: 8rem !important; color: transparent !important; -webkit-text-stroke: 1.5px rgba(124,147,255,0.5) !important; line-height: 0.5 !important; margin-bottom: 1rem !important; }
+129: .c8isv-root .c8isv-quote-text { font-size: clamp(1.2rem, 2.4vw, 1.7rem) !important; font-weight: 300 !important; font-style: italic !important; color: #FAFAF7 !important; max-width: 780px !important; margin: 0 auto 1.25rem auto !important; line-height: 1.45 !important; }
+130: .c8isv-root .c8isv-quote-cite { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: .15em !important; text-transform: uppercase !important; color: #7C93FF !important; }
+131: 
+132: /* ── FAQ accordion (utility pattern, reused from Services page) ── */
+133: .c8isv-root .c8isv-faq-outer { padding-top: 1rem !important; position: relative !important; z-index: 2 !important; }
+134: .c8isv-root .c8isv-accordion { border-top: 1px solid rgba(8,8,8,0.1) !important; margin-top: 2.5rem !important; }
+135: .c8isv-root .c8isv-accordion-item { border-bottom: 1px solid rgba(8,8,8,0.1) !important; }
+136: .c8isv-root .c8isv-accordion-head { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important; }
+137: .c8isv-root .c8isv-accordion-title { font-family: 'Bebas Neue', sans-serif !important; font-size: 1.35rem !important; text-transform: uppercase !important; letter-spacing: 0.01em !important; }
+138: .c8isv-root .c8isv-accordion-toggle { width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important; }
+139: .c8isv-root .c8isv-accordion-toggle::before, .c8isv-root .c8isv-accordion-toggle::after { content: '' !important; position: absolute !important; background: #080808 !important; transition: transform 0.25s ease !important; }
+140: .c8isv-root .c8isv-accordion-toggle::before { width: 12px !important; height: 1px !important; }
+141: .c8isv-root .c8isv-accordion-toggle::after { width: 1px !important; height: 12px !important; }
+142: .c8isv-root .c8isv-accordion-item.is-open .c8isv-accordion-toggle::after { transform: rotate(90deg) !important; opacity: 0 !important; }
+143: .c8isv-root .c8isv-accordion-body { display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important; }
+144: .c8isv-root .c8isv-accordion-item.is-open .c8isv-accordion-body { grid-template-rows: 1fr !important; }
+145: .c8isv-root .c8isv-accordion-body-inner { overflow: hidden !important; }
+146: .c8isv-root .c8isv-accordion-desc { font-size: 14px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 680px !important; line-height: 1.7 !important; padding: 0 0.25rem 1.75rem 0.25rem !important; }
+147: 
+148: /* ── Related services ── */
+149: .c8isv-root .c8isv-related { padding-top: 5rem !important; position: relative !important; z-index: 2 !important; }
+150: .c8isv-root .c8isv-related-row { display: flex !important; flex-wrap: wrap !important; gap: 0.75rem 2rem !important; margin-top: 1.5rem !important; }
+151: .c8isv-root .c8isv-closing { padding-top: 3rem !important; padding-bottom: 1rem !important; }
+152: </style>
+153: 
+154: <div class="c8isv-wrap">
+155: 
+156:   <!-- ── Hero ── -->
+157:   <div class="c8isv-hero">
+158:     <div class="c8isv-breadcrumb"><a href="https://cr8vstacks.com/services/">Services</a><span>/</span><span class="is-current">Website Design &amp; Development</span></div>
+159:     <div class="c8isv-label">Primary Service</div>
+160:     <h1 class="c8isv-headline">Websites built to perform, not just look good.</h1>
+161:     <div class="c8isv-hero-intro">We design and build fast, custom websites that convert — no bloated themes, no generic templates. Every project pairs strategic UX with clean, lightweight code, so your site looks sharp and loads instantly, on WordPress, Shopify, WooCommerce, or a fully custom stack.</div>
+162:     <div class="c8isv-pill-row">
+163:       <span class="c8isv-pill">Strategy</span>
+164:       <span class="c8isv-pill">UX Design</span>
+165:       <span class="c8isv-pill">Custom Code</span>
+166:       <span class="c8isv-pill">SEO-Ready</span>
+167:       <span class="c8isv-pill">Launch Support</span>
+168:     </div>
+169:   </div>
+170: 
+171:   <!-- ── Overview ── -->
+172:   <div class="c8isv-overview">
+173:     <div class="c8isv-img-frame c8isv-reveal">
+174:       <img src="cr8v-wd-overview.png" alt="Custom website design in progress" onerror="this.src='https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800&auto=format&fit=crop'">
+175:       <div class="c8isv-hud-tag">// IN_PROGRESS</div>
+176:     </div>
+177:     <div class="c8isv-reveal c8isv-reveal-d1">
+178:       <div class="c8isv-label">How We Approach It</div>
+179:       <h2 class="c8isv-section-title">Design And Code, Built Together</h2>
+180:       <div class="c8isv-overview-body">
+181:         <p>Most agencies hand a finished design to a developer and hope it survives translation. We don't split the two — our designers and developers work the same project from day one, so what you approve in the mockup is exactly what ships.</p>
+182:         <p>That means every layout decision already accounts for load speed, every animation is scoped to code we know performs, and every page is structured with search visibility in mind before a single line of copy is written.</p>
+183:       </div>
+184:     </div>
+185:   </div>
+186: 
+187:   <!-- ── Before/after drag comparison (kept) ── -->
+188:   <div class="c8isv-compare-outer">
+189:     <div class="c8isv-label c8isv-reveal">See The Difference</div>
+190:     <h2 class="c8isv-section-title c8isv-reveal">Generic Template vs. Custom Build</h2>
+191:     <p class="c8isv-lead c8isv-reveal" style="margin-bottom: 2rem">Drag the slider — same content, completely different execution.</p>
+192:     <div class="c8isv-compare-hint">← Drag to compare →</div>
+193:     <div class="c8isv-compare" data-c8isv-compare>
+194:       <img class="c8isv-compare-after" src="cr8v-wd-after.png" alt="Custom-coded website" onerror="this.src='https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1200&auto=format&fit=crop'">
+195:       <div class="c8isv-compare-before-wrap" data-c8isv-compare-before-wrap>
+196:         <img class="c8isv-compare-before" src="cr8v-wd-before.png" alt="Generic template website" onerror="this.src='https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1200&auto=format&fit=crop'">
+197:       </div>
+198:       <span class="c8isv-compare-label is-left">Generic Template</span>
+199:       <span class="c8isv-compare-label is-right">Custom Build</span>
+200:       <div class="c8isv-compare-handle" data-c8isv-compare-handle>
+201:         <div class="c8isv-compare-grip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 8 3 12 7 16"/><polyline points="17 8 21 12 17 16"/></svg></div>
+202:       </div>
+203:     </div>
+204:   </div>
+205: 
+206:   <!-- ── STACK FAMILY #1: Process — un-stacks into a row as you scroll, reversible ── -->
+207:   <div class="c8isv-stack-outer">
+208:     <div class="c8isv-label c8isv-reveal">Our Process</div>
+209:     <h2 class="c8isv-section-title c8isv-reveal">From First Conversation To Launch Day</h2>
+210:     <div class="c8isv-stack-hint">↕ Scroll to watch it unfold</div>
+211:     <div class="c8isv-stack-row" data-c8isv-stack>
+212:       <div class="c8isv-stack-card" data-c8isv-stack-card="0">
+213:         <span class="c8isv-stack-num">Step 01</span>
+214:         <h3 class="c8isv-stack-title">Discover</h3>
+215:         <div class="c8isv-stack-desc">We audit your business goals, target audience, and competitors before any design decisions get made.</div>
+216:       </div>
+217:       <div class="c8isv-stack-card" data-c8isv-stack-card="1">
+218:         <span class="c8isv-stack-num">Step 02</span>
+219:         <h3 class="c8isv-stack-title">Design</h3>
+220:         <div class="c8isv-stack-desc">Wireframes and full visual design covering layout, navigation, and brand consistency — with room for your feedback.</div>
+221:       </div>
+222:       <div class="c8isv-stack-card" data-c8isv-stack-card="2">
+223:         <span class="c8isv-stack-num">Step 03</span>
+224:         <h3 class="c8isv-stack-title">Develop</h3>
+225:         <div class="c8isv-stack-desc">Lightweight custom code, built and tested against the approved design — no page-builder bloat along the way.</div>
+226:       </div>
+227:       <div class="c8isv-stack-card" data-c8isv-stack-card="3">
+228:         <span class="c8isv-stack-num">Step 04</span>
+229:         <h3 class="c8isv-stack-title">Launch</h3>
+230:         <div class="c8isv-stack-desc">Full cross-device testing, a review link for your sign-off, then a clean, monitored go-live.</div>
+231:       </div>
+232:     </div>
+233:   </div>
+234: 
+235:   <div class="c8isv-tearline"><div class="c8isv-tearline-dot"></div><div class="c8isv-tearline-line"></div><div class="c8isv-tearline-dot"></div></div>
+236: 
+237:   <!-- ── Pricing split ── -->
+238:   <div class="c8isv-pricing-outer">
+239:     <div class="c8isv-label c8isv-reveal">Investment</div>
+240:     <h2 class="c8isv-section-title c8isv-reveal">Two Ways To Work With Us</h2>
+241:     <p class="c8isv-lead c8isv-reveal">No published price list — every build is different, so every quote is scoped to match.</p>
+242:     <div class="c8isv-pricing-grid">
+243:       <div class="c8isv-price-card is-light c8isv-reveal">
+244:         <div class="c8isv-price-title">Project-Based</div>
+245:         <div class="c8isv-price-desc">A one-time engagement to design and build your site, start to finish.</div>
+246:         <div class="c8isv-price-list">
+247:           <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>New builds, redesigns, or platform migrations</div>
+248:           <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>Fixed timeline and deliverables, agreed up front</div>
+249:           <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>Clear sign-off points at every stage</div>
+250:         </div>
+251:         <a href="https://cr8vstacks.com/contact/" class="c8isv-price-btn">Get A Custom Quote</a>
+252:       </div>
+253:       <div class="c8isv-price-card is-dark c8isv-reveal c8isv-reveal-d1">
+254:         <div class="c8isv-price-title">Ongoing Partnership</div>
+255:         <div class="c8isv-price-desc">A monthly retainer for teams that need a standing technical partner.</div>
+256:         <div class="c8isv-price-list">
+257:           <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>Continued design, development &amp; optimization</div>
+258:           <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>Scoped around your team's actual workload</div>
+259:           <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>Priority turnaround, direct access to your lead</div>
+260:         </div>
+261:         <a href="https://cr8vstacks.com/contact/" class="c8isv-price-btn">Discuss A Retainer</a>
+262:       </div>
+263:     </div>
+264:     <div class="c8isv-pricing-note">We scope every engagement individually once we understand what you're building — that's the only way the number is actually honest. Tell us what you need and we'll come back with real numbers, fast.</div>
+265:   </div>
+266: 
+267:   <div class="c8isv-tearline" style="margin-top: 5rem !important;"><div class="c8isv-tearline-dot"></div><div class="c8isv-tearline-line"></div><div class="c8isv-tearline-dot"></div></div>
+268: 
+269:   <!-- ── STACK FAMILY #2: Testimonials fan out on scroll, reversible ── -->
+270:   <div class="c8isv-testi-outer">
+271:     <div class="c8isv-label c8isv-reveal">Client Feedback</div>
+272:     <h2 class="c8isv-section-title c8isv-reveal">Nice Things People Have Said</h2>
+273:     <div class="c8isv-testi-row" data-c8isv-testi>
+274:       <div class="c8isv-testi-card" data-c8isv-testi-card="0">
+275:         <span class="c8isv-testi-quote-mark">"</span>
+276:         <p class="c8isv-testi-text">[Placeholder] They understood what we actually needed, not just what we asked for. The site has already paid for itself.</p>
+277:         <div class="c8isv-testi-author">[Client Name] // [Company]</div>
+278:       </div>
+279:       <div class="c8isv-testi-card" data-c8isv-testi-card="1">
+280:         <span class="c8isv-testi-quote-mark">"</span>
+281:         <p class="c8isv-testi-text">[Placeholder] Fast, clean, and genuinely fast to load — our old site never came close on any of the three.</p>
+282:         <div class="c8isv-testi-author">[Client Name] // [Company]</div>
+283:       </div>
+284:       <div class="c8isv-testi-card" data-c8isv-testi-card="2">
+285:         <span class="c8isv-testi-quote-mark">"</span>
+286:         <p class="c8isv-testi-text">[Placeholder] Communicative, on schedule, and the handoff to our own team afterward was completely painless.</p>
+287:         <div class="c8isv-testi-author">[Client Name] // [Company]</div>
+288:       </div>
+289:     </div>
+290:     <div class="c8isv-testi-note">Placeholder quotes — swap all three for real client testimonials before publishing.</div>
+291:   </div>
+292: 
+293: </div>
+294: 
+295: <!-- ── Founder quote (kept) ── -->
+296: <div class="c8isv-quote-outer">
+297:   <div class="c8isv-quote-breakout">
+298:     <div class="c8isv-quote-glyph">"</div>
+299:     <p class="c8isv-quote-text c8isv-reveal">A website is the only piece of your marketing that's still working at 3am. If it's slow or confusing, it's costing you money whether you're watching or not.</p>
+300:     <div class="c8isv-quote-cite">Mallami Adekunle, Founder</div>
+301:   </div>
+302: </div>
+303: 
+304: <div class="c8isv-wrap">
+305: 
+306:   <!-- ── FAQ ── -->
+307:   <div class="c8isv-faq-outer">
+308:     <div class="c8isv-label c8isv-reveal">Straight Answers</div>
+309:     <h2 class="c8isv-section-title c8isv-reveal">Before You Ask</h2>
+310:     <p class="c8isv-lead c8isv-reveal">The questions we get asked most, answered without the corporate hedging.</p>
+311: 
+312:     <div class="c8isv-accordion" data-c8isv-accordion>
+313:       <div class="c8isv-accordion-item is-open">
+314:         <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+315:           <h3 class="c8isv-accordion-title">Do you work with early-stage startups?</h3>
+316:           <div class="c8isv-accordion-toggle"></div>
+317:         </div>
+318:         <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">For sure. Some of our best work has been with early-stage teams that need to explain what they've built before it goes to market. If you've got a product and need it to make sense to customers, investors, or partners, we can help — whether that's a from-scratch build or a rebrand of something already live.</div></div></div>
+319:       </div>
+320:       <div class="c8isv-accordion-item">
+321:         <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+322:           <h3 class="c8isv-accordion-title">How much does it cost to work with you?</h3>
+323:           <div class="c8isv-accordion-toggle"></div>
+324:         </div>
+325:         <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">We scope every project individually once we understand your goals and requirements — there's no one-size price because no two builds are the same. We also work on a retainer basis for teams that need ongoing support. Tell us what you're working on and we'll come back with real numbers, fast.</div></div></div>
+326:       </div>
+327:       <div class="c8isv-accordion-item">
+328:         <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+329:           <h3 class="c8isv-accordion-title">What makes your approach different?</h3>
+330:           <div class="c8isv-accordion-toggle"></div>
+331:         </div>
+332:         <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">Design and development aren't separate phases here — they happen in parallel, from the same team. Nothing gets lost in translation between what's designed and what's shipped, and every decision already accounts for speed, structure, and search visibility before it's built.</div></div></div>
+333:       </div>
+334:       <div class="c8isv-accordion-item">
+335:         <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+336:           <h3 class="c8isv-accordion-title">What do you think about AI?</h3>
+337:           <div class="c8isv-accordion-toggle"></div>
+338:         </div>
+339:         <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">It's a tool, not a strategy. We use it where it genuinely speeds things up — research, first-pass drafts, boilerplate code — but every build is reviewed, tested, and owned by an actual person on our team. We even offer it as a service (see AI MVP), but it's never a replacement for judgment.</div></div></div>
+340:       </div>
+341:       <div class="c8isv-accordion-item">
+342:         <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+343:           <h3 class="c8isv-accordion-title">Why hire you over a freelancer?</h3>
+344:           <div class="c8isv-accordion-toggle"></div>
+345:         </div>
+346:         <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">Freelancers are great for a specific, contained job. An agency gives you a full team — strategy, design, development, and project management — working under one system with one point of accountability. You're not coordinating five different people yourself, chasing updates, or hoping the handoffs between them go smoothly.</div></div></div>
+347:       </div>
+348:       <div class="c8isv-accordion-item">
+349:         <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+350:           <h3 class="c8isv-accordion-title">Why'd we name ourselves "Cr8v Stacks"?</h3>
+351:           <div class="c8isv-accordion-toggle"></div>
+352:         </div>
+353:         <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">"Cr8v" is the creative half — brand, design, the parts people actually see. "Stacks" is everything underneath: the technology stack, the layers of strategy, code, and content that make the creative work in the first place. The name's a reminder that we don't treat those as two different jobs — every project is judged on both at once.</div></div></div>
+354:       </div>
+355:     </div>
+356:   </div>
+357: 
+358:   <!-- ── Related services ── -->
+359:   <div class="c8isv-related">
+360:     <div class="c8isv-label c8isv-reveal">Related Services</div>
+361:     <div class="c8isv-related-row">
+362:       <a href="https://cr8vstacks.com/services/shopify-ecommerce-design/" class="c8isv-explore">Shopify <span>→</span></a>
+363:       <a href="https://cr8vstacks.com/services/wordpress-development/" class="c8isv-explore">WordPress <span>→</span></a>
+364:       <a href="https://cr8vstacks.com/services/woocommerce-development/" class="c8isv-explore">WooCommerce <span>→</span></a>
+365:       <a href="https://cr8vstacks.com/services/custom-web-development/" class="c8isv-explore">Custom Development <span>→</span></a>
+366:       <a href="https://cr8vstacks.com/services/brand-strategy/" class="c8isv-explore">Brand Strategy <span>→</span></a>
+367:     </div>
+368:   </div>
+369: 
+370:   <div class="c8isv-closing"></div>
+371: 
+372: </div>
+373: 
+374: <script>
+375: (function () {
+376:   var root = document.currentScript.closest('.c8isv-root');
+377:   if (!root || root.getAttribute('data-c8isv-init') === '1') return;
+378:   root.setAttribute('data-c8isv-init', '1');
+379: 
+380:   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+381:   var isMobile = window.innerWidth < 900;
+382: 
+383:   /* Reveal on scroll */
+384:   var revealEls = root.querySelectorAll('.c8isv-reveal');
+385:   if ('IntersectionObserver' in window && !reduceMotion) {
+386:     var io = new IntersectionObserver(function (entries) {
+387:       entries.forEach(function (entry) {
+388:         if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+389:       });
+390:     }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+391:     revealEls.forEach(function (el) { io.observe(el); });
+392:   } else {
+393:     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+394:   }
+395: 
+396:   /* ---- Shared "stack" mechanic: cards start stacked/rotated, un-stack into
+397:      final position as the container ratio increases, reversible both ways ---- */
+398:   function setupScrollStack(container, cards, getTransform) {
+399:     if (!container || !cards.length) return;
+400:     if (reduceMotion || isMobile) {
+401:       cards.forEach(function (card, i) { card.style.transform = getTransform(i, 1); card.style.opacity = '1'; });
+402:       return;
+403:     }
+404:     var thresholds = [];
+405:     for (var t = 0; t <= 40; t++) thresholds.push(t / 40);
+406:     var io = new IntersectionObserver(function (entries) {
+407:       entries.forEach(function (entry) {
+408:         var ratio = entry.intersectionRatio;
+409:         cards.forEach(function (card, i) {
+410:           var localT = Math.min(1, Math.max(0, ratio * 1.5 - i * 0.16));
+411:           card.style.transform = getTransform(i, localT);
+412:           card.style.opacity = String(0.35 + 0.65 * localT);
+413:         });
+414:       });
+415:     }, { threshold: thresholds });
+416:     io.observe(container);
+417:   }
+418: 
+419:   /* Process: each card slides in from behind card 0, rotating flat as it arrives */
+420:   var stackContainer = root.querySelector('[data-c8isv-stack]');
+421:   var stackCards = root.querySelectorAll('[data-c8isv-stack-card]');
+422:   setupScrollStack(stackContainer, stackCards, function (i, t) {
+423:     var startX = -100 * i;
+424:     var startRotate = i === 0 ? 0 : (i % 2 === 0 ? -7 : 7);
+425:     var x = startX * (1 - t);
+426:     var rot = startRotate * (1 - t);
+427:     var scale = 0.92 + 0.08 * t;
+428:     return 'translateX(' + x + '%) rotate(' + rot + 'deg) scale(' + scale + ')';
+429:   });
+430: 
+431:   /* Testimonials: side cards fan out from behind the center card */
+432:   var testiContainer = root.querySelector('[data-c8isv-testi]');
+433:   var testiCards = root.querySelectorAll('[data-c8isv-testi-card]');
+434:   var testiFinalRotate = [-3, 1, 4];
+435:   setupScrollStack(testiContainer, testiCards, function (i, t) {
+436:     var startX = i === 1 ? 0 : (i === 0 ? 100 : -100);
+437:     var x = startX * (1 - t);
+438:     var rot = testiFinalRotate[i] * t;
+439:     var scale = 0.9 + 0.1 * t;
+440:     return 'translateX(' + x + '%) rotate(' + rot + 'deg) scale(' + scale + ')';
+441:   });
+442: 
+443:   /* ---- Before/after drag comparison ---- */
+444:   var compare = root.querySelector('[data-c8isv-compare]');
+445:   if (compare) {
+446:     var beforeWrap = compare.querySelector('[data-c8isv-compare-before-wrap]');
+447:     var handle = compare.querySelector('[data-c8isv-compare-handle]');
+448:     var beforeImg = compare.querySelector('.c8isv-compare-before');
+449:     var dragging = false;
+450: 
+451:     function syncBeforeImgWidth() {
+452:       var rect = compare.getBoundingClientRect();
+453:       beforeImg.style.width = rect.width + 'px';
+454:     }
+455:     syncBeforeImgWidth();
+456:     window.addEventListener('resize', syncBeforeImgWidth);
+457: 
+458:     function setPct(pct) {
+459:       pct = Math.min(100, Math.max(0, pct));
+460:       beforeWrap.style.width = pct + '%';
+461:       handle.style.left = pct + '%';
+462:     }
+463:     function pctFromEvent(e) {
+464:       var rect = compare.getBoundingClientRect();
+465:       var x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+466:       return (x / rect.width) * 100;
+467:     }
+468:     compare.addEventListener('pointerdown', function (e) { dragging = true; setPct(pctFromEvent(e)); });
+469:     window.addEventListener('pointermove', function (e) { if (dragging) setPct(pctFromEvent(e)); });
+470:     window.addEventListener('pointerup', function () { dragging = false; });
+471:   }
+472: 
+473:   /* Accordion */
+474:   var accordionHeads = root.querySelectorAll('[data-c8isv-accordion-head]');
+475:   accordionHeads.forEach(function (head) {
+476:     head.addEventListener('click', function () {
+477:       var item = head.closest('.c8isv-accordion-item');
+478:       var wasOpen = item.classList.contains('is-open');
+479:       item.parentElement.querySelectorAll('.c8isv-accordion-item').forEach(function (i) { i.classList.remove('is-open'); });
+480:       if (!wasOpen) item.classList.add('is-open');
+481:     });
+482:   });
+483: })();
+484: </script>
+485: </div>
+486: 
+The above content shows the entire, complete file contents of the requested file.

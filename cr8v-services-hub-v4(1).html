@@ -1,0 +1,350 @@
+<!-- ══════════════════════════════════════════════════════════
+   CR8V STACKS — SERVICES HUB v4 (Our Services index page)
+   Paste into an Elementor HTML widget for the /services/ page.
+   Supersedes v3 — sidebar removed, hero rebuilt from scratch,
+   page reordered so Website Design & Development (the primary
+   service) and its build paths lead, other services follow,
+   comparison closes the page.
+
+   Reading order now:
+   1. Hero
+   2. Website Design & Development (lead service) + How We Build
+      paths, each with its own "Explore" link
+   3. Other Services grid (Brand Strategy, Content Writing,
+      Digital Marketing, Brand Identity)
+   4. WooCommerce vs Shopify comparison
+
+   SEO — set in Rank Math:
+   Title: Our Services | Website Design, Development, Content,
+          Marketing & Brand | Cr8v Stacks
+   H1:    "Build Your Stack." is the only H1 on the page.
+═══════════════════════════════════════════════════════════ -->
+<div class="c8so-root">
+<style>
+.c8so-root{
+  --ink:#080808; --paper:#FAFAF7; --off:#F2F1EC;
+  --blue:#0047E1; --blue-hi:#4A9EFF;
+  --gray:#6B6B6B; --line:rgba(8,8,8,.12); --line-lt:rgba(255,255,255,.14);
+  font-family:'DM Sans',sans-serif;
+}
+.c8so-root *,.c8so-root *::before,.c8so-root *::after{box-sizing:border-box;}
+.c8so-root a{color:inherit;text-decoration:none;}
+.c8so-in{max-width:1180px;margin:0 auto;padding:0 3.5rem;}
+.c8so-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--blue);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px;}
+.c8so-tag::before{content:'';width:18px;height:1px;background:var(--blue);}
+.c8so-tag.on-dark{color:var(--blue-hi);}
+.c8so-tag.on-dark::before{background:var(--blue-hi);}
+.c8so-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);line-height:.98;letter-spacing:.01em;margin-bottom:1rem;}
+
+/* ── HERO — animated blueprint grid + scanning beam + terminal cursor ── */
+.c8so-hero{background:var(--ink);position:relative;overflow:hidden;padding:7.5rem 0 6.5rem;}
+.c8so-hero-grid{position:absolute;inset:-20% -10%;background-image:linear-gradient(rgba(74,158,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(74,158,255,.14) 1px,transparent 1px);background-size:56px 56px;animation:c8so-grid-pan 14s linear infinite;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 30% 40%,#000 40%,transparent 85%);mask-image:radial-gradient(ellipse 70% 60% at 30% 40%,#000 40%,transparent 85%);}
+@keyframes c8so-grid-pan{from{transform:translate(0,0);}to{transform:translate(56px,56px);}}
+.c8so-hero-beam{position:absolute;top:0;bottom:0;width:26%;background:linear-gradient(90deg,transparent,rgba(74,158,255,.16),transparent);animation:c8so-sweep 7s ease-in-out infinite;pointer-events:none;}
+@keyframes c8so-sweep{0%{left:-30%;}50%{left:104%;}100%{left:-30%;}}
+.c8so-hero::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:140px 140px;mix-blend-mode:screen;pointer-events:none;}
+.c8so-hero-in{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 3.5rem;}
+.c8so-prompt{display:inline-flex;align-items:center;gap:2px;font-family:'Space Mono',monospace;font-size:12.5px;color:var(--blue-hi);background:rgba(0,0,0,.35);border:1px solid var(--line-lt);padding:9px 14px;margin-bottom:2rem;}
+.c8so-cursor{display:inline-block;width:7px;height:14px;background:var(--blue-hi);margin-left:6px;animation:c8so-blink 1s steps(1) infinite;}
+@keyframes c8so-blink{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+.c8so-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);line-height:.95;color:#fff;letter-spacing:.01em;margin-bottom:1.25rem;max-width:15ch;}
+.c8so-h1 span{color:var(--blue-hi);}
+.c8so-hero-lede{font-size:15.5px;line-height:1.65;color:rgba(255,255,255,.55);font-weight:300;max-width:52ch;margin-bottom:2.25rem;}
+.c8so-live{display:inline-flex;align-items:center;gap:10px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.05em;color:rgba(255,255,255,.6);}
+.c8so-live-dot{position:relative;width:7px;height:7px;border-radius:50%;background:#3ecf7a;flex:none;}
+.c8so-live-dot::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid #3ecf7a;animation:c8so-ping 2.2s ease-out infinite;}
+@keyframes c8so-ping{0%{transform:scale(.5);opacity:.9;}100%{transform:scale(2.6);opacity:0;}}
+.c8so-live-cycle{position:relative;display:inline-block;height:1.2em;min-width:16ch;}
+.c8so-live-cycle span{position:absolute;left:0;top:0;white-space:nowrap;color:#fff;opacity:0;animation:c8so-cycle 15s infinite;}
+.c8so-live-cycle span:nth-child(1){animation-delay:0s;}
+.c8so-live-cycle span:nth-child(2){animation-delay:3s;}
+.c8so-live-cycle span:nth-child(3){animation-delay:6s;}
+.c8so-live-cycle span:nth-child(4){animation-delay:9s;}
+.c8so-live-cycle span:nth-child(5){animation-delay:12s;}
+@keyframes c8so-cycle{0%,2%{opacity:0;transform:translateY(4px);}6%,15%{opacity:1;transform:translateY(0);}19%,100%{opacity:0;transform:translateY(-4px);}}
+
+/* ── Primary service (Website Design & Development) ── */
+.c8so-primary{padding:6rem 0 5rem;}
+.c8so-primary .c8so-h2{color:var(--ink);}
+.c8so-primary-lede{font-size:14.5px;color:var(--gray);font-weight:300;max-width:60ch;margin-bottom:2.5rem;}
+.c8so-lead-card{background:var(--ink);position:relative;padding:3rem;margin-bottom:2.5rem;}
+.c8so-lead-card::before,.c8so-lead-card::after{content:'';position:absolute;left:8px;right:8px;background:rgba(255,255,255,.05);z-index:-1;}
+.c8so-lead-card::before{bottom:-8px;left:16px;right:16px;background:rgba(255,255,255,.08);}
+.c8so-lead-card::after{bottom:-16px;left:24px;right:24px;background:rgba(255,255,255,.045);}
+.c8so-lead-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.75rem;}
+.c8so-lead-icon{width:48px;height:48px;border:1px solid var(--line-lt);display:flex;align-items:center;justify-content:center;color:var(--blue-hi);}
+.c8so-lead-icon svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.6;fill:none;}
+.c8so-lead-title{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:#fff;margin-bottom:.75rem;}
+.c8so-lead-desc{font-size:14px;line-height:1.65;color:rgba(255,255,255,.55);font-weight:300;max-width:64ch;margin-bottom:1.75rem;}
+.c8so-lead-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.75rem;}
+.c8so-lead-chip{padding:7px 12px;border:1px solid var(--line-lt);color:rgba(255,255,255,.75);font-size:11.5px;}
+.c8so-lead-cta{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:#fff;padding-top:1.5rem;border-top:1px solid var(--line-lt);width:100%;}
+.c8so-lead-cta svg{width:13px;height:13px;stroke:var(--blue-hi);stroke-width:2;fill:none;opacity:.7;transition:opacity .18s,transform .18s;}
+.c8so-lead-card:hover .c8so-lead-cta svg{opacity:1;transform:translateX(4px);}
+
+.c8so-paths{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.c8so-path{border:1px solid var(--line);padding:1.75rem 1.5rem;transition:border-color .2s;display:flex;flex-direction:column;}
+.c8so-path:hover{border-color:var(--blue);}
+.c8so-path-icon{width:38px;height:38px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--blue);margin-bottom:1.5rem;}
+.c8so-path-icon svg{width:17px;height:17px;stroke:currentColor;stroke-width:1.7;fill:none;}
+.c8so-path-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--ink);margin-bottom:.6rem;}
+.c8so-path-desc{font-size:13px;line-height:1.6;color:var(--gray);font-weight:300;margin-bottom:1.25rem;}
+.c8so-path-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem;}
+.c8so-path-tag{padding:5px 10px;border:1px solid var(--line);color:var(--gray);font-size:11px;}
+.c8so-path-best{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.08em;color:var(--blue);text-transform:uppercase;margin-bottom:1.25rem;}
+.c8so-path-cta{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;color:var(--ink);padding-top:1.1rem;border-top:1px solid var(--line);margin-top:auto;}
+.c8so-path-cta svg{width:12px;height:12px;stroke:var(--blue);stroke-width:2;fill:none;opacity:.6;transition:opacity .18s,transform .18s;}
+.c8so-path:hover .c8so-path-cta svg{opacity:1;transform:translateX(3px);}
+
+/* ── Other services grid ── */
+.c8so-others{background:var(--off);padding:6rem 0;}
+.c8so-others .c8so-h2{color:var(--ink);}
+.c8so-others-lede{font-size:14.5px;color:var(--gray);font-weight:300;max-width:60ch;margin-bottom:2.5rem;}
+.c8so-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+.c8so-card{background:var(--ink);position:relative;padding:2.25rem;display:flex;flex-direction:column;}
+.c8so-card::before,.c8so-card::after{content:'';position:absolute;left:6px;right:6px;background:rgba(255,255,255,.05);z-index:-1;}
+.c8so-card::before{bottom:-6px;left:12px;right:12px;background:rgba(255,255,255,.08);}
+.c8so-card::after{bottom:-12px;left:18px;right:18px;background:rgba(255,255,255,.045);}
+.c8so-card-icon{width:40px;height:40px;border:1px solid var(--line-lt);display:flex;align-items:center;justify-content:center;color:var(--blue-hi);margin-bottom:1.5rem;}
+.c8so-card-icon svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.6;fill:none;}
+.c8so-card-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.01em;color:#fff;margin-bottom:.6rem;}
+.c8so-card-lede{font-size:12.5px;line-height:1.55;color:rgba(255,255,255,.55);font-weight:300;margin-bottom:1.25rem;}
+.c8so-card-points{margin-bottom:1.25rem;flex:1;}
+.c8so-card-point{display:flex;gap:8px;align-items:flex-start;font-size:11.5px;color:rgba(255,255,255,.7);padding:.45rem 0;border-top:1px solid rgba(255,255,255,.08);}
+.c8so-card-point:first-child{border-top:none;}
+.c8so-card-point svg{flex:none;width:12px;height:12px;stroke:var(--blue-hi);stroke-width:2;fill:none;margin-top:2px;}
+.c8so-card-cta{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:#fff;padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.14);margin-top:auto;}
+.c8so-card-cta svg{width:12px;height:12px;stroke:var(--blue-hi);stroke-width:2;fill:none;opacity:.6;transition:opacity .18s,transform .18s;}
+.c8so-card:hover .c8so-card-cta svg{opacity:1;transform:translateX(4px);}
+.c8so-card:hover .c8so-card-icon{border-color:var(--blue-hi);}
+
+/* ── WooCommerce vs Shopify (full-bleed) ── */
+.c8so-vs{padding:6rem 0;}
+.c8so-vs .c8so-h2{color:var(--ink);}
+.c8so-vs-lede{font-size:14.5px;color:var(--gray);font-weight:300;max-width:60ch;margin-bottom:3rem;}
+.c8so-vs-head{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1.5rem;margin-bottom:2rem;}
+.c8so-vs-plat{text-align:center;}
+.c8so-vs-plat-name{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--ink);letter-spacing:.01em;}
+.c8so-vs-plat-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);margin-top:.4rem;}
+.c8so-vs-badge{width:64px;height:64px;border:1.5px dashed rgba(8,8,8,.32);border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;}
+.c8so-vs-badge span{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--blue);}
+.c8so-vs-table{border-top:1px solid var(--line);}
+.c8so-vs-row{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid var(--line);align-items:start;}
+.c8so-vs-cell{font-size:13.5px;line-height:1.55;color:var(--ink);}
+.c8so-vs-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);text-align:center;padding-top:.15rem;min-width:110px;}
+.c8so-vs-cell.right{text-align:right;}
+.c8so-vs-note{font-size:13px;color:var(--gray);font-weight:300;margin-top:2rem;max-width:70ch;}
+
+/* ── Responsive ── */
+@media (max-width:960px){
+  .c8so-in,.c8so-hero-in{padding:0 1.5rem;}
+  .c8so-hero-beam{display:none;}
+  .c8so-paths{grid-template-columns:1fr;}
+  .c8so-grid4{grid-template-columns:1fr 1fr;}
+  .c8so-vs-row{grid-template-columns:1fr;text-align:left;gap:.5rem;}
+  .c8so-vs-label{text-align:left;padding-top:0;}
+  .c8so-vs-cell.right{text-align:left;}
+}
+@media (max-width:600px){
+  .c8so-hero{padding:5rem 0 4rem;}
+  .c8so-primary,.c8so-others,.c8so-vs{padding-top:4rem;padding-bottom:4rem;}
+  .c8so-lead-card{padding:2rem 1.75rem;}
+  .c8so-grid4{grid-template-columns:1fr;}
+  .c8so-vs-head{grid-template-columns:1fr;text-align:center;}
+  .c8so-vs-badge{margin:0 auto;}
+}
+</style>
+
+<!-- ══════ HERO ══════ -->
+<section class="c8so-hero">
+  <div class="c8so-hero-grid"></div>
+  <div class="c8so-hero-beam"></div>
+  <div class="c8so-hero-in">
+    <div class="c8so-prompt">cr8v-stacks --services<span class="c8so-cursor"></span></div>
+    <h1 class="c8so-h1">Build Your <span>Stack.</span></h1>
+    <p class="c8so-hero-lede">Five services, built to work together — a website designed and built right, written right, found by the people you want, and backed by a brand that holds up.</p>
+    <div class="c8so-live">
+      <span class="c8so-live-dot"></span>
+      Currently taking on:
+      <span class="c8so-live-cycle">
+        <span>Website Projects</span>
+        <span>Brand Identity Work</span>
+        <span>Content Engagements</span>
+        <span>Marketing Retainers</span>
+        <span>Custom Builds</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PRIMARY SERVICE: WEBSITE DESIGN & DEVELOPMENT ══════ -->
+<section class="c8so-primary">
+  <div class="c8so-in">
+    <div class="c8so-tag">↳ Our Primary Service</div>
+    <h2 class="c8so-h2">Website Design &amp; Development</h2>
+    <p class="c8so-primary-lede">Everything else we do eventually points back to this. Here's the service itself, and the different ways we build it depending on what you need.</p>
+
+    <a href="https://cr8vstacks.com/services/website-design-development/" class="c8so-lead-card">
+      <div class="c8so-lead-top">
+        <span class="c8so-lead-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="0"/><path d="M3 8h18"/><path d="M8 21h8M12 17v4"/></svg></span>
+      </div>
+      <div class="c8so-lead-title">Website Design &amp; Development</div>
+      <p class="c8so-lead-desc">A site built the right way for what you actually need — WordPress and Elementor for most businesses, Shopify or WooCommerce to sell online, fully custom when off-the-shelf can't do the job, or an AI-assisted MVP when speed matters most.</p>
+      <div class="c8so-lead-chips">
+        <span class="c8so-lead-chip">WordPress</span>
+        <span class="c8so-lead-chip">Shopify</span>
+        <span class="c8so-lead-chip">WooCommerce</span>
+        <span class="c8so-lead-chip">Custom Development</span>
+        <span class="c8so-lead-chip">AI-Assisted MVP</span>
+      </div>
+      <span class="c8so-lead-cta">Explore Website Design &amp; Development <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <div class="c8so-paths">
+      <div class="c8so-path">
+        <span class="c8so-path-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16"/><path d="M3 9h18"/><circle cx="6.5" cy="6.5" r=".5" fill="currentColor"/></svg></span>
+        <div class="c8so-path-title">No-Code</div>
+        <p class="c8so-path-desc">Fast to build, cost-effective, and easy for you to manage afterward. The right fit for most business and e-commerce sites.</p>
+        <div class="c8so-path-tags">
+          <span class="c8so-path-tag">WordPress</span>
+          <span class="c8so-path-tag">Elementor</span>
+          <span class="c8so-path-tag">Shopify</span>
+          <span class="c8so-path-tag">WooCommerce</span>
+        </div>
+        <div class="c8so-path-best">Best for: business &amp; e-commerce sites</div>
+        <a href="https://cr8vstacks.com/contact-us/" class="c8so-path-cta">Explore No-Code <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="c8so-path">
+        <span class="c8so-path-icon"><svg viewBox="0 0 24 24"><path d="M8 4L2 12l6 8M16 4l6 8-6 8"/></svg></span>
+        <div class="c8so-path-title">Custom Development</div>
+        <p class="c8so-path-desc">Coded from scratch when a project needs something a CMS can't handle — bespoke web applications, integrations, and functionality built to spec.</p>
+        <div class="c8so-path-tags">
+          <span class="c8so-path-tag">Web Applications</span>
+          <span class="c8so-path-tag">API Integrations</span>
+        </div>
+        <div class="c8so-path-best">Best for: complex or non-standard products</div>
+        <a href="https://cr8vstacks.com/contact-us/" class="c8so-path-cta">Explore Custom Development <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="c8so-path">
+        <span class="c8so-path-icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg></span>
+        <div class="c8so-path-title">AI-Assisted MVP</div>
+        <p class="c8so-path-desc">Need to validate an idea fast? We use AI-assisted workflows to get a working MVP in front of real users quickly.</p>
+        <div class="c8so-path-tags">
+          <span class="c8so-path-tag">Rapid Prototyping</span>
+          <span class="c8so-path-tag">Founder-Led MVPs</span>
+        </div>
+        <div class="c8so-path-best">Best for: validating an idea fast</div>
+        <a href="https://cr8vstacks.com/contact-us/" class="c8so-path-cta">Explore AI-Assisted MVP <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ OTHER SERVICES ══════ -->
+<section class="c8so-others">
+  <div class="c8so-in">
+    <div class="c8so-tag">↳ Also Available</div>
+    <h2 class="c8so-h2">The Rest Of The Stack.</h2>
+    <p class="c8so-others-lede">Once the site's sorted, these are what usually come next — on their own or together.</p>
+    <div class="c8so-grid4">
+
+      <a href="https://cr8vstacks.com/services/brand-strategy/" class="c8so-card">
+        <span class="c8so-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.6" fill="currentColor"/></svg></span>
+        <div class="c8so-card-title">Brand Strategy</div>
+        <p class="c8so-card-lede">Make sure the site, copy, and marketing all say the same thing.</p>
+        <div class="c8so-card-points">
+          <div class="c8so-card-point"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Positioning &amp; messaging</div>
+          <div class="c8so-card-point"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Market research</div>
+        </div>
+        <span class="c8so-card-cta">Explore Brand Strategy <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a href="https://cr8vstacks.com/services/content-writing-services/" class="c8so-card">
+        <span class="c8so-card-icon"><svg viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 012-2h9l5 5v11a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><path d="M9 12h6M9 16h6M9 8h2"/></svg></span>
+        <div class="c8so-card-title">Content Writing</div>
+        <p class="c8so-card-lede">Copy written for the pages we design, not filled in after.</p>
+        <div class="c8so-card-points">
+          <div class="c8so-card-point"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Website &amp; landing copy</div>
+          <div class="c8so-card-point"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> SEO blog writing</div>
+        </div>
+        <span class="c8so-card-cta">Explore Content Writing <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a href="https://cr8vstacks.com/services/digital-marketing/" class="c8so-card">
+        <span class="c8so-card-icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
+        <div class="c8so-card-title">Digital Marketing</div>
+        <p class="c8so-card-lede">Get the finished site in front of the right people.</p>
+        <div class="c8so-card-points">
+          <div class="c8so-card-point"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> SEO &amp; search</div>
+          <div class="c8so-card-point"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Paid &amp; social campaigns</div>
+        </div>
+        <span class="c8so-card-cta">Explore Digital Marketing <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a href="https://cr8vstacks.com/services/brand-identity/" class="c8so-card">
+        <span class="c8so-card-icon"><svg viewBox="0 0 24 24"><path d="M6 4h12l3 5-9 11L3 9z"/><path d="M3 9h18M9 4l-2 5 5 11 5-11-2-5"/></svg></span>
+        <div class="c8so-card-title">Brand Identity</div>
+        <p class="c8so-card-lede">The logo, colour, and type system behind your brand.</p>
+        <div class="c8so-card-points">
+          <div class="c8so-card-point"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Logo &amp; visual identity</div>
+          <div class="c8so-card-point"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Brand guidelines</div>
+        </div>
+        <span class="c8so-card-cta">Explore Brand Identity <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════ WOOCOMMERCE VS SHOPIFY ══════ -->
+<section class="c8so-vs">
+  <div class="c8so-in">
+    <div class="c8so-tag">↳ Choosing a Platform</div>
+    <h2 class="c8so-h2">WooCommerce or Shopify?</h2>
+    <p class="c8so-vs-lede">Both are solid choices for selling online — the right one depends on how much control you want versus how little you want to manage. Here's the honest breakdown.</p>
+
+    <div class="c8so-vs-head">
+      <div class="c8so-vs-plat">
+        <div class="c8so-vs-plat-name">WooCommerce</div>
+        <div class="c8so-vs-plat-tag">Self-Hosted, WordPress</div>
+      </div>
+      <div class="c8so-vs-badge"><span>VS</span></div>
+      <div class="c8so-vs-plat">
+        <div class="c8so-vs-plat-name">Shopify</div>
+        <div class="c8so-vs-plat-tag">Fully Hosted</div>
+      </div>
+    </div>
+
+    <div class="c8so-vs-table">
+      <div class="c8so-vs-row">
+        <div class="c8so-vs-cell">You manage your own hosting — more control, but more responsibility.</div>
+        <div class="c8so-vs-label">Hosting</div>
+        <div class="c8so-vs-cell right">Fully managed for you — nothing to configure or maintain.</div>
+      </div>
+      <div class="c8so-vs-row">
+        <div class="c8so-vs-cell">No platform fee — you pay for hosting and any premium plugins you choose.</div>
+        <div class="c8so-vs-label">Cost Structure</div>
+        <div class="c8so-vs-cell right">Monthly subscription, plus transaction fees unless you use Shopify Payments.</div>
+      </div>
+      <div class="c8so-vs-row">
+        <div class="c8so-vs-cell">Extremely flexible — the entire WordPress plugin ecosystem is available to you.</div>
+        <div class="c8so-vs-label">Customization</div>
+        <div class="c8so-vs-cell right">Customizable within Shopify's app and theme ecosystem.</div>
+      </div>
+      <div class="c8so-vs-row">
+        <div class="c8so-vs-cell">More setup involved, and you're responsible for updates and security.</div>
+        <div class="c8so-vs-label">Ease of Setup</div>
+        <div class="c8so-vs-cell right">Faster to launch, built for people who don't want to touch the technical side.</div>
+      </div>
+      <div class="c8so-vs-row">
+        <div class="c8so-vs-cell">Scales well with the right hosting — content and commerce can live on one site.</div>
+        <div class="c8so-vs-label">Best For</div>
+        <div class="c8so-vs-cell right">A dedicated online store you want live fast with minimal upkeep.</div>
+      </div>
+    </div>
+
+    <p class="c8so-vs-note">Not sure which fits your business? Tell us what you're selling and how hands-on you want to be, and we'll recommend the right one — no pressure toward whichever is easier for us to build.</p>
+  </div>
+</section>
+
+</div>

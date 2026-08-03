@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cr8v Stacks — Digital Agency & Technical Architecture</title>
+<meta name="description" content="Cr8v Stacks is a high-performance digital engineering agency. We build bespoke web platforms, custom WooCommerce/Shopify applications, and search authority architectures.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Michroma&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap');
+
+/* ── Reset & System Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; background: #080808; color: #FAFAF7; font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+body { overflow-x: hidden; line-height: 1.6; }
+
+/* ── Color System Tokens ── */
+:root {
+  --brand-blue: #0047E1;
+  --brand-blue-hover: #0036AD;
+  --brand-blue-light: #7C93FF;
+  --bg-dark: #080808;
+  --bg-card-dark: #111111;
+  --bg-light: #FAFAF9;
+  --text-dark: #080808;
+  --text-light: #FAFAF7;
+  --text-muted: #8A8A8A;
+  --border-dark: rgba(255,255,255,0.1);
+  --border-light: rgba(8,8,8,0.1);
+}
+
+/* ── Typography & Editorial Components ── */
+.font-michroma { font-family: 'Michroma', sans-serif; text-transform: uppercase; }
+.font-mono { font-family: 'Space Mono', monospace; text-transform: uppercase; }
+.font-serif { font-family: 'Georgia', serif; font-style: italic; text-transform: none; }
+.font-bebas { font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; }
+
+.label-tag { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brand-blue-light); display: inline-flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+.label-tag::before { content: '—'; font-weight: 700; color: var(--brand-blue-light); }
+
+.editorial-header { font-family: 'Michroma', sans-serif; font-size: clamp(2rem, 5vw, 4.2rem); font-weight: 700; line-height: 1.08; letter-spacing: 0.01em; color: var(--text-light); text-transform: uppercase; margin-bottom: 2rem; }
+
+/* ── Outer Layout Wrappers ── */
+.container { max-width: 1440px; margin: 0 auto; padding: 0 3.5rem; }
+@media (max-width: 900px) { .container { padding: 0 1.25rem; } }
+
+/* ── HERO SECTION (Editorial Archive Style) ── */
+.hero-section { position: relative; min-height: 90vh; padding: 8rem 0 6rem 0; display: flex; align-items: center; background: radial-gradient(circle at 80% 20%, rgba(0,71,225,0.15) 0%, transparent 60%); border-bottom: 1px solid var(--border-dark); }
+.hero-archive-tag { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--brand-blue-light); border: 1px solid rgba(0,71,225,0.3); padding: 6px 14px; border-radius: 100px; display: inline-block; margin-bottom: 2rem; background: rgba(0,71,225,0.05); }
+.hero-title { font-family: 'Michroma', sans-serif; font-size: clamp(2.2rem, 5.5vw, 4.8rem); font-weight: 700; line-height: 1.05; letter-spacing: 0.01em; text-transform: uppercase; color: var(--text-light); margin-bottom: 2rem; max-width: 1100px; }
+.hero-lead { font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 300; color: rgba(250,250,247,0.7); max-width: 760px; margin-bottom: 3rem; line-height: 1.6; }
+
+.hero-cta-row { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+.btn-primary { background: var(--brand-blue); color: var(--text-light); font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 18px 36px; border-radius: 8px; text-decoration: none; transition: background 0.25s ease, transform 0.25s ease; display: inline-flex; align-items: center; gap: 10px; }
+.btn-primary:hover { background: var(--brand-blue-hover); transform: translateY(-2px); }
+.btn-ghost { background: transparent; color: var(--text-light); border: 1px solid var(--border-dark); font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 18px 32px; border-radius: 8px; text-decoration: none; transition: border-color 0.25s ease; }
+.btn-ghost:hover { border-color: var(--brand-blue-light); }
+
+/* ── TRUST BAR / CLIENT LOGOS ── */
+.trust-bar { padding: 3rem 0; border-bottom: 1px solid var(--border-dark); background: #050505; }
+.trust-title { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); text-align: center; margin-bottom: 1.5rem; }
+.trust-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3rem; opacity: 0.65; }
+.trust-logo-item { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.15em; font-weight: 700; color: var(--text-light); text-transform: uppercase; }
+
+/* ── FOCUS GRID (Core Capabilities) ── */
+.focus-section { padding: 8rem 0; background: var(--bg-dark); }
+.focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+@media (max-width: 900px) { .focus-grid { grid-template-columns: 1fr; } }
+
+.focus-card { background: var(--bg-card-dark); border: 1px solid var(--border-dark); border-radius: 16px; padding: 3rem 2.5rem; display: flex; flex-direction: column; transition: border-color 0.3s ease, transform 0.3s ease; }
+.focus-card:hover { border-color: var(--brand-blue-light); transform: translateY(-4px); }
+.focus-card-num { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--brand-blue-light); letter-spacing: 0.2em; margin-bottom: 1.5rem; }
+.focus-card-title { font-family: 'Michroma', sans-serif; font-size: 1.3rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; color: var(--text-light); }
+.focus-card-desc { font-size: 14.5px; color: rgba(250,250,247,0.65); font-weight: 300; line-height: 1.7; margin-bottom: 2rem; flex: 1; }
+.focus-card-link { font-family: 'Space Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-blue-light); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+
+/* ── ARCHIVE SHOWCASE (Editorial Magazine Feed) ── */
+.archive-section { padding: 8rem 0; background: #FAFAF9; color: var(--text-dark); }
+.archive-section .label-tag { color: var(--brand-blue); }
+.archive-section .label-tag::before { color: var(--brand-blue); }
+.archive-section .editorial-header { color: var(--text-dark); }
+
+.archive-item { display: grid; grid-template-columns: 100px 1.5fr 1fr; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border-light); align-items: center; }
+@media (max-width: 850px) { .archive-item { grid-template-columns: 1fr; gap: 1rem; } }
+.archive-year { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--brand-blue); font-weight: 700; }
+.archive-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3rem); text-transform: uppercase; letter-spacing: 0.02em; color: var(--text-dark); }
+.archive-meta { font-family: 'Space Mono', monospace; font-size: 10.5px; color: #6B6B6B; letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
+@media (max-width: 850px) { .archive-meta { text-align: left; } }
+
+/* ── HUMAN + AI WORKFLOW ── */
+.ai-section { padding: 8rem 0; background: #050813; border-top: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); }
+.ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 4rem; align-items: center; }
+@media (max-width: 900px) { .ai-grid { grid-template-columns: 1fr; } }
+.ai-box { background: rgba(255,255,255,0.03); border: 1px solid var(--border-dark); border-radius: 20px; padding: 3.5rem; }
+.ai-box-title { font-family: 'Michroma', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text-light); margin-bottom: 1.5rem; text-transform: uppercase; }
+.ai-box-text { font-size: 15px; color: rgba(250,250,247,0.7); font-weight: 300; line-height: 1.75; margin-bottom: 1.5rem; }
+
+/* ── FOOTER CTA ── */
+.footer-cta { padding: 8rem 0; text-align: center; background: linear-gradient(135deg, var(--brand-blue) 0%, #1A2EFF 100%); }
+.footer-cta-title { font-family: 'Michroma', sans-serif; font-size: clamp(1.8rem, 4vw, 3.2rem); font-weight: 700; color: #FFFFFF; text-transform: uppercase; margin-bottom: 1.5rem; }
+.footer-cta-sub { font-size: 18px; color: rgba(255,255,255,0.8); font-weight: 300; max-width: 600px; margin: 0 auto 3rem auto; }
+</style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container">
+      <span class="hero-archive-tag">ARCHIVE ISSUE 2026 // ENGINEERING &amp; DESIGN</span>
+      <h1 class="hero-title">High-Performance<br>Web Architecture <span class="font-serif">&amp; Strategy</span>.</h1>
+      <p class="hero-lead">We engineer custom web platforms, WooCommerce and Shopify applications, and entity search authority architectures for brands scaling revenue without technical compromises.</p>
+      <div class="hero-cta-row">
+        <a href="Main Service Page/services (2).html" class="btn-primary">Explore Capabilities &#x2192;</a>
+        <a href="about-us (1).html#founder" class="btn-ghost">Founder Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-title">Engineered for Fast-Growing Brands</div>
+      <div class="trust-logos">
+        <span class="trust-logo-item">BridgePoints</span>
+        <span class="trust-logo-item">Stride Plus Media</span>
+        <span class="trust-logo-item">blvck Hair NG</span>
+        <span class="trust-logo-item">Mkenny Properties</span>
+        <span class="trust-logo-item">Victoria's Lane</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE FOCUS GRID -->
+  <section class="focus-section">
+    <div class="container">
+      <div class="label-tag">Core Disciplines</div>
+      <h2 class="editorial-header">Engineered to <span class="font-serif">outperform</span></h2>
+      
+      <div class="focus-grid">
+        <!-- Card 1 -->
+        <div class="focus-card">
+          <div class="focus-card-num">01 // E-Commerce</div>
+          <h3 class="focus-card-title">Custom E-Commerce</h3>
+          <p class="focus-card-desc">Hand-coded WooCommerce PHP extensions and Shopify Liquid storefronts built for sub-1.5s checkout speeds and full data ownership.</p>
+          <a href="E-Commerce Service Page/index.html" class="focus-card-link">Explore E-Commerce &#x2192;</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="focus-card">
+          <div class="focus-card-num">02 // Development</div>
+          <h3 class="focus-card-title">Custom Development</h3>
+          <p class="focus-card-desc">Bespoke web applications, AI MVP prototypes, and clean REST API integrations built with zero builder overhead.</p>
+          <a href="Custom Dev Service Page/index.html" class="focus-card-link">Explore Engineering &#x2192;</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="focus-card">
+          <div class="focus-card-num">03 // Organic Reach</div>
+          <h3 class="focus-card-title">SEO &amp; Entity Search</h3>
+          <p class="focus-card-desc">Semantic keyword mapping, schema markup, and entity search optimization to build AI overview authority on Google &amp; Perplexity.</p>
+          <a href="SEO and Content Service Page/index.html" class="focus-card-link">Explore Growth &#x2192;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHIVE SHOWCASE -->
+  <section class="archive-section">
+    <div class="container">
+      <div class="label-tag">Featured Index</div>
+      <h2 class="editorial-header">Client Archives <span class="font-serif">&amp; Outcomes</span></h2>
+
+      <div class="archive-item">
+        <span class="archive-year">2026</span>
+        <h3 class="archive-title">SweeterMen NG — E-Commerce &amp; Performance Ads</h3>
+        <span class="archive-meta">WooCommerce // Custom Theme</span>
+      </div>
+
+      <div class="archive-item">
+        <span class="archive-year">2026</span>
+        <h3 class="archive-title">blvck Hair NG — E-Commerce Storefront</h3>
+        <span class="archive-meta">Shopify Liquid // Checkout Flow</span>
+      </div>
+
+      <div class="archive-item">
+        <span class="archive-year">2026</span>
+        <h3 class="archive-title">Mkenny Properties — Real Estate Platform</h3>
+        <span class="archive-meta">Custom Web Architecture</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HUMAN + AI WORKFLOW -->
+  <section class="ai-section">
+    <div class="container">
+      <div class="label-tag">Our Philosophy</div>
+      <h2 class="editorial-header">Human Expertise <span class="font-serif">Augmented by AI</span></h2>
+
+      <div class="ai-grid">
+        <div class="ai-box">
+          <h3 class="ai-box-title">Strategic Human Oversight</h3>
+          <p class="ai-box-text">AI tools cannot define brand positioning or feel user empathy. Every strategy, code review, and UX architecture is directed and refined by seasoned human engineers.</p>
+        </div>
+
+        <div class="ai-box">
+          <h3 class="ai-box-title">Accelerated Execution</h3>
+          <p class="ai-box-text">We leverage advanced AI code synthesis and research workflows to cut development cycles in half, delivering enterprise-grade quality in record time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta">
+    <div class="container">
+      <h2 class="footer-cta-title">Ready to build your next platform?</h2>
+      <p class="footer-cta-sub">Let's discuss your web architecture, e-commerce migration, or custom development requirements.</p>
+      <a href="https://cr8vstacks.com/contact/" class="btn-primary" style="background:#FFFFFF; color:#0047E1;">Start a Conversation &#x2192;</a>
+    </div>
+  </section>
+
+</body>
+</html>

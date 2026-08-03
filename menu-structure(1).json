@@ -1,0 +1,405 @@
+[
+    {
+        "id": 12152,
+        "label": "Blog",
+        "url": "https://cr8vstacks.com/blog/",
+        "target": "_self",
+        "description": "",
+        "icon_class": "",
+        "badge": "",
+        "depth": 0,
+        "children": []
+    },
+    {
+        "id": 11234,
+        "label": "Business Talk",
+        "url": "#",
+        "target": "_self",
+        "description": "",
+        "icon_class": "",
+        "badge": "",
+        "depth": 0,
+        "children": [
+            {
+                "id": 11235,
+                "label": "Business News",
+                "url": "https://cr8vstacks.com/categories/business-talk/business-news/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11236,
+                "label": "Startups",
+                "url": "https://cr8vstacks.com/categories/business-talk/startups/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11237,
+                "label": "Tech-News",
+                "url": "https://cr8vstacks.com/categories/business-talk/tech-news/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11238,
+                "label": "Investment crunch",
+                "url": "https://cr8vstacks.com/categories/business-talk/investment-crunch/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11239,
+                "label": "AI News",
+                "url": "https://cr8vstacks.com/categories/business-talk/ai-news/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11240,
+                "label": "Fintech",
+                "url": "https://cr8vstacks.com/categories/business-talk/fintech/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            }
+        ]
+    },
+    {
+        "id": 11241,
+        "label": "brand strategy",
+        "url": "https://cr8vstacks.com/business-brand-strategy/",
+        "target": "_self",
+        "description": "",
+        "icon_class": "",
+        "badge": "",
+        "depth": 0,
+        "children": [
+            {
+                "id": 11242,
+                "label": "business marketing",
+                "url": "https://cr8vstacks.com/business-brand-strategy/business-marketing/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            }
+        ]
+    },
+    {
+        "id": 11243,
+        "label": "Business Productivity",
+        "url": "https://cr8vstacks.com/business-brand-strategy/business-productivity/",
+        "target": "_self",
+        "description": "",
+        "icon_class": "",
+        "badge": "",
+        "depth": 0,
+        "children": []
+    },
+    {
+        "id": 11244,
+        "label": "Business Tips",
+        "url": "https://cr8vstacks.com/business-tips/",
+        "target": "_self",
+        "description": "",
+        "icon_class": "",
+        "badge": "",
+        "depth": 0,
+        "children": [
+            {
+                "id": 11245,
+                "label": "Ecommerce hub",
+                "url": "https://cr8vstacks.com/business-tips/ecommerce-hub/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11246,
+                "label": "Small Business Hub",
+                "url": "https://cr8vstacks.com/business-tips/small-business-hub/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            }
+        ]
+    },
+    {
+        "id": 11247,
+        "label": "Career Planning",
+        "url": "https://cr8vstacks.com/career-planning/",
+        "target": "_self",
+        "description": "",
+        "icon_class": "",
+        "badge": "",
+        "depth": 0,
+        "children": []
+    },
+    {
+        "id": 11248,
+        "label": "Content Creation",
+        "url": "https://cr8vstacks.com/content-creation/",
+        "target": "_self",
+        "description": "",
+        "icon_class": "",
+        "badge": "",
+        "depth": 0,
+        "children": [
+            {
+                "id": 11249,
+                "label": "Blogging",
+                "url": "https://cr8vstacks.com/content-creation/blogging/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11250,
+                "label": "Content Writing",
+                "url": "https://cr8vstacks.com/content-creation/content-writing/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            }
+        ]
+    },
+    {
+        "id": 11251,
+        "label": "digital marketing",
+        "url": "https://cr8vstacks.com/digital-marketing-news/",
+        "target": "_self",
+        "description": "",
+        "icon_class": "",
+        "badge": "",
+        "depth": 0,
+        "children": [
+            {
+                "id": 11252,
+                "label": "Email Marketing",
+                "url": "https://cr8vstacks.com/digital-marketing-news/email-marketing/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11253,
+                "label": "SEM",
+                "url": "https://cr8vstacks.com/digital-marketing-news/sem/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11254,
+                "label": "SEO",
+                "url": "https://cr8vstacks.com/digital-marketing-news/seo/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11255,
+                "label": "Social Media Management",
+                "url": "https://cr8vstacks.com/digital-marketing-news/social-media-management/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            }
+        ]
+    },
+    {
+        "id": 11258,
+        "label": "Web Design and Development",
+        "url": "https://cr8vstacks.com/web-design-and-development/",
+        "target": "_self",
+        "description": "",
+        "icon_class": "",
+        "badge": "",
+        "depth": 0,
+        "children": [
+            {
+                "id": 11259,
+                "label": "Ecommerce Website",
+                "url": "https://cr8vstacks.com/web-design-and-development/ecommerce-website/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11260,
+                "label": "Shopify",
+                "url": "https://cr8vstacks.com/web-design-and-development/shopify/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11261,
+                "label": "Web Development",
+                "url": "https://cr8vstacks.com/web-design-and-development/web-development/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11262,
+                "label": "Website Design",
+                "url": "https://cr8vstacks.com/web-design-and-development/website-design-website-design/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11263,
+                "label": "Wordpress",
+                "url": "https://cr8vstacks.com/web-design-and-development/wordpress/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            }
+        ]
+    },
+    {
+        "id": 11257,
+        "label": "Tutorials",
+        "url": "https://cr8vstacks.com/tutorials/",
+        "target": "_self",
+        "description": "",
+        "icon_class": "",
+        "badge": "",
+        "depth": 0,
+        "children": []
+    },
+    {
+        "id": 11264,
+        "label": "Guest post",
+        "url": "https://cr8vstacks.com/guest-post/",
+        "target": "_self",
+        "description": "",
+        "icon_class": "",
+        "badge": "",
+        "depth": 0,
+        "children": []
+    },
+    {
+        "id": 11265,
+        "label": "Our Services",
+        "url": "https://cr8vstacks.com/services/",
+        "target": "_self",
+        "description": "",
+        "icon_class": "",
+        "badge": "",
+        "depth": 0,
+        "children": [
+            {
+                "id": 11266,
+                "label": "Brand Strategy",
+                "url": "https://cr8vstacks.com/services/brand-strategy/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11267,
+                "label": "Digital Content Writing Services",
+                "url": "https://cr8vstacks.com/services/content-writing-services/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11268,
+                "label": "digital marketing",
+                "url": "https://cr8vstacks.com/services/digital-marketing/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            },
+            {
+                "id": 11270,
+                "label": "Website Design &#038; Development",
+                "url": "https://cr8vstacks.com/services/website-design-development/",
+                "target": "_self",
+                "description": "",
+                "icon_class": "",
+                "badge": "",
+                "depth": 1,
+                "children": []
+            }
+        ]
+    }
+]

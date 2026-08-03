@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Frame Inspector — Hero Sequence</title>
+  <style>
+    body { font-family: monospace; background: #111; color: #fff; padding: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; }
+    .card { background: #222; border: 1px solid #444; border-radius: 8px; overflow: hidden; text-align: center; padding-bottom: 8px; }
+    .card img { width: 100%; height: 130px; object-fit: cover; display: block; }
+    .label { font-size: 13px; font-weight: bold; margin-top: 6px; color: #00C6FF; }
+  </style>
+</head>
+<body>
+  <h2>Hero Sequence Frame Inspector (1 to 450)</h2>
+  <p>Scroll down to see frame numbers and visual landmarks.</p>
+  <div class="grid" id="grid"></div>
+
+  <script>
+    const grid = document.getElementById('grid');
+    for (let i = 1; i <= 450; i += 5) { // Every 5th frame
+      const num = String(i).padStart(5, '0');
+      const div = document.createElement('div');
+      div.className = 'card';
+      div.innerHTML = `
+        <img src="hero_sequence/${num}.jpg" alt="Frame ${i}">
+        <div class="label">Frame ${i}</div>
+      `;
+      grid.appendChild(div);
+    }
+  </script>
+</body>
+</html>

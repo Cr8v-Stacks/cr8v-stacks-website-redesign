@@ -1,0 +1,556 @@
+<div class="c8isv-root">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
+
+/* ═══════════════════════════════════════════════════
+   CR8V STACKS — ECOMMERCE SERVICE PAGE (WooCommerce + Shopify)
+   URL: /services/website-design-development/ecommerce-website-design/
+   ═══════════════════════════════════════════════════ */
+
+.c8isv-root, .c8isv-root * { box-sizing: border-box !important; }
+.c8isv-root {
+  overflow-x: clip !important;
+  background: #FFFFFF !important;
+  color: #080808 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  line-height: 1.65 !important;
+  position: relative !important;
+}
+.c8isv-root .c8isv-wrap {
+  padding: 5rem 3.5rem !important;
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+@media (max-width: 1100px) { .c8isv-root .c8isv-wrap { padding: 3rem 1.25rem !important; } }
+.c8isv-root h1, .c8isv-root h2, .c8isv-root h3 { margin: 0 !important; font-weight: inherit !important; line-height: 1.1 !important; }
+.c8isv-root p { margin: 0 0 1rem 0 !important; }
+.c8isv-root p:last-child { margin-bottom: 0 !important; }
+.c8isv-root a { text-decoration: none !important; }
+
+/* ── Design tokens ── */
+.c8isv-root .c8isv-label { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: .25em !important; text-transform: uppercase !important; color: #0047E1 !important; display: flex !important; align-items: center !important; gap: 10px !important; margin-bottom: 1.75rem !important; }
+.c8isv-root .c8isv-label::before { content: '—' !important; color: #0047E1 !important; font-weight: 700 !important; }
+.c8isv-root .c8isv-label.is-light { color: #7C93FF !important; }
+.c8isv-root .c8isv-label.is-light::before { color: #7C93FF !important; }
+.c8isv-root .c8isv-section-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.4rem, 2.5vw, 2.0rem) !important; font-weight: 700 !important; letter-spacing: 0.02em !important; color: #080808 !important; margin-bottom: 1.25rem !important; text-transform: uppercase !important; }
+.c8isv-root .c8isv-lead { font-size: 17px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.6 !important; }
+.c8isv-root .c8isv-serif { font-family: 'Georgia', serif !important; font-style: italic !important; text-transform: none !important; font-weight: 400 !important; }
+.c8isv-root .c8isv-tearline { display: flex !important; align-items: center !important; margin: 0 0 5rem 0 !important; }
+.c8isv-root .c8isv-tearline-dot { width: 9px !important; height: 9px !important; border-radius: 50% !important; background: #080808 !important; flex-shrink: 0 !important; }
+.c8isv-root .c8isv-tearline-line { flex: 1 !important; border-top: 1px dashed rgba(8,8,8,0.28) !important; margin: 0 10px !important; }
+.c8isv-root .c8isv-reveal { opacity: 0 !important; transform: translateY(24px) !important; transition: opacity 0.7s cubic-bezier(.16,.8,.24,1), transform 0.7s cubic-bezier(.16,.8,.24,1) !important; }
+.c8isv-root .c8isv-reveal.is-visible { opacity: 1 !important; transform: translateY(0) !important; }
+.c8isv-root .c8isv-reveal-d1 { transition-delay: 0.08s !important; }
+.c8isv-root .c8isv-reveal-d2 { transition-delay: 0.16s !important; }
+.c8isv-root .c8isv-reveal-d3 { transition-delay: 0.24s !important; }
+.c8isv-root .c8isv-reveal-d4 { transition-delay: 0.32s !important; }
+
+/* ── Breadcrumb ── */
+.c8isv-root .c8isv-breadcrumb { display: flex !important; align-items: center !important; gap: 8px !important; font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.12em !important; color: #6B6B6B !important; text-transform: uppercase !important; margin-bottom: 3rem !important; }
+.c8isv-root .c8isv-breadcrumb a { color: #0047E1 !important; }
+.c8isv-root .c8isv-breadcrumb-sep { color: rgba(8,8,8,0.25) !important; }
+
+/* ── Hero ── */
+.c8isv-root .c8isv-hero { margin-bottom: 6rem !important; }
+.c8isv-root .c8isv-hero-eyebrow { display: inline-flex !important; align-items: center !important; gap: 10px !important; background: #F0F4FF !important; border: 1px solid rgba(0,71,225,0.12) !important; border-radius: 100px !important; padding: 6px 16px !important; font-family: 'Space Mono', monospace !important; font-size: 9px !important; letter-spacing: 0.18em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 2rem !important; }
+.c8isv-root .c8isv-hero-eyebrow::before { content: '' !important; width: 6px !important; height: 6px !important; border-radius: 50% !important; background: #0047E1 !important; }
+.c8isv-root .c8isv-hero-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(2rem, 5vw, 3.6rem) !important; font-weight: 700 !important; letter-spacing: 0.02em !important; text-transform: uppercase !important; color: #080808 !important; line-height: 1.08 !important; margin-bottom: 2rem !important; max-width: 900px !important; }
+.c8isv-root .c8isv-hero-desc { font-size: 18px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 680px !important; line-height: 1.65 !important; margin-bottom: 2rem !important; }
+.c8isv-root .c8isv-hero-meta { display: flex !important; gap: 2rem !important; flex-wrap: wrap !important; margin-bottom: 2rem !important; }
+.c8isv-root .c8isv-hero-meta-item { display: flex !important; align-items: center !important; gap: 8px !important; font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; color: #080808 !important; }
+.c8isv-root .c8isv-hero-meta-dot { width: 6px !important; height: 6px !important; border-radius: 50% !important; background: #0047E1 !important; }
+.c8isv-root .c8isv-hero-cta-row { display: flex !important; gap: 1rem !important; flex-wrap: wrap !important; align-items: center !important; }
+.c8isv-root .c8isv-hero-cta { display: inline-flex !important; align-items: center !important; gap: 10px !important; background: #0047E1 !important; color: #FFFFFF !important; padding: 14px 28px !important; border-radius: 8px !important; font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; transition: background 0.2s ease, transform 0.2s ease !important; }
+.c8isv-root .c8isv-hero-cta:hover { background: #0038C0 !important; transform: translateY(-2px) !important; }
+.c8isv-root .c8isv-hero-cta-ghost { display: inline-flex !important; align-items: center !important; gap: 8px !important; color: #0047E1 !important; font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; border: 1px solid rgba(0,71,225,0.3) !important; padding: 14px 24px !important; border-radius: 8px !important; transition: border-color 0.2s ease !important; }
+.c8isv-root .c8isv-hero-cta-ghost:hover { border-color: #0047E1 !important; background: rgba(0,71,225,0.04) !important; }
+
+/* ── Platform Pills ── */
+.c8isv-root .c8isv-platform-row { display: flex !important; gap: 1rem !important; margin-bottom: 2rem !important; flex-wrap: wrap !important; }
+.c8isv-root .c8isv-platform-pill { display: inline-flex !important; align-items: center !important; gap: 8px !important; padding: 8px 20px !important; border-radius: 100px !important; font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; border: 1px solid rgba(8,8,8,0.12) !important; color: #080808 !important; }
+.c8isv-root .c8isv-platform-pill.is-woo { border-color: rgba(124,58,237,0.3) !important; color: #6B21A8 !important; }
+.c8isv-root .c8isv-platform-pill.is-shopify { border-color: rgba(0,166,80,0.3) !important; color: #008053 !important; }
+.c8isv-root .c8isv-platform-pill .pill-dot { width: 6px !important; height: 6px !important; border-radius: 50% !important; }
+.c8isv-root .c8isv-platform-pill.is-woo .pill-dot { background: #7C3AED !important; }
+.c8isv-root .c8isv-platform-pill.is-shopify .pill-dot { background: #00A650 !important; }
+
+/* ── Metrics Bar ── */
+.c8isv-root .c8isv-metrics-bar { display: grid !important; grid-template-columns: repeat(3,1fr) !important; border: 1px solid rgba(8,8,8,0.08) !important; border-radius: 16px !important; overflow: hidden !important; margin-bottom: 6rem !important; }
+@media (max-width: 768px) { .c8isv-root .c8isv-metrics-bar { grid-template-columns: 1fr !important; } }
+.c8isv-root .c8isv-metric-item { padding: 2.5rem 2rem !important; border-right: 1px solid rgba(8,8,8,0.08) !important; }
+.c8isv-root .c8isv-metric-item:last-child { border-right: none !important; }
+@media (max-width: 768px) { .c8isv-root .c8isv-metric-item { border-right: none !important; border-bottom: 1px solid rgba(8,8,8,0.08) !important; } }
+.c8isv-root .c8isv-metric-val { font-family: 'Michroma', sans-serif !important; font-size: clamp(2rem,4vw,3rem) !important; font-weight: 700 !important; color: #0047E1 !important; margin-bottom: 0.4rem !important; }
+.c8isv-root .c8isv-metric-lbl { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; color: #6B6B6B !important; }
+
+/* ── Flank (Why section) ── */
+.c8isv-root .c8isv-flank-section { margin-bottom: 6rem !important; }
+.c8isv-root .c8isv-flank-container { display: grid !important; grid-template-columns: 1fr 1fr 1fr !important; gap: 1.5rem !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-flank-container { grid-template-columns: 1fr !important; } }
+.c8isv-root .c8isv-flank-card { background: #FFFFFF !important; border: 1px solid rgba(8,8,8,0.1) !important; padding: 2.25rem 2rem !important; border-radius: 12px !important; will-change: transform,opacity !important; position: relative !important; display: flex !important; flex-direction: column !important; min-height: 320px !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-flank-card { min-height: auto !important; } }
+.c8isv-root .c8isv-flank-card-step { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 0.75rem !important; }
+.c8isv-root .c8isv-flank-card-divider { width: 32px !important; height: 2px !important; background: #0047E1 !important; margin-bottom: 1.25rem !important; }
+.c8isv-root .c8isv-flank-card-title { font-family: 'Michroma', sans-serif !important; font-size: 1rem !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.03em !important; margin-bottom: 1rem !important; color: #080808 !important; }
+.c8isv-root .c8isv-flank-card-body { font-size: 15px !important; font-weight: 300 !important; color: #6B6B6B !important; line-height: 1.7 !important; flex: 1 !important; }
+
+/* Flank card initial animation states */
+.c8isv-root .c8isv-flank-card:nth-child(1) { opacity: 0; transform: translate3d(-35px,55px,0) scale(0.94) rotate(-4deg); pointer-events: none; }
+.c8isv-root .c8isv-flank-card:nth-child(2) { opacity: 0; transform: translate3d(0,55px,0) scale(0.94); pointer-events: none; }
+.c8isv-root .c8isv-flank-card:nth-child(3) { opacity: 0; transform: translate3d(35px,55px,0) scale(0.94) rotate(4deg); pointer-events: none; }
+
+/* ── Platform Comparison ── */
+.c8isv-root .c8isv-compare-section { margin-bottom: 6rem !important; }
+.c8isv-root .c8isv-compare-header { margin-bottom: 3rem !important; }
+.c8isv-root .c8isv-compare-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-compare-grid { grid-template-columns: 1fr !important; } }
+.c8isv-root .c8isv-compare-card { border: 1px solid rgba(8,8,8,0.1) !important; border-radius: 20px !important; overflow: hidden !important; }
+.c8isv-root .c8isv-compare-head { padding: 2rem 2.5rem !important; display: flex !important; align-items: center !important; gap: 1rem !important; border-bottom: 1px solid rgba(8,8,8,0.08) !important; }
+.c8isv-root .c8isv-compare-card.is-woo .c8isv-compare-head { background: rgba(124,58,237,0.04) !important; }
+.c8isv-root .c8isv-compare-card.is-shopify .c8isv-compare-head { background: rgba(0,166,80,0.04) !important; }
+.c8isv-root .c8isv-compare-icon { width: 44px !important; height: 44px !important; border-radius: 10px !important; display: flex !important; align-items: center !important; justify-content: center !important; font-family: 'Space Mono', monospace !important; font-size: 11px !important; font-weight: 700 !important; flex-shrink: 0 !important; }
+.c8isv-root .c8isv-compare-card.is-woo .c8isv-compare-icon { background: #7C3AED !important; color: #fff !important; }
+.c8isv-root .c8isv-compare-card.is-shopify .c8isv-compare-icon { background: #00A650 !important; color: #fff !important; }
+.c8isv-root .c8isv-compare-name { font-family: 'Michroma', sans-serif !important; font-size: 1.1rem !important; font-weight: 700 !important; text-transform: uppercase !important; color: #080808 !important; }
+.c8isv-root .c8isv-compare-tag { font-family: 'Space Mono', monospace !important; font-size: 9px !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; color: #6B6B6B !important; margin-top: 3px !important; }
+.c8isv-root .c8isv-compare-body { padding: 2rem 2.5rem !important; }
+.c8isv-root .c8isv-compare-list { list-style: none !important; padding: 0 !important; margin: 0 0 1.5rem 0 !important; }
+.c8isv-root .c8isv-compare-list li { display: flex !important; align-items: flex-start !important; gap: 10px !important; padding: 0.75rem 0 !important; border-bottom: 1px solid rgba(8,8,8,0.06) !important; font-size: 14px !important; color: #080808 !important; line-height: 1.5 !important; }
+.c8isv-root .c8isv-compare-list li:last-child { border-bottom: none !important; }
+.c8isv-root .c8isv-compare-check { font-size: 12px !important; flex-shrink: 0 !important; margin-top: 2px !important; }
+.c8isv-root .c8isv-compare-card.is-woo .c8isv-compare-check { color: #7C3AED !important; }
+.c8isv-root .c8isv-compare-card.is-shopify .c8isv-compare-check { color: #00A650 !important; }
+.c8isv-root .c8isv-compare-best { background: rgba(8,8,8,0.03) !important; border-radius: 10px !important; padding: 1rem 1.25rem !important; }
+.c8isv-root .c8isv-compare-best-lbl { font-family: 'Space Mono', monospace !important; font-size: 9px !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 0.4rem !important; }
+.c8isv-root .c8isv-compare-best-txt { font-size: 13px !important; color: #080808 !important; line-height: 1.5 !important; }
+
+/* ── Decision Bar ── */
+.c8isv-root .c8isv-decide-bar { background: #080808 !important; border-radius: 20px !important; padding: 2.5rem 3rem !important; margin-bottom: 6rem !important; display: grid !important; grid-template-columns: 1fr auto !important; gap: 2rem !important; align-items: center !important; }
+@media (max-width: 768px) { .c8isv-root .c8isv-decide-bar { grid-template-columns: 1fr !important; padding: 2rem !important; } }
+.c8isv-root .c8isv-decide-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.1rem,2vw,1.5rem) !important; font-weight: 700 !important; text-transform: uppercase !important; color: #FAFAF7 !important; margin-bottom: 0.6rem !important; }
+.c8isv-root .c8isv-decide-sub { font-size: 15px !important; color: rgba(250,250,247,0.55) !important; font-weight: 300 !important; }
+.c8isv-root .c8isv-decide-cta { display: inline-flex !important; align-items: center !important; gap: 10px !important; background: #0047E1 !important; color: #FFFFFF !important; padding: 14px 28px !important; border-radius: 8px !important; font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; white-space: nowrap !important; transition: background 0.2s ease !important; }
+.c8isv-root .c8isv-decide-cta:hover { background: #0038C0 !important; }
+
+/* ── Folder Deck ── */
+.c8isv-root .c8isv-folder-section { margin-bottom: 6rem !important; }
+.c8isv-root .c8isv-folder-deck { position: relative !important; height: 680px !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-folder-deck { height: auto !important; display: block !important; padding-bottom: 180px !important; margin-bottom: 4rem !important; } }
+.c8isv-root .c8isv-folder-card { background: #FAFAF9 !important; border: 1px solid rgba(8,8,8,0.1) !important; border-radius: 16px !important; padding: 3rem !important; display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 3rem !important; align-items: center !important; width: 100% !important; position: absolute !important; top: 0 !important; left: 0 !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-folder-card { position: sticky !important; top: 100px !important; grid-template-columns: 1fr !important; gap: 1.5rem !important; padding: 2rem 1.5rem !important; margin-bottom: 80px !important; } .c8isv-root .c8isv-folder-card:nth-child(1){top:100px !important;z-index:10 !important} .c8isv-root .c8isv-folder-card:nth-child(2){top:100px !important;z-index:20 !important} .c8isv-root .c8isv-folder-card:nth-child(3){top:100px !important;z-index:30 !important} .c8isv-root .c8isv-folder-card:nth-child(4){top:100px !important;z-index:40 !important} }
+.c8isv-root .c8isv-folder-tab { position: absolute !important; top: -38px !important; height: 38px !important; padding: 0 20px !important; border-radius: 8px 8px 0 0 !important; font-family: 'Space Mono', monospace !important; font-size: 10.5px !important; font-weight: 700 !important; letter-spacing: 0.08em !important; text-transform: uppercase !important; display: flex !important; align-items: center !important; gap: 8px !important; border: 1px solid rgba(8,8,8,0.1) !important; border-bottom: none !important; white-space: nowrap !important; }
+.c8isv-root .c8isv-folder-card:nth-child(1) .c8isv-folder-tab { left: 15px !important; background: #F0F4FF !important; color: #0047E1 !important; border-color: rgba(0,71,225,0.2) !important; }
+.c8isv-root .c8isv-folder-card:nth-child(2) .c8isv-folder-tab { left: 185px !important; background: #F5F0FF !important; color: #7C3AED !important; border-color: rgba(124,58,237,0.2) !important; }
+.c8isv-root .c8isv-folder-card:nth-child(3) .c8isv-folder-tab { left: 355px !important; background: #F0FFF5 !important; color: #008053 !important; border-color: rgba(0,128,83,0.2) !important; }
+.c8isv-root .c8isv-folder-card:nth-child(4) .c8isv-folder-tab { left: 525px !important; background: #FFF8F0 !important; color: #C05000 !important; border-color: rgba(192,80,0,0.2) !important; }
+.c8isv-root .c8isv-folder-card-num { font-family: 'Space Mono', monospace !important; font-size: 9px !important; letter-spacing: 0.2em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 0.5rem !important; }
+.c8isv-root .c8isv-folder-card-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.2rem,2vw,1.6rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.02em !important; margin-bottom: 1rem !important; color: #080808 !important; }
+.c8isv-root .c8isv-folder-card-desc { font-size: 15px !important; color: #6B6B6B !important; line-height: 1.7 !important; font-weight: 300 !important; }
+.c8isv-root .c8isv-folder-card-tags { display: flex !important; flex-wrap: wrap !important; gap: 0.5rem !important; margin-top: 1.5rem !important; }
+.c8isv-root .c8isv-folder-card-tag { font-family: 'Space Mono', monospace !important; font-size: 9px !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; padding: 5px 12px !important; border-radius: 4px !important; background: rgba(8,8,8,0.05) !important; color: #080808 !important; }
+.c8isv-root .c8isv-folder-card-right { display: flex !important; align-items: center !important; justify-content: flex-end !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-folder-card-right { justify-content: flex-start !important; } }
+
+/* ── Slant grid ── */
+.c8isv-root .c8isv-slant-section { margin-bottom: 6rem !important; }
+.c8isv-root .c8isv-slant-grid { display: grid !important; grid-template-columns: repeat(3,1fr) !important; gap: 1.5rem !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-slant-grid { grid-template-columns: 1fr !important; } }
+.c8isv-root .c8isv-slant-card { background: #FAFAF9 !important; border: 1px solid rgba(8,8,8,0.08) !important; border-radius: 16px !important; padding: 2.5rem 2rem !important; will-change: transform,opacity !important; opacity: 0; }
+.c8isv-root .c8isv-slant-card-num { font-family: 'Space Mono', monospace !important; font-size: 9px !important; letter-spacing: 0.2em !important; color: #0047E1 !important; text-transform: uppercase !important; margin-bottom: 1rem !important; }
+.c8isv-root .c8isv-slant-card-title { font-family: 'Michroma', sans-serif !important; font-size: 1rem !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.03em !important; margin-bottom: 0.75rem !important; color: #080808 !important; }
+.c8isv-root .c8isv-slant-card-body { font-size: 14px !important; color: #6B6B6B !important; line-height: 1.7 !important; font-weight: 300 !important; }
+
+/* ── Testimonials ── */
+.c8isv-root .c8isv-testi-section { margin-bottom: 6rem !important; }
+.c8isv-root .c8isv-testi-grid { display: grid !important; grid-template-columns: 1fr 1.4fr 1fr !important; gap: 1.5rem !important; align-items: start !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-testi-grid { grid-template-columns: 1fr !important; } }
+.c8isv-root .c8isv-testi-card { background: #FAFAF9 !important; border: 1px solid rgba(8,8,8,0.08) !important; border-radius: 16px !important; padding: 2.5rem 2rem !important; }
+.c8isv-root .c8isv-testi-card.is-center { background: #080808 !important; border-color: #080808 !important; }
+.c8isv-root .c8isv-testi-card.is-left { opacity: 0; transform: translate3d(0,15px,0) scale(0.95); pointer-events: none !important; }
+.c8isv-root .c8isv-testi-card.is-right { opacity: 0; transform: translate3d(0,15px,0) scale(0.95); pointer-events: none !important; }
+.c8isv-root .c8isv-testi-quote { font-family: 'Georgia', serif !important; font-size: 3rem !important; line-height: 1 !important; color: #0047E1 !important; margin-bottom: 0.5rem !important; }
+.c8isv-root .c8isv-testi-card.is-center .c8isv-testi-quote { color: #7C93FF !important; }
+.c8isv-root .c8isv-testi-divider { width: 32px !important; height: 2px !important; background: #0047E1 !important; margin-bottom: 1.25rem !important; }
+.c8isv-root .c8isv-testi-card.is-center .c8isv-testi-divider { background: #7C93FF !important; }
+.c8isv-root .c8isv-testi-text { font-size: 15px !important; color: #6B6B6B !important; line-height: 1.75 !important; font-weight: 300 !important; margin-bottom: 1.5rem !important; }
+.c8isv-root .c8isv-testi-card.is-center .c8isv-testi-text { color: rgba(250,250,247,0.7) !important; }
+.c8isv-root .c8isv-testi-author { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; color: #080808 !important; }
+.c8isv-root .c8isv-testi-card.is-center .c8isv-testi-author { color: rgba(250,250,247,0.5) !important; }
+
+/* ── Related Services ── */
+.c8isv-root .c8isv-related-header { background: #080808 !important; border-radius: 20px 20px 0 0 !important; padding: 3rem 3.5rem 2rem !important; }
+.c8isv-root .c8isv-related-grid { display: grid !important; grid-template-columns: repeat(3,1fr) !important; border: 1px solid rgba(255,255,255,0.08) !important; border-top: none !important; background: #111 !important; border-radius: 0 0 20px 20px !important; overflow: hidden !important; margin-bottom: 4rem !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-related-grid { grid-template-columns: 1fr !important; } }
+.c8isv-root .c8isv-related-card { border: 1px solid rgba(255,255,255,0.08) !important; padding: 2.5rem !important; display: flex !important; flex-direction: column !important; align-items: flex-start !important; transition: border-color 0.25s ease !important; }
+.c8isv-root .c8isv-related-card:hover { border-color: rgba(0,71,225,0.4) !important; }
+.c8isv-root .c8isv-related-card-label { font-family: 'Space Mono', monospace !important; font-size: 9px !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; color: #7C93FF !important; margin-bottom: 0.75rem !important; }
+.c8isv-root .c8isv-related-card-title { font-family: 'Michroma', sans-serif !important; font-size: 1rem !important; font-weight: 700 !important; text-transform: uppercase !important; color: #FAFAF7 !important; margin-bottom: 0.75rem !important; flex: 1 !important; }
+.c8isv-root .c8isv-related-card-arrow { color: #0047E1 !important; font-size: 1.2rem !important; transition: transform 0.2s ease !important; }
+.c8isv-root .c8isv-related-card:hover .c8isv-related-card-arrow { transform: translate(4px,-4px) !important; }
+
+/* ── CTA Section ── */
+.c8isv-root .c8isv-cta-section { background: linear-gradient(135deg,#0047E1 0%,#1A2EFF 100%) !important; border-radius: 24px !important; padding: 5rem 4rem !important; text-align: center !important; margin-bottom: 6rem !important; position: relative !important; overflow: hidden !important; }
+@media (max-width: 768px) { .c8isv-root .c8isv-cta-section { padding: 3.5rem 2rem !important; } }
+.c8isv-root .c8isv-cta-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.6rem,3vw,2.4rem) !important; font-weight: 700 !important; text-transform: uppercase !important; color: #FFFFFF !important; margin-bottom: 1rem !important; }
+.c8isv-root .c8isv-cta-sub { font-size: 17px !important; color: rgba(255,255,255,0.7) !important; font-weight: 300 !important; max-width: 520px !important; margin: 0 auto 2.5rem !important; }
+.c8isv-root .c8isv-cta-btn { display: inline-flex !important; align-items: center !important; gap: 10px !important; background: #FFFFFF !important; color: #0047E1 !important; padding: 16px 36px !important; border-radius: 8px !important; font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; font-weight: 700 !important; transition: background 0.2s ease, transform 0.2s ease !important; }
+.c8isv-root .c8isv-cta-btn:hover { background: #F0F4FF !important; transform: translateY(-2px) !important; }
+
+/* ── Backdrop ── */
+.c8isv-root .c8isv-atmos { position: fixed !important; inset: 0 !important; pointer-events: none !important; z-index: 0 !important; overflow: hidden !important; }
+.c8isv-root .c8isv-atmos-blob { position: absolute !important; border-radius: 50% !important; filter: blur(80px) !important; opacity: 0.04 !important; animation: c8ec-drift 18s ease-in-out infinite alternate !important; }
+@keyframes c8ec-drift { from { transform: translate(0,0) scale(1); } to { transform: translate(30px,-20px) scale(1.08); } }
+</style>
+
+<!-- Backdrop -->
+<div class="c8isv-atmos" aria-hidden="true">
+  <div class="c8isv-atmos-blob" style="width:600px;height:600px;background:#0047E1;top:-100px;right:-200px;animation-delay:0s"></div>
+  <div class="c8isv-atmos-blob" style="width:400px;height:400px;background:#3D6BFF;bottom:200px;left:-150px;animation-delay:-7s;animation-duration:22s"></div>
+</div>
+
+<div class="c8isv-wrap">
+
+  <!-- Breadcrumb -->
+  <nav class="c8isv-breadcrumb c8isv-reveal" aria-label="Breadcrumb">
+    <a href="../Main Service Page/">Services</a>
+    <span class="c8isv-breadcrumb-sep">›</span>
+    <span>Website Design & Development</span>
+    <span class="c8isv-breadcrumb-sep">›</span>
+    <span>E-Commerce Development</span>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="c8isv-hero">
+    <div class="c8isv-hero-eyebrow c8isv-reveal">E-Commerce Development</div>
+    <h1 class="c8isv-hero-title c8isv-reveal c8isv-reveal-d1">
+      Shopify & WooCommerce<br><span class="c8isv-serif">Stores That Sell</span>
+    </h1>
+    <p class="c8isv-hero-desc c8isv-reveal c8isv-reveal-d2">We engineer bespoke e-commerce stores on both Shopify and WooCommerce — custom Liquid development, WooCommerce PHP extensions, performance-tuned checkout flows, and conversion architectures built to generate revenue from day one.</p>
+    <div class="c8isv-platform-row c8isv-reveal c8isv-reveal-d2">
+      <span class="c8isv-platform-pill is-woo"><span class="pill-dot"></span>WooCommerce</span>
+      <span class="c8isv-platform-pill is-shopify"><span class="pill-dot"></span>Shopify</span>
+    </div>
+    <div class="c8isv-hero-meta c8isv-reveal c8isv-reveal-d3">
+      <span class="c8isv-hero-meta-item"><span class="c8isv-hero-meta-dot"></span>Both Platforms</span>
+      <span class="c8isv-hero-meta-item"><span class="c8isv-hero-meta-dot"></span>Custom-Coded Stores</span>
+      <span class="c8isv-hero-meta-item"><span class="c8isv-hero-meta-dot"></span>Checkout Optimisation</span>
+    </div>
+    <div class="c8isv-hero-cta-row c8isv-reveal c8isv-reveal-d4">
+      <a href="https://cr8vstacks.com/contact/?model=project&service=ecommerce" class="c8isv-hero-cta">Get a Store Audit &#x2192;</a>
+      <a href="../portfolio/" class="c8isv-hero-cta-ghost">View Work</a>
+    </div>
+  </section>
+
+  <div class="c8isv-tearline"><span class="c8isv-tearline-dot"></span><span class="c8isv-tearline-line"></span></div>
+
+  <!-- Metrics -->
+  <div class="c8isv-metrics-bar c8isv-reveal">
+    <div class="c8isv-metric-item"><div class="c8isv-metric-val">+42%</div><div class="c8isv-metric-lbl">Avg. Conversion Lift</div></div>
+    <div class="c8isv-metric-item"><div class="c8isv-metric-val">1.2s</div><div class="c8isv-metric-lbl">Avg. Mobile Load Time</div></div>
+    <div class="c8isv-metric-item"><div class="c8isv-metric-val">0</div><div class="c8isv-metric-lbl">Bloated Plugin Dependencies</div></div>
+  </div>
+
+  <!-- ── WHY SECTION ── -->
+  <section class="c8isv-flank-section" data-c8isv-flank-trigger>
+    <div class="c8isv-label">Why This Matters</div>
+    <h2 class="c8isv-section-title">The Store Is <span class="c8isv-serif">The Business</span></h2>
+    <p class="c8isv-lead" style="margin-bottom:3rem !important">Most e-commerce stores are drag-and-drop templates with 30+ plugins — slow, leaky, and impossible to scale. We build the infrastructure behind a store that actually converts.</p>
+    <div class="c8isv-flank-container">
+      <div class="c8isv-flank-card" data-c8isv-flank-card>
+        <div class="c8isv-flank-card-step">01</div>
+        <div class="c8isv-flank-card-divider"></div>
+        <div class="c8isv-flank-card-title">Speed Is Revenue</div>
+        <div class="c8isv-flank-card-body">Every 100ms of load time costs conversion. We eliminate plugin bloat, hand-code critical components, and architect a lean store where performance is baked into the build — not bolted on after.</div>
+      </div>
+      <div class="c8isv-flank-card" data-c8isv-flank-card>
+        <div class="c8isv-flank-card-step">02</div>
+        <div class="c8isv-flank-card-divider"></div>
+        <div class="c8isv-flank-card-title">Checkout That Converts</div>
+        <div class="c8isv-flank-card-body">The checkout is where money is made or lost. Custom payment gateway wiring, express checkout flows, abandoned cart logic, and mobile-optimised UX — engineered for maximum completion rates.</div>
+      </div>
+      <div class="c8isv-flank-card" data-c8isv-flank-card>
+        <div class="c8isv-flank-card-step">03</div>
+        <div class="c8isv-flank-card-divider"></div>
+        <div class="c8isv-flank-card-title">Your Platform, Mastered</div>
+        <div class="c8isv-flank-card-body">Whether it's Shopify Liquid or WooCommerce PHP, we write native code — not workarounds. No theme dependencies. No plugin conflicts. A store built on your platform the way the platform was designed to work.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="c8isv-tearline"><span class="c8isv-tearline-dot"></span><span class="c8isv-tearline-line"></span></div>
+
+  <!-- ── PLATFORM COMPARISON ── -->
+  <section class="c8isv-compare-section">
+    <div class="c8isv-compare-header">
+      <div class="c8isv-label">Platform Choice</div>
+      <h2 class="c8isv-section-title">WooCommerce <span class="c8isv-serif">vs</span> Shopify</h2>
+      <p class="c8isv-lead">Both are world-class platforms — the right one depends on your business model, ownership preferences, and growth roadmap. We work on both, and we will tell you honestly which one fits your situation.</p>
+    </div>
+    <div class="c8isv-compare-grid c8isv-reveal">
+      <div class="c8isv-compare-card is-woo">
+        <div class="c8isv-compare-head">
+          <div class="c8isv-compare-icon">WOO</div>
+          <div><div class="c8isv-compare-name">WooCommerce</div><div class="c8isv-compare-tag">Open-Source · WordPress Ecosystem</div></div>
+        </div>
+        <div class="c8isv-compare-body">
+          <ul class="c8isv-compare-list">
+            <li><span class="c8isv-compare-check">&#x2714;</span>Full ownership — your code, your server, your data with zero platform lock-in</li>
+            <li><span class="c8isv-compare-check">&#x2714;</span>Deeply extensible PHP — custom post types, hooks, REST API, bespoke plugins</li>
+            <li><span class="c8isv-compare-check">&#x2714;</span>Ideal when you already run WordPress or need complex content + commerce fusion</li>
+            <li><span class="c8isv-compare-check">&#x2714;</span>No per-transaction fees — your revenue stays yours on any payment gateway</li>
+            <li><span class="c8isv-compare-check">&#x2714;</span>Unlimited product variations, custom pricing logic, and subscription models</li>
+            <li><span class="c8isv-compare-check">&#x2714;</span>Lower long-term hosting costs at scale vs. Shopify's escalating plan tiers</li>
+          </ul>
+          <div class="c8isv-compare-best"><div class="c8isv-compare-best-lbl">Best For</div><div class="c8isv-compare-best-txt">Businesses that want full code control, complex custom logic, existing WordPress infrastructure, or subscription-heavy models.</div></div>
+        </div>
+      </div>
+      <div class="c8isv-compare-card is-shopify">
+        <div class="c8isv-compare-head">
+          <div class="c8isv-compare-icon">SHY</div>
+          <div><div class="c8isv-compare-name">Shopify</div><div class="c8isv-compare-tag">Hosted SaaS · Liquid Templating</div></div>
+        </div>
+        <div class="c8isv-compare-body">
+          <ul class="c8isv-compare-list">
+            <li><span class="c8isv-compare-check">&#x2714;</span>Fully managed infrastructure — hosting, SSL, PCI compliance handled by Shopify</li>
+            <li><span class="c8isv-compare-check">&#x2714;</span>Liquid templating allows deep front-end customisation without server management</li>
+            <li><span class="c8isv-compare-check">&#x2714;</span>Native Shopify Payments, multi-currency, and Markets for global selling</li>
+            <li><span class="c8isv-compare-check">&#x2714;</span>Best-in-class mobile checkout — Apple Pay, Google Pay, Shop Pay built-in</li>
+            <li><span class="c8isv-compare-check">&#x2714;</span>Metafields, Metaobjects, and Storefront API for headless or custom workflows</li>
+            <li><span class="c8isv-compare-check">&#x2714;</span>Fastest time-to-market for product-heavy stores with no DevOps overhead</li>
+          </ul>
+          <div class="c8isv-compare-best"><div class="c8isv-compare-best-lbl">Best For</div><div class="c8isv-compare-best-txt">Brands launching fast, scaling internationally, or prioritising managed reliability and native payment tooling over code ownership.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Decision Bar -->
+  <div class="c8isv-decide-bar c8isv-reveal">
+    <div><div class="c8isv-decide-title">Not Sure Which Platform Fits Your Business?</div><div class="c8isv-decide-sub">We will audit your model, margins, and growth plan — and give you a direct recommendation, not a sales pitch.</div></div>
+    <a href="https://cr8vstacks.com/contact/?model=project&service=ecommerce" class="c8isv-decide-cta">Get a Free Platform Audit &#x2192;</a>
+  </div>
+
+  <!-- ── WHAT YOU GET ── -->
+  <section class="c8isv-folder-section">
+    <div class="c8isv-label">What You Get</div>
+    <h2 class="c8isv-section-title" style="margin-bottom:1.5rem !important">The Full <span class="c8isv-serif">Build Scope</span></h2>
+    <div class="c8isv-folder-deck" data-c8isv-folder-deck>
+      <div class="c8isv-folder-card" data-c8isv-folder-card>
+        <div class="c8isv-folder-tab">01 // Store Architecture</div>
+        <div style="display:flex;flex-direction:column;">
+          <div class="c8isv-folder-card-num">Deliverable 01</div>
+          <div class="c8isv-folder-card-title">Store Architecture & Setup</div>
+          <p class="c8isv-folder-card-desc">Platform provisioning, domain configuration, SSL, payment gateway integration (Stripe, PayPal, Paystack), and custom theme scaffold. We do not use pre-built themes — every store starts from a clean, performance-optimised base.</p>
+          <div class="c8isv-folder-card-tags"><span class="c8isv-folder-card-tag">Platform Setup</span><span class="c8isv-folder-card-tag">Payment Gateways</span><span class="c8isv-folder-card-tag">SSL & Domain</span><span class="c8isv-folder-card-tag">Custom Theme Base</span></div>
+        </div>
+        <div class="c8isv-folder-card-right">
+          <div style="width:100%;max-width:340px;aspect-ratio:4/3;border-radius:12px;background:linear-gradient(135deg,#F0F4FF,#E8EEFF);display:flex;align-items:center;justify-content:center;">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="10" y="20" width="60" height="40" rx="6" fill="#0047E1" opacity="0.1"/><rect x="20" y="30" width="40" height="5" rx="2" fill="#0047E1" opacity="0.4"/><rect x="20" y="40" width="25" height="5" rx="2" fill="#0047E1" opacity="0.25"/><rect x="55" y="37" width="10" height="11" rx="2" fill="#0047E1" opacity="0.6"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="c8isv-folder-card" data-c8isv-folder-card>
+        <div class="c8isv-folder-tab">02 // Product System</div>
+        <div style="display:flex;flex-direction:column;">
+          <div class="c8isv-folder-card-num">Deliverable 02</div>
+          <div class="c8isv-folder-card-title">Product Catalogue & Taxonomy</div>
+          <p class="c8isv-folder-card-desc">Custom product types, variant structures, collection hierarchies, and filter architectures. On WooCommerce: custom post types and product taxonomies. On Shopify: Metafields, Metaobjects, and Collection rules. Built for browsability and SEO discoverability.</p>
+          <div class="c8isv-folder-card-tags"><span class="c8isv-folder-card-tag">Product Variants</span><span class="c8isv-folder-card-tag">Collection Logic</span><span class="c8isv-folder-card-tag">Metafields</span><span class="c8isv-folder-card-tag">Filter Systems</span></div>
+        </div>
+        <div class="c8isv-folder-card-right">
+          <div style="width:100%;max-width:340px;aspect-ratio:4/3;border-radius:12px;background:linear-gradient(135deg,#F5F0FF,#EDE8FF);display:flex;align-items:center;justify-content:center;">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="15" y="15" width="22" height="22" rx="4" fill="#7C3AED" opacity="0.2"/><rect x="43" y="15" width="22" height="22" rx="4" fill="#7C3AED" opacity="0.12"/><rect x="15" y="43" width="22" height="22" rx="4" fill="#7C3AED" opacity="0.12"/><rect x="43" y="43" width="22" height="22" rx="4" fill="#7C3AED" opacity="0.2"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="c8isv-folder-card" data-c8isv-folder-card>
+        <div class="c8isv-folder-tab">03 // Checkout & Payments</div>
+        <div style="display:flex;flex-direction:column;">
+          <div class="c8isv-folder-card-num">Deliverable 03</div>
+          <div class="c8isv-folder-card-title">Checkout & Conversion Engineering</div>
+          <p class="c8isv-folder-card-desc">Custom checkout flows, express payment integrations (Apple Pay, Google Pay), upsell and cross-sell injection, abandoned cart sequences, and post-purchase flows. Every step of the funnel is engineered to reduce friction and increase order value.</p>
+          <div class="c8isv-folder-card-tags"><span class="c8isv-folder-card-tag">Express Checkout</span><span class="c8isv-folder-card-tag">Upsell Logic</span><span class="c8isv-folder-card-tag">Abandoned Cart</span><span class="c8isv-folder-card-tag">Post-Purchase Flow</span></div>
+        </div>
+        <div class="c8isv-folder-card-right">
+          <div style="width:100%;max-width:340px;aspect-ratio:4/3;border-radius:12px;background:linear-gradient(135deg,#F0FFF5,#E0FAF0);display:flex;align-items:center;justify-content:center;">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="15" y="25" width="50" height="30" rx="6" fill="#00A650" opacity="0.1"/><rect x="22" y="33" width="20" height="8" rx="3" fill="#00A650" opacity="0.4"/><rect x="47" y="35" width="12" height="4" rx="2" fill="#00A650" opacity="0.6"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="c8isv-folder-card" data-c8isv-folder-card>
+        <div class="c8isv-folder-tab">04 // Performance & SEO</div>
+        <div style="display:flex;flex-direction:column;">
+          <div class="c8isv-folder-card-num">Deliverable 04</div>
+          <div class="c8isv-folder-card-title">Performance Tuning & SEO Foundation</div>
+          <p class="c8isv-folder-card-desc">Image optimisation pipelines, lazy loading, Core Web Vitals auditing, schema markup (Product, BreadcrumbList, Review), canonical tag architecture, and structured sitemap generation. Your store ships fast and ranks from day one.</p>
+          <div class="c8isv-folder-card-tags"><span class="c8isv-folder-card-tag">Core Web Vitals</span><span class="c8isv-folder-card-tag">Schema Markup</span><span class="c8isv-folder-card-tag">Image Optimisation</span><span class="c8isv-folder-card-tag">SEO Architecture</span></div>
+        </div>
+        <div class="c8isv-folder-card-right">
+          <div style="width:100%;max-width:340px;aspect-ratio:4/3;border-radius:12px;background:linear-gradient(135deg,#FFF8F0,#FFEDE0);display:flex;align-items:center;justify-content:center;">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M20 55 L30 40 L40 48 L52 30 L65 25" stroke="#C05000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.5"/><circle cx="30" cy="40" r="4" fill="#C05000" opacity="0.3"/><circle cx="52" cy="30" r="4" fill="#C05000" opacity="0.3"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="c8isv-tearline"><span class="c8isv-tearline-dot"></span><span class="c8isv-tearline-line"></span></div>
+
+  <!-- ── APPROACH ── -->
+  <section class="c8isv-slant-section" data-c8isv-slant-trigger>
+    <div class="c8isv-label">How We Approach It</div>
+    <h2 class="c8isv-section-title">The Build <span class="c8isv-serif">Process</span></h2>
+    <p class="c8isv-lead" style="margin-bottom:2.5rem !important">No project templates. No guesswork. Every store follows a structured process designed around your specific products, customers, and growth targets.</p>
+    <div class="c8isv-slant-grid">
+      <div class="c8isv-slant-card" data-c8isv-slant-card><div class="c8isv-slant-card-num">Phase 01</div><div class="c8isv-slant-card-title">Discovery & Platform Scoping</div><div class="c8isv-slant-card-body">We analyse your product range, order volume, target markets, and existing tech stack. We define the right platform, plugin architecture, and integration map before a single line of code is written.</div></div>
+      <div class="c8isv-slant-card" data-c8isv-slant-card><div class="c8isv-slant-card-num">Phase 02</div><div class="c8isv-slant-card-title">UX Architecture & Wireframing</div><div class="c8isv-slant-card-body">We map every user flow — product discovery, add-to-cart, checkout, account, and post-purchase. Wireframes are validated against conversion principles before design begins.</div></div>
+      <div class="c8isv-slant-card" data-c8isv-slant-card><div class="c8isv-slant-card-num">Phase 03</div><div class="c8isv-slant-card-title">Custom Development & Integration</div><div class="c8isv-slant-card-body">Native Liquid or PHP — no bloated page builders. Payment gateway wiring, third-party API integrations, and custom feature development. We build what you need, not what a plugin approximates.</div></div>
+      <div class="c8isv-slant-card" data-c8isv-slant-card><div class="c8isv-slant-card-num">Phase 04</div><div class="c8isv-slant-card-title">Performance & Pre-Launch Audit</div><div class="c8isv-slant-card-body">Core Web Vitals testing, cross-device QA, checkout flow stress testing, and SEO foundation audit. We do not launch a store with a PageSpeed score under 85.</div></div>
+      <div class="c8isv-slant-card" data-c8isv-slant-card><div class="c8isv-slant-card-num">Phase 05</div><div class="c8isv-slant-card-title">Launch & Handoff</div><div class="c8isv-slant-card-body">Staged rollout, DNS migration, and post-launch monitoring. Full source code, admin access documentation, and a walkthrough of every custom component. You operate the store independently.</div></div>
+      <div class="c8isv-slant-card" data-c8isv-slant-card><div class="c8isv-slant-card-num">Phase 06</div><div class="c8isv-slant-card-title">Growth Retainer (Optional)</div><div class="c8isv-slant-card-body">For brands ready to scale: A/B test builds, new feature sprints, conversion rate optimisation reviews, and platform updates. Fixed monthly engineering time — not hourly billing.</div></div>
+    </div>
+  </section>
+
+  <div class="c8isv-tearline"><span class="c8isv-tearline-dot"></span><span class="c8isv-tearline-line"></span></div>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="c8isv-testi-section">
+    <div class="c8isv-label">Client Feedback</div>
+    <h2 class="c8isv-section-title">What <span class="c8isv-serif">Clients Say</span></h2>
+    <div class="c8isv-testi-grid" data-c8isv-testi-trigger>
+      <div class="c8isv-testi-card is-left" data-c8isv-testi-left>
+        <div class="c8isv-testi-quote">"</div>
+        <div class="c8isv-testi-divider"></div>
+        <p class="c8isv-testi-text">Switched from Shopify to WooCommerce for our subscription model and the transaction fee savings alone paid for the build within two months. The checkout logic they built is exactly what we needed.</p>
+        <div class="c8isv-testi-author">Adaeze Ike — Founder, Subscription Box Brand</div>
+      </div>
+      <div class="c8isv-testi-card is-center">
+        <div class="c8isv-testi-quote">"</div>
+        <div class="c8isv-testi-divider"></div>
+        <p class="c8isv-testi-text">Our Shopify store load time went from 4 seconds to under 1.3 seconds. Add-to-cart rate jumped 38% in the first month. They did not just build a store — they built a machine.</p>
+        <div class="c8isv-testi-author">Victoria Osei — Brand Director, Victoria's Lane</div>
+      </div>
+      <div class="c8isv-testi-card is-right" data-c8isv-testi-right>
+        <div class="c8isv-testi-quote">"</div>
+        <div class="c8isv-testi-divider"></div>
+        <p class="c8isv-testi-text">Three payment gateways and custom subscription logic — all wired without a single app store plugin. The store is fast, the code is clean, and it works exactly the way my customers expect.</p>
+        <div class="c8isv-testi-author">Marcus Vance — Product Experience Lead, SweeterMen NG</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="c8isv-cta-section c8isv-reveal">
+    <h2 class="c8isv-cta-title">Ready to Build a Store That Actually Sells?</h2>
+    <p class="c8isv-cta-sub">Tell us your platform, your products, and your goal. We will scope a build plan and give you a fixed project price — no hourly surprises.</p>
+    <a href="https://cr8vstacks.com/contact/?model=project&service=ecommerce" class="c8isv-cta-btn">Start Your E-Commerce Project &#x2192;</a>
+  </section>
+
+  <div class="c8isv-tearline"><span class="c8isv-tearline-dot"></span><span class="c8isv-tearline-line"></span></div>
+
+  <!-- ── RELATED ── -->
+  <section class="c8isv-related-section">
+    <div class="c8isv-related-header">
+      <div class="c8isv-label is-light">Related Services</div>
+      <h2 class="c8isv-section-title" style="color:#FAFAF7 !important">What <span class="c8isv-serif" style="color:rgba(250,250,247,0.5)">Works Alongside</span> This</h2>
+    </div>
+    <div class="c8isv-related-grid">
+      <a href="../Shopify Service Page/" class="c8isv-related-card"><div class="c8isv-related-card-label">Deep Dive</div><div class="c8isv-related-card-title">Shopify & Liquid Development</div><div class="c8isv-related-card-arrow">&#x2197;</div></a>
+      <a href="../WooCommerce Service Page/" class="c8isv-related-card"><div class="c8isv-related-card-label">Deep Dive</div><div class="c8isv-related-card-title">WooCommerce Development</div><div class="c8isv-related-card-arrow">&#x2197;</div></a>
+      <a href="../SEO and Content Service Page/" class="c8isv-related-card"><div class="c8isv-related-card-label">Amplify</div><div class="c8isv-related-card-title">SEO & Content Strategy</div><div class="c8isv-related-card-arrow">&#x2197;</div></a>
+    </div>
+  </section>
+
+</div><!-- /wrap -->
+
+<script>
+(function(){
+  'use strict';
+  var root = document.querySelector('.c8isv-root');
+  if (!root) return;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Reveal Observer */
+  if ('IntersectionObserver' in window) {
+    var rObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('is-visible');rObs.unobserve(e.target);} });
+    },{threshold:0.12});
+    root.querySelectorAll('.c8isv-reveal').forEach(function(el){rObs.observe(el);});
+  }
+
+  function getElementProgress(el,endF,startF){
+    if(!el)return 1;
+    var rect=el.getBoundingClientRect(),wh=window.innerHeight;
+    var start=wh*(1-(startF||0.3)),end=wh*(1-(endF||0.8));
+    return Math.min(1,Math.max(0,(rect.top-start)/(end-start)));
+  }
+
+  var flankCards=root.querySelectorAll('[data-c8isv-flank-card]');
+  var slantCards=root.querySelectorAll('[data-c8isv-slant-card]');
+  var testiGrid=root.querySelector('[data-c8isv-testi-trigger]');
+  var testiLeft=root.querySelector('[data-c8isv-testi-left]');
+  var testiRight=root.querySelector('[data-c8isv-testi-right]');
+  var folderCards=root.querySelectorAll('[data-c8isv-folder-card]');
+
+  function animate(){
+    if(reduceMotion)return;
+    var isMobile=window.innerWidth<901;
+
+    /* Flank cards */
+    flankCards.forEach(function(card,i){
+      var t=getElementProgress(card,0.8,0.1);
+      if(isMobile){
+        var ty=55*(1-t),sp=(i===0?-35:i===1?0:35)*(1-t),rm=(i===0?-4:i===2?4:0)*(1-t),sc=0.94+0.06*t;
+        card.style.transform='translate3d('+sp+'px,'+ty+'px,0) scale('+sc+') rotate('+rm+'deg)';
+      } else {
+        var txArr=[-340,0,340],rArr=[-8,0,8];
+        var tx=txArr[i]*(1-t),ry=rArr[i]*(1-t),sy=50*(1-t),sc2=0.88+0.12*t;
+        card.style.transform='translate3d('+tx+'px,'+sy+'px,0) scale('+sc2+') rotate('+ry+'deg)';
+      }
+      card.style.opacity=Math.min(1,t*2);
+      card.style.pointerEvents=t>0.1?'auto':'none';
+    });
+
+    /* Slant cards */
+    slantCards.forEach(function(card,i){
+      var t=getElementProgress(card,0.85,0.2);
+      var mul=isMobile?0.65:1,tyB=isMobile?-55:-80,rB=isMobile?-2:-4;
+      var tx2=(i%3-1)*35*mul*(1-t),ty2=tyB*(1-t),rot2=rB*(1-t)*(i%2===0?1:-1),sc3=(isMobile?0.92:0.88)+(isMobile?0.08:0.12)*t;
+      card.style.transform='translate3d('+tx2+'px,'+ty2+'px,0) scale('+sc3+') rotate('+rot2+'deg)';
+      card.style.opacity=Math.min(1,t*1.5);
+      card.style.pointerEvents=t>0.05?'auto':'none';
+    });
+
+    /* Testimonials */
+    if(testiGrid&&testiLeft&&testiRight){
+      if(isMobile){
+        var pL=getElementProgress(testiLeft,0.95,0.3),pR=getElementProgress(testiRight,0.95,0.3);
+        testiLeft.style.transform='translate3d(-30px,'+(45*(1-pL))+'px,0) rotate(-3deg)';
+        testiLeft.style.opacity=pL;testiLeft.style.pointerEvents=pL>0.1?'auto':'none';
+        testiRight.style.transform='translate3d(30px,'+(45*(1-pR))+'px,0) rotate(3deg)';
+        testiRight.style.opacity=pR;testiRight.style.pointerEvents=pR>0.1?'auto':'none';
+      } else {
+        var p=getElementProgress(testiGrid,0.85,0.3),tx3=p*340,ty3=15*(1-p),r3=p*8;
+        testiLeft.style.transform='translate3d('+(-tx3)+'px,'+ty3+'px,0) scale('+(0.9+0.1*p)+') rotate('+(-r3)+'deg)';
+        testiLeft.style.opacity=p;testiLeft.style.pointerEvents=p>0.1?'auto':'none';
+        testiRight.style.transform='translate3d('+tx3+'px,'+ty3+'px,0) scale('+(0.9+0.1*p)+') rotate('+r3+'deg)';
+        testiRight.style.opacity=p;testiRight.style.pointerEvents=p>0.1?'auto':'none';
+      }
+    }
+
+    /* Folder deck desktop */
+    if(folderCards.length&&!isMobile){
+      folderCards.forEach(function(card,i){
+        card.style.top=(i*120)+'px';
+        card.style.zIndex=i+1;
+      });
+    }
+  }
+
+  window.addEventListener('scroll',animate,{passive:true});
+  animate();
+})();
+</script>
+</div>

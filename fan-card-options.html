@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fan Card UI Options — CR8V Stacks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #F0EEE9;
+    font-family: 'DM Sans', sans-serif;
+    color: #080808;
+    min-height: 100vh;
+    padding: 3rem 2rem;
+  }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: 0.04em;
+    color: #080808;
+    margin-bottom: 0.25rem;
+  }
+  .subtitle {
+    font-size: 13px;
+    color: #8A8A8A;
+    margin-bottom: 3rem;
+    font-family: 'Space Mono', monospace;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+  }
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 500px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Option label ── */
+  .option-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #0047E1;
+    margin-bottom: 0.75rem;
+  }
+  .option-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.06em;
+    color: #080808;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── Shared fan card shell ── */
+  .fan-card {
+    background: #FAFAF7;
+    border: 1px solid rgba(8,8,8,0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 100%;
+    aspect-ratio: 3/4;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ────────────────────────────────────────
+     OPTION A — METRIC CARDS
+  ──────────────────────────────────────── */
+  .card-a {
+    background: #FAFAF7;
+    justify-content: space-between;
+  }
+  .card-a .metric-top {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #0047E1;
+  }
+  .card-a .metric-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
+    line-height: 1;
+    color: #080808;
+    letter-spacing: -0.01em;
+  }
+  .card-a .metric-unit {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: #0047E1;
+    font-weight: 700;
+    margin-top: 0.25rem;
+  }
+  .card-a .metric-label {
+    font-size: 12px;
+    color: #8A8A8A;
+    line-height: 1.4;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(8,8,8,0.07);
+  }
+  .card-a .metric-divider {
+    width: 24px;
+    height: 2px;
+    background: #0047E1;
+    margin: 0.75rem 0;
+  }
+
+  /* ────────────────────────────────────────
+     OPTION B — CODE SNIPPET CARDS
+  ──────────────────────────────────────── */
+  .card-b {
+    background: #0D1117;
+    border-color: rgba(255,255,255,0.07);
+  }
+  .card-b .code-top {
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    color: #4F7EE6;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .code-block {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    line-height: 1.7;
+    flex: 1;
+  }
+  .code-block .ln {
+    color: rgba(255,255,255,0.2);
+    user-select: none;
+    display: inline-block;
+    width: 16px;
+    margin-right: 0.5rem;
+    font-size: 9px;
+  }
+  .code-block .kw { color: #FF7B72; }
+  .code-block .fn { color: #79C0FF; }
+  .code-block .str { color: #A5D6FF; }
+  .code-block .cm { color: rgba(255,255,255,0.3); font-style: italic; }
+  .code-block .pu { color: rgba(255,255,255,0.5); }
+  .code-block .num { color: #F2CC60; }
+  .code-row { display: block; white-space: nowrap; }
+  .card-b .code-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* ────────────────────────────────────────
+     OPTION C — OUTCOME CARDS
+  ──────────────────────────────────────── */
+  .card-c {
+    background: #FAFAF7;
+    justify-content: space-between;
+  }
+  .card-c .oc-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #0047E1;
+    margin-bottom: 0.5rem;
+  }
+  .card-c .oc-client {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+    color: #080808;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+  }
+  .card-c .oc-type {
+    font-size: 11px;
+    color: #8A8A8A;
+    margin-bottom: 1.25rem;
+  }
+  .card-c .oc-divider {
+    height: 1px;
+    background: rgba(8,8,8,0.08);
+    margin-bottom: 1.25rem;
+  }
+  .card-c .oc-stat {
+    margin-bottom: 0.75rem;
+  }
+  .card-c .oc-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: #0047E1;
+    letter-spacing: 0.01em;
+  }
+  .card-c .oc-stat-desc {
+    font-size: 11.5px;
+    color: #6B6B6B;
+    line-height: 1.4;
+    margin-top: 0.2rem;
+  }
+  .card-c .oc-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(8,8,8,0.07);
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: #8A8A8A;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ────────────────────────────────────────
+     OPTION D — TECH BADGE CLOUD
+  ──────────────────────────────────────── */
+  .card-d {
+    background: #FAFAF7;
+    justify-content: space-between;
+  }
+  .card-d .bd-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #0047E1;
+    margin-bottom: 0.6rem;
+  }
+  .card-d .bd-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.04em;
+    color: #080808;
+    margin-bottom: 1.25rem;
+  }
+  .badge-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    flex: 1;
+    align-content: flex-start;
+  }
+  .badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid;
+  }
+  .badge.primary {
+    background: #0047E1;
+    color: #FAFAF7;
+    border-color: #0047E1;
+  }
+  .badge.outline {
+    background: transparent;
+    color: #080808;
+    border-color: rgba(8,8,8,0.18);
+  }
+  .badge.muted {
+    background: rgba(8,8,8,0.04);
+    color: #8A8A8A;
+    border-color: rgba(8,8,8,0.08);
+  }
+  .card-d .bd-footer {
+    margin-top: 1.25rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(8,8,8,0.07);
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: #8A8A8A;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<h1>Fan Card UI Options</h1>
+<p class="subtitle">// Choose one for the hoverlist section preview — 1 card face per option</p>
+
+<div class="grid">
+
+  <!-- ── OPTION A: METRIC CARDS ── -->
+  <div>
+    <p class="option-label">Option A</p>
+    <p class="option-name">Metric Cards</p>
+    <div class="fan-card card-a">
+      <div>
+        <div class="metric-top">Web Design // Performance</div>
+        <div class="metric-divider"></div>
+        <div class="metric-number">99</div>
+        <div class="metric-unit">/ PageSpeed Score</div>
+      </div>
+      <div>
+        <div class="metric-number" style="font-size: clamp(2.5rem,5vw,3.5rem); color: #0047E1;">0</div>
+        <div class="metric-unit">/ Bloat Plugins</div>
+        <div class="metric-label">Zero-dependency builds. Every line intentional, every asset optimised.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── OPTION B: CODE SNIPPET ── -->
+  <div>
+    <p class="option-label">Option B</p>
+    <p class="option-name">Code Snippet</p>
+    <div class="fan-card card-b">
+      <div class="code-top">// Web Design // Stack</div>
+      <div class="code-block">
+        <span class="code-row"><span class="ln">1</span><span class="cm">/* zero-bloat setup */</span></span>
+        <span class="code-row"><span class="ln">2</span><span class="kw">const</span> <span class="fn">build</span> <span class="pu">=</span> <span class="pu">{</span></span>
+        <span class="code-row"><span class="ln">3</span>&nbsp;&nbsp;<span class="str">framework</span><span class="pu">:</span> <span class="str">'Vanilla'</span><span class="pu">,</span></span>
+        <span class="code-row"><span class="ln">4</span>&nbsp;&nbsp;<span class="str">plugins</span><span class="pu">:</span> <span class="num">0</span><span class="pu">,</span></span>
+        <span class="code-row"><span class="ln">5</span>&nbsp;&nbsp;<span class="str">speed</span><span class="pu">:</span> <span class="str">'&lt;0.5s'</span><span class="pu">,</span></span>
+        <span class="code-row"><span class="ln">6</span>&nbsp;&nbsp;<span class="str">score</span><span class="pu">:</span> <span class="num">99</span></span>
+        <span class="code-row"><span class="ln">7</span><span class="pu">};</span></span>
+        <span class="code-row">&nbsp;</span>
+        <span class="code-row"><span class="ln">8</span><span class="fn">launch</span><span class="pu">(</span><span class="str">build</span><span class="pu">);</span></span>
+      </div>
+      <div class="code-label">Bespoke // No templates</div>
+    </div>
+  </div>
+
+  <!-- ── OPTION C: OUTCOME CARDS ── -->
+  <div>
+    <p class="option-label">Option C</p>
+    <p class="option-name">Outcome Cards</p>
+    <div class="fan-card card-c">
+      <div>
+        <div class="oc-label">Case Study // Web Design</div>
+        <div class="oc-client">Aura<br>Organics</div>
+        <div class="oc-type">WooCommerce storefront build</div>
+        <div class="oc-divider"></div>
+        <div class="oc-stat">
+          <div class="oc-stat-num">-35%</div>
+          <div class="oc-stat-desc">Checkout bounce-rate drop after custom PHP cart rebuild</div>
+        </div>
+        <div class="oc-stat">
+          <div class="oc-stat-num">0.4s</div>
+          <div class="oc-stat-desc">Mobile load time, zero caching plugins</div>
+        </div>
+      </div>
+      <div class="oc-footer">cr8vstacks.com // result</div>
+    </div>
+  </div>
+
+  <!-- ── OPTION D: TECH BADGE CLOUD ── -->
+  <div>
+    <p class="option-label">Option D</p>
+    <p class="option-name">Tech Badge Cloud</p>
+    <div class="fan-card card-d">
+      <div>
+        <div class="bd-label">Web Design // Stack</div>
+        <div class="bd-title">What We Deploy</div>
+      </div>
+      <div class="badge-cloud">
+        <span class="badge primary">HTML5</span>
+        <span class="badge primary">CSS3</span>
+        <span class="badge outline">Vanilla JS</span>
+        <span class="badge outline">WordPress</span>
+        <span class="badge outline">PHP</span>
+        <span class="badge outline">React</span>
+        <span class="badge muted">Next.js</span>
+        <span class="badge muted">Liquid</span>
+        <span class="badge muted">MySQL</span>
+        <span class="badge muted">REST API</span>
+      </div>
+      <div class="bd-footer">Zero framework lock-in</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

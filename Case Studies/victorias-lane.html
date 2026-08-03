@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study: Victoria's Lane | Cr8v Stacks</title>
+  <meta name="description" content="Read how Cr8v Stacks rebuilt Victoria's Lane e-commerce storefront on Shopify, optimizing load speeds and checkout conversions.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
+
+    /* CSS Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #FFFFFF;
+      color: #080808;
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    .c8cs-root {
+      position: relative;
+      width: 100%;
+    }
+
+    .c8cs-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .c8cs-wrap {
+        padding: 4rem 1.25rem;
+      }
+    }
+
+    /* Common Design Elements */
+    .c8cs-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: #0047E1;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .c8cs-label::before {
+      content: '—';
+      color: #0047E1;
+      font-weight: 700;
+    }
+
+    .c8cs-headline {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      letter-spacing: 0.02em;
+      line-height: 1.15;
+      font-weight: 700;
+      color: #080808;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .c8cs-serif {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      text-transform: none;
+      font-weight: 400;
+    }
+
+    .c8cs-lead {
+      font-size: 18px;
+      font-weight: 300;
+      color: #555555;
+      max-width: 850px;
+      margin-bottom: 3rem;
+    }
+
+    /* Hero Section */
+    .c8cs-hero {
+      padding-top: 8rem;
+      padding-bottom: 4rem;
+      position: relative;
+    }
+
+    /* Hero Atmosphere & Glow Animation */
+    .c8cs-hero-atmos {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: auto; /* enable hover tracking */
+      overflow: hidden;
+    }
+    .c8cs-atmos-svg {
+      position: absolute;
+      top: -10%;
+      left: 0;
+      width: 100%;
+      height: 130%;
+    }
+    .c8cs-atmos-blob {
+      filter: blur(1px);
+      opacity: 0.35;
+      mix-blend-mode: normal;
+    }
+    .c8cs-atmos-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 71, 225, 0.35) 0%, rgba(0, 71, 225, 0) 70%);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      will-change: transform;
+      pointer-events: none;
+    }
+    .c8cs-hero-atmos.is-active .c8cs-atmos-glow {
+      opacity: 1;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .c8cs-atmos-svg animate { display: none !important; }
+      .c8cs-atmos-glow { display: none !important; }
+    }
+
+    .c8cs-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      border-top: 1px solid rgba(8, 8, 8, 0.08);
+      border-bottom: 1px solid rgba(8, 8, 8, 0.08);
+      padding: 2rem 0;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .c8cs-meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    .c8cs-meta-item span {
+      display: block;
+    }
+
+    .c8cs-meta-lbl {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      color: #8A8A8A;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.1em;
+    }
+
+    .c8cs-meta-val {
+      font-size: 15px;
+      font-weight: 600;
+      color: #080808;
+    }
+
+    /* Showcase Image */
+    .c8cs-main-img-box {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(8, 8, 8, 0.06);
+      border: 1px solid rgba(8, 8, 8, 0.08);
+      margin-bottom: 5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .c8cs-main-img-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      max-height: 600px;
+    }
+
+    /* Project Split Section */
+    .c8cs-split-section {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      margin-bottom: 6rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .c8cs-split-section {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+
+    .c8cs-sticky-title {
+      position: sticky;
+      top: 100px;
+    }
+
+    .c8cs-split-title {
+      font-family: 'Michroma', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      color: #080808;
+    }
+
+    .c8cs-body-content p {
+      font-size: 16px;
+      color: #4A4A4A;
+      margin-bottom: 1.75rem;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .c8cs-body-content h4 {
+      font-family: 'Michroma', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #080808;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* Step Process styling */
+    .c8cs-approach-list {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .c8cs-approach-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .c8cs-step-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #0047E1;
+      border: 1px solid rgba(0, 71, 225, 0.3);
+      padding: 6px 12px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .c8cs-step-title {
+      font-family: 'Michroma', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #080808;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Design Gallery Section */
+    .c8cs-gallery-section {
+      background: #FAFAF9;
+      border-top: 1px solid rgba(8, 8, 8, 0.06);
+      border-bottom: 1px solid rgba(8, 8, 8, 0.06);
+    }
+
+    .c8cs-gallery-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 3rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .c8cs-gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    .c8cs-gallery-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(8, 8, 8, 0.08);
+      border-radius: 20px;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(8, 8, 8, 0.01);
+      transition: transform 0.4s cubic-bezier(.16,1,.3,1), box-shadow 0.4s ease;
+    }
+
+    .c8cs-gallery-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(0, 71, 225, 0.02);
+    }
+
+    @media (max-width: 900px) {
+      .c8cs-gallery-card {
+        grid-column: span 1 !important;
+      }
+    }
+
+    .c8cs-gallery-meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      color: #8A8A8A;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.12em;
+    }
+
+    .c8cs-gallery-title {
+      font-family: 'Michroma', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #080808;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      margin-bottom: 1rem;
+    }
+
+    .c8cs-gallery-desc {
+      font-size: 14px;
+      color: #6B6B6B;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .c8cs-gallery-img-box {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(8, 8, 8, 0.08);
+      overflow: hidden;
+      background: #FFFFFF;
+      box-shadow: 0 5px 15px rgba(8, 8, 8, 0.02);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: auto;
+    }
+
+    .c8cs-gallery-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .c8cs-gallery-img-box.is-tall {
+      height: 500px;
+    }
+
+    @media (max-width: 768px) {
+      .c8cs-gallery-img-box.is-tall {
+        height: 280px !important;
+      }
+    }
+
+    .c8cs-gallery-img-box.is-wide {
+      height: 320px;
+    }
+
+    /* Outcomes metrics section */
+    .c8cs-metrics-bg {
+      background: #F4F6FB;
+      border-top: 1px solid rgba(8, 8, 8, 0.05);
+      border-bottom: 1px solid rgba(8, 8, 8, 0.05);
+      padding: 6rem 0;
+    }
+
+    .c8cs-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .c8cs-metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    /* Custom high-fidelity styled metrics cards */
+    .c8cs-metric-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(8, 8, 8, 0.06);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 10px 30px rgba(8, 8, 8, 0.015);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .c8cs-metric-val {
+      font-family: 'Michroma', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #0047E1;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .c8cs-metric-lbl {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8A8A8A;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .c8cs-metric-desc {
+      font-size: 13.5px;
+      color: #6B6B6B;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    /* Bottom Navigation / CTA */
+    .c8cs-footer-cta {
+      padding: 6rem 2rem 8rem 2rem;
+      background: #FFFFFF !important;
+      border-top: 1px solid rgba(8, 8, 8, 0.06);
+      text-align: center;
+      position: relative;
+    }
+
+    .c8cs-cta-card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #FAFAF9;
+      border: 1px solid rgba(8, 8, 8, 0.08);
+      border-radius: 24px;
+      padding: 4.5rem 3rem;
+      box-shadow: 0 20px 45px rgba(0, 71, 225, 0.02);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 600px) {
+      .c8cs-cta-card {
+        padding: 3rem 1.5rem;
+      }
+    }
+
+    .c8cs-cta-card::before {
+      content: '';
+      position: absolute;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 71, 225, 0.04) 0%, rgba(0, 71, 225, 0) 70%);
+      pointer-events: none;
+    }
+
+    .c8cs-cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .c8cs-footer-cta .c8cs-headline {
+      color: #080808;
+      margin-bottom: 1.25rem;
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+    }
+
+    .c8cs-btn-primary {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: #0047E1;
+      color: #FFFFFF;
+      padding: 18px 36px;
+      border-radius: 8px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      margin-top: 1rem;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0, 71, 225, 0.2);
+    }
+
+    .c8cs-btn-primary:hover {
+      background: #0036ad;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 71, 225, 0.35);
+    }
+
+    /* Back Button */
+    .c8cs-back-btn {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: #8A8A8A;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.2s ease;
+      text-decoration: none;
+      position: relative;
+      z-index: 2;
+    }
+
+    .c8cs-back-btn:hover {
+      color: #0047E1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="c8cs-root">
+    
+    <!-- Hero Section -->
+    <section class="c8cs-hero">
+      <!-- Animated Atmosphere Layer -->
+      <div class="c8cs-hero-atmos" data-c8cs-atmos>
+        <svg class="c8cs-atmos-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
+          <defs>
+            <filter id="c8csGoo" x="-50%" y="-50%" width="200%" height="200%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.008 0.02" numOctaves="2" seed="7" result="turb">
+                <animate attributeName="baseFrequency" values="0.008 0.02;0.02 0.05;0.008 0.02" dur="16s" repeatCount="indefinite"/>
+              </feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="turb" scale="42" xChannelSelector="R" yChannelSelector="G"/>
+              <feGaussianBlur stdDeviation="4"/>
+            </filter>
+          </defs>
+          <g filter="url(#c8csGoo)">
+            <circle class="c8cs-atmos-blob" cx="80" cy="60" r="70" fill="#0047E1">
+              <animate attributeName="cx" values="80;145;55;80" dur="19s" repeatCount="indefinite"/>
+              <animate attributeName="cy" values="60;35;95;60" dur="19s" repeatCount="indefinite"/>
+            </circle>
+            <circle class="c8cs-atmos-blob" cx="220" cy="55" r="55" fill="#3D6BFF">
+              <animate attributeName="cx" values="220;165;285;220" dur="23s" repeatCount="indefinite"/>
+              <animate attributeName="cy" values="55;115;30;55" dur="23s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+        </svg>
+        <div class="c8cs-atmos-glow" data-c8cs-glow></div>
+      </div>
+
+      <div class="c8cs-wrap">
+        <a href="../Shopify Service Page/index.html" class="c8cs-back-btn">
+          ← Back to Shopify Development
+        </a>
+        
+        <div class="c8cs-label">Case Study Spotlight</div>
+        <h1 class="c8cs-headline">Victoria's Lane<br><span class="c8cs-serif">Shopify Storefront Rebuild</span></h1>
+        <p class="c8cs-lead">Optimizing a slow, template-based e-commerce store into a high-performance Shopify storefront using basic theme customization, geolocation routing, and catalog structuring.</p>
+
+        <div class="c8cs-meta-grid">
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Client</span>
+            <span class="c8cs-meta-val">Victoria's Lane</span>
+          </div>
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Starting State</span>
+            <span class="c8cs-meta-val">Slow Theme, High Abandonment</span>
+          </div>
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Agency Scope</span>
+            <span class="c8cs-meta-val">Shopify Dev, SEO &amp; Cataloging</span>
+          </div>
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Key Features</span>
+            <span class="c8cs-meta-val">Geolocation Redirect &amp; Mail Flows</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Showcase Image -->
+    <div class="c8cs-wrap" style="padding-top: 0; padding-bottom: 0;">
+      <div class="c8cs-main-img-box">
+        <img src="assets/images/cr8v-victorias-lane-shopify-storefront.png" alt="Victoria's Lane premium handbag custom storefront mockup">
+      </div>
+    </div>
+
+    <!-- Core Narrative Sections -->
+    <section class="c8cs-wrap">
+      
+      <!-- Section 1: Challenge -->
+      <div class="c8cs-split-section">
+        <div class="c8cs-sticky-title">
+          <h2 class="c8cs-split-title">The Challenge</h2>
+        </div>
+        <div class="c8cs-body-content">
+          <p>Victoria's Lane is a premium e-commerce retailer specializing in high-ticket luxury handbags and purses. When they approached us, their website was running on a slow, template-based Shopify theme that was not optimized for how users browse products or make purchasing decisions. As a result, they were suffering from a high cart abandonment rate (exceeding 70%) and a slow mobile load time of 4.8 seconds.</p>
+          <p>The default layouts made it difficult to showcase handbag collections dynamically, and the multi-step checkout introduced significant friction. Since they were relying on direct social media traffic, they needed a fast, high-converting storefront. We were commissioned to customize their layout, optimize page load speeds, and integrate necessary operational tools to drive conversions.</p>
+        </div>
+      </div>
+
+      <!-- Section 2: Solution -->
+      <div class="c8cs-split-section" style="margin-top: 4rem;">
+        <div class="c8cs-sticky-title">
+          <h2 class="c8cs-split-title">The Solution</h2>
+        </div>
+        <div class="c8cs-body-content">
+          <p>We customized a free basic Shopify theme as a base to avoid rebuilding basic e-commerce operations from scratch, while engineering custom layouts and implementing key marketing integrations.</p>
+          
+          <h4>1. Theme Customization &amp; Catalog Layouts</h4>
+          <p>We designed bespoke storefront layouts on top of the free Shopify theme base, creating custom product detail grids, collection views, and navigation menus. We handled the complete product cataloging process, mapping out organized category structures and uploading their premium product library with optimized descriptors.</p>
+          
+          <h4>2. App Integrations &amp; Marketing Operations</h4>
+          <p>We installed and configured essential Shopify apps, including geolocation tags and a multi-store selector to route regional traffic between US and Nigerian storefront environments. We also integrated Klaviyo marketing automation and custom newsletter sign-up pop-ups to capture visitor leads and drive repeat sales.</p>
+        </div>
+      </div>
+
+      <!-- Section 3: Our Approach -->
+      <div class="c8cs-split-section" style="margin-top: 4rem;">
+        <div class="c8cs-sticky-title">
+          <h2 class="c8cs-split-title">Our Approach</h2>
+        </div>
+        <div class="c8cs-body-content">
+          <p>We executed the Shopify overhaul through a four-phase roadmap, focusing on theme layout customization, catalog configuration, and conversion setup.</p>
+          
+          <div class="c8cs-approach-list">
+            <div class="c8cs-approach-step">
+              <div class="c8cs-step-num">01</div>
+              <div class="c8cs-step-content">
+                <h5>Deep Audit &amp; Planning</h5>
+                <p>We analyzed handbags buyer shopping behaviors, identifying key drop-off points in the navigation flow and checkout path to guide our optimization efforts.</p>
+              </div>
+            </div>
+
+            <div class="c8cs-approach-step">
+              <div class="c8cs-step-num">02</div>
+              <div class="c8cs-step-content">
+                <h5>Theme Customization &amp; Styling</h5>
+                <p>Using a free basic Shopify theme as our starting base, we custom-engineered product pages, custom catalog grids, and visual sections to project a premium retail feel.</p>
+              </div>
+            </div>
+
+            <div class="c8cs-approach-step">
+              <div class="c8cs-step-num">03</div>
+              <div class="c8cs-step-content">
+                <h5>Cataloging &amp; SEO Configuration</h5>
+                <p>We uploaded the handbag catalog, structured search-friendly navigation categories, and carried out detailed search optimization (metadata, URL mapping, alt tagging) to ensure search engine crawlability.</p>
+              </div>
+            </div>
+
+            <div class="c8cs-approach-step">
+              <div class="c8cs-step-num">04</div>
+              <div class="c8cs-step-content">
+                <h5>Operations &amp; App Integration</h5>
+                <p>We installed regional geolocation redirects, configured multi-store options for US and Nigerian users, and integrated Klaviyo flows and email capture pop-ups.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Showcase Section -->
+    <section class="c8cs-gallery-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-label">Design &amp; Interface Gallery</div>
+        <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 1.5rem;">Visual Showcase</h2>
+        <p class="c8cs-lead" style="margin-bottom: 3rem;">A look at the custom Liquid frontend layout, multi-store app triggers, and email capture assets built for Victoria's Lane.</p>
+        
+        <div class="c8cs-gallery-grid">
+          
+          <!-- Card 1: Custom Shopify Layout -->
+          <div class="c8cs-gallery-card">
+            <div>
+              <div class="c8cs-gallery-meta">Interface // Asset 01</div>
+              <h3 class="c8cs-gallery-title">Theme Layout Customization</h3>
+              <p class="c8cs-gallery-desc">Customizing a basic free Shopify theme base to build tailored product grids, product galleries, and structured collection navigation.</p>
+            </div>
+            <div class="c8cs-gallery-img-box">
+              <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800&auto=format&fit=crop" alt="Shopify Liquid custom theme template code development">
+            </div>
+          </div>
+
+          <!-- Card 2: Multi-Store Geolocation Redirects -->
+          <div class="c8cs-gallery-card">
+            <div>
+              <div class="c8cs-gallery-meta">Operations // Asset 02</div>
+              <h3 class="c8cs-gallery-title">Multi-Store Geolocation Routing</h3>
+              <p class="c8cs-gallery-desc">Integrating regional store pickers and redirection prompts to manage traffic between US and Nigerian checkout channels.</p>
+            </div>
+            <div class="c8cs-gallery-img-box">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" alt="Shopify mobile load speed performance dashboard">
+            </div>
+          </div>
+
+          <!-- Card 3: E-Commerce SEO & Cataloging (Taller Container) -->
+          <div class="c8cs-gallery-card" style="grid-column: span 2;">
+            <div style="max-width: 600px;">
+              <div class="c8cs-gallery-meta">UX Design // Asset 03</div>
+              <h3 class="c8cs-gallery-title">E-Commerce SEO &amp; Cataloging</h3>
+              <p class="c8cs-gallery-desc">Organizing product metadata, structuring collection templates, and configuring Klaviyo email autoresponders and signup pop-ups.</p>
+            </div>
+            <div class="c8cs-gallery-img-box is-tall">
+              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Shopify custom mobile checkout flow layout mockup">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Outcome Metrics Section -->
+    <section class="c8cs-metrics-bg">
+      <div class="c8cs-wrap">
+        <div class="c8cs-label" style="color: #080808;">Project Outcomes</div>
+        <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 2.5rem;">Bespoke Performance Metrics</h2>
+        
+        <div class="c8cs-metrics-grid">
+          
+          <!-- Metric 1 -->
+          <div class="c8cs-metric-card">
+            <div class="c8cs-metric-val">1.4s</div>
+            <div class="c8cs-metric-lbl">Mobile load time</div>
+            <p class="c8cs-metric-desc">Down from 4.8s on the old theme, offering instant page routing for mobile users.</p>
+          </div>
+
+          <!-- Metric 2 -->
+          <div class="c8cs-metric-card">
+            <div class="c8cs-metric-val">+38%</div>
+            <div class="c8cs-metric-lbl">Add-to-cart rate</div>
+            <p class="c8cs-metric-desc">Improved cart additions in the first 60 days post-launch due to custom product page layouts.</p>
+          </div>
+
+          <!-- Metric 3 (Bespoke Outcomes Card for Offline Projects) -->
+          <div class="c8cs-metric-card">
+            <div class="c8cs-metric-val">-22%</div>
+            <div class="c8cs-metric-lbl">Cart Abandonment</div>
+            <p class="c8cs-metric-desc">Reduced checkout drop-offs due to simplified cart layouts, geolocation routing, and newsletter sign-up pop-ups.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Call-to-Action -->
+    <section class="c8cs-footer-cta">
+      <div class="c8cs-wrap" style="padding: 0;">
+        <div class="c8cs-cta-card">
+          <div class="c8cs-cta-content">
+            <div class="c8cs-label" style="justify-content: center; margin-bottom: 1rem;">Start a Project</div>
+            <h2 class="c8cs-headline">Ready to optimize your storefront?</h2>
+            <p class="c8cs-lead" style="margin: 0 auto 2rem auto; font-size: 16px; max-width: 600px;">Whether you're starting from scratch or migrating to Shopify, we build e-commerce channels engineered for speed, custom functionality, and mobile sales.</p>
+            <a href="https://cr8vstacks.com/contact/" class="c8cs-btn-primary">Start a Conversation →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Hero background tracker script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var root = document.querySelector('.c8cs-root');
+      var atmos = root.querySelector('[data-c8cs-atmos]');
+      var glow = root.querySelector('[data-c8cs-glow]');
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+
+      if (atmos && glow && canHover && !reduceMotion) {
+        atmos.addEventListener('mousemove', function (e) {
+          var rect = atmos.getBoundingClientRect();
+          glow.style.transform = 'translate(' + (e.clientX - rect.left) + 'px,' + (e.clientY - rect.top) + 'px) translate(-50%,-50%)';
+        });
+        atmos.addEventListener('mouseenter', function () {
+          atmos.classList.add('is-active');
+        });
+        atmos.addEventListener('mouseleave', function () {
+          atmos.classList.remove('is-active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

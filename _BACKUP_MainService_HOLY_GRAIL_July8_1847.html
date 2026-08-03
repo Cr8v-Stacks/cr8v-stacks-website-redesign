@@ -1,0 +1,2053 @@
+<div class="c8srv-root">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
+
+/* 
+   CR8V STACKS — SERVICES PAGE v2.0
+   White bg, cream (#F4F1EA) cards, navy breakouts,
+   dashed tear-line dividers throughout.
+*/
+.c8srv-root, .c8srv-root * { box-sizing: border-box !important; }
+.c8srv-root {
+  overflow-x: clip !important;
+  overflow-x: clip !important;
+  overflow-x: clip !important; background: #FFFFFF !important; color: #080808 !important; font-family: 'DM Sans', sans-serif !important; line-height: 1.65 !important; position: relative !important; }
+.c8srv-root .c8srv-wrap { padding: 5rem 3.5rem !important; max-width: 1440px !important; margin: 0 auto !important; position: relative !important; z-index: 2 !important; }
+@media (max-width: 1100px) { .c8srv-root .c8srv-wrap { padding: 3rem 1.25rem !important; } }
+.c8srv-root h1, .c8srv-root h2, .c8srv-root h3, .c8srv-root h4 { margin: 0 !important; font-weight: inherit !important; line-height: 1.1 !important; }
+.c8srv-root p { margin: 0 0 1rem 0 !important; }
+.c8srv-root p:last-child { margin-bottom: 0 !important; }
+.c8srv-root button { font-family: inherit !important; cursor: pointer !important; border: none !important; background: none !important; }
+.c8srv-root a { text-decoration: none !important; }
+
+.c8srv-root .c8srv-label { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: .25em !important; text-transform: uppercase !important; color: #0047E1 !important; display: flex !important; align-items: center !important; gap: 10px !important; margin-bottom: 1.75rem !important; }
+.c8srv-root .c8srv-label::before { content: '—' !important; color: #0047E1 !important; font-weight: 700 !important; }
+.c8srv-root .c8srv-label.is-light { color: #7C93FF !important; }
+.c8srv-root .c8srv-label.is-light::before { color: #7C93FF !important; }
+.c8srv-root .c8srv-stroke-text { color: transparent !important; -webkit-text-stroke: 1.5px #080808 !important; }
+
+.c8srv-root .c8srv-serif-text { font-family: 'Georgia', serif !important; font-style: italic !important; text-transform: none !important; font-weight: 400 !important; }
+.c8srv-root .c8srv-gradient-text {
+  background: linear-gradient(135deg, #0047E1 0%, #00C6FF 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-block !important;
+}
+
+/* Unified divider */
+.c8srv-root .c8srv-tearline { display: flex !important; align-items: center !important; margin: 0 0 5rem 0 !important; position: relative !important; z-index: 2 !important; }
+.c8srv-root .c8srv-tearline-dot { width: 9px !important; height: 9px !important; border-radius: 50% !important; background: #080808 !important; flex-shrink: 0 !important; }
+.c8srv-root .c8srv-tearline-line { flex: 1 !important; border-top: 1px dashed rgba(8,8,8,0.28) !important; margin: 0 10px !important; }
+
+.c8srv-root .c8srv-reveal { opacity: 0 !important; transform: translateY(24px) !important; transition: opacity 0.7s cubic-bezier(.16,.8,.24,1), transform 0.7s cubic-bezier(.16,.8,.24,1) !important; }
+.c8srv-root .c8srv-reveal.is-visible { opacity: 1 !important; transform: translateY(0) !important; }
+.c8srv-root .c8srv-reveal-d1 { transition-delay: 0.08s !important; }
+.c8srv-root .c8srv-reveal-d2 { transition-delay: 0.16s !important; }
+.c8srv-root .c8srv-reveal-d3 { transition-delay: 0.24s !important; }
+@media (prefers-reduced-motion: reduce) { .c8srv-root .c8srv-reveal { opacity: 1 !important; transform: none !important; transition: none !important; } }
+
+.c8srv-root .c8srv-explore { font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: .08em !important; text-transform: uppercase !important; color: #0047E1 !important; display: inline-flex !important; align-items: center !important; gap: 6px !important; transition: gap 0.2s ease !important; }
+.c8srv-root .c8srv-explore:hover { gap: 10px !important; }
+
+.c8srv-root .c8srv-icon-sq { width: 40px !important; height: 40px !important; background: #0047E1 !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; }
+.c8srv-root .c8srv-icon-sq svg { width: 20px !important; height: 20px !important; stroke: #FFFFFF !important; }
+
+/* ── Hero ── */
+.c8srv-root .c8srv-hero { position: relative !important; z-index: 2 !important; margin-bottom: 3rem !important; padding-top: 2rem !important; }
+.c8srv-root .c8srv-hero-atmos {
+  position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 420px !important;
+  z-index: 0 !important; pointer-events: none !important; overflow: hidden !important;
+}
+@media (max-width: 700px) { .c8srv-root .c8srv-hero-atmos { height: 300px !important; } }
+.c8srv-root .c8srv-hero-atmos[data-c8srv-atmos] { pointer-events: auto !important; }
+.c8srv-root .c8srv-atmos-svg { position: absolute !important; top: -10% !important; left: 0 !important; width: 100% !important; height: 130% !important; }
+.c8srv-root .c8srv-atmos-blob { filter: blur(1px) !important; opacity: 0.4 !important; mix-blend-mode: normal !important; }
+.c8srv-root .c8srv-atmos-glow {
+  position: absolute !important; top: 0 !important; left: 0 !important; width: 340px !important; height: 340px !important; border-radius: 50% !important;
+  background: radial-gradient(circle, rgba(0,71,225,0.4) 0%, rgba(0,71,225,0) 70%) !important;
+  transform: translate(-50%, -50%) !important; opacity: 0 !important; transition: opacity 0.4s ease !important; will-change: transform !important;
+}
+.c8srv-root .c8srv-hero-atmos.is-active .c8srv-atmos-glow { opacity: 1 !important; }
+@media (prefers-reduced-motion: reduce) { .c8srv-root .c8srv-atmos-svg animate { display: none !important; } .c8srv-root .c8srv-atmos-glow { display: none !important; } }
+.c8srv-root .c8srv-hero-content { position: relative !important; z-index: 2 !important; max-width: 760px !important; }
+.c8srv-root .c8srv-headline { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.8rem, 4vw, 3.4rem) !important; letter-spacing: 0.02em !important; line-height: 1.2 !important; font-weight: 700 !important; color: #080808 !important; text-transform: uppercase !important; }
+.c8srv-root .c8srv-hero-intro { font-size: 17px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 480px !important; margin-top: 1.5rem !important; line-height: 1.6 !important; font-family: 'DM Sans', sans-serif !important; }
+.c8srv-root .c8srv-pill-row { display: flex !important; flex-wrap: wrap !important; gap: 0.6rem !important; margin-top: 2.25rem !important; }
+.c8srv-root .c8srv-pill { border: 1px solid rgba(8,8,8,0.15) !important; background: #FFFFFF !important; padding: 8px 15px !important; font-size: 12px !important; font-weight: 500 !important; border-radius: 30px !important; font-family: 'Space Mono', monospace !important; letter-spacing: 0.05em !important; }
+
+.c8srv-root .c8srv-section-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.4rem, 2.5vw, 2.0rem) !important; font-weight: 700 !important; letter-spacing: 0.02em !important; color: #080808 !important; margin-bottom: 1.25rem !important; text-transform: uppercase !important; }
+.c8srv-root .c8srv-lead { font-size: 17px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; margin-bottom: 0 !important; line-height: 1.6 !important; font-family: 'DM Sans', sans-serif !important; }
+
+/* ── Showcase (Sticky Scroll-to-Tab Navigation) ── */
+.c8srv-root .c8srv-showcase {
+  display: flex !important;
+  gap: 5rem !important;
+  align-items: flex-start !important;
+  position: relative !important;
+  padding: 4rem 0 !important;
+  margin-bottom: 0 !important;
+}
+@media (max-width: 1024px) {
+  .c8srv-root .c8srv-showcase {
+    flex-direction: column !important;
+    gap: 3rem !important;
+  }
+}
+.c8srv-root .c8srv-showcase-sticky-left {
+  position: sticky !important;
+  top: 100px !important;
+  width: 35% !important;
+  flex-shrink: 0 !important;
+  z-index: 10 !important;
+}
+@media (max-width: 1024px) {
+  .c8srv-root .c8srv-showcase-sticky-left {
+    position: relative !important;
+    top: 0 !important;
+    width: 100% !important;
+  }
+}
+.c8srv-root .c8srv-showcase-nav-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+  margin-top: 3rem !important;
+}
+@media (max-width: 1024px) {
+  .c8srv-root .c8srv-showcase-nav-list {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    margin-top: 1.5rem !important;
+  }
+}
+.c8srv-root .c8srv-showcase-nav-item {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  padding: 12px 18px !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(8,8,8,0.1) !important;
+  color: #6B6B6B !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+.c8srv-root .c8srv-showcase-nav-item .c8srv-nav-num {
+  font-size: 9px !important;
+  opacity: 0.5 !important;
+}
+.c8srv-root .c8srv-showcase-nav-item.is-active {
+  background: #0047E1 !important;
+  color: #FAFAF7 !important;
+  border-color: #0047E1 !important;
+  padding-left: 24px !important;
+}
+@media (max-width: 1024px) {
+  .c8srv-root .c8srv-showcase-nav-item.is-active {
+    padding-left: 18px !important;
+  }
+}
+
+.c8srv-root .c8srv-showcase-scroll-right {
+  width: 65% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5rem !important;
+  position: relative !important;
+}
+@media (max-width: 1024px) {
+  .c8srv-root .c8srv-showcase-scroll-right {
+    width: 100% !important;
+    gap: 3rem !important;
+  }
+}
+.c8srv-root .c8srv-showcase-card {
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 16px !important;
+  padding: 2.5rem !important;
+  display: grid !important;
+  grid-template-columns: 1.15fr 1fr !important;
+  gap: 2.5rem !important;
+  align-items: center !important;
+  box-shadow: 0 10px 40px rgba(8, 8, 8, 0.015) !important;
+  position: sticky !important;
+  z-index: 2 !important;
+  transition: transform 0.4s ease, opacity 0.4s ease !important;
+}
+.c8srv-root .c8srv-showcase-card:nth-child(1) { top: 100px !important; background: linear-gradient(135deg, #1C2436 0%, #0B111E 100%) !important; }
+.c8srv-root .c8srv-showcase-card:nth-child(2) { top: 125px !important; background: linear-gradient(135deg, #1A2E66 0%, #0E1A3D 100%) !important; }
+.c8srv-root .c8srv-showcase-card:nth-child(3) { top: 150px !important; background: linear-gradient(135deg, #153C9E 0%, #0B225C 100%) !important; }
+.c8srv-root .c8srv-showcase-card:nth-child(4) { top: 175px !important; background: linear-gradient(135deg, #072899 0%, #031352 100%) !important; }
+.c8srv-root .c8srv-showcase-card:nth-child(5) { top: 200px !important; background: linear-gradient(135deg, #0047E1 0%, #001B5C 100%) !important; }
+
+/* Universal light text styling inside all dark showcase cards */
+.c8srv-root .c8srv-showcase-card .c8srv-showcase-card-title { color: #FAFAF7 !important; }
+.c8srv-root .c8srv-showcase-card .c8srv-showcase-card-desc { color: rgba(250, 250, 247, 0.8) !important; }
+.c8srv-root .c8srv-showcase-card .c8srv-cap-item { color: #FAFAF7 !important; }
+.c8srv-root .c8srv-showcase-card .c8srv-cap-dot { background: #FAFAF7 !important; }
+.c8srv-root .c8srv-showcase-card .c8srv-explore { color: #FAFAF7 !important; }
+.c8srv-root .c8srv-showcase-card .c8srv-showcase-card-img { box-shadow: 8px 8px 0px rgba(255,255,255,0.06) !important; border-color: rgba(255,255,255,0.1) !important; }
+
+@media (max-width: 768px) {
+  .c8srv-root .c8srv-showcase-card {
+    grid-template-columns: 1fr !important;
+    padding: 1.5rem !important;
+    gap: 1.5rem !important;
+    position: relative !important;
+    top: 0 !important;
+  }
+}
+.c8srv-root .c8srv-showcase-card-img {
+  border: 1px solid rgba(8,8,8,0.08) !important;
+  background: #FFFFFF !important;
+  padding: 8px !important;
+  box-shadow: 8px 8px 0px rgba(0,71,225,0.04) !important;
+  border-radius: 8px !important;
+  width: 100% !important;
+  aspect-ratio: 16/11 !important;
+  overflow: hidden !important;
+}
+.c8srv-root .c8srv-showcase-card-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 4px !important;
+}
+.c8srv-root .c8srv-showcase-card-html, html, body {
+  overflow-x: clip !important;
+  width: 100% !important;
+}
+body {
+  overflow-x: clip !important;
+  width: 100% !important;
+}
+html, body {
+  overflow-x: clip !important;
+  width: 100% !important;
+}
+body {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.c8srv-root .c8srv-showcase-card-title {
+  font-family: 'Michroma', sans-serif !important;
+  font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  color: #080808 !important;
+  margin-bottom: 0.75rem !important;
+  text-transform: uppercase !important;
+}
+.c8srv-root .c8srv-showcase-card-desc {
+  font-size: 14px !important;
+  color: #6B6B6B !important;
+  margin-bottom: 1.5rem !important;
+  line-height: 1.6 !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+.c8srv-root .c8srv-cap-list { display: flex !important; flex-direction: column !important; gap: 0.75rem !important; margin-bottom: 1.5rem !important; }
+.c8srv-root .c8srv-cap-item { display: flex !important; gap: 10px !important; align-items: center !important; font-size: 13px !important; color: #080808 !important; font-weight: 500 !important; }
+.c8srv-root .c8srv-cap-dot { width: 6px !important; height: 6px !important; background: #0047E1 !important; flex-shrink: 0 !important; }
+
+/* New Services: cursor-following preview list */
+.c8srv-root .c8srv-hoverlist-section { position: relative !important; z-index: 2 !important; margin-bottom: 0 !important; }
+.c8srv-root .c8srv-hoverlist { border-top: 1px solid rgba(8,8,8,0.1) !important; }
+.c8srv-root .c8srv-hoverlist-item { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 2rem !important; padding: 2.1rem 0.5rem !important; border-bottom: 1px solid rgba(8,8,8,0.1) !important; cursor: pointer !important; position: relative !important; transition: padding-left 0.3s ease !important; }
+.c8srv-root .c8srv-hoverlist-item:hover { padding-left: 1.25rem !important; }
+.c8srv-root .c8srv-hoverlist-left { display: flex !important; align-items: baseline !important; gap: 1.5rem !important; flex: 1 !important; min-width: 0 !important; }
+.c8srv-root .c8srv-hoverlist-num { font-family: 'Space Mono', monospace !important; font-size: 12px !important; color: #0047E1 !important; flex-shrink: 0 !important; }
+.c8srv-root .c8srv-hoverlist-title { font-family: 'Bebas Neue', sans-serif !important; font-size: clamp(1.8rem, 4vw, 3.2rem) !important; text-transform: uppercase !important; letter-spacing: 0.01em !important; transition: color 0.25s ease !important; }
+.c8srv-root .c8srv-hoverlist-item:hover .c8srv-hoverlist-title { color: #0047E1 !important; }
+.c8srv-root .c8srv-hoverlist-tagline { font-size: 13px !important; color: #8A8A8A !important; font-weight: 300 !important; display: none !important; }
+@media (min-width: 951px) { .c8srv-root .c8srv-hoverlist-tagline { display: block !important; margin-left: 1rem !important; } }
+.c8srv-root .c8srv-hoverlist-thumb-mobile { display: none !important; }
+@media (max-width: 950px) { .c8srv-root .c8srv-hoverlist-thumb-mobile { display: block !important; width: 56px !important; height: 56px !important; object-fit: cover !important; flex-shrink: 0 !important; border: 1px solid rgba(8,8,8,0.1) !important; } }
+.c8srv-root .c8srv-hoverlist-right { display: flex !important; align-items: center !important; gap: 1.5rem !important; flex-shrink: 0 !important; }
+.c8srv-root .c8srv-hoverlist-preview {
+  position: fixed !important; width: 10px !important; height: 10px !important; pointer-events: none !important; z-index: 50 !important;
+}
+.c8srv-root .c8srv-hoverlist-preview-img {
+  position: absolute !important; bottom: 0 !important; left: 50% !important; width: 138px !important; height: 172px !important;
+  margin-left: -69px !important; object-fit: cover !important; border: 6px solid #FFFFFF !important; box-shadow: 0 20px 40px rgba(8,8,8,0.3) !important;
+  opacity: 0 !important; transform-origin: bottom center !important;
+  transition: opacity 0.4s cubic-bezier(.16,.8,.24,1), transform 0.45s cubic-bezier(.16,.8,.24,1) !important;
+}
+.c8srv-root .c8srv-hoverlist-preview-img:nth-child(1) { z-index: 1 !important; transition-delay: 0.1s !important; transform: translateY(10px) scale(0.9) rotate(0deg) !important; }
+.c8srv-root .c8srv-hoverlist-preview-img:nth-child(2) { z-index: 3 !important; transition-delay: 0s !important; transform: translateY(10px) scale(0.9) rotate(0deg) !important; }
+.c8srv-root .c8srv-hoverlist-preview-img:nth-child(3) { z-index: 1 !important; transition-delay: 0.1s !important; transform: translateY(10px) scale(0.9) rotate(0deg) !important; }
+.c8srv-root .c8srv-hoverlist-preview.is-active .c8srv-hoverlist-preview-img { opacity: 1 !important; }
+.c8srv-root .c8srv-hoverlist-preview.is-active .c8srv-hoverlist-preview-img:nth-child(1) { transform: translate(-52px,-30px) scale(1) rotate(-24deg) !important; }
+.c8srv-root .c8srv-hoverlist-preview.is-active .c8srv-hoverlist-preview-img:nth-child(2) { transform: translateY(0) scale(1) rotate(0deg) !important; }
+.c8srv-root .c8srv-hoverlist-preview.is-active .c8srv-hoverlist-preview-img:nth-child(3) { transform: translate(52px,-30px) scale(1) rotate(24deg) !important; }
+@media (prefers-reduced-motion: reduce) { .c8srv-root .c8srv-hoverlist-preview { display: none !important; } }
+
+/* Slanted Card Stack (Growth Layer) */
+.c8srv-root .c8srv-folder-section {
+  padding: 6rem 0 !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+.c8srv-root .c8srv-folder-deck {
+  position: relative !important;
+  display: block !important;
+  margin-top: 5rem !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 6rem !important; /* Spacing below the folder deck */
+}
+.c8srv-root .c8srv-folder-card {
+  background: #FAFAF9 !important;
+  border: 1px solid rgba(8,8,8,0.1) !important;
+  border-radius: 20px !important;
+  padding: 3rem 3.5rem !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1.2fr !important;
+  gap: 4rem !important;
+  align-items: center !important;
+  box-shadow: 0 10px 10px rgba(8, 8, 8, 0.01), 0 20px 40px rgba(8, 8, 8, 0) !important;
+  position: sticky !important;
+  transform-origin: center center !important;
+  transition: transform 0.1s ease, box-shadow 0.3s ease !important;
+  margin-bottom: 0px !important; /* Set margin-bottom to 0 so sticky cards overlap correctly */
+}
+.c8srv-root .c8srv-folder-card:nth-child(1) { top: 130px !important; z-index: 10 !important; position: sticky !important; }
+.c8srv-root .c8srv-folder-card:nth-child(2) { top: 130px !important; z-index: 20 !important; position: sticky !important; }
+.c8srv-root .c8srv-folder-card:nth-child(3) { top: 130px !important; z-index: 30 !important; position: sticky !important; }
+
+@media (max-width: 900px) {
+  .c8srv-root .c8srv-folder-card {
+    grid-template-columns: 1fr !important;
+    padding: 2rem 1.5rem !important;
+    gap: 2rem !important;
+    position: relative !important;
+    top: 0 !important;
+    transform: none !important;
+  }
+  .c8srv-root .c8srv-folder-card:nth-child(1),
+  .c8srv-root .c8srv-folder-card:nth-child(2),
+  .c8srv-root .c8srv-folder-card:nth-child(3) { transform: none !important; top: 0 !important; }
+}
+.c8srv-root .c8srv-folder-card-left {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.c8srv-root .c8srv-folder-card-num {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 12px !important;
+  color: #0047E1 !important;
+  margin-bottom: 1rem !important;
+}
+.c8srv-root .c8srv-folder-card-title {
+  font-family: 'Michroma', sans-serif !important;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  color: #080808 !important;
+  margin-bottom: 1rem !important;
+  text-transform: uppercase !important;
+}
+.c8srv-root .c8srv-folder-card-desc {
+  font-size: 15px !important;
+  color: #6B6B6B !important;
+  line-height: 1.65 !important;
+  margin-bottom: 2rem !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+.c8srv-root .c8srv-folder-card-right {
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+@media (max-width: 900px) {
+  .c8srv-root .c8srv-folder-card-right {
+    justify-content: flex-start !important;
+  }
+}
+.c8srv-root .c8srv-folder-card-img {
+  width: 100% !important;
+  max-width: 460px !important;
+  aspect-ratio: 16/10 !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(8,8,8,0.08) !important;
+  background: #FFFFFF !important;
+  padding: 8px !important;
+  box-shadow: 10px 10px 0px rgba(0,71,225,0.05) !important;
+  overflow: hidden !important;
+}
+.c8srv-root .c8srv-folder-card-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 6px !important;
+  display: block !important;
+}
+.c8srv-root .c8srv-folder-card-tag {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important;
+  color: #E24F30 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Flanking Cards (Why It Works) */
+.c8srv-root .c8srv-flank-section {
+  width: 100vw !important;
+  margin-left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: #F4F6FB !important;
+  padding: 6rem 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+.c8srv-root .c8srv-flank-inner {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
+  text-align: center !important;
+}
+.c8srv-root .c8srv-flank-container {
+  position: relative !important;
+  height: 480px !important;
+  margin-top: 4rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+@media (max-width: 768px) {
+  .c8srv-root .c8srv-flank-container {
+    height: auto !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+}
+.c8srv-root .c8srv-flank-card {
+  width: 320px !important;
+  height: 380px !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(8,8,8,0.08) !important;
+  border-radius: 16px !important;
+  padding: 2.5rem 2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  position: absolute !important;
+  transition: transform 0.6s cubic-bezier(.16, 1, .3, 1), opacity 0.6s ease !important;
+  box-shadow: 0 10px 30px rgba(8, 8, 8, 0.03) !important;
+}
+@media (max-width: 768px) {
+  .c8srv-root .c8srv-flank-card {
+    position: relative !important;
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+.c8srv-root .c8srv-flank-card.is-center {
+  z-index: 5 !important;
+  border-color: rgba(0, 71, 225, 0.15) !important;
+  box-shadow: 0 15px 40px rgba(0, 71, 225, 0.06) !important;
+}
+.c8srv-root .c8srv-flank-card.is-left {
+  z-index: 3 !important;
+  transform: translate3d(0, 15px, 0) scale(0.9) rotate(0deg);
+  opacity: 0;
+  pointer-events: none;
+}
+.c8srv-root .c8srv-flank-card.is-right {
+  z-index: 3 !important;
+  transform: translate3d(0, 15px, 0) scale(0.9) rotate(0deg);
+  opacity: 0;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .c8srv-root .c8srv-flank-card.is-left,
+  .c8srv-root .c8srv-flank-card.is-right {
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+.c8srv-root .c8srv-flank-card-quote {
+  font-family: 'Georgia', serif !important;
+  font-size: 3rem !important;
+  line-height: 1 !important;
+  color: #0047E1 !important;
+  margin-bottom: 0.5rem !important;
+}
+.c8srv-root .c8srv-flank-card-step {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 0.1em !important;
+  color: #080808 !important;
+  text-transform: uppercase !important;
+  margin-bottom: 0.5rem !important;
+}
+.c8srv-root .c8srv-flank-card-divider {
+  width: 100% !important;
+  height: 1px !important;
+  background: rgba(8,8,8,0.12) !important;
+  margin-bottom: 1.5rem !important;
+}
+.c8srv-root .c8srv-flank-card-title {
+  font-family: 'Michroma', sans-serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #080808 !important;
+  margin-bottom: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.01em !important;
+}
+.c8srv-root .c8srv-flank-card-desc {
+  font-size: 13.5px !important;
+  color: #6B6B6B !important;
+  line-height: 1.6 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  margin-bottom: 1.5rem !important;
+}
+.c8srv-root .c8srv-flank-card-icon {
+  width: 46px !important;
+  height: 46px !important;
+  border-radius: 8px !important;
+  background: rgba(0, 71, 225, 0.06) !important;
+  color: #0047E1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: auto !important;
+  padding: 10px !important;
+}
+.c8srv-root .c8srv-flank-card-icon svg {
+  width: 100% !important;
+  height: 100% !important;
+  stroke: #0047E1 !important;
+  fill: none !important;
+}
+
+/* How To Work With Us & Estimate Widget */
+.c8srv-root .c8srv-pricing-section {
+  padding: 6rem 0 !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+.c8srv-root .c8srv-pricing-split {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 3.5rem !important;
+  margin-top: 4rem !important;
+  margin-bottom: 5rem !important;
+}
+@media (max-width: 900px) {
+  .c8srv-root .c8srv-pricing-split {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+}
+.c8srv-root .c8srv-price-box {
+  background: #FAFAF9 !important;
+  border: 1px solid rgba(8,8,8,0.1) !important;
+  border-radius: 20px !important;
+  padding: 3.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.02) !important;
+  position: relative !important;
+}
+@media (max-width: 600px) {
+  .c8srv-root .c8srv-price-box {
+    padding: 2rem !important;
+  }
+}
+.c8srv-root .c8srv-price-box.is-highlight {
+  background: #080808 !important;
+  border-color: #080808 !important;
+  color: #FAFAF7 !important;
+}
+.c8srv-root .c8srv-price-header {
+  margin-bottom: 2rem !important;
+}
+.c8srv-root .c8srv-price-type {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #0047E1 !important;
+  margin-bottom: 0.75rem !important;
+}
+.c8srv-root .c8srv-price-box.is-highlight .c8srv-price-type {
+  color: #7C93FF !important;
+}
+.c8srv-root .c8srv-price-title {
+  font-family: 'Michroma', sans-serif !important;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  margin-bottom: 1rem !important;
+  text-transform: uppercase !important;
+}
+.c8srv-root .c8srv-price-amount {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: clamp(2rem, 4vw, 2.8rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: #0047E1 !important;
+  margin-bottom: 1.5rem !important;
+}
+.c8srv-root .c8srv-price-box.is-highlight .c8srv-price-amount {
+  color: #FAFAF7 !important;
+}
+.c8srv-root .c8srv-price-amount span {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  color: #6B6B6B !important;
+}
+.c8srv-root .c8srv-price-box.is-highlight .c8srv-price-amount span {
+  color: rgba(250, 250, 247, 0.6) !important;
+}
+.c8srv-root .c8srv-price-desc {
+  font-size: 14.5px !important;
+  color: #6B6B6B !important;
+  line-height: 1.6 !important;
+  margin-bottom: 2rem !important;
+}
+.c8srv-root .c8srv-price-box.is-highlight .c8srv-price-desc {
+  color: rgba(250, 250, 247, 0.7) !important;
+}
+.c8srv-root .c8srv-price-features {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+  margin-bottom: 3rem !important;
+  margin-top: auto !important;
+}
+.c8srv-root .c8srv-price-feature {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+.c8srv-root .c8srv-price-feature .c8srv-icon-sq {
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 4px !important;
+}
+.c8srv-root .c8srv-price-feature .c8srv-icon-sq svg {
+  width: 14px !important;
+  height: 14px !important;
+}
+.c8srv-root .c8srv-price-btn {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  padding: 16px 24px !important;
+  text-align: center !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  display: block !important;
+  width: 100% !important;
+}
+.c8srv-root .c8srv-price-btn.is-primary {
+  background: #0047E1 !important;
+  color: #FFFFFF !important;
+}
+.c8srv-root .c8srv-price-btn.is-primary:hover {
+  background: #0036ad !important;
+}
+.c8srv-root .c8srv-price-btn.is-light {
+  background: #FFFFFF !important;
+  color: #FAFAF7 !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+}
+.c8srv-root .c8srv-price-btn.is-light:hover {
+  background: rgba(255,255,255,0.05) !important;
+}
+
+/* Estimator Widget styling */
+.c8srv-root .c8srv-estimator {
+  background: #FAFAF9 !important;
+  border: 1px solid rgba(8,8,8,0.1) !important;
+  border-radius: 24px !important;
+  padding: 4rem !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.02) !important;
+  margin-top: 4rem !important;
+}
+@media (max-width: 900px) {
+  .c8srv-root .c8srv-estimator {
+    padding: 2rem !important;
+  }
+}
+.c8srv-root .c8srv-estimator-grid {
+  display: grid !important;
+  grid-template-columns: 1.2fr 1fr !important;
+  gap: 4rem !important;
+}
+@media (max-width: 900px) {
+  .c8srv-root .c8srv-estimator-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+}
+.c8srv-root .c8srv-est-options {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2rem !important;
+}
+.c8srv-root .c8srv-est-group-title {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #6B6B6B !important;
+  margin-bottom: 1rem !important;
+  display: block !important;
+}
+.c8srv-root .c8srv-est-choices {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.75rem !important;
+}
+.c8srv-root .c8srv-est-choice {
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 13.5px !important;
+  padding: 10px 18px !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(8,8,8,0.12) !important;
+  color: #080808 !important;
+  border-radius: 30px !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+}
+.c8srv-root .c8srv-est-choice.is-active {
+  background: #0047E1 !important;
+  color: #FFFFFF !important;
+  border-color: #0047E1 !important;
+  box-shadow: 0 4px 12px rgba(0, 71, 225, 0.15) !important;
+}
+
+.c8srv-root .c8srv-est-result {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(8,8,8,0.08) !important;
+  border-radius: 16px !important;
+  padding: 3rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.01) !important;
+}
+@media (max-width: 600px) {
+  .c8srv-root .c8srv-est-result {
+    padding: 2rem 1.5rem !important;
+  }
+}
+.c8srv-root .c8srv-est-range-label {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #6B6B6B !important;
+  margin-bottom: 0.5rem !important;
+}
+.c8srv-root .c8srv-est-range {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 2.6rem !important;
+  font-weight: 700 !important;
+  color: #0047E1 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 1.5rem !important;
+}
+.c8srv-root .c8srv-est-deliverables-title {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #080808 !important;
+  margin-bottom: 1rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+.c8srv-root .c8srv-est-deliverables {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+  margin-bottom: 2rem !important;
+}
+.c8srv-root .c8srv-est-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-size: 13px !important;
+  color: #6B6B6B !important;
+}
+.c8srv-root .c8srv-est-dot {
+  width: 5px !important;
+  height: 5px !important;
+  background: #0047E1 !important;
+  border-radius: 50% !important;
+}
+
+/* WooCommerce vs Shopify comparison (unchanged) */
+.c8srv-root .c8srv-vs { position: relative !important; z-index: 2 !important; margin-bottom: 1rem !important; }
+.c8srv-root .c8srv-vs-priority-row { display: flex !important; flex-wrap: wrap !important; gap: 0.6rem !important; margin: 2rem 0 3rem 0 !important; }
+.c8srv-root .c8srv-vs-priority-btn { font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: .06em !important; text-transform: uppercase !important; padding: 12px 18px !important; background: #FFFFFF !important; border: 1px solid rgba(8,8,8,0.15) !important; color: #080808 !important; }
+.c8srv-root .c8srv-vs-priority-btn.is-active { background: #0047E1 !important; color: #FFFFFF !important; border-color: #0047E1 !important; }
+.c8srv-root .c8srv-vs-table-wrap { overflow-x: auto !important; }
+.c8srv-root .c8srv-vs-table { width: 100% !important; border-collapse: collapse !important; min-width: 640px !important; }
+.c8srv-root .c8srv-vs-table th { text-align: left !important; font-family: 'Space Mono', monospace !important; font-size: 10.5px !important; letter-spacing: .08em !important; text-transform: uppercase !important; color: #6B6B6B !important; padding: 1rem 1.25rem !important; border-bottom: 1px solid rgba(8,8,8,0.12) !important; }
+.c8srv-root .c8srv-vs-table th:first-child { color: #080808 !important; }
+.c8srv-root .c8srv-vs-table td { padding: 1.25rem !important; border-bottom: 1px solid rgba(8,8,8,0.08) !important; font-size: 14px !important; font-weight: 300 !important; color: #6B6B6B !important; vertical-align: top !important; transition: background 0.25s ease !important; }
+.c8srv-root .c8srv-vs-table td:first-child { font-weight: 500 !important; color: #080808 !important; }
+.c8srv-root .c8srv-vs-table tr[data-c8srv-row].is-highlighted td { background: #F4F1EA !important; }
+.c8srv-root .c8srv-vs-winner { font-family: 'Space Mono', monospace !important; font-size: 9.5px !important; letter-spacing: .08em !important; text-transform: uppercase !important; color: #0047E1 !important; display: block !important; margin-top: 4px !important; }
+.c8srv-root .c8srv-vs-note { font-size: 12.5px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-top: 1.5rem !important; }
+
+/* ── Folder Tab Deck Stack UI (Growth Layer) ── */
+.c8srv-root .c8srv-folder-section {
+  padding: 4rem 0 !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+.c8srv-root .c8srv-folder-deck {
+  position: relative !important;
+  display: block !important;
+  margin-top: 5rem !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 6rem !important; /* Spacing below the folder deck */
+}
+
+.c8srv-root .c8srv-folder-card:nth-child(1) { top: 130px !important; z-index: 10 !important; }
+.c8srv-root .c8srv-folder-card:nth-child(2) { top: 130px !important; z-index: 20 !important; }
+.c8srv-root .c8srv-folder-card:nth-child(3) { top: 130px !important; z-index: 30 !important; }
+
+@media (max-width: 900px) {
+  .c8srv-root .c8srv-folder-card {
+    grid-template-columns: 1fr !important;
+    padding: 2.5rem 1.5rem !important;
+    gap: 2rem !important;
+    position: relative !important;
+    top: 0 !important;
+    min-height: auto !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .c8srv-root .c8srv-folder-card:nth-child(1),
+  .c8srv-root .c8srv-folder-card:nth-child(2),
+  .c8srv-root .c8srv-folder-card:nth-child(3) { top: 0 !important; }
+}
+.c8srv-root .c8srv-folder-tab {
+  position: absolute !important;
+  top: -38px !important;
+  height: 38px !important;
+  background: #FAFAF9 !important;
+  border: 1px solid rgba(8,8,8,0.1) !important;
+  border-bottom: none !important;
+  border-radius: 8px 8px 0 0 !important;
+  padding: 8px 20px !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  color: #0047E1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  display: flex !important;
+  align-items: center !important;
+}
+.c8srv-root .c8srv-folder-card:nth-child(1) .c8srv-folder-tab { left: 2.5rem !important; }
+.c8srv-root .c8srv-folder-card:nth-child(2) .c8srv-folder-tab { left: 16rem !important; }
+.c8srv-root .c8srv-folder-card:nth-child(3) .c8srv-folder-tab { left: 29.5rem !important; }
+
+@media (max-width: 900px) {
+  .c8srv-root .c8srv-folder-tab {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    border-bottom: 1px solid rgba(8,8,8,0.1) !important;
+    border-radius: 6px !important;
+    margin-bottom: 1rem !important;
+    width: fit-content !important;
+    height: auto !important;
+    padding: 6px 12px !important;
+  }
+  .c8srv-root .c8srv-folder-card:nth-child(1) .c8srv-folder-tab,
+  .c8srv-root .c8srv-folder-card:nth-child(2) .c8srv-folder-tab,
+  .c8srv-root .c8srv-folder-card:nth-child(3) .c8srv-folder-tab { left: 0 !important; }
+}
+
+.c8srv-root .c8srv-folder-card-left { display: flex !important; flex-direction: column !important; }
+.c8srv-root .c8srv-folder-card-title {
+  font-family: 'Michroma', sans-serif !important;
+  font-size: clamp(1.2rem, 2vw, 1.6rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  color: #080808 !important;
+  margin-bottom: 1rem !important;
+  text-transform: uppercase !important;
+}
+.c8srv-root .c8srv-folder-card-desc {
+  font-size: 14.5px !important;
+  color: #6B6B6B !important;
+  line-height: 1.65 !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+.c8srv-root .c8srv-folder-card-right { display: flex !important; justify-content: center !important; }
+.c8srv-root .c8srv-folder-card-img {
+  border: 1px solid rgba(8,8,8,0.08) !important;
+  background: #FFFFFF !important;
+  padding: 8px !important;
+  box-shadow: 10px 10px 0px rgba(0,71,225,0.03) !important;
+  border-radius: 12px !important;
+  width: 100% !important;
+  max-width: 440px !important;
+  aspect-ratio: 4/3 !important;
+  overflow: hidden !important;
+}
+.c8srv-root .c8srv-folder-card-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 6px !important;
+  display: block !important;
+}
+
+/* ?? Full Catalog Styles (CSS tool popover clouds) ?? */
+.c8srv-root .c8srv-catalog-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 2.25rem 0.5rem !important;
+  border-bottom: 1px solid rgba(8,8,8,0.1) !important;
+  cursor: pointer !important;
+  position: relative !important;
+  transition: padding-left 0.3s ease !important;
+}
+.c8srv-root .c8srv-catalog-item:hover {
+  padding-left: 1.25rem !important;
+}
+.c8srv-root .c8srv-catalog-title {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: clamp(1.8rem, 4vw, 3.2rem) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.01em !important;
+  transition: color 0.25s ease !important;
+  margin: 0 !important;
+}
+.c8srv-root .c8srv-catalog-item:hover .c8srv-catalog-title {
+  color: #0047E1 !important;
+}
+.c8srv-root .c8srv-catalog-tagline {
+  font-size: 13px !important;
+  color: #8A8A8A !important;
+  font-weight: 300 !important;
+  margin-left: 1.5rem !important;
+}
+.c8srv-root .c8srv-catalog-badges {
+  display: flex !important;
+  gap: 0.5rem !important;
+  opacity: 0 !important;
+  transform: translateX(12px) !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+  pointer-events: none !important;
+}
+@media (max-width: 768px) {
+  .c8srv-root .c8srv-catalog-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+  .c8srv-root .c8srv-catalog-left {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+  .c8srv-root .c8srv-catalog-tagline {
+    margin-left: 0 !important;
+  }
+  .c8srv-root .c8srv-catalog-badges {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    flex-wrap: wrap !important;
+  }
+}
+.c8srv-root .c8srv-catalog-item:hover .c8srv-catalog-badges {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+.c8srv-root .c8srv-badge {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important;
+  background: #080808 !important;
+  color: #FAFAF7 !important;
+  padding: 0.4rem 0.8rem !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.05em !important;
+  white-space: nowrap !important;
+}
+
+/* ?? Code-only 3-Fan Wireframe Card Styles ?? */
+.c8srv-root .c8srv-hoverlist-preview {
+  position: absolute !important;
+  width: 180px !important;
+  height: 220px !important;
+  pointer-events: none !important;
+  z-index: 50 !important;
+  display: block !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+  transform: translate(-50%, -50%) !important;
+}
+.c8srv-root .c8srv-hoverlist-preview.is-active {
+  opacity: 1 !important;
+}
+.c8srv-root .c8srv-fan-card {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  width: 140px !important;
+  height: 180px !important;
+  margin-left: -70px !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(8, 8, 8, 0.12) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 30px rgba(8, 8, 8, 0.06) !important;
+  padding: 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  transition: transform 0.45s cubic-bezier(.16, .8, .24, 1), opacity 0.4s ease !important;
+}
+.c8srv-root .c8srv-fan-left {
+  z-index: 10 !important;
+  transform: translate3d(-40px, -10px, 0) scale(0.95) rotate(-15deg) !important;
+}
+.c8srv-root .c8srv-fan-center {
+  z-index: 20 !important;
+  transform: translate3d(0, 0, 0) scale(1) rotate(0deg) !important;
+}
+.c8srv-root .c8srv-fan-right {
+  z-index: 15 !important;
+  transform: translate3d(40px, -10px, 0) scale(0.95) rotate(15deg) !important;
+}
+/* Micro wireframe details */
+.c8srv-root .c8srv-fan-header { display: flex !important; align-items: center !important; gap: 4px !important; width: 100% !important; }
+.c8srv-root .c8srv-fan-dot { width: 5px !important; height: 5px !important; background: #0047E1 !important; border-radius: 50% !important; transition: background-color 0.3s ease !important; }
+.c8srv-root .c8srv-fan-line { height: 4px !important; width: 40px !important; background: rgba(8,8,8,0.1) !important; border-radius: 2px !important; }
+.c8srv-root .c8srv-fan-body { display: flex !important; flex-direction: column !important; gap: 6px !important; width: 100% !important; margin-top: 8px !important; }
+.c8srv-root .c8srv-fan-rect { height: 60px !important; background: rgba(0,71,225,0.03) !important; border: 1px dashed rgba(0,71,225,0.15) !important; border-radius: 4px !important; transition: all 0.3s ease !important; }
+.c8srv-root .c8srv-fan-rect-sm { height: 6px !important; background: rgba(8,8,8,0.08) !important; border-radius: 3px !important; width: 80% !important; }
+</style>
+
+<div class="c8srv-hero-atmos" data-c8srv-atmos>
+  <svg class="c8srv-atmos-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
+    <defs>
+      <filter id="c8srvGoo" x="-50%" y="-50%" width="200%" height="200%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.008 0.02" numOctaves="2" seed="7" result="turb" data-c8srv-turb>
+          <animate attributeName="baseFrequency" values="0.008 0.02;0.02 0.05;0.008 0.02" dur="16s" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="turb" scale="42" xChannelSelector="R" yChannelSelector="G"/>
+        <feGaussianBlur stdDeviation="4"/>
+      </filter>
+    </defs>
+    <g filter="url(#c8srvGoo)">
+      <circle class="c8srv-atmos-blob" cx="80" cy="60" r="70" fill="#0047E1">
+        <animate attributeName="cx" values="80;145;55;80" dur="19s" repeatCount="indefinite"/>
+        <animate attributeName="cy" values="60;35;95;60" dur="19s" repeatCount="indefinite"/>
+      </circle>
+      <circle class="c8srv-atmos-blob" cx="220" cy="55" r="55" fill="#3D6BFF">
+        <animate attributeName="cx" values="220;165;265;220" dur="23s" repeatCount="indefinite"/>
+        <animate attributeName="cy" values="55;95;25;55" dur="23s" repeatCount="indefinite"/>
+      </circle>
+      <circle class="c8srv-atmos-blob" cx="330" cy="70" r="45" fill="#7C93FF">
+        <animate attributeName="cx" values="330;285;365;330" dur="15s" repeatCount="indefinite"/>
+        <animate attributeName="cy" values="70;105;45;70" dur="15s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </svg>
+  <div class="c8srv-atmos-glow" data-c8srv-glow></div>
+</div>
+
+<div class="c8srv-wrap">
+
+  <!-- Hero -->
+  <div class="c8srv-hero">
+    <div class="c8srv-label">Services</div>
+    <div class="c8srv-hero-content">
+      <h1 class="c8srv-headline">Every <span class="c8srv-serif-text">layer</span> of your presence, <span class="c8srv-gradient-text">engineered by Cr8v Stacks.</span></h1>
+      <div class="c8srv-hero-intro c8srv-reveal c8srv-reveal-d1">Cr8v Stacks designs and builds custom websites and digital products for B2B, SaaS, and ecommerce brands worldwide. From WordPress and Shopify to custom PHP/JS applications and AI-powered MVPs, we cover the whole technical stack — fast, clean, and engineered for search visibility from the first line of code.</div>
+      <div class="c8srv-pill-row">
+        <span class="c8srv-pill">WordPress</span>
+        <span class="c8srv-pill">Shopify</span>
+        <span class="c8srv-pill">WooCommerce</span>
+        <span class="c8srv-pill">Custom Code</span>
+        <span class="c8srv-pill">AI MVP</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="c8srv-tearline"><div class="c8srv-tearline-dot"></div><div class="c8srv-tearline-line"></div><div class="c8srv-tearline-dot"></div></div>
+
+  <!-- Primary: Web Design & Development (sticky tabs layout) -->
+  <div class="c8srv-showcase" id="primary-showcase">
+    <div class="c8srv-showcase-sticky-left">
+      <div class="c8srv-label">Primary Service // 01</div>
+      <h2 class="c8srv-section-title">Web Design &amp; <span class="c8srv-serif-text">Development</span></h2>
+      <p class="c8srv-lead" style="margin-bottom: 2rem !important;">One service, every platform. Whichever foundation your business runs on, it's built the same way — zero bloat, engineered for speed and conversion.</p>
+      
+      <div class="c8srv-showcase-nav-list" data-c8srv-navs>
+        <button class="c8srv-showcase-nav-item is-active" data-c8srv-nav="0">
+          <span class="c8srv-nav-num">01</span> WordPress
+        </button>
+        <button class="c8srv-showcase-nav-item" data-c8srv-nav="1">
+          <span class="c8srv-nav-num">02</span> Shopify
+        </button>
+        <button class="c8srv-showcase-nav-item" data-c8srv-nav="2">
+          <span class="c8srv-nav-num">03</span> WooCommerce
+        </button>
+        <button class="c8srv-showcase-nav-item" data-c8srv-nav="3">
+          <span class="c8srv-nav-num">04</span> Custom Dev
+        </button>
+        <button class="c8srv-showcase-nav-item" data-c8srv-nav="4">
+          <span class="c8srv-nav-num">05</span> AI MVP
+        </button>
+      </div>
+    </div>
+
+    <div class="c8srv-showcase-scroll-right">
+      <!-- WordPress -->
+      <div class="c8srv-showcase-card" data-c8srv-card="0">
+        <div class="c8srv-showcase-card-img">
+          <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800&auto=format&fit=crop" alt="WordPress no-code build">
+        </div>
+        <div class="c8srv-showcase-card-body">
+          <h3 class="c8srv-showcase-card-title">WordPress, No-Code</h3>
+          <p class="c8srv-showcase-card-desc">Fully custom WordPress builds on Elementor and native blocks — zero page-builder bloat, editable by your team without touching code.</p>
+          <div class="c8srv-cap-list">
+            <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Elementor-safe custom widgets</div>
+            <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Editable by non-technical staff</div>
+            <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>95+ Google PageSpeed scores</div>
+          </div>
+          <a href="https://cr8vstacks.com/services/wordpress-development/" class="c8srv-explore">Explore WordPress <span>→</span></a>
+        </div>
+      </div>
+
+      <!-- Shopify -->
+      <div class="c8srv-showcase-card" data-c8srv-card="1">
+        <div class="c8srv-showcase-card-img">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Shopify storefront build">
+        </div>
+        <div class="c8srv-showcase-card-body">
+          <h3 class="c8srv-showcase-card-title">Shopify</h3>
+          <p class="c8srv-showcase-card-desc">Conversion-focused Shopify storefronts built on a custom theme, not a marketplace template — designed to move product, not just display it.</p>
+          <div class="c8srv-cap-list">
+            <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Custom Liquid theming</div>
+            <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Checkout &amp; upsell flow design</div>
+            <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>App-free performance tuning</div>
+          </div>
+          <a href="https://cr8vstacks.com/services/shopify-ecommerce-design/" class="c8srv-explore">Explore Shopify <span>→</span></a>
+        </div>
+      </div>
+
+      <!-- WooCommerce -->
+      <div class="c8srv-showcase-card" data-c8srv-card="2">
+        <div class="c8srv-showcase-card-img">
+          <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800&auto=format&fit=crop" alt="WooCommerce store build">
+        </div>
+        <div class="c8srv-showcase-card-body">
+          <h3 class="c8srv-showcase-card-title">WooCommerce</h3>
+          <p class="c8srv-showcase-card-desc">Full ecommerce control on your own WordPress stack — for brands that want to own their data, hosting, and margins.</p>
+          <div class="c8srv-cap-list">
+            <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Custom checkout flows</div>
+            <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Multi-currency &amp; tax logic</div>
+            <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Full data ownership</div>
+          </div>
+          <a href="https://cr8vstacks.com/services/woocommerce-development/" class="c8srv-explore">Explore WooCommerce <span>→</span></a>
+        </div>
+      </div>
+
+      <!-- Custom Development -->
+      <div class="c8srv-showcase-card" data-c8srv-card="3">
+        <div class="c8srv-showcase-card-img">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800&auto=format&fit=crop" alt="Custom development build">
+        </div>
+        <div class="c8srv-showcase-card-body">
+          <h3 class="c8srv-showcase-card-title">Custom Dev</h3>
+          <p class="c8srv-showcase-card-desc">When no platform fits, we build from a blank file — custom PHP, JS, and API integrations engineered around exactly what your business needs.</p>
+          <div class="c8srv-cap-list">
+            <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Bespoke web applications</div>
+            <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Third-party API integrations</div>
+            <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Custom admin dashboards</div>
+          </div>
+          <a href="https://cr8vstacks.com/services/custom-web-development/" class="c8srv-explore">Explore Custom Dev <span>→</span></a>
+        </div>
+      </div>
+
+      <!-- AI MVP -->
+      <div class="c8srv-showcase-card" data-c8srv-card="4">
+        <div class="c8srv-showcase-card-img">
+          <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop" alt="AI MVP build">
+        </div>
+        <div class="c8srv-showcase-card-body">
+          <h3 class="c8srv-showcase-card-title">AI MVP</h3>
+          <p class="c8srv-showcase-card-desc">Rapid, functional MVPs for AI-powered products — validate an idea with real working software, not a slide deck.</p>
+          <div class="c8srv-cap-list">
+            <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>LLM-integrated prototypes</div>
+            <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>API-first architecture</div>
+            <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Launch in weeks, not quarters</div>
+          </div>
+          <a href="https://cr8vstacks.com/services/ai-mvp-development/" class="c8srv-explore">Explore AI MVP <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── New Services: cursor-following preview list ── -->
+<!-- ?? New Services: cursor-following preview list ?? -->
+<div class="c8srv-hoverlist-section" style="position: relative !important; width: 100% !important;">
+  <div class="c8srv-wrap" style="padding-bottom: 0 !important;">
+    <div class="c8srv-tearline"><div class="c8srv-tearline-dot"></div><div class="c8srv-tearline-line"></div><div class="c8srv-tearline-dot"></div></div>
+    <div class="c8srv-label c8srv-reveal">Full Catalog</div>
+    <h2 class="c8srv-section-title c8srv-reveal">More Ways We Build</h2>
+    <p class="c8srv-lead c8srv-reveal" style="margin-bottom: 2rem">Hover a service to see it. Standalone offerings you can bring in on their own, or bundle into a full build.</p>
+  </div>
+  <div class="c8srv-wrap" style="padding-top: 0 !important; position: relative !important;">
+    <div class="c8srv-hoverlist" data-c8srv-hoverlist style="position: relative !important;">
+      <div class="c8srv-hoverlist-item c8srv-reveal" data-c8srv-service-id="1" onclick="window.location.href='https://cr8vstacks.com/services/custom-web-development/'" style="cursor: pointer !important;">
+        <div class="c8srv-hoverlist-left">
+          <span class="c8srv-hoverlist-num">01</span>
+          <h3 class="c8srv-hoverlist-title">Custom Development</h3>
+          <span class="c8srv-hoverlist-tagline">Bespoke apps &amp; integrations, built from a blank file</span>
+        </div>
+        <div class="c8srv-hoverlist-right"><a href="https://cr8vstacks.com/services/custom-web-development/" class="c8srv-explore" onclick="event.stopPropagation();">Explore <span>→</span></a></div>
+      </div>
+      <div class="c8srv-hoverlist-item c8srv-reveal c8srv-reveal-d1" data-c8srv-service-id="2" onclick="window.location.href='https://cr8vstacks.com/services/brand-identity-design/'" style="cursor: pointer !important;">
+        <div class="c8srv-hoverlist-left">
+          <span class="c8srv-hoverlist-num">02</span>
+          <h3 class="c8srv-hoverlist-title">Brand Identity</h3>
+          <span class="c8srv-hoverlist-tagline">Logo systems &amp; guidelines built to hold up everywhere</span>
+        </div>
+        <div class="c8srv-hoverlist-right"><a href="https://cr8vstacks.com/services/brand-identity-design/" class="c8srv-explore" onclick="event.stopPropagation();">Explore <span>→</span></a></div>
+      </div>
+      <div class="c8srv-hoverlist-item c8srv-reveal c8srv-reveal-d2" data-c8srv-service-id="3" onclick="window.location.href='https://cr8vstacks.com/services/shopify-ecommerce-design/'" style="cursor: pointer !important;">
+        <div class="c8srv-hoverlist-left">
+          <span class="c8srv-hoverlist-num">03</span>
+          <h3 class="c8srv-hoverlist-title">Shopify</h3>
+          <span class="c8srv-hoverlist-tagline">Custom storefronts engineered for checkout conversion</span>
+        </div>
+        <div class="c8srv-hoverlist-right"><a href="https://cr8vstacks.com/services/shopify-ecommerce-design/" class="c8srv-explore" onclick="event.stopPropagation();">Explore <span>→</span></a></div>
+      </div>
+      <div class="c8srv-hoverlist-item c8srv-reveal c8srv-reveal-d3" data-c8srv-service-id="4" onclick="window.location.href='https://cr8vstacks.com/services/wordpress-development/'" style="cursor: pointer !important;">
+        <div class="c8srv-hoverlist-left">
+          <span class="c8srv-hoverlist-num">04</span>
+          <h3 class="c8srv-hoverlist-title">WordPress</h3>
+          <span class="c8srv-hoverlist-tagline">Lightweight, custom-coded builds your team can maintain</span>
+        </div>
+        <div class="c8srv-hoverlist-right"><a href="https://cr8vstacks.com/services/wordpress-development/" class="c8srv-explore" onclick="event.stopPropagation();">Explore <span>→</span></a></div>
+      </div>
+    </div>
+    
+    <!-- Code-driven 3-Fan Wireframe Preview Element -->
+    <div class="c8srv-hoverlist-preview" data-c8srv-preview>
+      <!-- Card 1: Left Rotated -->
+      <div class="c8srv-fan-card c8srv-fan-left">
+        <div class="c8srv-fan-header"><div class="c8srv-fan-dot"></div><div class="c8srv-fan-line"></div></div>
+        <div class="c8srv-fan-body"><div class="c8srv-fan-rect"></div><div class="c8srv-fan-rect-sm"></div></div>
+      </div>
+      <!-- Card 2: Center -->
+      <div class="c8srv-fan-card c8srv-fan-center">
+        <div class="c8srv-fan-header"><div class="c8srv-fan-dot"></div><div class="c8srv-fan-line"></div></div>
+        <div class="c8srv-fan-body"><div class="c8srv-fan-rect"></div><div class="c8srv-fan-rect-sm"></div></div>
+      </div>
+      <!-- Card 3: Right Rotated -->
+      <div class="c8srv-fan-card c8srv-fan-right">
+        <div class="c8srv-fan-header"><div class="c8srv-fan-dot"></div><div class="c8srv-fan-line"></div></div>
+        <div class="c8srv-fan-body"><div class="c8srv-fan-rect"></div><div class="c8srv-fan-rect-sm"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="c8srv-wrap" style="padding-top: 0 !important; padding-bottom: 0 !important;">
+      <div class="c8srv-label">Full Catalog</div>
+      <h2 class="c8srv-section-title">Our Service <span class="c8srv-serif-text">Capabilities</span></h2>
+      <p class="c8srv-lead" style="margin-bottom: 4rem !important;">Hover over any service to see the primary technology stacks we deploy for it.</p>
+      
+      <div class="c8srv-catalog-list-wrap" style="border-top: 1px solid rgba(8,8,8,0.1) !important;">
+        <!-- Item 1: Web Design -->
+        <div class="c8srv-catalog-item" data-c8srv-stack-id="0">
+          <div class="c8srv-catalog-left" style="display: flex !important; align-items: baseline !important; gap: 1.5rem !important; flex: 1 !important; min-width: 0 !important;">
+            <span class="c8srv-catalog-num" style="font-family: 'Space Mono', monospace !important; font-size: 12px !important; color: #0047E1 !important; flex-shrink: 0 !important;">01</span>
+            <h3 class="c8srv-catalog-title">Website Design &amp; Dev</h3>
+            <span class="c8srv-catalog-tagline" style="font-size: 13px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-left: 1.5rem !important;">High-performance, visual interfaces built with absolute layout control.</span>
+          </div>
+          <div class="c8srv-catalog-right" style="display: flex !important; align-items: center !important; gap: 1.5rem !important; flex-shrink: 0 !important;">
+            <div class="c8srv-catalog-badges">
+              <span class="c8srv-badge">HTML5/CSS3</span>
+              <span class="c8srv-badge">Vanilla JS</span>
+              <span class="c8srv-badge">TailwindCSS</span>
+              <span class="c8srv-badge">React</span>
+              <span class="c8srv-badge">Next.js</span>
+            </div>
+            <a href="../Web Design Service Page/index.html" class="c8srv-explore">Explore <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Item 2: Brand Strategy -->
+        <div class="c8srv-catalog-item" data-c8srv-stack-id="1">
+          <div class="c8srv-catalog-left" style="display: flex !important; align-items: baseline !important; gap: 1.5rem !important; flex: 1 !important; min-width: 0 !important;">
+            <span class="c8srv-catalog-num" style="font-family: 'Space Mono', monospace !important; font-size: 12px !important; color: #0047E1 !important; flex-shrink: 0 !important;">02</span>
+            <h3 class="c8srv-catalog-title">Brand Strategy</h3>
+            <span class="c8srv-catalog-tagline" style="font-size: 13px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-left: 1.5rem !important;">Competitor audits, value positioning, and corporate copywriting.</span>
+          </div>
+          <div class="c8srv-catalog-right" style="display: flex !important; align-items: center !important; gap: 1.5rem !important; flex-shrink: 0 !important;">
+            <div class="c8srv-catalog-badges">
+              <span class="c8srv-badge">Competitor Matrix</span>
+              <span class="c8srv-badge">Positioning Audits</span>
+              <span class="c8srv-badge">Messaging Architecture</span>
+            </div>
+            <a href="../Brand Strategy Service Page/index.html" class="c8srv-explore">Explore <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Item 3: Brand Identity -->
+        <div class="c8srv-catalog-item" data-c8srv-stack-id="2">
+          <div class="c8srv-catalog-left" style="display: flex !important; align-items: baseline !important; gap: 1.5rem !important; flex: 1 !important; min-width: 0 !important;">
+            <span class="c8srv-catalog-num" style="font-family: 'Space Mono', monospace !important; font-size: 12px !important; color: #0047E1 !important; flex-shrink: 0 !important;">03</span>
+            <h3 class="c8srv-catalog-title">Brand Identity Design</h3>
+            <span class="c8srv-catalog-tagline" style="font-size: 13px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-left: 1.5rem !important;">Logo systems, typography rules, color palettes, and assets.</span>
+          </div>
+          <div class="c8srv-catalog-right" style="display: flex !important; align-items: center !important; gap: 1.5rem !important; flex-shrink: 0 !important;">
+            <div class="c8srv-catalog-badges">
+              <span class="c8srv-badge">Vector Systems</span>
+              <span class="c8srv-badge">Style Palettes</span>
+              <span class="c8srv-badge">Design Guidelines</span>
+            </div>
+            <a href="../Brand Identity Design Service Page/index.html" class="c8srv-explore">Explore <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Item 4: Digital Marketing -->
+        <div class="c8srv-catalog-item" data-c8srv-stack-id="3">
+          <div class="c8srv-catalog-left" style="display: flex !important; align-items: baseline !important; gap: 1.5rem !important; flex: 1 !important; min-width: 0 !important;">
+            <span class="c8srv-catalog-num" style="font-family: 'Space Mono', monospace !important; font-size: 12px !important; color: #0047E1 !important; flex-shrink: 0 !important;">04</span>
+            <h3 class="c8srv-catalog-title">Digital Marketing</h3>
+            <span class="c8srv-catalog-tagline" style="font-size: 13px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-left: 1.5rem !important;">Meta/Google Ads setups, server-side Conversion APIs, and funnels.</span>
+          </div>
+          <div class="c8srv-catalog-right" style="display: flex !important; align-items: center !important; gap: 1.5rem !important; flex-shrink: 0 !important;">
+            <div class="c8srv-catalog-badges">
+              <span class="c8srv-badge">Meta Conversions API</span>
+              <span class="c8srv-badge">Google Tag Manager</span>
+              <span class="c8srv-badge">Klaviyo Funnels</span>
+            </div>
+            <a href="../Digital Marketing Service Page/index.html" class="c8srv-explore">Explore <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Item 5: SEO & Content -->
+        <div class="c8srv-catalog-item" data-c8srv-stack-id="4">
+          <div class="c8srv-catalog-left" style="display: flex !important; align-items: baseline !important; gap: 1.5rem !important; flex: 1 !important; min-width: 0 !important;">
+            <span class="c8srv-catalog-num" style="font-family: 'Space Mono', monospace !important; font-size: 12px !important; color: #0047E1 !important; flex-shrink: 0 !important;">05</span>
+            <h3 class="c8srv-catalog-title">SEO &amp; Content Strategy</h3>
+            <span class="c8srv-catalog-tagline" style="font-size: 13px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-left: 1.5rem !important;">Technical crawl audits, schema structures, and optimized copywriting.</span>
+          </div>
+          <div class="c8srv-catalog-right" style="display: flex !important; align-items: center !important; gap: 1.5rem !important; flex-shrink: 0 !important;">
+            <div class="c8srv-catalog-badges">
+              <span class="c8srv-badge">Crawl Budgets</span>
+              <span class="c8srv-badge">JSON-LD Schema</span>
+              <span class="c8srv-badge">Search Console</span>
+            </div>
+            <a href="../SEO and Content Service Page/index.html" class="c8srv-explore">Explore <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Item 6: Shopify -->
+        <div class="c8srv-catalog-item" data-c8srv-stack-id="5">
+          <div class="c8srv-catalog-left" style="display: flex !important; align-items: baseline !important; gap: 1.5rem !important; flex: 1 !important; min-width: 0 !important;">
+            <span class="c8srv-catalog-num" style="font-family: 'Space Mono', monospace !important; font-size: 12px !important; color: #0047E1 !important; flex-shrink: 0 !important;">06</span>
+            <h3 class="c8srv-catalog-title">Shopify Storefronts</h3>
+            <span class="c8srv-catalog-tagline" style="font-size: 13px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-left: 1.5rem !important;">Custom themes, Liquid engineering, and conversion design.</span>
+          </div>
+          <div class="c8srv-catalog-right" style="display: flex !important; align-items: center !important; gap: 1.5rem !important; flex-shrink: 0 !important;">
+            <div class="c8srv-catalog-badges">
+              <span class="c8srv-badge">Shopify Liquid</span>
+              <span class="c8srv-badge">TailwindCSS</span>
+              <span class="c8srv-badge">Checkout Upsells</span>
+            </div>
+            <a href="../Shopify Service Page/index.html" class="c8srv-explore">Explore <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Item 7: WordPress -->
+        <div class="c8srv-catalog-item" data-c8srv-stack-id="7">
+          <div class="c8srv-catalog-left" style="display: flex !important; align-items: baseline !important; gap: 1.5rem !important; flex: 1 !important; min-width: 0 !important;">
+            <span class="c8srv-catalog-num" style="font-family: 'Space Mono', monospace !important; font-size: 12px !important; color: #0047E1 !important; flex-shrink: 0 !important;">07</span>
+            <h3 class="c8srv-catalog-title">WordPress Themes</h3>
+            <span class="c8srv-catalog-tagline" style="font-size: 13px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-left: 1.5rem !important;">Native Gutenberg block-editor custom themes.</span>
+          </div>
+          <div class="c8srv-catalog-right" style="display: flex !important; align-items: center !important; gap: 1.5rem !important; flex-shrink: 0 !important;">
+            <div class="c8srv-catalog-badges">
+              <span class="c8srv-badge">Gutenberg Blocks</span>
+              <span class="c8srv-badge">Custom PHP</span>
+              <span class="c8srv-badge">MariaDB/MySQL</span>
+            </div>
+            <a href="../WordPress Service Page/index.html" class="c8srv-explore">Explore <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Item 8: WooCommerce -->
+        <div class="c8srv-catalog-item" data-c8srv-stack-id="8">
+          <div class="c8srv-catalog-left" style="display: flex !important; align-items: baseline !important; gap: 1.5rem !important; flex: 1 !important; min-width: 0 !important;">
+            <span class="c8srv-catalog-num" style="font-family: 'Space Mono', monospace !important; font-size: 12px !important; color: #0047E1 !important; flex-shrink: 0 !important;">08</span>
+            <h3 class="c8srv-catalog-title">WooCommerce Dev</h3>
+            <span class="c8srv-catalog-tagline" style="font-size: 13px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-left: 1.5rem !important;">WordPress e-commerce storefront builds and checkout hooks.</span>
+          </div>
+          <div class="c8srv-catalog-right" style="display: flex !important; align-items: center !important; gap: 1.5rem !important; flex-shrink: 0 !important;">
+            <div class="c8srv-catalog-badges">
+              <span class="c8srv-badge">WooCommerce API</span>
+              <span class="c8srv-badge">Checkout Hooks</span>
+              <span class="c8srv-badge">PHP / MySQL</span>
+            </div>
+            <a href="../WooCommerce Service Page/index.html" class="c8srv-explore">Explore <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Item 9: Bespoke Dev -->
+        <div class="c8srv-catalog-item" data-c8srv-stack-id="9">
+          <div class="c8srv-catalog-left" style="display: flex !important; align-items: baseline !important; gap: 1.5rem !important; flex: 1 !important; min-width: 0 !important;">
+            <span class="c8srv-catalog-num" style="font-family: 'Space Mono', monospace !important; font-size: 12px !important; color: #0047E1 !important; flex-shrink: 0 !important;">09</span>
+            <h3 class="c8srv-catalog-title">Bespoke Web Dev</h3>
+            <span class="c8srv-catalog-tagline" style="font-size: 13px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-left: 1.5rem !important;">Custom dashboards, database engineering, and APIs.</span>
+          </div>
+          <div class="c8srv-catalog-right" style="display: flex !important; align-items: center !important; gap: 1.5rem !important; flex-shrink: 0 !important;">
+            <div class="c8srv-catalog-badges">
+              <span class="c8srv-badge">React / Next.js</span>
+              <span class="c8srv-badge">Node.js</span>
+              <span class="c8srv-badge">Laravel PHP</span>
+              <span class="c8srv-badge">PostgreSQL</span>
+            </div>
+            <a href="../Custom Dev Service Page/index.html" class="c8srv-explore">Explore <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Item 10: AI MVP -->
+        <div class="c8srv-catalog-item" data-c8srv-stack-id="10">
+          <div class="c8srv-catalog-left" style="display: flex !important; align-items: baseline !important; gap: 1.5rem !important; flex: 1 !important; min-width: 0 !important;">
+            <span class="c8srv-catalog-num" style="font-family: 'Space Mono', monospace !important; font-size: 12px !important; color: #0047E1 !important; flex-shrink: 0 !important;">10</span>
+            <h3 class="c8srv-catalog-title">AI MVP Development</h3>
+            <span class="c8srv-catalog-tagline" style="font-size: 13px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-left: 1.5rem !important;">API interfaces, LLM prompt engineering, and database setup.</span>
+          </div>
+          <div class="c8srv-catalog-right" style="display: flex !important; align-items: center !important; gap: 1.5rem !important; flex-shrink: 0 !important;">
+            <div class="c8srv-catalog-badges">
+              <span class="c8srv-badge">OpenAI / Gemini</span>
+              <span class="c8srv-badge">Prompt Layer</span>
+              <span class="c8srv-badge">Python / Flask</span>
+              <span class="c8srv-badge">Pinecone Vector DB</span>
+            </div>
+            <a href="../AI MVP Service Page/index.html" class="c8srv-explore">Explore <span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="c8srv-tearline"><div class="c8srv-tearline-dot"></div><div class="c8srv-tearline-line"></div><div class="c8srv-tearline-dot"></div></div>
+
+  <!-- Slanted Card Stack (Growth Layer) -->
+  <div class="c8srv-folder-section">
+    <div class="c8srv-label c8srv-reveal">Growth &amp; Strategy</div>
+    <h2 class="c8srv-section-title c8srv-reveal">The <span class="c8srv-serif-text">Growth</span> Layer</h2>
+    <p class="c8srv-lead c8srv-reveal" style="margin-bottom: 2rem">The strategy, marketing, and search work that makes sure the site actually gets found and used.</p>
+
+    <div class="c8srv-folder-deck">
+      <!-- Card 01: Brand Strategy -->
+      <div class="c8srv-folder-card">
+        <div class="c8srv-folder-tab">01 // Brand Strategy</div>
+        <div class="c8srv-folder-card-left">
+          <h3 class="c8srv-folder-card-title">Market Identity &amp; Positioning</h3>
+          <p class="c8srv-folder-card-desc">Competitor analysis, pricing scoping, and messaging frameworks that give the rest of the build direction before a single pixel is designed. We map out who you're actually competing against and how your brand should sound across every touchpoint.</p>
+          <a href="https://cr8vstacks.com/services/brand-strategy/" class="c8srv-explore" style="margin-top: 1.5rem !important;">Explore Brand Strategy &rarr;</a>
+        </div>
+        <div class="c8srv-folder-card-right">
+          <div class="c8srv-folder-card-img">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop" alt="Brand Strategy Mockup">
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 02: Digital Marketing -->
+      <div class="c8srv-folder-card">
+        <div class="c8srv-folder-tab">02 // Digital Marketing</div>
+        <div class="c8srv-folder-card-left">
+          <h3 class="c8srv-folder-card-title">Lead Acquisition &amp; Retainers</h3>
+          <p class="c8srv-folder-card-desc">Multi-channel campaigns, social ads, and email autoresponders built around the customer journey. We handle conversion audits, target marketing, and testing across paid and organic channels so visitors actually buy.</p>
+          <a href="https://cr8vstacks.com/services/digital-marketing/" class="c8srv-explore" style="margin-top: 1.5rem !important;">Explore Digital Marketing &rarr;</a>
+        </div>
+        <div class="c8srv-folder-card-right">
+          <div class="c8srv-folder-card-img">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" alt="Digital Marketing Mockup">
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 03: SEO & Content -->
+      <div class="c8srv-folder-card">
+        <div class="c8srv-folder-tab">03 // SEO &amp; Content</div>
+        <div class="c8srv-folder-card-left">
+          <h3 class="c8srv-folder-card-title">Search Engine Auditing &amp; Copy</h3>
+          <p class="c8srv-folder-card-desc">Technical schema markup, crawl budget auditing, keyword matrix mapping, and fast speed caching setups, alongside human-first, conversion-optimized copywriting that ranks in Google search and converts visitor interest.</p>
+          <a href="https://cr8vstacks.com/services/digital-marketing/search-engine-optimization-seo/" class="c8srv-explore" style="margin-top: 1.5rem !important;">Explore SEO &amp; Content &rarr;</a>
+        </div>
+        <div class="c8srv-folder-card-right">
+          <div class="c8srv-folder-card-img">
+            <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=800&auto=format&fit=crop" alt="SEO and Content Mockup">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Navy capability breakout: Flanking Cards (Why It Works) -->
+<div class="c8srv-flank-section">
+  <div class="c8srv-flank-inner">
+    <div class="c8srv-label c8srv-reveal" style="justify-content: center !important;">Why It Works</div>
+    <h2 class="c8srv-section-title c8srv-reveal" style="color: #080808 !important; text-align: center !important;">Built around your business, not a template</h2>
+    
+    <div class="c8srv-flank-container" data-c8srv-flank-trigger>
+      <!-- Left Flanking Card (One Standard) -->
+      <div class="c8srv-flank-card is-left" data-c8srv-flank-left>
+        <div class="c8srv-flank-card-quote">“</div>
+        <span class="c8srv-flank-card-step">Any Stack // Standard</span>
+        <div class="c8srv-flank-card-divider"></div>
+        <h3 class="c8srv-flank-card-title">One Standard</h3>
+        <p class="c8srv-flank-card-desc">WordPress, Shopify, WooCommerce, or custom — the same zero-bloat engineering standard applies no matter what it's built on.</p>
+        <div class="c8srv-flank-card-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </div>
+      </div>
+
+      <!-- Center Card (Performance-First) -->
+      <div class="c8srv-flank-card is-center">
+        <div class="c8srv-flank-card-quote">“</div>
+        <span class="c8srv-flank-card-step">Every Build // Speed</span>
+        <div class="c8srv-flank-card-divider"></div>
+        <h3 class="c8srv-flank-card-title">Performance</h3>
+        <p class="c8srv-flank-card-desc">Engineered for load speed and search ranking from the first line of code, not optimized after the fact.</p>
+        <div class="c8srv-flank-card-icon">
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+      </div>
+
+      <!-- Right Flanking Card (Full Ownership) -->
+      <div class="c8srv-flank-card is-right" data-c8srv-flank-right>
+        <div class="c8srv-flank-card-quote">“</div>
+        <span class="c8srv-flank-card-step">What You Get // Control</span>
+        <div class="c8srv-flank-card-divider"></div>
+        <h3 class="c8srv-flank-card-title">Full Ownership</h3>
+        <p class="c8srv-flank-card-desc">Your code, your hosting, your data. No proprietary lock-in that leaves you stuck if you ever want to move on.</p>
+        <div class="c8srv-flank-card-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="c8srv-wrap">
+
+  <!-- Section: Pricing & Estimator -->
+  <div class="c8srv-pricing-section">
+    <div class="c8srv-label c8srv-reveal">Pricing Models</div>
+    <h2 class="c8srv-section-title c8srv-reveal">How We <span class="c8srv-serif-text">Work</span> Together</h2>
+    <p class="c8srv-lead c8srv-reveal">Whether you need a dedicated extension of your team or a bespoke design &amp; code project with guaranteed delivery, we have a model to fit.</p>
+
+    <!-- Pricing Split Cards -->
+    <div class="c8srv-pricing-split">
+      <!-- Monthly Growth Partner Model -->
+      <div class="c8srv-price-box c8srv-reveal">
+        <div class="c8srv-price-header">
+          <span class="c8srv-price-type">Ongoing Support</span>
+          <h3 class="c8srv-price-title">Growth Retainer</h3>
+          <div class="c8srv-price-amount">$950<span>/mo</span></div>
+        </div>
+        <p class="c8srv-price-desc">A monthly block of dedicated design and development hours to keep your website fast, updated, and growing. Perfect for active search marketing, technical SEO, speed tuning, and site edits.</p>
+        <div class="c8srv-price-features">
+          <div class="c8srv-price-feature">
+            <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Dedicated monthly support hours block</span>
+          </div>
+          <div class="c8srv-price-feature">
+            <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Monthly speed audits &amp; code optimizations</span>
+          </div>
+          <div class="c8srv-price-feature">
+            <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Design tweaks, copy updates &amp; SEO execution</span>
+          </div>
+        </div>
+        <a href="https://cr8vstacks.com/contact/?model=retainer" class="c8srv-price-btn is-light" style="border-color:#080808 !important; color:#080808 !important;">Secure Retainer Slot</a>
+      </div>
+
+      <!-- Fixed Scope Projects -->
+      <div class="c8srv-price-box is-highlight c8srv-reveal c8srv-reveal-d2">
+        <div class="c8srv-price-header">
+          <span class="c8srv-price-type">Fixed Scope</span>
+          <h3 class="c8srv-price-title">Fixed Projects</h3>
+          <div class="c8srv-price-amount" style="color: #FAFAF7 !important;">$1,200<span> start</span></div>
+        </div>
+        <p class="c8srv-price-desc">A deep, focused design &amp; code engagement with transparent scoping, clear milestones, and guaranteed delivery. Best for building a new custom site, e-commerce storefront, or AI MVP prototype.</p>
+        <div class="c8srv-price-features">
+          <div class="c8srv-price-feature">
+            <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Pre-project positioning &amp; speed audit</span>
+          </div>
+          <div class="c8srv-price-feature">
+            <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Guaranteed milestones &amp; delivery timeline</span>
+          </div>
+          <div class="c8srv-price-feature">
+            <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>95+ PageSpeed &amp; SEO launch configuration</span>
+          </div>
+        </div>
+        <a href="https://cr8vstacks.com/contact/?model=project" class="c8srv-price-btn is-primary">Start A Project</a>
+      </div>
+    </div>
+
+    <!-- Interactive Scope Estimator -->
+    <div class="c8srv-estimator c8srv-reveal">
+      <div style="margin-bottom: 2.5rem !important;">
+        <span class="c8srv-price-type">Project Scope Estimator</span>
+        <h3 class="c8srv-price-title" style="font-size: 1.8rem !important; margin-bottom: 0.5rem !important;">Build Your Stack Estimate</h3>
+        <p class="c8srv-price-desc" style="margin-bottom: 0 !important;">Select your desired setup below to calculate an immediate starting price range estimate for your project.</p>
+      </div>
+
+      <div class="c8srv-estimator-grid">
+        <div class="c8srv-est-options">
+          <!-- Step 1: Platform -->
+          <div>
+            <span class="c8srv-est-group-title">1. Core Architecture</span>
+            <div class="c8srv-est-choices" data-est-group="platform">
+              <button class="c8srv-est-choice is-active" data-est-val="wordpress" data-est-price="5000">WordPress No-Code</button>
+              <button class="c8srv-est-choice" data-est-val="shopify" data-est-price="8500">Shopify Custom Theme</button>
+              <button class="c8srv-est-choice" data-est-val="custom" data-est-price="12000">Custom Dev (PHP/JS)</button>
+              <button class="c8srv-est-choice" data-est-val="aimvp" data-est-price="15000">AI MVP Prototype</button>
+            </div>
+          </div>
+
+          <!-- Step 2: Scale -->
+          <div>
+            <span class="c8srv-est-group-title">2. Project Scale</span>
+            <div class="c8srv-est-choices" data-est-group="scale">
+              <button class="c8srv-est-choice is-active" data-est-val="landing" data-est-multiplier="1.0">Landing Page</button>
+              <button class="c8srv-est-choice" data-est-val="core" data-est-multiplier="1.4">Core Site (3-5 pages)</button>
+              <button class="c8srv-est-choice" data-est-val="portal" data-est-multiplier="2.0">Full Stack Portal (10+ pages)</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Growth layer add-on -->
+          <div>
+            <span class="c8srv-est-group-title">3. Growth Add-Ons</span>
+            <div class="c8srv-est-choices" data-est-group="growth">
+              <button class="c8srv-est-choice is-active" data-est-val="none" data-est-price="0">No Add-Ons</button>
+              <button class="c8srv-est-choice" data-est-val="seo" data-est-price="2500">SEO Strategy (+ $600)</button>
+              <button class="c8srv-est-choice" data-est-val="marketing" data-est-price="5000">Marketing Funnel (+ $950)</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c8srv-est-result">
+          <span class="c8srv-est-range-label">Estimated Starting Investment</span>
+          <div class="c8srv-est-range" id="est-range-display">$5,000 - $6,500</div>
+          
+          <span class="c8srv-est-deliverables-title">Included Deliverables:</span>
+          <div class="c8srv-est-deliverables" id="est-deliverables-list">
+            <!-- Dynamic elements will be inserted here -->
+          </div>
+
+          <a href="https://cr8vstacks.com/contact/" id="est-cta-link" class="c8srv-price-btn is-primary" style="margin-top: 1rem !important; margin-bottom: 1rem !important;">Submit Scope Request</a>
+          <a href="https://cr8vstacks.com/toolkits/website-cost-calculator/" class="c8srv-explore" style="justify-content: center !important; font-size: 11px !important; margin-top: 0.5rem !important; display: flex !important; font-family: 'Space Mono', monospace !important; color: #0047E1 !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important; align-items: center !important; gap: 8px !important;">Or build a custom stack with our Calculator &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="c8srv-tearline"><div class="c8srv-tearline-dot"></div><div class="c8srv-tearline-line"></div><div class="c8srv-tearline-dot"></div></div>
+
+  <!-- WooCommerce vs Shopify (unchanged) -->
+  <div class="c8srv-vs">
+    <div class="c8srv-label c8srv-reveal">Choosing Your Platform</div>
+    <h2 class="c8srv-section-title c8srv-reveal">WooCommerce or Shopify?</h2>
+    <p class="c8srv-lead c8srv-reveal">Both are excellent platforms. The right one depends on what you're optimizing for — pick a priority and we'll highlight what matters most.</p>
+
+    <div class="c8srv-vs-priority-row" data-c8srv-priority-row>
+      <button type="button" class="c8srv-vs-priority-btn" data-c8srv-priority="speed">Speed to Launch</button>
+      <button type="button" class="c8srv-vs-priority-btn" data-c8srv-priority="customization">Full Customization</button>
+      <button type="button" class="c8srv-vs-priority-btn" data-c8srv-priority="cost">Lower Ongoing Cost</button>
+      <button type="button" class="c8srv-vs-priority-btn" data-c8srv-priority="scale">Enterprise Scale</button>
+    </div>
+
+    <div class="c8srv-vs-table-wrap">
+      <table class="c8srv-vs-table">
+        <thead>
+          <tr><th>Criteria</th><th>Shopify</th><th>WooCommerce</th></tr>
+        </thead>
+        <tbody>
+          <tr data-c8srv-row data-c8srv-tags="speed">
+            <td>Setup Speed</td>
+            <td>Hosted infrastructure means fewer moving parts to configure before launch.<span class="c8srv-vs-winner">Faster to launch</span></td>
+            <td>Requires hosting, security, and plugin setup before you're live.</td>
+          </tr>
+          <tr data-c8srv-row data-c8srv-tags="customization">
+            <td>Customization Depth</td>
+            <td>Theme and app-level customization within Shopify's platform rules.</td>
+            <td>Full code access — no ceiling on how deep you can customize.<span class="c8srv-vs-winner">Deepest control</span></td>
+          </tr>
+          <tr data-c8srv-row data-c8srv-tags="customization cost">
+            <td>Hosting &amp; Data Control</td>
+            <td>Hosted by Shopify — simple, but your store lives on their infrastructure.</td>
+            <td>Self-hosted on infrastructure you choose and fully own.<span class="c8srv-vs-winner">Full ownership</span></td>
+          </tr>
+          <tr data-c8srv-row data-c8srv-tags="cost">
+            <td>Ongoing Platform Cost</td>
+            <td>Predictable monthly plan; costs scale with add-on apps.</td>
+            <td>No platform fee — costs come from hosting and plugins instead.</td>
+          </tr>
+          <tr data-c8srv-row data-c8srv-tags="speed scale">
+            <td>App &amp; Plugin Ecosystem</td>
+            <td>Large, polished app store with consistent quality standards.<span class="c8srv-vs-winner">Most mature</span></td>
+            <td>Massive plugin library, with more variance in code quality.</td>
+          </tr>
+          <tr data-c8srv-row data-c8srv-tags="scale">
+            <td>Enterprise Scalability</td>
+            <td>Shopify Plus supports high-volume, multi-storefront operations.</td>
+            <td>Scales fully custom — the ceiling is whatever we build to.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="c8srv-vs-note">Both platforms are genuinely solid choices — the table above highlights trade-offs, not a verdict. We'll help you land on the right one during a positioning audit.</div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var root = document.currentScript ? document.currentScript.closest('.c8srv-root') : document.querySelector('.c8srv-root');
+  if (!root || root.getAttribute('data-c8srv-init') === '1') return;
+  root.setAttribute('data-c8srv-init', '1');
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+
+  /* Reveal on scroll */
+  var revealEls = root.querySelectorAll('.c8srv-reveal');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* Hero atmosphere glow tracking */
+  var atmos = root.querySelector('[data-c8srv-atmos]');
+  var glow = root.querySelector('[data-c8srv-glow]');
+  if (atmos && glow && canHover && !reduceMotion) {
+    atmos.addEventListener('mousemove', function (e) {
+      var rect = atmos.getBoundingClientRect();
+      glow.style.transform = 'translate(' + (e.clientX - rect.left) + 'px,' + (e.clientY - rect.top) + 'px) translate(-50%,-50%)';
+    });
+    atmos.addEventListener('mouseenter', function () { atmos.classList.add('is-active'); });
+    atmos.addEventListener('mouseleave', function () { atmos.classList.remove('is-active'); });
+  }
+
+  /* ---- Showcase Tab Navigation (Primary Service // 01) ---- */
+  var navItems = root.querySelectorAll('[data-c8srv-nav]');
+  var cards = root.querySelectorAll('.c8srv-showcase-card');
+  if (navItems.length && cards.length) {
+    if ('IntersectionObserver' in window && !reduceMotion && !window.matchMedia('(max-width: 1024px)').matches) {
+      var observerOptions = {
+        root: null,
+        rootMargin: '-30% 0px -50% 0px',
+        threshold: 0
+      };
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var idx = parseInt(entry.target.getAttribute('data-c8srv-card'));
+            navItems.forEach(function (btn) { btn.classList.remove('is-active'); });
+            var activeNav = root.querySelector('[data-c8srv-nav="' + idx + '"]');
+            if (activeNav) activeNav.classList.add('is-active');
+          }
+        });
+      }, observerOptions);
+      cards.forEach(function (card) { observer.observe(card); });
+
+      navItems.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var idx = parseInt(btn.getAttribute('data-c8srv-nav'));
+          var targetCard = root.querySelector('.c8srv-showcase-card[data-c8srv-card="' + idx + '"]');
+          if (targetCard) {
+            var targetStickyTop = 100 + idx * 25;
+            var offset = (targetCard.getBoundingClientRect().top + window.scrollY) - targetStickyTop - 10;
+            window.scrollTo({ top: offset, behavior: 'smooth' });
+          }
+        });
+      });
+    } else {
+      navItems.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var idx = btn.getAttribute('data-c8srv-nav');
+          navItems.forEach(function (b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          cards.forEach(function (c) {
+            if (c.getAttribute('data-c8srv-card') === idx) {
+              c.style.display = 'grid';
+            } else {
+              c.style.display = 'none';
+            }
+          });
+        });
+      });
+      if (window.matchMedia('(max-width: 1024px)').matches) {
+        navItems.forEach(function (btn, i) {
+          var card = root.querySelector('.c8srv-showcase-card[data-c8srv-card="' + i + '"]');
+          if (card) {
+            if (i > 0) {
+              card.style.display = 'none';
+            } else {
+              card.style.display = 'grid';
+            }
+          }
+        });
+      }
+    }
+  }
+
+  /* ---- Shared "stack" mechanic: cards start stacked/rotated, un-stack into
+     final position as the container ratio increases, reversible both ways ---- */
+  function setupScrollStack(container, stack_cards, getTransform) {
+    if (!container || !stack_cards.length) return;
+    if (reduceMotion || (window.innerWidth < 900)) {
+      stack_cards.forEach(function (card, i) {
+        card.style.transform = 'none';
+        card.style.filter = 'none';
+      });
+      return;
+    }
+    
+    function checkScroll() {
+      var rect = container.getBoundingClientRect();
+      var viewHeight = window.innerHeight;
+      var totalScrollable = rect.height - viewHeight;
+      if (totalScrollable <= 0) return;
+      var progress = -rect.top / totalScrollable;
+      var t = Math.min(1, Math.max(0, progress));
+      
+      stack_cards.forEach(function (card, i) {
+        card.style.transform = getTransform(i, t);
+      });
+    }
+    
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll);
+    checkScroll();
+  }
+
+  /* Robust Folder Deck stacking animation */
+  var folderDeck = root.querySelector('.c8srv-folder-deck');
+  var folderCards = root.querySelectorAll('.c8srv-folder-card');
+  if (folderDeck && folderCards.length) {
+    function updateFolderStack() {
+      if (window.innerWidth < 900 || reduceMotion) {
+        folderCards.forEach(function (card) {
+          card.style.transform = 'none';
+          card.style.filter = 'none';
+        });
+        return;
+      }
+      folderCards.forEach(function (card, i) {
+        var rect = card.getBoundingClientRect();
+        if (rect.top <= 131) {
+          var nextCardsStacked = 0;
+          for (var j = i + 1; j < folderCards.length; j++) {
+            var nextRect = folderCards[j].getBoundingClientRect();
+            if (nextRect.top <= 135) {
+              nextCardsStacked++;
+            }
+          }
+          var targetScale = 1 - (nextCardsStacked * 0.03);
+          var targetTranslateY = nextCardsStacked * -8;
+          card.style.transform = 'scale(' + targetScale + ') translate3d(0, ' + targetTranslateY + 'px, 0)';
+          card.style.filter = 'brightness(' + (1 - (nextCardsStacked * 0.05)) + ')';
+        } else {
+          card.style.transform = 'none';
+          card.style.filter = 'none';
+        }
+      });
+    }
+    window.addEventListener('scroll', updateFolderStack);
+    window.addEventListener('resize', updateFolderStack);
+    updateFolderStack();
+  }
+
+  /* ---- Cursor following 3-fan layout without images ---- */
+  var hoverlist = root.querySelector('[data-c8srv-hoverlist]');
+  var preview = root.querySelector('[data-c8srv-preview]');
+  
+  if (hoverlist && preview && canHover && !reduceMotion) {
+    var hoverItems = hoverlist.querySelectorAll('.c8srv-hoverlist-item');
+    
+    hoverlist.addEventListener('mousemove', function (e) {
+      var rect = hoverlist.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      preview.style.left = x + 'px';
+      preview.style.top = y + 'px';
+    });
+    
+    hoverlist.addEventListener('mouseenter', function () {
+      preview.classList.add('is-active');
+    });
+    
+    hoverlist.addEventListener('mouseleave', function () {
+      preview.classList.remove('is-active');
+    });
+    
+    hoverItems.forEach(function (item) {
+      item.addEventListener('mouseenter', function () {
+        var serviceId = item.getAttribute('data-c8srv-service-id');
+        var color = '#0047E1';
+        if (serviceId === '1') color = '#0047E1';
+        else if (serviceId === '2') color = '#E15A00';
+        else if (serviceId === '3') color = '#2EBA00';
+        else if (serviceId === '4') color = '#00A8BA';
+        
+        var dots = preview.querySelectorAll('.c8srv-fan-dot');
+        var rects = preview.querySelectorAll('.c8srv-fan-rect');
+        dots.forEach(function (dot) { dot.style.backgroundColor = color; });
+        rects.forEach(function (rect) { rect.style.borderColor = color; rect.style.backgroundColor = color + '0D'; });
+      });
+    });
+  }
+
+  /* ---- Project Scope Estimator Calculator Widget ---- */
+  var estRange = root.querySelector('[data-est-range]');
+  var estList = root.querySelector('[data-est-list]');
+  var estCta = root.querySelector('#est-cta-link');
+  var estChoices = root.querySelectorAll('.c8srv-est-choice');
+
+  var estimatorData = {
+    wordpress: {
+      price: 1200,
+      deliverables: ["Custom theme build & setup", "Zero-bloat optimized speed architecture", "Up to 5 editable layout pages"]
+    },
+    shopify: {
+      price: 1800,
+      deliverables: ["Bespoke Liquid storefront coding", "Cart drawer & upsell conversions built-in", "App-free speed performance tuning"]
+    },
+    custom: {
+      price: 2500,
+      deliverables: ["Bespoke framework/custom PHP/JS engineering", "Third-party APIs and custom database queries", "Client dashboard whitelabel panel"]
+    },
+    aimvp: {
+      price: 3500,
+      deliverables: ["AI LLM fine-tuning & prompt layer setup", "Brave Search fact-checking API integration", "Immediate working MVP launch in 3 weeks"]
+    }
+  };
+  
+  var estimatorAddons = {
+    none: { price: 0, deliverables: [] },
+    seo: { price: 600, deliverables: ["High-intent keyword matrix mapping", "Technical speed & schema SEO markup setup"] },
+    marketing: { price: 950, deliverables: ["Complete email marketing workflow setup", "High-conversion ad-campaign funnel wiring"] }
+  };
+
+  function calculateEstimate() {
+    if (!estRange || !estList || !estCta) return;
+    
+    var platformBtn = root.querySelector('[data-est-group="platform"] .c8srv-est-choice.is-active');
+    var scaleBtn = root.querySelector('[data-est-group="scale"] .c8srv-est-choice.is-active');
+    var growthBtn = root.querySelector('[data-est-group="growth"] .c8srv-est-choice.is-active');
+    
+    if (!platformBtn || !scaleBtn || !growthBtn) return;
+    
+    var platform = platformBtn.getAttribute('data-est-val');
+    var scale = scaleBtn.getAttribute('data-est-val');
+    var growth = growthBtn.getAttribute('data-est-val');
+    
+    var basePrice = estimatorData[platform].price;
+    var scaleMult = parseFloat(scaleBtn.getAttribute('data-est-multiplier'));
+    var growthPrice = estimatorAddons[growth].price;
+    
+    var calculatedStart = Math.round(basePrice * scaleMult + growthPrice);
+    var calculatedEnd = Math.round(calculatedStart * 1.25);
+    
+    estRange.textContent = "$" + calculatedStart.toLocaleString() + " - $" + calculatedEnd.toLocaleString();
+    
+    estList.innerHTML = "";
+    
+    estimatorData[platform].deliverables.forEach(function (d) {
+      var item = document.createElement('div');
+      item.className = 'c8srv-est-item';
+      item.innerHTML = '<span>→</span>' + d;
+      estList.appendChild(item);
+    });
+    
+    var scaleText = scaleBtn.textContent.trim();
+    var scaleItem = document.createElement('div');
+    scaleItem.className = 'c8srv-est-item';
+    scaleItem.innerHTML = '<span>→</span>Scope: ' + scaleText;
+    estList.appendChild(scaleItem);
+    
+    estimatorAddons[growth].deliverables.forEach(function (d) {
+      var item = document.createElement('div');
+      item.className = 'c8srv-est-item';
+      item.innerHTML = '<span>→</span>' + d;
+      estList.appendChild(item);
+    });
+    
+    var query = "?platform=" + platform + "&scale=" + scale + "&growth=" + growth + "&est=" + calculatedStart + "-" + calculatedEnd;
+    estCta.href = "https://cr8vstacks.com/contact/" + encodeURI(query);
+  }
+  
+  if (estChoices.length) {
+    estChoices.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var group = btn.closest('[data-est-group]');
+        group.querySelectorAll('.c8srv-est-choice').forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        calculateEstimate();
+      });
+    });
+    calculateEstimate();
+  }
+
+  /* Accordion FAQ Toggle */
+  var accordionHeads = root.querySelectorAll('[data-c8srv-accordion-head]');
+  accordionHeads.forEach(function (head) {
+    head.addEventListener('click', function () {
+      var item = head.closest('.c8srv-accordion-item');
+      var wasOpen = item.classList.contains('is-open');
+      item.parentElement.querySelectorAll('.c8srv-accordion-item').forEach(function (i) { i.classList.remove('is-open'); });
+      if (!wasOpen) item.classList.add('is-open');
+    });
+  });
+})();
+</script>
+</div>

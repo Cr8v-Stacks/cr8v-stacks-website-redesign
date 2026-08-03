@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study: Kiri City Stays | Cr8v Stacks</title>
+  <meta name="description" content="Read how Cr8v Stacks designed the brand identity, built Google Tag conversion tracking, and ran Google/Facebook ads campaigns for Kiri City Stays.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
+
+    /* CSS Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #FFFFFF;
+      color: #080808;
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    .c8cs-root {
+      position: relative;
+      width: 100%;
+    }
+
+    .c8cs-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .c8cs-wrap {
+        padding: 4rem 1.25rem;
+      }
+    }
+
+    /* Common Design Elements */
+    .c8cs-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: #0047E1;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .c8cs-label::before {
+      content: '—';
+      color: #0047E1;
+      font-weight: 700;
+    }
+
+    .c8cs-headline {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      letter-spacing: 0.02em;
+      line-height: 1.15;
+      font-weight: 700;
+      color: #080808;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .c8cs-serif {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      text-transform: none;
+      font-weight: 400;
+    }
+
+    .c8cs-lead {
+      font-size: 18px;
+      font-weight: 300;
+      color: #555555;
+      max-width: 850px;
+      margin-bottom: 3rem;
+    }
+
+    /* Hero Section */
+    .c8cs-hero {
+      padding-top: 8rem;
+      padding-bottom: 4rem;
+      position: relative;
+    }
+
+    /* Hero Atmosphere & Glow Animation */
+    .c8cs-hero-atmos {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: auto; /* enable hover tracking */
+      overflow: hidden;
+    }
+    .c8cs-atmos-svg {
+      position: absolute;
+      top: -10%;
+      left: 0;
+      width: 100%;
+      height: 130%;
+    }
+    .c8cs-atmos-blob {
+      filter: blur(1px);
+      opacity: 0.35;
+      mix-blend-mode: normal;
+    }
+    .c8cs-atmos-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 71, 225, 0.35) 0%, rgba(0, 71, 225, 0) 70%);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      will-change: transform;
+      pointer-events: none;
+    }
+    .c8cs-hero-atmos.is-active .c8cs-atmos-glow {
+      opacity: 1;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .c8cs-atmos-svg animate { display: none !important; }
+      .c8cs-atmos-glow { display: none !important; }
+    }
+
+    .c8cs-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      border-top: 1px solid rgba(8, 8, 8, 0.08);
+      border-bottom: 1px solid rgba(8, 8, 8, 0.08);
+      padding: 2rem 0;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .c8cs-meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    .c8cs-meta-item span {
+      display: block;
+    }
+
+    .c8cs-meta-lbl {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      color: #8A8A8A;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.1em;
+    }
+
+    .c8cs-meta-val {
+      font-size: 15px;
+      font-weight: 600;
+      color: #080808;
+    }
+
+    /* Showcase Image */
+    .c8cs-main-img-box {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(8, 8, 8, 0.06);
+      border: 1px solid rgba(8, 8, 8, 0.08);
+      margin-bottom: 5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .c8cs-main-img-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      max-height: 600px;
+    }
+
+    /* Project Split Section */
+    .c8cs-split-section {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      margin-bottom: 6rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .c8cs-split-section {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+
+    .c8cs-sticky-title {
+      position: sticky;
+      top: 100px;
+    }
+
+    .c8cs-split-title {
+      font-family: 'Michroma', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      color: #080808;
+    }
+
+    .c8cs-body-content p {
+      font-size: 16px;
+      color: #4A4A4A;
+      margin-bottom: 1.75rem;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .c8cs-body-content h4 {
+      font-family: 'Michroma', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #080808;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* Step Process styling */
+    .c8cs-approach-list {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .c8cs-approach-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .c8cs-step-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #0047E1;
+      border: 1px solid rgba(0, 71, 225, 0.3);
+      padding: 6px 12px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .c8cs-step-content h5 {
+      font-family: 'Michroma', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #080808;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .c8cs-step-content p {
+      font-size: 14.5px;
+      color: #6B6B6B;
+      margin-bottom: 0;
+    }
+
+    /* Design Gallery Section */
+    .c8cs-gallery-section {
+      background: #FAFAF9;
+      border-top: 1px solid rgba(8, 8, 8, 0.06);
+      border-bottom: 1px solid rgba(8, 8, 8, 0.06);
+    }
+
+    .c8cs-gallery-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 3rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .c8cs-gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    .c8cs-gallery-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(8, 8, 8, 0.08);
+      border-radius: 20px;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(8, 8, 8, 0.01);
+      transition: transform 0.4s cubic-bezier(.16,1,.3,1), box-shadow 0.4s ease;
+    }
+
+    .c8cs-gallery-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(0, 71, 225, 0.02);
+    }
+
+    @media (max-width: 900px) {
+      .c8cs-gallery-card {
+        grid-column: span 1 !important;
+      }
+    }
+
+    .c8cs-gallery-meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      color: #8A8A8A;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.12em;
+    }
+
+    .c8cs-gallery-title {
+      font-family: 'Michroma', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #080808;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      margin-bottom: 1rem;
+    }
+
+    .c8cs-gallery-desc {
+      font-size: 14px;
+      color: #6B6B6B;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .c8cs-gallery-img-box {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(8, 8, 8, 0.08);
+      overflow: hidden;
+      background: #FFFFFF;
+      box-shadow: 0 5px 15px rgba(8, 8, 8, 0.02);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: auto;
+    }
+
+    .c8cs-gallery-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .c8cs-gallery-img-box.is-tall {
+      height: 500px;
+    }
+
+    @media (max-width: 768px) {
+      .c8cs-gallery-img-box.is-tall {
+        height: 280px !important;
+      }
+    }
+
+    .c8cs-swatch-row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .c8cs-swatch {
+      flex: 1;
+      height: 80px;
+      border-radius: 8px;
+      position: relative;
+      box-shadow: inset 0 0 0 1px rgba(8,8,8,0.06);
+    }
+
+    .c8cs-swatch-hex {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      background: #FFFFFF;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Outcomes metrics section */
+    .c8cs-metrics-bg {
+      background: #F4F6FB;
+      border-top: 1px solid rgba(8, 8, 8, 0.05);
+      border-bottom: 1px solid rgba(8, 8, 8, 0.05);
+      padding: 6rem 0;
+    }
+
+    .c8cs-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .c8cs-metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    .c8cs-metric-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(8, 8, 8, 0.06);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 10px 30px rgba(8, 8, 8, 0.015);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .c8cs-metric-val {
+      font-family: 'Michroma', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #0047E1;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .c8cs-metric-lbl {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8A8A8A;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .c8cs-metric-desc {
+      font-size: 13.5px;
+      color: #6B6B6B;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    /* Bottom Navigation / CTA */
+    .c8cs-footer-cta {
+      padding: 6rem 2rem 8rem 2rem;
+      background: #FFFFFF !important;
+      border-top: 1px solid rgba(8, 8, 8, 0.06);
+      text-align: center;
+      position: relative;
+    }
+
+    .c8cs-cta-card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #FAFAF9;
+      border: 1px solid rgba(8, 8, 8, 0.08);
+      border-radius: 24px;
+      padding: 4.5rem 3rem;
+      box-shadow: 0 20px 45px rgba(0, 71, 225, 0.02);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 600px) {
+      .c8cs-cta-card {
+        padding: 3rem 1.5rem;
+      }
+    }
+
+    .c8cs-cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .c8cs-footer-cta .c8cs-headline {
+      color: #080808;
+      margin-bottom: 1.25rem;
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+    }
+
+    .c8cs-btn-primary {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: #0047E1;
+      color: #FFFFFF;
+      padding: 18px 36px;
+      border-radius: 8px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      margin-top: 1rem;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0, 71, 225, 0.2);
+    }
+
+    .c8cs-btn-primary:hover {
+      background: #0036ad;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 71, 225, 0.35);
+    }
+
+    .c8cs-back-btn {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: #8A8A8A;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.2s ease;
+      text-decoration: none;
+      position: relative;
+      z-index: 2;
+    }
+
+    .c8cs-back-btn:hover {
+      color: #0047E1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="c8cs-root">
+    
+    <section class="c8cs-hero">
+      <div class="c8cs-hero-atmos" data-c8cs-atmos>
+        <svg class="c8cs-atmos-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
+          <defs>
+            <filter id="c8csGoo" x="-50%" y="-50%" width="200%" height="200%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.008 0.02" numOctaves="2" seed="7" result="turb">
+                <animate attributeName="baseFrequency" values="0.008 0.02;0.02 0.05;0.008 0.02" dur="16s" repeatCount="indefinite"/>
+              </feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="turb" scale="42" xChannelSelector="R" yChannelSelector="G"/>
+              <feGaussianBlur stdDeviation="4"/>
+            </filter>
+          </defs>
+          <g filter="url(#c8csGoo)">
+            <circle class="c8cs-atmos-blob" cx="80" cy="60" r="70" fill="#0047E1">
+              <animate attributeName="cx" values="80;145;55;80" dur="19s" repeatCount="indefinite"/>
+              <animate attributeName="cy" values="60;35;95;60" dur="19s" repeatCount="indefinite"/>
+            </circle>
+            <circle class="c8cs-atmos-blob" cx="220" cy="55" r="55" fill="#3D6BFF">
+              <animate attributeName="cx" values="220;165;285;220" dur="23s" repeatCount="indefinite"/>
+              <animate attributeName="cy" values="55;115;30;55" dur="23s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+        </svg>
+        <div class="c8cs-atmos-glow" data-c8cs-glow></div>
+      </div>
+
+      <div class="c8cs-wrap">
+        <a href="../Digital Marketing Service Page/index.html" class="c8cs-back-btn">
+          ← Back to Digital Marketing
+        </a>
+        
+        <div class="c8cs-label">Case Study Spotlight</div>
+        <h1 class="c8cs-headline">Kiri City Stays<br><span class="c8cs-serif">Digital Marketing &amp; Brand Launch</span></h1>
+        <p class="c8cs-lead">Designing the visual identity, configuring Google Tag Manager conversion events, and executing high-yield Google Search and Facebook ad campaigns for UK serviced apartments.</p>
+
+        <div class="c8cs-meta-grid">
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Client</span>
+            <span class="c8cs-meta-val">Kiri City Stays</span>
+          </div>
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Starting State</span>
+            <span class="c8cs-meta-val">No Tracking, Low Sales</span>
+          </div>
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Agency Scope</span>
+            <span class="c8cs-meta-val">Brand Identity &amp; Ad Campaigns</span>
+          </div>
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Key Channels</span>
+            <span class="c8cs-meta-val">Google Tags, Google &amp; FB Ads</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="c8cs-wrap" style="padding-top: 0; padding-bottom: 0;">
+      <div class="c8cs-main-img-box">
+        <img src="assets/images/cr8v-kiri-city-stays-booking-dashboard.png" alt="Kiri City Stays digital marketing and campaign tracking showcase banner">
+      </div>
+    </div>
+
+    <section class="c8cs-wrap">
+      
+      <div class="c8cs-split-section">
+        <div class="c8cs-sticky-title">
+          <h2 class="c8cs-split-title">The Challenge</h2>
+        </div>
+        <div class="c8cs-body-content">
+          <p>Kiri City Stays is a premium serviced apartment operator based in the UK. When they engaged us, they had a basic online presence but lacked any structured digital marketing tracking, conversion metrics, or customer acquisition loops. They wanted to drive direct bookings through search and social ad channels, but were suffering from high acquisition costs and zero attribution data.</p>
+          <p>They needed a unified partner who could design a polished brand identity (logo, color system, typography), implement a reliable conversion tracking pipeline (Google Tag Manager), and deploy targeted search and social campaigns. The entire acquisition funnel had to run under a single consistent voice to convert high-value business and leisure travelers.</p>
+        </div>
+      </div>
+
+      <div class="c8cs-split-section" style="margin-top: 4rem;">
+        <div class="c8cs-sticky-title">
+          <h2 class="c8cs-split-title">The Solution</h2>
+        </div>
+        <div class="c8cs-body-content">
+          <p>We designed their complete visual identity, configured Google Tag Manager event tracking, built a core website alongside multiple ad-conversion landing pages, and deployed connected ad campaigns across Google and Facebook.</p>
+          
+          <h4>1. Visual Branding &amp; Google Tag Tracking Setup</h4>
+          <p>We custom-designed their corporate logo system, established visual guidelines, and defined their typography and colors (navy charcoal `#1E293B` and warm gold `#D97706`). To ensure 100% attribution accuracy, we configured Google Tag Manager and conversion events to track booking button clicks and reservation submissions precisely.</p>
+          
+          <h4>2. Landing Pages Design &amp; Search Ad Campaigns</h4>
+          <p>We designed and built a main website alongside multiple custom landing pages for specific serviced apartment locations to optimize campaign conversions. We launched and managed targeted Google Search ads and Facebook campaigns. By routing ad traffic directly to optimized landing pages and adjusting bids based on real-time conversion tags data, we reduced customer acquisition costs and drove bookings.</p>
+        </div>
+      </div>
+
+      <div class="c8cs-split-section" style="margin-top: 4rem;">
+        <div class="c8cs-sticky-title">
+          <h2 class="c8cs-split-title">Our Approach</h2>
+        </div>
+        <div class="c8cs-body-content">
+          <p>We executed the marketing launch through a four-phase development roadmap, connecting brand design with conversion tracking and targeted ads.</p>
+          
+          <div class="c8cs-approach-list">
+            <div class="c8cs-approach-step">
+              <div class="c8cs-step-num">01</div>
+              <div class="c8cs-step-content">
+                <h5>Funnel Scoping</h5>
+                <p>We audited UK serviced apartment keywords and visitor demographics to identify high-intent target markets for Google Search campaigns.</p>
+              </div>
+            </div>
+
+            <div class="c8cs-approach-step">
+              <div class="c8cs-step-num">02</div>
+              <div class="c8cs-step-content">
+                <h5>Brand Identity Design</h5>
+                <p>We designed the brand's logo, colors system, and typography layout guidelines to project corporate authority and trust.</p>
+              </div>
+            </div>
+
+            <div class="c8cs-approach-step">
+              <div class="c8cs-step-num">03</div>
+              <div class="c8cs-step-content">
+                <h5>Conversion Tracking Integration</h5>
+                <p>We implemented Google Tag Manager on the website, defining conversion tags, triggers, and parameters to track booking conversions.</p>
+              </div>
+            </div>
+
+            <div class="c8cs-approach-step">
+              <div class="c8cs-step-num">04</div>
+              <div class="c8cs-step-content">
+                <h5>Ad Campaigns Execution</h5>
+                <p>We deployed targeted Facebook and Google Ads campaigns, adjusting bids and messaging copy to maximize booking conversions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="c8cs-gallery-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-label">Design &amp; Interface Gallery</div>
+        <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 1.5rem;">Visual Showcase</h2>
+        <p class="c8cs-lead" style="margin-bottom: 3rem;">A look at the brand identity files, Google Tag parameters, and Google Ads configurations designed for Kiri City Stays.</p>
+        
+        <div class="c8cs-gallery-grid">
+          
+          <div class="c8cs-gallery-card">
+            <div>
+              <div class="c8cs-gallery-meta">Branding // Asset 01</div>
+              <h3 class="c8cs-gallery-title">Visual Style Guide</h3>
+              <p class="c8cs-gallery-desc">Curation of typography layouts and brand color palettes, utilizing space-age styles and technical accents to build trust.</p>
+            </div>
+            
+            <div class="c8cs-swatch-row">
+              <div class="c8cs-swatch" style="background: #FFFFFF; border: 1px solid rgba(8,8,8,0.12);">
+                <span class="c8cs-swatch-hex" style="color:#080808;">#FFFFFF</span>
+              </div>
+              <div class="c8cs-swatch" style="background: #E0F2FE;">
+                <span class="c8cs-swatch-hex" style="color:#0369A1;">#E0F2FE</span>
+              </div>
+              <div class="c8cs-swatch" style="background: #09090B;">
+                <span class="c8cs-swatch-hex" style="color:#FFFFFF;">#09090B</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="c8cs-gallery-card">
+            <div>
+              <div class="c8cs-gallery-meta">Interface // Asset 02</div>
+              <h3 class="c8cs-gallery-title">Conversion Tracking Setup</h3>
+              <p class="c8cs-gallery-desc">Configuring conversion triggers, booking button event trackers, and custom variables inside Google Tag Manager to trace ad spending.</p>
+            </div>
+            <div class="c8cs-gallery-img-box">
+              <img src="assets/images/cr8v-kiri-city-stays-booking-dashboard.png" alt="Kiri City Stays Google Tag conversion triggers code">
+            </div>
+          </div>
+
+          <div class="c8cs-gallery-card" style="grid-column: span 2;">
+            <div style="max-width: 600px;">
+              <div class="c8cs-gallery-meta">Marketing // Asset 03</div>
+              <h3 class="c8cs-gallery-title">Google Search Ad Campaigns</h3>
+              <p class="c8cs-gallery-desc">Configuring target acquisition funnels using Google Search campaigns and Facebook Ads to drive booking intent traffic to landing pages.</p>
+            </div>
+            <div class="c8cs-gallery-img-box is-tall">
+              <img src="https://images.unsplash.com/photo-1542744094-3a31f103e35f?q=80&w=1200&auto=format&fit=crop" alt="Kiri City Stays ad performance and conversion dashboards mockup">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="c8cs-metrics-bg">
+      <div class="c8cs-wrap">
+        <div class="c8cs-label" style="color: #080808;">Project Outcomes</div>
+        <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 2.5rem;">Bespoke Performance Metrics</h2>
+        
+        <div class="c8cs-metrics-grid">
+          
+          <div class="c8cs-metric-card">
+            <div class="c8cs-metric-val">100%</div>
+            <div class="c8cs-metric-lbl">Tagging Accuracy</div>
+            <p class="c8cs-metric-desc">Custom Google Tag Manager and conversion events configured to track client booking actions precisely.</p>
+          </div>
+
+          <div class="c8cs-metric-card">
+            <div class="c8cs-metric-val">+45%</div>
+            <div class="c8cs-metric-lbl">Booking Conversions</div>
+            <p class="c8cs-metric-desc">Experienced an increase in monthly reservation signups within 90 days of targeted search ad campaigns.</p>
+          </div>
+
+          <div class="c8cs-metric-card">
+            <div class="c8cs-metric-val">1</div>
+            <div class="c8cs-metric-lbl">Unified Ad Funnel</div>
+            <p class="c8cs-metric-desc">Google Search, conversion tags, and Facebook Ads ran under a single messaging voice to optimize costs.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="c8cs-footer-cta">
+      <div class="c8cs-wrap" style="padding: 0;">
+        <div class="c8cs-cta-card">
+          <div class="c8cs-cta-content">
+            <div class="c8cs-label" style="justify-content: center; margin-bottom: 1rem;">Start a Project</div>
+            <h2 class="c8cs-headline">Ready to scale your campaigns?</h2>
+            <p class="c8cs-lead" style="margin: 0 auto 2rem auto; font-size: 16px; max-width: 600px;">Whether you're launching a new digital brand or optimizing existing ad spend, we build connected conversion funnels engineered to track and convert buyers.</p>
+            <a href="https://cr8vstacks.com/contact/" class="c8cs-btn-primary">Start a Conversation →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var root = document.querySelector('.c8cs-root');
+      var atmos = root.querySelector('[data-c8cs-atmos]');
+      var glow = root.querySelector('[data-c8cs-glow]');
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+
+      if (atmos && glow && canHover && !reduceMotion) {
+        atmos.addEventListener('mousemove', function (e) {
+          var rect = atmos.getBoundingClientRect();
+          glow.style.transform = 'translate(' + (e.clientX - rect.left) + 'px,' + (e.clientY - rect.top) + 'px) translate(-50%,-50%)';
+        });
+        atmos.addEventListener('mouseenter', function () {
+          atmos.classList.add('is-active');
+        });
+        atmos.addEventListener('mouseleave', function () {
+          atmos.classList.remove('is-active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

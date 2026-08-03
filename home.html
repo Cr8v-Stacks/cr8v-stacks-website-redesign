@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cr8v Stacks — High-Performance Digital Engineering Agency</title>
+  <meta name="description" content="Strategy, design, and code — as one team, not four vendors. We build bespoke web platforms, AI MVPs, and custom development applications.">
+  
+  <!-- Brand Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Michroma&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ═══════════════════════════════════════════════════════════════════════════
+       CR8V STACKS — SYSTEM MASTER CSS & BRAND TOKENS
+       Brand Headings: 'Michroma', sans-serif
+       Brand Monospace: 'Space Mono', monospace
+       Brand Body Copy: 'DM Sans', sans-serif
+       Brand Primary Color: #0047E1 (Royal Blue)
+       ═══════════════════════════════════════════════════════════════════════════ */
+    :root {
+      --brand-blue: #0047E1;
+      --brand-blue-hover: #0038C0;
+      --brand-blue-glow: rgba(0, 71, 225, 0.25);
+      --brand-blue-lite: rgba(0, 71, 225, 0.08);
+      --bg-dark: #080808;
+      --bg-card-dark: #111111;
+      --bg-light: #FAFAF7;
+      --text-dark: #080808;
+      --text-light: #FAFAF7;
+      --text-muted: #6B6B6B;
+      --border-dark: rgba(255, 255, 255, 0.12);
+      --border-light: rgba(8, 8, 8, 0.12);
+      --radius-pill: 9999px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       NAVIGATION HEADER
+       ═══════════════════════════════════════════════════════════════════════════ */
+    .c8-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      z-index: 1000;
+      background: rgba(250, 250, 247, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3.5rem;
+    }
+
+    .c8-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Michroma', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      color: var(--text-dark);
+      text-transform: uppercase;
+    }
+
+    .c8-logo-badge {
+      width: 32px;
+      height: 32px;
+      background: var(--brand-blue);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 4px 14px var(--brand-blue-glow);
+    }
+
+    .c8-logo-badge svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .c8-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+      list-style: none;
+    }
+
+    .c8-nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.925rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      transition: var(--transition);
+    }
+
+    .c8-nav-links a:hover {
+      color: var(--brand-blue);
+    }
+
+    .btn-brand-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--brand-blue);
+      color: #fff;
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-pill);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: var(--transition);
+      box-shadow: 0 4px 16px var(--brand-blue-glow);
+    }
+
+    .btn-brand-primary:hover {
+      background: var(--brand-blue-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 71, 225, 0.35);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       HERO SECTION WITH ANIMATION CANVAS CONTAINER BELOW WRITTEN CONTENT
+       ═══════════════════════════════════════════════════════════════════════════ */
+    .c8-hero-section {
+      padding-top: 9rem;
+      padding-bottom: 3rem;
+      background: radial-gradient(circle at 50% 10%, rgba(0, 71, 225, 0.08) 0%, transparent 60%);
+      text-align: center;
+      position: relative;
+    }
+
+    .c8-hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .c8-hero-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+      padding: 6px 16px;
+      background: var(--brand-blue-lite);
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0, 71, 225, 0.18);
+    }
+
+    .c8-hero-eyebrow::before {
+      content: '—';
+      color: var(--brand-blue);
+      font-weight: 700;
+    }
+
+    .c8-hero-title {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(2rem, 4.8vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .c8-hero-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 2.5rem auto;
+      line-height: 1.6;
+    }
+
+    .c8-hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .btn-brand-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #FFFFFF;
+      color: var(--text-dark);
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-light);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: var(--transition);
+    }
+
+    .btn-brand-ghost:hover {
+      border-color: var(--brand-blue);
+      color: var(--brand-blue);
+      transform: translateY(-2px);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       CONTINUOUS SCROLL TRIGGER ANIMATION SECTION
+       The animation canvas expands from hero container into full width!
+       ═══════════════════════════════════════════════════════════════════════════ */
+    .c8-anim-track {
+      position: relative;
+      width: 100%;
+      height: 400vh; /* Smooth multi-stage scroll track */
+    }
+
+    .c8-anim-sticky {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-light);
+    }
+
+    /* Canvas Stage Container (Scales up & shifts position dynamically) */
+    .c8-canvas-stage {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), width 0.6s ease;
+    }
+
+    /* Dynamic Canvas Shift Positions */
+    .c8-canvas-stage.hero-boxed {
+      transform: scale(0.82) translateY(-4%);
+    }
+
+    .c8-canvas-stage.shift-right {
+      transform: scale(0.92) translateX(24%);
+    }
+
+    .c8-canvas-stage.shift-left {
+      transform: scale(0.92) translateX(-24%);
+    }
+
+    .c8-canvas-stage.centered-full {
+      transform: scale(1) translateX(0);
+    }
+
+    canvas#hero-canvas {
+      max-width: 92%;
+      max-height: 85vh;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.07));
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       WRITTEN CONTENT OVERLAYS FOR THE 3 SERVICE SECTIONS
+       ═══════════════════════════════════════════════════════════════════════════ */
+    .c8-stage-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      pointer-events: none;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 3.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .c8-stage-content {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: auto;
+    }
+
+    .c8-stage-content.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* SECTION 1: Website Design (Animation RIGHT -> Content LEFT) */
+    .content-left {
+      margin-right: auto;
+      max-width: 520px;
+      text-align: left;
+    }
+
+    /* SECTION 2: Custom Development (Animation LEFT -> Content RIGHT) */
+    .content-right {
+      margin-left: auto;
+      max-width: 520px;
+      text-align: left;
+    }
+
+    /* SECTION 3: AI MVP (Animation CENTERED -> Content LEFT & RIGHT Split) */
+    .content-split-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .content-split-col {
+      max-width: 360px;
+    }
+
+    /* Typography & Card Elements */
+    .stage-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stage-eyebrow::before {
+      content: '—';
+      color: var(--brand-blue);
+      font-weight: 700;
+    }
+
+    .stage-h2 {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .stage-p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+
+    .stage-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .stage-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      transition: var(--transition);
+    }
+
+    .stage-card:hover {
+      border-color: var(--brand-blue);
+      transform: translateX(4px);
+      box-shadow: 0 6px 18px rgba(0, 71, 225, 0.08);
+    }
+
+    .stage-card-title {
+      font-family: 'Michroma', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .stage-card-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .stage-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .stage-link:hover {
+      gap: 12px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       SECTION 5: REAL CLIENTS, REAL RESULTS (FULL HOMEPAGE CONTENT)
+       ═══════════════════════════════════════════════════════════════════════════ */
+    .c8-section-cases {
+      background: #FFFFFF;
+      padding: 7rem 3.5rem;
+      border-top: 1px solid var(--border-light);
+      position: relative;
+      z-index: 20;
+    }
+
+    .c8-cases-in {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.25rem;
+      margin-top: 3.5rem;
+    }
+
+    .case-card {
+      background: #FAFAF7;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      transition: var(--transition);
+    }
+
+    .case-card:hover {
+      border-color: var(--brand-blue);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 71, 225, 0.08);
+    }
+
+    .case-title {
+      font-family: 'Michroma', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .case-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="c8-header">
+    <a href="#" class="c8-logo">
+      <div class="c8-logo-badge">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+        </svg>
+      </div>
+      <span>Cr8v Stacks</span>
+    </a>
+
+    <ul class="c8-nav-links">
+      <li><a href="#web-design">Web Design</a></li>
+      <li><a href="#custom-dev">Custom Dev</a></li>
+      <li><a href="#ai-mvp">AI MVP</a></li>
+      <li><a href="#case-studies">Case Studies</a></li>
+    </ul>
+
+    <a href="#start" class="btn-brand-primary">Start a Project →</a>
+  </header>
+
+  <!-- HERO WRITTEN CONTENT -->
+  <section class="c8-hero-section">
+    <div class="c8-hero-container">
+      <div class="c8-hero-eyebrow">Web Design · AI MVP · Custom Development</div>
+      <h1 class="c8-hero-title">We build what your business actually runs on.</h1>
+      <p class="c8-hero-lead">Strategy, design, and code — as one team, not four vendors.</p>
+      
+      <div class="c8-hero-ctas">
+        <a href="#start" class="btn-brand-primary">Start a Project →</a>
+        <a href="#case-studies" class="btn-brand-ghost">See Our Work ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTINUOUS SCROLL-ANIMATION SECTION -->
+  <div class="c8-anim-track" id="anim-track">
+    <div class="c8-anim-sticky">
+
+      <!-- Canvas Stage (Starts contained under Hero, then widens and shifts!) -->
+      <div class="c8-canvas-stage hero-boxed" id="canvas-stage">
+        <canvas id="hero-canvas"></canvas>
+      </div>
+
+      <!-- WRITTEN CONTENT OVERLAYS FOR THE 3 SECTIONS -->
+      <div class="c8-stage-overlay">
+        
+        <!-- SECTION 1: WEBSITE DESIGN (Animation moves RIGHT -> Written content on LEFT) -->
+        <div class="c8-stage-content content-left" id="stage-web-design">
+          <div class="stage-eyebrow">Design &amp; Build</div>
+          <h2 class="stage-h2">One design process. Whatever platform fits.</h2>
+          <p class="stage-p">
+            We design in Figma first, then build on whichever platform actually serves your business — not whichever one we default to.
+          </p>
+
+          <div class="stage-cards">
+            <div class="stage-card">
+              <div class="stage-card-title">WordPress</div>
+              <div class="stage-card-desc">Lightweight, custom-coded builds your team can maintain without touching code.</div>
+            </div>
+            <div class="stage-card">
+              <div class="stage-card-title">Shopify</div>
+              <div class="stage-card-desc">Custom storefronts engineered for checkout conversion, not template limits.</div>
+            </div>
+            <div class="stage-card">
+              <div class="stage-card-title">WooCommerce</div>
+              <div class="stage-card-desc">Full data and hosting ownership, no platform licensing fees.</div>
+            </div>
+          </div>
+
+          <a href="#explore-web-design" class="stage-link">Explore Web Design →</a>
+        </div>
+
+        <!-- SECTION 2: CUSTOM DEVELOPMENT (Animation moves LEFT -> Written content on RIGHT) -->
+        <div class="c8-stage-content content-right" id="stage-custom-dev">
+          <div class="stage-eyebrow">Build From Nothing</div>
+          <h2 class="stage-h2">Real software, not just a landing page.</h2>
+          <p class="stage-p">
+            When nothing off-the-shelf fits, we build it — from bespoke applications engineered around your exact workflow to scalable software.
+          </p>
+
+          <div class="stage-cards">
+            <div class="stage-card">
+              <div class="stage-card-title">Custom Development</div>
+              <div class="stage-card-desc">Bespoke applications built from a blank file, engineered around your exact workflow.</div>
+            </div>
+          </div>
+
+          <a href="#explore-custom-dev" class="stage-link">Explore Custom Dev →</a>
+        </div>
+
+        <!-- SECTION 3: AI MVP (Animation is CENTERED -> Written content on LEFT & RIGHT) -->
+        <div class="c8-stage-content content-split-wrapper" id="stage-ai-mvp">
+          
+          <!-- Left Column -->
+          <div class="content-split-col">
+            <div class="stage-eyebrow">Validated AI Products</div>
+            <h2 class="stage-h2" style="font-size: 1.6rem;">Real Software.</h2>
+            <p class="stage-p">
+              Working AI products that validate a real business idea, not a slide deck.
+            </p>
+          </div>
+
+          <!-- Right Column -->
+          <div class="content-split-col" style="text-align: right;">
+            <div class="stage-cards" style="text-align: left;">
+              <div class="stage-card">
+                <div class="stage-card-title">AI MVP</div>
+                <div class="stage-card-desc">Working AI products that validate a real idea, not a slide deck.</div>
+              </div>
+            </div>
+            <a href="#explore-ai-mvp" class="stage-link">Explore AI MVP →</a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: REAL CLIENTS, REAL RESULTS -->
+  <section class="c8-section-cases" id="case-studies">
+    <div class="c8-cases-in">
+      <div class="stage-eyebrow">Real Clients, Real Results</div>
+      <h2 class="stage-h2" style="margin-bottom: 1rem;">Work you can actually verify.</h2>
+      <p class="stage-p" style="max-width: 600px;">
+        No mockups, no placeholder clients — every project below is real.
+      </p>
+
+      <div class="cases-grid">
+        <div class="case-card">
+          <div class="case-title">The Duch Apartments</div>
+          <div class="case-desc">Website design with SEO built in from day one. Direct booking engine maximizing revenue.</div>
+        </div>
+        <div class="case-card">
+          <div class="case-title">blvck Hair NG</div>
+          <div class="case-desc">SEO from the ground up — now running storefronts in two countries. Search it yourself.</div>
+        </div>
+        <div class="case-card">
+          <div class="case-title">Mkenny Properties</div>
+          <div class="case-desc">From a basic landing page to a full property platform, live right now.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Canvas Scroll Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('hero-canvas');
+      const ctx = canvas.getContext('2d');
+      const track = document.getElementById('anim-track');
+      const stage = document.getElementById('canvas-stage');
+
+      const totalFrames = 450;
+      const images = [];
+
+      canvas.width = 1920;
+      canvas.height = 1080;
+
+      // Preload image sequence from hero_sequence folder
+      for (let i = 1; i <= totalFrames; i++) {
+        const img = new Image();
+        const num = String(i).padStart(5, '0');
+        img.src = `hero_sequence/${num}.jpg`;
+        if (i === 1) {
+          img.onload = () => renderFrame(0);
+        }
+        images.push(img);
+      }
+
+      function renderFrame(index) {
+        const img = images[index];
+        if (img && img.complete) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        }
+      }
+
+      // Content Overlays
+      const webDesignSection = document.getElementById('stage-web-design');
+      const customDevSection = document.getElementById('stage-custom-dev');
+      const aiMvpSection = document.getElementById('stage-ai-mvp');
+
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            handleScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      function handleScroll() {
+        const trackRect = track.getBoundingClientRect();
+        const maxScroll = trackRect.height - window.innerHeight;
+        const currentScroll = Math.max(0, -trackRect.top);
+        const progress = Math.min(1, Math.max(0, currentScroll / maxScroll));
+
+        // Frame update
+        const frameIndex = Math.min(totalFrames - 1, Math.floor(progress * totalFrames));
+        renderFrame(frameIndex);
+
+        // ═════════════════════════════════════════════════════════════════════
+        // EXACT ANIMATION & WRITTEN CONTENT POSITIONS REQUESTED BY USER:
+        //
+        // 1. Initial / Top Hero (0% - 15%):
+        //    Canvas starts contained under Hero text (.hero-boxed).
+        //
+        // 2. Website Design (15% - 48%):
+        //    Animation expands & moves to RIGHT (.shift-right)
+        //    Written content on LEFT (.content-left)
+        //
+        // 3. Custom Development (48% - 78%):
+        //    Animation moves to LEFT (.shift-left)
+        //    Written content on RIGHT (.content-right)
+        //
+        // 4. AI MVP (78% - 100%):
+        //    Animation is CENTERED (.centered-full)
+        //    Written content on LEFT & RIGHT (.content-split-wrapper)
+        // ═════════════════════════════════════════════════════════════════════
+
+        if (progress < 0.15) {
+          // Hero Boxed State under Hero
+          stage.className = 'c8-canvas-stage hero-boxed';
+          webDesignSection.classList.remove('active');
+          customDevSection.classList.remove('active');
+          aiMvpSection.classList.remove('active');
+        } else if (progress >= 0.15 && progress < 0.48) {
+          // Website Design: Animation RIGHT, Content LEFT
+          stage.className = 'c8-canvas-stage shift-right';
+          webDesignSection.classList.add('active');
+          customDevSection.classList.remove('active');
+          aiMvpSection.classList.remove('active');
+        } else if (progress >= 0.48 && progress < 0.78) {
+          // Custom Development: Animation LEFT, Content RIGHT
+          stage.className = 'c8-canvas-stage shift-left';
+          webDesignSection.classList.remove('active');
+          customDevSection.classList.add('active');
+          aiMvpSection.classList.remove('active');
+        } else {
+          // AI MVP: Animation CENTERED, Content LEFT & RIGHT
+          stage.className = 'c8-canvas-stage centered-full';
+          webDesignSection.classList.remove('active');
+          customDevSection.classList.remove('active');
+          aiMvpSection.classList.add('active');
+        }
+      }
+    });
+  </script>
+</body>
+</html>

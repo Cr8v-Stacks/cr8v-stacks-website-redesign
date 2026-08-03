@@ -1,0 +1,1108 @@
+<div class="c8isv-root">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
+
+/* ═══════════════════════════════════════════
+   CR8V STACKS — INDIVIDUAL SERVICE PAGE v3.0
+   Website Design & Development
+   Kept: before/after compare, founder quote.
+   New: scroll-reversible "stack" family reused
+   twice (process steps, testimonial fan) — same
+   underlying mechanic as the About page's pinned
+   stack and the Services page's hover fan, just
+   reinterpreted. Plus pricing split + FAQ.
+   ═══════════════════════════════════════════ */
+.c8isv-root, .c8isv-root * { box-sizing: border-box !important; }
+.c8isv-root { background: #FFFFFF !important; color: #080808 !important; font-family: 'DM Sans', sans-serif !important; line-height: 1.65 !important; position: relative !important; }
+.c8isv-root .c8isv-wrap { padding: 4rem 3.5rem !important; max-width: 1440px !important; margin: 0 auto !important; position: relative !important; z-index: 2 !important; }
+@media (max-width: 1100px) { .c8isv-root .c8isv-wrap { padding: 3rem 1.25rem !important; } }
+.c8isv-root h1, .c8isv-root h2, .c8isv-root h3, .c8isv-root h4 { margin: 0 !important; font-weight: inherit !important; line-height: 1.1 !important; }
+.c8isv-root p { margin: 0 0 1rem 0 !important; }
+.c8isv-root p:last-child { margin-bottom: 0 !important; }
+.c8isv-root button { font-family: inherit !important; cursor: pointer !important; border: none !important; background: none !important; }
+.c8isv-root a { text-decoration: none !important; }
+
+.c8isv-root .c8isv-breadcrumb { font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: .08em !important; text-transform: uppercase !important; color: #8A8A8A !important; margin-bottom: 1.5rem !important; display: flex !important; align-items: center !important; gap: 8px !important; }
+.c8isv-root .c8isv-breadcrumb a { color: #8A8A8A !important; }
+.c8isv-root .c8isv-breadcrumb a:hover { color: #0047E1 !important; }
+.c8isv-root .c8isv-breadcrumb span.is-current { color: #0047E1 !important; }
+
+.c8isv-root .c8isv-label { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: .25em !important; text-transform: uppercase !important; color: #0047E1 !important; display: flex !important; align-items: center !important; gap: 10px !important; margin-bottom: 1.75rem !important; }
+.c8isv-root .c8isv-label::before { content: '—' !important; color: #0047E1 !important; font-weight: 700 !important; }
+.c8isv-root .c8isv-label.is-light { color: #7C93FF !important; }
+.c8isv-root .c8isv-label.is-light::before { color: #7C93FF !important; }
+
+.c8isv-root .c8isv-tearline { display: flex !important; align-items: center !important; margin: 0 0 5rem 0 !important; }
+.c8isv-root .c8isv-tearline-dot { width: 9px !important; height: 9px !important; border-radius: 50% !important; background: #080808 !important; flex-shrink: 0 !important; }
+.c8isv-root .c8isv-tearline-line { flex: 1 !important; border-top: 1px dashed rgba(8,8,8,0.28) !important; margin: 0 10px !important; }
+
+.c8isv-root .c8isv-reveal { opacity: 0 !important; transform: translateY(24px) !important; transition: opacity 0.7s cubic-bezier(.16,.8,.24,1), transform 0.7s cubic-bezier(.16,.8,.24,1) !important; }
+.c8isv-root .c8isv-reveal.is-visible { opacity: 1 !important; transform: translateY(0) !important; }
+.c8isv-root .c8isv-reveal-d1 { transition-delay: 0.08s !important; }
+.c8isv-root .c8isv-reveal-d2 { transition-delay: 0.16s !important; }
+@media (prefers-reduced-motion: reduce) { .c8isv-root .c8isv-reveal { opacity: 1 !important; transform: none !important; transition: none !important; } }
+
+.c8isv-root .c8isv-explore { font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: .08em !important; text-transform: uppercase !important; color: #0047E1 !important; display: inline-flex !important; align-items: center !important; gap: 6px !important; transition: gap 0.2s ease !important; }
+.c8isv-root .c8isv-explore:hover { gap: 10px !important; }
+
+.c8isv-root .c8isv-icon-sq { width: 40px !important; height: 40px !important; background: #0047E1 !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; }
+.c8isv-root .c8isv-icon-sq svg { width: 20px !important; height: 20px !important; stroke: #FFFFFF !important; }
+
+.c8isv-root .c8isv-headline { font-family: 'Bebas Neue', sans-serif !important; font-size: clamp(2.6rem, 5.5vw, 4.6rem) !important; letter-spacing: 0.01em !important; line-height: 0.94 !important; text-transform: uppercase !important; }
+.c8isv-root .c8isv-section-title { font-family: 'Bebas Neue', sans-serif !important; font-size: clamp(1.8rem, 3vw, 2.5rem) !important; letter-spacing: 0.01em !important; text-transform: uppercase !important; margin-bottom: 1.25rem !important; }
+.c8isv-root .c8isv-lead { font-size: 16.5px !important; font-weight: 400 !important; color: #6B6B6B !important; max-width: 680px !important; line-height: 1.65 !important; }
+
+/* ── Hero ── */
+.c8isv-root .c8isv-hero { position: relative !important; z-index: 2 !important; margin-bottom: 1rem !important; padding-top: 1rem !important; max-width: 760px !important; }
+.c8isv-root .c8isv-hero-intro { font-size: 17px !important; font-weight: 300 !important; color: #6B6B6B !important; margin-top: 1.5rem !important; line-height: 1.6 !important; }
+.c8isv-root .c8isv-pill-row { display: flex !important; flex-wrap: wrap !important; gap: 0.6rem !important; margin-top: 2.25rem !important; }
+.c8isv-root .c8isv-pill { border: 1px solid rgba(8,8,8,0.15) !important; background: #FFFFFF !important; padding: 8px 15px !important; font-size: 12px !important; font-weight: 500 !important; }
+
+/* ── Overview ── */
+.c8isv-root .c8isv-overview { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 4rem !important; align-items: center !important; margin: 5rem 0 !important; }
+@media (max-width: 950px) { .c8isv-root .c8isv-overview { grid-template-columns: 1fr !important; gap: 2.5rem !important; } }
+.c8isv-root .c8isv-img-frame { border: 1px solid rgba(8,8,8,0.09) !important; background: #FFFFFF !important; padding: 12px !important; position: relative !important; box-shadow: 10px 10px 0px rgba(0,71,225,0.05) !important; }
+.c8isv-root .c8isv-img-frame img { width: 100% !important; height: auto !important; display: block !important; object-fit: cover !important; }
+.c8isv-root .c8isv-hud-tag { position: absolute !important; bottom: 20px !important; right: -10px !important; background: #080808 !important; color: #FAFAF7 !important; font-family: 'Space Mono', monospace !important; font-size: 8.5px !important; letter-spacing: 0.2em !important; text-transform: uppercase !important; padding: 6px 12px !important; border-top: 2px solid #0047E1 !important; z-index: 3 !important; }
+.c8isv-root .c8isv-overview-body { font-size: 14px !important; font-weight: 300 !important; color: #6B6B6B !important; line-height: 1.75 !important; }
+
+/* ── Before/after drag comparison (kept) ── */
+.c8isv-root .c8isv-compare-outer { position: relative !important; z-index: 2 !important; margin-bottom: 6rem !important; }
+.c8isv-root .c8isv-compare-hint { font-family: 'Space Mono', monospace !important; font-size: 10.5px !important; letter-spacing: .12em !important; text-transform: uppercase !important; color: #0047E1 !important; text-align: center !important; margin-bottom: 1.25rem !important; }
+.c8isv-root .c8isv-compare { position: relative !important; width: 100% !important; aspect-ratio: 16/9 !important; overflow: hidden !important; border: 1px solid rgba(8,8,8,0.1) !important; user-select: none !important; cursor: ew-resize !important; touch-action: pan-y !important; }
+.c8isv-root .c8isv-compare-after, .c8isv-root .c8isv-compare-before { position: absolute !important; top: 0 !important; left: 0 !important; height: 100% !important; object-fit: cover !important; display: block !important; pointer-events: none !important; }
+.c8isv-root .c8isv-compare-after { width: 100% !important; }
+.c8isv-root .c8isv-compare-before-wrap { position: absolute !important; top: 0 !important; left: 0 !important; height: 100% !important; width: 50% !important; overflow: hidden !important; }
+.c8isv-root .c8isv-compare-before-wrap img { max-width: none !important; }
+.c8isv-root .c8isv-compare-handle { position: absolute !important; top: 0 !important; bottom: 0 !important; left: 50% !important; width: 3px !important; background: #FFFFFF !important; transform: translateX(-50%) !important; box-shadow: 0 0 12px rgba(0,0,0,0.3) !important; }
+.c8isv-root .c8isv-compare-grip { position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%,-50%) !important; width: 44px !important; height: 44px !important; border-radius: 50% !important; background: #0047E1 !important; display: flex !important; align-items: center !important; justify-content: center !important; box-shadow: 0 6px 18px rgba(8,8,8,0.3) !important; }
+.c8isv-root .c8isv-compare-grip svg { width: 20px !important; height: 20px !important; stroke: #FFFFFF !important; }
+.c8isv-root .c8isv-compare-label { position: absolute !important; top: 1rem !important; font-family: 'Space Mono', monospace !important; font-size: 9.5px !important; letter-spacing: .12em !important; text-transform: uppercase !important; color: #FAFAF7 !important; background: rgba(8,8,8,0.55) !important; padding: 6px 12px !important; pointer-events: none !important; }
+.c8isv-root .c8isv-compare-label.is-left { left: 1rem !important; }
+.c8isv-root .c8isv-compare-label.is-right { right: 1rem !important; }
+
+/* ── STACK FAMILY #1: Process steps un-stack on scroll (reversible) ── */
+.c8isv-root .c8isv-stack-outer { padding-top: 1rem !important; margin-bottom: 6rem !important; position: relative !important; z-index: 2 !important; }
+.c8isv-root .c8isv-stack-hint { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: .1em !important; text-transform: uppercase !important; color: #8A8A8A !important; margin: -0.5rem 0 2rem 0 !important; }
+.c8isv-root .c8isv-stack-row { display: grid !important; grid-template-columns: repeat(4,1fr) !important; gap: 1.5rem !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-stack-row { grid-template-columns: 1fr !important; gap: 1.25rem !important; } }
+.c8isv-root .c8isv-stack-card { background: #FFFFFF !important; border: 1px solid rgba(8,8,8,0.1) !important; padding: 2rem 1.75rem !important; will-change: transform, opacity !important; position: relative !important; }
+.c8isv-root .c8isv-stack-num { font-family: 'Space Mono', monospace !important; font-size: 10px !important; color: #0047E1 !important; letter-spacing: .1em !important; text-transform: uppercase !important; display: block !important; margin-bottom: 1.25rem !important; }
+.c8isv-root .c8isv-stack-title { font-family: 'Bebas Neue', sans-serif !important; font-size: 1.7rem !important; text-transform: uppercase !important; margin-bottom: 0.6rem !important; }
+.c8isv-root .c8isv-stack-desc { font-size: 12.5px !important; color: #6B6B6B !important; font-weight: 300 !important; line-height: 1.6 !important; }
+
+/* ── Pricing split ── */
+.c8isv-root .c8isv-pricing-outer { padding-top: 1rem !important; margin-bottom: 1rem !important; position: relative !important; z-index: 2 !important; }
+.c8isv-root .c8isv-pricing-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 1.25rem !important; margin-top: 2.5rem !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-pricing-grid { grid-template-columns: 1fr !important; } }
+.c8isv-root .c8isv-price-card { padding: 2.75rem 2.25rem !important; display: flex !important; flex-direction: column !important; }
+.c8isv-root .c8isv-price-card.is-light { background: #F4F1EA !important; }
+.c8isv-root .c8isv-price-card.is-dark { background: #0A0E1F !important; color: #FAFAF7 !important; }
+.c8isv-root .c8isv-price-title { font-family: 'Bebas Neue', sans-serif !important; font-size: 1.9rem !important; text-transform: uppercase !important; margin-bottom: 0.6rem !important; }
+.c8isv-root .c8isv-price-card.is-dark .c8isv-price-title { color: #FAFAF7 !important; }
+.c8isv-root .c8isv-price-desc { font-size: 13.5px !important; font-weight: 300 !important; margin-bottom: 1.5rem !important; }
+.c8isv-root .c8isv-price-card.is-light .c8isv-price-desc { color: #6B6B6B !important; }
+.c8isv-root .c8isv-price-card.is-dark .c8isv-price-desc { color: rgba(250,250,247,0.65) !important; }
+.c8isv-root .c8isv-price-list { display: flex !important; flex-direction: column !important; gap: 0.85rem !important; margin-bottom: 2rem !important; flex-grow: 1 !important; }
+.c8isv-root .c8isv-price-item { display: flex !important; gap: 10px !important; font-size: 13px !important; font-weight: 300 !important; align-items: flex-start !important; }
+.c8isv-root .c8isv-price-check { flex-shrink: 0 !important; margin-top: 2px !important; color: #0047E1 !important; }
+.c8isv-root .c8isv-price-card.is-dark .c8isv-price-check { color: #7C93FF !important; }
+.c8isv-root .c8isv-price-btn { display: inline-flex !important; align-items: center !important; gap: 10px !important; font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: .08em !important; text-transform: uppercase !important; padding: 14px 24px !important; align-self: flex-start !important; }
+.c8isv-root .c8isv-price-card.is-light .c8isv-price-btn { background: #080808 !important; color: #FAFAF7 !important; }
+.c8isv-root .c8isv-price-card.is-dark .c8isv-price-btn { background: #0047E1 !important; color: #FFFFFF !important; }
+.c8isv-root .c8isv-pricing-note { font-size: 12.5px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-top: 1.75rem !important; max-width: 640px !important; }
+
+/* ── STACK FAMILY #2: Testimonial fan (reversible) ── */
+.c8isv-root .c8isv-testi-outer { padding-top: 1rem !important; margin-bottom: 1rem !important; position: relative !important; z-index: 2 !important; }
+.c8isv-root .c8isv-testi-row { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1.5rem !important; margin-top: 3rem !important; align-items: center !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-testi-row { grid-template-columns: 1fr !important; gap: 1.25rem !important; } }
+.c8isv-root .c8isv-testi-card { background: #FFFFFF !important; border: 1px solid rgba(8,8,8,0.1) !important; padding: 2.25rem !important; box-shadow: 0 20px 40px rgba(8,8,8,0.06) !important; will-change: transform, opacity !important; }
+.c8isv-root .c8isv-testi-quote-mark { font-family: 'Bebas Neue', sans-serif !important; font-size: 2.5rem !important; color: #0047E1 !important; line-height: 0.5 !important; margin-bottom: 1rem !important; display: block !important; }
+.c8isv-root .c8isv-testi-text { font-size: 14.5px !important; font-weight: 400 !important; color: #080808 !important; line-height: 1.6 !important; margin-bottom: 1.5rem !important; }
+.c8isv-root .c8isv-testi-author { font-family: 'Space Mono', monospace !important; font-size: 10.5px !important; letter-spacing: .06em !important; text-transform: uppercase !important; color: #6B6B6B !important; border-top: 1px solid rgba(8,8,8,0.1) !important; padding-top: 1rem !important; }
+.c8isv-root .c8isv-testi-note { font-size: 12.5px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-top: 2rem !important; font-style: italic !important; }
+
+/* ── Founder quote (kept) ── */
+.c8isv-root .c8isv-quote-outer { overflow-x: clip !important; position: relative !important; z-index: 2 !important; margin: 6rem 0 !important; }
+.c8isv-root .c8isv-quote-breakout { width: 100vw !important; margin-left: 50% !important; transform: translateX(-50%) !important; background: linear-gradient(180deg, #050813 0%, #0A0E1F 100%) !important; padding: 5rem 3.5rem !important; position: relative !important; overflow: hidden !important; text-align: center !important; }
+@media (max-width: 700px) { .c8isv-root .c8isv-quote-breakout { padding: 3.5rem 1.5rem !important; } }
+.c8isv-root .c8isv-quote-glyph { font-family: 'Bebas Neue', sans-serif !important; font-size: 8rem !important; color: transparent !important; -webkit-text-stroke: 1.5px rgba(124,147,255,0.5) !important; line-height: 0.5 !important; margin-bottom: 1rem !important; }
+.c8isv-root .c8isv-quote-text { font-size: clamp(1.2rem, 2.4vw, 1.7rem) !important; font-weight: 300 !important; font-style: italic !important; color: #FAFAF7 !important; max-width: 780px !important; margin: 0 auto 1.25rem auto !important; line-height: 1.45 !important; }
+.c8isv-root .c8isv-quote-cite { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: .15em !important; text-transform: uppercase !important; color: #7C93FF !important; }
+
+/* ── FAQ accordion (utility pattern, reused from Services page) ── */
+.c8isv-root .c8isv-faq-outer { padding-top: 1rem !important; position: relative !important; z-index: 2 !important; }
+.c8isv-root .c8isv-accordion { border-top: 1px solid rgba(8,8,8,0.1) !important; margin-top: 2.5rem !important; }
+.c8isv-root .c8isv-accordion-item { border-bottom: 1px solid rgba(8,8,8,0.1) !important; }
+.c8isv-root .c8isv-accordion-head { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important; }
+.c8isv-root .c8isv-accordion-title { font-family: 'Bebas Neue', sans-serif !important; font-size: 1.35rem !important; text-transform: uppercase !important; letter-spacing: 0.01em !important; }
+.c8isv-root .c8isv-accordion-toggle { width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important; }
+.c8isv-root .c8isv-accordion-toggle::before, .c8isv-root .c8isv-accordion-toggle::after { content: '' !important; position: absolute !important; background: #080808 !important; transition: transform 0.25s ease !important; }
+.c8isv-root .c8isv-accordion-toggle::before { width: 12px !important; height: 1px !important; }
+.c8isv-root .c8isv-accordion-toggle::after { width: 1px !important; height: 12px !important; }
+.c8isv-root .c8isv-accordion-item.is-open .c8isv-accordion-toggle::after { transform: rotate(90deg) !important; opacity: 0 !important; }
+.c8isv-root .c8isv-accordion-body { display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important; }
+.c8isv-root .c8isv-accordion-item.is-open .c8isv-accordion-body { grid-template-rows: 1fr !important; }
+.c8isv-root .c8isv-accordion-body-inner { overflow: hidden !important; }
+.c8isv-root .c8isv-accordion-desc { font-size: 14px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 680px !important; line-height: 1.7 !important; padding: 0 0.25rem 1.75rem 0.25rem !important; }
+
+/* ── Related services ── */
+.c8isv-root .c8isv-related { padding-top: 5rem !important; position: relative !important; z-index: 2 !important; }
+.c8isv-root .c8isv-related-row { display: flex !important; flex-wrap: wrap !important; gap: 0.75rem 2rem !important; margin-top: 1.5rem !important; }
+.c8isv-root .c8isv-closing { padding-top: 3rem !important; padding-bottom: 1rem !important; }
+
+/* Injected Showcase section styles */
+.c8isv-root .c8isv-showcase {
+  display: grid !important;
+  grid-template-columns: 340px 1fr !important;
+  gap: 4rem !important;
+  align-items: start !important;
+  position: relative !important;
+  margin: 6rem auto !important;
+  z-index: 2 !important;
+  max-width: 1440px !important;
+}
+@media (max-width: 900px) {
+  .c8isv-root .c8isv-showcase {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+    padding: 0 1.5rem !important;
+  }
+}
+.c8isv-root .c8isv-showcase-sticky-left {
+  position: sticky !important;
+  top: 130px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+}
+@media (max-width: 900px) {
+  .c8isv-root .c8isv-showcase-sticky-left {
+    position: static !important;
+  }
+}
+.c8isv-root .c8isv-showcase-nav-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+}
+@media (max-width: 900px) {
+  .c8isv-root .c8isv-showcase-nav-list {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+}
+.c8isv-root .c8isv-showcase-nav-item {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  padding: 10px 14px !important;
+  border-radius: 6px !important;
+  color: #6B6B6B !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  text-align: left !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+}
+.c8isv-root .c8isv-showcase-nav-item:hover {
+  color: #0047E1 !important;
+}
+.c8isv-root .c8isv-showcase-nav-item.is-active {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(8, 8, 8, 0.1) !important;
+  color: #0047E1 !important;
+  font-weight: 700 !important;
+}
+.c8isv-root .c8isv-showcase-scroll-right {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2rem !important;
+}
+.c8isv-root .c8isv-showcase-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(8, 8, 8, 0.08) !important;
+  border-radius: 20px !important;
+  padding: 3.5rem !important;
+  box-shadow: 0 10px 40px rgba(8, 8, 8, 0.015) !important;
+  transition: all 0.3s ease !important;
+  scroll-margin-top: 130px !important;
+}
+@media (max-width: 600px) {
+  .c8isv-root .c8isv-showcase-card {
+    padding: 2rem 1.25rem !important;
+  }
+}
+.c8isv-root .c8isv-showcase-card-num {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 0.1em !important;
+  color: #0047E1 !important;
+  text-transform: uppercase !important;
+  display: block !important;
+  margin-bottom: 0.75rem !important;
+}
+.c8isv-root .c8isv-showcase-card-title {
+  font-family: 'Michroma', sans-serif !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  color: #080808 !important;
+  margin-bottom: 1.25rem !important;
+  text-transform: uppercase !important;
+}
+.c8isv-root .c8isv-showcase-card-desc {
+  font-size: 14.5px !important;
+  color: #6B6B6B !important;
+  line-height: 1.65 !important;
+  margin-bottom: 2rem !important;
+}
+.c8isv-root .c8isv-showcase-caps {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+}
+.c8isv-root .c8isv-showcase-cap-item {
+  font-size: 13.5px !important;
+  color: #080808 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-weight: 500 !important;
+}
+.c8isv-root .c8isv-showcase-cap-dot {
+  width: 5px !important;
+  height: 5px !important;
+  border-radius: 50% !important;
+  background: #0047E1 !important;
+}
+
+/* Injected Full Catalog / Tech Stacks styles */
+.c8isv-root .c8isv-full-catalog-section {
+  position: relative !important;
+  z-index: 2 !important;
+  margin-bottom: 6rem !important;
+}
+.c8isv-root .c8isv-full-catalog-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 2.5rem !important;
+  margin-top: 3rem !important;
+}
+@media (max-width: 800px) {
+  .c8isv-root .c8isv-full-catalog-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+}
+.c8isv-root .c8isv-catalog-group {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(8, 8, 8, 0.08) !important;
+  border-radius: 16px !important;
+  padding: 2.5rem !important;
+  box-shadow: 0 10px 40px rgba(8, 8, 8, 0.015) !important;
+}
+.c8isv-root .c8isv-catalog-group-title {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: #0047E1 !important;
+  border-bottom: 1px solid rgba(8, 8, 8, 0.08) !important;
+  padding-bottom: 1rem !important;
+  margin-bottom: 1.5rem !important;
+}
+.c8isv-root .c8isv-catalog-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.c8isv-root .c8isv-catalog-list li {
+  margin-bottom: 1rem !important;
+}
+.c8isv-root .c8isv-catalog-list a {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  color: #080808 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+  display: inline-block !important;
+}
+.c8isv-root .c8isv-catalog-list a:hover {
+  color: #0047E1 !important;
+}
+.c8isv-root .c8isv-catalog-stacks {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.75rem !important;
+}
+.c8isv-root .c8isv-stack-badge {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important;
+  background: #080808 !important;
+  color: #FAFAF7 !important;
+  padding: 0.5rem 0.85rem !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* Injected Estimator calculator widget styles */
+.c8isv-root .c8isv-estimator {
+  background: #FAFAF9 !important;
+  border: 1px solid rgba(8, 8, 8, 0.08) !important;
+  border-radius: 20px !important;
+  padding: 3.5rem !important;
+  margin: 3.5rem 0 !important;
+  box-shadow: 0 10px 40px rgba(8, 8, 8, 0.015) !important;
+}
+@media (max-width: 900px) {
+  .c8isv-root .c8isv-estimator {
+    padding: 2rem 1.25rem !important;
+  }
+}
+.c8isv-root .c8isv-estimator-grid {
+  display: grid !important;
+  grid-template-columns: 1.3fr 1fr !important;
+  gap: 3.5rem !important;
+}
+@media (max-width: 900px) {
+  .c8isv-root .c8isv-estimator-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+}
+.c8isv-root .c8isv-est-choices {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.6rem !important;
+  margin-bottom: 2rem !important;
+  margin-top: 0.75rem !important;
+}
+.c8isv-root .c8isv-est-choice {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  border: 1px solid rgba(8, 8, 8, 0.15) !important;
+  border-radius: 30px !important;
+  padding: 8px 18px !important;
+  background: #FFFFFF !important;
+  color: #080808 !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+.c8isv-root .c8isv-est-choice:hover {
+  border-color: #0047E1 !important;
+  color: #0047E1 !important;
+}
+.c8isv-root .c8isv-est-choice.is-active {
+  background: #0047E1 !important;
+  border-color: #0047E1 !important;
+  color: #FFFFFF !important;
+}
+.c8isv-root .c8isv-est-group-title {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important;
+  color: #8A8A8A !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  display: block !important;
+}
+.c8isv-root .c8isv-est-result {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(8, 8, 8, 0.08) !important;
+  border-radius: 12px !important;
+  padding: 2.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.c8isv-root .c8isv-est-range {
+  font-family: 'Michroma', sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #0047E1 !important;
+  margin-bottom: 1.5rem !important;
+  text-align: center !important;
+  letter-spacing: -0.02em !important;
+}
+.c8isv-root .c8isv-est-deliverables {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+  margin-bottom: 2rem !important;
+  flex-grow: 1 !important;
+}
+.c8isv-root .c8isv-est-item {
+  font-size: 12.5px !important;
+  color: #6B6B6B !important;
+  line-height: 1.4 !important;
+  display: flex !important;
+  gap: 10px !important;
+  align-items: flex-start !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+.c8isv-root .c8isv-est-dot {
+  width: 5px !important;
+  height: 5px !important;
+  border-radius: 50% !important;
+  background: #0047E1 !important;
+  margin-top: 6px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Center-align headings for Process and Client feedback sections */
+.c8isv-root .c8isv-stack-outer { text-align: center !important; }
+.c8isv-root .c8isv-stack-outer .c8isv-label { justify-content: center !important; margin-left: auto !important; margin-right: auto !important; }
+.c8isv-root .c8isv-stack-outer .c8isv-section-title { text-align: center !important; }
+
+.c8isv-root .c8isv-testi-outer { text-align: center !important; }
+.c8isv-root .c8isv-testi-outer .c8isv-label { justify-content: center !important; margin-left: auto !important; margin-right: auto !important; }
+.c8isv-root .c8isv-testi-outer .c8isv-section-title { text-align: center !important; }
+.c8isv-root .c8isv-testi-outer .c8isv-lead { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
+
+</style>
+
+<div class="c8isv-wrap">
+
+  <!-- ── Hero ── -->
+  <div class="c8isv-hero">
+    <div class="c8isv-breadcrumb"><a href="https://cr8vstacks.com/services/">Services</a><span>/</span><span class="is-current">WordPress Themes</span></div>
+    <div class="c8isv-label">Primary Service</div>
+    <h1 class="c8isv-headline">Custom WordPress Theme Design & Block Editor Development</h1>
+    <div class="c8isv-hero-intro">We design and build fast, custom websites that convert — no bloated themes, no generic templates. Every project pairs strategic UX with clean, lightweight code, so your site looks sharp and loads instantly, on WordPress, Shopify, WooCommerce, or a fully custom stack.</div>
+    <div class="c8isv-pill-row">
+      <span class="c8isv-pill">Strategy</span>
+      <span class="c8isv-pill">UX Design</span>
+      <span class="c8isv-pill">Custom Code</span>
+      <span class="c8isv-pill">SEO-Ready</span>
+      <span class="c8isv-pill">Launch Support</span>
+    </div>
+  </div>
+
+  <!-- ── Overview ── -->
+    <!-- ?? Injected Showcase section ?? -->
+  <div class="c8isv-showcase" id="primary-showcase">
+    <div class="c8isv-showcase-sticky-left">
+      <div class="c8isv-label">Primary Service // 01</div>
+      <h2 class="c8isv-section-title">WordPress Theme Development</h2>
+      <p class="c8isv-lead" style="font-size: 14.5px !important; line-height: 1.6 !important;">Fully custom WordPress builds on native blocks — zero page-builder bloat, editable by your team without touching code.</p>
+      
+      <div class="c8isv-showcase-nav-list" data-c8isv-navs>
+        <div class="c8isv-showcase-nav-item is-active" data-c8isv-nav-tab="blocks">Gutenberg Blocks</div>
+        <div class="c8isv-showcase-nav-item" data-c8isv-nav-tab="speed">PageSpeed Tuning</div>
+        <div class="c8isv-showcase-nav-item" data-c8isv-nav-tab="theme">PHP Custom Themes</div>
+        <div class="c8isv-showcase-nav-item" data-c8isv-nav-tab="handover">Whitelabel Handoff</div>
+        <div class="c8isv-showcase-nav-item" data-c8isv-nav-tab="security">WP Security Setup</div>
+      </div>
+    </div>
+    
+    <div class="c8isv-showcase-scroll-right">
+      <div class="c8isv-showcase-card" data-c8isv-showcase-card="blocks">
+        <span class="c8isv-showcase-card-num">01 // Gutenberg Blocks</span>
+        <h3 class="c8isv-showcase-card-title">Native Block Theme Development</h3>
+        <p class="c8isv-showcase-card-desc">Building custom block templates using the WordPress block editor — giving your team page-editor control without breaking styles.</p>
+        <div class="c8isv-showcase-caps">
+          <div class="c8isv-showcase-cap-item"><span class="c8isv-showcase-cap-dot"></span>Custom styled block layout presets</div>
+          <div class="c8isv-showcase-cap-item"><span class="c8isv-showcase-cap-dot"></span>Locked brand typography values</div>
+          <div class="c8isv-showcase-cap-item"><span class="c8isv-showcase-cap-dot"></span>Zero visual page-builder bloat</div>
+        </div>
+      </div>
+      <div class="c8isv-showcase-card" data-c8isv-showcase-card="speed">
+        <span class="c8isv-showcase-card-num">01 // PageSpeed Tuning</span>
+        <h3 class="c8isv-showcase-card-title">95+ Mobile PageSpeed Scores</h3>
+        <p class="c8isv-showcase-card-desc">Optimizing code structures, asset files, and local caching scripts to load pages instantly globally.</p>
+        <div class="c8isv-showcase-caps">
+          <div class="c8isv-showcase-cap-item"><span class="c8isv-showcase-cap-dot"></span>Deferring CSS & Javascript files</div>
+          <div class="c8isv-showcase-cap-item"><span class="c8isv-showcase-cap-dot"></span>Local web font file setups</div>
+          <div class="c8isv-showcase-cap-item"><span class="c8isv-showcase-cap-dot"></span>Zero third-party layout shifts</div>
+        </div>
+      </div>
+      <div class="c8isv-showcase-card" data-c8isv-showcase-card="theme">
+        <span class="c8isv-showcase-card-num">01 // PHP Custom Themes</span>
+        <h3 class="c8isv-showcase-card-title">Clean Coded Custom Themes</h3>
+        <p class="c8isv-showcase-card-desc">Writing clean, bespoke theme files from scratch, providing deep stability for long-term growth.</p>
+        <div class="c8isv-showcase-caps">
+          <div class="c8isv-showcase-cap-item"><span class="c8isv-showcase-cap-dot"></span>Bespoke template hierarchy files</div>
+          <div class="c8isv-showcase-cap-item"><span class="c8isv-showcase-cap-dot"></span>Lightweight functions file code</div>
+          <div class="c8isv-showcase-cap-item"><span class="c8isv-showcase-cap-dot"></span>No template marketplace bloat</div>
+        </div>
+      </div>
+      <div class="c8isv-showcase-card" data-c8isv-showcase-card="handover">
+        <span class="c8isv-showcase-card-num">01 // Whitelabel Handoff</span>
+        <h3 class="c8isv-showcase-card-title">Marketing Handoff Playbooks</h3>
+        <p class="c8isv-showcase-card-desc">Providing clean whitelabel control panels, video walkthroughs, and layout playbooks for your staff.</p>
+        <div class="c8isv-showcase-caps">
+          <div class="c8isv-showcase-cap-item"><span class="c8isv-showcase-cap-dot"></span>Detailed video editor guides</div>
+          <div class="c8isv-showcase-cap-item"><span class="c8isv-showcase-cap-dot"></span>Clean whitelabel WP dashboards</div>
+          <div class="c8isv-showcase-cap-item"><span class="c8isv-showcase-cap-dot"></span>Zero HTML copy pasting needed</div>
+        </div>
+      </div>
+      <div class="c8isv-showcase-card" data-c8isv-showcase-card="security">
+        <span class="c8isv-showcase-card-num">01 // WP Security Setup</span>
+        <h3 class="c8isv-showcase-card-title">WordPress Hardening</h3>
+        <p class="c8isv-showcase-card-desc">Applying secure server file configurations, file-change scanners, and firewalls to secure WP builds.</p>
+        <div class="c8isv-showcase-caps">
+          <div class="c8isv-showcase-cap-item"><span class="c8isv-showcase-cap-dot"></span>Server security rules configurations</div>
+          <div class="c8isv-showcase-cap-item"><span class="c8isv-showcase-cap-dot"></span>Automated backup configurations</div>
+          <div class="c8isv-showcase-cap-item"><span class="c8isv-showcase-cap-dot"></span>Active WP file scanner tools</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="c8isv-overview">
+    <div class="c8isv-img-frame c8isv-reveal">
+      <img src="cr8v-wd-overview.png" alt="Custom website design in progress" onerror="this.src='https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800&auto=format&fit=crop'">
+      <div class="c8isv-hud-tag">// IN_PROGRESS</div>
+    </div>
+    <div class="c8isv-reveal c8isv-reveal-d1">
+      <div class="c8isv-label">How We Approach It</div>
+      <h2 class="c8isv-section-title">Design And Code, Built Together</h2>
+      <div class="c8isv-overview-body">
+        <p>Most agencies hand a finished design to a developer and hope it survives translation. We don't split the two — our designers and developers work the same project from day one, so what you approve in the mockup is exactly what ships.</p>
+        <p>That means every layout decision already accounts for load speed, every animation is scoped to code we know performs, and every page is structured with search visibility in mind before a single line of copy is written.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Before/after drag comparison (kept) ── -->
+  <div class="c8isv-compare-outer">
+    <div class="c8isv-label c8isv-reveal">See The Difference</div>
+    <h2 class="c8isv-section-title c8isv-reveal">Generic Page Builder vs. Bespoke Block Editor</h2>
+    <p class="c8isv-lead c8isv-reveal" style="margin-bottom: 2rem">Drag the slider — same content, completely different execution.</p>
+    <div class="c8isv-compare-hint">← Drag to compare →</div>
+    <div class="c8isv-compare" data-c8isv-compare>
+      <img class="c8isv-compare-after" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1200&auto=format&fit=crop" alt="Custom-coded website" onerror="this.src='https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1200&auto=format&fit=crop'">
+      <div class="c8isv-compare-before-wrap" data-c8isv-compare-before-wrap>
+        <img class="c8isv-compare-before" src="https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1200&auto=format&fit=crop" alt="Generic template website" onerror="this.src='https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1200&auto=format&fit=crop'">
+      </div>
+      <span class="c8isv-compare-label is-left">Generic Page Builder</span>
+      <span class="c8isv-compare-label is-right">Bespoke Block Editor</span>
+      <div class="c8isv-compare-handle" data-c8isv-compare-handle>
+        <div class="c8isv-compare-grip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 8 3 12 7 16"/><polyline points="17 8 21 12 17 16"/></svg></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STACK FAMILY #1: Process — un-stacks into a row as you scroll, reversible ── -->
+  <div class="c8isv-stack-outer">
+    <div class="c8isv-label c8isv-reveal">Our Process</div>
+    <h2 class="c8isv-section-title c8isv-reveal">From First Conversation To Launch Day</h2>
+    <div class="c8isv-stack-hint">↕ Scroll to watch it unfold</div>
+    <div class="c8isv-stack-row" data-c8isv-stack>
+      <div class="c8isv-stack-card" data-c8isv-stack-card="0">
+        <span class="c8isv-stack-num">Step 01</span>
+        <h3 class="c8isv-stack-title">Discover</h3>
+        <div class="c8isv-stack-desc">We audit your business goals, target audience, and competitors before any design decisions get made.</div>
+      </div>
+      <div class="c8isv-stack-card" data-c8isv-stack-card="1">
+        <span class="c8isv-stack-num">Step 02</span>
+        <h3 class="c8isv-stack-title">Design</h3>
+        <div class="c8isv-stack-desc">Wireframes and full visual design covering layout, navigation, and brand consistency — with room for your feedback.</div>
+      </div>
+      <div class="c8isv-stack-card" data-c8isv-stack-card="2">
+        <span class="c8isv-stack-num">Step 03</span>
+        <h3 class="c8isv-stack-title">Develop</h3>
+        <div class="c8isv-stack-desc">Lightweight custom code, built and tested against the approved design — no page-builder bloat along the way.</div>
+      </div>
+      <div class="c8isv-stack-card" data-c8isv-stack-card="3">
+        <span class="c8isv-stack-num">Step 04</span>
+        <h3 class="c8isv-stack-title">Launch</h3>
+        <div class="c8isv-stack-desc">Full cross-device testing, a review link for your sign-off, then a clean, monitored go-live.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="c8isv-tearline"><div class="c8isv-tearline-dot"></div><div class="c8isv-tearline-line"></div><div class="c8isv-tearline-dot"></div></div>
+
+  <!-- ── Pricing split ── -->
+  <div class="c8isv-pricing-outer">
+    <div class="c8isv-label c8isv-reveal">Investment</div>
+    <h2 class="c8isv-section-title c8isv-reveal">Two Ways To Work With Us</h2>
+    <p class="c8isv-lead c8isv-reveal">No published price list — every build is different, so every quote is scoped to match.</p>
+
+    <!-- Standardized Estimator Widget -->
+    <div class="c8isv-estimator c8isv-reveal">
+      <div class="c8isv-estimator-grid">
+        <div>
+          <!-- Step 1: Base Platform -->
+          <div>
+            <span class="c8isv-est-group-title">1. WordPress Package Type</span>
+            <div class="c8isv-est-choices" data-est-group="platform">
+              <button class="c8isv-est-choice is-active" data-est-val="wordpress">WordPress Custom Build</button>
+              <button class="c8isv-est-choice" data-est-val="wpcorporate">Corporate WordPress Multisite</button>
+              <button class="c8isv-est-choice" data-est-val="wpheadless">Headless WordPress Setup</button>
+            </div>
+          </div>
+
+          <!-- Step 2: Page Scale -->
+          <div>
+            <span class="c8isv-est-group-title">2. Page & Layout Scale</span>
+            <div class="c8isv-est-choices" data-est-group="scale">
+              <button class="c8isv-est-choice" data-est-val="landing" data-est-multiplier="1.0">Landing Page Layout</button>
+              <button class="c8isv-est-choice is-active" data-est-val="core" data-est-multiplier="1.4">Core Site (3-5 pages)</button>
+              <button class="c8isv-est-choice" data-est-val="portal" data-est-multiplier="2.0">Large Portal (10+ pages)</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Growth Addons -->
+          <div>
+            <span class="c8isv-est-group-title">3. Growth Add-Ons</span>
+            <div class="c8isv-est-choices" data-est-group="growth">
+              <button class="c8isv-est-choice is-active" data-est-val="none" data-est-price="0">No Add-Ons</button>
+              <button class="c8isv-est-choice" data-est-val="seo" data-est-price="600">SEO Strategy (+$600)</button>
+              <button class="c8isv-est-choice" data-est-val="marketing" data-est-price="950">Marketing Funnel (+$950)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Result Sidebar -->
+        <div class="c8isv-est-result">
+          <div style="font-family: 'Space Mono', monospace !important; font-size: 10px !important; color: #8A8A8A !important; text-transform: uppercase !important; margin-bottom: 0.5rem !important;">Estimated Scope</div>
+          <div class="c8isv-est-range" id="est-price-display">$0 - $0</div>
+          
+          <div style="font-family: 'Space Mono', monospace !important; font-size: 10px !important; color: #8A8A8A !important; text-transform: uppercase !important; margin-bottom: 0.75rem !important; border-bottom: 1px solid rgba(8,8,8,0.08) !important; padding-bottom: 0.5rem !important;">Includes</div>
+          <div class="c8isv-est-deliverables" id="est-deliverables-display">
+            <!-- Dynamically populated -->
+          </div>
+          
+          <a href="https://cr8vstacks.com/contact/" class="c8isv-price-btn" id="est-cta-link" style="width: 100% !important; text-align: center !important;">Discuss Project Scope</a>
+        </div>
+      </div>
+    </div>
+    <div class="c8isv-pricing-grid">
+      <div class="c8isv-price-card is-light c8isv-reveal">
+        <div class="c8isv-price-title">Project-Based</div>
+        <div class="c8isv-price-desc">A one-time engagement to design and build your site, start to finish.</div>
+        <div class="c8isv-price-list">
+          <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>New builds, redesigns, or platform migrations</div>
+          <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>Fixed timeline and deliverables, agreed up front</div>
+          <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>Clear sign-off points at every stage</div>
+        </div>
+        <a href="https://cr8vstacks.com/contact/" class="c8isv-price-btn">Get A Custom Quote</a>
+      </div>
+      <div class="c8isv-price-card is-dark c8isv-reveal c8isv-reveal-d1">
+        <div class="c8isv-price-title">Ongoing Partnership</div>
+        <div class="c8isv-price-desc">A monthly retainer for teams that need a standing technical partner.</div>
+        <div class="c8isv-price-list">
+          <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>Continued design, development &amp; optimization</div>
+          <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>Scoped around your team's actual workload</div>
+          <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>Priority turnaround, direct access to your lead</div>
+        </div>
+        <a href="https://cr8vstacks.com/contact/" class="c8isv-price-btn">Discuss A Retainer</a>
+      </div>
+    </div>
+    <div class="c8isv-pricing-note">We scope every engagement individually once we understand what you're building — that's the only way the number is actually honest. Tell us what you need and we'll come back with real numbers, fast.</div>
+  </div>
+
+  <div class="c8isv-tearline" style="margin-top: 5rem !important;"><div class="c8isv-tearline-dot"></div><div class="c8isv-tearline-line"></div><div class="c8isv-tearline-dot"></div></div>
+
+  <!-- ── STACK FAMILY #2: Testimonials fan out on scroll, reversible ── -->
+  <div class="c8isv-testi-outer">
+    <div class="c8isv-label c8isv-reveal">Client Feedback</div>
+    <h2 class="c8isv-section-title c8isv-reveal">Nice Things People Have Said</h2>
+    <div class="c8isv-testi-row" data-c8isv-testi>
+      <div class="c8isv-testi-card" data-c8isv-testi-card="0">
+        <span class="c8isv-testi-quote-mark">"</span>
+        <p class="c8isv-testi-text">[Placeholder] They understood what we actually needed, not just what we asked for. The site has already paid for itself.</p>
+        <div class="c8isv-testi-author">[Client Name] // [Company]</div>
+      </div>
+      <div class="c8isv-testi-card" data-c8isv-testi-card="1">
+        <span class="c8isv-testi-quote-mark">"</span>
+        <p class="c8isv-testi-text">[Placeholder] Fast, clean, and genuinely fast to load — our old site never came close on any of the three.</p>
+        <div class="c8isv-testi-author">[Client Name] // [Company]</div>
+      </div>
+      <div class="c8isv-testi-card" data-c8isv-testi-card="2">
+        <span class="c8isv-testi-quote-mark">"</span>
+        <p class="c8isv-testi-text">[Placeholder] Communicative, on schedule, and the handoff to our own team afterward was completely painless.</p>
+        <div class="c8isv-testi-author">[Client Name] // [Company]</div>
+      </div>
+    </div>
+    <div class="c8isv-testi-note">Placeholder quotes — swap all three for real client testimonials before publishing.</div>
+  </div>
+
+</div>
+
+<!-- ── Founder quote (kept) ── -->
+<div class="c8isv-quote-outer">
+  <div class="c8isv-quote-breakout">
+    <div class="c8isv-quote-glyph">"</div>
+    <p class="c8isv-quote-text c8isv-reveal">A website is the only piece of your marketing that's still working at 3am. If it's slow or confusing, it's costing you money whether you're watching or not.</p>
+    <div class="c8isv-quote-cite">Mallami Adekunle, Founder</div>
+  </div>
+</div>
+
+<div class="c8isv-wrap">
+
+  <!-- ── FAQ ── -->
+    <!-- ?? Tech Catalog Stacks ?? -->
+  <div class="c8isv-full-catalog-section">
+    <div class="c8isv-tearline"><div class="c8isv-tearline-dot"></div><div class="c8isv-tearline-line"></div><div class="c8isv-tearline-dot"></div></div>
+    <div class="c8isv-label c8isv-reveal" style="justify-content: center !important;">Full Catalog</div>
+    <h2 class="c8isv-section-title c8isv-reveal" style="text-align: center !important;">Tech Stacks We Deploy</h2>
+    <p class="c8isv-lead c8isv-reveal" style="text-align: center !important; margin-bottom: 3rem !important;">The modern, lightweight technologies we use to engineer fast, conversion-ready sites globally.</p>
+    
+    <div class="c8isv-full-catalog-grid">
+      <!-- 01 Frontend Frameworks -->
+      <div class="c8isv-catalog-group c8isv-reveal">
+        <div class="c8isv-catalog-group-title">01 // Frontend Engineering</div>
+        <div class="c8isv-catalog-stacks">
+          <span class="c8isv-stack-badge">HTML5 / CSS3</span>
+          <span class="c8isv-stack-badge">Vanilla JS</span>
+          <span class="c8isv-stack-badge">TailwindCSS</span>
+          <span class="c8isv-stack-badge">React</span>
+          <span class="c8isv-stack-badge">Next.js</span>
+        </div>
+      </div>
+
+      <!-- 02 Ecommerce Architecture -->
+      <div class="c8isv-catalog-group c8isv-reveal c8isv-reveal-d1">
+        <div class="c8isv-catalog-group-title">02 // Commerce Architectures</div>
+        <div class="c8isv-catalog-stacks">
+          <span class="c8isv-stack-badge">Shopify Liquid</span>
+          <span class="c8isv-stack-badge">WooCommerce API</span>
+          <span class="c8isv-stack-badge">PHP / WordPress</span>
+          <span class="c8isv-stack-badge">Stripe &amp; Paystack</span>
+        </div>
+      </div>
+
+      <!-- 03 Backend & Databases -->
+      <div class="c8isv-catalog-group c8isv-reveal">
+        <div class="c8isv-catalog-group-title">03 // Backend &amp; Databases</div>
+        <div class="c8isv-catalog-stacks">
+          <span class="c8isv-stack-badge">Node.js</span>
+          <span class="c8isv-stack-badge">Laravel PHP</span>
+          <span class="c8isv-stack-badge">MySQL</span>
+          <span class="c8isv-stack-badge">PostgreSQL</span>
+          <span class="c8isv-stack-badge">REST / GraphQL</span>
+        </div>
+      </div>
+
+      <!-- 04 AI & Large Language Models -->
+      <div class="c8isv-catalog-group c8isv-reveal c8isv-reveal-d1">
+        <div class="c8isv-catalog-group-title">04 // AI &amp; Prompt Engineering</div>
+        <div class="c8isv-catalog-stacks">
+          <span class="c8isv-stack-badge">OpenAI / Gemini</span>
+          <span class="c8isv-stack-badge">Prompt Layers</span>
+          <span class="c8isv-stack-badge">Python / Flask</span>
+          <span class="c8isv-stack-badge">Pinecone Vector DB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="c8isv-faq-outer">
+    <div class="c8isv-label c8isv-reveal">Straight Answers</div>
+    <h2 class="c8isv-section-title c8isv-reveal">Before You Ask</h2>
+    <p class="c8isv-lead c8isv-reveal">The questions we get asked most, answered without the corporate hedging.</p>
+
+<div class="c8isv-accordion" data-c8isv-accordion>
+      <div class="c8isv-accordion-item is-open">
+        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+          <h3 class="c8isv-accordion-title">Will my team be able to edit pages easily?</h3>
+          <div class="c8isv-accordion-toggle"></div>
+        </div>
+        <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">Yes. We code your design into native WordPress blocks. You can edit text, swap images, and create new pages using the block editor without touching code.</div></div></div>
+      </div>
+      <div class="c8isv-accordion-item">
+        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+          <h3 class="c8isv-accordion-title">Do you use page builders like Elementor or Divi?</h3>
+          <div class="c8isv-accordion-toggle"></div>
+        </div>
+        <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">No. Page builders add heavy CSS and JS bloat that slow your site down. We write clean, native code that keeps your load times under 1 second.</div></div></div>
+      </div>
+      <div class="c8isv-accordion-item">
+        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+          <h3 class="c8isv-accordion-title">Can you optimize my existing WordPress site?</h3>
+          <div class="c8isv-accordion-toggle"></div>
+        </div>
+        <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">We can run technical speed and security audits on existing sites, but for optimal performance and security, we recommend a custom whitelabel theme rebuild.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Related services ── -->
+  <div class="c8isv-related">
+    <div class="c8isv-label c8isv-reveal">Related Services</div>
+    <div class="c8isv-related-row">
+      <a href="https://cr8vstacks.com/services/shopify-ecommerce-design/" class="c8isv-explore">Shopify <span>→</span></a>
+      <a href="https://cr8vstacks.com/services/wordpress-development/" class="c8isv-explore">WordPress <span>→</span></a>
+      <a href="https://cr8vstacks.com/services/woocommerce-development/" class="c8isv-explore">WooCommerce <span>→</span></a>
+      <a href="https://cr8vstacks.com/services/custom-web-development/" class="c8isv-explore">Custom Development <span>→</span></a>
+      <a href="https://cr8vstacks.com/services/brand-strategy/" class="c8isv-explore">Brand Strategy <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="c8isv-closing"></div>
+
+</div>
+
+<script>
+(function () {
+  var root = document.currentScript ? document.currentScript.closest('.c8isv-root') : document.querySelector('.c8isv-root');
+  if (!root || root.getAttribute('data-c8isv-init') === '1') return;
+  root.setAttribute('data-c8isv-init', '1');
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isMobile = window.innerWidth < 900;
+
+  /* Reveal on scroll */
+  var revealEls = root.querySelectorAll('.c8isv-reveal');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* ---- Shared "stack" mechanic: cards start stacked/rotated, un-stack into
+     final position as the container ratio increases, reversible both ways ---- */
+  function setupScrollStack(container, cards, getTransform) {
+    if (!container || !cards.length) return;
+    if (reduceMotion || isMobile) {
+      cards.forEach(function (card, i) { card.style.transform = getTransform(i, 1); card.style.opacity = '1'; });
+      return;
+    }
+    var thresholds = [];
+    for (var t = 0; t <= 40; t++) thresholds.push(t / 40);
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var ratio = entry.intersectionRatio;
+        cards.forEach(function (card, i) {
+          var localT = Math.min(1, Math.max(0, ratio * 1.5 - i * 0.16));
+          card.style.transform = getTransform(i, localT);
+          card.style.opacity = String(0.35 + 0.65 * localT);
+        });
+      });
+    }, { threshold: thresholds });
+    io.observe(container);
+  }
+
+  /* Process: each card slides in from behind card 0, rotating flat as it arrives */
+  var stackContainer = root.querySelector('[data-c8isv-stack]');
+  var stackCards = root.querySelectorAll('[data-c8isv-stack-card]');
+  setupScrollStack(stackContainer, stackCards, function (i, t) {
+    var startX = -100 * i;
+    var startRotate = i === 0 ? 0 : (i % 2 === 0 ? -7 : 7);
+    var x = startX * (1 - t);
+    var rot = startRotate * (1 - t);
+    var scale = 0.92 + 0.08 * t;
+    return 'translateX(' + x + '%) rotate(' + rot + 'deg) scale(' + scale + ')';
+  });
+
+  /* Testimonials: side cards fan out from behind the center card */
+  var testiContainer = root.querySelector('[data-c8isv-testi]');
+  var testiCards = root.querySelectorAll('[data-c8isv-testi-card]');
+  var testiFinalRotate = [-3, 1, 4];
+  setupScrollStack(testiContainer, testiCards, function (i, t) {
+    var startX = i === 1 ? 0 : (i === 0 ? 100 : -100);
+    var x = startX * (1 - t);
+    var rot = testiFinalRotate[i] * t;
+    var scale = 0.9 + 0.1 * t;
+    return 'translateX(' + x + '%) rotate(' + rot + 'deg) scale(' + scale + ')';
+  });
+
+  /* ---- Before/after drag comparison ---- */
+  var compare = root.querySelector('[data-c8isv-compare]');
+  if (compare) {
+    var beforeWrap = compare.querySelector('[data-c8isv-compare-before-wrap]');
+    var handle = compare.querySelector('[data-c8isv-compare-handle]');
+    var beforeImg = compare.querySelector('.c8isv-compare-before');
+    var dragging = false;
+
+    function syncBeforeImgWidth() {
+      var rect = compare.getBoundingClientRect();
+      beforeImg.style.setProperty('width', rect.width + 'px', 'important');
+    }
+    syncBeforeImgWidth();
+    window.addEventListener('resize', syncBeforeImgWidth);
+
+    function setPct(pct) {
+      pct = Math.min(100, Math.max(0, pct));
+      beforeWrap.style.width = pct + '%';
+      handle.style.left = pct + '%';
+    }
+    function pctFromEvent(e) {
+      var rect = compare.getBoundingClientRect();
+      var x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+      return (x / rect.width) * 100;
+    }
+    compare.addEventListener('pointerdown', function (e) { dragging = true; setPct(pctFromEvent(e)); });
+    window.addEventListener('pointermove', function (e) { if (dragging) setPct(pctFromEvent(e)); });
+    window.addEventListener('pointerup', function () { dragging = false; });
+  }
+
+  /* Accordion */
+  var accordionHeads = root.querySelectorAll('[data-c8isv-accordion-head]');
+  accordionHeads.forEach(function (head) {
+    head.addEventListener('click', function () {
+      var item = head.closest('.c8isv-accordion-item');
+      var wasOpen = item.classList.contains('is-open');
+      item.parentElement.querySelectorAll('.c8isv-accordion-item').forEach(function (i) { i.classList.remove('is-open'); });
+      if (!wasOpen) item.classList.add('is-open');
+    });
+  });
+
+  /* ---- Sticky Showcase Tabs Logic ---- */
+  var showcase = root.querySelector('#primary-showcase');
+  if (showcase) {
+    var navTabs = showcase.querySelectorAll('[data-c8isv-nav-tab]');
+    var cards = showcase.querySelectorAll('[data-c8isv-showcase-card]');
+    
+    // Clicking tab scrolls card into view
+    navTabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var targetId = tab.getAttribute('data-c8isv-nav-tab');
+        var targetCard = showcase.querySelector('[data-c8isv-showcase-card="' + targetId + '"]');
+        if (targetCard) {
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+    });
+
+    // Scrolling highlights active tab
+    var observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -60% 0px',
+      threshold: 0
+    };
+    var activeTabsObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var targetId = entry.target.getAttribute('data-c8isv-showcase-card');
+          navTabs.forEach(function (t) {
+            t.classList.remove('is-active');
+            if (t.getAttribute('data-c8isv-nav-tab') === targetId) {
+              t.classList.add('is-active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+    cards.forEach(function (c) { activeTabsObserver.observe(c); });
+  }
+
+
+  /* ---- Standardized Estimator Calculator Logic ---- */
+  var estRange = root.querySelector('#est-price-display');
+  var estList = root.querySelector('#est-deliverables-display');
+  var estCta = root.querySelector('#est-cta-link');
+  var estChoices = root.querySelectorAll('.c8isv-est-choice');
+  
+  var estimatorData = {
+    "wordpress": {
+        "price": 1200,
+        "deliverables": [
+            "Custom Gutenberg blocks theme build",
+            "Advanced custom fields layout control",
+            "Zero-bloat optimized speed setups"
+        ]
+    },
+    "wpcorporate": {
+        "price": 2400,
+        "deliverables": [
+            "Multisite network and language configurations",
+            "Custom role permissions dashboards",
+            "Regular database backup scheduling"
+        ]
+    },
+    "wpheadless": {
+        "price": 3800,
+        "deliverables": [
+            "Decoupled React/Gatsby front-end builds",
+            "REST/GraphQL custom API query integrations",
+            "Serverless hosting performance tuning"
+        ]
+    }
+};
+  
+  var estimatorAddons = {
+    "none": {
+        "price": 0,
+        "deliverables": []
+    },
+    "seo": {
+        "price": 600,
+        "deliverables": [
+            "High-intent keyword matrix mapping",
+            "Technical speed & schema SEO markup setup"
+        ]
+    },
+    "marketing": {
+        "price": 950,
+        "deliverables": [
+            "Complete email marketing workflow setup",
+            "High-conversion ad-campaign funnel wiring"
+        ]
+    }
+};
+
+  function calculateEstimate() {
+    if (!estRange || !estList || !estCta) return;
+    
+    var platformBtn = root.querySelector('[data-est-group="platform"] .c8isv-est-choice.is-active');
+    var scaleBtn = root.querySelector('[data-est-group="scale"] .c8isv-est-choice.is-active');
+    var growthBtn = root.querySelector('[data-est-group="growth"] .c8isv-est-choice.is-active');
+    
+    if (!platformBtn || !scaleBtn || !growthBtn) return;
+    
+    var platform = platformBtn.getAttribute('data-est-val');
+    var scale = scaleBtn.getAttribute('data-est-val');
+    var growth = growthBtn.getAttribute('data-est-val');
+    
+    var basePrice = estimatorData[platform].price;
+    var scaleMult = parseFloat(scaleBtn.getAttribute('data-est-multiplier'));
+    var growthPrice = estimatorAddons[growth].price;
+    
+    var calculatedStart = Math.round(basePrice * scaleMult + growthPrice);
+    var calculatedEnd = Math.round(calculatedStart * 1.25);
+    
+    estRange.textContent = "$" + calculatedStart.toLocaleString() + " - $" + calculatedEnd.toLocaleString();
+    
+    estList.innerHTML = "";
+    
+    estimatorData[platform].deliverables.forEach(function (d) {
+      var item = document.createElement('div');
+      item.className = 'c8isv-est-item';
+      item.innerHTML = '<span class="c8isv-est-dot"></span><span>' + d + '</span>';
+      estList.appendChild(item);
+    });
+    
+    var scaleText = "Project Scale: " + scaleBtn.textContent.trim();
+    var scaleItem = document.createElement('div');
+    scaleItem.className = 'c8isv-est-item';
+    scaleItem.innerHTML = '<span class="c8isv-est-dot"></span><span>' + scaleText + '</span>';
+    estList.appendChild(scaleItem);
+    
+    estimatorAddons[growth].deliverables.forEach(function (d) {
+      var item = document.createElement('div');
+      item.className = 'c8isv-est-item';
+      item.innerHTML = '<span class="c8isv-est-dot"></span><span>' + d + '</span>';
+      estList.appendChild(item);
+    });
+    
+    var query = "?platform=" + platform + "&scale=" + scale + "&growth=" + growth + "&est=" + calculatedStart + "-" + calculatedEnd;
+    estCta.href = "https://cr8vstacks.com/contact/" + encodeURI(query);
+  }
+  
+  estChoices.forEach(function (choice) {
+    choice.addEventListener('click', function () {
+      var group = choice.parentElement;
+      group.querySelectorAll('.c8isv-est-choice').forEach(function (btn) {
+        btn.classList.remove('is-active');
+      });
+      choice.classList.add('is-active');
+      calculateEstimate();
+    });
+  });
+  
+  calculateEstimate();
+
+})();
+</script>
+</div>

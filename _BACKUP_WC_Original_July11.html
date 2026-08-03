@@ -1,0 +1,590 @@
+<div class="c8isv-root">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
+
+/* ═══════════════════════════════════════════
+   CR8V STACKS — INDIVIDUAL SERVICE PAGE v3.1
+   ═══════════════════════════════════════════ */
+.c8isv-root, .c8isv-root * { box-sizing: border-box !important; }
+.c8isv-root { background: #FFFFFF !important; color: #080808 !important; font-family: 'DM Sans', sans-serif !important; line-height: 1.65 !important; position: relative !important; }
+.c8isv-root .c8isv-wrap { padding: 4rem 3.5rem !important; max-width: 1440px !important; margin: 0 auto !important; position: relative !important; z-index: 2 !important; }
+@media (max-width: 1100px) { .c8isv-root .c8isv-wrap { padding: 3rem 1.25rem !important; } }
+.c8isv-root h1, .c8isv-root h2, .c8isv-root h3, .c8isv-root h4 { margin: 0 !important; font-weight: inherit !important; line-height: 1.1 !important; }
+.c8isv-root p { margin: 0 0 1rem 0 !important; }
+.c8isv-root p:last-child { margin-bottom: 0 !important; }
+.c8isv-root button { font-family: inherit !important; cursor: pointer !important; border: none !important; background: none !important; }
+.c8isv-root a { text-decoration: none !important; }
+
+.c8isv-root .c8isv-breadcrumb { font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: .08em !important; text-transform: uppercase !important; color: #8A8A8A !important; margin-bottom: 1.5rem !important; display: flex !important; align-items: center !important; gap: 8px !important; }
+.c8isv-root .c8isv-breadcrumb a { color: #8A8A8A !important; }
+.c8isv-root .c8isv-breadcrumb a:hover { color: #0047E1 !important; }
+.c8isv-root .c8isv-breadcrumb span.is-current { color: #0047E1 !important; }
+
+.c8isv-root .c8isv-label { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: .25em !important; text-transform: uppercase !important; color: #0047E1 !important; display: flex !important; align-items: center !important; gap: 10px !important; margin-bottom: 1.75rem !important; }
+.c8isv-root .c8isv-label::before { content: '—' !important; color: #0047E1 !important; font-weight: 700 !important; }
+.c8isv-root .c8isv-label.is-light { color: #7C93FF !important; }
+.c8isv-root .c8isv-label.is-light::before { color: #7C93FF !important; }
+
+.c8isv-root .c8isv-tearline { display: flex !important; align-items: center !important; margin: 0 0 5rem 0 !important; }
+.c8isv-root .c8isv-tearline-dot { width: 9px !important; height: 9px !important; border-radius: 50% !important; background: #080808 !important; flex-shrink: 0 !important; }
+.c8isv-root .c8isv-tearline-line { flex: 1 !important; border-top: 1px dashed rgba(8,8,8,0.28) !important; margin: 0 10px !important; }
+
+.c8isv-root .c8isv-reveal { opacity: 0 !important; transform: translateY(24px) !important; transition: opacity 0.7s cubic-bezier(.16,.8,.24,1), transform 0.7s cubic-bezier(.16,.8,.24,1) !important; }
+.c8isv-root .c8isv-reveal.is-visible { opacity: 1 !important; transform: translateY(0) !important; }
+.c8isv-root .c8isv-reveal-d1 { transition-delay: 0.08s !important; }
+.c8isv-root .c8isv-reveal-d2 { transition-delay: 0.16s !important; }
+@media (prefers-reduced-motion: reduce) { .c8isv-root .c8isv-reveal { opacity: 1 !important; transform: none !important; transition: none !important; } }
+
+.c8isv-root .c8isv-explore { font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: .08em !important; text-transform: uppercase !important; color: #0047E1 !important; display: inline-flex !important; align-items: center !important; gap: 6px !important; transition: gap 0.2s ease !important; }
+.c8isv-root .c8isv-explore:hover { gap: 10px !important; }
+
+.c8isv-root .c8isv-icon-sq { width: 40px !important; height: 40px !important; background: #0047E1 !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; }
+.c8isv-root .c8isv-icon-sq svg { width: 20px !important; height: 20px !important; stroke: #FFFFFF !important; }
+
+.c8isv-root .c8isv-headline { font-family: 'Bebas Neue', sans-serif !important; font-size: clamp(2.6rem, 5.5vw, 4.6rem) !important; letter-spacing: 0.01em !important; line-height: 0.94 !important; text-transform: uppercase !important; }
+.c8isv-root .c8isv-section-title { font-family: 'Bebas Neue', sans-serif !important; font-size: clamp(1.8rem, 3vw, 2.5rem) !important; letter-spacing: 0.01em !important; text-transform: uppercase !important; margin-bottom: 1.25rem !important; }
+.c8isv-root .c8isv-lead { font-size: 16.5px !important; font-weight: 400 !important; color: #6B6B6B !important; max-width: 680px !important; line-height: 1.65 !important; }
+
+/* ── Hero ── */
+.c8isv-root .c8isv-hero { position: relative !important; z-index: 2 !important; margin-bottom: 1rem !important; padding-top: 1rem !important; max-width: 760px !important; }
+.c8isv-root .c8isv-hero-intro { font-size: 17px !important; font-weight: 300 !important; color: #6B6B6B !important; margin-top: 1.5rem !important; line-height: 1.6 !important; }
+.c8isv-root .c8isv-pill-row { display: flex !important; flex-wrap: wrap !important; gap: 0.6rem !important; margin-top: 2.25rem !important; }
+.c8isv-root .c8isv-pill { border: 1px solid rgba(8,8,8,0.15) !important; background: #FFFFFF !important; padding: 8px 15px !important; font-size: 12px !important; font-weight: 500 !important; }
+
+/* ── Overview ── */
+.c8isv-root .c8isv-overview { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 4rem !important; align-items: center !important; margin: 5rem 0 !important; }
+@media (max-width: 950px) { .c8isv-root .c8isv-overview { grid-template-columns: 1fr !important; gap: 2.5rem !important; } }
+.c8isv-root .c8isv-img-frame { border: 1px solid rgba(8,8,8,0.09) !important; background: #FFFFFF !important; padding: 12px !important; position: relative !important; box-shadow: 10px 10px 0px rgba(0,71,225,0.05) !important; }
+.c8isv-root .c8isv-img-frame img { width: 100% !important; height: auto !important; display: block !important; object-fit: cover !important; }
+.c8isv-root .c8isv-hud-tag { position: absolute !important; bottom: 20px !important; right: -10px !important; background: #080808 !important; color: #FAFAF7 !important; font-family: 'Space Mono', monospace !important; font-size: 8.5px !important; letter-spacing: 0.2em !important; text-transform: uppercase !important; padding: 6px 12px !important; border-top: 2px solid #0047E1 !important; z-index: 3 !important; }
+.c8isv-root .c8isv-overview-body { font-size: 14px !important; font-weight: 300 !important; color: #6B6B6B !important; line-height: 1.75 !important; }
+
+/* ── Before/after drag comparison ── */
+.c8isv-root .c8isv-compare-outer { position: relative !important; z-index: 2 !important; margin-bottom: 6rem !important; }
+.c8isv-root .c8isv-compare-hint { font-family: 'Space Mono', monospace !important; font-size: 10.5px !important; letter-spacing: .12em !important; text-transform: uppercase !important; color: #0047E1 !important; text-align: center !important; margin-bottom: 1.25rem !important; }
+.c8isv-root .c8isv-compare { position: relative !important; width: 100% !important; aspect-ratio: 16/9 !important; overflow: hidden !important; border: 1px solid rgba(8,8,8,0.1) !important; user-select: none !important; cursor: ew-resize !important; touch-action: pan-y !important; }
+.c8isv-root .c8isv-compare-after, .c8isv-root .c8isv-compare-before { position: absolute !important; top: 0 !important; left: 0 !important; height: 100% !important; object-fit: cover !important; display: block !important; pointer-events: none !important; }
+.c8isv-root .c8isv-compare-after { width: 100% !important; }
+.c8isv-root .c8isv-compare-before-wrap { position: absolute !important; top: 0 !important; left: 0 !important; height: 100% !important; width: 50% !important; overflow: hidden !important; }
+.c8isv-root .c8isv-compare-before-wrap img { max-width: none !important; }
+.c8isv-root .c8isv-compare-handle { position: absolute !important; top: 0 !important; bottom: 0 !important; left: 50% !important; width: 3px !important; background: #FFFFFF !important; transform: translateX(-50%) !important; box-shadow: 0 0 12px rgba(0,0,0,0.3) !important; }
+.c8isv-root .c8isv-compare-grip { position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%,-50%) !important; width: 44px !important; height: 44px !important; border-radius: 50% !important; background: #0047E1 !important; display: flex !important; align-items: center !important; justify-content: center !important; box-shadow: 0 6px 18px rgba(8,8,8,0.3) !important; }
+.c8isv-root .c8isv-compare-grip svg { width: 20px !important; height: 20px !important; stroke: #FFFFFF !important; }
+.c8isv-root .c8isv-compare-label { position: absolute !important; top: 1rem !important; font-family: 'Space Mono', monospace !important; font-size: 9.5px !important; letter-spacing: .12em !important; text-transform: uppercase !important; color: #FAFAF7 !important; background: rgba(8,8,8,0.55) !important; padding: 6px 12px !important; pointer-events: none !important; }
+.c8isv-root .c8isv-compare-label.is-left { left: 1rem !important; }
+.c8isv-root .c8isv-compare-label.is-right { right: 1rem !important; }
+
+/* ── PRIMARY SERVICE // 01 (Standalone tabbed section) ── */
+.c8isv-root .c8isv-primary-section { padding: 5rem 0 !important; position: relative !important; z-index: 2 !important; }
+.c8isv-root .c8isv-primary-tabs-nav { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; margin-top: 2.5rem !important; margin-bottom: 0 !important; }
+.c8isv-root .c8isv-primary-tab { font-family: 'Space Mono', monospace !important; font-size: 10.5px !important; letter-spacing: .06em !important; text-transform: uppercase !important; padding: 10px 16px !important; background: #FFFFFF !important; border: 1px solid rgba(8,8,8,0.12) !important; color: #6B6B6B !important; cursor: pointer !important; transition: all 0.2s ease !important; }
+.c8isv-root .c8isv-primary-tab.is-active { background: #080808 !important; color: #FAFAF7 !important; border-color: #080808 !important; }
+.c8isv-root .c8isv-primary-panel { display: none !important; }
+.c8isv-root .c8isv-primary-panel.is-active { display: block !important; }
+.c8isv-root .c8isv-primary-panel-body { background: #FAFAF9 !important; border: 1px solid rgba(8,8,8,0.08) !important; padding: 3rem !important; margin-top: 0 !important; border-top: none !important; }
+@media (max-width: 700px) { .c8isv-root .c8isv-primary-panel-body { padding: 2rem 1.5rem !important; } }
+.c8isv-root .c8isv-primary-panel-title { font-family: 'Bebas Neue', sans-serif !important; font-size: clamp(1.5rem, 2.5vw, 2rem) !important; text-transform: uppercase !important; margin-bottom: 0.75rem !important; }
+.c8isv-root .c8isv-primary-panel-desc { font-size: 14.5px !important; color: #6B6B6B !important; line-height: 1.65 !important; max-width: 640px !important; margin-bottom: 1.5rem !important; }
+.c8isv-root .c8isv-cap-list { display: flex !important; flex-direction: column !important; gap: 0.75rem !important; margin-bottom: 1.5rem !important; }
+.c8isv-root .c8isv-cap-item { display: flex !important; gap: 10px !important; align-items: center !important; font-size: 13px !important; color: #080808 !important; font-weight: 500 !important; }
+.c8isv-root .c8isv-cap-dot { width: 6px !important; height: 6px !important; background: #0047E1 !important; border-radius: 50% !important; flex-shrink: 0 !important; }
+
+/* ── Process STACK FAMILY #1 ── */
+.c8isv-root .c8isv-stack-outer { padding-top: 1rem !important; margin-bottom: 6rem !important; position: relative !important; z-index: 2 !important; }
+/* CENTER the heading and label for Process section */
+.c8isv-root .c8isv-stack-outer .c8isv-label { justify-content: center !important; }
+.c8isv-root .c8isv-stack-outer .c8isv-section-title { text-align: center !important; }
+.c8isv-root .c8isv-stack-row { display: grid !important; grid-template-columns: repeat(4,1fr) !important; gap: 1.5rem !important; margin-top: 3rem !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-stack-row { grid-template-columns: 1fr !important; gap: 1.25rem !important; } }
+.c8isv-root .c8isv-stack-card { background: #FFFFFF !important; border: 1px solid rgba(8,8,8,0.1) !important; padding: 2rem 1.75rem !important; will-change: transform, opacity !important; position: relative !important; box-shadow: 4px 4px 0px rgba(0,71,225,0.04) !important; }
+.c8isv-root .c8isv-stack-num { font-family: 'Space Mono', monospace !important; font-size: 10px !important; color: #0047E1 !important; letter-spacing: .1em !important; text-transform: uppercase !important; display: block !important; margin-bottom: 1.25rem !important; }
+.c8isv-root .c8isv-stack-title { font-family: 'Bebas Neue', sans-serif !important; font-size: 1.7rem !important; text-transform: uppercase !important; margin-bottom: 0.6rem !important; }
+.c8isv-root .c8isv-stack-desc { font-size: 12.5px !important; color: #6B6B6B !important; font-weight: 300 !important; line-height: 1.6 !important; }
+
+/* ── Full Catalog Section ── */
+.c8isv-root .c8isv-full-catalog-section { position: relative !important; z-index: 2 !important; margin-bottom: 6rem !important; }
+.c8isv-root .c8isv-catalog-list { border-top: 1px solid rgba(8,8,8,0.1) !important; margin-top: 2.5rem !important; }
+.c8isv-root .c8isv-catalog-item { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 2rem !important; padding: 1.75rem 0.5rem !important; border-bottom: 1px solid rgba(8,8,8,0.1) !important; transition: padding-left 0.3s ease !important; }
+.c8isv-root .c8isv-catalog-item:hover { padding-left: 1rem !important; }
+.c8isv-root .c8isv-catalog-left { display: flex !important; align-items: baseline !important; gap: 1.5rem !important; flex: 1 !important; min-width: 0 !important; flex-wrap: wrap !important; }
+.c8isv-root .c8isv-catalog-num { font-family: 'Space Mono', monospace !important; font-size: 12px !important; color: #0047E1 !important; flex-shrink: 0 !important; }
+.c8isv-root .c8isv-catalog-title { font-family: 'Bebas Neue', sans-serif !important; font-size: clamp(1.2rem, 2vw, 1.6rem) !important; text-transform: uppercase !important; letter-spacing: 0.01em !important; }
+.c8isv-root .c8isv-catalog-tagline { font-size: 13px !important; color: #8A8A8A !important; font-weight: 300 !important; }
+.c8isv-root .c8isv-catalog-right { display: flex !important; align-items: center !important; gap: 1.5rem !important; flex-shrink: 0 !important; }
+.c8isv-root .c8isv-catalog-badges { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; justify-content: flex-end !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-catalog-right { display: none !important; } }
+.c8isv-root .c8isv-badge { font-family: 'Space Mono', monospace !important; font-size: 9px !important; letter-spacing: 0.06em !important; text-transform: uppercase !important; padding: 4px 8px !important; border: 1px solid rgba(8,8,8,0.12) !important; background: #FFFFFF !important; color: #6B6B6B !important; white-space: nowrap !important; }
+
+/* ── Pricing split ── */
+.c8isv-root .c8isv-pricing-outer { padding-top: 1rem !important; margin-bottom: 1rem !important; position: relative !important; z-index: 2 !important; }
+.c8isv-root .c8isv-pricing-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 1.25rem !important; margin-top: 2.5rem !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-pricing-grid { grid-template-columns: 1fr !important; } }
+.c8isv-root .c8isv-price-card { padding: 2.75rem 2.25rem !important; display: flex !important; flex-direction: column !important; }
+.c8isv-root .c8isv-price-card.is-light { background: #F4F1EA !important; }
+.c8isv-root .c8isv-price-card.is-dark { background: #0A0E1F !important; color: #FAFAF7 !important; }
+.c8isv-root .c8isv-price-title { font-family: 'Bebas Neue', sans-serif !important; font-size: 1.9rem !important; text-transform: uppercase !important; margin-bottom: 0.6rem !important; }
+.c8isv-root .c8isv-price-card.is-dark .c8isv-price-title { color: #FAFAF7 !important; }
+.c8isv-root .c8isv-price-desc { font-size: 13.5px !important; font-weight: 300 !important; margin-bottom: 1.5rem !important; }
+.c8isv-root .c8isv-price-card.is-light .c8isv-price-desc { color: #6B6B6B !important; }
+.c8isv-root .c8isv-price-card.is-dark .c8isv-price-desc { color: rgba(250,250,247,0.65) !important; }
+.c8isv-root .c8isv-price-list { display: flex !important; flex-direction: column !important; gap: 0.85rem !important; margin-bottom: 2rem !important; flex-grow: 1 !important; }
+.c8isv-root .c8isv-price-item { display: flex !important; gap: 10px !important; font-size: 13px !important; font-weight: 300 !important; align-items: flex-start !important; }
+.c8isv-root .c8isv-price-check { flex-shrink: 0 !important; margin-top: 2px !important; color: #0047E1 !important; }
+.c8isv-root .c8isv-price-card.is-dark .c8isv-price-check { color: #7C93FF !important; }
+.c8isv-root .c8isv-price-btn { display: inline-flex !important; align-items: center !important; gap: 10px !important; font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: .08em !important; text-transform: uppercase !important; padding: 14px 24px !important; align-self: flex-start !important; }
+.c8isv-root .c8isv-price-card.is-light .c8isv-price-btn { background: #080808 !important; color: #FAFAF7 !important; }
+.c8isv-root .c8isv-price-card.is-dark .c8isv-price-btn { background: #0047E1 !important; color: #FFFFFF !important; }
+.c8isv-root .c8isv-pricing-note { font-size: 12.5px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-top: 1.75rem !important; max-width: 640px !important; }
+
+/* ── Testimonials STACK FAMILY #2 ── */
+.c8isv-root .c8isv-testi-outer { padding-top: 1rem !important; margin-bottom: 1rem !important; position: relative !important; z-index: 2 !important; }
+/* CENTER heading/label for testimonials */
+.c8isv-root .c8isv-testi-outer .c8isv-label { justify-content: center !important; }
+.c8isv-root .c8isv-testi-outer .c8isv-section-title { text-align: center !important; }
+.c8isv-root .c8isv-testi-row { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1.5rem !important; margin-top: 3rem !important; align-items: center !important; }
+@media (max-width: 900px) { .c8isv-root .c8isv-testi-row { grid-template-columns: 1fr !important; gap: 1.25rem !important; } }
+.c8isv-root .c8isv-testi-card { background: #FFFFFF !important; border: 1px solid rgba(8,8,8,0.1) !important; padding: 2.25rem !important; box-shadow: 0 4px 16px rgba(8,8,8,0.04) !important; will-change: transform, opacity !important; }
+.c8isv-root .c8isv-testi-quote-mark { font-family: 'Bebas Neue', sans-serif !important; font-size: 2.5rem !important; color: #0047E1 !important; line-height: 0.5 !important; margin-bottom: 1rem !important; display: block !important; }
+.c8isv-root .c8isv-testi-text { font-size: 14.5px !important; font-weight: 400 !important; color: #080808 !important; line-height: 1.6 !important; margin-bottom: 1.5rem !important; }
+.c8isv-root .c8isv-testi-author { font-family: 'Space Mono', monospace !important; font-size: 10.5px !important; letter-spacing: .06em !important; text-transform: uppercase !important; color: #6B6B6B !important; border-top: 1px solid rgba(8,8,8,0.1) !important; padding-top: 1rem !important; }
+.c8isv-root .c8isv-testi-note { font-size: 12.5px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-top: 2rem !important; font-style: italic !important; text-align: center !important; }
+
+/* ── Founder quote ── */
+.c8isv-root .c8isv-quote-outer { overflow-x: hidden !important; position: relative !important; z-index: 2 !important; margin: 6rem 0 !important; }
+.c8isv-root .c8isv-quote-breakout { width: 100vw !important; margin-left: 50% !important; transform: translateX(-50%) !important; background: linear-gradient(180deg, #050813 0%, #0A0E1F 100%) !important; padding: 5rem 3.5rem !important; position: relative !important; overflow: hidden !important; text-align: center !important; }
+@media (max-width: 700px) { .c8isv-root .c8isv-quote-breakout { padding: 3.5rem 1.5rem !important; } }
+.c8isv-root .c8isv-quote-glyph { font-family: 'Bebas Neue', sans-serif !important; font-size: 8rem !important; color: transparent !important; -webkit-text-stroke: 1.5px rgba(124,147,255,0.5) !important; line-height: 0.5 !important; margin-bottom: 1rem !important; }
+.c8isv-root .c8isv-quote-text { font-size: clamp(1.2rem, 2.4vw, 1.7rem) !important; font-weight: 300 !important; font-style: italic !important; color: #FAFAF7 !important; max-width: 780px !important; margin: 0 auto 1.25rem auto !important; line-height: 1.45 !important; }
+.c8isv-root .c8isv-quote-cite { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: .15em !important; text-transform: uppercase !important; color: #7C93FF !important; }
+
+/* ── FAQ accordion ── */
+.c8isv-root .c8isv-faq-outer { padding-top: 1rem !important; position: relative !important; z-index: 2 !important; }
+.c8isv-root .c8isv-accordion { border-top: 1px solid rgba(8,8,8,0.1) !important; margin-top: 2.5rem !important; }
+.c8isv-root .c8isv-accordion-item { border-bottom: 1px solid rgba(8,8,8,0.1) !important; }
+.c8isv-root .c8isv-accordion-head { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important; }
+.c8isv-root .c8isv-accordion-title { font-family: 'Bebas Neue', sans-serif !important; font-size: 1.35rem !important; text-transform: uppercase !important; letter-spacing: 0.01em !important; }
+.c8isv-root .c8isv-accordion-toggle { width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important; }
+.c8isv-root .c8isv-accordion-toggle::before, .c8isv-root .c8isv-accordion-toggle::after { content: '' !important; position: absolute !important; background: #080808 !important; transition: transform 0.25s ease !important; }
+.c8isv-root .c8isv-accordion-toggle::before { width: 12px !important; height: 1px !important; }
+.c8isv-root .c8isv-accordion-toggle::after { width: 1px !important; height: 12px !important; }
+.c8isv-root .c8isv-accordion-item.is-open .c8isv-accordion-toggle::after { transform: rotate(90deg) !important; opacity: 0 !important; }
+.c8isv-root .c8isv-accordion-body { display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important; }
+.c8isv-root .c8isv-accordion-item.is-open .c8isv-accordion-body { grid-template-rows: 1fr !important; }
+.c8isv-root .c8isv-accordion-body-inner { overflow: hidden !important; }
+.c8isv-root .c8isv-accordion-desc { font-size: 14px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 680px !important; line-height: 1.7 !important; padding: 0 0.25rem 1.75rem 0.25rem !important; }
+
+/* ── Related services ── */
+.c8isv-root .c8isv-related { padding-top: 5rem !important; position: relative !important; z-index: 2 !important; }
+.c8isv-root .c8isv-related-row { display: flex !important; flex-wrap: wrap !important; gap: 0.75rem 2rem !important; margin-top: 1.5rem !important; }
+.c8isv-root .c8isv-closing { padding-top: 3rem !important; padding-bottom: 1rem !important; }
+</style>
+
+<div class="c8isv-wrap">
+
+  <!-- ── Hero ── -->
+  <div class="c8isv-hero">
+    <div class="c8isv-breadcrumb"><a href="https://cr8vstacks.com/services/">Services</a><span>/</span><span class="is-current">WooCommerce Development</span></div>
+    <div class="c8isv-label">WooCommerce</div>
+    <h1 class="c8isv-headline">WooCommerce stores with full ownership and no ceiling.</h1>
+    <div class="c8isv-hero-intro">Custom WooCommerce builds on WordPress — coded without page builders, with payment gateways, shipping rules, and product logic tailored precisely to your business model.</div>
+    <div class="c8isv-pill-row">
+      <span class="c8isv-pill">Custom Themes</span>
+      <span class="c8isv-pill">Gateway Wiring</span>
+      <span class="c8isv-pill">Product Logic</span>
+      <span class="c8isv-pill">Inventory</span>
+      <span class="c8isv-pill">Speed</span>
+    </div>
+  </div>
+
+  <!-- ── Overview ── -->
+  <div class="c8isv-overview">
+    <div class="c8isv-img-frame c8isv-reveal">
+      <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Full Ecommerce, Full Control" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop'">
+      <div class="c8isv-hud-tag">// WOO_CUSTOM</div>
+    </div>
+    <div class="c8isv-reveal c8isv-reveal-d1">
+      <div class="c8isv-label">How We Approach It</div>
+      <h2 class="c8isv-section-title">Full Ecommerce, Full Control</h2>
+      <div class="c8isv-overview-body">
+        <p>WooCommerce gives you complete control over your store — no platform fee, no app marketplace tax, no ceiling on how complex your product logic can get. The catch is that it requires real engineering to perform well.</p><p>We build WooCommerce stores on hand-coded WordPress themes — no Elementor, no pre-built theme to fight against. Payment gateways (Paystack, Stripe, Flutterwave), shipping zone logic, and variable product configurations are wired directly into the build.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="c8isv-tearline"><div class="c8isv-tearline-dot"></div><div class="c8isv-tearline-line"></div><div class="c8isv-tearline-dot"></div></div>
+
+  <!-- ── PRIMARY SERVICE // 01 (STANDALONE — not inside hero) ── -->
+  <div class="c8isv-primary-section">
+    <div class="c8isv-label">Primary Service // 01</div>
+    <h2 class="c8isv-section-title c8isv-reveal">WooCommerce Without Compromise</h2>
+    <p class="c8isv-lead c8isv-reveal">WooCommerce can do more than most stores ask of it. We configure it properly — from product logic to payment gateways — so it performs reliably at scale.</p>
+    <div class="c8isv-primary-tabs-nav">
+      <button type="button" class="c8isv-primary-tab is-active" data-c8isv-primary-tab="01">01 // Product Catalogue</button>
+      <button type="button" class="c8isv-primary-tab" data-c8isv-primary-tab="02">02 // Payment Gateways</button>
+      <button type="button" class="c8isv-primary-tab" data-c8isv-primary-tab="03">03 // Shipping & Tax</button>
+    </div>
+    <div class="c8isv-primary-panel is-active" data-c8isv-primary-panel="01">
+      <div class="c8isv-primary-panel-body">
+        <h3 class="c8isv-primary-panel-title">Complex Product Configuration</h3>
+        <p class="c8isv-primary-panel-desc">Variable products, bundled kits, downloadable goods, and subscription logic built into the WooCommerce data model.</p>
+        <div class="c8isv-cap-list">
+          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Variation attribute rules</div>
+          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Grouped & bundle products</div>
+          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Downloadable file delivery</div>
+        </div>
+        <a href="https://cr8vstacks.com/contact/" class="c8isv-explore">Start This Service <span>→</span></a>
+      </div>
+    </div>
+    <div class="c8isv-primary-panel" data-c8isv-primary-panel="02">
+      <div class="c8isv-primary-panel-body">
+        <h3 class="c8isv-primary-panel-title">Paystack, Stripe & Flutterwave</h3>
+        <p class="c8isv-primary-panel-desc">Payment gateway integration wired directly — not through a plugin that charges extra per transaction or breaks on updates.</p>
+        <div class="c8isv-cap-list">
+          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Paystack (Africa-first)</div>
+          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Stripe global payments</div>
+          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Flutterwave multi-currency</div>
+        </div>
+        <a href="https://cr8vstacks.com/contact/" class="c8isv-explore">Start This Service <span>→</span></a>
+      </div>
+    </div>
+    <div class="c8isv-primary-panel" data-c8isv-primary-panel="03">
+      <div class="c8isv-primary-panel-body">
+        <h3 class="c8isv-primary-panel-title">Shipping Rules & Tax Logic</h3>
+        <p class="c8isv-primary-panel-desc">Shipping zone configs, flat-rate vs weight-based rules, and tax table setup for multi-region stores.</p>
+        <div class="c8isv-cap-list">
+          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Zone-based shipping rates</div>
+          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Live carrier rate pulls</div>
+          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Multi-region VAT setup</div>
+        </div>
+        <a href="https://cr8vstacks.com/contact/" class="c8isv-explore">Start This Service <span>→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="c8isv-tearline"><div class="c8isv-tearline-dot"></div><div class="c8isv-tearline-line"></div><div class="c8isv-tearline-dot"></div></div>
+
+  <!-- ── Full Catalog ── -->
+  <div class="c8isv-full-catalog-section">
+    <div class="c8isv-label c8isv-reveal">Full Catalog</div>
+    <h2 class="c8isv-section-title c8isv-reveal">Everything We Do Under This Service</h2>
+    <p class="c8isv-lead c8isv-reveal">The specific deliverables and capabilities within this service line.</p>
+    <div class="c8isv-catalog-list">
+        <div class="c8isv-catalog-item">
+          <div class="c8isv-catalog-left">
+            <span class="c8isv-catalog-num">01</span>
+            <h3 class="c8isv-catalog-title">Custom WooCommerce Themes</h3>
+            <span class="c8isv-catalog-tagline">Hand-coded themes with WooCommerce template overrides.</span>
+          </div>
+          <div class="c8isv-catalog-right">
+            <div class="c8isv-catalog-badges">
+              <span class="c8isv-badge">Product loop templates</span>
+              <span class="c8isv-badge">Cart & checkout templates</span>
+              <span class="c8isv-badge">Account page redesign</span>
+            </div>
+            <a href="https://cr8vstacks.com/contact/" class="c8isv-explore c8isv-catalog-cta">Enquire <span>→</span></a>
+          </div>
+        </div>
+        <div class="c8isv-catalog-item">
+          <div class="c8isv-catalog-left">
+            <span class="c8isv-catalog-num">02</span>
+            <h3 class="c8isv-catalog-title">Payment Gateway Integration</h3>
+            <span class="c8isv-catalog-tagline">Paystack, Stripe, and Flutterwave wired without plugin overhead.</span>
+          </div>
+          <div class="c8isv-catalog-right">
+            <div class="c8isv-catalog-badges">
+              <span class="c8isv-badge">Webhook listeners</span>
+              <span class="c8isv-badge">Refund flow handling</span>
+              <span class="c8isv-badge">Currency switching</span>
+            </div>
+            <a href="https://cr8vstacks.com/contact/" class="c8isv-explore c8isv-catalog-cta">Enquire <span>→</span></a>
+          </div>
+        </div>
+        <div class="c8isv-catalog-item">
+          <div class="c8isv-catalog-left">
+            <span class="c8isv-catalog-num">03</span>
+            <h3 class="c8isv-catalog-title">Shipping & Tax Configuration</h3>
+            <span class="c8isv-catalog-tagline">Multi-zone shipping rules and VAT logic set up properly.</span>
+          </div>
+          <div class="c8isv-catalog-right">
+            <div class="c8isv-catalog-badges">
+              <span class="c8isv-badge">Weight-based rate tables</span>
+              <span class="c8isv-badge">Flat rate fallbacks</span>
+              <span class="c8isv-badge">Tax class configuration</span>
+            </div>
+            <a href="https://cr8vstacks.com/contact/" class="c8isv-explore c8isv-catalog-cta">Enquire <span>→</span></a>
+          </div>
+        </div>
+        <div class="c8isv-catalog-item">
+          <div class="c8isv-catalog-left">
+            <span class="c8isv-catalog-num">04</span>
+            <h3 class="c8isv-catalog-title">Performance & Security</h3>
+            <span class="c8isv-catalog-tagline">WooCommerce-specific speed and security hardening.</span>
+          </div>
+          <div class="c8isv-catalog-right">
+            <div class="c8isv-catalog-badges">
+              <span class="c8isv-badge">Cart fragment caching</span>
+              <span class="c8isv-badge">Plugin audit & removal</span>
+              <span class="c8isv-badge">SSL + security headers</span>
+            </div>
+            <a href="https://cr8vstacks.com/contact/" class="c8isv-explore c8isv-catalog-cta">Enquire <span>→</span></a>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="c8isv-tearline"><div class="c8isv-tearline-dot"></div><div class="c8isv-tearline-line"></div><div class="c8isv-tearline-dot"></div></div>
+
+  <!-- ── PROCESS: cards slide in on scroll ── -->
+  <div class="c8isv-stack-outer">
+    <div class="c8isv-label c8isv-reveal">Our Process</div>
+    <h2 class="c8isv-section-title c8isv-reveal">From First Conversation To Launch Day</h2>
+    <div class="c8isv-stack-row" data-c8isv-stack>
+      <div class="c8isv-stack-card" data-c8isv-stack-card="0">
+        <span class="c8isv-stack-num">Step 01</span>
+        <h3 class="c8isv-stack-title">Scope</h3>
+        <div class="c8isv-stack-desc">We map your product catalogue, payment gateways, shipping zones, and checkout flow before writing a line of code.</div>
+      </div>
+      <div class="c8isv-stack-card" data-c8isv-stack-card="1">
+        <span class="c8isv-stack-num">Step 02</span>
+        <h3 class="c8isv-stack-title">Build</h3>
+        <div class="c8isv-stack-desc">Custom WordPress theme with WooCommerce configured to your product logic — variables, bundles, subscriptions as needed.</div>
+      </div>
+      <div class="c8isv-stack-card" data-c8isv-stack-card="2">
+        <span class="c8isv-stack-num">Step 03</span>
+        <h3 class="c8isv-stack-title">Test</h3>
+        <div class="c8isv-stack-desc">Full checkout simulation across payment methods, shipping zones, and device types before anything goes live.</div>
+      </div>
+      <div class="c8isv-stack-card" data-c8isv-stack-card="3">
+        <span class="c8isv-stack-num">Step 04</span>
+        <h3 class="c8isv-stack-title">Handover</h3>
+        <div class="c8isv-stack-desc">Training on order management, product updates, and inventory — plus full documentation so you're not dependent on us.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Pricing split ── -->
+  <div class="c8isv-pricing-outer">
+    <div class="c8isv-label c8isv-reveal">Investment</div>
+    <h2 class="c8isv-section-title c8isv-reveal">Two Ways To Work With Us</h2>
+    <p class="c8isv-lead c8isv-reveal">No published price list — every build is different, so every quote is scoped to match.</p>
+    <div class="c8isv-pricing-grid">
+      <div class="c8isv-price-card is-light c8isv-reveal">
+        <div class="c8isv-price-title">Project-Based</div>
+        <div class="c8isv-price-desc">A one-time engagement to design and build, start to finish.</div>
+        <div class="c8isv-price-list">
+          <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>New builds, redesigns, or platform migrations</div>
+          <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>Fixed timeline and deliverables, agreed up front</div>
+          <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>Clear sign-off points at every stage</div>
+        </div>
+        <a href="https://cr8vstacks.com/contact/" class="c8isv-price-btn">Get A Custom Quote</a>
+      </div>
+      <div class="c8isv-price-card is-dark c8isv-reveal c8isv-reveal-d1">
+        <div class="c8isv-price-title">Ongoing Partnership</div>
+        <div class="c8isv-price-desc">A monthly retainer for teams that need a standing technical partner.</div>
+        <div class="c8isv-price-list">
+          <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>Continued design, development &amp; optimisation</div>
+          <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>Scoped around your team's actual workload</div>
+          <div class="c8isv-price-item"><span class="c8isv-price-check">✓</span>Priority turnaround, direct access to your lead</div>
+        </div>
+        <a href="https://cr8vstacks.com/contact/" class="c8isv-price-btn">Discuss A Retainer</a>
+      </div>
+    </div>
+    <div class="c8isv-pricing-note">We scope every engagement individually once we understand what you're building — that's the only way the number is actually honest. Tell us what you need and we'll come back with real numbers, fast.</div>
+  </div>
+
+  <div class="c8isv-tearline" style="margin-top: 5rem !important;"><div class="c8isv-tearline-dot"></div><div class="c8isv-tearline-line"></div><div class="c8isv-tearline-dot"></div></div>
+
+  <!-- ── Testimonials fan on scroll ── -->
+  <div class="c8isv-testi-outer">
+    <div class="c8isv-label c8isv-reveal">Client Feedback</div>
+    <h2 class="c8isv-section-title c8isv-reveal">Nice Things People Have Said</h2>
+    <div class="c8isv-testi-row" data-c8isv-testi>
+      <div class="c8isv-testi-card" data-c8isv-testi-card="0">
+        <span class="c8isv-testi-quote-mark">"</span>
+        <p class="c8isv-testi-text">They understood what we actually needed, not just what we asked for. The site has already paid for itself.</p>
+        <div class="c8isv-testi-author">[Client Name] // [Company]</div>
+      </div>
+      <div class="c8isv-testi-card" data-c8isv-testi-card="1">
+        <span class="c8isv-testi-quote-mark">"</span>
+        <p class="c8isv-testi-text">Fast, clean, and genuinely fast to load — our old site never came close on any of the three.</p>
+        <div class="c8isv-testi-author">[Client Name] // [Company]</div>
+      </div>
+      <div class="c8isv-testi-card" data-c8isv-testi-card="2">
+        <span class="c8isv-testi-quote-mark">"</span>
+        <p class="c8isv-testi-text">Communicative, on schedule, and the handoff to our own team afterward was completely painless.</p>
+        <div class="c8isv-testi-author">[Client Name] // [Company]</div>
+      </div>
+    </div>
+    <div class="c8isv-testi-note">Placeholder quotes — swap for real client testimonials before publishing.</div>
+  </div>
+
+</div>
+
+<!-- ── Founder quote ── -->
+<div class="c8isv-quote-outer">
+  <div class="c8isv-quote-breakout">
+    <div class="c8isv-quote-glyph">"</div>
+    <p class="c8isv-quote-text c8isv-reveal">A website is the only piece of your marketing that's still working at 3am. If it's slow or confusing, it's costing you money whether you're watching or not.</p>
+    <div class="c8isv-quote-cite">Mallami Adekunle, Founder</div>
+  </div>
+</div>
+
+<div class="c8isv-wrap">
+
+  <!-- ── FAQ ── -->
+  <div class="c8isv-faq-outer">
+    <div class="c8isv-label c8isv-reveal">Straight Answers</div>
+    <h2 class="c8isv-section-title c8isv-reveal">Before You Ask</h2>
+    <p class="c8isv-lead c8isv-reveal">The questions we get asked most, answered without the corporate hedging.</p>
+    <div class="c8isv-accordion" data-c8isv-accordion>
+      <div class="c8isv-accordion-item is-open">
+        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+          <h3 class="c8isv-accordion-title">Do I need WooCommerce or Shopify?</h3>
+          <div class="c8isv-accordion-toggle"></div>
+        </div>
+        <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">Shopify is simpler to manage and faster to launch — it handles hosting, security, and updates. WooCommerce gives you full code access, no platform fee, and no ceiling on customisation. We'll ask about your product complexity, team, and growth plans and tell you which makes more sense.</div></div></div>
+      </div>
+      <div class="c8isv-accordion-item">
+        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+          <h3 class="c8isv-accordion-title">Can you wire Paystack for African markets?</h3>
+          <div class="c8isv-accordion-toggle"></div>
+        </div>
+        <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">Yes. Paystack is our default recommendation for Nigeria-based stores. We wire the gateway directly without a third-party plugin so there's no extra per-transaction fee layered on top.</div></div></div>
+      </div>
+      <div class="c8isv-accordion-item">
+        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+          <h3 class="c8isv-accordion-title">Do you handle subscriptions and recurring payments?</h3>
+          <div class="c8isv-accordion-toggle"></div>
+        </div>
+        <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">Yes — we use WooCommerce Subscriptions to handle recurring billing, renewal emails, and subscriber management. Gateway compatibility is confirmed before we start.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Related services ── -->
+  <div class="c8isv-related">
+    <div class="c8isv-label c8isv-reveal">Related Services</div>
+    <div class="c8isv-related-row">
+      <a href="https://cr8vstacks.com/services/wordpress-development/" class="c8isv-explore">WordPress Dev <span>→</span></a>
+      <a href="https://cr8vstacks.com/services/shopify-ecommerce-design/" class="c8isv-explore">Shopify Ecommerce <span>→</span></a>
+      <a href="https://cr8vstacks.com/services/digital-marketing/" class="c8isv-explore">Digital Marketing <span>→</span></a>
+      <a href="https://cr8vstacks.com/services/seo-content-strategy/" class="c8isv-explore">SEO Strategy <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="c8isv-closing"></div>
+
+</div>
+
+<script>
+(function () {
+  var root = document.currentScript.closest('.c8isv-root');
+  if (!root || root.getAttribute('data-c8isv-init') === '1') return;
+  root.setAttribute('data-c8isv-init', '1');
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isMobile = window.innerWidth < 900;
+
+  /* Reveal on scroll */
+  var revealEls = root.querySelectorAll('.c8isv-reveal');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* Shared scroll-stack mechanic */
+  function setupScrollStack(container, cards, getTransform) {
+    if (!container || !cards.length) return;
+    if (reduceMotion || isMobile) {
+      cards.forEach(function (card, i) { card.style.transform = getTransform(i, 1); card.style.opacity = '1'; });
+      return;
+    }
+    var thresholds = [];
+    for (var t = 0; t <= 40; t++) thresholds.push(t / 40);
+    var io2 = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var ratio = entry.intersectionRatio;
+        cards.forEach(function (card, i) {
+          var localT = Math.min(1, Math.max(0, ratio * 1.5 - i * 0.16));
+          card.style.transform = getTransform(i, localT);
+          card.style.opacity = String(0.35 + 0.65 * localT);
+        });
+      });
+    }, { threshold: thresholds });
+    io2.observe(container);
+  }
+
+  /* Process: each card slides in from behind card 0 */
+  var stackContainer = root.querySelector('[data-c8isv-stack]');
+  var stackCards = root.querySelectorAll('[data-c8isv-stack-card]');
+  setupScrollStack(stackContainer, stackCards, function (i, t) {
+    var startX = -100 * i;
+    var startRotate = i === 0 ? 0 : (i % 2 === 0 ? -7 : 7);
+    var x = startX * (1 - t);
+    var rot = startRotate * (1 - t);
+    var scale = 0.92 + 0.08 * t;
+    return 'translateX(' + x + '%) rotate(' + rot + 'deg) scale(' + scale + ')';
+  });
+
+  /* Testimonials: fan out from behind center card */
+  var testiContainer = root.querySelector('[data-c8isv-testi]');
+  var testiCards = root.querySelectorAll('[data-c8isv-testi-card]');
+  var testiFinalRotate = [-3, 1, 4];
+  setupScrollStack(testiContainer, testiCards, function (i, t) {
+    var startX = i === 1 ? 0 : (i === 0 ? 100 : -100);
+    var x = startX * (1 - t);
+    var rot = testiFinalRotate[i] * t;
+    var scale = 0.9 + 0.1 * t;
+    return 'translateX(' + x + '%) rotate(' + rot + 'deg) scale(' + scale + ')';
+  });
+
+  /* Before/after drag comparison */
+  var compare = root.querySelector('[data-c8isv-compare]');
+  if (compare) {
+    var beforeWrap = compare.querySelector('[data-c8isv-compare-before-wrap]');
+    var handle = compare.querySelector('[data-c8isv-compare-handle]');
+    var beforeImg = compare.querySelector('.c8isv-compare-before');
+    var dragging = false;
+    function syncWidth() { var r = compare.getBoundingClientRect(); beforeImg.style.setProperty('width', r.width + 'px', 'important'); }
+    syncWidth();
+    window.addEventListener('resize', syncWidth);
+    function setPct(pct) { pct = Math.min(100, Math.max(0, pct)); beforeWrap.style.width = pct + '%'; handle.style.left = pct + '%'; }
+    function pctFromEvent(e) { var r = compare.getBoundingClientRect(); return ((e.touches ? e.touches[0].clientX : e.clientX) - r.left) / r.width * 100; }
+    compare.addEventListener('pointerdown', function (e) { dragging = true; setPct(pctFromEvent(e)); });
+    window.addEventListener('pointermove', function (e) { if (dragging) setPct(pctFromEvent(e)); });
+    window.addEventListener('pointerup', function () { dragging = false; });
+  }
+
+  /* Primary Service tabs */
+  var primaryTabs = root.querySelectorAll('[data-c8isv-primary-tab]');
+  var primaryPanels = root.querySelectorAll('[data-c8isv-primary-panel]');
+  primaryTabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var idx = tab.getAttribute('data-c8isv-primary-tab');
+      primaryTabs.forEach(function (t) { t.classList.remove('is-active'); });
+      primaryPanels.forEach(function (p) { p.classList.remove('is-active'); });
+      tab.classList.add('is-active');
+      var panel = root.querySelector('[data-c8isv-primary-panel="' + idx + '"]');
+      if (panel) panel.classList.add('is-active');
+    });
+  });
+
+  /* Accordion */
+  var accordionHeads = root.querySelectorAll('[data-c8isv-accordion-head]');
+  accordionHeads.forEach(function (head) {
+    head.addEventListener('click', function () {
+      var item = head.closest('.c8isv-accordion-item');
+      var wasOpen = item.classList.contains('is-open');
+      item.parentElement.querySelectorAll('.c8isv-accordion-item').forEach(function (i) { i.classList.remove('is-open'); });
+      if (!wasOpen) item.classList.add('is-open');
+    });
+  });
+})();
+</script>
+</div>
