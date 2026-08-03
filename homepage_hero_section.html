@@ -174,24 +174,18 @@
     }
 
     .c8-eyebrow {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--c8-blue);
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 1.5rem;
-      padding: 5px 14px;
-      background: var(--c8-blue-lite);
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(0, 71, 225, 0.18);
+      gap: 0.35rem;
+      margin-bottom: 1.2rem;
     }
-
-    .c8-eyebrow::before {
-      content: '—';
+    .c8-eyebrow-slash {
       color: var(--c8-blue);
       font-weight: 700;
     }
@@ -1008,7 +1002,7 @@
 
     <div class="sw-intro">
       <div>
-        <div class="c8-eyebrow">Selected Work</div>
+        <div class="c8-eyebrow"><span class="c8-eyebrow-slash">//</span> SELECTED WORK</div>
         <h2 class="sw-intro-h2">Work That's<br>Verifiably <em>Live.</em></h2>
       </div>
       <div class="sw-intro-right">
@@ -1462,8 +1456,9 @@
     }
 
     .sdv-eyebrow {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--c8-blue);
@@ -1794,7 +1789,7 @@
       <!-- Section Header -->
       <div class="sdv-header">
         <div class="sdv-header-left">
-          <div class="sdv-eyebrow">What We Actually Do</div>
+          <div class="sdv-eyebrow"><span class="c8-eyebrow-slash">//</span> WHAT WE ACTUALLY DO</div>
           <h2 class="sdv-h2">Every Layer.<br>One <em>Studio.</em></h2>
 
           <div class="sdv-layer-row">
@@ -2120,24 +2115,17 @@
     }
 
     .dp-eyebrow {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--c8-blue);
       margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 0.35rem;
     }
-
-    .dp-eyebrow::before {
-      content: '';
-      width: 22px;
-      height: 1.5px;
-      background: var(--c8-blue);
-      flex-shrink: 0;
     }
 
     .dp-h2 {
@@ -2242,7 +2230,7 @@
       right: -260px;
       bottom: -50px;
       width: 520px;
-      z-index: 10;
+      z-index: 1; /* Pushed behind content */
       pointer-events: none;
     }
 
@@ -2488,7 +2476,7 @@
     <!-- BLUE RIGHT HALF -->
     <div class="dp-half-right">
       <div class="dp-right-content">
-        <div class="dp-right-eyebrow">No Gimmicks</div>
+        <div class="dp-right-eyebrow"><span class="c8-eyebrow-slash">//</span> NO GIMMICKS</div>
 
         <div class="dp-stat-pair">
           <div class="dp-stat-item">
@@ -2543,15 +2531,11 @@
     .hww-header { text-align: center; max-width: 780px; margin: 0 auto 4.5rem auto; }
 
     .hww-eyebrow {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.22em; text-transform: uppercase;
+      font-family: var(--font-mono);
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--c8-blue); margin-bottom: 1.25rem;
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-    }
-    .hww-eyebrow::before, .hww-eyebrow::after {
-      content: ''; width: 28px; height: 1.5px;
-      background: var(--c8-blue); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; gap: 0.35rem;
     }
 
     .hww-h2 {
@@ -3043,7 +3027,7 @@
       .wwa-stats { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 600px) {
-      .wwa-top { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .wwa-top { flex-direction: row; align-items: center; justify-content: space-between; gap: 0.5rem; }
       .wwa-stats { grid-template-columns: 1fr 1fr; }
       .wwa-stats .wwa-stat:last-child { border-right: none; border-top: 1px solid rgba(255,255,255,0.1); }
     }
@@ -3466,13 +3450,13 @@
       justify-content: space-between;
     }
     .tmn-thumb-btn {
-      background: #0B0F19;
-      border: 1px solid rgba(0, 71, 225, 0.15);
+      background: #FFFFFF;
+      border: 1px solid var(--c8-line);
       border-radius: 12px;
       padding: 0.8rem 1rem;
       cursor: pointer;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
       transition: all 0.3s ease;
       height: 110px;
       width: 100%;
@@ -3485,20 +3469,22 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.35rem;
       width: 100%;
       text-align: center;
     }
-    .tmn-tech-icon {
-      font-size: 1.5rem;
-      line-height: 1;
+    .tmn-tech-logo-svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--c8-ink);
+      transition: fill 0.3s ease;
     }
     .tmn-tech-label {
       font-family: var(--font-mono);
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.08em;
-      color: #FFFFFF;
+      color: var(--c8-ink);
     }
     .tmn-tech-tag {
       font-family: var(--font-mono);
@@ -3509,16 +3495,15 @@
     }
     .tmn-thumb-btn:hover {
       border-color: rgba(0, 71, 225, 0.4);
-      background: #111827;
+      background: #FAFAFC;
     }
     .tmn-thumb-btn.is-active {
-      border-color: var(--c8-blue);
-      border-width: 2px;
-      background: #0F172A;
-      box-shadow: 0 8px 24px rgba(0, 71, 225, 0.3);
+      border: 2px solid var(--c8-blue);
+      background: #FFFFFF;
+      box-shadow: 0 8px 24px rgba(0, 71, 225, 0.15);
     }
     .tmn-thumb-btn.is-active .tmn-tech-label {
-      color: var(--c8-blue-light);
+      color: var(--c8-blue);
     }
 
     /* Big Card matching standardized 16px radius */
@@ -3674,32 +3659,32 @@
       </div>
 
       <div class="tmn-showcase" id="tmn-showcase-container">
-        <!-- Thumbnails Column: Option C Tech Stack Badges -->
+        <!-- Thumbnails Column: Official Stack Logos on White Background -->
         <div class="tmn-thumbs" id="tmn-thumbs">
           <button class="tmn-thumb-btn is-active" data-index="0" aria-label="View Shopify Ecommerce testimony">
             <div class="tmn-tech-badge">
-              <span class="tmn-tech-icon">🛍️</span>
+              <svg class="tmn-tech-logo-svg" viewBox="0 0 24 24" fill="#96BF48"><path d="M19.34 7.22c-.08-.04-.17-.06-.25-.04l-1.92.51c-.34.09-.69-.13-.78-.47L15.65 4.3a.62.62 0 0 0-.74-.44L12.5 4.5c-.17.04-.32.14-.4.3L9.67 9.87c-.12.24-.03.53.21.65l2.43 1.22c.24.12.53.03.65-.21l2.43-5.07 1.15-.3.8 3.01-4.7 1.26c-.34.09-.54.44-.45.78l1.32 4.93a.62.62 0 0 0 .74.44l4.71-1.26a.62.62 0 0 0 .44-.74l-1.32-4.93a.62.62 0 0 0-.15-.26z"/></svg>
               <span class="tmn-tech-label">SHOPIFY</span>
               <span class="tmn-tech-tag">ECOMMERCE</span>
             </div>
           </button>
           <button class="tmn-thumb-btn" data-index="1" aria-label="View Next.js SaaS testimony">
             <div class="tmn-tech-badge">
-              <span class="tmn-tech-icon">⚡</span>
+              <svg class="tmn-tech-logo-svg" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.66 18.06l-5.61-7.85v7.85H10.1V5.94h1.95l5.59 7.84V5.94h1.95v12.12h-1.93z"/></svg>
               <span class="tmn-tech-label">NEXT.JS</span>
               <span class="tmn-tech-tag">SAAS PLATFORM</span>
             </div>
           </button>
           <button class="tmn-thumb-btn" data-index="2" aria-label="View OpenAI AI MVP testimony">
             <div class="tmn-tech-badge">
-              <span class="tmn-tech-icon">🤖</span>
+              <svg class="tmn-tech-logo-svg" viewBox="0 0 24 24" fill="#10A37F"><path d="M22.28 9.82a5.98 5.98 0 0 0-.52-4.91 6 6 0 0 0-6.51-2.9 6 6 0 0 0-4.63-2.07 6 6 0 0 0-5.74 4.14 5.98 5.98 0 0 0-4.14 3 6 6 0 0 0 .78 7.03 5.98 5.98 0 0 0 .52 4.91 6 6 0 0 0 6.51 2.9 6 6 0 0 0 4.63 2.07 6 6 0 0 0 5.74-4.14 5.98 5.98 0 0 0 4.14-3 6 6 0 0 0-.78-7.03z"/></svg>
               <span class="tmn-tech-label">OPENAI</span>
               <span class="tmn-tech-tag">AI MVP TOOL</span>
             </div>
           </button>
           <button class="tmn-thumb-btn" data-index="3" aria-label="View Custom Stack testimony">
             <div class="tmn-tech-badge">
-              <span class="tmn-tech-icon">⚙️</span>
+              <svg class="tmn-tech-logo-svg" viewBox="0 0 24 24" fill="#21759B"><path d="M12.16 0C5.44 0 0 5.44 0 12.16c0 6.72 5.44 12.16 12.16 12.16 6.72 0 12.16-5.44 12.16-12.16C24.32 5.44 18.88 0 12.16 0zm0 22.56c-5.74 0-10.4-4.66-10.4-10.4 0-2.31.75-4.44 2.02-6.17l5.22 14.33c.18.5.52.88 1.02 1.08.31.12.63.16.94.16z"/></svg>
               <span class="tmn-tech-label">CUSTOM DEV</span>
               <span class="tmn-tech-tag">WORDPRESS</span>
             </div>
@@ -3924,7 +3909,6 @@
       height: auto;
       display: block;
       object-fit: contain;
-      filter: drop-shadow(0 15px 30px rgba(0,0,0,0.06));
     }
     /* Unstyled wrapper div: easily shift all content subjects up or down together */
     .cta-content-group {
