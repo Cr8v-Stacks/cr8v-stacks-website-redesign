@@ -2266,6 +2266,9 @@
       height: auto;
       display: block;
       animation: dpFloat 4.5s ease-in-out infinite;
+      pointer-events: none !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
     }
 
     @keyframes dpFloat {
@@ -2406,11 +2409,12 @@
 
       <!-- MASCOT: lives inside white half, overflows right to straddle the split on desktop -->
       <div class="dp-mascot-wrap">
-        <video disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate" autoplay muted loop playsinline preload="auto" aria-label="Cr8v Stacks Mascot">
-          <source src="assets/download_mascot.mp4" type="video/mp4">
-          <img src="assets/cartoon_fox_transparent.webp" alt="Cr8v Stacks Fox Mascot">
-        </video>
-      </div>
+          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate">
+            <source src="assets/cartoon_fox_winks.webm" type="video/webm">
+            <source src="assets/Cartoon_fox_winks_web.mp4" type="video/mp4">
+            <source src="assets/download_mascot.mp4" type="video/mp4">
+          </video>
+        </div>
 
       <div class="dp-left-content" style="position:relative;z-index:2;">
         <div class="dp-eyebrow"><span class="c8-eyebrow-slash">//</span> ALWAYS BUILDING</div>
@@ -2536,12 +2540,18 @@
     .hww-header { text-align: left; max-width: 780px; margin: 0 0 3.5rem 0; }
 
     .hww-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--c8-blue); margin-bottom: 1.25rem;
-      display: flex; align-items: center; justify-content: center; gap: 0.35rem;
-    }
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--c8-blue);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.35rem;
+}
 
     .hww-h2 {
       font-family: 'Michroma', sans-serif;
@@ -3692,6 +3702,9 @@
       height: auto;
       display: block;
       object-fit: contain;
+      pointer-events: none !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
     }
     /* Unstyled wrapper div: easily shift all content subjects up or down together */
     .cta-content-group {
@@ -3784,9 +3797,8 @@
       <!-- Transparent PNG Arc image matching title width -->
       <div class="cta-arc-container">
         <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate" class="cta-arc-video">
-          <source src="assets/seven_badges_alpha.webm" type="video/webm">
           <source src="assets/download.mp4" type="video/mp4">
-          <img src="assets/seven_badges_transparent.webp" alt="Cr8v Stacks Tech Stack Ecosystem" class="cta-arc-img">
+          <source src="assets/seven_circular_badges.webm" type="video/webm">
         </video>
       </div>
 
