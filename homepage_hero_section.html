@@ -42,8 +42,36 @@
     }
 
     /* OPTION G STANDARDIZED BUTTON STYLING (12px Border Radius) */
+    
+    /* Dedicated high-contrast styling for Dev Playground button on blue background */
+    .dp-btn-primary {
+      background: #FFFFFF !important;
+      color: var(--c8-ink) !important;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.9rem 2.2rem;
+      border-radius: 4px;
+      border: none;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .dp-btn-primary:hover {
+      background: #F4F4F4 !important;
+      color: var(--c8-blue) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+    }
+
     .c8-btn-primary,
-    .dp-btn-primary,
     .cta-btn-pill,
     .tmn-schedule-btn,
     .faq-cta-link {
@@ -2286,7 +2314,7 @@
 
     .dp-stat-num {
       font-family: 'Michroma', sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 4vw, 2rem);
       font-weight: 700;
       color: #FFFFFF;
       line-height: 1;
