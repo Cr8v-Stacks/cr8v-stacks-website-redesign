@@ -53,6 +53,11 @@
       font-weight: 700; text-transform: uppercase; line-height: 1.18;
       color: var(--c8-ink); margin-bottom: 1.5rem; max-width: 960px;
     }
+    .c8abt-serif-italic { font-family: Georgia, serif; font-style: italic; font-weight: 300; color: var(--c8-blue); text-transform: lowercase; }
+    .c8abt-highlight-text {
+      background: linear-gradient(90deg, #0047E1 0%, #00C2FF 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;
+    }
     .fylla-hero-p {
       font-size: 1.05rem; color: var(--c8-sub); line-height: 1.65; max-width: 820px;
       margin-bottom: 2rem; font-weight: 400;
@@ -74,7 +79,7 @@
       padding: 6px 12px; border-top: 2px solid var(--c8-blue); z-index: 3;
     }
 
-    /* ── SECTION 2: FYLLA STUDIO VALUES (PHILOSOPHY & CODE ARCHITECTURE) ── */
+    /* ── SECTION 2: FYLLA STUDIO VALUES (OUR PHILOSOPHY & CODE ARCHITECTURE) ── */
     .fylla-values-section {
       display: grid; grid-template-columns: 1fr 1fr;
       border-bottom: 1px solid var(--c8-grid-line);
@@ -116,7 +121,102 @@
     }
     .fylla-value-desc { font-size: 0.92rem; color: var(--c8-sub); line-height: 1.65; }
 
-    /* ── SECTION 3: FYLLA TEAM PARITY (CUSTOM PLUGINS GRID) ── */
+    /* ── SECTION 3: TECHNICAL ADVANTAGE & MASCOT INTEGRATION ── */
+    .fylla-advantage-section {
+      padding: 4.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF;
+    }
+    .fylla-adv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+    .fylla-adv-card {
+      border: 1px solid var(--c8-grid-line); background: #FFFFFF; padding: 2.5rem; border-radius: 4px;
+      position: relative; overflow: hidden;
+    }
+    .fylla-adv-card.is-hi { background: #FAFAF7; border-color: rgba(0,71,225,0.3); }
+    .fylla-adv-card-title { font-family: var(--font-heading); font-size: 1.2rem; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 700; }
+    .fylla-adv-list { display: flex; flex-direction: column; gap: 1.2rem; }
+    .fylla-adv-item { display: flex; gap: 12px; font-size: 0.9rem; color: var(--c8-sub); line-height: 1.6; }
+    .fylla-icon-sq {
+      width: 22px; height: 22px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 11px; margin-top: 2px; font-weight: 700; border-radius: 3px;
+    }
+    .fylla-icon-sq.is-no { background: #EAEAEA; color: #8A8A8A; }
+    .fylla-icon-sq.is-yes { background: var(--c8-blue); color: #FFFFFF; }
+    
+    /* Mascot Badge Accent */
+    .fylla-mascot-badge {
+      position: absolute; top: 1.5rem; right: 1.5rem; width: 64px; height: 64px; border-radius: 50%;
+      border: 2px solid var(--c8-blue); overflow: hidden; box-shadow: 0 6px 20px rgba(0,71,225,0.2);
+    }
+    .fylla-mascot-badge img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── SECTION 4: INTERACTIVE 5-STEP PINNED STACKING PROCESS ── */
+    .fylla-stack-wrapper {
+      padding: 4.5rem 4rem 0 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FAFAF7;
+    }
+    .fylla-stack-pin-container { position: relative; height: 320vh; }
+    .fylla-stack-sticky {
+      position: sticky; top: 0; height: 100vh; display: grid; grid-template-columns: 0.85fr 1.15fr;
+      gap: 5rem; align-items: center; max-width: 1400px; margin: 0 auto;
+    }
+    .fylla-stack-cards-area { position: relative; height: 420px; width: 100%; }
+    .fylla-stack-card {
+      position: absolute; inset: 0; border: 1px solid var(--c8-grid-line); padding: 2.5rem;
+      display: flex; flex-direction: column; justify-content: center; border-radius: 6px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06); background-size: cover; background-position: center;
+    }
+    .fylla-stack-card[data-card="0"] { background-image: linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.93)), url('assets/hww_process_layers.jpg'); }
+    .fylla-stack-card[data-card="1"] { background-image: linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.93)), url('assets/hww_workflow_visual.jpg'); }
+    .fylla-stack-card[data-card="2"] { background-image: linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.93)), url('assets/hww_stacks_visual.jpg'); }
+    .fylla-stack-card[data-card="3"] { background-image: linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.93)), url('assets/hww_tools_creative.jpg'); }
+    .fylla-stack-card[data-card="4"] { background-image: linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.93)), url('assets/c4_tools_bg.jpg'); }
+
+    .fylla-stack-badge {
+      width: 40px; height: 40px; background: var(--c8-blue); color: #FFFFFF; font-family: var(--font-mono);
+      font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+      border-radius: 4px; margin-bottom: 1.25rem;
+    }
+    .fylla-stack-card-h4 { font-family: var(--font-heading); font-size: 1.3rem; text-transform: uppercase; margin-bottom: 0.75rem; font-weight: 700; color: #080808; }
+    .fylla-stack-card-p { font-size: 0.92rem; color: var(--c8-sub); line-height: 1.65; }
+    .fylla-stack-dots { display: flex; gap: 8px; margin-top: 2rem; }
+    .fylla-stack-dots span { width: 24px; height: 4px; background: rgba(8,8,8,0.14); transition: background 0.3s; border-radius: 2px; }
+    .fylla-stack-dots span.is-active { background: var(--c8-blue); }
+
+    /* ── SECTION 5: HOMEPAGE BENTO GRID PARITY (PILLARS OF GROWTH) ── */
+    .fylla-bento-section {
+      padding: 4.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF;
+    }
+    .fylla-bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 2rem; }
+    .fylla-bento-card {
+      border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 2.25rem 1.75rem;
+      border-radius: 4px; transition: transform 0.25s ease, border-color 0.25s ease; position: relative;
+    }
+    .fylla-bento-card:hover { transform: translateY(-4px); border-color: var(--c8-blue); background: #FFFFFF; }
+    .fylla-bento-num { font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: var(--c8-blue); display: block; margin-bottom: 1.25rem; }
+    .fylla-bento-h3 { font-family: var(--font-heading); font-size: 1.05rem; text-transform: uppercase; margin-bottom: 0.65rem; font-weight: 700; }
+    .fylla-bento-p { font-size: 13.5px; color: var(--c8-sub); line-height: 1.6; }
+
+    /* ── SECTION 6: PERFORMANCE INDICATORS & TECH STACK MARQUEE ── */
+    .fylla-stats-outer { position: relative; border-bottom: 1px solid var(--c8-grid-line); }
+    .fylla-stats-breakout {
+      background: radial-gradient(circle at 12% 15%, rgba(0,71,225,0.45) 0%, transparent 55%), #080808;
+      padding: 5rem 4rem; position: relative; overflow: hidden; color: #FFFFFF;
+    }
+    .fylla-stats-inner { max-width: 1360px; margin: 0 auto; position: relative; z-index: 2; }
+    .fylla-stats-headline { font-family: var(--font-heading); font-size: clamp(1.6rem, 3.2vw, 2.5rem); text-transform: uppercase; max-width: 820px; margin-bottom: 3rem; line-height: 1.2; color: #FAFAF7; font-weight: 700; }
+    .fylla-stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
+    .fylla-stat-card { background: #FFFFFF; padding: 2rem 1.75rem; border-radius: 4px; color: #080808; border: 1px solid var(--c8-grid-line); }
+    .fylla-stat-num { font-family: var(--font-heading); font-size: 2.5rem; line-height: 1; color: var(--c8-blue); font-weight: 700; }
+    .fylla-stat-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #080808; display: block; margin: 0.6rem 0 0.5rem 0; font-weight: 700; }
+    .fylla-stat-desc { font-size: 12.5px; color: var(--c8-sub); line-height: 1.55; }
+
+    /* Tech Stack Logo Row */
+    .fylla-tech-row {
+      display: flex; justify-content: space-around; align-items: center; gap: 2rem;
+      margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.12); flex-wrap: wrap;
+    }
+    .fylla-tech-logo { height: 24px; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.2s; }
+    .fylla-tech-logo:hover { opacity: 1; }
+
+    /* ── SECTION 7: FYLLA TEAM PARITY (CUSTOM PLUGINS GRID) ── */
     .fylla-team-section {
       padding: 4.5rem 4rem;
       border-bottom: 1px solid var(--c8-grid-line);
@@ -124,25 +224,14 @@
     }
     .fylla-team-header {
       display: flex; justify-content: space-between; align-items: flex-end;
-      margin-bottom: 3rem; border-bottom: 1px solid var(--c8-grid-line);
-      padding-bottom: 1.75rem;
+      margin-bottom: 3rem; border-bottom: 1px solid var(--c8-grid-line); padding-bottom: 1.75rem;
     }
-    .fylla-team-h2 {
-      font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700;
-      color: var(--c8-ink); text-transform: uppercase;
-    }
-    .fylla-team-sub {
-      font-family: var(--font-body); font-size: 0.95rem; color: var(--c8-sub); max-width: 500px;
-    }
+    .fylla-team-h2 { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; }
+    .fylla-team-sub { font-family: var(--font-body); font-size: 0.95rem; color: var(--c8-sub); max-width: 500px; }
 
-    .fylla-team-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      border: 1px solid var(--c8-grid-line); background: #FFFFFF;
-    }
+    .fylla-team-grid { display: grid; grid-template-columns: repeat(2, 1fr); border: 1px solid var(--c8-grid-line); background: #FFFFFF; }
     .fylla-plugin-card {
-      padding: 2.5rem 2.25rem; border-right: 1px solid var(--c8-grid-line);
-      border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF;
-      transition: background 0.2s ease;
+      padding: 2.5rem 2.25rem; border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; transition: background 0.2s ease;
     }
     .fylla-plugin-card:hover { background: #FAFAF7; }
     .fylla-plugin-card:nth-child(2n) { border-right: none; }
@@ -154,49 +243,19 @@
     .fylla-plugin-link { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--c8-ink); text-decoration: none; border-bottom: 1px solid var(--c8-blue); text-transform: uppercase; letter-spacing: 0.1em; }
     .fylla-plugin-link:hover { color: var(--c8-blue); }
 
-    /* ── SECTION 4: TECHNICAL ADVANTAGE & 5-STEP PROCESS MATRIX ── */
-    .fylla-matrix-section {
-      display: grid; grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid var(--c8-grid-line);
-      background: #FFFFFF;
+    /* ── SECTION 8: WHO WE BUILD FOR (FIT / NOT FIT) ── */
+    .fylla-fit-section { padding: 4.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+    .fylla-fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+    .fylla-fit-card { padding: 2.5rem; border-radius: 4px; }
+    .fylla-fit-card.is-yes { background: #FAFAF7; border: 1px solid rgba(0,71,225,0.25); }
+    .fylla-fit-card.is-no { background: #FFFFFF; border: 1px solid var(--c8-grid-line); }
+
+    /* ── SECTION 9: LEADERSHIP & FOUNDER PASS ── */
+    .fylla-leadership-section {
+      display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF;
     }
-    .fylla-matrix-col { padding: 4.5rem 4rem; }
-    .fylla-matrix-col:first-child { border-right: 1px solid var(--c8-grid-line); }
-
-    .fylla-comp-box { background: #FAFAF7; border: 1px solid var(--c8-grid-line); padding: 2.25rem 2rem; border-radius: 4px; margin-bottom: 1.5rem; }
-    .fylla-comp-box.is-active { border-color: rgba(0,71,225,0.3); background: #FFFFFF; }
-    .fylla-comp-h3 { font-family: var(--font-heading); font-size: 1.05rem; text-transform: uppercase; margin-bottom: 1.25rem; font-weight: 700; }
-    .fylla-comp-list { display: flex; flex-direction: column; gap: 1rem; }
-    .fylla-comp-item { display: flex; gap: 12px; font-size: 13.5px; color: var(--c8-sub); line-height: 1.55; }
-    .fylla-icon-sq {
-      width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; font-size: 10px; margin-top: 2px; font-weight: 700; border-radius: 3px;
-    }
-    .fylla-icon-sq.is-no { background: #EAEAEA; color: #8A8A8A; }
-    .fylla-icon-sq.is-yes { background: var(--c8-blue); color: #FFFFFF; }
-
-    /* PROCESS STEP ITEMS */
-    .fylla-step-item { padding: 1.5rem 0; border-bottom: 1px solid var(--c8-grid-line); }
-    .fylla-step-item:last-child { border-bottom: none; }
-    .fylla-step-num { font-family: var(--font-mono); font-size: 0.75rem; color: var(--c8-blue); font-weight: 700; margin-bottom: 0.35rem; }
-    .fylla-step-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.5rem; }
-    .fylla-step-desc { font-size: 0.9rem; color: var(--c8-sub); line-height: 1.6; }
-
-    /* ── SECTION 5: STATS & LEADERSHIP FOUNDER PASS ── */
-    .fylla-stats-section {
-      display: grid; grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid var(--c8-grid-line);
-      background: #FFFFFF;
-    }
-    .fylla-stats-left { padding: 4.5rem 4rem; border-right: 1px solid var(--c8-grid-line); }
-    .fylla-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
-    .fylla-stat-card { background: #FAFAF7; padding: 1.75rem 1.5rem; border: 1px solid var(--c8-grid-line); border-radius: 4px; }
-    .fylla-stat-num { font-family: var(--font-heading); font-size: 2.2rem; line-height: 1; color: var(--c8-blue); font-weight: 700; margin-bottom: 0.35rem; }
-    .fylla-stat-tag { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--c8-ink); display: block; margin-bottom: 0.4rem; font-weight: 700; }
-    .fylla-stat-desc { font-size: 12px; color: var(--c8-sub); line-height: 1.5; }
-
-    /* FOUNDER CARD */
-    .fylla-stats-right { padding: 4.5rem 4rem; display: flex; flex-direction: column; justify-content: space-between; background: #FAFAF7; }
+    .fylla-lead-left { padding: 4.5rem 4rem; border-right: 1px solid var(--c8-grid-line); }
+    .fylla-lead-right { padding: 4.5rem 4rem; display: flex; flex-direction: column; justify-content: center; background: #FAFAF7; }
     .fylla-founder-pass {
       background: #080808; color: #FAFAF7; border: 1px dashed rgba(255, 255, 255, 0.28);
       padding: 2rem; font-family: var(--font-mono); border-radius: 4px; margin-bottom: 2rem;
@@ -209,11 +268,9 @@
     .fylla-quote-p { font-style: italic; font-size: 1rem; color: var(--c8-ink); line-height: 1.55; margin-bottom: 0.5rem; }
     .fylla-quote-cite { font-family: var(--font-mono); font-style: normal; font-size: 10px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; }
 
-    /* ── SECTION 6: OPEN SOURCE & TUTORIALS ── */
+    /* ── SECTION 10: OPEN SOURCE & EDUCATIONAL TUTORIALS ── */
     .fylla-edu-section {
-      display: grid; grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid var(--c8-grid-line);
-      background: #FFFFFF;
+      display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF;
     }
     .fylla-edu-col { padding: 4.5rem 4rem; }
     .fylla-edu-col:first-child { border-right: 1px solid var(--c8-grid-line); }
@@ -229,11 +286,8 @@
       width: 64px; height: 64px; background: #FF0000; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(255,0,0,0.4);
     }
 
-    /* ── SECTION 7: FYLLA STUDIO CTA CONTACT ── */
-    .fylla-cta-section {
-      display: grid; grid-template-columns: 1fr 1fr;
-      background: #FAFAF7;
-    }
+    /* ── SECTION 11: FYLLA STUDIO CONTACT CTA ── */
+    .fylla-cta-section { display: grid; grid-template-columns: 1fr 1fr; background: #FAFAF7; }
     .cta-col-left { padding: 4.5rem 4rem; border-right: 1px solid var(--c8-grid-line); }
     .cta-col-right { padding: 4.5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
     .cta-h2 { font-family: var(--font-heading); font-size: clamp(1.4rem, 2.6vw, 2.1rem); font-weight: 700; text-transform: uppercase; line-height: 1.25; color: var(--c8-ink); }
@@ -241,20 +295,20 @@
     .cta-btn {
       background: #080808; color: #FFFFFF !important; font-family: var(--font-mono);
       font-size: 0.8rem; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 4px;
-      text-decoration: none; text-transform: uppercase; width: fit-content;
-      transition: background 0.2s ease; display: inline-block;
+      text-decoration: none; text-transform: uppercase; width: fit-content; transition: background 0.2s ease; display: inline-block;
     }
     .cta-btn:hover { background: var(--c8-blue); }
 
     /* RESPONSIVE BREAKPOINTS */
     @media (max-width: 1024px) {
       .fylla-outer-frame { margin: 1rem 0.5rem 0rem 0.5rem; padding-top: 2rem; }
-      .fylla-hero-section, .fylla-values-left, .fylla-team-section, .fylla-matrix-col, .fylla-stats-left, .fylla-stats-right, .fylla-edu-col, .cta-col-left, .cta-col-right { padding: 2.5rem 1.5rem; }
-      .fylla-values-section, .fylla-matrix-section, .fylla-stats-section, .fylla-edu-section, .fylla-cta-section { grid-template-columns: 1fr; }
-      .fylla-values-left, .fylla-matrix-col:first-child, .fylla-stats-left, .fylla-edu-col:first-child, .cta-col-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
+      .fylla-hero-section, .fylla-values-left, .fylla-advantage-section, .fylla-stack-wrapper, .fylla-bento-section, .fylla-stats-breakout, .fylla-team-section, .fylla-fit-section, .fylla-lead-left, .fylla-lead-right, .fylla-edu-col, .cta-col-left, .cta-col-right { padding: 2.5rem 1.5rem; }
+      .fylla-values-section, .fylla-adv-grid, .fylla-bento-grid, .fylla-stats-grid, .fylla-fit-grid, .fylla-leadership-section, .fylla-edu-section, .fylla-cta-section { grid-template-columns: 1fr; }
+      .fylla-values-left, .fylla-lead-left, .fylla-edu-col:first-child, .cta-col-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
       .fylla-team-grid { grid-template-columns: 1fr; }
       .fylla-plugin-card { border-right: none !important; border-bottom: 1px solid var(--c8-grid-line) !important; padding: 2rem 1.5rem; }
-      .fylla-stats-grid { grid-template-columns: 1fr; }
+      .fylla-stack-sticky { grid-template-columns: 1fr; gap: 2rem; }
+      .fylla-stack-pin-container { height: 260vh; }
     }
   </style>
 </head>
@@ -330,7 +384,165 @@
       </div>
     </section>
 
-    <!-- ── 3. FYLLA STUDIO TEAM PARITY (CUSTOM PLUGINS & TOOLS) ── -->
+    <!-- ── 3. TECHNICAL ADVANTAGE & MASCOT INTEGRATION ── -->
+    <section class="fylla-advantage-section">
+      <span class="fylla-meta-tag">TYPICAL AGENCY VS. CR8V STACKS</span>
+      <h2 class="fylla-values-h2">OUR TECHNICAL ADVANTAGE</h2>
+      <p class="fylla-values-p" style="max-width: 680px">Why ambitious brands choose custom engineering over template configurations.</p>
+      
+      <div class="fylla-adv-grid">
+        <div class="fylla-adv-card">
+          <h3 class="fylla-adv-card-title">Typical Templates</h3>
+          <div class="fylla-adv-list">
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-no">✕</span><div><strong>Bloated Page Builders:</strong> Heavily reliant on slow WordPress builders stuffed with 40+ plugins that drag down load times.</div></div>
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-no">✕</span><div><strong>Sluggish Performance:</strong> Google PageSpeed scores below 50, leading to poor mobile rankings and high bounce rates.</div></div>
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-no">✕</span><div><strong>Cloned Designs:</strong> Stock graphics and pre-made templates that make your brand look identical to competitors.</div></div>
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-no">✕</span><div><strong>Siloed Execution:</strong> Designers build static layouts with no understanding of performance.</div></div>
+          </div>
+        </div>
+
+        <div class="fylla-adv-card is-hi">
+          <div class="fylla-mascot-badge">
+            <img src="assets/dev_mascot_fox_v2_1785612080975.jpg" alt="CR8V Stacks Dev Mascot Fox" onerror="this.src='assets/client_avatar_bearded_1785574954640.jpg'">
+          </div>
+          <h3 class="fylla-adv-card-title" style="color: var(--c8-blue);">The CR8V Stacks Engine</h3>
+          <div class="fylla-adv-list">
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-yes">✓</span><div><strong>Zero-Bloat Engineering:</strong> Clean, custom PHP, HTML5, and scoped CSS built from scratch on lightweight setups.</div></div>
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-yes">✓</span><div><strong>95+ Google PageSpeed:</strong> Optimized server architectures and clean execution ensuring instantaneous loading.</div></div>
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-yes">✓</span><div><strong>Bespoke Branding:</strong> 100% original, vector brand identities and interfaces built to highlight your unique value.</div></div>
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-yes">✓</span><div><strong>Developer-Led Strategy:</strong> Design and development happen together, so every choice is technically viable.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 4. INTERACTIVE 5-STEP PINNED STACKING PROCESS (FROM HOMEPAGE) ── -->
+    <section class="fylla-stack-wrapper">
+      <span class="fylla-meta-tag">OUR PROCESS WORKFLOW</span>
+      <h2 class="fylla-values-h2">THE 5-STEP STACK PROCESS</h2>
+      <p class="fylla-values-p" style="max-width: 680px; margin-bottom: 2rem;">Scroll — we build the way we build sites: one layer stacked deliberately on the last.</p>
+
+      <div class="fylla-stack-pin-container">
+        <div class="fylla-stack-sticky">
+          <div>
+            <span class="fylla-meta-tag" style="color: var(--c8-blue);">LAYER BY LAYER</span>
+            <h3 class="fylla-values-h2" style="font-size: 1.8rem; margin-bottom: 1rem;">NOTHING SHIPS UNTIL THE LAYER BELOW IT IS SOLID.</h3>
+            <p class="fylla-values-p">From positioning audit to funnel launch, each step is a foundation the next one is built on — not a checklist item.</p>
+            <div class="fylla-stack-dots" data-stack-progress>
+              <span class="is-active"></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <div class="fylla-stack-cards-area" data-stack-area>
+            <div class="fylla-stack-card" data-card="0">
+              <div class="fylla-stack-badge">01</div>
+              <h4 class="fylla-stack-card-h4">Positioning Audit</h4>
+              <p class="fylla-stack-card-p">We analyze your competitors, search traffic potential, and map your brand positioning before writing any code.</p>
+            </div>
+            <div class="fylla-stack-card" data-card="1">
+              <div class="fylla-stack-badge">02</div>
+              <h4 class="fylla-stack-card-h4">UI/UX Wireframing</h4>
+              <p class="fylla-stack-card-p">We build lightweight mockups engineered to guide the user's eye directly to conversion touchpoints.</p>
+            </div>
+            <div class="fylla-stack-card" data-card="2">
+              <div class="fylla-stack-badge">03</div>
+              <h4 class="fylla-stack-card-h4">Custom Coding</h4>
+              <p class="fylla-stack-card-p">We develop on lightweight frameworks, replacing bloated plugins with custom PHP and JS scripts.</p>
+            </div>
+            <div class="fylla-stack-card" data-card="3">
+              <div class="fylla-stack-badge">04</div>
+              <h4 class="fylla-stack-card-h4">SEO Populating</h4>
+              <p class="fylla-stack-card-p">We write SEO-rich content and construct the technical keyword mapping to ensure immediate search visibility.</p>
+            </div>
+            <div class="fylla-stack-card" data-card="4">
+              <div class="fylla-stack-badge">05</div>
+              <h4 class="fylla-stack-card-h4">Funnel Launch</h4>
+              <p class="fylla-stack-card-p">We configure lead-tracking, automated email flows, and ad campaigns to create a self-sustaining client acquisition loop.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 5. HOMEPAGE BENTO GRID PARITY (OUR PILLARS OF GROWTH) ── -->
+    <section class="fylla-bento-section">
+      <span class="fylla-meta-tag">OUR PILLARS OF GROWTH</span>
+      <h2 class="fylla-values-h2">ENGINEERED FOR SCALABILITY</h2>
+
+      <div class="fylla-bento-grid">
+        <div class="fylla-bento-card">
+          <span class="fylla-bento-num">01 / IDENTITY</span>
+          <h3 class="fylla-bento-h3">Brand Strategy</h3>
+          <p class="fylla-bento-p">Custom market positioning, competitor analysis, and full visual guidelines that command user trust.</p>
+        </div>
+
+        <div class="fylla-bento-card">
+          <span class="fylla-bento-num">02 / ARCHITECTURE</span>
+          <h3 class="fylla-bento-h3">Web Design</h3>
+          <p class="fylla-bento-p">High-performance, fast-loading WordPress &amp; Shopify websites built to convert visitors to leads.</p>
+        </div>
+
+        <div class="fylla-bento-card">
+          <span class="fylla-bento-num">03 / ACQUISITION</span>
+          <h3 class="fylla-bento-h3">Digital Marketing</h3>
+          <p class="fylla-bento-p">Multi-channel marketing plans involving target campaigns, social media management, and email automations.</p>
+        </div>
+
+        <div class="fylla-bento-card">
+          <span class="fylla-bento-num">04 / ORGANIC</span>
+          <h3 class="fylla-bento-h3">SEO &amp; Content</h3>
+          <p class="fylla-bento-p">Technical search audits, high-intent keyword mapping, and SEO-rich content writing that captures organic search.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 6. PERFORMANCE INDICATORS & TECH STACK MARQUEE ── -->
+    <div class="fylla-stats-outer">
+      <div class="fylla-stats-breakout">
+        <div class="fylla-stats-inner">
+          <span class="fylla-meta-tag" style="color: #7C93FF;">PERFORMANCE INDICATORS</span>
+          <h2 class="fylla-stats-headline">PROVEN RESULTS THAT SPEAK FOR THEMSELVES</h2>
+
+          <div class="fylla-stats-grid">
+            <div class="fylla-stat-card">
+              <div class="fylla-stat-num">95%</div>
+              <span class="fylla-stat-tag">Project Delivery</span>
+              <p class="fylla-stat-desc">A strict commitment to timelines, responsive designs, and custom-coded execution.</p>
+            </div>
+
+            <div class="fylla-stat-card">
+              <div class="fylla-stat-num">3.5x</div>
+              <span class="fylla-stat-tag">Organic Traffic</span>
+              <p class="fylla-stat-desc">Average organic traffic increase within 6–12 months of custom SEO planning.</p>
+            </div>
+
+            <div class="fylla-stat-card">
+              <div class="fylla-stat-num">90%</div>
+              <span class="fylla-stat-tag">Retention Rate</span>
+              <p class="fylla-stat-desc">Long-term maintenance and optimization client support services.</p>
+            </div>
+
+            <div class="fylla-stat-card">
+              <div class="fylla-stat-num">40+</div>
+              <span class="fylla-stat-tag">Platforms Deployed</span>
+              <p class="fylla-stat-desc">Bespoke brand identities and e-commerce systems developed and deployed.</p>
+            </div>
+          </div>
+
+          <!-- Tech Stack Logos -->
+          <div class="fylla-tech-row">
+            <img src="https://cdn.simpleicons.org/shopify/FFFFFF" alt="Shopify" class="fylla-tech-logo">
+            <img src="https://cdn.simpleicons.org/wordpress/FFFFFF" alt="WordPress" class="fylla-tech-logo">
+            <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude" class="fylla-tech-logo">
+            <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/light.svg" alt="OpenAI" class="fylla-tech-logo">
+            <img src="https://cdn.simpleicons.org/php/FFFFFF" alt="PHP" class="fylla-tech-logo">
+            <img src="https://cdn.simpleicons.org/figma/FFFFFF" alt="Figma" class="fylla-tech-logo">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 7. FYLLA STUDIO TEAM PARITY (CUSTOM PLUGINS & TOOLS) ── -->
     <section class="fylla-team-section">
       <div class="fylla-team-header">
         <div>
@@ -371,133 +583,73 @@
       </div>
     </section>
 
-    <!-- ── 4. TECHNICAL ADVANTAGE & 5-STEP PROCESS MATRIX ── -->
-    <section class="fylla-matrix-section">
-      <div class="fylla-matrix-col">
-        <span class="fylla-meta-tag">TYPICAL AGENCY VS. CR8V STACKS</span>
-        <h2 class="fylla-values-h2">TECHNICAL ADVANTAGE</h2>
-        
-        <div class="fylla-comp-box">
-          <h3 class="fylla-comp-h3">Typical Templates</h3>
-          <div class="fylla-comp-list">
-            <div class="fylla-comp-item"><span class="fylla-icon-sq is-no">✕</span><div><strong>Bloated Page Builders:</strong> Heavily reliant on slow WordPress builders stuffed with 40+ plugins.</div></div>
-            <div class="fylla-comp-item"><span class="fylla-icon-sq is-no">✕</span><div><strong>Sluggish Performance:</strong> Google PageSpeed scores below 50, leading to poor mobile rankings.</div></div>
-            <div class="fylla-comp-item"><span class="fylla-icon-sq is-no">✕</span><div><strong>Cloned Designs:</strong> Stock graphics and pre-made templates drag down your brand.</div></div>
+    <!-- ── 8. WHO WE BUILD FOR (FIT / NOT FIT MATRIX) ── -->
+    <section class="fylla-fit-section">
+      <span class="fylla-meta-tag">WHO WE BUILD FOR</span>
+      <h2 class="fylla-values-h2">WE'RE NOT A FIT FOR EVERYONE</h2>
+      <p class="fylla-values-p" style="max-width: 680px">That's on purpose. Here's how to tell, in about ten seconds.</p>
+
+      <div class="fylla-fit-grid">
+        <div class="fylla-fit-card is-yes">
+          <h3 class="fylla-adv-card-title" style="color: var(--c8-blue);">You're in the right place if</h3>
+          <div class="fylla-adv-list">
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-yes">✓</span><span>You're tired of being told to "just install another plugin."</span></div>
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-yes">✓</span><span>You want a designer and a developer thinking about your homepage at the same time, not in sequence.</span></div>
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-yes">✓</span><span>You care about your PageSpeed score as much as your logo.</span></div>
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-yes">✓</span><span>You're building a brand you intend to keep for years, not a page you'll replace next quarter.</span></div>
           </div>
         </div>
 
-        <div class="fylla-comp-box is-active">
-          <h3 class="fylla-comp-h3" style="color: var(--c8-blue);">The CR8V Stacks Engine</h3>
-          <div class="fylla-comp-list">
-            <div class="fylla-comp-item"><span class="fylla-icon-sq is-yes">✓</span><div><strong>Zero-Bloat Engineering:</strong> Custom PHP, HTML5, and scoped CSS on lightweight setups.</div></div>
-            <div class="fylla-comp-item"><span class="fylla-icon-sq is-yes">✓</span><div><strong>95+ Google PageSpeed:</strong> Optimized server architectures for instant loading.</div></div>
-            <div class="fylla-comp-item"><span class="fylla-icon-sq is-yes">✓</span><div><strong>Bespoke Branding:</strong> 100% original, vector brand identities and interfaces.</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="fylla-matrix-col">
-        <span class="fylla-meta-tag">OUR PROCESS WORKFLOW</span>
-        <h2 class="fylla-values-h2">5-STEP STACK PROCESS</h2>
-
-        <div class="fylla-step-item">
-          <div class="fylla-step-num">STEP 01</div>
-          <h3 class="fylla-step-title">Positioning Audit</h3>
-          <p class="fylla-step-desc">We analyze your competitors, search traffic potential, and map your brand positioning before writing any code.</p>
-        </div>
-
-        <div class="fylla-step-item">
-          <div class="fylla-step-num">STEP 02</div>
-          <h3 class="fylla-step-title">UI/UX Wireframing</h3>
-          <p class="fylla-step-desc">We build lightweight mockups engineered to guide the user's eye directly to conversion touchpoints.</p>
-        </div>
-
-        <div class="fylla-step-item">
-          <div class="fylla-step-num">STEP 03</div>
-          <h3 class="fylla-step-title">Custom Coding</h3>
-          <p class="fylla-step-desc">We develop on lightweight frameworks, replacing bloated plugins with custom PHP and JS scripts.</p>
-        </div>
-
-        <div class="fylla-step-item">
-          <div class="fylla-step-num">STEP 04</div>
-          <h3 class="fylla-step-title">SEO Populating</h3>
-          <p class="fylla-step-desc">We write SEO-rich content and construct the technical keyword mapping to ensure immediate search visibility.</p>
-        </div>
-
-        <div class="fylla-step-item">
-          <div class="fylla-step-num">STEP 05</div>
-          <h3 class="fylla-step-title">Funnel Launch</h3>
-          <p class="fylla-step-desc">We configure lead-tracking, automated email flows, and ad campaigns to create a self-sustaining client acquisition loop.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 5. PERFORMANCE INDICATORS & LEADERSHIP FOUNDER PASS ── -->
-    <section class="fylla-stats-section">
-      <div class="fylla-stats-left">
-        <span class="fylla-meta-tag">PERFORMANCE INDICATORS</span>
-        <h2 class="fylla-values-h2">PROVEN RESULTS THAT SPEAK FOR THEMSELVES</h2>
-
-        <div class="fylla-stats-grid">
-          <div class="fylla-stat-card">
-            <div class="fylla-stat-num">95%</div>
-            <span class="fylla-stat-tag">Project Delivery</span>
-            <p class="fylla-stat-desc">A strict commitment to timelines, responsive designs, and custom-coded execution.</p>
-          </div>
-
-          <div class="fylla-stat-card">
-            <div class="fylla-stat-num">3.5x</div>
-            <span class="fylla-stat-tag">Organic Traffic</span>
-            <p class="fylla-stat-desc">Average organic traffic increase within 6–12 months of custom SEO planning.</p>
-          </div>
-
-          <div class="fylla-stat-card">
-            <div class="fylla-stat-num">90%</div>
-            <span class="fylla-stat-tag">Retention Rate</span>
-            <p class="fylla-stat-desc">Long-term maintenance and optimization client support services.</p>
-          </div>
-
-          <div class="fylla-stat-card">
-            <div class="fylla-stat-num">40+</div>
-            <span class="fylla-stat-tag">Platforms Deployed</span>
-            <p class="fylla-stat-desc">Bespoke brand identities and e-commerce systems developed and deployed.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="fylla-stats-right">
-        <div>
-          <span class="fylla-meta-tag">LEADERSHIP</span>
-          <h2 class="fylla-values-h2">FOUNDER &amp; DEV-LED CULTURE</h2>
-          
-          <div class="fylla-founder-pass">
-            <div class="fylla-pass-header">
-              <span>CR8V STACKS // SECURE PASS</span>
-              <span>ID: 080-MA</span>
-            </div>
-            <div class="fylla-pass-row">
-              <span class="fylla-pass-label">Holder Name</span>
-              <span class="fylla-pass-val">Mallami Adekunle</span>
-            </div>
-            <div class="fylla-pass-row">
-              <span class="fylla-pass-label">Designation</span>
-              <span class="fylla-pass-val">Founder &amp; Principal Architect</span>
-            </div>
-            <div class="fylla-pass-row">
-              <span class="fylla-pass-label">Core Stacks</span>
-              <span class="fylla-pass-val">WordPress, Shopify, Figma, HTML5, CSS3, JS, PHP</span>
-            </div>
-          </div>
-
-          <div class="fylla-quote-box">
-            <p class="fylla-quote-p">"Bloat is a compromise. We believe in absolute engineering efficiency, where design and speed exist as a single, indivisible experience."</p>
-            <cite class="fylla-quote-cite">Mallami Adekunle, Founder</cite>
+        <div class="fylla-fit-card is-no">
+          <h3 class="fylla-adv-card-title">We're probably not your agency if</h3>
+          <div class="fylla-adv-list">
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-no">✕</span><span>You want the cheapest possible theme install by Friday.</span></div>
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-no">✕</span><span>You're looking for someone to quietly "manage" an existing bloated site without questioning it.</span></div>
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-no">✕</span><span>Design trends matter more to you than load times and conversion data.</span></div>
+            <div class="fylla-adv-item"><span class="fylla-icon-sq is-no">✕</span><span>You want a set-and-forget vendor, not a technical partner.</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── 6. OPEN SOURCE & EDUCATIONAL TUTORIALS ── -->
+    <!-- ── 9. LEADERSHIP & FOUNDER PASS ── -->
+    <section class="fylla-leadership-section">
+      <div class="fylla-lead-left">
+        <span class="fylla-meta-tag">LEADERSHIP</span>
+        <h2 class="fylla-values-h2">FOUNDER &amp; DEV-LED CULTURE</h2>
+        <p class="fylla-values-p" style="font-weight: 500; color: var(--c8-ink);">Bridging the gap between creative visual architecture and clean, lightweight code.</p>
+        <p class="fylla-values-p">Founded by <strong>Mallami Adekunle</strong>, a digital architect and strategist, CR8V Stacks was established to combat the slow, template-stuffed sites typical of corporate digital agencies. Observing how heavy WordPress configurations and generic page templates cost companies traffic and conversions, Mallami assembled a team of developer-first designers.</p>
+        <p class="fylla-values-p">At CR8V Stacks, our designers are trained in performance optimization, and our developers are trained in conversion-focused UI/UX — so we never sacrifice speed for looks.</p>
+      </div>
+
+      <div class="fylla-lead-right">
+        <div class="fylla-founder-pass">
+          <div class="fylla-pass-header">
+            <span>CR8V STACKS // SECURE PASS</span>
+            <span>ID: 080-MA</span>
+          </div>
+          <div class="fylla-pass-row">
+            <span class="fylla-pass-label">Holder Name</span>
+            <span class="fylla-pass-val">Mallami Adekunle</span>
+          </div>
+          <div class="fylla-pass-row">
+            <span class="fylla-pass-label">Designation</span>
+            <span class="fylla-pass-val">Founder &amp; Principal Architect</span>
+          </div>
+          <div class="fylla-pass-row">
+            <span class="fylla-pass-label">Core Stacks</span>
+            <span class="fylla-pass-val">WordPress, Shopify, Figma, HTML5, CSS3, JS, PHP</span>
+          </div>
+        </div>
+
+        <div class="fylla-quote-box">
+          <p class="fylla-quote-p">"Bloat is a compromise. We believe in absolute engineering efficiency, where design and speed exist as a single, indivisible experience."</p>
+          <cite class="fylla-quote-cite">Mallami Adekunle, Founder</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 10. OPEN SOURCE & EDUCATIONAL TUTORIALS ── -->
     <section class="fylla-edu-section">
       <div class="fylla-edu-col">
         <span class="fylla-meta-tag">OPEN SOURCE &amp; EDUCATION</span>
@@ -527,7 +679,7 @@
       </div>
     </section>
 
-    <!-- ── 7. FYLLA STUDIO CONTACT CTA ── -->
+    <!-- ── 11. FYLLA STUDIO CONTACT CTA ── -->
     <section class="fylla-cta-section">
       <div class="cta-col-left">
         <span class="fylla-meta-tag">CONTACT</span>
@@ -541,6 +693,51 @@
     </section>
 
   </main>
+
+  <!-- PINNED STACKING CARDS SCRIPT -->
+  <script>
+  (function () {
+    var stackPin = document.querySelector('.fylla-stack-pin-container');
+    var cards = document.querySelectorAll('[data-card]');
+    var progressDots = document.querySelectorAll('[data-stack-progress] span');
+    
+    function cardTransform(i) {
+      return 'translateY(' + (i * -12) + 'px) translateX(' + (i * 6) + 'px) rotate(' + ((i % 2 === 0 ? -1 : 1) * (2 + i * 0.5)) + 'deg) scale(1)';
+    }
+
+    if (stackPin && cards.length) {
+      cards.forEach(function (card, i) { card.style.zIndex = String(i + 1); });
+      var ticking = false;
+      function updateStack() {
+        ticking = false;
+        var rect = stackPin.getBoundingClientRect();
+        var total = rect.height - window.innerHeight;
+        if (total <= 0) return;
+        var scrolled = Math.min(Math.max(-rect.top, 0), total);
+        var progress = scrolled / total;
+        var activeIndex = Math.round(progress * (cards.length - 1));
+        cards.forEach(function (card, i) {
+          if (i <= activeIndex) {
+            card.style.transform = cardTransform(i);
+            card.style.opacity = '1';
+            card.style.transition = 'transform 0.4s ease, opacity 0.3s ease';
+          } else {
+            card.style.transform = 'translateY(40vh) rotate(0deg) scale(1)';
+            card.style.opacity = '0';
+            card.style.transition = 'transform 0.4s ease, opacity 0.3s ease';
+          }
+        });
+        progressDots.forEach(function (dot, i) { dot.classList.toggle('is-active', i <= activeIndex); });
+      }
+      function onScroll() {
+        if (!ticking) { requestAnimationFrame(updateStack); ticking = true; }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      updateStack();
+    }
+  })();
+  </script>
 
 </body>
 </html>
