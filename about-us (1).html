@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us — Cr8v Stacks Agency</title>
+  <title>Studio — Cr8v Stacks Agency</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -25,148 +25,268 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 0; margin: 0; }
 
-    /* ── FULL-WIDTH OUTER PAPER FRAME WITH TOP PADDING FOR NAV ── */
+    /* ── FULL-WIDTH OUTER PAPER FRAME (MARGIN 2.5REM 1REM 0REM 1REM) ── */
     .abt-outer-frame {
-      max-width: 1360px; margin: 0 auto;
-      background: var(--c8-paper-bg);
-      padding: 10.5rem 2rem 5rem 2rem;
+      margin: 2.5rem 1rem 0rem 1rem;
+      background: var(--c8-paper-card);
+      border: 1px solid var(--c8-grid-line);
+      padding-top: 3.5rem;
       min-height: 100vh;
     }
 
-    /* ── HERO SECTION ── */
-    .abt-hero-wrap {
-      max-width: 1360px; margin: 0 auto 4rem auto;
-      background: #080808; color: #FFFFFF;
-      border-radius: 6px; padding: 4.5rem 3.5rem;
-      border: 1px solid var(--c8-grid-line);
-      position: relative; overflow: hidden;
-      background-color: #080808 !important;
-      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%) !important;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    /* ── 1. STUDIO HERO SECTION (EXACT FYLLA STUDIO PARITY) ── */
+    .studio-hero-section {
+      padding: 3rem 4rem 3.5rem 4rem;
+      border-bottom: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
     }
-    .abt-eyebrow { font-family: var(--font-mono); font-size: 0.75rem; color: var(--c8-blue-hi); text-transform: uppercase; letter-spacing: 0.18em; font-weight: 700; margin-bottom: 1rem; }
-    .abt-h1 { font-family: var(--font-heading); font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 700; color: #FFFFFF; letter-spacing: 0.01em; text-transform: uppercase; line-height: 1.2; margin-bottom: 1.5rem; }
-    .abt-sub { font-size: 1.05rem; color: rgba(255, 255, 255, 0.85); line-height: 1.65; max-width: 780px; font-weight: 400; }
+    .studio-meta-tag {
+      font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; color: var(--c8-blue); letter-spacing: 0.14em;
+      margin-bottom: 1rem; display: block;
+    }
+    .studio-hero-h1 {
+      font-family: var(--font-heading); font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 700; text-transform: uppercase; line-height: 1.18;
+      color: var(--c8-ink); margin-bottom: 2.5rem; max-width: 900px;
+    }
 
-    /* ── 2-COLUMN STUDIO MANIFESTO & METRICS GRID ── */
-    .abt-grid-matrix {
+    /* HERO FULL-WIDTH FEATURED MEDIA */
+    .studio-hero-img-box {
+      width: 100%; aspect-ratio: 21 / 9; border-radius: 4px; overflow: hidden;
+      border: 1px solid var(--c8-grid-line); background: #000000;
+    }
+    .studio-hero-img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── 2. STUDIO VALUES SECTION (INTEGRATED 2-COLUMN GRID) ── */
+    .studio-values-section {
       display: grid; grid-template-columns: 1fr 1fr;
-      background: var(--c8-paper-card);
-      border: 1px solid var(--c8-grid-line);
-      margin-bottom: 4rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      border-bottom: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
     }
-    .abt-grid-col { padding: 3rem 2.5rem; border-right: 1px solid var(--c8-grid-line); }
-    .abt-grid-col:last-child { border-right: none; }
+    .values-col-left {
+      padding: 4rem 3.5rem; border-right: 1px solid var(--c8-grid-line);
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .values-h2 {
+      font-family: var(--font-heading); font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+      font-weight: 700; text-transform: uppercase; line-height: 1.25;
+      color: var(--c8-ink); margin-bottom: 2rem; max-width: 520px;
+    }
+    .values-btn {
+      background: var(--c8-blue); color: #FFFFFF !important; font-family: var(--font-mono);
+      font-size: 0.8rem; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 4px;
+      text-decoration: none; text-transform: uppercase; width: fit-content;
+      transition: background 0.2s ease;
+    }
+    .values-btn:hover { background: var(--c8-blue-hi); }
 
-    .abt-section-h2 { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 1.25rem; line-height: 1.3; }
-    .abt-body-p { font-size: 0.98rem; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.25rem; }
+    /* VALUES STACK RIGHT COLUMN */
+    .values-col-right {
+      background: #FAFAF7;
+      display: flex; flex-direction: column;
+    }
+    .value-item {
+      padding: 3rem 3rem; border-bottom: 1px solid var(--c8-grid-line);
+      display: flex; gap: 2rem; align-items: flex-start;
+    }
+    .value-item:last-child { border-bottom: none; }
+    .value-num {
+      font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700;
+      color: var(--c8-blue); flex-shrink: 0; padding-top: 0.2rem;
+    }
+    .value-h3 {
+      font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700;
+      color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.65rem;
+    }
+    .value-p { font-size: 0.92rem; color: var(--c8-sub); line-height: 1.65; }
 
-    /* STAT METRICS ROW */
-    .abt-stats-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
-    .abt-stat-card { background: #FAFAF7; border: 1px solid var(--c8-grid-line); border-radius: 4px; padding: 1.5rem; text-align: center; }
-    .abt-stat-num { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: var(--c8-blue); margin-bottom: 0.35rem; }
-    .abt-stat-label { font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; color: var(--c8-sub); letter-spacing: 0.08em; font-weight: 700; }
+    /* ── 3. STUDIO TEAM SECTION (2x2 GRID PARITY) ── */
+    .studio-team-section {
+      padding: 4rem 3.5rem;
+      border-bottom: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
+    }
+    .team-header-row {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 3rem; border-bottom: 1px solid var(--c8-grid-line);
+      padding-bottom: 1.75rem;
+    }
+    .team-h2 {
+      font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700;
+      color: var(--c8-ink); text-transform: uppercase;
+    }
+    .team-sub {
+      font-family: var(--font-body); font-size: 0.95rem; color: var(--c8-sub); max-width: 420px;
+    }
 
-    /* ── CORE ENGINEERING PILLARS ── */
-    .abt-pillars-title { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 2rem; }
-    .abt-pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--c8-grid-line); background: #FFFFFF; margin-bottom: 4rem; }
-    .abt-pillar-card { padding: 2.2rem 1.8rem; border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); }
-    .abt-pillar-card:nth-child(3n) { border-right: none; }
-    .abt-pillar-num { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--c8-blue); margin-bottom: 0.75rem; }
-    .abt-pillar-h3 { font-family: var(--font-heading); font-size: 0.92rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.65rem; }
-    .abt-pillar-p { font-size: 0.88rem; color: var(--c8-sub); line-height: 1.6; }
+    .team-grid-frame {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      border: 1px solid var(--c8-grid-line); background: #FFFFFF;
+    }
+    .team-card {
+      padding: 2.25rem 2rem; border-right: 1px solid var(--c8-grid-line);
+      border-bottom: 1px solid var(--c8-grid-line);
+    }
+    .team-card:nth-child(2n) { border-right: none; }
+    .team-card:nth-last-child(-n+2) { border-bottom: none; }
 
-    /* ── TEAM & FOUNDER SECTION ── */
-    .abt-team-wrap { background: #FFFFFF; border: 1px solid var(--c8-grid-line); padding: 3.5rem; border-radius: 4px; display: grid; grid-template-columns: 320px 1fr; gap: 3rem; align-items: center; }
-    .abt-founder-img { width: 100%; aspect-ratio: 1 / 1; border-radius: 4px; object-fit: cover; border: 1px solid var(--c8-grid-line); }
-    .abt-founder-h3 { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.4rem; }
-    .abt-founder-role { font-family: var(--font-mono); font-size: 0.75rem; color: var(--c8-blue); text-transform: uppercase; font-weight: 700; margin-bottom: 1.25rem; }
+    .team-img-box {
+      aspect-ratio: 4 / 3; width: 100%; border-radius: 4px; overflow: hidden;
+      border: 1px solid var(--c8-grid-line); background: #000000; margin-bottom: 1.25rem;
+    }
+    .team-img { width: 100%; height: 100%; object-fit: cover; }
+    .team-name { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.35rem; }
+    .team-role { font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-blue); text-transform: uppercase; font-weight: 700; }
+
+    /* ── 4. CTA CONTACT SECTION ── */
+    .studio-cta-section {
+      display: grid; grid-template-columns: 1fr 1fr;
+      background: #FAFAF7;
+    }
+    .cta-col-left {
+      padding: 4.5rem 3.5rem; border-right: 1px solid var(--c8-grid-line);
+    }
+    .cta-col-right {
+      padding: 4.5rem 3.5rem; display: flex; flex-direction: column; justify-content: center;
+    }
+    .cta-h2 {
+      font-family: var(--font-heading); font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+      font-weight: 700; text-transform: uppercase; line-height: 1.25; color: var(--c8-ink);
+    }
+    .cta-p { font-size: 1rem; color: var(--c8-sub); line-height: 1.65; margin-bottom: 2rem; }
+    .cta-btn {
+      background: #080808; color: #FFFFFF !important; font-family: var(--font-mono);
+      font-size: 0.8rem; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 4px;
+      text-decoration: none; text-transform: uppercase; width: fit-content;
+      transition: background 0.2s ease;
+    }
+    .cta-btn:hover { background: var(--c8-blue); }
 
     @media (max-width: 1024px) {
-      .abt-grid-matrix { grid-template-columns: 1fr; }
-      .abt-grid-col { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
-      .abt-pillars-grid { grid-template-columns: 1fr; }
-      .abt-pillar-card { border-right: none !important; }
-      .abt-team-wrap { grid-template-columns: 1fr; padding: 2rem; }
+      .art-outer-frame { margin: 1rem 0.5rem 0rem 0.5rem; padding-top: 2rem; }
+      .studio-hero-section { padding: 2rem 1.5rem; }
+      .studio-values-section { grid-template-columns: 1fr; }
+      .values-col-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2.5rem 1.5rem; }
+      .values-col-right { padding: 0; }
+      .value-item { padding: 2rem 1.5rem; }
+      .studio-team-section { padding: 2.5rem 1.5rem; }
+      .team-header-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .team-grid-frame { grid-template-columns: 1fr; }
+      .team-card { border-right: none !important; border-bottom: 1px solid var(--c8-grid-line) !important; }
+      .studio-cta-section { grid-template-columns: 1fr; }
+      .cta-col-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2.5rem 1.5rem; }
+      .cta-col-right { padding: 2.5rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <main class="abt-outer-frame">
+  <!-- FULL-WIDTH OUTER PAPER FRAME (MARGIN 2.5REM 1REM 0REM 1REM) -->
+  <main class="art-outer-frame">
     
-    <!-- AMBIENT ROYAL BLUE HERO BANNER -->
-    <header class="abt-hero-wrap">
-      <div class="abt-eyebrow">// ABOUT CREATIVE STACKS</div>
-      <h1 class="abt-h1">WE ENGINEER HIGH-PERFORMANCE DIGITAL PLATFORMS</h1>
-      <p class="abt-sub">We are a specialized technical architecture studio bridging world-class UI design with zero-plugin performance engineering for funded B2B companies, e-commerce brands, and AI platforms.</p>
+    <!-- 1. STUDIO HERO SECTION -->
+    <header class="studio-hero-section">
+      <span class="studio-meta-tag">// ABOUT US</span>
+      <h1 class="studio-hero-h1">CREATIVE STUDIO THAT INSPIRES.</h1>
+      
+      <div class="studio-hero-img-box">
+        <img src="assets/wwa_studio_visual_1785737190311.jpg" alt="Cr8v Stacks Studio Workspace" class="studio-hero-img">
+      </div>
     </header>
 
-    <!-- 2-COLUMN MANIFESTO & STATS GRID -->
-    <section class="abt-grid-matrix">
-      <div class="abt-grid-col">
-        <h2 class="abt-section-h2">Our Engineering Philosophy</h2>
-        <p class="abt-body-p">Most marketing sites fail not because of design, but because of bloated third-party page builders and fragile plugin stacks that slow down loading times and destroy search engine indexing.</p>
-        <p class="abt-body-p">At Cr8v Stacks, we write native PHP theme files, custom JavaScript canvas sequences, and entity SEO architecture directly into theme code, delivering 100/100 Core Web Vitals pass rates on launch day.</p>
+    <!-- 2. STUDIO VALUES SECTION -->
+    <section class="studio-values-section">
+      <div class="values-col-left">
+        <div>
+          <span class="studio-meta-tag">// OUR VALUES</span>
+          <h2 class="values-h2">OUR VISION IS TO CONNECT WITH THE WORLD THROUGH INNOVATION.</h2>
+        </div>
+        <a href="homepage_hero_section.html#case-studies" class="values-btn">See All Work</a>
       </div>
 
-      <div class="abt-grid-col">
-        <h2 class="abt-section-h2">Proven Impact</h2>
-        <p class="abt-body-p">Our builds power leading enterprises, scaling DTC stores, and custom web applications without third-party plugin dependencies.</p>
-        
-        <div class="abt-stats-row">
-          <div class="abt-stat-card">
-            <div class="abt-stat-num">100/100</div>
-            <div class="abt-stat-label">Lighthouse Score</div>
-          </div>
-          <div class="abt-stat-card">
-            <div class="abt-stat-num">&lt; 50ms</div>
-            <div class="abt-stat-label">INP Execution</div>
-          </div>
-          <div class="abt-stat-card">
-            <div class="abt-stat-num">0</div>
-            <div class="abt-stat-label">Plugin Bloat</div>
-          </div>
-          <div class="abt-stat-card">
-            <div class="abt-stat-num">100+</div>
-            <div class="abt-stat-label">Platforms Shipped</div>
+      <div class="values-col-right">
+        <div class="value-item">
+          <div class="value-num">01</div>
+          <div>
+            <h3 class="value-h3">VISION</h3>
+            <p class="value-p">Our relentless pursuit of a shared vision fuels our creativity and propels us forward. With clarity and foresight, we craft strategies that align with our clients' goals and aspirations, transforming their dreams into reality and shaping a future worth embracing.</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- CORE PILLARS -->
-    <section>
-      <h2 class="abt-pillars-title">Our Technical Standards</h2>
-      <div class="abt-pillars-grid">
-        <div class="abt-pillar-card">
-          <div class="abt-pillar-num">01 / SPEED</div>
-          <h3 class="abt-pillar-h3">Liquid Performance</h3>
-          <p class="abt-pillar-p">Zero-plugin architecture stripping away DOM wrapper bloat to deliver instant sub-second page rendering.</p>
+        <div class="value-item">
+          <div class="value-num">02</div>
+          <div>
+            <h3 class="value-h3">INNOVATION</h3>
+            <p class="value-p">Innovation is at the core of everything we do. We embrace curiosity, explore uncharted territories, and challenge the status quo to build liquid performance platforms that dominate search rankings.</p>
+          </div>
         </div>
 
-        <div class="abt-pillar-card">
-          <div class="abt-pillar-num">02 / AUTHORITY</div>
-          <h3 class="abt-pillar-h3">Entity SEO Architecture</h3>
-          <p class="abt-pillar-p">Semantic keyword mapping, schema markup, and structured entity tags pre-coded before launch.</p>
-        </div>
-
-        <div class="abt-pillar-card">
-          <div class="abt-pillar-num">03 / HANDOVER</div>
-          <h3 class="abt-pillar-h3">Native Admin Control</h3>
-          <p class="abt-pillar-p">Custom meta box registration allowing non-technical team members to edit content effortlessly without breaking layouts.</p>
+        <div class="value-item">
+          <div class="value-num">03</div>
+          <div>
+            <h3 class="value-h3">CONNECTION</h3>
+            <p class="value-p">We believe in the power of connection. We strive to build bridges between brands and their audiences, fostering genuine and lasting relationships through zero-plugin digital architecture.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FOUNDER BIO SECTION -->
-    <section class="abt-team-wrap">
-      <img src="assets/tmn_avatar_euro_male_1785737209764.jpg" alt="Cr8v Stacks Founder" class="abt-founder-img">
-      <div>
-        <h3 class="abt-founder-h3">Mallami Adekunle</h3>
-        <div class="abt-founder-role">FOUNDER &amp; CHIEF ARCHITECT</div>
-        <p class="abt-body-p">"We built Cr8v Stacks to eliminate the compromise between high-end aesthetic motion design and raw technical site speed. Every line of code we write is crafted to scale authority, conversion, and liquid performance."</p>
+    <!-- 3. STUDIO TEAM SECTION -->
+    <section class="studio-team-section">
+      <div class="team-header-row">
+        <div>
+          <span class="studio-meta-tag">// OUR TEAM</span>
+          <h2 class="team-h2">OUR TEAM</h2>
+        </div>
+        <p class="team-sub">Meet our talented team of creative minds driving innovation and liquid performance engineering.</p>
+      </div>
+
+      <div class="team-grid-frame">
+        <div class="team-card">
+          <div class="team-img-box">
+            <img src="assets/tmn_avatar_euro_male_1785737209764.jpg" alt="Mallami Adekunle" class="team-img">
+          </div>
+          <h3 class="team-name">Mallami Adekunle</h3>
+          <div class="team-role">FOUNDER &amp; CHIEF ARCHITECT</div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-img-box">
+            <img src="assets/tmn_avatar_female_1785737199364.jpg" alt="Kristin Watson" class="team-img">
+          </div>
+          <h3 class="team-name">Kristin Watson</h3>
+          <div class="team-role">CREATIVE DIRECTOR</div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-img-box">
+            <img src="assets/client_avatar_bearded_1785574954640.jpg" alt="Cameron Williamson" class="team-img">
+          </div>
+          <h3 class="team-name">Cameron Williamson</h3>
+          <div class="team-role">LEAD TECHNICAL ARCHITECT</div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-img-box">
+            <img src="assets/dev_mascot_fox_v2_1785612080975.jpg" alt="Guy Hawkins" class="team-img">
+          </div>
+          <h3 class="team-name">Guy Hawkins</h3>
+          <div class="team-role">HEAD OF PERFORMANCE &amp; GROWTH</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CTA CONTACT SECTION -->
+    <section class="studio-cta-section">
+      <div class="cta-col-left">
+        <span class="studio-meta-tag">// CONTACT</span>
+        <h2 class="cta-h2">LET'S BRING YOUR BRAND TO THE NEXT LEVEL</h2>
+      </div>
+
+      <div class="cta-col-right">
+        <p class="cta-p">Together, let's elevate your brand to new heights by unleashing its full potential and captivating your target audience with custom zero-plugin architecture.</p>
+        <a href="discovery-call.html" class="cta-btn">Book A Discovery Call</a>
       </div>
     </section>
 
