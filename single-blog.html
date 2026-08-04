@@ -25,17 +25,9 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 0; margin: 0; }
 
-    /* ── OUTER WRAPPER WITH 5PX PADDING AND PAPER GRIDLINE BACKDROP ── */
-    .art-outer-wrapper {
-      padding: 5px;
-      background: var(--c8-paper-bg);
-      min-height: 100vh;
-    }
-
-    /* ── FULL-WIDTH OUTER PAPER FRAME (1360px MAX WIDTH WITH BORDER) ── */
+    /* ── FULL-WIDTH OUTER PAPER FRAME (MARGIN 2.5REM 1REM 0REM 1REM) ── */
     .art-outer-frame {
-      max-width: 1360px;
-      margin: 0 auto;
+      margin: 2.5rem 1rem 0rem 1rem;
       background: var(--c8-paper-card);
       border: 1px solid var(--c8-grid-line);
       padding-top: 3.5rem;
@@ -77,39 +69,46 @@
       display: flex; flex-direction: column; gap: 2rem;
     }
 
-    /* DYNAMIC SHARE BUTTONS BAR WITH ICONS */
+    /* DYNAMIC SHARE BUTTONS BAR USING OFFICIAL CDN LOGOS */
     .share-block { margin-bottom: 0.5rem; }
     .share-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: #8A8A8A; margin-bottom: 0.75rem; font-weight: 700; }
     .share-row { display: flex; gap: 0.45rem; flex-wrap: wrap; }
-    .share-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--c8-grid-line); background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; color: #080808; text-decoration: none; cursor: pointer; transition: all 0.2s ease; }
-    .share-btn:hover { background: #080808; color: #FFFFFF; border-color: #080808; }
-    .share-btn svg { width: 15px; height: 15px; fill: currentColor; }
+    .share-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--c8-grid-line); background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s ease; overflow: hidden; }
+    .share-btn:hover { background: #080808; border-color: #080808; }
+    .share-btn img { width: 16px; height: 16px; object-fit: contain; transition: filter 0.2s ease; }
+    .share-btn:hover img { filter: brightness(0) invert(1); }
+    .share-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; }
 
-    /* SIDEBAR CTA CARD (EXACT SCREENSHOT MATCH) */
+    /* LEFT-ALIGNED SIDEBAR CTA CARD */
     .sidebar-cta-card {
       background: #FFFFFF; border: 1px solid var(--c8-grid-line);
-      border-radius: 8px; padding: 2rem 1.5rem; text-align: center;
+      border-radius: 8px; padding: 2rem 1.5rem; text-align: left;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
     }
-    .cta-logos-row { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.75rem; }
-    .cta-logo-icon { width: 26px; height: 26px; border-radius: 50%; background: #080808; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .cta-logo-icon img { width: 14px; height: 14px; }
+    
+    /* 36PX CTA LOGO CONTAINERS WITH 24PX LOGO IMAGES */
+    .cta-logos-row { display: flex; align-items: center; justify-content: flex-start; gap: 0.5rem; margin-bottom: 0.75rem; margin-left: 0; }
+    .cta-logo-icon {
+      width: 36px; height: 36px; border-radius: 50%; background: #080808;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .cta-logo-icon img { width: 24px; height: 24px; object-fit: contain; }
 
-    .cta-trust-label { font-family: var(--font-mono); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #888888; margin-bottom: 1.25rem; }
+    .cta-trust-label { font-family: var(--font-mono); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #888888; margin-bottom: 1.25rem; text-align: left; }
 
-    .cta-illustration { width: 78px; height: 78px; margin: 0 auto 1.25rem auto; border-radius: 50%; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #FAFAF7; display: flex; align-items: center; justify-content: center; }
+    .cta-illustration { width: 78px; height: 78px; margin: 0 0 1.25rem 0; border-radius: 50%; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #FAFAF7; display: flex; align-items: center; justify-content: center; }
     .cta-illustration img { width: 100%; height: 100%; object-fit: cover; }
 
-    .cta-card-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: #080808; margin-bottom: 0.65rem; line-height: 1.3; }
-    .cta-card-sub { font-family: var(--font-body); font-size: 0.85rem; color: var(--c8-sub); line-height: 1.5; margin-bottom: 1.5rem; }
+    .cta-card-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: #080808; margin-bottom: 0.65rem; line-height: 1.3; text-align: left; }
+    .cta-card-sub { font-family: var(--font-body); font-size: 0.85rem; color: var(--c8-sub); line-height: 1.5; margin-bottom: 1.5rem; text-align: left; }
 
-    .cta-card-btn { background: #080808; color: #FFFFFF; font-family: var(--font-body); font-size: 0.82rem; font-weight: 700; padding: 0.8rem 1.25rem; border-radius: 6px; text-decoration: none; display: block; width: 100%; transition: background 0.2s ease; }
+    .cta-card-btn { background: #080808; color: #FFFFFF; font-family: var(--font-body); font-size: 0.82rem; font-weight: 700; padding: 0.8rem 1.25rem; border-radius: 6px; text-decoration: none; display: block; width: 100%; text-align: center; transition: background 0.2s ease; }
     .cta-card-btn:hover { background: var(--c8-blue); }
 
     /* ── RIGHT MAIN CONTENT COLUMN ── */
     .art-content-col { padding: 3.5rem 4rem; background: #FFFFFF; }
 
-    /* AI DEEP SUMMARY BAR WITH OFFICIAL LOGOS INCLUDING PERPLEXITY */
+    /* AI DEEP SUMMARY BAR */
     .ai-summary-bar {
       border: 1px solid var(--c8-grid-line); border-radius: 6px;
       padding: 0.85rem 1.25rem; display: flex; align-items: center; justify-content: space-between;
@@ -151,24 +150,38 @@
     .art-body-text a { color: var(--c8-blue); text-decoration: none; border-bottom: 1px solid var(--c8-blue); transition: color 0.2s ease; }
     .art-body-text a:hover { color: var(--c8-blue-hi); border-color: var(--c8-blue-hi); }
 
-    /* ARCHITECTURAL GRID DATA TABLE DESIGN */
+    /* ── HIGH-END ARCHITECTURAL PAPER DATA TABLE DESIGN ── */
+    .art-table-wrapper {
+      margin: 2.5rem 0;
+      border: 1px solid var(--c8-grid-line);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      background: #FFFFFF;
+    }
     .art-body-text table {
-      width: 100%; border-collapse: collapse; margin: 2.5rem 0;
-      border: 1px solid var(--c8-grid-line); border-radius: 4px; overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); font-size: 0.92rem;
+      width: 100%; border-collapse: collapse; margin: 0; font-size: 0.92rem;
     }
     .art-body-text th {
       background: #080808; color: #FFFFFF; font-family: var(--font-mono);
-      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 1.25rem;
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 1.1rem 1.4rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 2px solid var(--c8-blue);
     }
+    .art-body-text th:last-child { border-right: none; }
     .art-body-text td {
-      padding: 1rem 1.25rem; border-bottom: 1px solid var(--c8-grid-line); border-right: 1px solid var(--c8-grid-line); color: #222222;
+      padding: 1.1rem 1.4rem; border-bottom: 1px solid var(--c8-grid-line); border-right: 1px solid var(--c8-grid-line); color: #222222;
+      transition: background 0.2s ease;
     }
+    .art-body-text td:last-child { border-right: none; }
     .art-body-text tr:nth-child(even) td { background: #FAFAF7; }
+    .art-body-text tr:hover td { background: rgba(0, 71, 225, 0.03); }
     .art-body-text tr:last-child td { border-bottom: none; }
 
-    /* ── SEAMLESS GRID SEQUENCES BELOW MAIN ARTICLE (NO SPACING, CONTINUED GRID LINES) ── */
+    /* STATUS BADGE PILLS */
+    .table-badge-pass { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; color: #0047E1; background: rgba(0, 71, 225, 0.08); border: 1px solid rgba(0, 71, 225, 0.3); padding: 0.2rem 0.6rem; border-radius: 12px; text-transform: uppercase; }
+    .table-badge-fail { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; color: #D97757; background: rgba(217, 119, 87, 0.08); border: 1px solid rgba(217, 119, 87, 0.3); padding: 0.2rem 0.6rem; border-radius: 12px; text-transform: uppercase; }
+
+    /* ── SEAMLESS GRID SEQUENCES BELOW MAIN ARTICLE ── */
     .blog-continued-grid {
       border-top: 1px solid var(--c8-grid-line);
       background: #FFFFFF;
@@ -188,16 +201,16 @@
     .card-title { font-family: var(--font-heading) !important; font-size: 0.8rem !important; font-weight: 700; color: var(--c8-ink); line-height: 1.4; text-transform: uppercase; margin: 0; }
     .card-title a { color: inherit; text-decoration: none; }
 
-    /* EXACT HOMEPAGE ACCORDION FAQ STYLING & PARITY */
+    /* HOMEPAGE ACCORDION FAQ SECTION PARITY */
     .faq-page-section { padding: 4rem; background: #FAFAF7; }
     .faq-page-title { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 2rem; }
     .faq-accordion-item { border: 1px solid var(--c8-grid-line); border-radius: 4px; margin-bottom: 1rem; background: #FFFFFF; overflow: hidden; }
     .faq-accordion-q { font-family: var(--font-heading); font-size: 0.92rem; font-weight: 700; color: var(--c8-ink); padding: 1.25rem 1.6rem; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
     .faq-accordion-a { font-size: 0.92rem; color: #4A4A4A; line-height: 1.65; padding: 0 1.6rem 1.25rem 1.6rem; }
 
-    /* ── MOBILE RESPONSIVENESS (SIDEBAR CTA HIDDEN ON MOBILE, SHARE MAINTAINED) ── */
+    /* ── MOBILE RESPONSIVENESS ── */
     @media (max-width: 860px) {
-      .art-outer-frame { padding-top: 2rem; }
+      .art-outer-frame { margin: 1rem 0.5rem 0rem 0.5rem; padding-top: 2rem; }
       .art-grid-layout { grid-template-columns: 1fr; }
       .art-sidebar-col { position: static; border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 1.5rem; }
       .sidebar-cta-card { display: none !important; }
@@ -211,233 +224,246 @@
 </head>
 <body>
 
-  <!-- OUTER WRAPPER WITH 5PX PADDING -->
-  <div class="art-outer-wrapper">
+  <!-- FULL-WIDTH OUTER PAPER FRAME (MARGIN 2.5REM 1REM 0REM 1REM) -->
+  <main class="art-outer-frame">
     
-    <!-- FULL-WIDTH OUTER PAPER FRAME (1360px MAX WIDTH WITH BORDER) -->
-    <main class="art-outer-frame">
+    <!-- TOP HERO BANNER -->
+    <header class="art-hero-banner">
+      <span class="art-cat-pill">Liquid Performance Engineering</span>
+      <h1 class="art-h1">What Liquid Performance Means For Modern Web Platforms</h1>
+      <div class="art-meta-date">Published August 4, 2026 · 5 Min Read · By Cr8v Stacks Engineering</div>
+    </header>
+
+    <!-- INTEGRATED 2-COLUMN GRID -->
+    <div class="art-grid-layout">
       
-      <!-- TOP HERO BANNER -->
-      <header class="art-hero-banner">
-        <span class="art-cat-pill">Liquid Performance Engineering</span>
-        <h1 class="art-h1">What Liquid Performance Means For Modern Web Platforms</h1>
-        <div class="art-meta-date">Published August 4, 2026 · 5 Min Read · By Cr8v Stacks Engineering</div>
-      </header>
-
-      <!-- INTEGRATED 2-COLUMN GRID -->
-      <div class="art-grid-layout">
+      <!-- LEFT SIDEBAR (STICKY ON DESKTOP, CTA HIDDEN ON MOBILE) -->
+      <aside class="art-sidebar-col">
         
-        <!-- LEFT SIDEBAR (STICKY ON DESKTOP, CTA HIDDEN ON MOBILE) -->
-        <aside class="art-sidebar-col">
+        <!-- DYNAMIC SHARE BUTTONS BAR USING OFFICIAL CDN LOGOS -->
+        <div class="share-block">
+          <div class="share-label">SHARE THIS ARTICLE</div>
+          <div class="share-row">
+            <button class="share-btn" onclick="shareArticle('x')" title="Share on X">
+              <img src="https://cdn.simpleicons.org/x/080808" alt="X">
+            </button>
+            <button class="share-btn" onclick="shareArticle('linkedin')" title="Share on LinkedIn">
+              <img src="https://cdn.simpleicons.org/linkedin/080808" alt="LinkedIn">
+            </button>
+            <button class="share-btn" onclick="shareArticle('facebook')" title="Share on Facebook">
+              <img src="https://cdn.simpleicons.org/facebook/080808" alt="Facebook">
+            </button>
+            <button class="share-btn" onclick="shareArticle('whatsapp')" title="Share on WhatsApp">
+              <img src="https://cdn.simpleicons.org/whatsapp/080808" alt="WhatsApp">
+            </button>
+            <button class="share-btn" onclick="shareArticle('telegram')" title="Share on Telegram">
+              <img src="https://cdn.simpleicons.org/telegram/080808" alt="Telegram">
+            </button>
+            <button class="share-btn" onclick="shareArticle('reddit')" title="Share on Reddit">
+              <img src="https://cdn.simpleicons.org/reddit/080808" alt="Reddit">
+            </button>
+            <button class="share-btn" id="copy-btn" onclick="copyArticleLink()" title="Copy Link">
+              <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- LEFT-ALIGNED SIDEBAR CTA CARD -->
+        <div class="sidebar-cta-card">
+          <!-- 36PX CTA LOGO CONTAINERS WITH 24PX LOGO IMAGES INCLUDING DARK OPENAI CDN -->
+          <div class="cta-logos-row">
+            <div class="cta-logo-icon" title="Shopify"><img src="https://cdn.simpleicons.org/shopify/FFFFFF" alt="Shopify"></div>
+            <div class="cta-logo-icon" title="WordPress"><img src="https://cdn.simpleicons.org/wordpress/FFFFFF" alt="WordPress"></div>
+            <div class="cta-logo-icon" title="Claude"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude"></div>
+            <div class="cta-logo-icon" title="OpenAI"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/dark.svg" alt="OpenAI"></div>
+          </div>
           
-          <!-- DYNAMIC SHARE BUTTONS BAR WITH ICONS -->
-          <div class="share-block">
-            <div class="share-label">SHARE THIS ARTICLE</div>
-            <div class="share-row">
-              <button class="share-btn" onclick="shareArticle('x')" title="Share on X">X</button>
-              <button class="share-btn" onclick="shareArticle('linkedin')" title="Share on LinkedIn">in</button>
-              <button class="share-btn" onclick="shareArticle('facebook')" title="Share on Facebook">f</button>
-              <button class="share-btn" onclick="shareArticle('whatsapp')" title="Share on WhatsApp">wa</button>
-              <button class="share-btn" onclick="shareArticle('telegram')" title="Share on Telegram">tg</button>
-              <button class="share-btn" onclick="shareArticle('reddit')" title="Share on Reddit">r/</button>
-              <button class="share-btn" id="copy-btn" onclick="copyArticleLink()" title="Copy Link">
-                <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </div>
+          <div class="cta-trust-label">ENGINEERED ON MODERN STACKS</div>
+
+          <!-- UNIQUE GRAPHIC ILLUSTRATION BADGE -->
+          <div class="cta-illustration">
+            <img src="assets/cta_stack_arc_1785737168854.jpg" alt="Cr8v Stacks Visual Badge">
           </div>
 
-          <!-- SIDEBAR CTA CARD (EXACT SCREENSHOT PARITY, HIDDEN ON MOBILE) -->
-          <div class="sidebar-cta-card">
-            <!-- TECH STACK LOGOS ROW INCLUDING CORRECT LIGHT OPENAI & OFFICIAL CLAUDE LOGO -->
-            <div class="cta-logos-row">
-              <div class="cta-logo-icon" title="Shopify"><img src="https://cdn.simpleicons.org/shopify/FFFFFF" alt="Shopify"></div>
-              <div class="cta-logo-icon" title="WordPress"><img src="https://cdn.simpleicons.org/wordpress/FFFFFF" alt="WordPress"></div>
-              <div class="cta-logo-icon" title="Claude"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude"></div>
-              <div class="cta-logo-icon" title="OpenAI"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/light.svg" alt="OpenAI"></div>
-            </div>
-            
-            <div class="cta-trust-label">ENGINEERED ON MODERN STACKS</div>
+          <h3 class="cta-card-title">Your design + build partner</h3>
+          <p class="cta-card-sub">Product, websites, and brand — designed and shipped by one senior team.</p>
 
-            <!-- UNIQUE GRAPHIC ILLUSTRATION BADGE -->
-            <div class="cta-illustration">
-              <img src="assets/cta_stack_arc_1785737168854.jpg" alt="Cr8v Stacks Visual Badge">
-            </div>
+          <a href="discovery-call.html" class="cta-card-btn">Book an intro call</a>
+        </div>
 
-            <h3 class="cta-card-title">Your design + build partner</h3>
-            <p class="cta-card-sub">Product, websites, and brand — designed and shipped by one senior team.</p>
+      </aside>
 
-            <a href="discovery-call.html" class="cta-card-btn">Book an intro call</a>
+      <!-- RIGHT MAIN CONTENT COLUMN -->
+      <article class="art-content-col">
+        
+        <!-- TOP AI DEEP SUMMARY BAR -->
+        <div class="ai-summary-bar">
+          <span class="ai-summary-text">AI DEEP SUMMARY</span>
+          <div class="ai-summary-icons">
+            <button class="ai-icon-btn" onclick="triggerAISummary('chatgpt')" title="Extract Summary with ChatGPT"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/light.svg" alt="ChatGPT"></button>
+            <button class="ai-icon-btn" onclick="triggerAISummary('claude')" title="Extract Summary with Claude"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude"></button>
+            <button class="ai-icon-btn" onclick="triggerAISummary('gemini')" title="Extract Summary with Google Gemini"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/gemini/default.svg" alt="Gemini"></button>
+            <button class="ai-icon-btn" onclick="triggerAISummary('perplexity')" title="Extract Summary with Perplexity AI"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/perplexity/default.svg" alt="Perplexity"></button>
+          </div>
+        </div>
+
+        <div class="art-featured-box">
+          <img src="assets/case_study_blvck_hair_1785571402640.jpg" alt="Liquid Performance Architecture" class="art-featured-img">
+        </div>
+
+        <!-- COMPLETE PRE-STYLED BLOG ELEMENT DESIGN SYSTEM -->
+        <div class="art-body-text">
+          <p>Our own site runs on custom zero-plugin architecture. That's not a casual detail — it's the result of a deliberate decision about what a design studio's marketing site needs to be, and it's the reason I have strong opinions about who liquid performance engineering is right for and who it isn't.</p>
+
+          <h1>Heading 1 Architecture Showcase</h1>
+          <p>Zero-plugin custom development is the best tool I've used for building fast, beautiful, design-forward marketing sites. It's also genuinely not the right home for every single blog on earth. So before I walk through the migration, I want to be straight with you about when this move actually makes sense, because the wrong migration is worse than no migration.</p>
+
+          <h2>Heading 2 Section Hierarchy</h2>
+          <p>Custom framework theme engineering started as a prototyping approach and grew into a full site paradigm. The canvas behaves the way designers think, the animation and interaction capabilities are excellent without code bloat, and the output is fast.</p>
+
+          <h3>Heading 3 Benchmark Features</h3>
+          <ul>
+            <li><strong>Marketing and brand sites</strong> — homepages, product pages, landing pages, campaign sites</li>
+            <li><strong>Startup sites that need to look exceptional</strong> and ship quickly</li>
+            <li><strong>SEO Authority platforms</strong> — zero layout shift (CLS &lt; 0.01) with sub-50ms INP execution</li>
+          </ul>
+
+          <h4>Heading 4 Detail Element</h4>
+          <p>Inline links are styled cleanly using our agency brand color: <a href="#">Learn more about zero-plugin performance</a>.</p>
+
+          <h5>Heading 5 Sub-Detail Pill</h5>
+          <div class="art-ui-buttons">
+            <a href="discovery-call.html" class="art-btn-primary">Primary Action Button</a>
+            <a href="Contact_us.html" class="art-btn-secondary">Secondary Action Button</a>
           </div>
 
-        </aside>
+          <!-- BLOCKQUOTE: NO LEFT ACCENT BORDER! CLEAN PAPER CARD CALLOUT -->
+          <blockquote style="border-left:none;">
+            "Liquid performance engineering is the discipline of stripping away framework bloat, writing native theme code, and delivering 100% Core Web Vitals pass rates on launch day."
+          </blockquote>
 
-        <!-- RIGHT MAIN CONTENT COLUMN -->
-        <article class="art-content-col">
-          
-          <!-- TOP AI DEEP SUMMARY BAR WITH PERPLEXITY & OFFICIAL LOGOS -->
-          <div class="ai-summary-bar">
-            <span class="ai-summary-text">AI DEEP SUMMARY</span>
-            <div class="ai-summary-icons">
-              <button class="ai-icon-btn" onclick="triggerAISummary('chatgpt')" title="Extract Summary with ChatGPT"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/light.svg" alt="ChatGPT"></button>
-              <button class="ai-icon-btn" onclick="triggerAISummary('claude')" title="Extract Summary with Claude"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude"></button>
-              <button class="ai-icon-btn" onclick="triggerAISummary('gemini')" title="Extract Summary with Google Gemini"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/gemini/default.svg" alt="Gemini"></button>
-              <button class="ai-icon-btn" onclick="triggerAISummary('perplexity')" title="Extract Summary with Perplexity AI"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/perplexity/default.svg" alt="Perplexity"></button>
-            </div>
-          </div>
+          <h6>Heading 6 Category Tag</h6>
 
-          <div class="art-featured-box">
-            <img src="assets/case_study_blvck_hair_1785571402640.jpg" alt="Liquid Performance Architecture" class="art-featured-img">
-          </div>
-
-          <!-- COMPLETE PRE-STYLED BLOG ELEMENT DESIGN SYSTEM -->
-          <div class="art-body-text">
-            <p>Our own site runs on custom zero-plugin architecture. That's not a casual detail — it's the result of a deliberate decision about what a design studio's marketing site needs to be, and it's the reason I have strong opinions about who liquid performance engineering is right for and who it isn't.</p>
-
-            <h1>Heading 1 Architecture Showcase</h1>
-            <p>Zero-plugin custom development is the best tool I've used for building fast, beautiful, design-forward marketing sites. It's also genuinely not the right home for every single blog on earth. So before I walk through the migration, I want to be straight with you about when this move actually makes sense, because the wrong migration is worse than no migration.</p>
-
-            <h2>Heading 2 Section Hierarchy</h2>
-            <p>Custom framework theme engineering started as a prototyping approach and grew into a full site paradigm. The canvas behaves the way designers think, the animation and interaction capabilities are excellent without code bloat, and the output is fast.</p>
-
-            <h3>Heading 3 Benchmark Features</h3>
-            <ul>
-              <li><strong>Marketing and brand sites</strong> — homepages, product pages, landing pages, campaign sites</li>
-              <li><strong>Startup sites that need to look exceptional</strong> and ship quickly</li>
-              <li><strong>SEO Authority platforms</strong> — zero layout shift (CLS &lt; 0.01) with sub-50ms INP execution</li>
-            </ul>
-
-            <h4>Heading 4 Detail Element</h4>
-            <p>Inline links are styled cleanly using our agency brand color: <a href="#">Learn more about zero-plugin performance</a>.</p>
-
-            <h5>Heading 5 Sub-Detail Pill</h5>
-            <div class="art-ui-buttons">
-              <a href="discovery-call.html" class="art-btn-primary">Primary Action Button</a>
-              <a href="Contact_us.html" class="art-btn-secondary">Secondary Action Button</a>
-            </div>
-
-            <!-- BLOCKQUOTE: NO LEFT ACCENT BORDER! CLEAN PAPER CARD CALLOUT -->
-            <blockquote style="border-left:none;">
-              "Liquid performance engineering is the discipline of stripping away framework bloat, writing native theme code, and delivering 100% Core Web Vitals pass rates on launch day."
-            </blockquote>
-
-            <h6>Heading 6 Category Tag</h6>
-
-            <!-- ARCHITECTURAL GRID DATA TABLE DESIGN -->
+          <!-- HIGH-END ARCHITECTURAL PAPER DATA TABLE -->
+          <div class="art-table-wrapper">
             <table>
               <thead>
                 <tr>
-                  <th>Framework</th>
+                  <th>Architecture Stack</th>
                   <th>Core Web Vitals</th>
                   <th>DOM Node Count</th>
                   <th>Plugin Count</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Cr8v Stacks Native Theme</td>
-                  <td>100 / 100 (Pass)</td>
+                  <td><strong>Cr8v Stacks Native Theme</strong></td>
+                  <td>100 / 100</td>
                   <td>&lt; 450 Nodes</td>
                   <td>0 Plugins</td>
+                  <td><span class="table-badge-pass">PASS (OPTIMAL)</span></td>
                 </tr>
                 <tr>
-                  <td>Legacy Page Builder</td>
-                  <td>42 / 100 (Fail)</td>
+                  <td><strong>Legacy Page Builder</strong></td>
+                  <td>42 / 100</td>
                   <td>&gt; 2,800 Nodes</td>
                   <td>18+ Plugins</td>
+                  <td><span class="table-badge-fail">FAIL (BLOCKED)</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
+        </div>
 
-        </article>
+      </article>
 
-      </div>
+    </div>
 
-      <!-- SEAMLESS GRID SEQUENCES BELOW MAIN ARTICLE (NO SPACING, CONTINUED GRID LINES) -->
-      <div class="blog-continued-grid">
+    <!-- SEAMLESS GRID SEQUENCES BELOW MAIN ARTICLE -->
+    <div class="blog-continued-grid">
+      
+      <!-- RELATED ARTICLES SECTION (3-COLUMN 0.8REM TITLE, NO EXCERPT, NO READ MORE) -->
+      <section class="related-section">
+        <h2 class="related-title">Related Articles &amp; Case Studies</h2>
         
-        <!-- RELATED ARTICLES SECTION (3-COLUMN 0.8REM TITLE, NO EXCERPT, NO READ MORE) -->
-        <section class="related-section">
-          <h2 class="related-title">Related Articles &amp; Case Studies</h2>
+        <div class="related-grid-frame">
           
-          <div class="related-grid-frame">
-            
-            <article class="related-card">
-              <div>
-                <div class="card-top-meta">
-                  <span class="card-date">July 28, 2026</span>
-                  <span class="card-category-pill">ENTITY SEO</span>
-                </div>
-                <div class="card-img-container">
-                  <img src="assets/case_study_duch_apartments_1785571416702.jpg" alt="Entity SEO Architecture" class="card-img">
-                </div>
-                <h2 class="card-title"><a href="single-blog.html?id=2">Entity SEO Architecture: Indexing For Authority</a></h2>
+          <article class="related-card">
+            <div>
+              <div class="card-top-meta">
+                <span class="card-date">July 28, 2026</span>
+                <span class="card-category-pill">ENTITY SEO</span>
               </div>
-            </article>
-
-            <article class="related-card">
-              <div>
-                <div class="card-top-meta">
-                  <span class="card-date">July 19, 2026</span>
-                  <span class="card-category-pill">AI MVPS</span>
-                </div>
-                <div class="card-img-container">
-                  <img src="assets/case_study_bridgepoint_compliance_1785571461489.jpg" alt="AI Platforms" class="card-img">
-                </div>
-                <h2 class="card-title"><a href="single-blog.html?id=3">Architecting Custom AI Dashboards For Handover</a></h2>
+              <div class="card-img-container">
+                <img src="assets/case_study_duch_apartments_1785571416702.jpg" alt="Entity SEO Architecture" class="card-img">
               </div>
-            </article>
+              <h2 class="card-title"><a href="single-blog.html?id=2">Entity SEO Architecture: Indexing For Authority</a></h2>
+            </div>
+          </article>
 
-            <article class="related-card">
-              <div>
-                <div class="card-top-meta">
-                  <span class="card-date">July 10, 2026</span>
-                  <span class="card-category-pill">DESIGN</span>
-                </div>
-                <div class="card-img-container">
-                  <img src="assets/services_visual_montage_1785579924010.jpg" alt="UI Micro-Animations" class="card-img">
-                </div>
-                <h2 class="card-title"><a href="single-blog.html?id=4">Micro-Animations That Convert: Designing For Retention</a></h2>
+          <article class="related-card">
+            <div>
+              <div class="card-top-meta">
+                <span class="card-date">July 19, 2026</span>
+                <span class="card-category-pill">AI MVPS</span>
               </div>
-            </article>
+              <div class="card-img-container">
+                <img src="assets/case_study_bridgepoint_compliance_1785571461489.jpg" alt="AI Platforms" class="card-img">
+              </div>
+              <h2 class="card-title"><a href="single-blog.html?id=3">Architecting Custom AI Dashboards For Handover</a></h2>
+            </div>
+          </article>
 
-          </div>
-        </section>
+          <article class="related-card">
+            <div>
+              <div class="card-top-meta">
+                <span class="card-date">July 10, 2026</span>
+                <span class="card-category-pill">DESIGN</span>
+              </div>
+              <div class="card-img-container">
+                <img src="assets/services_visual_montage_1785579924010.jpg" alt="UI Micro-Animations" class="card-img">
+              </div>
+              <h2 class="card-title"><a href="single-blog.html?id=4">Micro-Animations That Convert: Designing For Retention</a></h2>
+            </div>
+          </article>
 
-        <!-- HOMEPAGE ACCORDION FAQ SECTION PARITY -->
-        <section class="faq-page-section">
-          <h2 class="faq-page-title">Agency Business &amp; Build FAQ</h2>
+        </div>
+      </section>
 
-          <div class="faq-accordion-item">
-            <div class="faq-accordion-q">How do you handle client handovers after build completion? <span>+</span></div>
-            <div class="faq-accordion-a">Every custom build comes with full white-label WordPress admin tools (like Nativus Dashboard Pro), complete video walkthroughs, and 30 days of direct developer support.</div>
-          </div>
+      <!-- HOMEPAGE ACCORDION FAQ SECTION PARITY -->
+      <section class="faq-page-section">
+        <h2 class="faq-page-title">Agency Business &amp; Build FAQ</h2>
 
-          <div class="faq-accordion-item">
-            <div class="faq-accordion-q">What is your typical build timeline for custom websites? <span>+</span></div>
-            <div class="faq-accordion-a">Custom website design and engineering projects are typically completed in 3 to 5 weeks from initial scope approval to live production deployment.</div>
-          </div>
+        <div class="faq-accordion-item">
+          <div class="faq-accordion-q">How do you handle client handovers after build completion? <span>+</span></div>
+          <div class="faq-accordion-a">Every custom build comes with full white-label WordPress admin tools (like Nativus Dashboard Pro), complete video walkthroughs, and 30 days of direct developer support.</div>
+        </div>
 
-          <div class="faq-accordion-item">
-            <div class="faq-accordion-q">Are SEO settings folded into the code from day one? <span>+</span></div>
-            <div class="faq-accordion-a">Yes. Entity SEO architecture, schema markup, semantic keyword mapping, and OpenGraph tags are coded directly into theme files before launch.</div>
-          </div>
+        <div class="faq-accordion-item">
+          <div class="faq-accordion-q">What is your typical build timeline for custom websites? <span>+</span></div>
+          <div class="faq-accordion-a">Custom website design and engineering projects are typically completed in 3 to 5 weeks from initial scope approval to live production deployment.</div>
+        </div>
 
-          <div class="faq-accordion-item">
-            <div class="faq-accordion-q">Can we edit site content without third-party plugins? <span>+</span></div>
-            <div class="faq-accordion-a">Yes. All page headlines, testimonials, imagery, and button URLs are connected to native WordPress meta boxes registered directly inside theme code.</div>
-          </div>
+        <div class="faq-accordion-item">
+          <div class="faq-accordion-q">Are SEO settings folded into the code from day one? <span>+</span></div>
+          <div class="faq-accordion-a">Yes. Entity SEO architecture, schema markup, semantic keyword mapping, and OpenGraph tags are coded directly into theme files before launch.</div>
+        </div>
 
-          <div class="faq-accordion-item">
-            <div class="faq-accordion-q">Do you provide ongoing technical support post-launch? <span>+</span></div>
-            <div class="faq-accordion-a">We offer dedicated monthly retainer plans for continuous feature development, security audits, and performance optimization.</div>
-          </div>
-        </section>
+        <div class="faq-accordion-item">
+          <div class="faq-accordion-q">Can we edit site content without third-party plugins? <span>+</span></div>
+          <div class="faq-accordion-a">Yes. All page headlines, testimonials, imagery, and button URLs are connected to native WordPress meta boxes registered directly inside theme code.</div>
+        </div>
 
-      </div>
+        <div class="faq-accordion-item">
+          <div class="faq-accordion-q">Do you provide ongoing technical support post-launch? <span>+</span></div>
+          <div class="faq-accordion-a">We offer dedicated monthly retainer plans for continuous feature development, security audits, and performance optimization.</div>
+        </div>
+      </section>
 
-    </main>
-  </div>
+    </div>
+
+  </main>
 
   <!-- DYNAMIC SHARE & AI SUMMARY JAVASCRIPT CONTROLLER -->
   <script>
