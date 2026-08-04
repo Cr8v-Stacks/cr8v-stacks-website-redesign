@@ -85,7 +85,7 @@
       border: none;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0, 71, 225, 0.22);
+      /* box-shadow removed */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: inline-flex;
       align-items: center;
@@ -120,7 +120,7 @@
     .tmn-schedule-btn:hover,
     .faq-cta-link:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(0, 71, 225, 0.35);
+      /* box-shadow removed */
     }
 
     *, *::before, *::after {
@@ -230,21 +230,19 @@
     }
 
     .c8-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--c8-blue);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      margin-bottom: 1.2rem;
-      padding: 5px 14px;
-      background: var(--c8-blue-lite);
-      border-radius: 4px;
-      border: 1px solid rgba(0, 71, 225, 0.18);
-    }
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c8-blue);
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin-bottom: 1.5rem;
+}
     .c8-eyebrow-slash {
       color: var(--c8-blue);
       font-weight: 700;
@@ -537,7 +535,7 @@
     }
 
     .sw-case-section {
-      padding: 7.5rem 3.5rem;
+    padding: 5rem 3.5rem;
       min-height: 85vh;
       display: flex;
       align-items: center;
@@ -669,7 +667,7 @@
       border-radius: 4px;
       overflow: visible; /* Allow stat card to overflow edge */
       background: #080808;
-      box-shadow: 0 24px 60px rgba(0, 71, 225, 0.12);
+      /* box-shadow removed */
       border: 1px solid rgba(0, 0, 0, 0.08);
     }
 
@@ -694,10 +692,10 @@
       background: #FFFFFF;
       border-radius: 4px;
       padding: 1rem 1.25rem;
-      box-shadow: 0 8px 32px rgba(0, 71, 225, 0.15), 0 2px 8px rgba(0,0,0,0.08);
+      /* box-shadow removed */
       text-align: right;
       min-width: 160px;
-      border: 1px solid rgba(0, 71, 225, 0.12);
+      border: none !important;
       z-index: 20;
     }
 
@@ -809,7 +807,7 @@
       background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(0, 71, 225, 0.22);
+      border: none !important;
       box-shadow: 0 16px 48px rgba(0, 71, 225, 0.18);
       padding: 8px 16px;
       gap: 1rem;
@@ -1608,7 +1606,7 @@
     .sdv-item-tag.tag-build {
       background: rgba(0, 71, 225, 0.18);
       color: var(--c8-blue);
-      border: 1px solid rgba(0, 71, 225, 0.3);
+      border: none !important;
     }
 
     .sdv-item-tag.tag-growth {
@@ -2222,7 +2220,7 @@
       height: 32px;
       border-radius: 4px;
       background: rgba(0,71,225,0.07);
-      border: 1px solid rgba(0,71,225,0.12);
+      border: none !important;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2573,7 +2571,7 @@
     .hww-card-white  { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.07); padding: 1.75rem; }
     .hww-card-blue   { background: var(--c8-blue); padding: 1.75rem; }
     .hww-card-dark   { background: #0A0A0A; padding: 1.75rem; }
-    .hww-card-light  { background: #EAECF5; border: 1px solid rgba(0,71,225,0.08); padding: 1.75rem; }
+    .hww-card-light  { background: #EAECF5; border: none !important; padding: 1.75rem; }
 
     /* Grid placement */
     .hww-c1 { grid-column: 1; grid-row: 1; }
@@ -2931,7 +2929,7 @@
         font-size: 0.62rem;
         color: var(--c8-blue);
         background: rgba(0,71,225,0.15);
-        border: 1px solid rgba(0,71,225,0.3);
+        border: none !important;
         padding: 0.25rem 0.6rem;
         border-radius: 4px;
       }
@@ -3712,8 +3710,8 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--c8-blue);
-      background: rgba(0, 71, 225, 0.06);
-      border: 1px solid rgba(0, 71, 225, 0.2);
+      background: transparent !important;
+      border: none !important;
       padding: 0.4rem 1.1rem;
       border-radius: 4px;
       margin-bottom: 1.5rem;

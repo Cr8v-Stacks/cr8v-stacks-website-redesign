@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a 30-Min Discovery Call — Cr8v Stacks</title>
+  <meta name="description" content="Book a 30-minute Discovery Call with Cr8v Stacks to scope your web design, AI MVP, or custom development project.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Michroma&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #080808;
+      --paper: #F2F1EC;
+      --paper-hi: #FAFAF7;
+      --blue: #0047E1;
+      --blue-mid: #0038C0;
+      --blue-hi: #4A9EFF;
+      --gray: #8A8A8A;
+      --line: rgba(8, 8, 8, 0.14);
+      --radius: 4px;
+      --font-heading: 'Michroma', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    * , *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--ink);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    .c8dc-wrap {
+      position: relative;
+      background: var(--ink);
+      overflow: hidden;
+      padding: 5rem 2rem;
+      min-height: 100vh;
+    }
+    .c8dc-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 15% 15%, rgba(0,71,225,0.4) 0%, transparent 50%), radial-gradient(circle at 90% 85%, rgba(0,56,192,0.25) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .c8dc-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 140px 140px;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .c8dc-card {
+      position: relative;
+      z-index: 1;
+      max-width: 1040px;
+      margin: 0 auto;
+      background: var(--paper);
+      padding: clamp(2.5rem, 5vw, 4.5rem);
+      border-radius: var(--radius);
+      overflow: visible;
+    }
+    .c8dc-card::before, .c8dc-card::after {
+      content: '';
+      position: absolute;
+      left: 8px; right: 8px;
+      background: rgba(255,255,255,0.05);
+      z-index: -1;
+    }
+    .c8dc-card::before { bottom: -10px; left: 20px; right: 20px; background: rgba(255,255,255,0.08); }
+    .c8dc-card::after { bottom: -20px; left: 32px; right: 32px; background: rgba(255,255,255,0.045); }
+
+    .c8dc-stamp {
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      width: 82px;
+      height: 82px;
+      border: 1.5px dashed rgba(8,8,8,0.32);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-9deg);
+      text-align: center;
+    }
+    .c8dc-stamp span {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      line-height: 1.4;
+    }
+
+    .c8dc-tag {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+    }
+    .c8dc-tag::before {
+      content: '';
+      width: 16px;
+      height: 1px;
+      background: var(--blue);
+    }
+
+    .c8dc-h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+      line-height: 1.15;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+      margin-bottom: 1rem;
+    }
+    .c8dc-lede {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #4a4a4a;
+      font-weight: 300;
+      max-width: 650px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Pillars Grid */
+    .c8dc-pillars-title {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 1rem;
+    }
+    .c8dc-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .c8dc-pillar {
+      background: rgba(8, 8, 8, 0.03);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.4rem;
+    }
+    .c8dc-pillar-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--blue);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .c8dc-pillar-head {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+    .c8dc-pillar-body {
+      font-size: 0.82rem;
+      color: #555555;
+      line-height: 1.5;
+    }
+
+    /* Testimonial Quote Box */
+    .c8dc-testi-box {
+      background: var(--paper-hi);
+      border-left: 3px solid var(--blue);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .c8dc-testi-quote {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: #333333;
+      margin-bottom: 0.4rem;
+    }
+    .c8dc-testi-author {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    /* Perforated tear line */
+    .c8dc-tear {
+      position: relative;
+      margin: 2.5rem -4.5rem;
+      border-top: 2px dashed rgba(8,8,8,0.28);
+    }
+    .c8dc-tear::before, .c8dc-tear::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--ink);
+    }
+    .c8dc-tear::before { left: -17px; }
+    .c8dc-tear::after { right: -17px; }
+
+    /* Wide Embed Container */
+    .c8dc-booking-section {
+      margin-top: 2rem;
+    }
+    .c8dc-booking-label {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 1.2rem;
+    }
+    .c8dc-booking-card {
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2rem;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .c8dc-pillars-grid { grid-template-columns: 1fr; }
+      .c8dc-tear { margin: 2rem -2.5rem; }
+      .c8dc-stamp { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="c8dc-wrap">
+  <div class="c8dc-card">
+    <div class="c8dc-stamp"><span>30 MIN<br>SCOPING</span></div>
+
+    <div class="c8dc-tag">↳ DISCOVERY CALL</div>
+    <h1 class="c8dc-h1">BOOK A 30-MIN DISCOVERY CALL</h1>
+    <p class="c8dc-lede">A focused 30-minute session to scope your web design, AI MVP, or custom development project — and see if we're the right engineering team for your goals.</p>
+
+    <div class="c8dc-pillars-title">What We Cover in 30 Minutes</div>
+    <div class="c8dc-pillars-grid">
+      <div class="c8dc-pillar">
+        <div class="c8dc-pillar-num">01</div>
+        <div class="c8dc-pillar-head">Scoping &amp; Requirements</div>
+        <div class="c8dc-pillar-body">Understanding your business goals, target audience, and core technical requirements.</div>
+      </div>
+      <div class="c8dc-pillar">
+        <div class="c8dc-pillar-num">02</div>
+        <div class="c8dc-pillar-head">Stack &amp; Architecture</div>
+        <div class="c8dc-pillar-body">Selecting the right platform — WordPress, Shopify, Next.js, AI MVPs, or Supabase.</div>
+      </div>
+      <div class="c8dc-pillar">
+        <div class="c8dc-pillar-num">03</div>
+        <div class="c8dc-pillar-head">Timeline &amp; Pricing</div>
+        <div class="c8dc-pillar-body">Clear scope breakdown, fixed milestone pricing, and zero mid-build surprises.</div>
+      </div>
+      <div class="c8dc-pillar">
+        <div class="c8dc-pillar-num">04</div>
+        <div class="c8dc-pillar-head">Execution Roadmap</div>
+        <div class="c8dc-pillar-body">Answering your technical questions and defining the exact path from brief to launch.</div>
+      </div>
+    </div>
+
+    <div class="c8dc-testi-box">
+      <p class="c8dc-testi-quote">"What stood out was having one team handle strategy, custom development, and brand design without anything getting lost in translation."</p>
+      <div class="c8dc-testi-author">Adaeze Nwosu — Managing Director, Lagos</div>
+    </div>
+
+    <div class="c8dc-tear"></div>
+
+    <!-- Booking Form Full Embed Container -->
+    <div class="c8dc-booking-section">
+      <div class="c8dc-booking-label">Select Date &amp; Time</div>
+      <div class="c8dc-booking-card">
+        <!-- BOOKING PLUGIN EMBED SHORTCODE / IFRAME GOES HERE -->
+        [booking-form-embed]
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
