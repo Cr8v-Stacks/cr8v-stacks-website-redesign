@@ -25,18 +25,19 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 0; margin: 0; }
 
-    /* ── FULL-WIDTH OUTER PAPER WRAPPER (NO DISJOINTED SPACING) ── */
+    /* ── FULL-WIDTH OUTER PAPER FRAME WITH TOP PADDING FOR HEADER NAV SAFETY ── */
     .art-outer-frame {
       max-width: 1360px; margin: 0 auto;
       background: var(--c8-paper-card);
       border-left: 1px solid var(--c8-grid-line);
       border-right: 1px solid var(--c8-grid-line);
+      padding-top: 3.5rem;
       min-height: 100vh;
     }
 
     /* HERO BANNER TOP */
     .art-hero-banner {
-      padding: 4rem 4rem 2.5rem 4rem;
+      padding: 3rem 4rem 2.5rem 4rem;
       border-bottom: 1px solid var(--c8-grid-line);
       background: #FFFFFF;
     }
@@ -60,16 +61,16 @@
       display: grid; grid-template-columns: 340px 1fr;
     }
 
-    /* ── LEFT SIDEBAR (STICKY & EXACT MATCH FOR SCREENSHOT media__1785736249464.png) ── */
+    /* ── LEFT SIDEBAR (STICKY ON DESKTOP, CTA HIDDEN ON MOBILE) ── */
     .art-sidebar-col {
       border-right: 1px solid var(--c8-grid-line);
       padding: 3rem 2rem;
       background: #FAFAF7;
-      position: sticky; top: 0; height: fit-content;
+      position: sticky; top: 1rem; height: fit-content;
       display: flex; flex-direction: column; gap: 2rem;
     }
 
-    /* FUNCTIONAL SHARE BUTTONS */
+    /* DYNAMIC SHARE BUTTONS */
     .share-block { margin-bottom: 0.5rem; }
     .share-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: #8A8A8A; margin-bottom: 0.75rem; font-weight: 700; }
     .share-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
@@ -77,20 +78,20 @@
     .share-btn:hover { background: #080808; color: #FFFFFF; border-color: #080808; }
     .share-btn-copy { width: auto; padding: 0 12px; border-radius: 17px; font-family: var(--font-mono); font-size: 0.68rem; }
 
-    /* SIDEBAR CTA CARD (EXACT SCREENSHOT MATCH) */
+    /* SIDEBAR CTA CARD (MATCHING USER SCREENSHOT & DESIGN SYSTEM) */
     .sidebar-cta-card {
       background: #FFFFFF; border: 1px solid var(--c8-grid-line);
-      border-radius: 8px; padding: 2.25rem 1.5rem; text-align: center;
+      border-radius: 8px; padding: 2rem 1.5rem; text-align: center;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
     }
     .cta-logos-row { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.75rem; }
     .cta-logo-icon { width: 26px; height: 26px; border-radius: 50%; background: #080808; display: flex; align-items: center; justify-content: center; }
     .cta-logo-icon img { width: 14px; height: 14px; }
 
-    .cta-trust-label { font-family: var(--font-mono); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #888888; margin-bottom: 1.5rem; }
+    .cta-trust-label { font-family: var(--font-mono); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #888888; margin-bottom: 1.25rem; }
 
-    .cta-illustration { width: 68px; height: 68px; margin: 0 auto 1.25rem auto; display: flex; align-items: center; justify-content: center; background: rgba(0,71,225,0.08); border-radius: 50%; border: 1px solid rgba(0,71,225,0.2); }
-    .cta-illustration svg { width: 32px; height: 32px; color: var(--c8-blue); }
+    .cta-illustration { width: 84px; height: 84px; margin: 0 auto 1.25rem auto; border-radius: 6px; overflow: hidden; border: 1px solid var(--c8-grid-line); }
+    .cta-illustration img { width: 100%; height: 100%; object-fit: cover; }
 
     .cta-card-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: #080808; margin-bottom: 0.65rem; line-height: 1.3; }
     .cta-card-sub { font-family: var(--font-body); font-size: 0.85rem; color: var(--c8-sub); line-height: 1.5; margin-bottom: 1.5rem; }
@@ -98,10 +99,10 @@
     .cta-card-btn { background: #080808; color: #FFFFFF; font-family: var(--font-body); font-size: 0.82rem; font-weight: 700; padding: 0.8rem 1.25rem; border-radius: 6px; text-decoration: none; display: block; width: 100%; transition: background 0.2s ease; }
     .cta-card-btn:hover { background: var(--c8-blue); }
 
-    /* ── RIGHT CONTENT COLUMN ── */
+    /* ── RIGHT MAIN CONTENT COLUMN ── */
     .art-content-col { padding: 3.5rem 4rem; background: #FFFFFF; }
 
-    /* TOP INTERACTIVE AI SUMMARY BAR (MATCHING SCREENSHOT media__1785736249464.png) */
+    /* AI DEEP SUMMARY BAR */
     .ai-summary-bar {
       border: 1px solid var(--c8-grid-line); border-radius: 6px;
       padding: 0.85rem 1.25rem; display: flex; align-items: center; justify-content: space-between;
@@ -125,19 +126,21 @@
     .art-body-text h4 { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-top: 1.5rem; margin-bottom: 0.5rem; }
     .art-body-text h5, .art-body-text h6 { font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; color: var(--c8-blue); text-transform: uppercase; margin-top: 1.25rem; margin-bottom: 0.5rem; }
 
-    /* BLOCKQUOTE: NO LEFT ACCENT BORDER! CLEAN PAPER CARD CALLOUT */
+    /* BLOCKQUOTE: NO LEFT BORDER! CLEAN PAPER CARD CALLOUT */
     .art-body-text blockquote {
       background: #FAFAF7; border: 1px solid var(--c8-grid-line);
       border-radius: 4px; padding: 1.75rem 2rem; margin: 2.25rem 0;
       font-size: 1.05rem; font-style: italic; color: #111111; line-height: 1.65;
     }
 
-    /* LISTS & CODE BLOCKS */
+    /* LISTS & UI BUTTON SHOWCASE */
     .art-body-text ul, .art-body-text ol { margin: 1.25rem 0 1.75rem 1.75rem; }
     .art-body-text li { font-size: 1rem; line-height: 1.65; color: #222222; margin-bottom: 0.5rem; }
-    .art-body-text code { font-family: var(--font-mono); font-size: 0.85rem; background: #FAFAF7; padding: 0.2rem 0.5rem; border-radius: 3px; border: 1px solid var(--c8-grid-line); color: var(--c8-blue); }
-    .art-body-text pre { background: #080808; color: #FFFFFF; padding: 1.5rem; border-radius: 4px; overflow-x: auto; margin: 2rem 0; font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.6; }
-    .art-body-text pre code { background: transparent; border: none; padding: 0; color: inherit; }
+    
+    .art-ui-buttons { display: flex; gap: 1rem; margin: 2rem 0; flex-wrap: wrap; }
+    .art-btn-primary { background: var(--c8-blue); color: #FFFFFF; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; text-transform: uppercase; }
+    .art-btn-secondary { background: #080808; color: #FFFFFF; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; text-transform: uppercase; }
+
     .art-body-text a { color: var(--c8-blue); text-decoration: none; border-bottom: 1px solid var(--c8-blue); transition: color 0.2s ease; }
     .art-body-text a:hover { color: var(--c8-blue-hi); border-color: var(--c8-blue-hi); }
 
@@ -146,7 +149,7 @@
     .art-body-text th, .art-body-text td { padding: 0.85rem 1.25rem; border: 1px solid var(--c8-grid-line); text-align: left; }
     .art-body-text th { background: #FAFAF7; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--c8-ink); }
 
-    /* ── SEAMLESS GRID SEQUENCES BELOW MAIN ARTICLE (CONTINUED GRID LINES) ── */
+    /* ── SEAMLESS GRID SEQUENCES BELOW MAIN ARTICLE (NO SPACING, CONTINUED GRID LINES) ── */
     .blog-continued-grid {
       border-top: 1px solid var(--c8-grid-line);
       background: #FFFFFF;
@@ -166,23 +169,24 @@
     .card-title { font-family: var(--font-heading) !important; font-size: 0.8rem !important; font-weight: 700; color: var(--c8-ink); line-height: 1.4; text-transform: uppercase; margin: 0; }
     .card-title a { color: inherit; text-decoration: none; }
 
-    /* HOMEPAGE ACCORDION FAQ SECTION BELOW RELATED ARTICLES */
+    /* EXACT HOMEPAGE ACCORDION FAQ STYLING & PARITY */
     .faq-page-section { padding: 4rem; background: #FAFAF7; }
-    .faq-page-title { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 2rem; }
+    .faq-page-title { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 2rem; }
     .faq-accordion-item { border: 1px solid var(--c8-grid-line); border-radius: 4px; margin-bottom: 1rem; background: #FFFFFF; overflow: hidden; }
     .faq-accordion-q { font-family: var(--font-heading); font-size: 0.92rem; font-weight: 700; color: var(--c8-ink); padding: 1.25rem 1.6rem; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
-    .faq-accordion-a { font-size: 0.92rem; color: #4A4A4A; line-height: 1.6; padding: 0 1.6rem 1.25rem 1.6rem; }
+    .faq-accordion-a { font-size: 0.92rem; color: #4A4A4A; line-height: 1.65; padding: 0 1.6rem 1.25rem 1.6rem; }
 
-    .art-footer { text-align: center; font-size: 0.8rem; color: var(--c8-sub); border-top: 1px solid var(--c8-grid-line); padding: 2rem; background: #FFFFFF; }
-
-    @media (max-width: 1024px) {
+    /* ── MOBILE RESPONSIVENESS (SIDEBAR CTA HIDDEN ON MOBILE, SHARE MAINTAINED) ── */
+    @media (max-width: 860px) {
+      .art-outer-frame { padding-top: 2rem; }
       .art-grid-layout { grid-template-columns: 1fr; }
-      .art-sidebar-col { position: static; border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2rem; }
-      .art-content-col { padding: 2.25rem 1.5rem; }
-      .art-hero-banner { padding: 2.5rem 1.5rem; }
+      .art-sidebar-col { position: static; border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 1.5rem; }
+      .sidebar-cta-card { display: none !important; } /* CTA card hidden on mobile */
+      .art-content-col { padding: 2rem 1.25rem; }
+      .art-hero-banner { padding: 2rem 1.25rem; }
       .related-grid-frame { grid-template-columns: 1fr; }
       .related-card { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
-      .faq-page-section, .related-section { padding: 2.5rem 1.5rem; }
+      .faq-page-section, .related-section { padding: 2rem 1.25rem; }
     }
   </style>
 </head>
@@ -201,21 +205,22 @@
     <!-- INTEGRATED 2-COLUMN GRID -->
     <div class="art-grid-layout">
       
-      <!-- LEFT SIDEBAR (STICKY & EXACT MATCH FOR SCREENSHOT media__1785736249464.png) -->
+      <!-- LEFT SIDEBAR (STICKY ON DESKTOP, CTA HIDDEN ON MOBILE) -->
       <aside class="art-sidebar-col">
         
-        <!-- FUNCTIONAL SHARE BUTTONS -->
+        <!-- FUNCTIONAL SHARE BUTTONS (MAINTAINED ON MOBILE) -->
         <div class="share-block">
           <div class="share-label">SHARE THIS ARTICLE</div>
           <div class="share-row">
-            <button class="share-btn" onclick="shareX()" title="Share on X">X</button>
-            <button class="share-btn" onclick="shareLinkedIn()" title="Share on LinkedIn">in</button>
-            <button class="share-btn" onclick="shareFacebook()" title="Share on Facebook">f</button>
+            <button class="share-btn" onclick="shareArticle('x')" title="Share on X">X</button>
+            <button class="share-btn" onclick="shareArticle('linkedin')" title="Share on LinkedIn">in</button>
+            <button class="share-btn" onclick="shareArticle('facebook')" title="Share on Facebook">f</button>
+            <button class="share-btn" onclick="shareArticle('whatsapp')" title="Share on WhatsApp">wa</button>
             <button class="share-btn share-btn-copy" id="copy-btn" onclick="copyArticleLink()" title="Copy Link">COPY LINK</button>
           </div>
         </div>
 
-        <!-- SIDEBAR CTA CARD (EXACT SCREENSHOT MATCH) -->
+        <!-- SIDEBAR CTA CARD (EXACT SCREENSHOT PARITY, HIDDEN ON MOBILE) -->
         <div class="sidebar-cta-card">
           <!-- TECH STACK LOGOS ROW INCLUDING WORKING OPENAI CDN -->
           <div class="cta-logos-row">
@@ -227,8 +232,9 @@
           
           <div class="cta-trust-label">ENGINEERED ON MODERN STACKS</div>
 
+          <!-- UNIQUE TECH GRAPHIC BADGE -->
           <div class="cta-illustration">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <img src="assets/cta_stack_arc_1785737168854.jpg" alt="Cr8v Stacks Architecture">
           </div>
 
           <h3 class="cta-card-title">Your design + build partner</h3>
@@ -242,13 +248,13 @@
       <!-- RIGHT MAIN CONTENT COLUMN -->
       <article class="art-content-col">
         
-        <!-- TOP INTERACTIVE AI SUMMARY BAR (MATCHING SCREENSHOT media__1785736249464.png) -->
+        <!-- TOP DYNAMIC AI DEEP SUMMARY BAR -->
         <div class="ai-summary-bar">
-          <span class="ai-summary-text">SUMMARIZE WITH AI</span>
+          <span class="ai-summary-text">AI DEEP SUMMARY</span>
           <div class="ai-summary-icons">
-            <button class="ai-icon-btn" onclick="summarizeAI('chatgpt')" title="Summarize with ChatGPT"><img src="https://cdn.simpleicons.org/openai/080808" alt="ChatGPT"></button>
-            <button class="ai-icon-btn" onclick="summarizeAI('claude')" title="Summarize with Claude"><img src="https://cdn.simpleicons.org/anthropic/080808" alt="Claude"></button>
-            <button class="ai-icon-btn" onclick="summarizeAI('gemini')" title="Summarize with Google Gemini"><img src="https://cdn.simpleicons.org/google/080808" alt="Gemini"></button>
+            <button class="ai-icon-btn" onclick="triggerAISummary('chatgpt')" title="Extract Summary with ChatGPT"><img src="https://cdn.simpleicons.org/openai/080808" alt="ChatGPT"></button>
+            <button class="ai-icon-btn" onclick="triggerAISummary('claude')" title="Extract Summary with Claude"><img src="https://cdn.simpleicons.org/anthropic/080808" alt="Claude"></button>
+            <button class="ai-icon-btn" onclick="triggerAISummary('gemini')" title="Extract Summary with Google Gemini"><img src="https://cdn.simpleicons.org/google/080808" alt="Gemini"></button>
           </div>
         </div>
 
@@ -260,30 +266,34 @@
         <div class="art-body-text">
           <p>Our own site runs on custom zero-plugin architecture. That's not a casual detail — it's the result of a deliberate decision about what a design studio's marketing site needs to be, and it's the reason I have strong opinions about who liquid performance engineering is right for and who it isn't.</p>
 
-          <h1>1. Architectural Performance Fundamentals</h1>
+          <h1>Heading 1 Architecture Showcase</h1>
           <p>Zero-plugin custom development is the best tool I've used for building fast, beautiful, design-forward marketing sites. It's also genuinely not the right home for every single blog on earth. So before I walk through the migration, I want to be straight with you about when this move actually makes sense, because the wrong migration is worse than no migration.</p>
 
-          <h2>2. What Liquid Engineering Is Actually For</h2>
+          <h2>Heading 2 Section Hierarchy</h2>
           <p>Custom framework theme engineering started as a prototyping approach and grew into a full site paradigm. The canvas behaves the way designers think, the animation and interaction capabilities are excellent without code bloat, and the output is fast.</p>
 
-          <h3>3. Key Performance Benchmarks</h3>
+          <h3>Heading 3 Benchmark Features</h3>
           <ul>
             <li><strong>Marketing and brand sites</strong> — homepages, product pages, landing pages, campaign sites</li>
             <li><strong>Startup sites that need to look exceptional</strong> and ship quickly</li>
             <li><strong>SEO Authority platforms</strong> — zero layout shift (CLS &lt; 0.01) with sub-50ms INP execution</li>
           </ul>
 
+          <h4>Heading 4 Detail Element</h4>
+          <p>Inline links are styled cleanly using our agency brand color: <a href="#">Learn more about zero-plugin performance</a>.</p>
+
+          <h5>Heading 5 Sub-Detail Pill</h5>
+          <div class="art-ui-buttons">
+            <a href="discovery-call.html" class="art-btn-primary">Primary Action Button</a>
+            <a href="Contact_us.html" class="art-btn-secondary">Secondary Action Button</a>
+          </div>
+
           <!-- BLOCKQUOTE: NO LEFT ACCENT BORDER! CLEAN PAPER CARD CALLOUT -->
           <blockquote style="border-left:none;">
             "Liquid performance engineering is the discipline of stripping away framework bloat, writing native theme code, and delivering 100% Core Web Vitals pass rates on launch day."
           </blockquote>
 
-          <h4>4. Implementation Code Example</h4>
-          <pre><code>// Native WordPress Meta Field Registration (functions.php)
-function cr8v_register_hero_meta() {
-    add_meta_box('cr8v_hero_box', 'Hero Settings', 'cr8v_render_meta', 'page', 'normal', 'high');
-}
-add_action('add_meta_boxes', 'cr8v_register_hero_meta');</code></pre>
+          <h6>Heading 6 Category Tag</h6>
 
           <!-- PRE-STYLED DATA TABLE -->
           <table>
@@ -321,7 +331,7 @@ add_action('add_meta_boxes', 'cr8v_register_hero_meta');</code></pre>
       
       <!-- RELATED ARTICLES SECTION (3-COLUMN 0.8REM TITLE, NO EXCERPT, NO READ MORE) -->
       <section class="related-section">
-        <h2 class="related-title">Related Field Notes</h2>
+        <h2 class="related-title">Related Articles &amp; Case Studies</h2>
         
         <div class="related-grid-frame">
           
@@ -367,7 +377,7 @@ add_action('add_meta_boxes', 'cr8v_register_hero_meta');</code></pre>
         </div>
       </section>
 
-      <!-- HOMEPAGE ACCORDION FAQ SECTION -->
+      <!-- HOMEPAGE ACCORDION FAQ SECTION PARITY -->
       <section class="faq-page-section">
         <h2 class="faq-page-title">Agency Business &amp; Build FAQ</h2>
 
@@ -385,30 +395,45 @@ add_action('add_meta_boxes', 'cr8v_register_hero_meta');</code></pre>
           <div class="faq-accordion-q">Are SEO settings folded into the code from day one? <span>+</span></div>
           <div class="faq-accordion-a">Yes. Entity SEO architecture, schema markup, semantic keyword mapping, and OpenGraph tags are coded directly into theme files before launch.</div>
         </div>
-      </section>
 
-      <footer class="art-footer">
-        © 2026 Cr8v Stacks Agency. All Rights Reserved.
-      </footer>
+        <div class="faq-accordion-item">
+          <div class="faq-accordion-q">Can we edit site content without third-party plugins? <span>+</span></div>
+          <div class="faq-accordion-a">Yes. All page headlines, testimonials, imagery, and button URLs are connected to native WordPress meta boxes registered directly inside theme code.</div>
+        </div>
+
+        <div class="faq-accordion-item">
+          <div class="faq-accordion-q">Do you provide ongoing technical support post-launch? <span>+</span></div>
+          <div class="faq-accordion-a">We offer dedicated monthly retainer plans for continuous feature development, security audits, and performance optimization.</div>
+        </div>
+      </section>
 
     </div>
 
   </main>
 
-  <!-- FUNCTIONAL SHARE & SUMMARIZE WITH AI SCRIPTS -->
+  <!-- DYNAMIC SHARE & AI SUMMARY JAVASCRIPT CONTROLLER -->
   <script>
-    const currentTitle = encodeURIComponent(document.title);
-    const currentURL = encodeURIComponent(window.location.href);
+    const shareConfig = {
+      title: document.title,
+      url: window.location.href
+    };
 
-    function shareX() {
-      window.open(`https://twitter.com/intent/tweet?text=${currentTitle}&url=${currentURL}`, '_blank');
+    function shareArticle(network) {
+      const title = encodeURIComponent(shareConfig.title);
+      const url = encodeURIComponent(shareConfig.url);
+      
+      const shareURLs = {
+        x: `https://twitter.com/intent/tweet?text=${title}&url=${url}`,
+        linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+        facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+        whatsapp: `https://api.whatsapp.com/send?text=${title}%20${url}`
+      };
+
+      if (shareURLs[network]) {
+        window.open(shareURLs[network], '_blank');
+      }
     }
-    function shareLinkedIn() {
-      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${currentURL}`, '_blank');
-    }
-    function shareFacebook() {
-      window.open(`https://www.facebook.com/sharer/sharer.php?u=${currentURL}`, '_blank');
-    }
+
     function copyArticleLink() {
       navigator.clipboard.writeText(window.location.href);
       const btn = document.getElementById('copy-btn');
@@ -416,14 +441,17 @@ add_action('add_meta_boxes', 'cr8v_register_hero_meta');</code></pre>
       setTimeout(() => { btn.innerText = 'COPY LINK'; }, 2500);
     }
 
-    function summarizeAI(service) {
-      const promptText = encodeURIComponent(`Summarize this article for me:\nTitle: ${document.title}\nURL: ${window.location.href}\n\nPlease provide:\n1. Executive Summary\n2. Key Architecture Takeaways\n3. Who This Article Is Useful For\n4. Most Actionable Insights`);
-      if (service === 'chatgpt') {
-        window.open(`https://chatgpt.com/?q=${promptText}`, '_blank');
-      } else if (service === 'claude') {
-        window.open(`https://claude.ai/new?q=${promptText}`, '_blank');
-      } else if (service === 'gemini') {
-        window.open(`https://gemini.google.com/app?q=${promptText}`, '_blank');
+    function triggerAISummary(engine) {
+      const promptText = encodeURIComponent(`Analyze and break down this technical article for me:\nTitle: ${document.title}\nSource URL: ${window.location.href}\n\nPlease provide:\n1. Core Architectural Concept & Problem Statement\n2. Key Technical Takeaways & Execution Steps\n3. Target Audience & Who Benefits Most\n4. Immediate Actionable Recommendations`);
+      
+      const aiURLs = {
+        chatgpt: `https://chatgpt.com/?q=${promptText}`,
+        claude: `https://claude.ai/new?q=${promptText}`,
+        gemini: `https://gemini.google.com/app?q=${promptText}`
+      };
+
+      if (aiURLs[engine]) {
+        window.open(aiURLs[engine], '_blank');
       }
     }
   </script>

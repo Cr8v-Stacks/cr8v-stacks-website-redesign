@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Field Notes & Digital Architecture — Cr8v Stacks</title>
+  <title>Articles & Case Studies — Cr8v Stacks</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -23,15 +23,23 @@
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 4rem 2rem 5rem 2rem; }
+    body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 0; margin: 0; }
 
-    /* ── SIMPLE HERO ── */
+    /* ── FULL-WIDTH OUTER PAPER FRAME WITH TOP PADDING FOR HEADER NAV SAFETY ── */
+    .blog-outer-frame {
+      max-width: 1360px; margin: 0 auto;
+      background: var(--c8-paper-bg);
+      padding: 3.5rem 2rem 5rem 2rem;
+      min-height: 100vh;
+    }
+
+    /* ── HERO BANNER ── */
     .blog-header-wrap { max-width: 1360px; margin: 0 auto 2.5rem auto; }
     .blog-eyebrow { font-family: var(--font-mono); font-size: 0.75rem; color: var(--c8-blue); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; margin-bottom: 0.5rem; }
     .blog-title-h1 { font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 1.6rem) !important; font-weight: 700; color: var(--c8-ink); letter-spacing: 0.01em; text-transform: uppercase; margin-bottom: 0.65rem; }
     .blog-subtitle { font-family: var(--font-body); font-size: 0.95rem; color: var(--c8-sub); line-height: 1.55; max-width: 650px; font-weight: 400; }
 
-    /* ── VISIBLE GRID LINES CONTAINER (REFERENCE PARITY) ── */
+    /* ── VISIBLE GRID LINES CONTAINER (ARCHITECTURAL PARITY) ── */
     .blog-grid-frame {
       max-width: 1360px; margin: 0 auto 4rem auto;
       background: var(--c8-paper-card);
@@ -53,22 +61,19 @@
     .blog-grid-card:nth-child(3n) { border-right: none; }
     .blog-grid-card:hover { background: #FAFAF7; }
 
-    /* CARD META TOP (SPACE MONO) */
     .card-top-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
     .card-date { font-family: var(--font-mono); font-size: 0.7rem; color: #8A8A8A; font-weight: 400; }
     .card-category-pill { font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); border: 1px solid rgba(8, 8, 8, 0.3); border-radius: 12px; padding: 0.18rem 0.65rem; letter-spacing: 0.05em; }
 
-    /* FEATURED IMAGE CONTAINER */
     .card-img-container { aspect-ratio: 16 / 10; border-radius: 2px; overflow: hidden; background: #000000; margin-bottom: 1rem; border: 1px solid var(--c8-grid-line); }
     .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
     .blog-grid-card:hover .card-img { transform: scale(1.03); }
 
-    /* CARD TITLE: 0.8REM MICHROMA (NO EXCERPTS, NO READ MORE BUTTON) */
     .card-title { font-family: var(--font-heading) !important; font-size: 0.8rem !important; font-weight: 700; color: var(--c8-ink); line-height: 1.4; text-transform: uppercase; margin: 0; }
     .card-title a { color: inherit; text-decoration: none; }
     .card-title a:hover { color: var(--c8-blue); }
 
-    /* ── BARE CTA SECTION (NO BORDER WIDTH, NO WHITE BG CONTAINER) ── */
+    /* ── BARE CTA SECTION (NO CONTAINER BORDER, NO WHITE CONTAINER BG) ── */
     .blog-cta-section {
       max-width: 1360px; margin: 0 auto;
       text-align: center; padding: 2rem 0;
@@ -77,18 +82,14 @@
     .cta-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.75rem; font-weight: 700; }
     .cta-h2 { font-family: var(--font-heading); font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 700; text-transform: uppercase; line-height: 1.25; margin-bottom: 0.85rem; color: var(--c8-ink); }
     .cta-sub { font-size: 0.9rem; color: var(--c8-sub); line-height: 1.6; margin-bottom: 2rem; }
-    
-    /* BARE EMBED BOX — NO BORDER, NO WHITE BACKGROUND */
     .cta-embed-box { background: transparent; border: none; padding: 0; text-align: left; }
-
-    .blog-footer { max-width: 1360px; margin: 4rem auto 0 auto; text-align: center; font-size: 0.8rem; color: var(--c8-sub); border-top: 1px solid var(--c8-grid-line); padding-top: 1.5rem; }
 
     @media (max-width: 1024px) {
       .blog-grid-frame { grid-template-columns: repeat(2, 1fr); }
       .blog-grid-card:nth-child(2n) { border-right: none; }
     }
     @media (max-width: 680px) {
-      body { padding: 2rem 1rem; }
+      .blog-outer-frame { padding: 2.5rem 1rem 3.5rem 1rem; }
       .blog-grid-frame { grid-template-columns: 1fr; }
       .blog-grid-card { border-right: none !important; }
     }
@@ -96,151 +97,151 @@
 </head>
 <body>
 
-  <!-- HERO BANNER WITH FITTING TITLE & RESTORED DESCRIPTION -->
-  <header class="blog-header-wrap">
-    <div class="blog-eyebrow">// FIELD NOTES &amp; ARCHITECTURE</div>
-    <h1 class="blog-title-h1">FIELD NOTES &amp; DIGITAL ARCHITECTURE</h1>
-    <p class="blog-subtitle">Articles, tutorials, and case study field notes from our development &amp; design team.</p>
-  </header>
-
-  <!-- 3x3 VISIBLE ARCHITECTURAL GRID FRAME (0.8REM MICHROMA TITLE, NO EXCERPT, NO READ MORE) -->
-  <main class="blog-grid-frame">
+  <main class="blog-outer-frame">
     
-    <article class="blog-grid-card">
-      <div>
-        <div class="card-top-meta">
-          <span class="card-date">August 4, 2026</span>
-          <span class="card-category-pill">ENGINEERING</span>
-        </div>
-        <div class="card-img-container">
-          <img src="assets/case_study_blvck_hair_1785571402640.jpg" alt="Liquid Performance Architecture" class="card-img">
-        </div>
-        <h2 class="card-title"><a href="single-blog.html?id=1">What Liquid Performance Means For Modern Web Platforms</a></h2>
-      </div>
-    </article>
+    <!-- HERO BANNER -->
+    <header class="blog-header-wrap">
+      <div class="blog-eyebrow">// ARTICLES &amp; CASE STUDIES</div>
+      <h1 class="blog-title-h1">ARTICLES, TUTORIALS &amp; CASE STUDIES</h1>
+      <p class="blog-subtitle">Technical breakdowns, platform engineering guides, and custom plugin case studies from our core team.</p>
+    </header>
 
-    <article class="blog-grid-card">
-      <div>
-        <div class="card-top-meta">
-          <span class="card-date">July 28, 2026</span>
-          <span class="card-category-pill">ENTITY SEO</span>
+    <!-- 3x3 VISIBLE ARCHITECTURAL GRID FRAME (0.8REM MICHROMA TITLE, NO EXCERPT, NO READ MORE) -->
+    <section class="blog-grid-frame">
+      
+      <article class="blog-grid-card">
+        <div>
+          <div class="card-top-meta">
+            <span class="card-date">August 4, 2026</span>
+            <span class="card-category-pill">ENGINEERING</span>
+          </div>
+          <div class="card-img-container">
+            <img src="assets/case_study_blvck_hair_1785571402640.jpg" alt="Liquid Performance Architecture" class="card-img">
+          </div>
+          <h2 class="card-title"><a href="single-blog.html?id=1">What Liquid Performance Means For Modern Web Platforms</a></h2>
         </div>
-        <div class="card-img-container">
-          <img src="assets/case_study_duch_apartments_1785571416702.jpg" alt="Entity SEO Architecture" class="card-img">
-        </div>
-        <h2 class="card-title"><a href="single-blog.html?id=2">Entity SEO Architecture: Indexing For Authority From Day One</a></h2>
-      </div>
-    </article>
+      </article>
 
-    <article class="blog-grid-card">
-      <div>
-        <div class="card-top-meta">
-          <span class="card-date">July 19, 2026</span>
-          <span class="card-category-pill">AI MVPS</span>
+      <article class="blog-grid-card">
+        <div>
+          <div class="card-top-meta">
+            <span class="card-date">July 28, 2026</span>
+            <span class="card-category-pill">ENTITY SEO</span>
+          </div>
+          <div class="card-img-container">
+            <img src="assets/case_study_duch_apartments_1785571416702.jpg" alt="Entity SEO Architecture" class="card-img">
+          </div>
+          <h2 class="card-title"><a href="single-blog.html?id=2">Entity SEO Architecture: Indexing For Authority From Day One</a></h2>
         </div>
-        <div class="card-img-container">
-          <img src="assets/case_study_bridgepoint_compliance_1785571461489.jpg" alt="AI Platforms" class="card-img">
-        </div>
-        <h2 class="card-title"><a href="single-blog.html?id=3">Architecting Custom AI Dashboards For Client Handover</a></h2>
-      </div>
-    </article>
+      </article>
 
-    <article class="blog-grid-card">
-      <div>
-        <div class="card-top-meta">
-          <span class="card-date">July 10, 2026</span>
-          <span class="card-category-pill">DESIGN</span>
+      <article class="blog-grid-card">
+        <div>
+          <div class="card-top-meta">
+            <span class="card-date">July 19, 2026</span>
+            <span class="card-category-pill">AI MVPS</span>
+          </div>
+          <div class="card-img-container">
+            <img src="assets/case_study_bridgepoint_compliance_1785571461489.jpg" alt="AI Platforms" class="card-img">
+          </div>
+          <h2 class="card-title"><a href="single-blog.html?id=3">Architecting Custom AI Dashboards For Client Handover</a></h2>
         </div>
-        <div class="card-img-container">
-          <img src="assets/services_visual_montage_1785579924010.jpg" alt="UI Micro-Animations" class="card-img">
-        </div>
-        <h2 class="card-title"><a href="single-blog.html?id=4">Micro-Animations That Convert: Designing For Interaction</a></h2>
-      </div>
-    </article>
+      </article>
 
-    <article class="blog-grid-card">
-      <div>
-        <div class="card-top-meta">
-          <span class="card-date">June 29, 2026</span>
-          <span class="card-category-pill">DEBLOATING</span>
+      <article class="blog-grid-card">
+        <div>
+          <div class="card-top-meta">
+            <span class="card-date">July 10, 2026</span>
+            <span class="card-category-pill">DESIGN</span>
+          </div>
+          <div class="card-img-container">
+            <img src="assets/services_visual_montage_1785579924010.jpg" alt="UI Micro-Animations" class="card-img">
+          </div>
+          <h2 class="card-title"><a href="single-blog.html?id=4">Micro-Animations That Convert: Designing For Interaction</a></h2>
         </div>
-        <div class="card-img-container">
-          <img src="assets/hww_process_layers_1785672427589.jpg" alt="Debloating WordPress" class="card-img">
-        </div>
-        <h2 class="card-title"><a href="single-blog.html?id=5">Debloating Legacy WordPress Builds Without Data Loss</a></h2>
-      </div>
-    </article>
+      </article>
 
-    <article class="blog-grid-card">
-      <div>
-        <div class="card-top-meta">
-          <span class="card-date">June 14, 2026</span>
-          <span class="card-category-pill">GLOBAL SEO</span>
+      <article class="blog-grid-card">
+        <div>
+          <div class="card-top-meta">
+            <span class="card-date">June 29, 2026</span>
+            <span class="card-category-pill">DEBLOATING</span>
+          </div>
+          <div class="card-img-container">
+            <img src="assets/hww_process_layers_1785672427589.jpg" alt="Debloating WordPress" class="card-img">
+          </div>
+          <h2 class="card-title"><a href="single-blog.html?id=5">Debloating Legacy WordPress Builds Without Data Loss</a></h2>
         </div>
-        <div class="card-img-container">
-          <img src="assets/hww_workflow_visual_1785672882603.jpg" alt="Global SEO Mapping" class="card-img">
-        </div>
-        <h2 class="card-title"><a href="single-blog.html?id=6">Global SEO Mapping: Multi-Region E-Commerce Infrastructure</a></h2>
-      </div>
-    </article>
+      </article>
 
-    <article class="blog-grid-card">
-      <div>
-        <div class="card-top-meta">
-          <span class="card-date">May 28, 2026</span>
-          <span class="card-category-pill">META FIELDS</span>
+      <article class="blog-grid-card">
+        <div>
+          <div class="card-top-meta">
+            <span class="card-date">June 14, 2026</span>
+            <span class="card-category-pill">GLOBAL SEO</span>
+          </div>
+          <div class="card-img-container">
+            <img src="assets/hww_workflow_visual_1785672882603.jpg" alt="Global SEO Mapping" class="card-img">
+          </div>
+          <h2 class="card-title"><a href="single-blog.html?id=6">Global SEO Mapping: Multi-Region E-Commerce Infrastructure</a></h2>
         </div>
-        <div class="card-img-container">
-          <img src="assets/hww_stacks_visual_1785672004212.jpg" alt="Native Meta Boxes" class="card-img">
-        </div>
-        <h2 class="card-title"><a href="single-blog.html?id=7">Zero-Plugin Meta Field Registration In Native PHP</a></h2>
-      </div>
-    </article>
+      </article>
 
-    <article class="blog-grid-card">
-      <div>
-        <div class="card-top-meta">
-          <span class="card-date">May 12, 2026</span>
-          <span class="card-category-pill">CANVAS ENGINE</span>
+      <article class="blog-grid-card">
+        <div>
+          <div class="card-top-meta">
+            <span class="card-date">May 28, 2026</span>
+            <span class="card-category-pill">META FIELDS</span>
+          </div>
+          <div class="card-img-container">
+            <img src="assets/hww_stacks_visual_1785672004212.jpg" alt="Native Meta Boxes" class="card-img">
+          </div>
+          <h2 class="card-title"><a href="single-blog.html?id=7">Zero-Plugin Meta Field Registration In Native PHP</a></h2>
         </div>
-        <div class="card-img-container">
-          <img src="assets/hww_tools_creative_1785672023197.jpg" alt="60FPS Canvas Sequence" class="card-img">
-        </div>
-        <h2 class="card-title"><a href="single-blog.html?id=8">60FPS Scroll-Bound Canvas Sequences For Product Reveals</a></h2>
-      </div>
-    </article>
+      </article>
 
-    <article class="blog-grid-card">
-      <div>
-        <div class="card-top-meta">
-          <span class="card-date">April 30, 2026</span>
-          <span class="card-category-pill">TICKET STUB</span>
+      <article class="blog-grid-card">
+        <div>
+          <div class="card-top-meta">
+            <span class="card-date">May 12, 2026</span>
+            <span class="card-category-pill">CANVAS ENGINE</span>
+          </div>
+          <div class="card-img-container">
+            <img src="assets/hww_tools_creative_1785672023197.jpg" alt="60FPS Canvas Sequence" class="card-img">
+          </div>
+          <h2 class="card-title"><a href="single-blog.html?id=8">60FPS Scroll-Bound Canvas Sequences For Product Reveals</a></h2>
         </div>
-        <div class="card-img-container">
-          <img src="assets/wwa_studio_visual_1785737190311.jpg" alt="Ticket Stub Architecture" class="card-img">
+      </article>
+
+      <article class="blog-grid-card">
+        <div>
+          <div class="card-top-meta">
+            <span class="card-date">April 30, 2026</span>
+            <span class="card-category-pill">TICKET STUB</span>
+          </div>
+          <div class="card-img-container">
+            <img src="assets/wwa_studio_visual_1785737190311.jpg" alt="Ticket Stub Architecture" class="card-img">
+          </div>
+          <h2 class="card-title"><a href="single-blog.html?id=9">Designing High-Converting Ticket Stub Contact Forms</a></h2>
         </div>
-        <h2 class="card-title"><a href="single-blog.html?id=9">Designing High-Converting Ticket Stub Contact Forms</a></h2>
+      </article>
+
+    </section>
+
+    <!-- BARE CTA SECTION (NO CONTAINER BORDER, NO WHITE CONTAINER BG) -->
+    <section class="blog-cta-section">
+      <div class="blog-cta-inner">
+        <div class="cta-eyebrow">↳ READY TO SCALE YOUR PLATFORM?</div>
+        <h2 class="cta-h2">Book A Discovery Call</h2>
+        <p class="cta-sub">Speak directly with our technical architecture team to scope your custom website build, WooCommerce system, or AI platform integration.</p>
+        
+        <div class="cta-embed-box">
+          [contact-form-7 id="70c8d19" title="Contact Page"]
+        </div>
       </div>
-    </article>
+    </section>
 
   </main>
-
-  <!-- BARE CTA SECTION (NO CONTAINER BORDER, NO WHITE CONTAINER BG) -->
-  <section class="blog-cta-section">
-    <div class="blog-cta-inner">
-      <div class="cta-eyebrow">↳ READY TO SCALE YOUR PLATFORM?</div>
-      <h2 class="cta-h2">Book A Discovery Call</h2>
-      <p class="cta-sub">Speak directly with our technical architecture team to scope your custom website build, WooCommerce system, or AI platform integration.</p>
-      
-      <div class="cta-embed-box">
-        [contact-form-7 id="70c8d19" title="Contact Page"]
-      </div>
-    </div>
-  </section>
-
-  <footer class="blog-footer">
-    © 2026 Cr8v Stacks Agency. All Rights Reserved.
-  </footer>
 
 </body>
 </html>

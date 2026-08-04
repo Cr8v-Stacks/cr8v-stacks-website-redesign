@@ -22,7 +22,14 @@
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 4rem 2rem 5rem 2rem; }
+    body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 0; margin: 0; }
+
+    .blog-outer-frame {
+      max-width: 1360px; margin: 0 auto;
+      background: var(--c8-paper-bg);
+      padding: 3.5rem 2rem 5rem 2rem;
+      min-height: 100vh;
+    }
 
     .blog-header-wrap { max-width: 1360px; margin: 0 auto 2.5rem auto; }
     .blog-eyebrow { font-family: var(--font-mono); font-size: 0.75rem; color: var(--c8-blue); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; margin-bottom: 0.5rem; }
@@ -68,14 +75,12 @@
     .cta-sub { font-size: 0.9rem; color: var(--c8-sub); line-height: 1.6; margin-bottom: 2rem; }
     .cta-embed-box { background: transparent; border: none; padding: 0; text-align: left; }
 
-    .blog-footer { max-width: 1360px; margin: 4rem auto 0 auto; text-align: center; font-size: 0.8rem; color: var(--c8-sub); border-top: 1px solid var(--c8-grid-line); padding-top: 1.5rem; }
-
     @media (max-width: 1024px) {
       .blog-grid-frame { grid-template-columns: repeat(2, 1fr); }
       .blog-grid-card:nth-child(2n) { border-right: none; }
     }
     @media (max-width: 680px) {
-      body { padding: 2rem 1rem; }
+      .blog-outer-frame { padding: 2.5rem 1rem 3.5rem 1rem; }
       .blog-grid-frame { grid-template-columns: 1fr; }
       .blog-grid-card { border-right: none !important; }
     }
@@ -83,70 +88,70 @@
 </head>
 <body>
 
-  <header class="blog-header-wrap">
-    <div class="blog-eyebrow">// CATEGORY ARCHIVE</div>
-    <h1 class="blog-title-h1">Engineering Archive</h1>
-    <p class="blog-subtitle">Field notes on liquid performance, zero-plugin frameworks &amp; speed strategy.</p>
-  </header>
+  <main class="blog-outer-frame">
 
-  <main class="blog-grid-frame">
-    
-    <article class="blog-grid-card">
-      <div>
-        <div class="card-top-meta">
-          <span class="card-date">August 4, 2026</span>
-          <span class="card-category-pill">ENGINEERING</span>
-        </div>
-        <div class="card-img-container">
-          <img src="assets/case_study_blvck_hair_1785571402640.jpg" alt="Liquid Performance Architecture" class="card-img">
-        </div>
-        <h2 class="card-title"><a href="single-blog.html?id=1">What Liquid Performance Means For Modern Web Platforms</a></h2>
-      </div>
-    </article>
+    <header class="blog-header-wrap">
+      <div class="blog-eyebrow">// CATEGORY ARCHIVE</div>
+      <h1 class="blog-title-h1">Engineering Archive</h1>
+      <p class="blog-subtitle">Technical breakdowns, zero-plugin frameworks &amp; speed strategy guides.</p>
+    </header>
 
-    <article class="blog-grid-card">
-      <div>
-        <div class="card-top-meta">
-          <span class="card-date">June 29, 2026</span>
-          <span class="card-category-pill">ENGINEERING</span>
+    <section class="blog-grid-frame">
+      
+      <article class="blog-grid-card">
+        <div>
+          <div class="card-top-meta">
+            <span class="card-date">August 4, 2026</span>
+            <span class="card-category-pill">ENGINEERING</span>
+          </div>
+          <div class="card-img-container">
+            <img src="assets/case_study_blvck_hair_1785571402640.jpg" alt="Liquid Performance Architecture" class="card-img">
+          </div>
+          <h2 class="card-title"><a href="single-blog.html?id=1">What Liquid Performance Means For Modern Web Platforms</a></h2>
         </div>
-        <div class="card-img-container">
-          <img src="assets/hww_process_layers_1785672427589.jpg" alt="Debloating WordPress" class="card-img">
-        </div>
-        <h2 class="card-title"><a href="single-blog.html?id=5">Debloating Legacy WordPress Builds Without Data Loss</a></h2>
-      </div>
-    </article>
+      </article>
 
-    <article class="blog-grid-card">
-      <div>
-        <div class="card-top-meta">
-          <span class="card-date">May 28, 2026</span>
-          <span class="card-category-pill">ENGINEERING</span>
+      <article class="blog-grid-card">
+        <div>
+          <div class="card-top-meta">
+            <span class="card-date">June 29, 2026</span>
+            <span class="card-category-pill">ENGINEERING</span>
+          </div>
+          <div class="card-img-container">
+            <img src="assets/hww_process_layers_1785672427589.jpg" alt="Debloating WordPress" class="card-img">
+          </div>
+          <h2 class="card-title"><a href="single-blog.html?id=5">Debloating Legacy WordPress Builds Without Data Loss</a></h2>
         </div>
-        <div class="card-img-container">
-          <img src="assets/hww_stacks_visual_1785672004212.jpg" alt="Native Meta Boxes" class="card-img">
+      </article>
+
+      <article class="blog-grid-card">
+        <div>
+          <div class="card-top-meta">
+            <span class="card-date">May 28, 2026</span>
+            <span class="card-category-pill">ENGINEERING</span>
+          </div>
+          <div class="card-img-container">
+            <img src="assets/hww_stacks_visual_1785672004212.jpg" alt="Native Meta Boxes" class="card-img">
+          </div>
+          <h2 class="card-title"><a href="single-blog.html?id=7">Zero-Plugin Meta Field Registration In Native PHP</a></h2>
         </div>
-        <h2 class="card-title"><a href="single-blog.html?id=7">Zero-Plugin Meta Field Registration In Native PHP</a></h2>
+      </article>
+
+    </section>
+
+    <section class="blog-cta-section">
+      <div class="blog-cta-inner">
+        <div class="cta-eyebrow">↳ READY TO SCALE YOUR PLATFORM?</div>
+        <h2 class="cta-h2">Book A Discovery Call</h2>
+        <p class="cta-sub">Speak directly with our technical architecture team to scope your custom website build, WooCommerce system, or AI platform integration.</p>
+        
+        <div class="cta-embed-box">
+          [contact-form-7 id="70c8d19" title="Contact Page"]
+        </div>
       </div>
-    </article>
+    </section>
 
   </main>
-
-  <section class="blog-cta-section">
-    <div class="blog-cta-inner">
-      <div class="cta-eyebrow">↳ READY TO SCALE YOUR PLATFORM?</div>
-      <h2 class="cta-h2">Book A Discovery Call</h2>
-      <p class="cta-sub">Speak directly with our technical architecture team to scope your custom website build, WooCommerce system, or AI platform integration.</p>
-      
-      <div class="cta-embed-box">
-        [contact-form-7 id="70c8d19" title="Contact Page"]
-      </div>
-    </div>
-  </section>
-
-  <footer class="blog-footer">
-    © 2026 Cr8v Stacks Agency. All Rights Reserved.
-  </footer>
 
 </body>
 </html>
