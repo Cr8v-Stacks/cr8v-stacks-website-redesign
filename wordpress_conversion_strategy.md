@@ -1,7 +1,7 @@
-# Cr8v Stacks — WordPress Conversion & Deployment Strategy
+# Cr8v Stacks — Zero-Plugin WordPress Conversion Strategy
 
 ## Executive Summary
-This document defines the recommended architectural strategy for bringing the **Cr8v Stacks Website Redesign** into WordPress cleanly, securely, and seamlessly — guaranteeing zero 404 permalink errors, 100% design fidelity, and easy content editability for non-technical users.
+This document defines the recommended architectural strategy for bringing the **Cr8v Stacks Website Redesign** into WordPress cleanly, securely, and seamlessly — guaranteeing zero 404 permalink errors, 100% design fidelity, and easy content editability for non-technical users while **debloating third-party plugins**.
 
 ---
 
@@ -23,31 +23,57 @@ This document defines the recommended architectural strategy for bringing the **
 
 ---
 
-## 2. Native WordPress Custom Fields Architecture (NO Plugins Needed)
+## 2. Migrating Existing Infrastructure & Debloating Strategy
 
-Custom fields are declared directly inside theme code in `functions.php` (or an `/inc/meta-boxes.php` file) using WordPress's native **`add_meta_box()`** and **`register_setting()`** APIs:
-
-```php
-// Example: Native WP Meta Box registered directly in theme code
-add_action('add_meta_boxes', function() {
-    add_meta_box('cr8v_hero_meta', 'Hero Section Settings', 'cr8v_render_hero_box', 'page', 'normal', 'high');
-});
-
-function cr8v_render_hero_box($post) {
-    $headline = get_post_meta($post->ID, '_cr8v_hero_headline', true);
-    echo '<label>Hero Headline:</label>';
-    echo '<input type="text" name="cr8v_hero_headline" value="' . esc_attr($headline) . '" style="width:100%;">';
-}
-```
+### Handling Existing Content (ACF Fields & Elementor Loops)
+To debloat the site without losing legacy posts, case studies, or field content:
+1. **Legacy Meta Key Aliasing**: Custom field queries in native theme code will read both new native meta keys and legacy ACF keys:
+   ```php
+   // Reads new meta key first, falls back to legacy ACF meta key seamlessly
+   $headline = get_post_meta($post->ID, '_cr8v_hero_headline', true) 
+            ?: get_post_meta($post->ID, 'hero_headline', true);
+   ```
+2. **Replacing Elementor Loop Builder with Native PHP Loops**:
+   - Elementor Loop items are replaced by lightweight native `WP_Query` templates (`inc/case-studies-loop.php`), eliminating heavy database queries and 10+ unnecessary plugin assets.
 
 ---
 
-## 3. Blog & Article Templates Architecture
+## 3. Five Critical Edge Cases & Mitigation Protocols
 
-### Blog Listing Template (`home.php`)
-- Uses WordPress's native template hierarchy to display blog articles in our clean editorial card grid (`.c8-blog-grid`).
+### Edge Case 1: 404 Permalink Errors After Theme Activation
+- **Risk**: Moving from custom URLs to WordPress templates can cause 404 errors if rewrite rules aren't flushed.
+- **Solution**: Automated flush of rewrite rules during theme setup:
+  ```php
+  add_action('after_switch_theme', function() {
+      cr8v_register_custom_post_types();
+      flush_rewrite_rules();
+  });
+  ```
+
+### Edge Case 2: Legacy ACF Meta Key Mismatches
+- **Risk**: Past articles or portfolio items created via ACF plugin might not display if field names differ.
+- **Solution**: Implement fallback helper function `cr8v_get_meta($post_id, $key)` that checks both `_cr8v_key` and legacy ACF `key` names.
+
+### Edge Case 3: Relative Media Path Breakage Across Staging/Production
+- **Risk**: Hardcoded `/assets/download.mp4` paths break when site is moved to subfolders or different domain URLs.
+- **Solution**: All video and image paths resolve dynamically via `get_template_directory_uri() . '/assets/...'`.
+
+### Edge Case 4: WP Auto-Formatting (`wpautop`) Breaking Custom HTML/Video Attributes
+- **Risk**: WordPress automatically inserts `<p>` and `<br>` tags, breaking custom video attributes (`disablePictureInPicture`).
+- **Solution**: Selective neutralization of `wpautop` filter on custom page templates in `functions.php`.
+
+### Edge Case 5: Heavy Background Video Load on Mobile Devices
+- **Risk**: Auto-playing background videos can slow down mobile connections or burn data.
+- **Solution**: Prioritize WebM files with `preload="none"` posters on mobile `@media (max-width: 768px)`.
+
+---
+
+## 4. Blog & Article Templates Architecture
+
+### Blog Archive Template (`home.php`)
+- Displays articles in our clean editorial card grid (`.c8-blog-grid`).
 - Employs native WordPress loop query (`if (have_posts()) : while (have_posts()) : the_post();`):
-  - Dynamic Post Title (`the_title()`) in `Michroma` font.
+  - Post Title (`the_title()`) in `Michroma` font.
   - Category Badge (`the_category()`) in `Space Mono` font.
   - Featured Image (`the_post_thumbnail()`).
   - Author & Date Metadata (`the_time('M d, Y')`).
@@ -55,12 +81,11 @@ function cr8v_render_hero_box($post) {
 ### Single Article Template (`single.php`)
 - Renders full-width single blog posts using our dark/light editorial reader layout:
   - Header Hero with category pill, title, reading time, and publish date.
-  - Rich Content Body (`the_content()`) supporting headings, code blocks, images, and blockquotes.
-  - Next/Previous Article Navigation links.
+  - Rich Content Body (`the_content()`).
 
 ---
 
-## 4. Theme Folder Structure (`/wp-content/themes/cr8v-stacks/`)
+## 5. Theme Folder Structure (`/wp-content/themes/cr8v-stacks/`)
 
 ```
 cr8v-stacks/
@@ -81,13 +106,3 @@ cr8v-stacks/
     ├── meta-boxes.php        # Native WP meta field declarations
     └── cpt-case-studies.php  # Custom Post Type for Case Studies
 ```
-
----
-
-## 5. Step-by-Step Implementation Roadmap
-
-1. **Theme Packaging**: Package `homepage_hero_section.html`, `Contact_us.html`, and `discovery-call.html` into template files within `/wp-content/themes/cr8v-stacks/`.
-2. **Asset Path Normalization**: Replace relative paths with `get_template_directory_uri() . '/assets/...'`.
-3. **Native Meta Field Integration**: Wire dynamic PHP tags (`<?php echo get_post_meta($post->ID, '_hero_headline', true); ?>`) into template markup.
-4. **Form Integration**: Replace static fallback forms with active WordPress plugin shortcodes (`do_shortcode('[contact-form-7 ...]')` and `do_shortcode('[booking-form-embed]')`).
-5. **Permalink Flush**: Regenerate permalink rewrite rules under `WP Admin > Settings > Permalinks` to guarantee zero 404 errors.
