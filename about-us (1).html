@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Studio — Cr8v Stacks Agency</title>
+  <title>About Us — Cr8v Stacks Agency</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
       min-height: 100vh;
     }
 
-    /* ── 1. STUDIO HERO SECTION (EXACT FYLLA STUDIO PARITY) ── */
+    /* ── 1. HERO SECTION (100% AGENCY COPY IN FYLLA STUDIO LAYOUT) ── */
     .studio-hero-section {
       padding: 3rem 4rem 3.5rem 4rem;
       border-bottom: 1px solid var(--c8-grid-line);
@@ -48,17 +48,29 @@
     .studio-hero-h1 {
       font-family: var(--font-heading); font-size: clamp(2rem, 4.5vw, 3.2rem);
       font-weight: 700; text-transform: uppercase; line-height: 1.18;
-      color: var(--c8-ink); margin-bottom: 2.5rem; max-width: 900px;
+      color: var(--c8-ink); margin-bottom: 1.5rem; max-width: 960px;
+    }
+    .hero-intro-text {
+      font-size: 1.05rem; color: var(--c8-sub); line-height: 1.65; max-width: 820px;
+      margin-bottom: 2rem; font-weight: 400;
     }
 
-    /* HERO FULL-WIDTH FEATURED MEDIA */
+    /* PILL ROW FOR CAPABILITIES */
+    .hero-pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+    .hero-pill {
+      border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.4rem 0.9rem;
+      font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700;
+      border-radius: 4px; text-transform: uppercase;
+    }
+
+    /* HERO FEATURED MEDIA */
     .studio-hero-img-box {
       width: 100%; aspect-ratio: 21 / 9; border-radius: 4px; overflow: hidden;
       border: 1px solid var(--c8-grid-line); background: #000000;
     }
     .studio-hero-img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* ── 2. STUDIO VALUES SECTION (INTEGRATED 2-COLUMN GRID) ── */
+    /* ── 2. PHILOSOPHY & WHY IT WORKS (2-COLUMN INTEGRATED GRID) ── */
     .studio-values-section {
       display: grid; grid-template-columns: 1fr 1fr;
       border-bottom: 1px solid var(--c8-grid-line);
@@ -71,24 +83,26 @@
     .values-h2 {
       font-family: var(--font-heading); font-size: clamp(1.4rem, 2.8vw, 2.2rem);
       font-weight: 700; text-transform: uppercase; line-height: 1.25;
-      color: var(--c8-ink); margin-bottom: 2rem; max-width: 520px;
+      color: var(--c8-ink); margin-bottom: 1.5rem;
     }
+    .values-body { font-size: 0.95rem; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.5rem; }
+    
     .values-btn {
       background: var(--c8-blue); color: #FFFFFF !important; font-family: var(--font-mono);
       font-size: 0.8rem; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 4px;
-      text-decoration: none; text-transform: uppercase; width: fit-content;
+      text-decoration: none; text-transform: uppercase; width: fit-content; margin-top: 1rem;
       transition: background 0.2s ease;
     }
     .values-btn:hover { background: var(--c8-blue-hi); }
 
-    /* VALUES STACK RIGHT COLUMN */
+    /* FLANKING CARDS STACK RIGHT COLUMN (WHY IT WORKS) */
     .values-col-right {
       background: #FAFAF7;
       display: flex; flex-direction: column;
     }
     .value-item {
-      padding: 3rem 3rem; border-bottom: 1px solid var(--c8-grid-line);
-      display: flex; gap: 2rem; align-items: flex-start;
+      padding: 3rem 3.5rem; border-bottom: 1px solid var(--c8-grid-line);
+      display: flex; gap: 1.75rem; align-items: flex-start;
     }
     .value-item:last-child { border-bottom: none; }
     .value-num {
@@ -101,7 +115,7 @@
     }
     .value-p { font-size: 0.92rem; color: var(--c8-sub); line-height: 1.65; }
 
-    /* ── 3. STUDIO TEAM SECTION (2x2 GRID PARITY) ── */
+    /* ── 3. CUSTOM PLUGINS & TOOLS (FYLLA 2x2 GRID LAYOUT) ── */
     .studio-team-section {
       padding: 4rem 3.5rem;
       border-bottom: 1px solid var(--c8-grid-line);
@@ -117,32 +131,42 @@
       color: var(--c8-ink); text-transform: uppercase;
     }
     .team-sub {
-      font-family: var(--font-body); font-size: 0.95rem; color: var(--c8-sub); max-width: 420px;
+      font-family: var(--font-body); font-size: 0.95rem; color: var(--c8-sub); max-width: 480px;
     }
 
     .team-grid-frame {
       display: grid; grid-template-columns: repeat(2, 1fr);
       border: 1px solid var(--c8-grid-line); background: #FFFFFF;
     }
-    .team-card {
-      padding: 2.25rem 2rem; border-right: 1px solid var(--c8-grid-line);
-      border-bottom: 1px solid var(--c8-grid-line);
+    .plugin-card {
+      padding: 2.5rem 2.25rem; border-right: 1px solid var(--c8-grid-line);
+      border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF;
+      transition: background 0.2s ease;
     }
-    .team-card:nth-child(2n) { border-right: none; }
-    .team-card:nth-last-child(-n+2) { border-bottom: none; }
+    .plugin-card:hover { background: #FAFAF7; }
+    .plugin-card:nth-child(2n) { border-right: none; }
+    .plugin-card:nth-last-child(-n+2) { border-bottom: none; }
 
-    .team-img-box {
-      aspect-ratio: 4 / 3; width: 100%; border-radius: 4px; overflow: hidden;
-      border: 1px solid var(--c8-grid-line); background: #000000; margin-bottom: 1.25rem;
+    .plugin-cat { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700; color: var(--c8-blue); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.75rem; display: block; }
+    .plugin-name { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.85rem; }
+    .plugin-desc { font-size: 0.9rem; color: var(--c8-sub); line-height: 1.65; margin-bottom: 1.5rem; }
+    .plugin-link { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--c8-ink); text-decoration: none; border-bottom: 1px solid var(--c8-blue); text-transform: uppercase; letter-spacing: 0.1em; }
+    .plugin-link:hover { color: var(--c8-blue); }
+
+    /* ── 4. STATS IMPACT ROW ── */
+    .stats-section {
+      padding: 3.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FAFAF7;
     }
-    .team-img { width: 100%; height: 100%; object-fit: cover; }
-    .team-name { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.35rem; }
-    .team-role { font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-blue); text-transform: uppercase; font-weight: 700; }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .stat-card { background: #FFFFFF; border: 1px solid var(--c8-grid-line); border-radius: 4px; padding: 2rem; text-align: center; }
+    .stat-num { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; color: var(--c8-blue); margin-bottom: 0.35rem; }
+    .stat-tag { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--c8-ink); font-weight: 700; margin-bottom: 0.5rem; display: block; }
+    .stat-desc { font-size: 0.85rem; color: var(--c8-sub); line-height: 1.5; }
 
-    /* ── 4. CTA CONTACT SECTION ── */
+    /* ── 5. CTA CONTACT SECTION ── */
     .studio-cta-section {
       display: grid; grid-template-columns: 1fr 1fr;
-      background: #FAFAF7;
+      background: #FFFFFF;
     }
     .cta-col-left {
       padding: 4.5rem 3.5rem; border-right: 1px solid var(--c8-grid-line);
@@ -173,7 +197,8 @@
       .studio-team-section { padding: 2.5rem 1.5rem; }
       .team-header-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
       .team-grid-frame { grid-template-columns: 1fr; }
-      .team-card { border-right: none !important; border-bottom: 1px solid var(--c8-grid-line) !important; }
+      .plugin-card { border-right: none !important; border-bottom: 1px solid var(--c8-grid-line) !important; padding: 2rem 1.5rem; }
+      .stats-grid { grid-template-columns: 1fr; }
       .studio-cta-section { grid-template-columns: 1fr; }
       .cta-col-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2.5rem 1.5rem; }
       .cta-col-right { padding: 2.5rem 1.5rem; }
@@ -185,99 +210,135 @@
   <!-- FULL-WIDTH OUTER PAPER FRAME (MARGIN 2.5REM 1REM 0REM 1REM) -->
   <main class="art-outer-frame">
     
-    <!-- 1. STUDIO HERO SECTION -->
+    <!-- 1. HERO SECTION (100% ORIGINAL AGENCY COPY IN FYLLA STUDIO LAYOUT) -->
     <header class="studio-hero-section">
-      <span class="studio-meta-tag">// ABOUT US</span>
-      <h1 class="studio-hero-h1">CREATIVE STUDIO THAT INSPIRES.</h1>
+      <span class="studio-meta-tag">// AGENCY PROFILE</span>
+      <h1 class="studio-hero-h1">WE DEFY TEMPLATES. WE CODE CONVERSIONS.</h1>
       
+      <p class="hero-intro-text">We are an engineering-first digital agency built for ambitious brands. We don't just assemble websites; we architect custom digital environments, brand systems, and organic search acquisition models designed to turn attention into measurable revenue.</p>
+
+      <div class="hero-pill-row">
+        <span class="hero-pill">Custom PHP</span>
+        <span class="hero-pill">Elementor-Safe Code</span>
+        <span class="hero-pill">WordPress</span>
+        <span class="hero-pill">Shopify</span>
+        <span class="hero-pill">Conversion UX</span>
+        <span class="hero-pill">Organic SEO</span>
+      </div>
+
       <div class="studio-hero-img-box">
         <img src="assets/wwa_studio_visual_1785737190311.jpg" alt="Cr8v Stacks Studio Workspace" class="studio-hero-img">
       </div>
     </header>
 
-    <!-- 2. STUDIO VALUES SECTION -->
+    <!-- 2. PHILOSOPHY & WHY IT WORKS (2-COLUMN INTEGRATED GRID) -->
     <section class="studio-values-section">
       <div class="values-col-left">
         <div>
-          <span class="studio-meta-tag">// OUR VALUES</span>
-          <h2 class="values-h2">OUR VISION IS TO CONNECT WITH THE WORLD THROUGH INNOVATION.</h2>
+          <span class="studio-meta-tag">// WHAT YOU SHOULD KNOW</span>
+          <h2 class="values-h2">OUR PHILOSOPHY</h2>
+          
+          <p class="values-body">We bridge the gap between creative visual branding and lightweight, custom-coded web architectures.</p>
+          <p class="values-body">At <strong>CR8V Stacks</strong>, founded by <strong>Mallami Adekunle</strong>, we approach web development and branding from a performance-first perspective. We don't believe in generic page builders and bloated themes that drag down loading speed and make businesses look identical.</p>
+          <p class="values-body">By keeping our technology stack lightweight and prioritizing custom layouts, we eliminate design bloat and give our clients the technical edge in speed, search ranking, and user experience.</p>
         </div>
-        <a href="homepage_hero_section.html#case-studies" class="values-btn">See All Work</a>
+
+        <a href="homepage_hero_section.html#case-studies" class="values-btn">Inspect Case Studies</a>
       </div>
 
+      <!-- FLANKING CARDS STACK RIGHT COLUMN (WHY IT WORKS) -->
       <div class="values-col-right">
         <div class="value-item">
           <div class="value-num">01</div>
           <div>
-            <h3 class="value-h3">VISION</h3>
-            <p class="value-p">Our relentless pursuit of a shared vision fuels our creativity and propels us forward. With clarity and foresight, we craft strategies that align with our clients' goals and aspirations, transforming their dreams into reality and shaping a future worth embracing.</p>
+            <h3 class="value-h3">CODE ARCHITECTURE — ZERO BLOAT</h3>
+            <p class="value-p">Bespoke custom themes built from scratch with semantic HTML, CSS, and vanilla JS. No page builders, no unneeded plugins.</p>
           </div>
         </div>
 
         <div class="value-item">
           <div class="value-num">02</div>
           <div>
-            <h3 class="value-h3">INNOVATION</h3>
-            <p class="value-p">Innovation is at the core of everything we do. We embrace curiosity, explore uncharted territories, and challenge the status quo to build liquid performance platforms that dominate search rankings.</p>
+            <h3 class="value-h3">LIQUID ENGINEERING — SUB-1.2S SPEED</h3>
+            <p class="value-p">Tuned for instant page loads and green Core Web Vitals across every single device, browser, and network condition.</p>
           </div>
         </div>
 
         <div class="value-item">
           <div class="value-num">03</div>
           <div>
-            <h3 class="value-h3">CONNECTION</h3>
-            <p class="value-p">We believe in the power of connection. We strive to build bridges between brands and their audiences, fostering genuine and lasting relationships through zero-plugin digital architecture.</p>
+            <h3 class="value-h3">ENTITY SEO — ORGANIC DOMINANCE</h3>
+            <p class="value-p">Structured Schema JSON-LD markup and semantic HTML hierarchy ensuring total search engine clarity and ranking authority.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. STUDIO TEAM SECTION -->
+    <!-- 3. CUSTOM PLUGINS & TOOLS (FYLLA 2x2 GRID LAYOUT) -->
     <section class="studio-team-section">
       <div class="team-header-row">
         <div>
-          <span class="studio-meta-tag">// OUR TEAM</span>
-          <h2 class="team-h2">OUR TEAM</h2>
+          <span class="studio-meta-tag">// DEVELOPMENT PLAYGROUND</span>
+          <h2 class="team-h2">CUSTOM PLUGINS &amp; TOOLS</h2>
         </div>
-        <p class="team-sub">Meet our talented team of creative minds driving innovation and liquid performance engineering.</p>
+        <p class="team-sub">We build lightweight, performance-first software utilities to solve slow loading speeds and administration bloat on WordPress and Shopify.</p>
       </div>
 
       <div class="team-grid-frame">
-        <div class="team-card">
-          <div class="team-img-box">
-            <img src="assets/tmn_avatar_euro_male_1785737209764.jpg" alt="Mallami Adekunle" class="team-img">
-          </div>
-          <h3 class="team-name">Mallami Adekunle</h3>
-          <div class="team-role">FOUNDER &amp; CHIEF ARCHITECT</div>
+        <div class="plugin-card">
+          <span class="plugin-cat">CONTENT MACHINE</span>
+          <h3 class="plugin-name">WP Publishion AI</h3>
+          <p class="plugin-desc">Draft fact-checked, SEO-rich articles directly inside your block editor. Integrates Claude, Gemini, and OpenAI with Brave Search fact-verification.</p>
+          <a href="#" class="plugin-link">Inspect Blueprint →</a>
         </div>
 
-        <div class="team-card">
-          <div class="team-img-box">
-            <img src="assets/tmn_avatar_female_1785737199364.jpg" alt="Kristin Watson" class="team-img">
-          </div>
-          <h3 class="team-name">Kristin Watson</h3>
-          <div class="team-role">CREATIVE DIRECTOR</div>
+        <div class="plugin-card">
+          <span class="plugin-cat">ADMIN EXPERIENCE</span>
+          <h3 class="plugin-name">Nativus Dashboard Pro</h3>
+          <p class="plugin-desc">A clean, custom whitelabeled WordPress admin interface built to hide plugin notice banners and restrict client dashboard menus safely.</p>
+          <a href="#" class="plugin-link">Inspect Blueprint →</a>
         </div>
 
-        <div class="team-card">
-          <div class="team-img-box">
-            <img src="assets/client_avatar_bearded_1785574954640.jpg" alt="Cameron Williamson" class="team-img">
-          </div>
-          <h3 class="team-name">Cameron Williamson</h3>
-          <div class="team-role">LEAD TECHNICAL ARCHITECT</div>
+        <div class="plugin-card">
+          <span class="plugin-cat">ACCESSIBILITY &amp; SEO</span>
+          <h3 class="plugin-name">AltText Buddy</h3>
+          <p class="plugin-desc">Automatically generate descriptive image alt text for your media library using 5 AI vision models to improve SEO rankings and compliance.</p>
+          <a href="#" class="plugin-link">Inspect Blueprint →</a>
         </div>
 
-        <div class="team-card">
-          <div class="team-img-box">
-            <img src="assets/dev_mascot_fox_v2_1785612080975.jpg" alt="Guy Hawkins" class="team-img">
-          </div>
-          <h3 class="team-name">Guy Hawkins</h3>
-          <div class="team-role">HEAD OF PERFORMANCE &amp; GROWTH</div>
+        <div class="plugin-card">
+          <span class="plugin-cat">CODE SHOWCASE</span>
+          <h3 class="plugin-name">LumiCode</h3>
+          <p class="plugin-desc">Display clean, VS Code-style syntax-highlighted code blocks on WordPress sites with line numbers and a one-click clipboard copy utility.</p>
+          <a href="#" class="plugin-link">Inspect Blueprint →</a>
         </div>
       </div>
     </section>
 
-    <!-- 4. CTA CONTACT SECTION -->
+    <!-- 4. PROVEN IMPACT STATS SECTION -->
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num">3.5x</div>
+          <span class="stat-tag">Organic Traffic</span>
+          <p class="stat-desc">Average organic traffic increase within 6–12 months of custom SEO planning.</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-num">90%</div>
+          <span class="stat-tag">Retention Rate</span>
+          <p class="stat-desc">Long-term maintenance and optimization client support services.</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-num">40+</div>
+          <span class="stat-tag">Platforms Deployed</span>
+          <p class="stat-desc">Custom brand identities and e-commerce systems developed and deployed.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CTA CONTACT SECTION -->
     <section class="studio-cta-section">
       <div class="cta-col-left">
         <span class="studio-meta-tag">// CONTACT</span>
