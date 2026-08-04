@@ -25,206 +25,237 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 4rem 2rem 5rem 2rem; }
 
-    /* ── FLUID 2-COLUMN LAYOUT (STICKY LEFT SIDEBAR + RIGHT CONTENT) ── */
-    .art-fluid-layout {
-      max-width: 1360px; margin: 0 auto;
-      display: grid; grid-template-columns: 320px 1fr; gap: 3.5rem;
-      align-items: start;
-    }
-
-    /* ── LEFT SIDEBAR (STICKY CTA & TRUST STAMP) ── */
-    .art-sidebar {
-      position: sticky; top: 2rem;
-      display: flex; flex-direction: column; gap: 1.75rem;
-    }
-    
-    .sidebar-card {
-      background: var(--c8-paper-card); border: 1px solid var(--c8-grid-line);
-      border-radius: 4px; padding: 1.75rem;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
-    }
-
-    .sidebar-trust-badge {
-      font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 0.16em; text-transform: uppercase; color: var(--c8-blue);
-      margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem;
-    }
-    .sidebar-title {
-      font-family: var(--font-heading); font-size: 1rem; font-weight: 700;
-      color: var(--c8-ink); line-height: 1.35; margin-bottom: 0.75rem; text-transform: uppercase;
-    }
-    .sidebar-desc {
-      font-size: 0.85rem; color: var(--c8-sub); line-height: 1.55; margin-bottom: 1.25rem;
-    }
-
-    .sidebar-cta-btn {
-      background: var(--c8-blue); color: #FFFFFF;
-      font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700;
-      padding: 0.8rem 1.2rem; border-radius: 4px; text-decoration: none;
-      text-transform: uppercase; letter-spacing: 0.08em; display: block; text-align: center;
-      transition: background 0.2s ease;
-    }
-    .sidebar-cta-btn:hover { background: var(--c8-blue-hi); }
-
-    .sidebar-nav-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .sidebar-nav-list a {
-      font-family: var(--font-mono); font-size: 0.75rem; color: var(--c8-sub);
-      text-decoration: none; transition: color 0.2s ease;
-    }
-    .sidebar-nav-list a:hover { color: var(--c8-blue); }
-
-    /* ── RIGHT MAIN CONTENT CONTAINER (WHITE PAPER CARD WITH GRID LINES) ── */
-    .art-main-paper {
+    /* ── UNIFIED PAPER CONTAINER (FULL WIDTH HERO & INTEGRATED LAYOUT) ── */
+    .art-full-wrap {
+      max-width: 1280px; margin: 0 auto;
       background: var(--c8-paper-card);
       border: 1px solid var(--c8-grid-line);
-      border-radius: 4px; padding: 3.5rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     }
 
+    /* ── HERO BANNER TOP ── */
+    .art-hero-banner {
+      padding: 3.5rem 4rem 2.5rem 4rem;
+      border-bottom: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
+    }
     .art-cat-pill {
-      font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700;
+      font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700;
       text-transform: uppercase; color: var(--c8-blue);
       border: 1px solid var(--c8-blue); border-radius: 12px;
-      padding: 0.2rem 0.7rem; display: inline-block; margin-bottom: 1.25rem;
+      padding: 0.2rem 0.75rem; display: inline-block; margin-bottom: 1.25rem;
     }
-
     .art-h1 {
       font-family: var(--font-heading); font-size: clamp(1.6rem, 3.2vw, 2.4rem);
       font-weight: 700; text-transform: uppercase; line-height: 1.25;
       margin-bottom: 1rem; color: var(--c8-ink);
     }
-
     .art-meta-date {
       font-family: var(--font-mono); font-size: 0.75rem; color: #8A8A8A;
-      border-bottom: 1px solid var(--c8-grid-line); padding-bottom: 1.5rem; margin-bottom: 2rem;
     }
 
-    .art-featured-box {
-      aspect-ratio: 16 / 9; width: 100%; border-radius: 2px; overflow: hidden;
-      border: 1px solid var(--c8-grid-line); margin-bottom: 2.5rem; background: #000000;
+    /* ── INTEGRATED 2-COLUMN GRID (LEFT SIDEBAR + RIGHT CONTENT) ── */
+    .art-grid-layout {
+      display: grid; grid-template-columns: 340px 1fr;
+      border-top: 1px solid var(--c8-grid-line);
     }
+
+    /* ── LEFT SIDEBAR (EXACT MATCH FOR USER SCREENSHOT media__1785736249464.png) ── */
+    .art-sidebar-col {
+      border-right: 1px solid var(--c8-grid-line);
+      padding: 3rem 2rem;
+      background: #FAFAF7;
+      display: flex; flex-direction: column; gap: 2rem;
+    }
+
+    /* SHARE THIS ARTICLE */
+    .share-block { margin-bottom: 1rem; }
+    .share-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: #8A8A8A; margin-bottom: 0.75rem; font-weight: 700; }
+    .share-row { display: flex; gap: 0.6rem; }
+    .share-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--c8-grid-line); background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: #080808; text-decoration: none; }
+    .share-btn:hover { background: #080808; color: #FFFFFF; }
+
+    /* SIDEBAR CTA CARD (EXACT SCREENSHOT MATCH) */
+    .sidebar-cta-card {
+      background: #FFFFFF; border: 1px solid var(--c8-grid-line);
+      border-radius: 8px; padding: 2.25rem 1.6rem; text-align: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    }
+    .cta-logos-row { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin-bottom: 0.75rem; }
+    .cta-logo-icon { width: 24px; height: 24px; border-radius: 50%; background: #080808; display: flex; align-items: center; justify-content: center; }
+    .cta-logo-icon img { width: 14px; height: 14px; }
+
+    .cta-trust-label { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #888888; margin-bottom: 1.5rem; }
+
+    .cta-illustration { width: 72px; height: 72px; margin: 0 auto 1.25rem auto; display: flex; align-items: center; justify-content: center; background: rgba(0,71,225,0.08); border-radius: 50%; border: 1px solid rgba(0,71,225,0.2); }
+    .cta-illustration svg { width: 36px; height: 36px; color: var(--c8-blue); }
+
+    .cta-card-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: #080808; margin-bottom: 0.65rem; line-height: 1.3; }
+    .cta-card-sub { font-family: var(--font-body); font-size: 0.85rem; color: var(--c8-sub); line-height: 1.5; margin-bottom: 1.5rem; }
+
+    .cta-card-btn { background: #080808; color: #FFFFFF; font-family: var(--font-body); font-size: 0.82rem; font-weight: 700; padding: 0.8rem 1.25rem; border-radius: 6px; text-decoration: none; display: block; width: 100%; transition: background 0.2s ease; }
+    .cta-card-btn:hover { background: var(--c8-blue); }
+
+    /* ── RIGHT MAIN CONTENT COLUMN ── */
+    .art-content-col {
+      padding: 3rem 4rem; background: #FFFFFF;
+    }
+
+    /* TOP AI SUMMARY BAR (EXACT MATCH FOR USER SCREENSHOT media__1785736249464.png) */
+    .ai-summary-bar {
+      border: 1px solid var(--c8-grid-line); border-radius: 6px;
+      padding: 0.85rem 1.25rem; display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 2.5rem; background: #FAFAF7;
+    }
+    .ai-summary-text { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #8A8A8A; }
+    .ai-summary-icons { display: flex; align-items: center; gap: 0.75rem; }
+    .ai-icon-dot { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(8,8,8,0.06); }
+    .ai-icon-dot img { width: 13px; height: 13px; }
+
+    /* FEATURED IMAGE CONTAINER */
+    .art-featured-box { aspect-ratio: 16 / 9; width: 100%; border-radius: 4px; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-bottom: 2.5rem; background: #000000; }
     .art-featured-img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* CONTENT TYPOGRAPHY PARITY */
-    .art-content p { font-size: 1.02rem; line-height: 1.75; color: #222222; margin-bottom: 1.6rem; font-weight: 400; }
-    .art-content h2 { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-top: 2.5rem; margin-bottom: 1rem; line-height: 1.3; }
-    .art-content h3 { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-top: 1.75rem; margin-bottom: 0.75rem; }
-    .art-content blockquote { border-left: 3px solid var(--c8-blue); padding: 1rem 1.5rem; background: #FAFAF7; margin: 2rem 0; font-size: 1.05rem; font-style: italic; color: #111111; }
-    .art-content ul, .art-content ol { margin: 1.25rem 0 1.5rem 1.5rem; }
-    .art-content li { font-size: 1rem; line-height: 1.65; color: #222222; margin-bottom: 0.5rem; }
+    /* CONTENT TYPOGRAPHY */
+    .art-body-text p { font-size: 1.02rem; line-height: 1.75; color: #222222; margin-bottom: 1.6rem; font-weight: 400; }
+    .art-body-text h2 { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-top: 2.5rem; margin-bottom: 1rem; line-height: 1.3; }
+    .art-body-text h3 { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+    .art-body-text blockquote { border-left: 3px solid var(--c8-blue); padding: 1rem 1.5rem; background: #FAFAF7; margin: 2rem 0; font-size: 1.05rem; font-style: italic; color: #111111; }
+    .art-body-text ul, .art-body-text ol { margin: 1.25rem 0 1.5rem 1.5rem; }
+    .art-body-text li { font-size: 1rem; line-height: 1.65; color: #222222; margin-bottom: 0.5rem; }
 
     /* ── FAQ ACCORDION SECTION ON INDIVIDUAL SERVICE PAGE ── */
-    .faq-section {
-      margin-top: 4rem; border-top: 1px solid var(--c8-grid-line); padding-top: 3rem;
-    }
-    .faq-title {
-      font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700;
-      color: var(--c8-ink); text-transform: uppercase; margin-bottom: 1.75rem;
-    }
-    
-    .faq-item {
-      border: 1px solid var(--c8-grid-line); border-radius: 4px;
-      margin-bottom: 1rem; background: #FAFAF7; overflow: hidden;
-    }
-    .faq-question {
-      font-family: var(--font-heading); font-size: 0.92rem; font-weight: 700;
-      color: var(--c8-ink); padding: 1.25rem 1.5rem; text-transform: uppercase;
-      cursor: pointer; display: flex; align-items: center; justify-content: space-between;
-    }
-    .faq-answer {
-      font-size: 0.92rem; color: #4A4A4A; line-height: 1.6; padding: 0 1.5rem 1.25rem 1.5rem;
-    }
+    .faq-section { margin-top: 4rem; border-top: 1px solid var(--c8-grid-line); padding-top: 3rem; }
+    .faq-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 1.75rem; }
+    .faq-item { border: 1px solid var(--c8-grid-line); border-radius: 4px; margin-bottom: 1rem; background: #FAFAF7; overflow: hidden; }
+    .faq-question { font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: var(--c8-ink); padding: 1.1rem 1.4rem; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+    .faq-answer { font-size: 0.9rem; color: #4A4A4A; line-height: 1.6; padding: 0 1.4rem 1.1rem 1.4rem; }
 
-    .art-footer { max-width: 1360px; margin: 4rem auto 0 auto; text-align: center; font-size: 0.8rem; color: var(--c8-sub); border-top: 1px solid var(--c8-grid-line); padding-top: 1.5rem; }
+    .art-footer { max-width: 1280px; margin: 3rem auto 0 auto; text-align: center; font-size: 0.8rem; color: var(--c8-sub); border-top: 1px solid var(--c8-grid-line); padding-top: 1.5rem; }
 
     @media (max-width: 1024px) {
-      .art-fluid-layout { grid-template-columns: 1fr; gap: 2rem; }
-      .art-sidebar { position: static; }
-      .art-main-paper { padding: 2.25rem 1.5rem; }
+      .art-grid-layout { grid-template-columns: 1fr; }
+      .art-sidebar-col { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2rem; }
+      .art-content-col { padding: 2.25rem 1.5rem; }
+      .art-hero-banner { padding: 2.5rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- FLUID 2-COLUMN LAYOUT WITH STICKY LEFT SIDEBAR -->
-  <main class="art-fluid-layout">
+  <!-- UNIFIED FULL-WIDTH PAPER WRAPPER (PARITY WITH FYLLA TEMPLATE & USER SCREENSHOT) -->
+  <main class="art-full-wrap">
     
-    <!-- LEFT SIDEBAR -->
-    <aside class="art-sidebar">
-      
-      <!-- TRUSTED PARTNER CARD -->
-      <div class="sidebar-card">
-        <div class="sidebar-trust-badge">↳ AGENCY PARTNER</div>
-        <h3 class="sidebar-title">Trusted Design &amp; Build Studio</h3>
-        <p class="sidebar-desc">We build custom digital platforms, high-converting websites, and AI systems tailored to your exact business operations.</p>
-        <a href="discovery-call.html" class="sidebar-cta-btn">Book Discovery Call</a>
-      </div>
-
-      <!-- PAGE NAVIGATION SUMMARY -->
-      <div class="sidebar-card">
-        <div class="sidebar-trust-badge">↳ IN THIS FIELD NOTE</div>
-        <ul class="sidebar-nav-list">
-          <li><a href="#section-cost">1. The Cost of Plugin Overhead</a></li>
-          <li><a href="#section-architecture">2. Zero-Plugin Architecture</a></li>
-          <li><a href="#section-faq">3. Service FAQ &amp; Handover</a></li>
-        </ul>
-      </div>
-
-    </aside>
-
-    <!-- RIGHT MAIN CONTENT CARD -->
-    <article class="art-main-paper">
-      
+    <!-- TOP HERO BANNER -->
+    <header class="art-hero-banner">
       <span class="art-cat-pill">Liquid Performance Engineering</span>
       <h1 class="art-h1">What Liquid Performance Means For Modern Web Platforms</h1>
       <div class="art-meta-date">Published August 4, 2026 · 5 Min Read · By Cr8v Stacks Engineering</div>
+    </header>
 
-      <div class="art-featured-box">
-        <img src="assets/case_study_blvck_hair_1785571402640.jpg" alt="Liquid Performance Architecture" class="art-featured-img">
-      </div>
-
-      <div class="art-content">
-        <p>In modern web development, speed is no longer just a technical metric — it is the single greatest multiplier of conversion rates and search engine authority. When a page takes more than two seconds to load, user engagement drops exponentially.</p>
-
-        <h2 id="section-cost">The Cost of Plugin Overhead</h2>
-        <p>Traditional WordPress builds rely on 15 to 30 third-party plugins to execute layout styling, contact forms, custom post types, and SEO settings. Each plugin injects its own CSS files, JavaScript bundles, and database queries, creating significant DOM complexity and blocking main-thread execution.</p>
-
-        <blockquote>
-          "Liquid performance engineering is the discipline of stripping away framework bloat, writing native theme code, and delivering 100% Core Web Vitals pass rates on launch day."
-        </blockquote>
-
-        <h2 id="section-architecture">Zero-Plugin Native Architecture</h2>
-        <p>By registering custom meta fields natively using WordPress APIs (<code>add_meta_box()</code> and <code>register_setting()</code>), we eliminate the memory overhead of heavy visual builders while retaining complete content editability for non-technical site managers.</p>
-
-        <ul>
-          <li><strong>Zero Layout Shift (CLS &lt; 0.01)</strong>: Locked container ratios prevent structural jumps during font or image rendering.</li>
-          <li><strong>Sub-50ms Interaction to Next Paint (INP)</strong>: Asynchronous script loading keeps event handlers instant.</li>
-          <li><strong>Entity SEO Mapping</strong>: Schema metadata is compiled dynamically into raw HTML headers before HTTP responses leave the server.</li>
-        </ul>
-      </div>
-
-      <!-- FAQ ACCORDION SECTION ON INDIVIDUAL SERVICE PAGE -->
-      <section class="faq-section" id="section-faq">
-        <h2 class="faq-title">Service &amp; Build FAQ</h2>
-
-        <div class="faq-item">
-          <div class="faq-question">How do you handle client handovers after build completion? <span>+</span></div>
-          <div class="faq-answer">Every custom build comes with full white-label WordPress admin tools (like Nativus Dashboard Pro), complete video walkthroughs, and 30 days of direct developer support.</div>
+    <!-- INTEGRATED 2-COLUMN GRID -->
+    <div class="art-grid-layout">
+      
+      <!-- LEFT SIDEBAR (EXACT MATCH FOR USER SCREENSHOT media__1785736249464.png) -->
+      <aside class="art-sidebar-col">
+        
+        <!-- SHARE BUTTONS -->
+        <div class="share-block">
+          <div class="share-label">SHARE THIS ARTICLE</div>
+          <div class="share-row">
+            <a href="#" class="share-btn" title="Share on X">X</a>
+            <a href="#" class="share-btn" title="Share on LinkedIn">in</a>
+            <a href="#" class="share-btn" title="Share on Facebook">f</a>
+          </div>
         </div>
 
-        <div class="faq-item">
-          <div class="faq-question">What is your typical build timeline for custom websites? <span>+</span></div>
-          <div class="faq-answer">Custom website design and engineering projects are typically completed in 3 to 5 weeks from initial scope approval to live production deployment.</div>
+        <!-- SIDEBAR CTA CARD (MATCHING USER SCREENSHOT EXACTLY) -->
+        <div class="sidebar-cta-card">
+          <!-- TOP TECH LOGOS ROW -->
+          <div class="cta-logos-row">
+            <div class="cta-logo-icon"><img src="https://cdn.simpleicons.org/shopify/FFFFFF" alt="Shopify"></div>
+            <div class="cta-logo-icon"><img src="https://cdn.simpleicons.org/wordpress/FFFFFF" alt="WordPress"></div>
+            <div class="cta-logo-icon"><img src="https://cdn.simpleicons.org/anthropic/FFFFFF" alt="Claude"></div>
+            <div class="cta-logo-icon"><img src="https://cdn.simpleicons.org/openai/FFFFFF" alt="OpenAI"></div>
+          </div>
+          
+          <div class="cta-trust-label">TRUSTED BY 100+ COMPANIES</div>
+
+          <div class="cta-illustration">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+
+          <h3 class="cta-card-title">Your design + build partner</h3>
+          <p class="cta-card-sub">Product, websites, and brand — designed and shipped by one senior team for funded B2B companies.</p>
+
+          <a href="discovery-call.html" class="cta-card-btn">Book an intro call</a>
         </div>
 
-        <div class="faq-item">
-          <div class="faq-question">Are SEO settings folded into the code from day one? <span>+</span></div>
-          <div class="faq-answer">Yes. Entity SEO architecture, schema markup, semantic keyword mapping, and OpenGraph tags are coded directly into theme files before launch.</div>
+      </aside>
+
+      <!-- RIGHT MAIN CONTENT COLUMN -->
+      <article class="art-content-col">
+        
+        <!-- TOP INTERACTIVE AI SUMMARY BAR (MATCHING USER SCREENSHOT media__1785736249464.png) -->
+        <div class="ai-summary-bar">
+          <span class="ai-summary-text">SUMMARIZE WITH AI</span>
+          <div class="ai-summary-icons">
+            <div class="ai-icon-dot" title="OpenAI"><img src="https://cdn.simpleicons.org/openai/080808" alt="OpenAI"></div>
+            <div class="ai-icon-dot" title="Claude"><img src="https://cdn.simpleicons.org/anthropic/080808" alt="Claude"></div>
+            <div class="ai-icon-dot" title="Google Gemini"><img src="https://cdn.simpleicons.org/google/080808" alt="Google"></div>
+          </div>
         </div>
-      </section>
 
-    </article>
+        <div class="art-featured-box">
+          <img src="assets/case_study_blvck_hair_1785571402640.jpg" alt="Liquid Performance Architecture" class="art-featured-img">
+        </div>
 
+        <div class="art-body-text">
+          <p>Our own site runs on custom zero-plugin architecture. That's not a casual detail — it's the result of a deliberate decision about what a design studio's marketing site needs to be, and it's the reason I have strong opinions about who liquid performance engineering is right for and who it isn't.</p>
+
+          <p>Zero-plugin custom development is the best tool I've used for building fast, beautiful, design-forward marketing sites. It's also genuinely not the right home for every single blog on earth. So before I walk through the migration, I want to be straight with you about when this move actually makes sense, because the wrong migration is worse than no migration.</p>
+
+          <h2>What Liquid Engineering Is Actually For</h2>
+
+          <p>Custom framework theme engineering started as a prototyping approach and grew into a full site paradigm. The canvas behaves the way designers think, the animation and interaction capabilities are excellent without code bloat, and the output is fast.</p>
+
+          <p>Where custom zero-plugin architecture wins:</p>
+          <ul>
+            <li><strong>Marketing and brand sites</strong> — homepages, product pages, landing pages, campaign sites</li>
+            <li><strong>Startup sites that need to look exceptional</strong> and ship quickly</li>
+            <li><strong>SEO Authority platforms</strong> — zero layout shift (CLS &lt; 0.01) with sub-50ms INP execution</li>
+          </ul>
+
+          <blockquote>
+            "Liquid performance engineering is the discipline of stripping away framework bloat, writing native theme code, and delivering 100% Core Web Vitals pass rates on launch day."
+          </blockquote>
+        </div>
+
+        <!-- FAQ ACCORDION SECTION -->
+        <section class="faq-section">
+          <h2 class="faq-title">Service &amp; Build FAQ</h2>
+
+          <div class="faq-item">
+            <div class="faq-question">How do you handle client handovers after build completion? <span>+</span></div>
+            <div class="faq-answer">Every custom build comes with full white-label WordPress admin tools (like Nativus Dashboard Pro), complete video walkthroughs, and 30 days of direct developer support.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">What is your typical build timeline for custom websites? <span>+</span></div>
+            <div class="faq-answer">Custom website design and engineering projects are typically completed in 3 to 5 weeks from initial scope approval to live production deployment.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">Are SEO settings folded into the code from day one? <span>+</span></div>
+            <div class="faq-answer">Yes. Entity SEO architecture, schema markup, semantic keyword mapping, and OpenGraph tags are coded directly into theme files before launch.</div>
+          </div>
+        </section>
+
+      </article>
+
+    </div>
   </main>
 
   <footer class="art-footer">
