@@ -1,0 +1,102 @@
+with open(r"C:\Users\HP\Downloads\Mega Menu\contact_us.css", "r", encoding="utf-8") as f:
+    css_content = f.read()
+
+# Clean up <style> tags inside contact_us.css if any
+css_content = css_content.replace("<style>", "").replace("</style>", "").strip()
+
+contact_html_full = f'''<!-- ══════════════════════════════════════════════════════════
+   CR8V STACKS — CONTACT PAGE v2 (using contact_us.css)
+═══════════════════════════════════════════════════════════ -->
+<div class="c8ct-root c8cf-root">
+<style>
+.c8ct-root {{
+  --ink:#080808; --paper:#F2F1EC; --paper-hi:#FAFAF7;
+  --blue:#0047E1; --blue-mid:#0038C0; --blue-hi:#4A9EFF;
+  --gray:#8A8A8A; --line:rgba(8,8,8,.14);
+  font-family:'DM Sans',sans-serif;
+}}
+.c8ct-root *, .c8ct-root *::before, .c8ct-root *::after {{ box-sizing:border-box; }}
+
+.c8ct-wrap {{ position:relative; background:var(--ink); overflow:hidden; padding:6.5rem 2.5rem; }}
+.c8ct-wrap::before {{ content:''; position:absolute; inset:0; background:radial-gradient(circle at 15% 15%,rgba(0,71,225,.4) 0%,transparent 50%),radial-gradient(circle at 90% 85%,rgba(0,56,192,.25) 0%,transparent 50%); }}
+.c8ct-wrap::after {{ content:''; position:absolute; inset:0; background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size:140px 140px; mix-blend-mode:screen; }}
+
+.c8ct-card {{ position:relative; z-index:1; max-width:720px; margin:0 auto; background:var(--paper); padding:4.5rem; overflow:visible; border-radius: 4px; }}
+.c8ct-card::before, .c8ct-card::after {{ content:''; position:absolute; left:8px; right:8px; background:rgba(255,255,255,.05); z-index:-1; }}
+.c8ct-card::before {{ bottom:-10px; left:20px; right:20px; background:rgba(255,255,255,.08); }}
+.c8ct-card::after {{ bottom:-20px; left:32px; right:32px; background:rgba(255,255,255,.045); }}
+
+.c8ct-stamp {{ position:absolute; top:2.75rem; right:2.75rem; width:78px; height:78px; border:1.5px dashed rgba(8,8,8,.32); border-radius:50%; display:flex; align-items:center; justify-content:center; transform:rotate(-9deg); text-align:center; }}
+.c8ct-stamp span {{ display:block; font-family:'Space Mono',monospace; font-size:8.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); line-height:1.5; }}
+
+.c8ct-tag {{ font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.28em; text-transform:uppercase; color:var(--blue); margin-bottom:16px; display:flex; align-items:center; gap:8px; font-weight:700; }}
+.c8ct-tag::before {{ content:''; width:16px; height:1px; background:var(--blue); }}
+.c8ct-h1 {{ font-family:'Bebas Neue',sans-serif; font-size:3rem; line-height:.96; color:var(--ink); letter-spacing:.01em; max-width:15ch; margin-bottom:.85rem; }}
+.c8ct-lede {{ font-size:14.5px; line-height:1.6; color:#4a4a4a; font-weight:300; max-width:38ch; }}
+
+.c8ct-meta {{ display:flex; gap:2.5rem; margin-top:2rem; padding-top:1.75rem; border-top:1px solid var(--line); }}
+.c8ct-meta-item {{ flex:1; }}
+.c8ct-meta-label {{ font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--gray); margin-bottom:6px; }}
+.c8ct-meta-value {{ font-size:14px; color:var(--ink); }}
+.c8ct-meta-value a {{ color:inherit; text-decoration:none; border-bottom:1px solid var(--line); }}
+.c8ct-meta-value a:hover {{ color:var(--blue); border-color:var(--blue); }}
+
+.c8ct-tear {{ position:relative; margin:2.75rem -4.5rem; border-top:2px dashed rgba(8,8,8,.28); }}
+.c8ct-tear::before, .c8ct-tear::after {{ content:''; position:absolute; top:50%; transform:translateY(-50%); width:34px; height:34px; border-radius:50%; background:var(--ink); }}
+.c8ct-tear::before {{ left:-17px; }}
+.c8ct-tear::after {{ right:-17px; }}
+
+.c8ct-form-label {{ font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--gray); margin-bottom:1.5rem; }}
+
+@media (max-width:768px){{
+  .c8ct-wrap {{ padding:4.5rem 1.25rem; }}
+  .c8ct-card {{ padding:3rem 2rem; }}
+  .c8ct-tear {{ margin:2.25rem -2rem; }}
+  .c8ct-h1 {{ font-size:2.4rem; max-width:none; }}
+  .c8ct-stamp {{ width:60px; height:60px; top:1.75rem; right:1.75rem; }}
+  .c8ct-stamp span {{ font-size:7.5px; }}
+  .c8ct-meta {{ flex-direction:column; gap:1.25rem; }}
+}}
+@media (max-width:480px){{
+  .c8ct-wrap {{ padding:3.5rem .9rem; }}
+  .c8ct-card {{ padding:2.5rem 1.5rem; }}
+  .c8ct-tear {{ margin:2rem -1.5rem; }}
+  .c8ct-stamp {{ display:none; }}
+}}
+
+/* Imported Form Styles from contact_us.css */
+{css_content}
+</style>
+
+<div class="c8ct-wrap">
+  <div class="c8ct-card">
+    <div class="c8ct-stamp"><span>8+ Yrs<br>Experience</span></div>
+
+    <div class="c8ct-tag">↳ Contact</div>
+    <h1 class="c8ct-h1">SO, WHAT'S THE PROJECT?</h1>
+    <p class="c8ct-lede">Fill this in — we read every one and reply within a day.</p>
+
+    <div class="c8ct-meta">
+      <div class="c8ct-meta-item">
+        <div class="c8ct-meta-label">Location</div>
+        <div class="c8ct-meta-value">Ogudu, Lagos State, Nigeria</div>
+      </div>
+      <div class="c8ct-meta-item">
+        <div class="c8ct-meta-label">Line</div>
+        <div class="c8ct-meta-value"><a href="tel:+2347054963639">0705 496 3639</a></div>
+      </div>
+    </div>
+
+    <div class="c8ct-tear"></div>
+
+    <div class="c8ct-form-label">Your Turn</div>
+    [contact-form-7 id="70c8d19" title="Contact Page"]
+  </div>
+</div>
+</div>
+'''
+
+with open(r"C:\Users\HP\Downloads\Mega Menu\Contact_us.html", "w", encoding="utf-8") as f:
+    f.write(contact_html_full)
+
+print("Updated Contact_us.html with contact_us.css embedded cleanly!")
