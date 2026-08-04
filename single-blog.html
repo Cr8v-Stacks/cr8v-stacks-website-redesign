@@ -23,21 +23,20 @@
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 4rem 2rem 5rem 2rem; }
+    body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 0; margin: 0; }
 
-    /* ── UNIFIED PAPER CONTAINER (FULL WIDTH HERO & INTEGRATED LAYOUT) ── */
-    .art-full-wrap {
-      max-width: 1280px; margin: 0 auto;
+    /* ── FULL-WIDTH OUTER PAPER WRAPPER (NO DISJOINTED SPACING) ── */
+    .art-outer-frame {
+      max-width: 1360px; margin: 0 auto;
       background: var(--c8-paper-card);
-      border: 1px solid var(--c8-grid-line);
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      border-left: 1px solid var(--c8-grid-line);
+      border-right: 1px solid var(--c8-grid-line);
+      min-height: 100vh;
     }
 
-    /* ── HERO BANNER TOP ── */
+    /* HERO BANNER TOP */
     .art-hero-banner {
-      padding: 3.5rem 4rem 2.5rem 4rem;
+      padding: 4rem 4rem 2.5rem 4rem;
       border-bottom: 1px solid var(--c8-grid-line);
       background: #FFFFFF;
     }
@@ -56,41 +55,42 @@
       font-family: var(--font-mono); font-size: 0.75rem; color: #8A8A8A;
     }
 
-    /* ── INTEGRATED 2-COLUMN GRID (LEFT SIDEBAR + RIGHT CONTENT) ── */
+    /* ── INTEGRATED 2-COLUMN GRID (STICKY LEFT SIDEBAR + RIGHT CONTENT) ── */
     .art-grid-layout {
       display: grid; grid-template-columns: 340px 1fr;
-      border-top: 1px solid var(--c8-grid-line);
     }
 
-    /* ── LEFT SIDEBAR (EXACT MATCH FOR USER SCREENSHOT media__1785736249464.png) ── */
+    /* ── LEFT SIDEBAR (STICKY & EXACT MATCH FOR SCREENSHOT media__1785736249464.png) ── */
     .art-sidebar-col {
       border-right: 1px solid var(--c8-grid-line);
       padding: 3rem 2rem;
       background: #FAFAF7;
+      position: sticky; top: 0; height: fit-content;
       display: flex; flex-direction: column; gap: 2rem;
     }
 
-    /* SHARE THIS ARTICLE */
-    .share-block { margin-bottom: 1rem; }
+    /* FUNCTIONAL SHARE BUTTONS */
+    .share-block { margin-bottom: 0.5rem; }
     .share-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: #8A8A8A; margin-bottom: 0.75rem; font-weight: 700; }
-    .share-row { display: flex; gap: 0.6rem; }
-    .share-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--c8-grid-line); background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: #080808; text-decoration: none; }
-    .share-btn:hover { background: #080808; color: #FFFFFF; }
+    .share-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .share-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--c8-grid-line); background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; color: #080808; text-decoration: none; cursor: pointer; transition: all 0.2s ease; }
+    .share-btn:hover { background: #080808; color: #FFFFFF; border-color: #080808; }
+    .share-btn-copy { width: auto; padding: 0 12px; border-radius: 17px; font-family: var(--font-mono); font-size: 0.68rem; }
 
     /* SIDEBAR CTA CARD (EXACT SCREENSHOT MATCH) */
     .sidebar-cta-card {
       background: #FFFFFF; border: 1px solid var(--c8-grid-line);
-      border-radius: 8px; padding: 2.25rem 1.6rem; text-align: center;
+      border-radius: 8px; padding: 2.25rem 1.5rem; text-align: center;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
     }
-    .cta-logos-row { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin-bottom: 0.75rem; }
-    .cta-logo-icon { width: 24px; height: 24px; border-radius: 50%; background: #080808; display: flex; align-items: center; justify-content: center; }
+    .cta-logos-row { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .cta-logo-icon { width: 26px; height: 26px; border-radius: 50%; background: #080808; display: flex; align-items: center; justify-content: center; }
     .cta-logo-icon img { width: 14px; height: 14px; }
 
-    .cta-trust-label { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #888888; margin-bottom: 1.5rem; }
+    .cta-trust-label { font-family: var(--font-mono); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #888888; margin-bottom: 1.5rem; }
 
-    .cta-illustration { width: 72px; height: 72px; margin: 0 auto 1.25rem auto; display: flex; align-items: center; justify-content: center; background: rgba(0,71,225,0.08); border-radius: 50%; border: 1px solid rgba(0,71,225,0.2); }
-    .cta-illustration svg { width: 36px; height: 36px; color: var(--c8-blue); }
+    .cta-illustration { width: 68px; height: 68px; margin: 0 auto 1.25rem auto; display: flex; align-items: center; justify-content: center; background: rgba(0,71,225,0.08); border-radius: 50%; border: 1px solid rgba(0,71,225,0.2); }
+    .cta-illustration svg { width: 32px; height: 32px; color: var(--c8-blue); }
 
     .cta-card-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: #080808; margin-bottom: 0.65rem; line-height: 1.3; }
     .cta-card-sub { font-family: var(--font-body); font-size: 0.85rem; color: var(--c8-sub); line-height: 1.5; margin-bottom: 1.5rem; }
@@ -98,55 +98,98 @@
     .cta-card-btn { background: #080808; color: #FFFFFF; font-family: var(--font-body); font-size: 0.82rem; font-weight: 700; padding: 0.8rem 1.25rem; border-radius: 6px; text-decoration: none; display: block; width: 100%; transition: background 0.2s ease; }
     .cta-card-btn:hover { background: var(--c8-blue); }
 
-    /* ── RIGHT MAIN CONTENT COLUMN ── */
-    .art-content-col {
-      padding: 3rem 4rem; background: #FFFFFF;
-    }
+    /* ── RIGHT CONTENT COLUMN ── */
+    .art-content-col { padding: 3.5rem 4rem; background: #FFFFFF; }
 
-    /* TOP AI SUMMARY BAR (EXACT MATCH FOR USER SCREENSHOT media__1785736249464.png) */
+    /* TOP INTERACTIVE AI SUMMARY BAR (MATCHING SCREENSHOT media__1785736249464.png) */
     .ai-summary-bar {
       border: 1px solid var(--c8-grid-line); border-radius: 6px;
       padding: 0.85rem 1.25rem; display: flex; align-items: center; justify-content: space-between;
       margin-bottom: 2.5rem; background: #FAFAF7;
     }
     .ai-summary-text { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #8A8A8A; }
-    .ai-summary-icons { display: flex; align-items: center; gap: 0.75rem; }
-    .ai-icon-dot { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(8,8,8,0.06); }
-    .ai-icon-dot img { width: 13px; height: 13px; }
+    .ai-summary-icons { display: flex; align-items: center; gap: 0.6rem; }
+    .ai-icon-btn { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid var(--c8-grid-line); cursor: pointer; transition: transform 0.2s ease; }
+    .ai-icon-btn:hover { transform: scale(1.1); border-color: var(--c8-blue); }
+    .ai-icon-btn img { width: 14px; height: 14px; }
 
-    /* FEATURED IMAGE CONTAINER */
+    /* FEATURED IMAGE */
     .art-featured-box { aspect-ratio: 16 / 9; width: 100%; border-radius: 4px; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-bottom: 2.5rem; background: #000000; }
     .art-featured-img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* CONTENT TYPOGRAPHY */
+    /* ── COMPLETE PRE-STYLED BLOG ELEMENT DESIGN SYSTEM ── */
     .art-body-text p { font-size: 1.02rem; line-height: 1.75; color: #222222; margin-bottom: 1.6rem; font-weight: 400; }
-    .art-body-text h2 { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-top: 2.5rem; margin-bottom: 1rem; line-height: 1.3; }
-    .art-body-text h3 { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-top: 1.75rem; margin-bottom: 0.75rem; }
-    .art-body-text blockquote { border-left: 3px solid var(--c8-blue); padding: 1rem 1.5rem; background: #FAFAF7; margin: 2rem 0; font-size: 1.05rem; font-style: italic; color: #111111; }
-    .art-body-text ul, .art-body-text ol { margin: 1.25rem 0 1.5rem 1.5rem; }
+    .art-body-text h1 { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-top: 3rem; margin-bottom: 1rem; line-height: 1.25; }
+    .art-body-text h2 { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-top: 2.75rem; margin-bottom: 1rem; line-height: 1.3; }
+    .art-body-text h3 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .art-body-text h4 { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .art-body-text h5, .art-body-text h6 { font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; color: var(--c8-blue); text-transform: uppercase; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+
+    /* BLOCKQUOTE: NO LEFT ACCENT BORDER! CLEAN PAPER CARD CALLOUT */
+    .art-body-text blockquote {
+      background: #FAFAF7; border: 1px solid var(--c8-grid-line);
+      border-radius: 4px; padding: 1.75rem 2rem; margin: 2.25rem 0;
+      font-size: 1.05rem; font-style: italic; color: #111111; line-height: 1.65;
+    }
+
+    /* LISTS & CODE BLOCKS */
+    .art-body-text ul, .art-body-text ol { margin: 1.25rem 0 1.75rem 1.75rem; }
     .art-body-text li { font-size: 1rem; line-height: 1.65; color: #222222; margin-bottom: 0.5rem; }
+    .art-body-text code { font-family: var(--font-mono); font-size: 0.85rem; background: #FAFAF7; padding: 0.2rem 0.5rem; border-radius: 3px; border: 1px solid var(--c8-grid-line); color: var(--c8-blue); }
+    .art-body-text pre { background: #080808; color: #FFFFFF; padding: 1.5rem; border-radius: 4px; overflow-x: auto; margin: 2rem 0; font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.6; }
+    .art-body-text pre code { background: transparent; border: none; padding: 0; color: inherit; }
+    .art-body-text a { color: var(--c8-blue); text-decoration: none; border-bottom: 1px solid var(--c8-blue); transition: color 0.2s ease; }
+    .art-body-text a:hover { color: var(--c8-blue-hi); border-color: var(--c8-blue-hi); }
 
-    /* ── FAQ ACCORDION SECTION ON INDIVIDUAL SERVICE PAGE ── */
-    .faq-section { margin-top: 4rem; border-top: 1px solid var(--c8-grid-line); padding-top: 3rem; }
-    .faq-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 1.75rem; }
-    .faq-item { border: 1px solid var(--c8-grid-line); border-radius: 4px; margin-bottom: 1rem; background: #FAFAF7; overflow: hidden; }
-    .faq-question { font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: var(--c8-ink); padding: 1.1rem 1.4rem; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
-    .faq-answer { font-size: 0.9rem; color: #4A4A4A; line-height: 1.6; padding: 0 1.4rem 1.1rem 1.4rem; }
+    /* DATA TABLES */
+    .art-body-text table { width: 100%; border-collapse: collapse; margin: 2.5rem 0; border: 1px solid var(--c8-grid-line); font-size: 0.92rem; }
+    .art-body-text th, .art-body-text td { padding: 0.85rem 1.25rem; border: 1px solid var(--c8-grid-line); text-align: left; }
+    .art-body-text th { background: #FAFAF7; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--c8-ink); }
 
-    .art-footer { max-width: 1280px; margin: 3rem auto 0 auto; text-align: center; font-size: 0.8rem; color: var(--c8-sub); border-top: 1px solid var(--c8-grid-line); padding-top: 1.5rem; }
+    /* ── SEAMLESS GRID SEQUENCES BELOW MAIN ARTICLE (CONTINUED GRID LINES) ── */
+    .blog-continued-grid {
+      border-top: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
+    }
+
+    /* RELATED ARTICLES GRID (3-COLUMN 0.8REM TITLE, NO EXCERPT, NO READ MORE) */
+    .related-section { padding: 3.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); }
+    .related-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 1.75rem; }
+    .related-grid-frame { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--c8-grid-line); }
+    .related-card { border-right: 1px solid var(--c8-grid-line); padding: 1.6rem; display: flex; flex-direction: column; justify-content: space-between; }
+    .related-card:last-child { border-right: none; }
+    .card-top-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+    .card-date { font-family: var(--font-mono); font-size: 0.7rem; color: #8A8A8A; }
+    .card-category-pill { font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); border: 1px solid rgba(8, 8, 8, 0.3); border-radius: 12px; padding: 0.15rem 0.6rem; }
+    .card-img-container { aspect-ratio: 16 / 10; border-radius: 2px; overflow: hidden; background: #000000; margin-bottom: 1rem; border: 1px solid var(--c8-grid-line); }
+    .card-img { width: 100%; height: 100%; object-fit: cover; }
+    .card-title { font-family: var(--font-heading) !important; font-size: 0.8rem !important; font-weight: 700; color: var(--c8-ink); line-height: 1.4; text-transform: uppercase; margin: 0; }
+    .card-title a { color: inherit; text-decoration: none; }
+
+    /* HOMEPAGE ACCORDION FAQ SECTION BELOW RELATED ARTICLES */
+    .faq-page-section { padding: 4rem; background: #FAFAF7; }
+    .faq-page-title { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 2rem; }
+    .faq-accordion-item { border: 1px solid var(--c8-grid-line); border-radius: 4px; margin-bottom: 1rem; background: #FFFFFF; overflow: hidden; }
+    .faq-accordion-q { font-family: var(--font-heading); font-size: 0.92rem; font-weight: 700; color: var(--c8-ink); padding: 1.25rem 1.6rem; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+    .faq-accordion-a { font-size: 0.92rem; color: #4A4A4A; line-height: 1.6; padding: 0 1.6rem 1.25rem 1.6rem; }
+
+    .art-footer { text-align: center; font-size: 0.8rem; color: var(--c8-sub); border-top: 1px solid var(--c8-grid-line); padding: 2rem; background: #FFFFFF; }
 
     @media (max-width: 1024px) {
       .art-grid-layout { grid-template-columns: 1fr; }
-      .art-sidebar-col { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2rem; }
+      .art-sidebar-col { position: static; border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2rem; }
       .art-content-col { padding: 2.25rem 1.5rem; }
       .art-hero-banner { padding: 2.5rem 1.5rem; }
+      .related-grid-frame { grid-template-columns: 1fr; }
+      .related-card { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
+      .faq-page-section, .related-section { padding: 2.5rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- UNIFIED FULL-WIDTH PAPER WRAPPER (PARITY WITH FYLLA TEMPLATE & USER SCREENSHOT) -->
-  <main class="art-full-wrap">
+  <!-- UNIFIED FULL-WIDTH PAPER OUTER FRAME -->
+  <main class="art-outer-frame">
     
     <!-- TOP HERO BANNER -->
     <header class="art-hero-banner">
@@ -158,37 +201,38 @@
     <!-- INTEGRATED 2-COLUMN GRID -->
     <div class="art-grid-layout">
       
-      <!-- LEFT SIDEBAR (EXACT MATCH FOR USER SCREENSHOT media__1785736249464.png) -->
+      <!-- LEFT SIDEBAR (STICKY & EXACT MATCH FOR SCREENSHOT media__1785736249464.png) -->
       <aside class="art-sidebar-col">
         
-        <!-- SHARE BUTTONS -->
+        <!-- FUNCTIONAL SHARE BUTTONS -->
         <div class="share-block">
           <div class="share-label">SHARE THIS ARTICLE</div>
           <div class="share-row">
-            <a href="#" class="share-btn" title="Share on X">X</a>
-            <a href="#" class="share-btn" title="Share on LinkedIn">in</a>
-            <a href="#" class="share-btn" title="Share on Facebook">f</a>
+            <button class="share-btn" onclick="shareX()" title="Share on X">X</button>
+            <button class="share-btn" onclick="shareLinkedIn()" title="Share on LinkedIn">in</button>
+            <button class="share-btn" onclick="shareFacebook()" title="Share on Facebook">f</button>
+            <button class="share-btn share-btn-copy" id="copy-btn" onclick="copyArticleLink()" title="Copy Link">COPY LINK</button>
           </div>
         </div>
 
-        <!-- SIDEBAR CTA CARD (MATCHING USER SCREENSHOT EXACTLY) -->
+        <!-- SIDEBAR CTA CARD (EXACT SCREENSHOT MATCH) -->
         <div class="sidebar-cta-card">
-          <!-- TOP TECH LOGOS ROW -->
+          <!-- TECH STACK LOGOS ROW INCLUDING WORKING OPENAI CDN -->
           <div class="cta-logos-row">
-            <div class="cta-logo-icon"><img src="https://cdn.simpleicons.org/shopify/FFFFFF" alt="Shopify"></div>
-            <div class="cta-logo-icon"><img src="https://cdn.simpleicons.org/wordpress/FFFFFF" alt="WordPress"></div>
-            <div class="cta-logo-icon"><img src="https://cdn.simpleicons.org/anthropic/FFFFFF" alt="Claude"></div>
-            <div class="cta-logo-icon"><img src="https://cdn.simpleicons.org/openai/FFFFFF" alt="OpenAI"></div>
+            <div class="cta-logo-icon" title="Shopify"><img src="https://cdn.simpleicons.org/shopify/FFFFFF" alt="Shopify"></div>
+            <div class="cta-logo-icon" title="WordPress"><img src="https://cdn.simpleicons.org/wordpress/FFFFFF" alt="WordPress"></div>
+            <div class="cta-logo-icon" title="Claude"><img src="https://cdn.simpleicons.org/anthropic/FFFFFF" alt="Claude"></div>
+            <div class="cta-logo-icon" title="OpenAI"><img src="https://cdn.simpleicons.org/openai/FFFFFF" alt="OpenAI"></div>
           </div>
           
-          <div class="cta-trust-label">TRUSTED BY 100+ COMPANIES</div>
+          <div class="cta-trust-label">ENGINEERED ON MODERN STACKS</div>
 
           <div class="cta-illustration">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
 
           <h3 class="cta-card-title">Your design + build partner</h3>
-          <p class="cta-card-sub">Product, websites, and brand — designed and shipped by one senior team for funded B2B companies.</p>
+          <p class="cta-card-sub">Product, websites, and brand — designed and shipped by one senior team.</p>
 
           <a href="discovery-call.html" class="cta-card-btn">Book an intro call</a>
         </div>
@@ -198,13 +242,13 @@
       <!-- RIGHT MAIN CONTENT COLUMN -->
       <article class="art-content-col">
         
-        <!-- TOP INTERACTIVE AI SUMMARY BAR (MATCHING USER SCREENSHOT media__1785736249464.png) -->
+        <!-- TOP INTERACTIVE AI SUMMARY BAR (MATCHING SCREENSHOT media__1785736249464.png) -->
         <div class="ai-summary-bar">
           <span class="ai-summary-text">SUMMARIZE WITH AI</span>
           <div class="ai-summary-icons">
-            <div class="ai-icon-dot" title="OpenAI"><img src="https://cdn.simpleicons.org/openai/080808" alt="OpenAI"></div>
-            <div class="ai-icon-dot" title="Claude"><img src="https://cdn.simpleicons.org/anthropic/080808" alt="Claude"></div>
-            <div class="ai-icon-dot" title="Google Gemini"><img src="https://cdn.simpleicons.org/google/080808" alt="Google"></div>
+            <button class="ai-icon-btn" onclick="summarizeAI('chatgpt')" title="Summarize with ChatGPT"><img src="https://cdn.simpleicons.org/openai/080808" alt="ChatGPT"></button>
+            <button class="ai-icon-btn" onclick="summarizeAI('claude')" title="Summarize with Claude"><img src="https://cdn.simpleicons.org/anthropic/080808" alt="Claude"></button>
+            <button class="ai-icon-btn" onclick="summarizeAI('gemini')" title="Summarize with Google Gemini"><img src="https://cdn.simpleicons.org/google/080808" alt="Gemini"></button>
           </div>
         </div>
 
@@ -212,55 +256,177 @@
           <img src="assets/case_study_blvck_hair_1785571402640.jpg" alt="Liquid Performance Architecture" class="art-featured-img">
         </div>
 
+        <!-- COMPLETE PRE-STYLED BLOG ELEMENT DESIGN SYSTEM -->
         <div class="art-body-text">
           <p>Our own site runs on custom zero-plugin architecture. That's not a casual detail — it's the result of a deliberate decision about what a design studio's marketing site needs to be, and it's the reason I have strong opinions about who liquid performance engineering is right for and who it isn't.</p>
 
+          <h1>1. Architectural Performance Fundamentals</h1>
           <p>Zero-plugin custom development is the best tool I've used for building fast, beautiful, design-forward marketing sites. It's also genuinely not the right home for every single blog on earth. So before I walk through the migration, I want to be straight with you about when this move actually makes sense, because the wrong migration is worse than no migration.</p>
 
-          <h2>What Liquid Engineering Is Actually For</h2>
-
+          <h2>2. What Liquid Engineering Is Actually For</h2>
           <p>Custom framework theme engineering started as a prototyping approach and grew into a full site paradigm. The canvas behaves the way designers think, the animation and interaction capabilities are excellent without code bloat, and the output is fast.</p>
 
-          <p>Where custom zero-plugin architecture wins:</p>
+          <h3>3. Key Performance Benchmarks</h3>
           <ul>
             <li><strong>Marketing and brand sites</strong> — homepages, product pages, landing pages, campaign sites</li>
             <li><strong>Startup sites that need to look exceptional</strong> and ship quickly</li>
             <li><strong>SEO Authority platforms</strong> — zero layout shift (CLS &lt; 0.01) with sub-50ms INP execution</li>
           </ul>
 
-          <blockquote>
+          <!-- BLOCKQUOTE: NO LEFT ACCENT BORDER! CLEAN PAPER CARD CALLOUT -->
+          <blockquote style="border-left:none;">
             "Liquid performance engineering is the discipline of stripping away framework bloat, writing native theme code, and delivering 100% Core Web Vitals pass rates on launch day."
           </blockquote>
+
+          <h4>4. Implementation Code Example</h4>
+          <pre><code>// Native WordPress Meta Field Registration (functions.php)
+function cr8v_register_hero_meta() {
+    add_meta_box('cr8v_hero_box', 'Hero Settings', 'cr8v_render_meta', 'page', 'normal', 'high');
+}
+add_action('add_meta_boxes', 'cr8v_register_hero_meta');</code></pre>
+
+          <!-- PRE-STYLED DATA TABLE -->
+          <table>
+            <thead>
+              <tr>
+                <th>Framework</th>
+                <th>Core Web Vitals</th>
+                <th>DOM Node Count</th>
+                <th>Plugin Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cr8v Stacks Native Theme</td>
+                <td>100 / 100 (Pass)</td>
+                <td>&lt; 450 Nodes</td>
+                <td>0 Plugins</td>
+              </tr>
+              <tr>
+                <td>Legacy Page Builder</td>
+                <td>42 / 100 (Fail)</td>
+                <td>&gt; 2,800 Nodes</td>
+                <td>18+ Plugins</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
-        <!-- FAQ ACCORDION SECTION -->
-        <section class="faq-section">
-          <h2 class="faq-title">Service &amp; Build FAQ</h2>
-
-          <div class="faq-item">
-            <div class="faq-question">How do you handle client handovers after build completion? <span>+</span></div>
-            <div class="faq-answer">Every custom build comes with full white-label WordPress admin tools (like Nativus Dashboard Pro), complete video walkthroughs, and 30 days of direct developer support.</div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-question">What is your typical build timeline for custom websites? <span>+</span></div>
-            <div class="faq-answer">Custom website design and engineering projects are typically completed in 3 to 5 weeks from initial scope approval to live production deployment.</div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-question">Are SEO settings folded into the code from day one? <span>+</span></div>
-            <div class="faq-answer">Yes. Entity SEO architecture, schema markup, semantic keyword mapping, and OpenGraph tags are coded directly into theme files before launch.</div>
-          </div>
-        </section>
 
       </article>
 
     </div>
+
+    <!-- SEAMLESS GRID SEQUENCES BELOW MAIN ARTICLE (NO SPACING, CONTINUED GRID LINES) -->
+    <div class="blog-continued-grid">
+      
+      <!-- RELATED ARTICLES SECTION (3-COLUMN 0.8REM TITLE, NO EXCERPT, NO READ MORE) -->
+      <section class="related-section">
+        <h2 class="related-title">Related Field Notes</h2>
+        
+        <div class="related-grid-frame">
+          
+          <article class="related-card">
+            <div>
+              <div class="card-top-meta">
+                <span class="card-date">July 28, 2026</span>
+                <span class="card-category-pill">ENTITY SEO</span>
+              </div>
+              <div class="card-img-container">
+                <img src="assets/case_study_duch_apartments_1785571416702.jpg" alt="Entity SEO Architecture" class="card-img">
+              </div>
+              <h2 class="card-title"><a href="single-blog.html?id=2">Entity SEO Architecture: Indexing For Authority</a></h2>
+            </div>
+          </article>
+
+          <article class="related-card">
+            <div>
+              <div class="card-top-meta">
+                <span class="card-date">July 19, 2026</span>
+                <span class="card-category-pill">AI MVPS</span>
+              </div>
+              <div class="card-img-container">
+                <img src="assets/case_study_bridgepoint_compliance_1785571461489.jpg" alt="AI Platforms" class="card-img">
+              </div>
+              <h2 class="card-title"><a href="single-blog.html?id=3">Architecting Custom AI Dashboards For Handover</a></h2>
+            </div>
+          </article>
+
+          <article class="related-card">
+            <div>
+              <div class="card-top-meta">
+                <span class="card-date">July 10, 2026</span>
+                <span class="card-category-pill">DESIGN</span>
+              </div>
+              <div class="card-img-container">
+                <img src="assets/services_visual_montage_1785579924010.jpg" alt="UI Micro-Animations" class="card-img">
+              </div>
+              <h2 class="card-title"><a href="single-blog.html?id=4">Micro-Animations That Convert: Designing For Retention</a></h2>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- HOMEPAGE ACCORDION FAQ SECTION -->
+      <section class="faq-page-section">
+        <h2 class="faq-page-title">Agency Business &amp; Build FAQ</h2>
+
+        <div class="faq-accordion-item">
+          <div class="faq-accordion-q">How do you handle client handovers after build completion? <span>+</span></div>
+          <div class="faq-accordion-a">Every custom build comes with full white-label WordPress admin tools (like Nativus Dashboard Pro), complete video walkthroughs, and 30 days of direct developer support.</div>
+        </div>
+
+        <div class="faq-accordion-item">
+          <div class="faq-accordion-q">What is your typical build timeline for custom websites? <span>+</span></div>
+          <div class="faq-accordion-a">Custom website design and engineering projects are typically completed in 3 to 5 weeks from initial scope approval to live production deployment.</div>
+        </div>
+
+        <div class="faq-accordion-item">
+          <div class="faq-accordion-q">Are SEO settings folded into the code from day one? <span>+</span></div>
+          <div class="faq-accordion-a">Yes. Entity SEO architecture, schema markup, semantic keyword mapping, and OpenGraph tags are coded directly into theme files before launch.</div>
+        </div>
+      </section>
+
+      <footer class="art-footer">
+        © 2026 Cr8v Stacks Agency. All Rights Reserved.
+      </footer>
+
+    </div>
+
   </main>
 
-  <footer class="art-footer">
-    © 2026 Cr8v Stacks Agency. All Rights Reserved.
-  </footer>
+  <!-- FUNCTIONAL SHARE & SUMMARIZE WITH AI SCRIPTS -->
+  <script>
+    const currentTitle = encodeURIComponent(document.title);
+    const currentURL = encodeURIComponent(window.location.href);
+
+    function shareX() {
+      window.open(`https://twitter.com/intent/tweet?text=${currentTitle}&url=${currentURL}`, '_blank');
+    }
+    function shareLinkedIn() {
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${currentURL}`, '_blank');
+    }
+    function shareFacebook() {
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${currentURL}`, '_blank');
+    }
+    function copyArticleLink() {
+      navigator.clipboard.writeText(window.location.href);
+      const btn = document.getElementById('copy-btn');
+      btn.innerText = 'COPIED ✓';
+      setTimeout(() => { btn.innerText = 'COPY LINK'; }, 2500);
+    }
+
+    function summarizeAI(service) {
+      const promptText = encodeURIComponent(`Summarize this article for me:\nTitle: ${document.title}\nURL: ${window.location.href}\n\nPlease provide:\n1. Executive Summary\n2. Key Architecture Takeaways\n3. Who This Article Is Useful For\n4. Most Actionable Insights`);
+      if (service === 'chatgpt') {
+        window.open(`https://chatgpt.com/?q=${promptText}`, '_blank');
+      } else if (service === 'claude') {
+        window.open(`https://claude.ai/new?q=${promptText}`, '_blank');
+      } else if (service === 'gemini') {
+        window.open(`https://gemini.google.com/app?q=${promptText}`, '_blank');
+      }
+    }
+  </script>
 
 </body>
 </html>
