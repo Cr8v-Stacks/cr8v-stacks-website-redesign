@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us — Cr8v Stacks Agency</title>
+  <title>Studio — Cr8v Stacks Agency</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
@@ -26,7 +26,7 @@
     body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 0; margin: 0; line-height: 1.65; }
 
     /* ── FYLLA STUDIO OUTER FRAME ── */
-    .abt-outer-frame {
+    .fylla-outer-frame {
       margin: 2.5rem 1rem 0rem 1rem;
       background: var(--c8-paper-card);
       border: 1px solid var(--c8-grid-line);
@@ -34,770 +34,513 @@
       min-height: 100vh;
     }
 
-    /* ── TEARLINE DIVIDER ── */
-    .c8abt-tearline { display: flex; align-items: center; margin: 4rem 4rem; }
-    .c8abt-tearline-dot { width: 9px; height: 9px; border-radius: 50%; background: #080808; flex-shrink: 0; }
-    .c8abt-tearline-line { flex: 1; border-top: 1px dashed rgba(8,8,8,0.28); margin: 0 10px; }
-
-    /* ── MONO TAG LABEL ── */
-    .c8abt-label {
-      font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em;
-      text-transform: uppercase; color: var(--c8-blue); display: flex; align-items: center; gap: 10px;
-      margin-bottom: 1.25rem; font-weight: 700;
+    /* ── FYLLA MONO META TAG ── */
+    .fylla-meta-tag {
+      font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; color: var(--c8-blue); letter-spacing: 0.14em;
+      margin-bottom: 1rem; display: block;
     }
-    .c8abt-label::before { content: '//'; color: var(--c8-blue); font-weight: 700; }
-    .c8abt-label.is-light { color: #7C93FF; }
-    .c8abt-label.is-light::before { color: #7C93FF; }
+    .fylla-meta-tag::before { content: '// '; }
 
-    /* ── 1. FYLLA STUDIO HERO SECTION ── */
-    .studio-hero-section {
-      padding: 3.5rem 4rem 3.5rem 4rem;
+    /* ── SECTION 1: FYLLA STUDIO HERO ── */
+    .fylla-hero-section {
+      padding: 3.5rem 4rem 4rem 4rem;
       border-bottom: 1px solid var(--c8-grid-line);
       background: #FFFFFF;
     }
-    .c8abt-headline {
-      font-family: var(--font-heading); font-size: clamp(2rem, 4.8vw, 3.6rem);
+    .fylla-hero-h1 {
+      font-family: var(--font-heading); font-size: clamp(2rem, 4.5vw, 3.2rem);
       font-weight: 700; text-transform: uppercase; line-height: 1.18;
-      color: var(--c8-ink); margin-bottom: 1.75rem; max-width: 980px;
+      color: var(--c8-ink); margin-bottom: 1.5rem; max-width: 960px;
     }
-    .c8abt-serif-italic { font-family: Georgia, serif; font-style: italic; font-weight: 300; color: var(--c8-blue); text-transform: lowercase; }
-    .c8abt-highlight-text {
-      background: linear-gradient(90deg, #0047E1 0%, #00C2FF 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;
+    .fylla-hero-p {
+      font-size: 1.05rem; color: var(--c8-sub); line-height: 1.65; max-width: 820px;
+      margin-bottom: 2rem; font-weight: 400;
     }
-    .c8abt-hero-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 3rem; margin-bottom: 2rem; }
-    .c8abt-hero-intro { font-size: 1.05rem; font-weight: 400; color: var(--c8-sub); max-width: 720px; line-height: 1.65; }
-    .c8abt-badge {
-      width: 90px; height: 90px; border-radius: 50%; border: 1px dashed rgba(0,71,225,0.45);
-      display: flex; align-items: center; justify-content: center; text-align: center;
-      font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .04em;
-      text-transform: uppercase; color: var(--c8-blue); transform: rotate(-8deg); line-height: 1.3;
-      flex-shrink: 0; background: #FFFFFF; font-weight: 700;
-    }
-    .c8abt-pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
-    .c8abt-pill {
-      border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.45rem 1rem;
-      font-size: 12.5px; font-family: var(--font-mono); color: #080808; font-weight: 700;
+    .fylla-pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+    .fylla-pill {
+      border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.4rem 0.9rem;
+      font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700;
       border-radius: 4px; text-transform: uppercase;
     }
-    
-    /* HERO FULL-WIDTH FEATURED MEDIA CONTAINER */
-    .studio-hero-img-box {
+    .fylla-hero-img-box {
       width: 100%; aspect-ratio: 21 / 9; border-radius: 4px; overflow: hidden;
       border: 1px solid var(--c8-grid-line); background: #000000; position: relative;
     }
-    .studio-hero-img { width: 100%; height: 100%; object-fit: cover; }
-    .c8abt-hud-tag {
-      position: absolute; bottom: 24px; right: 24px; background: #080808; color: #FAFAF7;
+    .fylla-hero-img { width: 100%; height: 100%; object-fit: cover; }
+    .fylla-hud-tag {
+      position: absolute; bottom: 20px; right: 20px; background: #080808; color: #FAFAF7;
       font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase;
       padding: 6px 12px; border-top: 2px solid var(--c8-blue); z-index: 3;
     }
 
-    /* ── 2. FYLLA STUDIO VALUES SECTION (PHILOSOPHY & WHY IT WORKS SPLIT) ── */
-    .studio-values-section {
+    /* ── SECTION 2: FYLLA STUDIO VALUES (PHILOSOPHY & CODE ARCHITECTURE) ── */
+    .fylla-values-section {
       display: grid; grid-template-columns: 1fr 1fr;
       border-bottom: 1px solid var(--c8-grid-line);
       background: #FFFFFF;
     }
-    .values-col-left {
+    .fylla-values-left {
       padding: 4.5rem 4rem; border-right: 1px solid var(--c8-grid-line);
       display: flex; flex-direction: column; justify-content: space-between;
     }
-    .values-h2 {
+    .fylla-values-h2 {
       font-family: var(--font-heading); font-size: clamp(1.4rem, 2.6vw, 2.1rem);
       font-weight: 700; text-transform: uppercase; line-height: 1.25;
       color: var(--c8-ink); margin-bottom: 1.5rem;
     }
-    .values-body { font-size: 0.95rem; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.25rem; }
-    .values-btn {
+    .fylla-values-p { font-size: 0.95rem; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.25rem; }
+    .fylla-btn {
       background: var(--c8-blue); color: #FFFFFF !important; font-family: var(--font-mono);
       font-size: 0.8rem; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 4px;
       text-decoration: none; text-transform: uppercase; width: fit-content; margin-top: 1rem;
-      transition: background 0.2s ease;
+      transition: background 0.2s ease; display: inline-block;
     }
-    .values-btn:hover { background: var(--c8-blue-hi); }
+    .fylla-btn:hover { background: var(--c8-blue-hi); }
 
-    /* FYLLA VALUES STACK RIGHT COLUMN */
-    .values-col-right {
-      background: #FAFAF7;
-      display: flex; flex-direction: column;
+    .fylla-values-right {
+      background: #FAFAF7; display: flex; flex-direction: column;
     }
-    .value-item {
+    .fylla-value-item {
       padding: 3rem 3.5rem; border-bottom: 1px solid var(--c8-grid-line);
       display: flex; gap: 1.75rem; align-items: flex-start;
     }
-    .value-item:last-child { border-bottom: none; }
-    .value-num {
+    .fylla-value-item:last-child { border-bottom: none; }
+    .fylla-value-num {
       font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700;
       color: var(--c8-blue); flex-shrink: 0; padding-top: 0.2rem;
     }
-    .value-h3 {
+    .fylla-value-h3 {
       font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700;
       color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.65rem;
     }
-    .value-p { font-size: 0.92rem; color: var(--c8-sub); line-height: 1.65; }
+    .fylla-value-desc { font-size: 0.92rem; color: var(--c8-sub); line-height: 1.65; }
 
-    /* ── 3. FULL-WIDTH MANIFESTO BREAK ── */
-    .c8abt-vbreak-outer { position: relative; margin: 0; }
-    .c8abt-vbreak {
-      position: relative; width: 100%; height: 55vh; min-height: 400px; max-height: 600px; overflow: hidden; border-bottom: 1px solid var(--c8-grid-line);
-    }
-    .c8abt-vbreak img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.1); }
-    .c8abt-vbreak-tint {
-      position: absolute; inset: 0;
-      background: linear-gradient(190deg, rgba(5,8,25,0.2) 0%, rgba(0,71,225,0.45) 55%, rgba(5,8,19,0.9) 100%);
-      mix-blend-mode: multiply;
-    }
-    .c8abt-vbreak-card {
-      position: absolute; left: 4rem; bottom: 3rem; max-width: 480px; z-index: 3;
-      background: #FFFFFF; padding: 2.25rem 2.5rem; border: 1px solid var(--c8-grid-line);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3); border-radius: 4px;
-    }
-    .c8abt-vbreak-card p { font-size: clamp(1.05rem, 1.7vw, 1.3rem); font-weight: 500; color: #080808; line-height: 1.45; margin-bottom: 0; }
-    .c8abt-vbreak-card cite {
-      font-family: var(--font-mono); font-style: normal; font-size: 10px; letter-spacing: .15em;
-      text-transform: uppercase; color: var(--c8-blue); display: block; margin-top: 1rem; font-weight: 700;
-    }
-
-    /* ── 4. TECHNICAL ADVANTAGE COMPARISON GRID ── */
-    .c8abt-philosophy-section { padding: 4.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
-    .c8abt-comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2.5rem; }
-    .c8abt-comp-box { background: #FFFFFF; border: 1px solid var(--c8-grid-line); padding: 3rem 2.5rem; border-radius: 4px; }
-    .c8abt-comp-box.c8abt-highlight { background: #FAFAF7; border-color: rgba(0,71,225,0.3); }
-    .c8abt-comp-header {
-      font-family: var(--font-heading); font-size: 1.25rem; text-transform: uppercase; margin-bottom: 2rem; font-weight: 700;
-    }
-    .c8abt-comp-list { display: flex; flex-direction: column; gap: 1.25rem; }
-    .c8abt-comp-item { display: flex; gap: 14px; align-items: flex-start; }
-    .c8abt-icon-sq {
-      width: 22px; height: 22px; display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; font-size: 11px; margin-top: 2px; font-weight: 700; border-radius: 3px;
-    }
-    .c8abt-icon-sq.is-no { background: #EAEAEA; color: #8A8A8A; }
-    .c8abt-icon-sq.is-yes { background: var(--c8-blue); color: #FFFFFF; }
-    .c8abt-comp-text { font-size: 14px; color: var(--c8-sub); line-height: 1.6; }
-    .c8abt-comp-text strong { color: #080808; font-weight: 600; }
-
-    /* ── 5. PILLARS OF GROWTH (FYLLA 4-COLUMN GRID LAYOUT) ── */
-    .c8abt-pillars-section { padding: 4.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
-    .c8abt-pillars-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; margin-top: 2rem; }
-    .c8abt-pillar-card {
-      border: 1px solid var(--c8-grid-line); background: #FFFFFF; padding: 2.25rem 1.75rem;
-      position: relative; transition: transform 0.25s ease, border-color 0.25s ease; border-radius: 4px;
-    }
-    .c8abt-pillar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: transparent; transition: background 0.25s; }
-    .c8abt-pillar-card:hover { transform: translateY(-4px); border-color: var(--c8-blue); }
-    .c8abt-pillar-card:hover::before { background: var(--c8-blue); }
-    .c8abt-pillar-num { font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: var(--c8-blue); display: block; margin-bottom: 1.25rem; }
-    .c8abt-pillar-title { font-family: var(--font-heading); font-size: 1.05rem; text-transform: uppercase; margin-bottom: 0.65rem; font-weight: 700; }
-    .c8abt-pillar-desc { font-size: 13.5px; color: var(--c8-sub); font-weight: 400; line-height: 1.6; }
-
-    /* ── 6. STATS BREAKOUT SECTION ── */
-    .c8abt-stats-outer { position: relative; }
-    .c8abt-stats-breakout {
-      background: radial-gradient(circle at 12% 15%, rgba(0,71,225,0.45) 0%, transparent 55%), #080808;
-      padding: 5rem 4rem; position: relative; overflow: hidden; color: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line);
-    }
-    .c8abt-stats-inner { max-width: 1360px; margin: 0 auto; position: relative; z-index: 2; }
-    .c8abt-stats-headline { font-family: var(--font-heading); font-size: clamp(1.6rem, 3.2vw, 2.5rem); text-transform: uppercase; max-width: 820px; margin-bottom: 3rem; line-height: 1.2; color: #FAFAF7; font-weight: 700; }
-    .c8abt-stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
-    .c8abt-stat-card { background: #FFFFFF; padding: 2rem 1.75rem; border-radius: 4px; color: #080808; border: 1px solid var(--c8-grid-line); }
-    .c8abt-stat-num { font-family: var(--font-heading); font-size: 2.5rem; line-height: 1; color: var(--c8-blue); font-weight: 700; }
-    .c8abt-stat-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #080808; display: block; margin: 0.6rem 0 0.5rem 0; font-weight: 700; }
-    .c8abt-stat-desc { font-size: 12.5px; color: var(--c8-sub); font-weight: 400; line-height: 1.55; }
-
-    /* ── 7. FYLLA STUDIO TEAM PARITY FOR DEV PLAYGROUND ── */
-    .studio-team-section {
+    /* ── SECTION 3: FYLLA TEAM PARITY (CUSTOM PLUGINS GRID) ── */
+    .fylla-team-section {
       padding: 4.5rem 4rem;
       border-bottom: 1px solid var(--c8-grid-line);
       background: #FFFFFF;
     }
-    .team-header-row {
+    .fylla-team-header {
       display: flex; justify-content: space-between; align-items: flex-end;
       margin-bottom: 3rem; border-bottom: 1px solid var(--c8-grid-line);
       padding-bottom: 1.75rem;
     }
-    .team-h2 {
+    .fylla-team-h2 {
       font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700;
       color: var(--c8-ink); text-transform: uppercase;
     }
-    .team-sub {
+    .fylla-team-sub {
       font-family: var(--font-body); font-size: 0.95rem; color: var(--c8-sub); max-width: 500px;
     }
 
-    .team-grid-frame {
+    .fylla-team-grid {
       display: grid; grid-template-columns: repeat(2, 1fr);
       border: 1px solid var(--c8-grid-line); background: #FFFFFF;
     }
-    .plugin-card {
+    .fylla-plugin-card {
       padding: 2.5rem 2.25rem; border-right: 1px solid var(--c8-grid-line);
       border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF;
       transition: background 0.2s ease;
     }
-    .plugin-card:hover { background: #FAFAF7; }
-    .plugin-card:nth-child(2n) { border-right: none; }
-    .plugin-card:nth-last-child(-n+2) { border-bottom: none; }
+    .fylla-plugin-card:hover { background: #FAFAF7; }
+    .fylla-plugin-card:nth-child(2n) { border-right: none; }
+    .fylla-plugin-card:nth-last-child(-n+2) { border-bottom: none; }
 
-    .plugin-cat { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700; color: var(--c8-blue); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.75rem; display: block; }
-    .plugin-name { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.85rem; }
-    .plugin-desc { font-size: 0.9rem; color: var(--c8-sub); line-height: 1.65; margin-bottom: 1.5rem; }
-    .plugin-link { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--c8-ink); text-decoration: none; border-bottom: 1px solid var(--c8-blue); text-transform: uppercase; letter-spacing: 0.1em; }
-    .plugin-link:hover { color: var(--c8-blue); }
+    .fylla-plugin-cat { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700; color: var(--c8-blue); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.75rem; display: block; }
+    .fylla-plugin-title { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.85rem; }
+    .fylla-plugin-desc { font-size: 0.9rem; color: var(--c8-sub); line-height: 1.65; margin-bottom: 1.5rem; }
+    .fylla-plugin-link { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--c8-ink); text-decoration: none; border-bottom: 1px solid var(--c8-blue); text-transform: uppercase; letter-spacing: 0.1em; }
+    .fylla-plugin-link:hover { color: var(--c8-blue); }
 
-    /* ── 8. STACKING PROCESS SECTION ── */
-    .c8abt-process-heading { padding: 4.5rem 4rem 0 4rem; }
-    .c8abt-stack-section { position: relative; margin-bottom: 0; }
-    .c8abt-stack-pin { position: relative; height: 350vh; }
-    .c8abt-stack-pin-inner {
-      position: sticky; top: 0; height: 100vh; display: grid;
-      grid-template-columns: 0.85fr 1.15fr; gap: 6rem; align-items: center;
-      padding: 1rem 4rem; max-width: 1440px; margin: 0 auto;
+    /* ── SECTION 4: TECHNICAL ADVANTAGE & 5-STEP PROCESS MATRIX ── */
+    .fylla-matrix-section {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
     }
-    .c8abt-stack-heading { font-family: var(--font-heading); font-size: clamp(1.6rem, 3vw, 2.4rem); text-transform: uppercase; line-height: 1.2; margin-bottom: 1.2rem; font-weight: 700; }
-    .c8abt-stack-cards { position: relative; height: 440px; max-width: 520px; }
-    .c8abt-stack-card {
-      position: absolute; inset: 0; border: 1px solid var(--c8-grid-line);
-      padding: 2.5rem; display: flex; flex-direction: column; justify-content: center;
-      box-shadow: 0 20px 50px rgba(0,71,225,0.08); background-size: cover; background-position: center;
-      color: #080808; border-radius: 6px;
+    .fylla-matrix-col { padding: 4.5rem 4rem; }
+    .fylla-matrix-col:first-child { border-right: 1px solid var(--c8-grid-line); }
+
+    .fylla-comp-box { background: #FAFAF7; border: 1px solid var(--c8-grid-line); padding: 2.25rem 2rem; border-radius: 4px; margin-bottom: 1.5rem; }
+    .fylla-comp-box.is-active { border-color: rgba(0,71,225,0.3); background: #FFFFFF; }
+    .fylla-comp-h3 { font-family: var(--font-heading); font-size: 1.05rem; text-transform: uppercase; margin-bottom: 1.25rem; font-weight: 700; }
+    .fylla-comp-list { display: flex; flex-direction: column; gap: 1rem; }
+    .fylla-comp-item { display: flex; gap: 12px; font-size: 13.5px; color: var(--c8-sub); line-height: 1.55; }
+    .fylla-icon-sq {
+      width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 10px; margin-top: 2px; font-weight: 700; border-radius: 3px;
     }
-    .c8abt-stack-card[data-c8abt-card="0"] { background-image: linear-gradient(rgba(244, 246, 251, 0.92), rgba(244, 246, 251, 0.92)), url('assets/hww_process_layers.jpg'); }
-    .c8abt-stack-card[data-c8abt-card="1"] { background-image: linear-gradient(rgba(244, 246, 251, 0.92), rgba(244, 246, 251, 0.92)), url('assets/hww_workflow_visual.jpg'); }
-    .c8abt-stack-card[data-c8abt-card="2"] { background-image: linear-gradient(rgba(244, 246, 251, 0.92), rgba(244, 246, 251, 0.92)), url('assets/hww_stacks_visual.jpg'); }
-    .c8abt-stack-card[data-c8abt-card="3"] { background-image: linear-gradient(rgba(244, 246, 251, 0.92), rgba(244, 246, 251, 0.92)), url('assets/hww_tools_creative.jpg'); }
-    .c8abt-stack-card[data-c8abt-card="4"] { background-image: linear-gradient(rgba(244, 246, 251, 0.92), rgba(244, 246, 251, 0.92)), url('assets/c4_tools_bg.jpg'); }
+    .fylla-icon-sq.is-no { background: #EAEAEA; color: #8A8A8A; }
+    .fylla-icon-sq.is-yes { background: var(--c8-blue); color: #FFFFFF; }
 
-    .c8abt-stack-card-dot {
-      width: 42px; height: 42px; background: var(--c8-blue); color: #FFFFFF;
-      display: flex; align-items: center; justify-content: center; font-family: var(--font-mono);
-      font-size: 13px; font-weight: 700; margin-bottom: 1.5rem; border-radius: 4px;
+    /* PROCESS STEP ITEMS */
+    .fylla-step-item { padding: 1.5rem 0; border-bottom: 1px solid var(--c8-grid-line); }
+    .fylla-step-item:last-child { border-bottom: none; }
+    .fylla-step-num { font-family: var(--font-mono); font-size: 0.75rem; color: var(--c8-blue); font-weight: 700; margin-bottom: 0.35rem; }
+    .fylla-step-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .fylla-step-desc { font-size: 0.9rem; color: var(--c8-sub); line-height: 1.6; }
+
+    /* ── SECTION 5: STATS & LEADERSHIP FOUNDER PASS ── */
+    .fylla-stats-section {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
     }
-    .c8abt-stack-card-title { font-family: var(--font-heading); font-size: 1.35rem; text-transform: uppercase; margin-bottom: 0.75rem; color: #080808; font-weight: 700; }
-    .c8abt-stack-card-desc { font-size: 14px; font-weight: 400; color: var(--c8-sub); line-height: 1.65; }
-    .c8abt-stack-progress { display: flex; gap: 8px; margin-top: 2.5rem; }
-    .c8abt-stack-progress span { width: 24px; height: 4px; background: rgba(8,8,8,0.14); transition: background 0.3s; border-radius: 2px; }
-    .c8abt-stack-progress span.is-active { background: var(--c8-blue); }
+    .fylla-stats-left { padding: 4.5rem 4rem; border-right: 1px solid var(--c8-grid-line); }
+    .fylla-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
+    .fylla-stat-card { background: #FAFAF7; padding: 1.75rem 1.5rem; border: 1px solid var(--c8-grid-line); border-radius: 4px; }
+    .fylla-stat-num { font-family: var(--font-heading); font-size: 2.2rem; line-height: 1; color: var(--c8-blue); font-weight: 700; margin-bottom: 0.35rem; }
+    .fylla-stat-tag { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--c8-ink); display: block; margin-bottom: 0.4rem; font-weight: 700; }
+    .fylla-stat-desc { font-size: 12px; color: var(--c8-sub); line-height: 1.5; }
 
-    /* ── 9. FIT / NOT FIT ── */
-    .c8abt-fit-section { padding: 4.5rem 4rem; border-top: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
-    .c8abt-fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; }
-    .c8abt-fit-box { padding: 2.75rem 2.5rem; border-radius: 4px; }
-    .c8abt-fit-box.c8abt-fit-yes { background: #FAFAF7; border: 1px solid rgba(0,71,225,0.25); }
-    .c8abt-fit-box.c8abt-fit-no { background: #FFFFFF; border: 1px solid var(--c8-grid-line); }
-    .c8abt-fit-title { font-family: var(--font-heading); font-size: 1.2rem; text-transform: uppercase; margin-bottom: 1.6rem; color: #080808; font-weight: 700; }
-    .c8abt-fit-list { display: flex; flex-direction: column; gap: 1.1rem; }
-    .c8abt-fit-item { display: flex; gap: 12px; font-size: 14px; font-weight: 400; line-height: 1.55; color: var(--c8-sub); }
-
-    /* ── 10. LEADERSHIP & FOUNDER PASS ── */
-    .c8abt-leadership-section { padding: 4.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
-    .c8abt-quote-block { border-left: 3px solid var(--c8-blue); padding-left: 1.75rem; margin: 2rem 0; }
-    .c8abt-quote-block p { font-family: var(--font-body); font-style: italic; font-size: 1.1rem; font-weight: 400; color: #080808; line-height: 1.55; margin-bottom: 0.6rem; }
-    .c8abt-quote-block cite { font-family: var(--font-mono); font-style: normal; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; }
-
-    .c8abt-founder-pass {
+    /* FOUNDER CARD */
+    .fylla-stats-right { padding: 4.5rem 4rem; display: flex; flex-direction: column; justify-content: space-between; background: #FAFAF7; }
+    .fylla-founder-pass {
       background: #080808; color: #FAFAF7; border: 1px dashed rgba(255, 255, 255, 0.28);
-      padding: 2.25rem 2rem; position: relative; font-family: var(--font-mono);
-      box-shadow: 12px 12px 0px rgba(0, 71, 225, 0.08); overflow: hidden;
-      display: flex; flex-direction: column; justify-content: space-between; min-height: 380px; border-radius: 4px;
+      padding: 2rem; font-family: var(--font-mono); border-radius: 4px; margin-bottom: 2rem;
     }
-    .c8abt-founder-pass::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--c8-blue); }
-    .c8abt-pass-header { border-bottom: 1px dashed rgba(255,255,255,0.15); padding-bottom: 1rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-    .c8abt-pass-title { font-size: 10px; letter-spacing: 0.2em; color: #7C93FF; font-weight: 700; }
-    .c8abt-pass-meta { font-size: 9px; color: rgba(255,255,255,0.4); }
-    .c8abt-pass-body { display: flex; flex-direction: column; gap: 1.25rem; flex-grow: 1; }
-    .c8abt-pass-row { display: flex; flex-direction: column; }
-    .c8abt-pass-label { font-size: 8.5px; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
-    .c8abt-pass-value { font-size: 12.5px; color: #FAFAF7; font-weight: 500; }
-    .c8abt-pass-barcode-wrap { margin-top: 1.5rem; border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
-    .c8abt-pass-barcode { height: 32px; width: 140px; background: repeating-linear-gradient(90deg, #FAFAF7, #FAFAF7 2px, transparent 2px, transparent 6px); opacity: 0.75; }
-    .c8abt-pass-stamp { width: 38px; height: 38px; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 8px; color: rgba(255,255,255,0.4); transform: rotate(-10deg); font-weight: 700; }
+    .fylla-pass-header { border-bottom: 1px dashed rgba(255,255,255,0.15); padding-bottom: 0.75rem; margin-bottom: 1.25rem; display: flex; justify-content: space-between; font-size: 9.5px; color: #7C93FF; font-weight: 700; }
+    .fylla-pass-row { margin-bottom: 0.85rem; }
+    .fylla-pass-label { font-size: 8px; color: rgba(255,255,255,0.4); text-transform: uppercase; display: block; margin-bottom: 2px; }
+    .fylla-pass-val { font-size: 12px; color: #FAFAF7; font-weight: 500; }
+    .fylla-quote-box { border-left: 3px solid var(--c8-blue); padding-left: 1.5rem; margin-top: 1rem; }
+    .fylla-quote-p { font-style: italic; font-size: 1rem; color: var(--c8-ink); line-height: 1.55; margin-bottom: 0.5rem; }
+    .fylla-quote-cite { font-family: var(--font-mono); font-style: normal; font-size: 10px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; }
 
-    /* ── 11. EDUCATIONAL BLOCKS (YOUTUBE & AI VECTOR WORKFLOW TREE) ── */
-    .c8abt-education-block { padding: 4.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
-    .c8abt-youtube-play-btn {
-      width: 72px; height: 72px; background: #FF0000; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4); transition: transform 0.3s ease;
+    /* ── SECTION 6: OPEN SOURCE & TUTORIALS ── */
+    .fylla-edu-section {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
     }
-    .c8abt-img-frame:hover .c8abt-youtube-play-btn { transform: scale(1.15); }
+    .fylla-edu-col { padding: 4.5rem 4rem; }
+    .fylla-edu-col:first-child { border-right: 1px solid var(--c8-grid-line); }
+    .fylla-img-frame {
+      width: 100%; aspect-ratio: 16 / 9; border-radius: 4px; overflow: hidden;
+      border: 1px solid var(--c8-grid-line); background: #000000; position: relative; margin-top: 2rem;
+    }
+    .fylla-img-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .fylla-play-overlay {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.15);
+    }
+    .fylla-play-btn {
+      width: 64px; height: 64px; background: #FF0000; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(255,0,0,0.4);
+    }
 
-    /* ── 12. FYLLA STUDIO CONTACT CTA SECTION ── */
-    .studio-cta-section {
+    /* ── SECTION 7: FYLLA STUDIO CTA CONTACT ── */
+    .fylla-cta-section {
       display: grid; grid-template-columns: 1fr 1fr;
       background: #FAFAF7;
     }
-    .cta-col-left {
-      padding: 4.5rem 4rem; border-right: 1px solid var(--c8-grid-line);
-    }
-    .cta-col-right {
-      padding: 4.5rem 4rem; display: flex; flex-direction: column; justify-content: center;
-    }
-    .cta-h2 {
-      font-family: var(--font-heading); font-size: clamp(1.4rem, 2.6vw, 2.1rem);
-      font-weight: 700; text-transform: uppercase; line-height: 1.25; color: var(--c8-ink);
-    }
+    .cta-col-left { padding: 4.5rem 4rem; border-right: 1px solid var(--c8-grid-line); }
+    .cta-col-right { padding: 4.5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+    .cta-h2 { font-family: var(--font-heading); font-size: clamp(1.4rem, 2.6vw, 2.1rem); font-weight: 700; text-transform: uppercase; line-height: 1.25; color: var(--c8-ink); }
     .cta-p { font-size: 1rem; color: var(--c8-sub); line-height: 1.65; margin-bottom: 2rem; }
     .cta-btn {
       background: #080808; color: #FFFFFF !important; font-family: var(--font-mono);
       font-size: 0.8rem; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 4px;
       text-decoration: none; text-transform: uppercase; width: fit-content;
-      transition: background 0.2s ease;
+      transition: background 0.2s ease; display: inline-block;
     }
     .cta-btn:hover { background: var(--c8-blue); }
 
     /* RESPONSIVE BREAKPOINTS */
     @media (max-width: 1024px) {
-      .abt-outer-frame { margin: 1rem 0.5rem 0rem 0.5rem; padding-top: 2rem; }
-      .studio-hero-section { padding: 2.5rem 1.5rem; }
-      .studio-values-section { grid-template-columns: 1fr; }
-      .values-col-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2.5rem 1.5rem; }
-      .values-col-right { padding: 0; }
-      .value-item { padding: 2rem 1.5rem; }
-      .c8abt-layout-grid { grid-template-columns: 1fr; gap: 2.5rem; padding: 0; }
-      .c8abt-philosophy-section, .c8abt-pillars-section, .studio-team-section, .c8abt-process-heading, .c8abt-fit-section, .c8abt-leadership-section, .c8abt-education-block { padding: 2.5rem 1.5rem; }
-      .c8abt-comp-grid, .c8abt-fit-grid { grid-template-columns: 1fr; }
-      .c8abt-pillars-grid, .c8abt-stats-grid { grid-template-columns: repeat(2,1fr); }
-      .team-grid-frame { grid-template-columns: 1fr; }
-      .plugin-card { border-right: none !important; border-bottom: 1px solid var(--c8-grid-line) !important; padding: 2rem 1.5rem; }
-      .c8abt-vbreak-card { left: 1.5rem; right: 1.5rem; bottom: 1.5rem; max-width: none; }
-      .c8abt-stack-pin-inner { grid-template-columns: 1fr; padding: 1.5rem; gap: 2rem; }
-      .c8abt-stack-pin { height: 280vh; }
-      .c8abt-stack-cards { height: 360px; max-width: 100%; }
-      .c8abt-stats-breakout { padding: 3.5rem 1.5rem; }
-      .studio-cta-section { grid-template-columns: 1fr; }
-      .cta-col-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2.5rem 1.5rem; }
-      .cta-col-right { padding: 2.5rem 1.5rem; }
-    }
-    @media (max-width: 640px) {
-      .c8abt-pillars-grid, .c8abt-stats-grid { grid-template-columns: 1fr; }
-      .c8abt-hero-row { flex-direction: column; align-items: flex-start; }
+      .fylla-outer-frame { margin: 1rem 0.5rem 0rem 0.5rem; padding-top: 2rem; }
+      .fylla-hero-section, .fylla-values-left, .fylla-team-section, .fylla-matrix-col, .fylla-stats-left, .fylla-stats-right, .fylla-edu-col, .cta-col-left, .cta-col-right { padding: 2.5rem 1.5rem; }
+      .fylla-values-section, .fylla-matrix-section, .fylla-stats-section, .fylla-edu-section, .fylla-cta-section { grid-template-columns: 1fr; }
+      .fylla-values-left, .fylla-matrix-col:first-child, .fylla-stats-left, .fylla-edu-col:first-child, .cta-col-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
+      .fylla-team-grid { grid-template-columns: 1fr; }
+      .fylla-plugin-card { border-right: none !important; border-bottom: 1px solid var(--c8-grid-line) !important; padding: 2rem 1.5rem; }
+      .fylla-stats-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- FULL-WIDTH OUTER PAPER FRAME (MARGIN 2.5REM 1REM 0REM 1REM) -->
-  <main class="abt-outer-frame">
-    <div class="c8abt-root">
-
-      <!-- ── 1. FYLLA STUDIO HERO SECTION (STRICT MICHROMA HEADLINE FONT) ── -->
-      <header class="studio-hero-section">
-        <span class="c8abt-label">// AGENCY PROFILE</span>
-        <h1 class="c8abt-headline">
-          WE DEFY <span class="c8abt-serif-italic">templates.</span><br>
-          WE CODE <span class="c8abt-highlight-text">CONVERSIONS.</span>
-        </h1>
-        <div class="c8abt-hero-row">
-          <div class="c8abt-hero-intro">
-            We are an engineering-first digital agency built for ambitious brands. We don't just assemble websites; we architect custom digital environments, brand systems, and organic search acquisition models designed to turn attention into measurable revenue.
-          </div>
-          <div class="c8abt-badge">8+ YRS<br>Experience</div>
-        </div>
-
-        <div class="c8abt-pill-row">
-          <span class="c8abt-pill">Custom PHP</span>
-          <span class="c8abt-pill">Elementor-Safe Code</span>
-          <span class="c8abt-pill">WordPress</span>
-          <span class="c8abt-pill">Shopify</span>
-          <span class="c8abt-pill">Conversion UX</span>
-          <span class="c8abt-pill">Organic SEO</span>
-        </div>
-
-        <!-- FYLLA HERO FEATURED MEDIA CONTAINER -->
-        <div class="studio-hero-img-box">
-          <img src="assets/wwa_studio_visual.jpg" alt="Cr8v Stacks Studio Workspace" class="studio-hero-img">
-          <div class="c8abt-hud-tag">// SYSTEM_ACTIVE</div>
-        </div>
-      </header>
-
-      <!-- ── 2. FYLLA STUDIO VALUES SECTION (PHILOSOPHY & WHY IT WORKS SPLIT) ── -->
-      <section class="studio-values-section">
-        <div class="values-col-left">
-          <div>
-            <span class="c8abt-label">// WHAT YOU SHOULD KNOW</span>
-            <h2 class="values-h2">OUR PHILOSOPHY</h2>
-            
-            <p class="values-body">We bridge the gap between creative visual branding and lightweight, custom-coded web architectures.</p>
-            <p class="values-body">At <strong>CR8V Stacks</strong>, founded by <strong>Mallami Adekunle</strong>, we approach web development and branding from a performance-first perspective. We don't believe in generic page builders and bloated themes that drag down loading speed and make businesses look identical.</p>
-            <p class="values-body">By keeping our technology stack lightweight and prioritizing custom layouts, we eliminate design bloat and give our clients the technical edge in speed, search ranking, and user experience.</p>
-          </div>
-
-          <a href="homepage_hero_section.html#case-studies" class="values-btn">Inspect Case Studies</a>
-        </div>
-
-        <!-- FYLLA VALUES STACK RIGHT COLUMN (WHY IT WORKS) -->
-        <div class="values-col-right">
-          <div class="value-item">
-            <div class="value-num">01</div>
-            <div>
-              <h3 class="value-h3">CODE ARCHITECTURE — ZERO BLOAT</h3>
-              <p class="value-p">Bespoke custom themes built from scratch with semantic HTML, CSS, and vanilla JS. No page builders, no unneeded plugins.</p>
-            </div>
-          </div>
-
-          <div class="value-item">
-            <div class="value-num">02</div>
-            <div>
-              <h3 class="value-h3">LIQUID ENGINEERING — SUB-1.2S SPEED</h3>
-              <p class="value-p">Tuned for instant page loads and green Core Web Vitals across every single device, browser, and network condition.</p>
-            </div>
-          </div>
-
-          <div class="value-item">
-            <div class="value-num">03</div>
-            <div>
-              <h3 class="value-h3">ENTITY SEO — ORGANIC DOMINANCE</h3>
-              <p class="value-p">Structured Schema JSON-LD markup and semantic HTML hierarchy ensuring total search engine clarity and ranking authority.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── 3. FULL-WIDTH MANIFESTO BREAK ── -->
-      <div class="c8abt-vbreak-outer">
-        <div class="c8abt-vbreak">
-          <img src="assets/hww_process_visual.jpg" alt="CR8V Stacks Architectural Digital Rendering">
-          <div class="c8abt-vbreak-tint"></div>
-          <div class="c8abt-vbreak-card">
-            <div class="c8abt-label" style="margin-bottom: 0.8rem">// MANIFESTO</div>
-            <p>Every plugin you didn't need is a decision someone else made for you. We rebuild that decision from scratch — in your favor.</p>
-            <cite>The Stack Philosophy</cite>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── 4. CORE PHILOSOPHY COMPARISON GRID (HOMEPAGE COMPARISON LAYOUT) ── -->
-      <div class="c8abt-philosophy-section">
-        <span class="c8abt-label">// TYPICAL AGENCY VS. CR8V STACKS</span>
-        <h2 class="c8abt-section-title">OUR TECHNICAL ADVANTAGE</h2>
-        <p class="c8abt-body-text" style="max-width: 700px">Why ambitious brands choose custom engineering over template configurations.</p>
-        
-        <div class="c8abt-comp-grid">
-          <div class="c8abt-comp-box">
-            <div class="c8abt-comp-header">Typical Templates</div>
-            <div class="c8abt-comp-list">
-              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-no">✕</span><div class="c8abt-comp-text"><strong>Bloated Page Builders:</strong> Heavily reliant on slow WordPress builders stuffed with 40+ plugins that drag down load times.</div></div>
-              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-no">✕</span><div class="c8abt-comp-text"><strong>Sluggish Performance:</strong> Google PageSpeed scores below 50, leading to poor mobile rankings and high bounce rates.</div></div>
-              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-no">✕</span><div class="c8abt-comp-text"><strong>Cloned Designs:</strong> Stock graphics and pre-made templates that make your brand look identical to competitors.</div></div>
-              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-no">✕</span><div class="c8abt-comp-text"><strong>Siloed Execution:</strong> Designers build static layouts with no understanding of performance; developers configure templates with no eye for conversion.</div></div>
-            </div>
-          </div>
-
-          <div class="c8abt-comp-box c8abt-highlight">
-            <div class="c8abt-comp-header" style="color: var(--c8-blue)">The CR8V Stacks Engine</div>
-            <div class="c8abt-comp-list">
-              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-yes">✓</span><div class="c8abt-comp-text"><strong>Zero-Bloat Engineering:</strong> Clean, custom PHP, HTML5, and scoped CSS built from scratch on lightweight WordPress &amp; Shopify setups.</div></div>
-              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-yes">✓</span><div class="c8abt-comp-text"><strong>95+ Google PageSpeed:</strong> Optimized server architectures and clean execution ensuring instantaneous loading.</div></div>
-              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-yes">✓</span><div class="c8abt-comp-text"><strong>Bespoke Branding:</strong> 100% original, vector brand identities and interfaces built to highlight your unique value.</div></div>
-              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-yes">✓</span><div class="c8abt-comp-text"><strong>Developer-Led Strategy:</strong> Design and development happen together, so every choice is technically viable.</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── 5. PILLARS OF GROWTH (FYLLA 4-COLUMN GRID LAYOUT) ── -->
-      <div class="c8abt-pillars-section">
-        <span class="c8abt-label">// OUR PILLARS OF GROWTH</span>
-        <h2 class="c8abt-section-title">ENGINEERED FOR SCALABILITY</h2>
-        
-        <div class="c8abt-pillars-grid">
-          <div class="c8abt-pillar-card"><span class="c8abt-pillar-num">01 / IDENTITY</span><h3 class="c8abt-pillar-title">Brand Strategy</h3><div class="c8abt-pillar-desc">Custom market positioning, competitor analysis, and full visual guidelines that command user trust.</div></div>
-          <div class="c8abt-pillar-card"><span class="c8abt-pillar-num">02 / ARCHITECTURE</span><h3 class="c8abt-pillar-title">Web Design</h3><div class="c8abt-pillar-desc">High-performance, fast-loading WordPress &amp; Shopify websites built to convert visitors to leads.</div></div>
-          <div class="c8abt-pillar-card"><span class="c8abt-pillar-num">03 / ACQUISITION</span><h3 class="c8abt-pillar-title">Digital Marketing</h3><div class="c8abt-pillar-desc">Multi-channel marketing plans involving target campaigns, social media management, and email automations.</div></div>
-          <div class="c8abt-pillar-card"><span class="c8abt-pillar-num">04 / ORGANIC</span><h3 class="c8abt-pillar-title">SEO &amp; Content</h3><div class="c8abt-pillar-desc">Technical search audits, high-intent keyword mapping, and SEO-rich content writing that captures organic search.</div></div>
-        </div>
-      </div>
-
-      <!-- ── 6. STATS BREAKOUT SECTION (HOMEPAGE RADIAL BREAKOUT) ── -->
-      <div class="c8abt-stats-outer">
-        <div class="c8abt-stats-breakout">
-          <div class="c8abt-stats-inner">
-            <span class="c8abt-label is-light">// PERFORMANCE INDICATORS</span>
-            <h2 class="c8abt-stats-headline">PROVEN RESULTS THAT SPEAK FOR THEMSELVES</h2>
-            
-            <div class="c8abt-stats-grid">
-              <div class="c8abt-stat-card"><div class="c8abt-stat-num">95%</div><span class="c8abt-stat-tag">Project Delivery</span><div class="c8abt-stat-desc">A strict commitment to timelines, responsive designs, and custom-coded execution.</div></div>
-              <div class="c8abt-stat-card"><div class="c8abt-stat-num">3.5x</div><span class="c8abt-stat-tag">Organic Traffic</span><div class="c8abt-stat-desc">Average organic traffic increase within 6–12 months of custom SEO planning.</div></div>
-              <div class="c8abt-stat-card"><div class="c8abt-stat-num">90%</div><span class="c8abt-stat-tag">Retention Rate</span><div class="c8abt-stat-desc">Long-term maintenance and optimization client support services.</div></div>
-              <div class="c8abt-stat-card"><div class="c8abt-stat-num">40+</div><span class="c8abt-stat-tag">Platforms Deployed</span><div class="c8abt-stat-desc">Bespoke brand identities and e-commerce systems developed and deployed.</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── 7. FYLLA STUDIO TEAM PARITY FOR DEV PLAYGROUND ── -->
-      <section class="studio-team-section">
-        <div class="team-header-row">
-          <div>
-            <span class="c8abt-label">// DEVELOPMENT PLAYGROUND</span>
-            <h2 class="team-h2">BESPOKE PLUGINS &amp; CUSTOM TOOLS</h2>
-          </div>
-          <p class="team-sub">We build lightweight, performance-first software utilities to solve slow loading speeds and administration bloat on WordPress and Shopify.</p>
-        </div>
-
-        <div class="team-grid-frame">
-          <div class="plugin-card">
-            <span class="plugin-cat">CONTENT MACHINE</span>
-            <h3 class="plugin-name">WP Publishion AI</h3>
-            <p class="plugin-desc">Draft fact-checked, SEO-rich articles directly inside your block editor. Integrates Claude, Gemini, and OpenAI with Brave Search fact-verification.</p>
-            <a href="https://cr8vstacks.com/dev-playground/wp-publishion-ai/" class="plugin-link">Inspect Blueprint →</a>
-          </div>
-
-          <div class="plugin-card">
-            <span class="plugin-cat">ADMIN EXPERIENCE</span>
-            <h3 class="plugin-name">Nativus Dashboard Pro</h3>
-            <p class="plugin-desc">A clean, custom whitelabeled WordPress admin interface built to hide plugin notice banners and restrict client dashboard menus safely.</p>
-            <a href="https://cr8vstacks.com/dev-playground/nativus-dashboard-pro/" class="plugin-link">Inspect Blueprint →</a>
-          </div>
-
-          <div class="plugin-card">
-            <span class="plugin-cat">ACCESSIBILITY &amp; SEO</span>
-            <h3 class="plugin-name">AltText Buddy</h3>
-            <p class="plugin-desc">Automatically generate descriptive image alt text for your media library using 5 AI vision models to improve SEO rankings and compliance.</p>
-            <a href="https://cr8vstacks.com/dev-playground/alttext-buddy/" class="plugin-link">Inspect Blueprint →</a>
-          </div>
-
-          <div class="plugin-card">
-            <span class="plugin-cat">CODE SHOWCASE</span>
-            <h3 class="plugin-name">LumiCode</h3>
-            <p class="plugin-desc">Display clean, VS Code-style syntax-highlighted code blocks on WordPress sites with line numbers and a one-click clipboard copy utility.</p>
-            <a href="https://cr8vstacks.com/dev-playground/lumicode-syntax-highlighter/" class="plugin-link">Inspect Blueprint →</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── 8. PROCESS WORKFLOW & STACKING CARDS ── -->
-      <div class="c8abt-process-heading">
-        <span class="c8abt-label">// OUR PROCESS WORKFLOW</span>
-        <h2 class="c8abt-section-title">THE 5-STEP STACK PROCESS</h2>
-        <p class="c8abt-body-text" style="max-width: 700px">Scroll — we build the way we build sites: one layer stacked deliberately on the last.</p>
-      </div>
-
-      <div class="c8abt-stack-section">
-        <div class="c8abt-stack-pin">
-          <div class="c8abt-stack-pin-inner">
-            <div class="c8abt-stack-intro">
-              <span class="c8abt-label" style="margin-bottom: 1.25rem">// LAYER BY LAYER</span>
-              <h3 class="c8abt-stack-heading">NOTHING SHIPS UNTIL THE LAYER BELOW IT IS SOLID.</h3>
-              <p class="c8abt-body-text">From positioning audit to funnel launch, each step is a foundation the next one is built on — not a checklist item.</p>
-              <div class="c8abt-stack-progress" data-c8abt-progress>
-                <span class="is-active"></span><span></span><span></span><span></span><span></span>
-              </div>
-            </div>
-
-            <div class="c8abt-stack-cards" data-c8abt-stack>
-              <div class="c8abt-stack-card" data-c8abt-card="0">
-                <div class="c8abt-stack-card-dot">01</div>
-                <h4 class="c8abt-stack-card-title">Positioning Audit</h4>
-                <div class="c8abt-stack-card-desc">We analyze your competitors, search traffic potential, and map your brand positioning before writing any code.</div>
-              </div>
-              <div class="c8abt-stack-card" data-c8abt-card="1">
-                <div class="c8abt-stack-card-dot">02</div>
-                <h4 class="c8abt-stack-card-title">UI/UX Wireframing</h4>
-                <div class="c8abt-stack-card-desc">We build lightweight mockups engineered to guide the user's eye directly to conversion touchpoints.</div>
-              </div>
-              <div class="c8abt-stack-card" data-c8abt-card="2">
-                <div class="c8abt-stack-card-dot">03</div>
-                <h4 class="c8abt-stack-card-title">Custom Coding</h4>
-                <div class="c8abt-stack-card-desc">We develop on lightweight frameworks, replacing bloated plugins with custom PHP and JS scripts.</div>
-              </div>
-              <div class="c8abt-stack-card" data-c8abt-card="3">
-                <div class="c8abt-stack-card-dot">04</div>
-                <h4 class="c8abt-stack-card-title">SEO Populating</h4>
-                <div class="c8abt-stack-card-desc">We write SEO-rich content and construct the technical keyword mapping to ensure immediate search visibility.</div>
-              </div>
-              <div class="c8abt-stack-card" data-c8abt-card="4">
-                <div class="c8abt-stack-card-dot">05</div>
-                <h4 class="c8abt-stack-card-title">Funnel Launch</h4>
-                <div class="c8abt-stack-card-desc">We configure lead-tracking, automated email flows, and ad campaigns to create a self-sustaining client acquisition loop.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── 9. WHO WE BUILD FOR (FIT / NOT FIT) ── -->
-      <div class="c8abt-fit-section">
-        <span class="c8abt-label">// WHO WE BUILD FOR</span>
-        <h2 class="c8abt-section-title">WE'RE NOT A FIT FOR EVERYONE</h2>
-        <p class="c8abt-body-text" style="max-width: 700px">That's on purpose. Here's how to tell, in about ten seconds.</p>
-        
-        <div class="c8abt-fit-grid">
-          <div class="c8abt-fit-box c8abt-fit-yes">
-            <div class="c8abt-fit-title">You're in the right place if</div>
-            <div class="c8abt-fit-list">
-              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-yes">✓</span><span>You're tired of being told to "just install another plugin."</span></div>
-              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-yes">✓</span><span>You want a designer and a developer thinking about your homepage at the same time, not in sequence.</span></div>
-              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-yes">✓</span><span>You care about your PageSpeed score as much as your logo.</span></div>
-              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-yes">✓</span><span>You're building a brand you intend to keep for years, not a page you'll replace next quarter.</span></div>
-            </div>
-          </div>
-
-          <div class="c8abt-fit-box c8abt-fit-no">
-            <div class="c8abt-fit-title">We're probably not your agency if</div>
-            <div class="c8abt-fit-list">
-              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-no">✕</span><span>You want the cheapest possible theme install by Friday.</span></div>
-              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-no">✕</span><span>You're looking for someone to quietly "manage" an existing bloated site without questioning it.</span></div>
-              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-no">✕</span><span>Design trends matter more to you than load times and conversion data.</span></div>
-              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-no">✕</span><span>You want a set-and-forget vendor, not a technical partner.</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── 10. LEADERSHIP & FOUNDER PASS ── -->
-      <div class="c8abt-leadership-section">
-        <div class="c8abt-layout-grid">
-          <div class="c8abt-founder-pass">
-            <div class="c8abt-pass-header">
-              <span class="c8abt-pass-title">CR8V STACKS // SECURE PASS</span>
-              <span class="c8abt-pass-meta">ID: 080-MA</span>
-            </div>
-            <div class="c8abt-pass-body">
-              <div class="c8abt-pass-row">
-                <span class="c8abt-pass-label">Holder Name</span>
-                <span class="c8abt-pass-value">Mallami Adekunle</span>
-              </div>
-              <div class="c8abt-pass-row">
-                <span class="c8abt-pass-label">Designation</span>
-                <span class="c8abt-pass-value">Founder &amp; Principal Architect</span>
-              </div>
-              <div class="c8abt-pass-row">
-                <span class="c8abt-pass-label">Core Stacks</span>
-                <span class="c8abt-pass-value">WordPress, Shopify, Figma, HTML5, CSS3, JS, PHP</span>
-              </div>
-            </div>
-            <div class="c8abt-pass-barcode-wrap">
-              <div class="c8abt-pass-barcode"></div>
-              <div class="c8abt-pass-stamp">M.A.</div>
-            </div>
-          </div>
-
-          <div class="c8abt-content">
-            <span class="c8abt-label">// LEADERSHIP</span>
-            <h2 class="c8abt-section-title">OUR FOUNDER &amp; DEV-LED CULTURE</h2>
-            <div class="c8abt-lead">Bridging the gap between creative visual architecture and clean, lightweight code.</div>
-            <div class="c8abt-body-text">
-              <p>Founded by <strong>Mallami Adekunle</strong>, a digital architect and strategist, CR8V Stacks was established to combat the slow, template-stuffed sites typical of corporate digital agencies. Observing how heavy WordPress configurations and generic page templates cost companies traffic and conversions, Mallami assembled a team of developer-first designers.</p>
-            </div>
-            <div class="c8abt-quote-block">
-              <p>"Bloat is a compromise. We believe in absolute engineering efficiency, where design and speed exist as a single, indivisible experience."</p>
-              <cite>Mallami Adekunle, Founder</cite>
-            </div>
-            <div class="c8abt-body-text">
-              <p>At CR8V Stacks, our designers are trained in performance optimization, and our developers are trained in conversion-focused UI/UX — so we never sacrifice speed for looks.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── 11. EDUCATIONAL CONTENT (YOUTUBE & AI VECTOR WORKFLOW TREE) ── -->
-      <div class="c8abt-education-block">
-        <!-- Tutorial Part 1: Elementor Hacks -->
-        <div class="c8abt-layout-grid" style="margin-bottom: 4rem;">
-          <div class="c8abt-content">
-            <span class="c8abt-label">// OPEN SOURCE &amp; EDUCATION</span>
-            <h2 class="c8abt-section-title">ADVANCED ELEMENTOR TUTORIALS</h2>
-            <div class="c8abt-lead">We teach what we practice. No heavy third-party add-ons.</div>
-            <div class="c8abt-body-text">
-              <p>We run a dedicated learning channel under the handle <strong>@cr8vstacks</strong>, focused on helping web developers and designers break free from bloated theme configurations and slow plugins. We teach the community how to write native CSS and JavaScript directly inside Elementor to construct advanced effects—like custom infinite marquees, interactive image hover reveals, and high-performance sliders—without compromising Google PageSpeed scores.</p>
-            </div>
-          </div>
-          
-          <div class="c8abt-img-frame" style="position: relative; cursor: pointer; overflow: hidden;">
-            <a href="https://www.youtube.com/@cr8vstacks" target="_blank" style="display: block;">
-              <img src="https://cr8vstacks.com/wp-content/uploads/2026/07/cr8v_youtube_mockup.jpg" alt="CR8V Stacks Elementor Tutorial Video Mockup" onerror="this.src='assets/hww_process_layers.jpg'">
-              <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.15);">
-                <div class="c8abt-youtube-play-btn">
-                  <svg viewBox="0 0 24 24" fill="#FFFFFF" style="width: 28px; height: 28px; margin-left: 4px;"><path d="M8 5v14l11-7z"/></svg>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="c8abt-tearline"><div class="c8abt-tearline-dot"></div><div class="c8abt-tearline-line"></div><div class="c8abt-tearline-dot"></div></div>
-
-        <!-- Tutorial Part 2: AI Workflows (Vector Structural Tree Diagram) -->
-        <div class="c8abt-layout-grid" style="margin-top: 4rem;">
-          <div class="c8abt-img-frame">
-            <img src="assets/ai_wp_tree_workflow.jpg" alt="CR8V Stacks AI-to-WordPress Structural Tree Workflow">
-          </div>
-          
-          <div class="c8abt-content">
-            <span class="c8abt-label">// WORKFLOW AUTOMATION</span>
-            <h2 class="c8abt-section-title">AI-TO-WORDPRESS WORKFLOWS</h2>
-            <div class="c8abt-lead">Bridging the gap between cutting-edge AI layouts and production-ready sites.</div>
-            <div class="c8abt-body-text" style="margin-bottom: 1.75rem;">
-              <p>We teach developers how to leverage advanced AI models (like Claude, Gemini, and ChatGPT) to generate custom code structures and automatically translate those mockups into live, pixel-perfect Elementor sections. By bridging AI-driven creative design with custom engineering guidelines, we help agencies and creators build visually premium pages at double the speed without sacrificing standard web accessibility (WCAG) and clean semantics.</p>
-            </div>
-            <a href="blog.html" class="c8abt-pill" style="display: inline-flex; align-items: center; gap: 8px; border-color: #080808; color: #080808; padding: 12px 24px; font-weight: 700;">
-              Read Our Blog Workflows →
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── 12. FYLLA STUDIO CONTACT CTA SECTION ── -->
-      <section class="studio-cta-section">
-        <div class="cta-col-left">
-          <span class="c8abt-label">// CONTACT</span>
-          <h2 class="cta-h2">LET'S BRING YOUR BRAND TO THE NEXT LEVEL</h2>
-        </div>
-
-        <div class="cta-col-right">
-          <p class="cta-p">Together, let's elevate your brand to new heights by unleashing its full potential and captivating your target audience with custom zero-plugin architecture.</p>
-          <a href="discovery-call.html" class="cta-btn">Book A Discovery Call</a>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- PINNED STACKING CARDS SCRIPT -->
-  <script>
-  (function () {
-    var stackPin = document.querySelector('.c8abt-stack-pin');
-    var cards = document.querySelectorAll('[data-c8abt-card]');
-    var progressDots = document.querySelectorAll('[data-c8abt-progress] span');
+  <!-- FYLLA STUDIO OUTER FRAME -->
+  <main class="fylla-outer-frame">
     
-    function cardTransform(i) {
-      return 'translateY(' + (i * -14) + 'px) translateX(' + (i * 8) + 'px) rotate(' + ((i % 2 === 0 ? -1 : 1) * (2 + i * 0.6)) + 'deg) scale(1)';
-    }
+    <!-- ── 1. FYLLA STUDIO HERO SECTION ── -->
+    <header class="fylla-hero-section">
+      <span class="fylla-meta-tag">AGENCY PROFILE</span>
+      <h1 class="fylla-hero-h1">
+        WE DEFY <span class="c8abt-serif-italic">templates.</span><br>
+        WE CODE <span class="c8abt-highlight-text">CONVERSIONS.</span>
+      </h1>
+      
+      <p class="fylla-hero-p">We are an engineering-first digital agency built for ambitious brands. We don't just assemble websites; we architect custom digital environments, brand systems, and organic search acquisition models designed to turn attention into measurable revenue.</p>
 
-    if (stackPin && cards.length) {
-      cards.forEach(function (card, i) { card.style.zIndex = String(i + 1); });
-      var ticking = false;
-      function updateStack() {
-        ticking = false;
-        var rect = stackPin.getBoundingClientRect();
-        var total = rect.height - window.innerHeight;
-        if (total <= 0) return;
-        var scrolled = Math.min(Math.max(-rect.top, 0), total);
-        var progress = scrolled / total;
-        var activeIndex = Math.round(progress * (cards.length - 1));
-        cards.forEach(function (card, i) {
-          if (i <= activeIndex) {
-            card.style.transform = cardTransform(i);
-            card.style.opacity = '1';
-            card.style.transition = 'transform 0.4s ease, opacity 0.3s ease';
-          } else {
-            card.style.transform = 'translateY(50vh) rotate(0deg) scale(1)';
-            card.style.opacity = '0';
-            card.style.transition = 'transform 0.4s ease, opacity 0.3s ease';
-          }
-        });
-        progressDots.forEach(function (dot, i) { dot.classList.toggle('is-active', i <= activeIndex); });
-      }
-      function onScroll() {
-        if (!ticking) { requestAnimationFrame(updateStack); ticking = true; }
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll);
-      updateStack();
-    }
-  })();
-  </script>
+      <div class="fylla-pill-row">
+        <span class="fylla-pill">Custom PHP</span>
+        <span class="fylla-pill">Elementor-Safe Code</span>
+        <span class="fylla-pill">WordPress</span>
+        <span class="fylla-pill">Shopify</span>
+        <span class="fylla-pill">Conversion UX</span>
+        <span class="fylla-pill">Organic SEO</span>
+      </div>
+
+      <div class="fylla-hero-img-box">
+        <img src="assets/wwa_studio_visual.jpg" alt="Cr8v Stacks Studio Workspace" class="fylla-hero-img">
+        <div class="fylla-hud-tag">// SYSTEM_ACTIVE</div>
+      </div>
+    </header>
+
+    <!-- ── 2. FYLLA STUDIO VALUES SECTION (OUR PHILOSOPHY & CODE ARCHITECTURE) ── -->
+    <section class="fylla-values-section">
+      <div class="fylla-values-left">
+        <div>
+          <span class="fylla-meta-tag">WHAT YOU SHOULD KNOW</span>
+          <h2 class="fylla-values-h2">OUR PHILOSOPHY</h2>
+          
+          <p class="fylla-values-p">We bridge the gap between creative visual branding and lightweight, custom-coded web architectures.</p>
+          <p class="fylla-values-p">At <strong>CR8V Stacks</strong>, founded by <strong>Mallami Adekunle</strong>, we approach web development and branding from a performance-first perspective. We don't believe in generic page builders and bloated themes that drag down loading speed and make businesses look identical.</p>
+          <p class="fylla-values-p">By keeping our technology stack lightweight and prioritizing custom layouts, we eliminate design bloat and give our clients the technical edge in speed, search ranking, and user experience.</p>
+        </div>
+
+        <a href="homepage_hero_section.html#case-studies" class="fylla-btn">Inspect Case Studies</a>
+      </div>
+
+      <div class="fylla-values-right">
+        <div class="fylla-value-item">
+          <div class="fylla-value-num">01</div>
+          <div>
+            <h3 class="fylla-value-h3">CODE ARCHITECTURE — ZERO BLOAT</h3>
+            <p class="fylla-value-desc">Bespoke custom themes built from scratch with semantic HTML, CSS, and vanilla JS. No page builders, no unneeded plugins.</p>
+          </div>
+        </div>
+
+        <div class="fylla-value-item">
+          <div class="fylla-value-num">02</div>
+          <div>
+            <h3 class="fylla-value-h3">LIQUID ENGINEERING — SUB-1.2S SPEED</h3>
+            <p class="fylla-value-desc">Tuned for instant page loads and green Core Web Vitals across every single device, browser, and network condition.</p>
+          </div>
+        </div>
+
+        <div class="fylla-value-item">
+          <div class="fylla-value-num">03</div>
+          <div>
+            <h3 class="fylla-value-h3">ENTITY SEO — ORGANIC DOMINANCE</h3>
+            <p class="fylla-value-desc">Structured Schema JSON-LD markup and semantic HTML hierarchy ensuring total search engine clarity and ranking authority.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 3. FYLLA STUDIO TEAM PARITY (CUSTOM PLUGINS & TOOLS) ── -->
+    <section class="fylla-team-section">
+      <div class="fylla-team-header">
+        <div>
+          <span class="fylla-meta-tag">DEVELOPMENT PLAYGROUND</span>
+          <h2 class="fylla-team-h2">BESPOKE PLUGINS &amp; CUSTOM TOOLS</h2>
+        </div>
+        <p class="fylla-team-sub">We build lightweight, performance-first software utilities to solve slow loading speeds and administration bloat on WordPress and Shopify.</p>
+      </div>
+
+      <div class="fylla-team-grid">
+        <div class="fylla-plugin-card">
+          <span class="fylla-plugin-cat">CONTENT MACHINE</span>
+          <h3 class="fylla-plugin-title">WP Publishion AI</h3>
+          <p class="fylla-plugin-desc">Draft fact-checked, SEO-rich articles directly inside your block editor. Integrates Claude, Gemini, and OpenAI with Brave Search fact-verification.</p>
+          <a href="https://cr8vstacks.com/dev-playground/wp-publishion-ai/" class="fylla-plugin-link">Inspect Blueprint →</a>
+        </div>
+
+        <div class="fylla-plugin-card">
+          <span class="fylla-plugin-cat">ADMIN EXPERIENCE</span>
+          <h3 class="fylla-plugin-title">Nativus Dashboard Pro</h3>
+          <p class="fylla-plugin-desc">A clean, custom whitelabeled WordPress admin interface built to hide plugin notice banners and restrict client dashboard menus safely.</p>
+          <a href="https://cr8vstacks.com/dev-playground/nativus-dashboard-pro/" class="fylla-plugin-link">Inspect Blueprint →</a>
+        </div>
+
+        <div class="fylla-plugin-card">
+          <span class="fylla-plugin-cat">ACCESSIBILITY &amp; SEO</span>
+          <h3 class="fylla-plugin-title">AltText Buddy</h3>
+          <p class="fylla-plugin-desc">Automatically generate descriptive image alt text for your media library using 5 AI vision models to improve SEO rankings and compliance.</p>
+          <a href="https://cr8vstacks.com/dev-playground/alttext-buddy/" class="fylla-plugin-link">Inspect Blueprint →</a>
+        </div>
+
+        <div class="fylla-plugin-card">
+          <span class="fylla-plugin-cat">CODE SHOWCASE</span>
+          <h3 class="fylla-plugin-title">LumiCode</h3>
+          <p class="fylla-plugin-desc">Display clean, VS Code-style syntax-highlighted code blocks on WordPress sites with line numbers and a one-click clipboard copy utility.</p>
+          <a href="https://cr8vstacks.com/dev-playground/lumicode-syntax-highlighter/" class="fylla-plugin-link">Inspect Blueprint →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 4. TECHNICAL ADVANTAGE & 5-STEP PROCESS MATRIX ── -->
+    <section class="fylla-matrix-section">
+      <div class="fylla-matrix-col">
+        <span class="fylla-meta-tag">TYPICAL AGENCY VS. CR8V STACKS</span>
+        <h2 class="fylla-values-h2">TECHNICAL ADVANTAGE</h2>
+        
+        <div class="fylla-comp-box">
+          <h3 class="fylla-comp-h3">Typical Templates</h3>
+          <div class="fylla-comp-list">
+            <div class="fylla-comp-item"><span class="fylla-icon-sq is-no">✕</span><div><strong>Bloated Page Builders:</strong> Heavily reliant on slow WordPress builders stuffed with 40+ plugins.</div></div>
+            <div class="fylla-comp-item"><span class="fylla-icon-sq is-no">✕</span><div><strong>Sluggish Performance:</strong> Google PageSpeed scores below 50, leading to poor mobile rankings.</div></div>
+            <div class="fylla-comp-item"><span class="fylla-icon-sq is-no">✕</span><div><strong>Cloned Designs:</strong> Stock graphics and pre-made templates drag down your brand.</div></div>
+          </div>
+        </div>
+
+        <div class="fylla-comp-box is-active">
+          <h3 class="fylla-comp-h3" style="color: var(--c8-blue);">The CR8V Stacks Engine</h3>
+          <div class="fylla-comp-list">
+            <div class="fylla-comp-item"><span class="fylla-icon-sq is-yes">✓</span><div><strong>Zero-Bloat Engineering:</strong> Custom PHP, HTML5, and scoped CSS on lightweight setups.</div></div>
+            <div class="fylla-comp-item"><span class="fylla-icon-sq is-yes">✓</span><div><strong>95+ Google PageSpeed:</strong> Optimized server architectures for instant loading.</div></div>
+            <div class="fylla-comp-item"><span class="fylla-icon-sq is-yes">✓</span><div><strong>Bespoke Branding:</strong> 100% original, vector brand identities and interfaces.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fylla-matrix-col">
+        <span class="fylla-meta-tag">OUR PROCESS WORKFLOW</span>
+        <h2 class="fylla-values-h2">5-STEP STACK PROCESS</h2>
+
+        <div class="fylla-step-item">
+          <div class="fylla-step-num">STEP 01</div>
+          <h3 class="fylla-step-title">Positioning Audit</h3>
+          <p class="fylla-step-desc">We analyze your competitors, search traffic potential, and map your brand positioning before writing any code.</p>
+        </div>
+
+        <div class="fylla-step-item">
+          <div class="fylla-step-num">STEP 02</div>
+          <h3 class="fylla-step-title">UI/UX Wireframing</h3>
+          <p class="fylla-step-desc">We build lightweight mockups engineered to guide the user's eye directly to conversion touchpoints.</p>
+        </div>
+
+        <div class="fylla-step-item">
+          <div class="fylla-step-num">STEP 03</div>
+          <h3 class="fylla-step-title">Custom Coding</h3>
+          <p class="fylla-step-desc">We develop on lightweight frameworks, replacing bloated plugins with custom PHP and JS scripts.</p>
+        </div>
+
+        <div class="fylla-step-item">
+          <div class="fylla-step-num">STEP 04</div>
+          <h3 class="fylla-step-title">SEO Populating</h3>
+          <p class="fylla-step-desc">We write SEO-rich content and construct the technical keyword mapping to ensure immediate search visibility.</p>
+        </div>
+
+        <div class="fylla-step-item">
+          <div class="fylla-step-num">STEP 05</div>
+          <h3 class="fylla-step-title">Funnel Launch</h3>
+          <p class="fylla-step-desc">We configure lead-tracking, automated email flows, and ad campaigns to create a self-sustaining client acquisition loop.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 5. PERFORMANCE INDICATORS & LEADERSHIP FOUNDER PASS ── -->
+    <section class="fylla-stats-section">
+      <div class="fylla-stats-left">
+        <span class="fylla-meta-tag">PERFORMANCE INDICATORS</span>
+        <h2 class="fylla-values-h2">PROVEN RESULTS THAT SPEAK FOR THEMSELVES</h2>
+
+        <div class="fylla-stats-grid">
+          <div class="fylla-stat-card">
+            <div class="fylla-stat-num">95%</div>
+            <span class="fylla-stat-tag">Project Delivery</span>
+            <p class="fylla-stat-desc">A strict commitment to timelines, responsive designs, and custom-coded execution.</p>
+          </div>
+
+          <div class="fylla-stat-card">
+            <div class="fylla-stat-num">3.5x</div>
+            <span class="fylla-stat-tag">Organic Traffic</span>
+            <p class="fylla-stat-desc">Average organic traffic increase within 6–12 months of custom SEO planning.</p>
+          </div>
+
+          <div class="fylla-stat-card">
+            <div class="fylla-stat-num">90%</div>
+            <span class="fylla-stat-tag">Retention Rate</span>
+            <p class="fylla-stat-desc">Long-term maintenance and optimization client support services.</p>
+          </div>
+
+          <div class="fylla-stat-card">
+            <div class="fylla-stat-num">40+</div>
+            <span class="fylla-stat-tag">Platforms Deployed</span>
+            <p class="fylla-stat-desc">Bespoke brand identities and e-commerce systems developed and deployed.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fylla-stats-right">
+        <div>
+          <span class="fylla-meta-tag">LEADERSHIP</span>
+          <h2 class="fylla-values-h2">FOUNDER &amp; DEV-LED CULTURE</h2>
+          
+          <div class="fylla-founder-pass">
+            <div class="fylla-pass-header">
+              <span>CR8V STACKS // SECURE PASS</span>
+              <span>ID: 080-MA</span>
+            </div>
+            <div class="fylla-pass-row">
+              <span class="fylla-pass-label">Holder Name</span>
+              <span class="fylla-pass-val">Mallami Adekunle</span>
+            </div>
+            <div class="fylla-pass-row">
+              <span class="fylla-pass-label">Designation</span>
+              <span class="fylla-pass-val">Founder &amp; Principal Architect</span>
+            </div>
+            <div class="fylla-pass-row">
+              <span class="fylla-pass-label">Core Stacks</span>
+              <span class="fylla-pass-val">WordPress, Shopify, Figma, HTML5, CSS3, JS, PHP</span>
+            </div>
+          </div>
+
+          <div class="fylla-quote-box">
+            <p class="fylla-quote-p">"Bloat is a compromise. We believe in absolute engineering efficiency, where design and speed exist as a single, indivisible experience."</p>
+            <cite class="fylla-quote-cite">Mallami Adekunle, Founder</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 6. OPEN SOURCE & EDUCATIONAL TUTORIALS ── -->
+    <section class="fylla-edu-section">
+      <div class="fylla-edu-col">
+        <span class="fylla-meta-tag">OPEN SOURCE &amp; EDUCATION</span>
+        <h2 class="fylla-values-h2">ADVANCED ELEMENTOR TUTORIALS</h2>
+        <p class="fylla-values-p">We run a dedicated learning channel under the handle <strong>@cr8vstacks</strong>, helping web developers write native CSS and JavaScript directly inside Elementor without compromising Google PageSpeed scores.</p>
+        
+        <div class="fylla-img-frame">
+          <a href="https://www.youtube.com/@cr8vstacks" target="_blank" style="display: block; width: 100%; height: 100%;">
+            <img src="https://cr8vstacks.com/wp-content/uploads/2026/07/cr8v_youtube_mockup.jpg" alt="CR8V Stacks Elementor Tutorial Video Mockup" onerror="this.src='assets/hww_process_layers.jpg'">
+            <div class="fylla-play-overlay">
+              <div class="fylla-play-btn">
+                <svg viewBox="0 0 24 24" fill="#FFFFFF" style="width: 24px; height: 24px; margin-left: 3px;"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="fylla-edu-col">
+        <span class="fylla-meta-tag">WORKFLOW AUTOMATION</span>
+        <h2 class="fylla-values-h2">AI-TO-WORDPRESS WORKFLOWS</h2>
+        <p class="fylla-values-p">We teach developers how to leverage advanced AI models (like Claude, Gemini, and ChatGPT) to generate custom code structures and automatically translate those mockups into live, pixel-perfect Elementor sections.</p>
+        
+        <div class="fylla-img-frame">
+          <img src="assets/ai_wp_tree_workflow.jpg" alt="CR8V Stacks AI-to-WordPress Structural Tree Workflow">
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 7. FYLLA STUDIO CONTACT CTA ── -->
+    <section class="fylla-cta-section">
+      <div class="cta-col-left">
+        <span class="fylla-meta-tag">CONTACT</span>
+        <h2 class="cta-h2">LET'S BRING YOUR BRAND TO THE NEXT LEVEL</h2>
+      </div>
+
+      <div class="cta-col-right">
+        <p class="cta-p">Together, let's elevate your brand to new heights by unleashing its full potential and captivating your target audience with custom zero-plugin architecture.</p>
+        <a href="discovery-call.html" class="cta-btn">Book A Discovery Call</a>
+      </div>
+    </section>
+
+  </main>
 
 </body>
 </html>
