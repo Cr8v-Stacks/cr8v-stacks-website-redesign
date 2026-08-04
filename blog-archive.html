@@ -13,26 +13,25 @@
       --c8-paper-bg: #F9F9F8;
       --c8-paper-card: #FFFFFF;
       --c8-ink: #080808;
-      --c8-sub: #666666;
+      --c8-sub: #555555;
       --c8-grid-line: rgba(8, 8, 8, 0.14);
       --c8-blue: #0047E1;
+      --c8-blue-hi: #3D6BFF;
       --font-body: 'DM Sans', sans-serif;
       --font-mono: 'Space Mono', monospace;
+      --font-heading: 'Michroma', sans-serif;
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 3rem 2rem 5rem 2rem; }
+    body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 4rem 2rem 5rem 2rem; }
 
     .blog-header-wrap { max-width: 1360px; margin: 0 auto 2.5rem auto; }
-    .blog-breadcrumb { font-size: 0.82rem; color: #888888; margin-bottom: 1.5rem; }
-    .blog-breadcrumb a { color: #888888; text-decoration: none; }
-    .blog-breadcrumb a:hover { color: var(--c8-blue); }
-    .blog-title-h1 { font-size: 2.2rem; font-weight: 700; color: var(--c8-ink); letter-spacing: -0.01em; margin-bottom: 0.5rem; text-transform: uppercase; }
-    .blog-subtitle { font-size: 0.92rem; color: var(--c8-sub); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; }
+    .blog-title-h1 { font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; color: var(--c8-ink); letter-spacing: 0.01em; text-transform: uppercase; margin-bottom: 0.65rem; }
+    .blog-subtitle { font-family: var(--font-mono); font-size: 0.78rem; color: var(--c8-blue); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; }
 
-    /* VISIBLE ARCHITECTURAL GRID LINE CONTAINER */
+    /* VISIBLE ARCHITECTURAL GRID LINES CONTAINER */
     .blog-grid-frame {
-      max-width: 1360px; margin: 0 auto;
+      max-width: 1360px; margin: 0 auto 5rem auto;
       background: var(--c8-paper-card);
       border: 1px solid var(--c8-grid-line);
       display: grid;
@@ -53,26 +52,47 @@
     .blog-grid-card:hover { background: #FAFAF7; }
 
     .card-top-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
-    .card-date { font-size: 0.75rem; color: var(--c8-sub); font-weight: 400; }
-    .card-category-pill { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); border: 1px solid rgba(8, 8, 8, 0.3); border-radius: 12px; padding: 0.15rem 0.65rem; }
+    .card-date { font-family: var(--font-mono); font-size: 0.72rem; color: #8A8A8A; font-weight: 400; }
+    .card-category-pill { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); border: 1px solid rgba(8, 8, 8, 0.3); border-radius: 12px; padding: 0.18rem 0.65rem; letter-spacing: 0.06em; }
 
     .card-img-container { aspect-ratio: 16 / 10; border-radius: 2px; overflow: hidden; background: #000000; margin-bottom: 1.25rem; border: 1px solid var(--c8-grid-line); }
     .card-img { width: 100%; height: 100%; object-fit: cover; }
 
-    .card-title { font-size: 1.15rem; font-weight: 700; color: var(--c8-ink); line-height: 1.35; margin-bottom: 0.65rem; }
+    .card-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--c8-ink); line-height: 1.35; margin-bottom: 0.65rem; text-transform: uppercase; }
     .card-title a { color: inherit; text-decoration: none; }
     .card-title a:hover { color: var(--c8-blue); }
-    .card-excerpt { font-size: 0.85rem; color: var(--c8-sub); line-height: 1.55; margin-bottom: 1.5rem; }
+    .card-excerpt { font-family: var(--font-body); font-size: 0.88rem; color: var(--c8-sub); line-height: 1.6; margin-bottom: 1.5rem; font-weight: 400; }
 
-    .card-read-more { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c8-ink); border-bottom: 1.5.px solid var(--c8-ink); text-decoration: none; align-self: flex-start; padding-bottom: 2px; }
+    .card-read-more { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c8-blue); border-bottom: 1.5px solid var(--c8-blue); text-decoration: none; align-self: flex-start; padding-bottom: 2px; }
 
-    .blog-footer { max-width: 1360px; margin: 3rem auto 0 auto; text-align: center; font-size: 0.8rem; color: var(--c8-sub); border-top: 1px solid var(--c8-grid-line); padding-top: 1.5rem; }
+    /* BOOKING FORM CTA */
+    .blog-cta-section {
+      max-width: 1360px; margin: 0 auto;
+      background: #080808; color: #FFFFFF;
+      border-radius: 4px; padding: 4rem 3rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .blog-cta-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(0, 71, 225, 0.4) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .blog-cta-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+    .cta-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 1rem; font-weight: 700; }
+    .cta-h2 { font-family: var(--font-heading); font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700; text-transform: uppercase; line-height: 1.25; margin-bottom: 1rem; color: #FFFFFF; }
+    .cta-sub { font-size: 0.95rem; color: rgba(255, 255, 255, 0.7); line-height: 1.6; margin-bottom: 2rem; }
+    .cta-embed-box { background: #FFFFFF; border-radius: 4px; padding: 2rem; text-align: left; color: var(--c8-ink); border: 1px solid var(--c8-grid-line); }
+
+    .blog-footer { max-width: 1360px; margin: 4rem auto 0 auto; text-align: center; font-size: 0.8rem; color: var(--c8-sub); border-top: 1px solid var(--c8-grid-line); padding-top: 1.5rem; }
 
     @media (max-width: 1024px) {
       .blog-grid-frame { grid-template-columns: repeat(2, 1fr); }
       .blog-grid-card:nth-child(2n) { border-right: none; }
     }
     @media (max-width: 680px) {
+      body { padding: 2rem 1rem; }
       .blog-grid-frame { grid-template-columns: 1fr; }
       .blog-grid-card { border-right: none !important; }
     }
@@ -80,12 +100,10 @@
 </head>
 <body>
 
+  <!-- CONCISE ARCHIVE HERO (NO BREADCRUMBS) -->
   <header class="blog-header-wrap">
-    <div class="blog-breadcrumb">
-      <a href="homepage_hero_section.html">Home</a> / <a href="blog.html">Blog Grid</a> / <span>Category: Engineering</span>
-    </div>
+    <div class="blog-subtitle">// CATEGORY ARCHIVE</div>
     <h1 class="blog-title-h1">Engineering Archive</h1>
-    <div class="blog-subtitle">Field notes on liquid performance, zero-plugin frameworks &amp; speed strategy</div>
   </header>
 
   <main class="blog-grid-frame">
@@ -136,6 +154,17 @@
     </article>
 
   </main>
+
+  <section class="blog-cta-section">
+    <div class="blog-cta-inner">
+      <div class="cta-eyebrow">↳ READY TO SCALE YOUR PLATFORM?</div>
+      <h2 class="cta-h2">Book A 30-Minute Discovery Call</h2>
+      <p class="cta-sub">Speak directly with our technical architecture team to scope your custom website build, WooCommerce system, or AI platform integration.</p>
+      <div class="cta-embed-box">
+        [contact-form-7 id="70c8d19" title="Contact Page"]
+      </div>
+    </div>
+  </section>
 
   <footer class="blog-footer">
     © 2026 Cr8v Stacks Agency. All Rights Reserved.
