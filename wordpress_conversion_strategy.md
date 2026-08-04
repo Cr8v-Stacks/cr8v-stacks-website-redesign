@@ -1,77 +1,51 @@
-# Cr8v Stacks — WordPress Conversion & Deployment Strategy
+# Cr8v Stacks — Zero-Plugin WordPress Conversion Strategy
 
-## Executive Summary
-This document defines the recommended architectural strategy for bringing the **Cr8v Stacks Website Redesign** into WordPress cleanly, securely, and seamlessly — guaranteeing zero 404 permalink errors, 100% design fidelity, and easy content editability for non-technical users.
+## 1. Native WordPress Custom Fields Architecture (NO ACF Plugin Needed)
 
----
+You specified that you do **NOT** want to install or manually build custom fields using third-party plugins (like ACF). 
 
-## 1. Architectural Comparison & Recommendation
+### How We Build Custom Fields Directly in Theme Code:
+In native WordPress PHP development, custom fields are declared directly inside the theme's `functions.php` (or an `/inc/meta-boxes.php` file) using WordPress's native **`add_meta_box()`** and **`register_setting()`** APIs:
 
-### Option A: Pure Elementor JSON Export (NOT Recommended)
-- **Drawbacks**:
-  - Drops custom interactive scripts (Matrix scramble, auto-scrolling testimonial progress bars, canvas web glitch effects).
-  - Introduces heavy DOM wrapper bloat (`.elementor-widget-container`) which degrades Lighthouse speed scores.
-  - Media asset paths (`assets/...`) break easily, causing 404 errors during migration between environments.
+```php
+// Example: Native WP Meta Box registered directly in theme code
+add_action('add_meta_boxes', function() {
+    add_meta_box('cr8v_hero_meta', 'Hero Section Settings', 'cr8v_render_hero_box', 'page', 'normal', 'high');
+});
 
-### Option B: Custom WordPress Framework Theme + ACF (RECOMMENDED STARTER STRATEGY)
-- **Why This is the Best Approach**:
-  - **100% Design Fidelity**: Preserves all custom CSS, typography tokens (`Michroma`, `Space Mono`, `DM Sans`), micro-animations, and custom video protection scripts exactly as authored.
-  - **Full Editability via WP Admin**: All headlines, body paragraphs, testimonials, CTA buttons, and video URLs are connected to **ACF (Advanced Custom Fields) / Carbon Fields** options pages. Clients and team members can edit copy and images in WP Admin without touching code.
-  - **Protected Design System**: Layout boundaries, grid ratios, and brand colors (`#0047E1` Royal Blue) remain locked and immune to accidental visual breakage.
-  - **Zero 404 Permalink Errors**: Standard WordPress template hierarchy (`front-page.php`, `page-discovery-call.php`, `page-contact.php`) handles clean SEO permalinks automatically.
-
----
-
-## 2. WordPress Theme Folder Structure (`/wp-content/themes/cr8v-stacks/`)
-
-```
-cr8v-stacks/
-├── style.css                 # Theme header metadata & global CSS reset
-├── functions.php             # Enqueue scripts, styles, ACF fields, CF7 support
-├── front-page.php            # Homepage template (homepage_hero_section.html)
-├── page-contact.php          # Contact Us page template (Contact_us.html)
-├── page-discovery-call.php   # Discovery Call booking page template (discovery-call.html)
-├── single-case_study.php     # Dynamic Case Study template
-├── assets/
-│   ├── css/
-│   ├── js/
-│   ├── img/
-│   └── video/               # Optimized WebM/MP4 videos
-└── inc/
-    ├── acf-fields.php        # Registered custom fields for headlines, text, & media
-    └── cpt-case-studies.php  # Custom Post Type for Case Studies
+function cr8v_render_hero_box($post) {
+    $headline = get_post_meta($post->ID, '_cr8v_hero_headline', true);
+    echo '<label>Hero Headline:</label>';
+    echo '<input type="text" name="cr8v_hero_headline" value="' . esc_attr($headline) . '" style="width:100%;">';
+}
 ```
 
----
-
-## 3. Editability & WP Admin Workflow
-
-### A. Global Theme Settings (ACF Options Page)
-- **Header & Footer Settings**: Logo URL, CTA button links (`/discovery-call/`), phone number, and address.
-- **Brand Tokens**: Primary brand color, radius defaults (`4px`).
-
-### B. Page-Level Editable Fields
-1. **Homepage (`front-page.php`)**:
-   - Hero Headline, Eyebrow Text, and 1-Paragraph Description.
-   - Focus Areas (Web Design, Custom Dev, AI MVP copy & icons).
-   - Testimonial Quote, Author Name, and Stack CDN Icons.
-   - Dev Playground Tool titles, descriptions, and demo URLs.
-
-2. **Contact Us (`page-contact.php`)**:
-   - Contact Ticket Stub headline, lede, line number, location.
-   - Contact Form 7 Shortcode ID (`[contact-form-7 id="..."]`).
-
-3. **Discovery Call (`page-discovery-call.php`)**:
-   - Booking Page Headline & Lede.
-   - Booking Form Shortcode / Embed ID (`[booking-plugin-form id="..."]`).
-   - Scoping Pillars (01 Scoping, 02 Stack, 03 Pricing, 04 Execution Roadmap).
+### Key Advantages:
+- **Zero Plugin Dependencies**: The theme works straight out of the box upon activation (`Appearance > Themes > Activate`).
+- **No Manual Configuration Required**: You never have to manually create field groups or configure settings in the WP backend.
+- **Zero Risk of Plugin Breakage**: Eliminates update conflicts, license keys, or third-party plugin vulnerabilities.
 
 ---
 
-## 4. Step-by-Step Implementation Roadmap
+## 2. Blog Page (`home.php`) & Individual Article Pages (`single.php`)
 
-1. **Theme Packaging**: Package `homepage_hero_section.html`, `Contact_us.html`, and `discovery-call.html` into template files within `/wp-content/themes/cr8v-stacks/`.
-2. **Asset Path Normalization**: Replace relative paths with `get_template_directory_uri() . '/assets/...'`.
-3. **ACF Integration**: Wire dynamic PHP tags (`<?php the_field('hero_headline'); ?>`) into the template markup.
-4. **Form Integration**: Replace static fallback forms with active WordPress plugin shortcodes (`do_shortcode('[contact-form-7 ...]')` and `do_shortcode('[booking-form-embed]')`).
-5. **Permalink Flush**: Regenerate permalink rewrite rules under `WP Admin > Settings > Permalinks` to guarantee zero 404 errors.
+### Blog Listing Template (`home.php`)
+- Uses WordPress's native template hierarchy to display blog articles in our clean editorial card grid (`.c8-blog-grid`).
+- Employs native WordPress loop query (`if (have_posts()) : while (have_posts()) : the_post();`):
+  - Dynamic Post Title (`the_title()`) in `Michroma` font.
+  - Category Badge (`the_category()`) in `Space Mono` font.
+  - Featured Image (`the_post_thumbnail()`).
+  - Author & Date Metadata (`the_time('M d, Y')`).
+
+### Single Article Template (`single.php`)
+- Renders full-width single blog posts using our dark/light editorial reader layout:
+  - Header Hero with category pill, title, reading time, and publish date.
+  - Rich Content Body (`the_content()`) supporting headings, code blocks, images, and blockquotes.
+  - Next/Previous Article Navigation links.
+
+---
+
+## 3. Permalink & UI Integrity Guarantee
+
+- **Zero 404 Errors**: Theme rewrite rules use standard WordPress page templates (`page-discovery-call.php`, `page-contact.php`, `single-case_study.php`).
+- **Zero UI Degradation**: All custom CSS styles, typography variables (`Michroma`, `Space Mono`, `DM Sans`), and Matrix scramble hover scripts are enqueued via `wp_enqueue_style()` and `wp_enqueue_script()`, ensuring **100% visual fidelity** on every device.

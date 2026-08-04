@@ -1,4 +1,8 @@
-<!-- ══════════════════════════════════════════════════════════
+import re
+
+file_path = r"C:\Users\HP\Downloads\Mega Menu\Contact_us.html"
+
+contact_clean_html = '''<!-- ══════════════════════════════════════════════════════════
    CR8V STACKS — CONTACT PAGE v2 (Clean Ticket Stub Template)
 ═══════════════════════════════════════════════════════════ -->
 <div class="c8ct-root c8cf-root">
@@ -85,3 +89,9 @@
   </div>
 </div>
 </div>
+'''
+
+with open(file_path, "w", encoding="utf-8") as f:
+    f.write(contact_clean_html)
+
+print("Saved clean Contact_us.html with shortcode intact.")
