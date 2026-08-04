@@ -309,7 +309,29 @@
       .c8dc-tear { margin: 2rem -2rem; }
       .c8dc-stamp { display: none; }
     }
-  </style>
+  
+    .c8dc-section-h2 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .c8dc-testi-heading {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue-hi);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+</style>
 </head>
 <body>
 
@@ -323,7 +345,7 @@
 
     <!-- ── 1. BOOKING FORM EMBED PLACED FIRST RIGHT AFTER LEDE ── -->
     <div class="c8dc-booking-section">
-      <div class="c8dc-booking-label">Available Slots</div>
+      <h2 class="c8dc-section-h2">Available Booking Slots</h2>
       <div class="c8dc-booking-card">
         <!-- BOOKING PLUGIN SHORTCODE / IFRAME EMBED PLACED HERE -->
         [booking-form-embed]
@@ -337,7 +359,7 @@
       
       <!-- Pillars -->
       <div>
-        <div class="c8dc-pillars-title">What We Scope On The Call</div>
+        <h2 class="c8dc-section-h2">What We Scope On The Call</h2>
         <div class="c8dc-pillars-list">
           <div class="c8dc-pillar-item">
             <div class="c8dc-pillar-num">01</div>
@@ -366,10 +388,10 @@
       <!-- High-End Dark Testimonial Card -->
       <div class="c8dc-testi-card">
         <div class="c8dc-testi-header">
-          <div class="c8dc-testi-badge">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="#0047E1"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+          <h2 class="c8dc-testi-heading">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#0047E1"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
             VERIFIED CLIENT FEEDBACK
-          </div>
+          </h2>
           <div class="c8dc-testi-stars">★★★★★</div>
         </div>
 
@@ -386,7 +408,7 @@
           </div>
           <div style="text-align:right;">
             <div class="c8dc-author-name" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue-hi);">VERIFIED TECH STACK</div>
-            <div class="c8dc-author-role" style="font-family:var(--font-body);font-size:0.78rem;color:rgba(255,255,255,0.6);">Enterprise Digital Architecture</div>
+            <div class="c8dc-author-role" style="font-family:var(--font-heading);font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.6);">Enterprise Digital Architecture</div>
           </div>
         </div>
       </div>

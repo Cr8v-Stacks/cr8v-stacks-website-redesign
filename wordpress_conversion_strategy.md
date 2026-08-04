@@ -1,11 +1,31 @@
-# Cr8v Stacks — Zero-Plugin WordPress Conversion Strategy
+# Cr8v Stacks — WordPress Conversion & Deployment Strategy
 
-## 1. Native WordPress Custom Fields Architecture (NO ACF Plugin Needed)
+## Executive Summary
+This document defines the recommended architectural strategy for bringing the **Cr8v Stacks Website Redesign** into WordPress cleanly, securely, and seamlessly — guaranteeing zero 404 permalink errors, 100% design fidelity, and easy content editability for non-technical users.
 
-You specified that you do **NOT** want to install or manually build custom fields using third-party plugins (like ACF). 
+---
 
-### How We Build Custom Fields Directly in Theme Code:
-In native WordPress PHP development, custom fields are declared directly inside the theme's `functions.php` (or an `/inc/meta-boxes.php` file) using WordPress's native **`add_meta_box()`** and **`register_setting()`** APIs:
+## 1. Architectural Comparison & Recommendation
+
+### Option A: Pure Elementor JSON Export (NOT Recommended)
+- **Drawbacks**:
+  - Drops custom interactive scripts (Matrix scramble, auto-scrolling testimonial progress bars, canvas web glitch effects).
+  - Introduces heavy DOM wrapper bloat (`.elementor-widget-container`) which degrades Lighthouse speed scores.
+  - Media asset paths (`assets/...`) break easily, causing 404 errors during migration between environments.
+
+### Option B: Custom WordPress Framework Theme (RECOMMENDED STARTER STRATEGY)
+- **Why This is the Best Approach**:
+  - **100% Design Fidelity**: Preserves all custom CSS, typography tokens (`Michroma`, `Space Mono`, `DM Sans`), micro-animations, and custom video protection scripts exactly as authored.
+  - **Full Editability via Native WP Meta Fields**: All headlines, body paragraphs, testimonials, CTA buttons, and video URLs are connected to native WP meta boxes declared directly inside theme code (`functions.php`).
+  - **Zero Third-Party Plugin Dependencies**: Works natively upon theme activation without requiring manual plugin setup or ACF configuration.
+  - **Protected Design System**: Layout boundaries, grid ratios, and brand colors (`#0047E1` Royal Blue) remain locked and immune to accidental visual breakage.
+  - **Zero 404 Permalink Errors**: Standard WordPress template hierarchy (`front-page.php`, `page-discovery-call.php`, `page-contact.php`, `home.php`, `single.php`) handles clean SEO permalinks automatically.
+
+---
+
+## 2. Native WordPress Custom Fields Architecture (NO Plugins Needed)
+
+Custom fields are declared directly inside theme code in `functions.php` (or an `/inc/meta-boxes.php` file) using WordPress's native **`add_meta_box()`** and **`register_setting()`** APIs:
 
 ```php
 // Example: Native WP Meta Box registered directly in theme code
@@ -20,14 +40,9 @@ function cr8v_render_hero_box($post) {
 }
 ```
 
-### Key Advantages:
-- **Zero Plugin Dependencies**: The theme works straight out of the box upon activation (`Appearance > Themes > Activate`).
-- **No Manual Configuration Required**: You never have to manually create field groups or configure settings in the WP backend.
-- **Zero Risk of Plugin Breakage**: Eliminates update conflicts, license keys, or third-party plugin vulnerabilities.
-
 ---
 
-## 2. Blog Page (`home.php`) & Individual Article Pages (`single.php`)
+## 3. Blog & Article Templates Architecture
 
 ### Blog Listing Template (`home.php`)
 - Uses WordPress's native template hierarchy to display blog articles in our clean editorial card grid (`.c8-blog-grid`).
@@ -45,7 +60,34 @@ function cr8v_render_hero_box($post) {
 
 ---
 
-## 3. Permalink & UI Integrity Guarantee
+## 4. Theme Folder Structure (`/wp-content/themes/cr8v-stacks/`)
 
-- **Zero 404 Errors**: Theme rewrite rules use standard WordPress page templates (`page-discovery-call.php`, `page-contact.php`, `single-case_study.php`).
-- **Zero UI Degradation**: All custom CSS styles, typography variables (`Michroma`, `Space Mono`, `DM Sans`), and Matrix scramble hover scripts are enqueued via `wp_enqueue_style()` and `wp_enqueue_script()`, ensuring **100% visual fidelity** on every device.
+```
+cr8v-stacks/
+├── style.css                 # Theme header metadata & global CSS reset
+├── functions.php             # Enqueue scripts, styles, native meta boxes, CF7 support
+├── front-page.php            # Homepage template (homepage_hero_section.html)
+├── page-contact.php          # Contact Us page template (Contact_us.html)
+├── page-discovery-call.php   # Discovery Call booking page template (discovery-call.html)
+├── home.php                  # Blog archive & listing page template
+├── single.php                # Single blog post article template
+├── single-case_study.php     # Dynamic Case Study template
+├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── img/
+│   └── video/               # Optimized WebM/MP4 videos
+└── inc/
+    ├── meta-boxes.php        # Native WP meta field declarations
+    └── cpt-case-studies.php  # Custom Post Type for Case Studies
+```
+
+---
+
+## 5. Step-by-Step Implementation Roadmap
+
+1. **Theme Packaging**: Package `homepage_hero_section.html`, `Contact_us.html`, and `discovery-call.html` into template files within `/wp-content/themes/cr8v-stacks/`.
+2. **Asset Path Normalization**: Replace relative paths with `get_template_directory_uri() . '/assets/...'`.
+3. **Native Meta Field Integration**: Wire dynamic PHP tags (`<?php echo get_post_meta($post->ID, '_hero_headline', true); ?>`) into template markup.
+4. **Form Integration**: Replace static fallback forms with active WordPress plugin shortcodes (`do_shortcode('[contact-form-7 ...]')` and `do_shortcode('[booking-form-embed]')`).
+5. **Permalink Flush**: Regenerate permalink rewrite rules under `WP Admin > Settings > Permalinks` to guarantee zero 404 errors.
