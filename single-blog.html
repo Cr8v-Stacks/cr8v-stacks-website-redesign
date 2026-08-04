@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Liquid Performance Means For Modern Web Platforms — Cr8v Stacks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --c8-ink: #080808;
+      --c8-paper: #F2F1EC;
+      --c8-paper-hi: #FAFAF7;
+      --c8-blue: #0047E1;
+      --c8-blue-hi: #3D6BFF;
+      --c8-gray: #8A8A8A;
+      --c8-line: rgba(8, 8, 8, 0.14);
+      --font-heading: 'Michroma', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #080808; color: #FFFFFF; font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+
+    /* HEADER */
+    .c8-nav-header { position: sticky; top: 0; z-index: 100; background: rgba(8, 8, 8, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding: 1.25rem 2.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .c8-brand-logo { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: #FFFFFF; text-decoration: none; letter-spacing: 0.02em; }
+    .c8-brand-logo span { color: var(--c8-blue); }
+    .c8-back-link { font-family: var(--font-mono); font-size: 0.75rem; color: rgba(255, 255, 255, 0.8); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .c8-back-link:hover { color: var(--c8-blue); }
+
+    /* ARTICLE HERO BANNER */
+    .art-hero {
+      background: #080808 radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.4) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.25) 0%, transparent 60%);
+      padding: 6.5rem 2.5rem 4rem 2.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .art-hero-inner { max-width: 860px; margin: 0 auto; }
+    .art-cat-pill { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; color: var(--c8-blue-hi); border: 1px solid rgba(61, 107, 255, 0.4); border-radius: 12px; padding: 0.25rem 0.8rem; letter-spacing: 0.12em; display: inline-block; margin-bottom: 1.25rem; }
+    .art-h1 { font-family: var(--font-heading); font-size: clamp(1.8rem, 3.8vw, 2.8rem); font-weight: 700; text-transform: uppercase; line-height: 1.2; margin-bottom: 1.5rem; letter-spacing: 0.01em; }
+    .art-meta-bar { display: flex; align-items: center; gap: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1.25rem; font-family: var(--font-mono); font-size: 0.75rem; color: rgba(255, 255, 255, 0.65); }
+
+    /* ARTICLE BODY (PAPER TICKET STUB BG) */
+    .art-body-wrap { background: var(--c8-paper); padding: 5rem 2.5rem; color: var(--c8-ink); min-height: 80vh; }
+    .art-card { max-width: 860px; margin: 0 auto; background: #FFFFFF; border: 1px solid var(--c8-line); border-radius: 4px; padding: 3.5rem 4rem; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.06); }
+
+    .art-featured-img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; margin-bottom: 2.5rem; border: 1px solid var(--c8-line); }
+
+    /* TYPOGRAPHY IN ARTICLE */
+    .art-content p { font-size: 1.05rem; line-height: 1.75; color: #2C2C2C; margin-bottom: 1.75rem; font-weight: 400; }
+    .art-content h2 { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-top: 2.75rem; margin-bottom: 1rem; line-height: 1.3; }
+    .art-content h3 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-top: 2rem; margin-bottom: 0.85rem; }
+    .art-content blockquote { border-left: 4px solid var(--c8-blue); padding: 1.25rem 1.75rem; background: var(--c8-paper-hi); margin: 2rem 0; border-radius: 0 4px 4px 0; font-size: 1.08rem; font-style: italic; color: #080808; }
+    .art-content ul, .art-content ol { margin: 1.5rem 0 1.75rem 1.75rem; }
+    .art-content li { font-size: 1.02rem; line-height: 1.7; color: #2C2C2C; margin-bottom: 0.5rem; }
+
+    /* AUTHOR BADGE FOOTER */
+    .art-author-box { display: flex; align-items: center; gap: 1.25rem; border-top: 1px solid var(--c8-line); padding-top: 2.25rem; margin-top: 3.5rem; }
+    .art-author-avatar { width: 52px; height: 52px; border-radius: 4px; background: rgba(0, 71, 225, 0.12); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 71, 225, 0.3); }
+    .art-author-name { font-family: var(--font-heading); font-size: 0.92rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; }
+    .art-author-role { font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-gray); margin-top: 2px; }
+
+    /* RELATED ARTICLES (3-COLUMN GRID PARITY) */
+    .art-related-sec { max-width: 1360px; margin: 4rem auto 0 auto; }
+    .art-related-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 1.75rem; }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .blog-card { background: #FFFFFF; border: 1px solid var(--c8-line); border-radius: 4px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; }
+    .blog-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+    .blog-card-date { font-family: var(--font-mono); font-size: 0.7rem; color: var(--c8-gray); }
+    .blog-card-cat { font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); border: 1px solid rgba(8, 8, 8, 0.22); border-radius: 12px; padding: 0.18rem 0.6rem; }
+    .blog-card-img-box { aspect-ratio: 16 / 10; border-radius: 4px; overflow: hidden; background: #EFEFEA; margin-bottom: 1rem; }
+    .blog-card-img { width: 100%; height: 100%; object-fit: cover; }
+    .blog-card-title { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: var(--c8-ink); line-height: 1.35; margin-bottom: 0.5rem; text-transform: uppercase; }
+    .blog-card-excerpt { font-size: 0.85rem; color: #555555; line-height: 1.55; margin-bottom: 1.25rem; }
+    .blog-card-link { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c8-blue); border-bottom: 1.5px solid var(--c8-blue); padding-bottom: 2px; text-decoration: none; align-self: flex-start; }
+
+    @media (max-width: 860px) { .art-card { padding: 2.25rem 1.5rem; } .blog-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <header class="c8-nav-header">
+    <a href="blog.html" class="c8-brand-logo">CR8V <span>STACKS</span></a>
+    <a href="blog.html" class="c8-back-link">← Back To Field Notes</a>
+  </header>
+
+  <!-- ARTICLE HERO -->
+  <header class="art-hero">
+    <div class="art-hero-inner">
+      <span class="art-cat-pill">Liquid Performance Engineering</span>
+      <h1 class="art-h1">What Liquid Performance Means For Modern Web Platforms</h1>
+      <div class="art-meta-bar">
+        <span>Published August 4, 2026</span>
+        <span>·</span>
+        <span>5 Min Read</span>
+        <span>·</span>
+        <span>By Cr8v Stacks Engineering Team</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ARTICLE BODY CARD -->
+  <main class="art-body-wrap">
+    <article class="art-card">
+      
+      <img src="assets/case_study_blvck_hair_1785571402640.jpg" alt="Liquid Performance Architecture" class="art-featured-img">
+
+      <div class="art-content">
+        <p>In modern web development, speed is no longer just a technical metric — it is the single greatest multiplier of conversion rates and search engine authority. When a page takes more than two seconds to load, user engagement drops exponentially.</p>
+
+        <h2>The Cost of Plugin Overhead</h2>
+        <p>Traditional WordPress builds rely on 15 to 30 third-party plugins to execute layout styling, contact forms, custom post types, and SEO settings. Each plugin injects its own CSS files, JavaScript bundles, and database queries, creating significant DOM complexity and blocking main-thread execution.</p>
+
+        <blockquote>
+          "Liquid performance engineering is the discipline of stripping away framework bloat, writing native theme code, and delivering 100% Core Web Vitals pass rates on launch day."
+        </blockquote>
+
+        <h2>Zero-Plugin Native Architecture</h2>
+        <p>By registering custom meta fields natively using WordPress APIs (<code>add_meta_box()</code> and <code>register_setting()</code>), we eliminate the memory overhead of heavy visual builders while retaining complete content editability for non-technical site managers.</p>
+
+        <ul>
+          <li><strong>Zero Layout Shift (CLS &lt; 0.01)</strong>: Locked container ratios prevent structural jumps during font or image rendering.</li>
+          <li><strong>Sub-50ms Interaction to Next Paint (INP)</strong>: Asynchronous script loading keeps event handlers instant.</li>
+          <li><strong>Entity SEO Mapping</strong>: Schema metadata is compiled dynamically into raw HTML headers before HTTP responses leave the server.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>When you engineer for liquid performance from day one, your platform scales effortlessly across mobile devices, global markets, and high-volume marketing campaigns without requiring costly server upgrades.</p>
+      </div>
+
+      <!-- AUTHOR BOX -->
+      <div class="art-author-box">
+        <div class="art-author-avatar">
+          <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="Cr8v Stacks Engineering" style="width:26px;height:26px;">
+        </div>
+        <div>
+          <div class="art-author-name">Cr8v Stacks Engineering</div>
+          <div class="art-author-role">Technical Architecture &amp; System Strategy</div>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- RELATED ARTICLES SECTION (3-COLUMN GRID PARITY) -->
+    <section class="art-related-sec">
+      <h2 class="art-related-title">More Field Notes</h2>
+      
+      <div class="blog-grid">
+        
+        <article class="blog-card">
+          <div>
+            <div class="blog-card-top">
+              <span class="blog-card-date">July 28, 2026</span>
+              <span class="blog-card-cat">ENTITY SEO</span>
+            </div>
+            <div class="blog-card-img-box">
+              <img src="assets/case_study_duch_apartments_1785571416702.jpg" alt="Entity SEO Optimization" class="blog-card-img">
+            </div>
+            <h2 class="blog-card-title">Entity SEO Architecture: Indexing For Authority</h2>
+            <p class="blog-card-excerpt">How folding schema markup and semantic keyword mapping into code before launch creates organic rank velocity.</p>
+          </div>
+          <a href="single-blog.html?id=2" class="blog-card-link">Read Article</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <div class="blog-card-top">
+              <span class="blog-card-date">July 19, 2026</span>
+              <span class="blog-card-cat">AI MVPS</span>
+            </div>
+            <div class="blog-card-img-box">
+              <img src="assets/case_study_bridgepoint_compliance_1785571461489.jpg" alt="AI Platforms" class="blog-card-img">
+            </div>
+            <h2 class="blog-card-title">Architecting Custom AI Dashboards For Handshake</h2>
+            <p class="blog-card-excerpt">A technical overview of Nativus Dashboard Pro — building proprietary WP plugin tools and automated client onboarding UI.</p>
+          </div>
+          <a href="single-blog.html?id=3" class="blog-card-link">Read Article</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <div class="blog-card-top">
+              <span class="blog-card-date">July 10, 2026</span>
+              <span class="blog-card-cat">UI/UX SYSTEMS</span>
+            </div>
+            <div class="blog-card-img-box">
+              <img src="assets/services_visual_montage_1785579924010.jpg" alt="UI Systems" class="blog-card-img">
+            </div>
+            <h2 class="blog-card-title">Micro-Animations That Convert: Designing For Retention</h2>
+            <p class="blog-card-excerpt">How subtle hover states, canvas scroll triggers, and architectural contrast elevate user retention on luxury service sites.</p>
+          </div>
+          <a href="single-blog.html?id=4" class="blog-card-link">Read Article</a>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Field Notes & Insights — Cr8v Stacks Agency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --c8-ink: #080808;
+      --c8-paper: #F2F1EC;
+      --c8-blue: #0047E1;
+      --c8-blue-hi: #3D6BFF;
+      --c8-gray: #8A8A8A;
+      --c8-line: rgba(8, 8, 8, 0.12);
+      --font-heading: 'Michroma', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #080808; color: #FFFFFF; font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+
+    /* ── HEADER ── */
+    .c8-nav-header {
+      position: sticky; top: 0; z-index: 100; background: rgba(8, 8, 8, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding: 1.25rem 2.5rem; display: flex; align-items: center; justify-content: space-between;
+    }
+    .c8-brand-logo { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: #FFFFFF; text-decoration: none; letter-spacing: 0.02em; }
+    .c8-brand-logo span { color: var(--c8-blue); }
+    .c8-nav-cta { background: var(--c8-blue); color: #FFFFFF; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; padding: 0.65rem 1.4rem; border-radius: 4px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; transition: background 0.2s ease; }
+    .c8-nav-cta:hover { background: var(--c8-blue-hi); }
+
+    /* ── HERO BANNER ── */
+    .blog-hero {
+      background: #080808 radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.35) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.25) 0%, transparent 60%);
+      padding: 6rem 2.5rem 4rem 2.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); text-align: center;
+    }
+    .blog-hero-inner { max-width: 900px; margin: 0 auto; }
+    .blog-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 1.25rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .blog-hero-h1 { font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; text-transform: uppercase; line-height: 1.2; margin-bottom: 1.25rem; }
+    .blog-hero-sub { font-size: 1.05rem; color: rgba(255, 255, 255, 0.7); max-width: 680px; margin: 0 auto; line-height: 1.6; }
+
+    /* ── CATEGORY BAR ── */
+    .blog-cat-bar { background: #121212; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .blog-cat-pill { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255, 255, 255, 0.6); text-decoration: none; padding: 0.4rem 1rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.12); transition: all 0.2s ease; }
+    .blog-cat-pill:hover, .blog-cat-pill.active { color: #FFFFFF; border-color: var(--c8-blue); background: rgba(0, 71, 225, 0.15); }
+
+    /* ── MAIN CONTENT CONTAINER (WHITE PAPER CARD STUB BG) ── */
+    .blog-main-section { background: var(--c8-paper); padding: 5rem 2.5rem; color: var(--c8-ink); min-height: 80vh; }
+    .blog-container { max-width: 1360px; margin: 0 auto; }
+
+    /* ── 3-COLUMN ARCHITECTURAL GRID (EXACT REFERENCE PARITY) ── */
+    .blog-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.25rem;
+    }
+
+    /* CARD ITEM */
+    .blog-card {
+      background: #FFFFFF; border: 1px solid var(--c8-line); border-radius: 4px; padding: 1.75rem; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08); }
+
+    .blog-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+    .blog-card-date { font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-gray); font-weight: 400; }
+    .blog-card-cat { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); border: 1px solid rgba(8, 8, 8, 0.22); border-radius: 12px; padding: 0.2rem 0.7rem; letter-spacing: 0.08em; }
+
+    .blog-card-img-box { aspect-ratio: 16 / 10; border-radius: 4px; overflow: hidden; background: #EFEFEA; margin-bottom: 1.25rem; }
+    .blog-card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .blog-card:hover .blog-card-img { transform: scale(1.04); }
+
+    .blog-card-title { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--c8-ink); line-height: 1.35; margin-bottom: 0.65rem; text-transform: uppercase; }
+    .blog-card-excerpt { font-size: 0.88rem; color: #555555; line-height: 1.6; margin-bottom: 1.5rem; font-weight: 400; }
+
+    .blog-card-link { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-blue); border-bottom: 1.5px solid var(--c8-blue); padding-bottom: 2px; text-decoration: none; align-self: flex-start; transition: color 0.2s ease, border-color 0.2s ease; }
+    .blog-card-link:hover { color: var(--c8-blue-hi); border-color: var(--c8-blue-hi); }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 1024px) {
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 680px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-main-section { padding: 3.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="c8-nav-header">
+    <a href="homepage_hero_section.html" class="c8-brand-logo">CR8V <span>STACKS</span></a>
+    <a href="discovery-call.html" class="c8-nav-cta">Book Discovery Call</a>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="blog-hero">
+    <div class="blog-hero-inner">
+      <div class="blog-eyebrow"><span style="color:var(--c8-blue);font-weight:700;">//</span> FIELD NOTES & INSIGHTS</div>
+      <h1 class="blog-hero-h1">Engineering, Performance & AI Architecture</h1>
+      <p class="blog-hero-sub">Deep dives into high-converting web engineering, entity SEO strategy, and custom AI platform builds from our technical team.</p>
+    </div>
+  </section>
+
+  <!-- CATEGORY FILTER BAR -->
+  <nav class="blog-cat-bar">
+    <a href="blog.html" class="blog-cat-pill active">All Insights</a>
+    <a href="blog-archive.html?cat=engineering" class="blog-cat-pill">Engineering</a>
+    <a href="blog-archive.html?cat=seo" class="blog-cat-pill">Entity SEO</a>
+    <a href="blog-archive.html?cat=ai-mvp" class="blog-cat-pill">AI Platforms</a>
+    <a href="blog-archive.html?cat=design" class="blog-cat-pill">UI/UX Systems</a>
+  </nav>
+
+  <!-- MAIN BLOG GRID SECTION -->
+  <main class="blog-main-section">
+    <div class="blog-container">
+      
+      <div class="blog-grid">
+        
+        <!-- CARD 1 -->
+        <article class="blog-card">
+          <div>
+            <div class="blog-card-top">
+              <span class="blog-card-date">August 4, 2026</span>
+              <span class="blog-card-cat">ENGINEERING</span>
+            </div>
+            <div class="blog-card-img-box">
+              <img src="assets/case_study_blvck_hair_1785571402640.jpg" alt="Liquid Performance Engineering" class="blog-card-img">
+            </div>
+            <h2 class="blog-card-title">What Liquid Performance Means For Modern Web Platforms</h2>
+            <p class="blog-card-excerpt">Why zero-plugin theme frameworks outperform bloated page builders by 400% on Core Web Vitals and Lighthouse speed metrics.</p>
+          </div>
+          <a href="single-blog.html?id=1" class="blog-card-link">Read Article</a>
+        </article>
+
+        <!-- CARD 2 -->
+        <article class="blog-card">
+          <div>
+            <div class="blog-card-top">
+              <span class="blog-card-date">July 28, 2026</span>
+              <span class="blog-card-cat">ENTITY SEO</span>
+            </div>
+            <div class="blog-card-img-box">
+              <img src="assets/case_study_duch_apartments_1785571416702.jpg" alt="Entity SEO Optimization" class="blog-card-img">
+            </div>
+            <h2 class="blog-card-title">Entity SEO Architecture: Indexing For Authority From Day One</h2>
+            <p class="blog-card-excerpt">How folding schema markup and semantic keyword mapping into code before launch creates organic rank velocity for high-ticket brands.</p>
+          </div>
+          <a href="single-blog.html?id=2" class="blog-card-link">Read Article</a>
+        </article>
+
+        <!-- CARD 3 -->
+        <article class="blog-card">
+          <div>
+            <div class="blog-card-top">
+              <span class="blog-card-date">July 19, 2026</span>
+              <span class="blog-card-cat">AI MVPs</span>
+            </div>
+            <div class="blog-card-img-box">
+              <img src="assets/case_study_bridgepoint_compliance_1785571461489.jpg" alt="AI Platforms" class="blog-card-img">
+            </div>
+            <h2 class="blog-card-title">Architecting Custom AI Dashboards For Enterprise Handshake</h2>
+            <p class="blog-card-excerpt">A technical overview of Nativus Dashboard Pro — building proprietary WP plugin tools and automated client onboarding UI.</p>
+          </div>
+          <a href="single-blog.html?id=3" class="blog-card-link">Read Article</a>
+        </article>
+
+        <!-- CARD 4 -->
+        <article class="blog-card">
+          <div>
+            <div class="blog-card-top">
+              <span class="blog-card-date">July 10, 2026</span>
+              <span class="blog-card-cat">UI/UX SYSTEMS</span>
+            </div>
+            <div class="blog-card-img-box">
+              <img src="assets/services_visual_montage_1785579924010.jpg" alt="UI Systems" class="blog-card-img">
+            </div>
+            <h2 class="blog-card-title">Micro-Animations That Convert: Designing For Interaction</h2>
+            <p class="blog-card-excerpt">How subtle hover states, canvas scroll triggers, and architectural contrast elevate user retention on luxury service sites.</p>
+          </div>
+          <a href="single-blog.html?id=4" class="blog-card-link">Read Article</a>
+        </article>
+
+        <!-- CARD 5 -->
+        <article class="blog-card">
+          <div>
+            <div class="blog-card-top">
+              <span class="blog-card-date">June 29, 2026</span>
+              <span class="blog-card-cat">ENGINEERING</span>
+            </div>
+            <div class="blog-card-img-box">
+              <img src="assets/hww_process_layers_1785672427589.jpg" alt="Process Layers" class="blog-card-img">
+            </div>
+            <h2 class="blog-card-title">Debloating Legacy WordPress Builds Without Data Loss</h2>
+            <p class="blog-card-excerpt">Strategies for removing 15+ heavy plugins while preserving custom post types, legacy meta fields, and clean URL structure.</p>
+          </div>
+          <a href="single-blog.html?id=5" class="blog-card-link">Read Article</a>
+        </article>
+
+        <!-- CARD 6 -->
+        <article class="blog-card">
+          <div>
+            <div class="blog-card-top">
+              <span class="blog-card-date">June 14, 2026</span>
+              <span class="blog-card-cat">ENTITY SEO</span>
+            </div>
+            <div class="blog-card-img-box">
+              <img src="assets/hww_workflow_visual_1785672882603.jpg" alt="Workflow Visual" class="blog-card-img">
+            </div>
+            <h2 class="blog-card-title">Global SEO Mapping: Multi-Region E-Commerce Infrastructure</h2>
+            <p class="blog-card-excerpt">Lessons learned scaling blvck Hair NG across UK and Nigerian digital storefronts with synchronized inventory systems.</p>
+          </div>
+          <a href="single-blog.html?id=6" class="blog-card-link">Read Article</a>
+        </article>
+
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>
