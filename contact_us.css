@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Michroma&family=Space+Mono:wght@400;700&display=swap');
+
 <style>
     .c8cf-root {
   --c8cf-ink: #080808; 
@@ -21,15 +23,7 @@
   flex: 1;
 }
  
-.c8cf-flabel {
-  font-family: 'Space Mono', monospace;
-  font-size: 9px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--c8cf-gray);
-  margin-bottom: 8px;
-  display: block;
-}
+.c8cf-flabel { font-family: 'Space Mono', monospace !important; font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--c8cf-gray); margin-bottom: 8px; display: block; font-weight: 700; }
  
 .c8cf-root .wpcf7-form-control-wrap {
   display: block;
@@ -149,7 +143,7 @@
   background: var(--c8cf-ink);
   border: 1px solid var(--c8cf-ink);
   color: #fff;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Michroma', sans-serif !important;
   font-size: 16px;
   letter-spacing: .06em;
   cursor: pointer;

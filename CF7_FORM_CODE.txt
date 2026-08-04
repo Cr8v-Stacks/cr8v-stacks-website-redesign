@@ -1,0 +1,26 @@
+<div class="c8cf-root">
+  <div class="c8cf-row">
+    <div class="c8cf-field">
+      <span class="c8cf-flabel">Full Name</span>
+      [text* your-Name class:c8cf-input]
+    </div>
+    <div class="c8cf-field">
+      <span class="c8cf-flabel">Email</span>
+      [email* Your-Email class:c8cf-input]
+    </div>
+  </div>
+  <div class="c8cf-field">
+    <span class="c8cf-flabel">Phone (optional)</span>
+    [tel Phone-Number class:c8cf-input]
+  </div>
+  <div class="c8cf-field">
+    <span class="c8cf-flabel">What do you need help with? — pick at least one</span>
+    [checkbox* Services class:c8cf-services "Website Design & Development" "WordPress / Elementor Development" "UI/UX Design" "SEO & Content Strategy" "Digital Marketing" "Something Else"]
+  </div>
+  <div class="c8cf-field">
+    <span class="c8cf-flabel">Message (optional — elaborate here if "Something Else")</span>
+    [textarea Your-Message class:c8cf-textarea]
+  </div>
+  <div class="c8cf-submit-row">[submit "Send Message" class:c8cf-submit]</div>
+  [recaptcha]
+</div>

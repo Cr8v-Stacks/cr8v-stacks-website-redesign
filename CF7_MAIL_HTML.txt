@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Contact Enquiry Email — Paper Stub Theme — Cr8v Stacks</title>
-</head>
-<body style="margin:0;padding:0;background:#080808;">
-
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#080808;padding:40px 16px;font-family:'DM Sans',Arial,sans-serif;">
   <tr>
     <td align="center">
-      
-      <!-- TICKET STUB CARD CONTAINER -->
       <table width="560" cellpadding="0" cellspacing="0" style="background:#F2F1EC;border-radius:4px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.5);border:1px solid rgba(8,8,8,0.14);">
-        
-        <!-- HEADER STAMP & TAG -->
         <tr>
           <td style="padding:36px 40px 20px 40px;background:#F2F1EC;">
             <table width="100%" cellpadding="0" cellspacing="0">
               <tr>
                 <td>
                   <span style="font-family:'Space Mono',monospace,Arial,sans-serif;font-size:9.5px;letter-spacing:2.5px;text-transform:uppercase;color:#0047E1;font-weight:700;display:block;margin-bottom:8px;">↳ INCOMING ENQUIRY</span>
-                  <span style="font-family:'Michroma',Arial,sans-serif;font-size:22px;font-weight:700;color:#080808;line-height:1.15;display:block;letter-spacing:0.01em;">NEW PROJECT BRIEF</span>
+                  <span style="font-family:'Michroma','Bebas Neue',Arial,sans-serif;font-size:22px;font-weight:700;color:#080808;line-height:1.15;display:block;letter-spacing:0.01em;">NEW PROJECT BRIEF</span>
                   <span style="font-size:13.5px;color:#4A4A4A;display:block;margin-top:6px;font-weight:400;">Received via Contact Us Page — Reply within 24 hours.</span>
                 </td>
                 <td align="right" valign="top" width="90">
@@ -32,40 +20,32 @@
             </table>
           </td>
         </tr>
-
-        <!-- PERFORATED TEAR LINE -->
         <tr>
           <td style="padding:0 40px;">
             <div style="border-top:2px dashed rgba(8,8,8,0.28);height:1px;width:100%;"></div>
           </td>
         </tr>
-
-        <!-- FORM ENQUIRY DETAILS (UNIFORM 400/500 FONT WEIGHT, NO BOLD) -->
         <tr>
           <td style="padding:28px 40px 36px 40px;background:#F2F1EC;">
             <table width="100%" cellpadding="0" cellspacing="0">
-              
               <tr>
                 <td style="padding:10px 0 4px 0;font-family:'Space Mono',monospace,Arial,sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:1.8px;color:#8A8A8A;font-weight:400;">Full Name</td>
               </tr>
               <tr>
                 <td style="padding:0 0 16px 0;font-size:14.5px;color:#080808;font-weight:400;">[your-Name]</td>
               </tr>
-
               <tr>
                 <td style="padding:10px 0 4px 0;font-family:'Space Mono',monospace,Arial,sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:1.8px;color:#8A8A8A;font-weight:400;">Email Address</td>
               </tr>
               <tr>
                 <td style="padding:0 0 16px 0;font-size:14.5px;color:#080808;font-weight:400;"><a href="mailto:[Your-Email]" style="color:#0047E1;text-decoration:none;font-weight:400;border-bottom:1px solid #0047E1;">[Your-Email]</a></td>
               </tr>
-
               <tr>
                 <td style="padding:10px 0 4px 0;font-family:'Space Mono',monospace,Arial,sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:1.8px;color:#8A8A8A;font-weight:400;">Phone Number</td>
               </tr>
               <tr>
                 <td style="padding:0 0 16px 0;font-size:14.5px;color:#080808;font-weight:400;">[Phone-Number]</td>
               </tr>
-
               <tr>
                 <td style="padding:10px 0 4px 0;font-family:'Space Mono',monospace,Arial,sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:1.8px;color:#8A8A8A;font-weight:400;">Services Required</td>
               </tr>
@@ -74,7 +54,6 @@
                   <span style="background:#080808;color:#FFFFFF;padding:6px 12px;font-size:12px;border-radius:4px;display:inline-block;font-family:'Space Mono',monospace;font-weight:400;">[Services]</span>
                 </td>
               </tr>
-
               <tr>
                 <td style="padding:10px 0 4px 0;font-family:'Space Mono',monospace,Arial,sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:1.8px;color:#8A8A8A;font-weight:400;">Project Message</td>
               </tr>
@@ -83,23 +62,15 @@
                   [Your-Message]
                 </td>
               </tr>
-
             </table>
           </td>
         </tr>
-
-        <!-- FOOTER BAR -->
         <tr>
           <td style="padding:18px 40px;background:#080808;text-align:center;">
             <span style="font-family:'Space Mono',monospace,Arial,sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);">Cr8v Stacks Agency Notification System</span>
           </td>
         </tr>
-
       </table>
-
     </td>
   </tr>
 </table>
-
-</body>
-</html>
