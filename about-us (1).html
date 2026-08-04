@@ -6,7 +6,7 @@
   <title>About Us — Cr8v Stacks Agency</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Michroma&family=Outfit:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
@@ -20,7 +20,6 @@
       --font-body: 'DM Sans', sans-serif;
       --font-mono: 'Space Mono', monospace;
       --font-heading: 'Michroma', sans-serif;
-      --font-display: 'Outfit', sans-serif;
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -50,23 +49,23 @@
     .c8abt-label.is-light { color: #7C93FF; }
     .c8abt-label.is-light::before { color: #7C93FF; }
 
-    /* ── 1. HERO SECTION ── */
+    /* ── 1. HERO SECTION (STRICT MICHROMA HEADLINE FONT) ── */
     .c8abt-hero {
       padding: 3rem 4rem 1rem 4rem;
       position: relative;
     }
     .c8abt-headline {
-      font-family: var(--font-display); font-weight: 700;
-      font-size: clamp(2.6rem, 6.5vw, 5.8rem); letter-spacing: -0.04em; line-height: 0.98;
-      color: #080808; margin-bottom: 2rem;
+      font-family: var(--font-heading) !important; font-weight: 700;
+      font-size: clamp(2rem, 4.8vw, 3.8rem) !important; letter-spacing: -0.02em; line-height: 1.15;
+      text-transform: uppercase; color: #080808; margin-bottom: 2rem; max-width: 980px;
     }
-    .c8abt-serif-italic { font-family: Georgia, serif; font-style: italic; font-weight: 300; color: var(--c8-blue); }
+    .c8abt-serif-italic { font-family: Georgia, serif; font-style: italic; font-weight: 300; color: var(--c8-blue); text-transform: lowercase; }
     .c8abt-highlight-text {
       background: linear-gradient(90deg, #0047E1 0%, #00C2FF 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;
     }
     .c8abt-hero-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 3rem; margin-top: 2rem; }
-    .c8abt-hero-intro { font-size: 1.1rem; font-weight: 400; color: var(--c8-sub); max-width: 680px; line-height: 1.65; }
+    .c8abt-hero-intro { font-size: 1.05rem; font-weight: 400; color: var(--c8-sub); max-width: 680px; line-height: 1.65; }
     .c8abt-badge {
       width: 90px; height: 90px; border-radius: 50%; border: 1px dashed rgba(0,71,225,0.45);
       display: flex; align-items: center; justify-content: center; text-align: center;
@@ -97,7 +96,7 @@
       padding: 6px 12px; border-top: 2px solid var(--c8-blue); z-index: 3;
     }
     .c8abt-section-title {
-      font-family: var(--font-heading); font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      font-family: var(--font-heading); font-size: clamp(1.4rem, 2.6vw, 2.1rem);
       text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 700; color: #080808; line-height: 1.25;
     }
     .c8abt-lead { font-size: 1.1rem; font-weight: 500; color: #080808; margin-bottom: 1.25rem; line-height: 1.6; }
@@ -156,7 +155,7 @@
     .c8abt-pillar-card:hover { transform: translateY(-4px); border-color: var(--c8-blue); }
     .c8abt-pillar-card:hover::before { background: var(--c8-blue); }
     .c8abt-pillar-num { font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: var(--c8-blue); display: block; margin-bottom: 1.25rem; }
-    .c8abt-pillar-title { font-family: var(--font-heading); font-size: 1.1rem; text-transform: uppercase; margin-bottom: 0.65rem; font-weight: 700; }
+    .c8abt-pillar-title { font-family: var(--font-heading); font-size: 1.05rem; text-transform: uppercase; margin-bottom: 0.65rem; font-weight: 700; }
     .c8abt-pillar-desc { font-size: 13.5px; color: var(--c8-sub); font-weight: 400; line-height: 1.6; }
 
     /* ── 6. STATS BREAKOUT SECTION ── */
@@ -244,7 +243,7 @@
     .c8abt-pass-barcode { height: 32px; width: 140px; background: repeating-linear-gradient(90deg, #FAFAF7, #FAFAF7 2px, transparent 2px, transparent 6px); opacity: 0.75; }
     .c8abt-pass-stamp { width: 38px; height: 38px; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 8px; color: rgba(255,255,255,0.4); transform: rotate(-10deg); font-weight: 700; }
 
-    /* ── 11. EDUCATIONAL BLOCKS (YOUTUBE & AI WORKFLOWS) ── */
+    /* ── 11. EDUCATIONAL BLOCKS (YOUTUBE & AI VECTOR WORKFLOW TREE) ── */
     .c8abt-education-block { padding: 0 4rem; }
     .c8abt-youtube-play-btn {
       width: 72px; height: 72px; background: #FF0000; border-radius: 50%;
@@ -280,12 +279,12 @@
   <main class="abt-outer-frame">
     <div class="c8abt-root">
 
-      <!-- ── 1. HERO SECTION (100% ORIGINAL AGENCY CONTENT) ── -->
+      <!-- ── 1. HERO SECTION (STRICT MICHROMA HEADLINE FONT) ── -->
       <div class="c8abt-hero">
         <div class="c8abt-label">Agency Profile</div>
         <h1 class="c8abt-headline">
-          <span>We defy <span class="c8abt-serif-italic">templates.</span></span><br>
-          <span>We code <span class="c8abt-highlight-text">conversions.</span></span>
+          WE DEFY <span class="c8abt-serif-italic">templates.</span><br>
+          WE CODE <span class="c8abt-highlight-text">CONVERSIONS.</span>
         </h1>
         <div class="c8abt-hero-row">
           <div class="c8abt-hero-intro">
@@ -566,11 +565,11 @@
         </div>
       </div>
 
-      <!-- ── 11. EDUCATIONAL CONTENT (YOUTUBE & AI WORKFLOWS) ── -->
+      <!-- ── 11. EDUCATIONAL CONTENT (ORIGINAL YOUTUBE MOCKUP & VECTOR WORKFLOW TREE) ── -->
       <div class="c8abt-education-block">
         <div class="c8abt-tearline"><div class="c8abt-tearline-dot"></div><div class="c8abt-tearline-line"></div><div class="c8abt-tearline-dot"></div></div>
         
-        <!-- Tutorial Part 1: Elementor Hacks -->
+        <!-- Tutorial Part 1: Elementor Hacks (Original Image & Red Play Overlay) -->
         <div class="c8abt-layout-grid" style="margin-top: 3rem; margin-bottom: 3rem;">
           <div class="c8abt-content">
             <div class="c8abt-label">Open Source &amp; Education</div>
@@ -583,7 +582,7 @@
           
           <div class="c8abt-img-frame" style="position: relative; cursor: pointer; overflow: hidden;">
             <a href="https://www.youtube.com/@cr8vstacks" target="_blank" style="display: block;">
-              <img src="assets/about_yt_tutorial.jpg" alt="CR8V Stacks Elementor Tutorial Video Mockup">
+              <img src="https://cr8vstacks.com/wp-content/uploads/2026/07/cr8v_youtube_mockup.jpg" alt="CR8V Stacks Elementor Tutorial Video Mockup" onerror="this.src='assets/hww_process_layers.jpg'">
               <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.15);">
                 <div class="c8abt-youtube-play-btn">
                   <svg viewBox="0 0 24 24" fill="#FFFFFF" style="width: 28px; height: 28px; margin-left: 4px;"><path d="M8 5v14l11-7z"/></svg>
@@ -595,10 +594,10 @@
 
         <div class="c8abt-tearline"><div class="c8abt-tearline-dot"></div><div class="c8abt-tearline-line"></div><div class="c8abt-tearline-dot"></div></div>
 
-        <!-- Tutorial Part 2: AI Workflows -->
+        <!-- Tutorial Part 2: AI Workflows (Vector Structural Tree Diagram) -->
         <div class="c8abt-layout-grid" style="margin-top: 3rem; margin-bottom: 3rem;">
           <div class="c8abt-img-frame">
-            <img src="assets/about_ai_workflow.jpg" alt="CR8V Stacks AI-to-WordPress Design Translation Mockup">
+            <img src="assets/ai_wp_tree_workflow.jpg" alt="CR8V Stacks AI-to-WordPress Structural Tree Workflow">
           </div>
           
           <div class="c8abt-content">
