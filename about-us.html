@@ -6,24 +6,25 @@
   <title>About Us — Cr8v Stacks Agency</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Michroma&family=Outfit:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
       --c8-paper-bg: #F9F9F8;
       --c8-paper-card: #FFFFFF;
       --c8-ink: #080808;
-      --c8-sub: #555555;
+      --c8-sub: #6B6B6B;
       --c8-grid-line: rgba(8, 8, 8, 0.14);
       --c8-blue: #0047E1;
       --c8-blue-hi: #3D6BFF;
       --font-body: 'DM Sans', sans-serif;
       --font-mono: 'Space Mono', monospace;
       --font-heading: 'Michroma', sans-serif;
+      --font-display: 'Outfit', sans-serif;
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 0; margin: 0; }
+    body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 0; margin: 0; line-height: 1.65; }
 
     /* ── FULL-WIDTH OUTER PAPER FRAME (MARGIN 2.5REM 1REM 0REM 1REM) ── */
     .abt-outer-frame {
@@ -34,324 +35,633 @@
       min-height: 100vh;
     }
 
-    /* ── 1. HERO SECTION (100% AGENCY COPY IN FYLLA STUDIO LAYOUT) ── */
-    .studio-hero-section {
-      padding: 3rem 4rem 3.5rem 4rem;
-      border-bottom: 1px solid var(--c8-grid-line);
-      background: #FFFFFF;
-    }
-    .studio-meta-tag {
-      font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
-      text-transform: uppercase; color: var(--c8-blue); letter-spacing: 0.14em;
-      margin-bottom: 1rem; display: block;
-    }
-    .studio-hero-h1 {
-      font-family: var(--font-heading); font-size: clamp(2rem, 4.5vw, 3.2rem);
-      font-weight: 700; text-transform: uppercase; line-height: 1.18;
-      color: var(--c8-ink); margin-bottom: 1.5rem; max-width: 960px;
-    }
-    .hero-intro-text {
-      font-size: 1.05rem; color: var(--c8-sub); line-height: 1.65; max-width: 820px;
-      margin-bottom: 2rem; font-weight: 400;
-    }
+    /* ── TEARLINE DIVIDER ── */
+    .c8abt-tearline { display: flex; align-items: center; margin: 4rem 3.5rem; }
+    .c8abt-tearline-dot { width: 9px; height: 9px; border-radius: 50%; background: #080808; flex-shrink: 0; }
+    .c8abt-tearline-line { flex: 1; border-top: 1px dashed rgba(8,8,8,0.28); margin: 0 10px; }
 
-    /* PILL ROW FOR CAPABILITIES */
-    .hero-pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
-    .hero-pill {
-      border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.4rem 0.9rem;
-      font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700;
+    /* ── MONO TAG LABEL ── */
+    .c8abt-label {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--c8-blue); display: flex; align-items: center; gap: 10px;
+      margin-bottom: 1.5rem; font-weight: 700;
+    }
+    .c8abt-label::before { content: '//'; color: var(--c8-blue); font-weight: 700; }
+    .c8abt-label.is-light { color: #7C93FF; }
+    .c8abt-label.is-light::before { color: #7C93FF; }
+
+    /* ── 1. HERO SECTION ── */
+    .c8abt-hero {
+      padding: 3rem 4rem 1rem 4rem;
+      position: relative;
+    }
+    .c8abt-headline {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(2.6rem, 6.5vw, 5.8rem); letter-spacing: -0.04em; line-height: 0.98;
+      color: #080808; margin-bottom: 2rem;
+    }
+    .c8abt-serif-italic { font-family: Georgia, serif; font-style: italic; font-weight: 300; color: var(--c8-blue); }
+    .c8abt-highlight-text {
+      background: linear-gradient(90deg, #0047E1 0%, #00C2FF 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;
+    }
+    .c8abt-hero-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 3rem; margin-top: 2rem; }
+    .c8abt-hero-intro { font-size: 1.1rem; font-weight: 400; color: var(--c8-sub); max-width: 680px; line-height: 1.65; }
+    .c8abt-badge {
+      width: 90px; height: 90px; border-radius: 50%; border: 1px dashed rgba(0,71,225,0.45);
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .04em;
+      text-transform: uppercase; color: var(--c8-blue); transform: rotate(-8deg); line-height: 1.3;
+      flex-shrink: 0; background: #FFFFFF; font-weight: 700;
+    }
+    .c8abt-pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2.25rem; }
+    .c8abt-pill {
+      border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.45rem 1rem;
+      font-size: 12.5px; font-family: var(--font-mono); color: #080808; font-weight: 700;
       border-radius: 4px; text-transform: uppercase;
     }
 
-    /* HERO FEATURED MEDIA */
-    .studio-hero-img-box {
-      width: 100%; aspect-ratio: 21 / 9; border-radius: 4px; overflow: hidden;
-      border: 1px solid var(--c8-grid-line); background: #000000;
+    /* ── 2. PHILOSOPHY GRID ── */
+    .c8abt-layout-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center;
+      padding: 0 4rem;
     }
-    .studio-hero-img { width: 100%; height: 100%; object-fit: cover; }
+    .c8abt-img-frame {
+      border: 1px solid var(--c8-grid-line); background: #FFFFFF; padding: 12px;
+      position: relative; box-shadow: 12px 12px 0px rgba(0,71,225,0.06); border-radius: 4px;
+    }
+    .c8abt-img-frame img { width: 100%; height: 520px; display: block; object-fit: cover; border-radius: 2px; }
+    .c8abt-hud-tag {
+      position: absolute; bottom: 24px; right: -10px; background: #080808; color: #FAFAF7;
+      font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 6px 12px; border-top: 2px solid var(--c8-blue); z-index: 3;
+    }
+    .c8abt-section-title {
+      font-family: var(--font-heading); font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 700; color: #080808; line-height: 1.25;
+    }
+    .c8abt-lead { font-size: 1.1rem; font-weight: 500; color: #080808; margin-bottom: 1.25rem; line-height: 1.6; }
+    .c8abt-body-text { font-size: 0.95rem; font-weight: 400; color: var(--c8-sub); line-height: 1.7; }
+    .c8abt-body-text p { margin-bottom: 1rem; }
 
-    /* ── 2. PHILOSOPHY & WHY IT WORKS (2-COLUMN GRID) ── */
-    .studio-values-section {
-      display: grid; grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid var(--c8-grid-line);
-      background: #FFFFFF;
+    /* ── 3. FULL-WIDTH MANIFESTO BREAK ── */
+    .c8abt-vbreak-outer { position: relative; margin: 4.5rem 0; }
+    .c8abt-vbreak {
+      position: relative; width: 100%; height: 60vh; min-height: 420px; max-height: 650px; overflow: hidden; border-top: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line);
     }
-    .values-col-left {
-      padding: 4rem 3.5rem; border-right: 1px solid var(--c8-grid-line);
-      display: flex; flex-direction: column; justify-content: space-between;
+    .c8abt-vbreak img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.1); }
+    .c8abt-vbreak-tint {
+      position: absolute; inset: 0;
+      background: linear-gradient(190deg, rgba(5,8,25,0.2) 0%, rgba(0,71,225,0.45) 55%, rgba(5,8,19,0.9) 100%);
+      mix-blend-mode: multiply;
     }
-    .values-h2 {
-      font-family: var(--font-heading); font-size: clamp(1.4rem, 2.8vw, 2.2rem);
-      font-weight: 700; text-transform: uppercase; line-height: 1.25;
-      color: var(--c8-ink); margin-bottom: 1.5rem;
+    .c8abt-vbreak-card {
+      position: absolute; left: 4rem; bottom: 3rem; max-width: 480px; z-index: 3;
+      background: #FFFFFF; padding: 2.25rem 2.5rem; border: 1px solid var(--c8-grid-line);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3); border-radius: 4px;
     }
-    .values-body { font-size: 0.95rem; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.5rem; }
-    
-    .values-btn {
-      background: var(--c8-blue); color: #FFFFFF !important; font-family: var(--font-mono);
-      font-size: 0.8rem; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 4px;
-      text-decoration: none; text-transform: uppercase; width: fit-content; margin-top: 1rem;
-      transition: background 0.2s ease;
-    }
-    .values-btn:hover { background: var(--c8-blue-hi); }
-
-    /* FLANKING CARDS STACK RIGHT COLUMN */
-    .values-col-right {
-      background: #FAFAF7;
-      display: flex; flex-direction: column;
-    }
-    .value-item {
-      padding: 3rem 3.5rem; border-bottom: 1px solid var(--c8-grid-line);
-      display: flex; gap: 1.75rem; align-items: flex-start;
-    }
-    .value-item:last-child { border-bottom: none; }
-    .value-num {
-      font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700;
-      color: var(--c8-blue); flex-shrink: 0; padding-top: 0.2rem;
-    }
-    .value-h3 {
-      font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700;
-      color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.65rem;
-    }
-    .value-p { font-size: 0.92rem; color: var(--c8-sub); line-height: 1.65; }
-
-    /* ── 3. CUSTOM PLUGINS & TOOLS (FYLLA 2x2 GRID PARITY) ── */
-    .studio-team-section {
-      padding: 4rem 3.5rem;
-      border-bottom: 1px solid var(--c8-grid-line);
-      background: #FFFFFF;
-    }
-    .team-header-row {
-      display: flex; justify-content: space-between; align-items: flex-end;
-      margin-bottom: 3rem; border-bottom: 1px solid var(--c8-grid-line);
-      padding-bottom: 1.75rem;
-    }
-    .team-h2 {
-      font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700;
-      color: var(--c8-ink); text-transform: uppercase;
-    }
-    .team-sub {
-      font-family: var(--font-body); font-size: 0.95rem; color: var(--c8-sub); max-width: 480px;
+    .c8abt-vbreak-card p { font-size: clamp(1.05rem, 1.7vw, 1.3rem); font-weight: 500; color: #080808; line-height: 1.45; margin-bottom: 0; }
+    .c8abt-vbreak-card cite {
+      font-family: var(--font-mono); font-style: normal; font-size: 10px; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--c8-blue); display: block; margin-top: 1rem; font-weight: 700;
     }
 
-    .team-grid-frame {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      border: 1px solid var(--c8-grid-line); background: #FFFFFF;
+    /* ── 4. TECHNICAL ADVANTAGE COMPARISON GRID ── */
+    .c8abt-philosophy-section { padding: 0 4rem; }
+    .c8abt-comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2.5rem; }
+    .c8abt-comp-box { background: #FFFFFF; border: 1px solid var(--c8-grid-line); padding: 3rem 2.5rem; border-radius: 4px; }
+    .c8abt-comp-box.c8abt-highlight { background: #FAFAF7; border-color: rgba(0,71,225,0.3); }
+    .c8abt-comp-header {
+      font-family: var(--font-heading); font-size: 1.25rem; text-transform: uppercase; margin-bottom: 2rem; font-weight: 700;
     }
-    .plugin-card {
-      padding: 2.5rem 2.25rem; border-right: 1px solid var(--c8-grid-line);
-      border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF;
-      transition: background 0.2s ease;
+    .c8abt-comp-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .c8abt-comp-item { display: flex; gap: 14px; align-items: flex-start; }
+    .c8abt-icon-sq {
+      width: 22px; height: 22px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 11px; margin-top: 2px; font-weight: 700; border-radius: 3px;
     }
-    .plugin-card:hover { background: #FAFAF7; }
-    .plugin-card:nth-child(2n) { border-right: none; }
-    .plugin-card:nth-last-child(-n+2) { border-bottom: none; }
+    .c8abt-icon-sq.is-no { background: #EAEAEA; color: #8A8A8A; }
+    .c8abt-icon-sq.is-yes { background: var(--c8-blue); color: #FFFFFF; }
+    .c8abt-comp-text { font-size: 14px; color: var(--c8-sub); line-height: 1.6; }
+    .c8abt-comp-text strong { color: #080808; font-weight: 600; }
 
-    .plugin-cat { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700; color: var(--c8-blue); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.75rem; display: block; }
-    .plugin-name { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.85rem; }
-    .plugin-desc { font-size: 0.9rem; color: var(--c8-sub); line-height: 1.65; margin-bottom: 1.5rem; }
-    .plugin-link { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--c8-ink); text-decoration: none; border-bottom: 1px solid var(--c8-blue); text-transform: uppercase; letter-spacing: 0.1em; }
-    .plugin-link:hover { color: var(--c8-blue); }
+    /* ── 5. PILLARS OF GROWTH ── */
+    .c8abt-pillars-section { padding: 0 4rem; }
+    .c8abt-pillars-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; margin-top: 2rem; }
+    .c8abt-pillar-card {
+      border: 1px solid var(--c8-grid-line); background: #FFFFFF; padding: 2.25rem 1.75rem;
+      position: relative; transition: transform 0.25s ease, border-color 0.25s ease; border-radius: 4px;
+    }
+    .c8abt-pillar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: transparent; transition: background 0.25s; }
+    .c8abt-pillar-card:hover { transform: translateY(-4px); border-color: var(--c8-blue); }
+    .c8abt-pillar-card:hover::before { background: var(--c8-blue); }
+    .c8abt-pillar-num { font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: var(--c8-blue); display: block; margin-bottom: 1.25rem; }
+    .c8abt-pillar-title { font-family: var(--font-heading); font-size: 1.1rem; text-transform: uppercase; margin-bottom: 0.65rem; font-weight: 700; }
+    .c8abt-pillar-desc { font-size: 13.5px; color: var(--c8-sub); font-weight: 400; line-height: 1.6; }
 
-    /* ── 4. STATS IMPACT ROW ── */
-    .stats-section {
-      padding: 3.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FAFAF7;
+    /* ── 6. STATS BREAKOUT SECTION ── */
+    .c8abt-stats-outer { position: relative; margin: 4.5rem 0 0 0; }
+    .c8abt-stats-breakout {
+      background: radial-gradient(circle at 12% 15%, rgba(0,71,225,0.45) 0%, transparent 55%), #080808;
+      padding: 5rem 4rem; position: relative; overflow: hidden; color: #FFFFFF;
     }
-    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-    .stat-card { background: #FFFFFF; border: 1px solid var(--c8-grid-line); border-radius: 4px; padding: 2rem; text-align: center; }
-    .stat-num { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; color: var(--c8-blue); margin-bottom: 0.35rem; }
-    .stat-tag { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--c8-ink); font-weight: 700; margin-bottom: 0.5rem; display: block; }
-    .stat-desc { font-size: 0.85rem; color: var(--c8-sub); line-height: 1.5; }
+    .c8abt-stats-inner { max-width: 1360px; margin: 0 auto; position: relative; z-index: 2; }
+    .c8abt-stats-headline { font-family: var(--font-heading); font-size: clamp(1.6rem, 3.2vw, 2.5rem); text-transform: uppercase; max-width: 820px; margin-bottom: 3rem; line-height: 1.2; color: #FAFAF7; font-weight: 700; }
+    .c8abt-stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
+    .c8abt-stat-card { background: #FFFFFF; padding: 2rem 1.75rem; border-radius: 4px; color: #080808; border: 1px solid var(--c8-grid-line); }
+    .c8abt-stat-num { font-family: var(--font-heading); font-size: 2.5rem; line-height: 1; color: var(--c8-blue); font-weight: 700; }
+    .c8abt-stat-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #080808; display: block; margin: 0.6rem 0 0.5rem 0; font-weight: 700; }
+    .c8abt-stat-desc { font-size: 12.5px; color: var(--c8-sub); font-weight: 400; line-height: 1.55; }
 
-    /* ── 5. CTA CONTACT SECTION ── */
-    .studio-cta-section {
-      display: grid; grid-template-columns: 1fr 1fr;
-      background: #FFFFFF;
-    }
-    .cta-col-left {
-      padding: 4.5rem 3.5rem; border-right: 1px solid var(--c8-grid-line);
-    }
-    .cta-col-right {
-      padding: 4.5rem 3.5rem; display: flex; flex-direction: column; justify-content: center;
-    }
-    .cta-h2 {
-      font-family: var(--font-heading); font-size: clamp(1.4rem, 2.8vw, 2.2rem);
-      font-weight: 700; text-transform: uppercase; line-height: 1.25; color: var(--c8-ink);
-    }
-    .cta-p { font-size: 1rem; color: var(--c8-sub); line-height: 1.65; margin-bottom: 2rem; }
-    .cta-btn {
-      background: #080808; color: #FFFFFF !important; font-family: var(--font-mono);
-      font-size: 0.8rem; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 4px;
-      text-decoration: none; text-transform: uppercase; width: fit-content;
-      transition: background 0.2s ease;
-    }
-    .cta-btn:hover { background: var(--c8-blue); }
+    /* ── 7. DEV PLAYGROUND / CUSTOM PLUGINS ── */
+    .c8abt-dev-section { padding: 0 4rem; }
 
+    /* ── 8. STACKING PROCESS SECTION ── */
+    .c8abt-process-heading { padding: 0 4rem; }
+    .c8abt-stack-section { position: relative; margin-bottom: 0; }
+    .c8abt-stack-pin { position: relative; height: 350vh; }
+    .c8abt-stack-pin-inner {
+      position: sticky; top: 0; height: 100vh; display: grid;
+      grid-template-columns: 0.85fr 1.15fr; gap: 6rem; align-items: center;
+      padding: 1rem 4rem; max-width: 1440px; margin: 0 auto;
+    }
+    .c8abt-stack-heading { font-family: var(--font-heading); font-size: clamp(1.6rem, 3vw, 2.4rem); text-transform: uppercase; line-height: 1.2; margin-bottom: 1.2rem; font-weight: 700; }
+    .c8abt-stack-cards { position: relative; height: 440px; max-width: 520px; }
+    .c8abt-stack-card {
+      position: absolute; inset: 0; border: 1px solid var(--c8-grid-line);
+      padding: 2.5rem; display: flex; flex-direction: column; justify-content: center;
+      box-shadow: 0 20px 50px rgba(0,71,225,0.08); background-size: cover; background-position: center;
+      color: #080808; border-radius: 6px;
+    }
+    .c8abt-stack-card[data-c8abt-card="0"] { background-image: linear-gradient(rgba(244, 246, 251, 0.92), rgba(244, 246, 251, 0.92)), url('assets/hww_process_layers.jpg'); }
+    .c8abt-stack-card[data-c8abt-card="1"] { background-image: linear-gradient(rgba(244, 246, 251, 0.92), rgba(244, 246, 251, 0.92)), url('assets/hww_workflow_visual.jpg'); }
+    .c8abt-stack-card[data-c8abt-card="2"] { background-image: linear-gradient(rgba(244, 246, 251, 0.92), rgba(244, 246, 251, 0.92)), url('assets/hww_stacks_visual.jpg'); }
+    .c8abt-stack-card[data-c8abt-card="3"] { background-image: linear-gradient(rgba(244, 246, 251, 0.92), rgba(244, 246, 251, 0.92)), url('assets/hww_tools_creative.jpg'); }
+    .c8abt-stack-card[data-c8abt-card="4"] { background-image: linear-gradient(rgba(244, 246, 251, 0.92), rgba(244, 246, 251, 0.92)), url('assets/c4_tools_bg.jpg'); }
+
+    .c8abt-stack-card-dot {
+      width: 42px; height: 42px; background: var(--c8-blue); color: #FFFFFF;
+      display: flex; align-items: center; justify-content: center; font-family: var(--font-mono);
+      font-size: 13px; font-weight: 700; margin-bottom: 1.5rem; border-radius: 4px;
+    }
+    .c8abt-stack-card-title { font-family: var(--font-heading); font-size: 1.35rem; text-transform: uppercase; margin-bottom: 0.75rem; color: #080808; font-weight: 700; }
+    .c8abt-stack-card-desc { font-size: 14px; font-weight: 400; color: var(--c8-sub); line-height: 1.65; }
+    .c8abt-stack-progress { display: flex; gap: 8px; margin-top: 2.5rem; }
+    .c8abt-stack-progress span { width: 24px; height: 4px; background: rgba(8,8,8,0.14); transition: background 0.3s; border-radius: 2px; }
+    .c8abt-stack-progress span.is-active { background: var(--c8-blue); }
+
+    /* ── 9. FIT / NOT FIT ── */
+    .c8abt-fit-section { padding: 0 4rem; }
+    .c8abt-fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; }
+    .c8abt-fit-box { padding: 2.75rem 2.5rem; border-radius: 4px; }
+    .c8abt-fit-box.c8abt-fit-yes { background: #FAFAF7; border: 1px solid rgba(0,71,225,0.25); }
+    .c8abt-fit-box.c8abt-fit-no { background: #FFFFFF; border: 1px solid var(--c8-grid-line); }
+    .c8abt-fit-title { font-family: var(--font-heading); font-size: 1.2rem; text-transform: uppercase; margin-bottom: 1.6rem; color: #080808; font-weight: 700; }
+    .c8abt-fit-list { display: flex; flex-direction: column; gap: 1.1rem; }
+    .c8abt-fit-item { display: flex; gap: 12px; font-size: 14px; font-weight: 400; line-height: 1.55; color: var(--c8-sub); }
+
+    /* ── 10. LEADERSHIP & FOUNDER PASS ── */
+    .c8abt-leadership-section { padding: 0 4rem; }
+    .c8abt-quote-block { border-left: 3px solid var(--c8-blue); padding-left: 1.75rem; margin: 2rem 0; }
+    .c8abt-quote-block p { font-family: var(--font-body); font-style: italic; font-size: 1.1rem; font-weight: 400; color: #080808; line-height: 1.55; margin-bottom: 0.6rem; }
+    .c8abt-quote-block cite { font-family: var(--font-mono); font-style: normal; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; }
+
+    .c8abt-founder-pass {
+      background: #080808; color: #FAFAF7; border: 1px dashed rgba(255, 255, 255, 0.28);
+      padding: 2.25rem 2rem; position: relative; font-family: var(--font-mono);
+      box-shadow: 12px 12px 0px rgba(0, 71, 225, 0.08); overflow: hidden;
+      display: flex; flex-direction: column; justify-content: space-between; min-height: 380px; border-radius: 4px;
+    }
+    .c8abt-founder-pass::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--c8-blue); }
+    .c8abt-pass-header { border-bottom: 1px dashed rgba(255,255,255,0.15); padding-bottom: 1rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .c8abt-pass-title { font-size: 10px; letter-spacing: 0.2em; color: #7C93FF; font-weight: 700; }
+    .c8abt-pass-meta { font-size: 9px; color: rgba(255,255,255,0.4); }
+    .c8abt-pass-body { display: flex; flex-direction: column; gap: 1.25rem; flex-grow: 1; }
+    .c8abt-pass-row { display: flex; flex-direction: column; }
+    .c8abt-pass-label { font-size: 8.5px; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+    .c8abt-pass-value { font-size: 12.5px; color: #FAFAF7; font-weight: 500; }
+    .c8abt-pass-barcode-wrap { margin-top: 1.5rem; border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .c8abt-pass-barcode { height: 32px; width: 140px; background: repeating-linear-gradient(90deg, #FAFAF7, #FAFAF7 2px, transparent 2px, transparent 6px); opacity: 0.75; }
+    .c8abt-pass-stamp { width: 38px; height: 38px; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 8px; color: rgba(255,255,255,0.4); transform: rotate(-10deg); font-weight: 700; }
+
+    /* ── 11. EDUCATIONAL BLOCKS (YOUTUBE & AI WORKFLOWS) ── */
+    .c8abt-education-block { padding: 0 4rem; }
+    .c8abt-youtube-play-btn {
+      width: 72px; height: 72px; background: #FF0000; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4); transition: transform 0.3s ease;
+    }
+    .c8abt-img-frame:hover .c8abt-youtube-play-btn { transform: scale(1.15); }
+
+    /* RESPONSIVE BREAKPOINTS */
     @media (max-width: 1024px) {
-      .art-outer-frame { margin: 1rem 0.5rem 0rem 0.5rem; padding-top: 2rem; }
-      .studio-hero-section { padding: 2rem 1.5rem; }
-      .studio-values-section { grid-template-columns: 1fr; }
-      .values-col-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2.5rem 1.5rem; }
-      .values-col-right { padding: 0; }
-      .value-item { padding: 2rem 1.5rem; }
-      .studio-team-section { padding: 2.5rem 1.5rem; }
-      .team-header-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
-      .team-grid-frame { grid-template-columns: 1fr; }
-      .plugin-card { border-right: none !important; border-bottom: 1px solid var(--c8-grid-line) !important; padding: 2rem 1.5rem; }
-      .stats-grid { grid-template-columns: 1fr; }
-      .studio-cta-section { grid-template-columns: 1fr; }
-      .cta-col-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2.5rem 1.5rem; }
-      .cta-col-right { padding: 2.5rem 1.5rem; }
+      .abt-outer-frame { margin: 1rem 0.5rem 0rem 0.5rem; padding-top: 2rem; }
+      .c8abt-hero { padding: 2rem 1.5rem; }
+      .c8abt-tearline { margin: 3rem 1.5rem; }
+      .c8abt-layout-grid { grid-template-columns: 1fr; gap: 2.5rem; padding: 0 1.5rem; }
+      .c8abt-philosophy-section, .c8abt-pillars-section, .c8abt-dev-section, .c8abt-process-heading, .c8abt-fit-section, .c8abt-leadership-section, .c8abt-education-block { padding: 0 1.5rem; }
+      .c8abt-comp-grid, .c8abt-fit-grid { grid-template-columns: 1fr; }
+      .c8abt-pillars-grid, .c8abt-stats-grid { grid-template-columns: repeat(2,1fr); }
+      .c8abt-vbreak-card { left: 1.5rem; right: 1.5rem; bottom: 1.5rem; max-width: none; }
+      .c8abt-stack-pin-inner { grid-template-columns: 1fr; padding: 1.5rem; gap: 2rem; }
+      .c8abt-stack-pin { height: 280vh; }
+      .c8abt-stack-cards { height: 360px; max-width: 100%; }
+      .c8abt-stats-breakout { padding: 3.5rem 1.5rem; }
+    }
+    @media (max-width: 640px) {
+      .c8abt-pillars-grid, .c8abt-stats-grid { grid-template-columns: 1fr; }
+      .c8abt-hero-row { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
   <!-- FULL-WIDTH OUTER PAPER FRAME (MARGIN 2.5REM 1REM 0REM 1REM) -->
-  <main class="art-outer-frame">
-    
-    <!-- 1. HERO SECTION (100% ORIGINAL AGENCY COPY IN FYLLA STUDIO LAYOUT) -->
-    <header class="studio-hero-section">
-      <span class="studio-meta-tag">// AGENCY PROFILE</span>
-      <h1 class="studio-hero-h1">WE DEFY TEMPLATES. WE CODE CONVERSIONS.</h1>
-      
-      <p class="hero-intro-text">We are an engineering-first digital agency built for ambitious brands. We don't just assemble websites; we architect custom digital environments, brand systems, and organic search acquisition models designed to turn attention into measurable revenue.</p>
+  <main class="abt-outer-frame">
+    <div class="c8abt-root">
 
-      <div class="hero-pill-row">
-        <span class="hero-pill">Custom PHP</span>
-        <span class="hero-pill">Elementor-Safe Code</span>
-        <span class="hero-pill">WordPress</span>
-        <span class="hero-pill">Shopify</span>
-        <span class="hero-pill">Conversion UX</span>
-        <span class="hero-pill">Organic SEO</span>
+      <!-- ── 1. HERO SECTION (100% ORIGINAL AGENCY CONTENT) ── -->
+      <div class="c8abt-hero">
+        <div class="c8abt-label">Agency Profile</div>
+        <h1 class="c8abt-headline">
+          <span>We defy <span class="c8abt-serif-italic">templates.</span></span><br>
+          <span>We code <span class="c8abt-highlight-text">conversions.</span></span>
+        </h1>
+        <div class="c8abt-hero-row">
+          <div class="c8abt-hero-intro">
+            We are an engineering-first digital agency built for ambitious brands. We don't just assemble websites; we architect custom digital environments, brand systems, and organic search acquisition models designed to turn attention into measurable revenue.
+          </div>
+          <div class="c8abt-badge">8+ YRS<br>Experience</div>
+        </div>
+        <div class="c8abt-pill-row">
+          <span class="c8abt-pill">Custom PHP</span>
+          <span class="c8abt-pill">Elementor-Safe Code</span>
+          <span class="c8abt-pill">WordPress</span>
+          <span class="c8abt-pill">Shopify</span>
+          <span class="c8abt-pill">Conversion UX</span>
+          <span class="c8abt-pill">Organic SEO</span>
+        </div>
       </div>
 
-      <div class="studio-hero-img-box">
-        <img src="assets/wwa_studio_visual_1785737190311.jpg" alt="Cr8v Stacks Studio Workspace" class="studio-hero-img">
-      </div>
-    </header>
+      <div class="c8abt-tearline"><div class="c8abt-tearline-dot"></div><div class="c8abt-tearline-line"></div><div class="c8abt-tearline-dot"></div></div>
 
-    <!-- 2. PHILOSOPHY & WHY IT WORKS (2-COLUMN INTEGRATED GRID) -->
-    <section class="studio-values-section">
-      <div class="values-col-left">
-        <div>
-          <span class="studio-meta-tag">// WHAT YOU SHOULD KNOW</span>
-          <h2 class="values-h2">OUR PHILOSOPHY</h2>
+      <!-- ── 2. PHILOSOPHY GRID ── -->
+      <div class="c8abt-layout-grid">
+        <div class="c8abt-img-frame">
+          <img src="assets/wwa_studio_visual.jpg" alt="CR8V Stacks Cybernetic Digital Environment">
+          <div class="c8abt-hud-tag">// SYSTEM_ACTIVE</div>
+        </div>
+        <div class="c8abt-content">
+          <div class="c8abt-label">What You Should Know</div>
+          <h2 class="c8abt-section-title">Our Philosophy</h2>
+          <div class="c8abt-lead">We bridge the gap between creative visual branding and lightweight, custom-coded web architectures.</div>
+          <div class="c8abt-body-text">
+            <p>At <strong>CR8V Stacks</strong>, founded by <strong>Mallami Adekunle</strong>, we approach web development and branding from a performance-first perspective. We don't believe in generic page builders and bloated themes that drag down loading speed and make businesses look identical. We build tailored visual systems designed to acquire organic traffic, engage target audiences, and scale your online revenue.</p>
+            <p>By keeping our technology stack lightweight and prioritizing custom layouts, we eliminate design bloat and give our clients the technical edge in speed, search ranking, and user experience.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 3. FULL-WIDTH MANIFESTO BREAK ── -->
+      <div class="c8abt-vbreak-outer">
+        <div class="c8abt-vbreak">
+          <img src="assets/hww_process_visual.jpg" alt="CR8V Stacks Architectural Digital Rendering">
+          <div class="c8abt-vbreak-tint"></div>
+          <div class="c8abt-vbreak-card">
+            <div class="c8abt-label" style="margin-bottom: 0.8rem">Manifesto</div>
+            <p>Every plugin you didn't need is a decision someone else made for you. We rebuild that decision from scratch — in your favor.</p>
+            <cite>The Stack Philosophy</cite>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 4. CORE PHILOSOPHY COMPARISON GRID ── -->
+      <div class="c8abt-philosophy-section">
+        <div class="c8abt-label">Typical Agency vs. CR8V Stacks</div>
+        <h2 class="c8abt-section-title">Our Technical Advantage</h2>
+        <p class="c8abt-body-text" style="max-width: 700px">Why ambitious brands choose custom engineering over template configurations.</p>
+        <div class="c8abt-comp-grid">
+          <div class="c8abt-comp-box">
+            <div class="c8abt-comp-header">Typical Templates</div>
+            <div class="c8abt-comp-list">
+              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-no">✕</span><div class="c8abt-comp-text"><strong>Bloated Page Builders:</strong> Heavily reliant on slow WordPress builders stuffed with 40+ plugins that drag down load times.</div></div>
+              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-no">✕</span><div class="c8abt-comp-text"><strong>Sluggish Performance:</strong> Google PageSpeed scores below 50, leading to poor mobile rankings and high bounce rates.</div></div>
+              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-no">✕</span><div class="c8abt-comp-text"><strong>Cloned Designs:</strong> Stock graphics and pre-made templates that make your brand look identical to competitors.</div></div>
+              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-no">✕</span><div class="c8abt-comp-text"><strong>Siloed Execution:</strong> Designers build static layouts with no understanding of performance; developers configure templates with no eye for conversion.</div></div>
+            </div>
+          </div>
+          <div class="c8abt-comp-box c8abt-highlight">
+            <div class="c8abt-comp-header" style="color: var(--c8-blue)">The CR8V Stacks Engine</div>
+            <div class="c8abt-comp-list">
+              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-yes">✓</span><div class="c8abt-comp-text"><strong>Zero-Bloat Engineering:</strong> Clean, custom PHP, HTML5, and scoped CSS built from scratch on lightweight WordPress &amp; Shopify setups.</div></div>
+              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-yes">✓</span><div class="c8abt-comp-text"><strong>95+ Google PageSpeed:</strong> Optimized server architectures and clean execution ensuring instantaneous loading.</div></div>
+              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-yes">✓</span><div class="c8abt-comp-text"><strong>Bespoke Branding:</strong> 100% original, vector brand identities and interfaces built to highlight your unique value.</div></div>
+              <div class="c8abt-comp-item"><span class="c8abt-icon-sq is-yes">✓</span><div class="c8abt-comp-text"><strong>Developer-Led Strategy:</strong> Design and development happen together, so every choice is technically viable.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c8abt-tearline"><div class="c8abt-tearline-dot"></div><div class="c8abt-tearline-line"></div><div class="c8abt-tearline-dot"></div></div>
+
+      <!-- ── 5. PILLARS OF GROWTH ── -->
+      <div class="c8abt-pillars-section">
+        <div class="c8abt-label">Our Pillars of Growth</div>
+        <div class="c8abt-pillars-grid">
+          <div class="c8abt-pillar-card"><span class="c8abt-pillar-num">01 / IDENTITY</span><h3 class="c8abt-pillar-title">Brand Strategy</h3><div class="c8abt-pillar-desc">Custom market positioning, competitor analysis, and full visual guidelines that command user trust.</div></div>
+          <div class="c8abt-pillar-card"><span class="c8abt-pillar-num">02 / ARCHITECTURE</span><h3 class="c8abt-pillar-title">Web Design</h3><div class="c8abt-pillar-desc">High-performance, fast-loading WordPress &amp; Shopify websites built to convert visitors to leads.</div></div>
+          <div class="c8abt-pillar-card"><span class="c8abt-pillar-num">03 / ACQUISITION</span><h3 class="c8abt-pillar-title">Digital Marketing</h3><div class="c8abt-pillar-desc">Multi-channel marketing plans involving target campaigns, social media management, and email automations.</div></div>
+          <div class="c8abt-pillar-card"><span class="c8abt-pillar-num">04 / ORGANIC</span><h3 class="c8abt-pillar-title">SEO &amp; Content</h3><div class="c8abt-pillar-desc">Technical search audits, high-intent keyword mapping, and SEO-rich content writing that captures organic search.</div></div>
+        </div>
+      </div>
+
+      <div class="c8abt-tearline"><div class="c8abt-tearline-dot"></div><div class="c8abt-tearline-line"></div><div class="c8abt-tearline-dot"></div></div>
+
+      <!-- ── 6. STATS BREAKOUT SECTION ── -->
+      <div class="c8abt-stats-outer">
+        <div class="c8abt-stats-breakout">
+          <div class="c8abt-stats-inner">
+            <div class="c8abt-label is-light">Performance Indicators</div>
+            <h2 class="c8abt-stats-headline">Proven results that speak for themselves</h2>
+            <div class="c8abt-stats-grid">
+              <div class="c8abt-stat-card"><div class="c8abt-stat-num">95%</div><span class="c8abt-stat-tag">Project Delivery</span><div class="c8abt-stat-desc">A strict commitment to timelines, responsive designs, and custom-coded execution.</div></div>
+              <div class="c8abt-stat-card"><div class="c8abt-stat-num">3.5x</div><span class="c8abt-stat-tag">Organic Traffic</span><div class="c8abt-stat-desc">Average organic traffic increase within 6–12 months of custom SEO planning.</div></div>
+              <div class="c8abt-stat-card"><div class="c8abt-stat-num">90%</div><span class="c8abt-stat-tag">Retention Rate</span><div class="c8abt-stat-desc">Long-term maintenance and optimization client support services.</div></div>
+              <div class="c8abt-stat-card"><div class="c8abt-stat-num">40+</div><span class="c8abt-stat-tag">Platforms Deployed</span><div class="c8abt-stat-desc">Bespoke brand identities and e-commerce systems developed and deployed.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c8abt-tearline"><div class="c8abt-tearline-dot"></div><div class="c8abt-tearline-line"></div><div class="c8abt-tearline-dot"></div></div>
+
+      <!-- ── 7. DEV PLAYGROUND / BESPOKE PLUGINS & MASCOT HIGHLIGHT ── -->
+      <div class="c8abt-dev-section">
+        <div class="c8abt-label">Development</div>
+        <h2 class="c8abt-section-title">Bespoke Plugins &amp; Custom Tools</h2>
+        <p class="c8abt-body-text" style="max-width: 700px; margin-bottom: 2.5rem;">We build lightweight, performance-first software utilities to solve slow loading speeds and administration bloat on WordPress and Shopify.</p>
+        
+        <div class="c8abt-pillars-grid">
+          <!-- WP Publishion AI -->
+          <div class="c8abt-pillar-card">
+            <span class="c8abt-pillar-num">CONTENT MACHINE</span>
+            <h3 class="c8abt-pillar-title" style="font-size: 1.35rem;">WP Publishion AI</h3>
+            <div class="c8abt-pillar-desc">
+              <p>Draft fact-checked, SEO-rich articles directly inside your block editor. Integrates Claude, Gemini, and OpenAI with Brave Search fact-verification.</p>
+              <a href="https://cr8vstacks.com/dev-playground/wp-publishion-ai/" class="c8abt-label" style="font-size: 9px; margin-top: 1.25rem; margin-bottom: 0; display: inline-flex;">Inspect Blueprint →</a>
+            </div>
+          </div>
+          <!-- Nativus Dashboard Pro -->
+          <div class="c8abt-pillar-card">
+            <span class="c8abt-pillar-num">ADMIN EXPERIENCE</span>
+            <h3 class="c8abt-pillar-title" style="font-size: 1.35rem;">Nativus Dashboard Pro</h3>
+            <div class="c8abt-pillar-desc">
+              <p>A clean, custom whitelabeled WordPress admin interface built to hide plugin notice banners and restrict client dashboard menus safely.</p>
+              <a href="https://cr8vstacks.com/dev-playground/nativus-dashboard-pro/" class="c8abt-label" style="font-size: 9px; margin-top: 1.25rem; margin-bottom: 0; display: inline-flex;">Inspect Blueprint →</a>
+            </div>
+          </div>
+          <!-- AltText Buddy -->
+          <div class="c8abt-pillar-card">
+            <span class="c8abt-pillar-num">ACCESSIBILITY &amp; SEO</span>
+            <h3 class="c8abt-pillar-title" style="font-size: 1.35rem;">AltText Buddy</h3>
+            <div class="c8abt-pillar-desc">
+              <p>Automatically generate descriptive image alt text for your media library using 5 AI vision models to improve SEO rankings and compliance.</p>
+              <a href="https://cr8vstacks.com/dev-playground/alttext-buddy/" class="c8abt-label" style="font-size: 9px; margin-top: 1.25rem; margin-bottom: 0; display: inline-flex;">Inspect Blueprint →</a>
+            </div>
+          </div>
+          <!-- LumiCode Highlighter -->
+          <div class="c8abt-pillar-card">
+            <span class="c8abt-pillar-num">CODE SHOWCASE</span>
+            <h3 class="c8abt-pillar-title" style="font-size: 1.35rem;">LumiCode</h3>
+            <div class="c8abt-pillar-desc">
+              <p>Display clean, VS Code-style syntax-highlighted code blocks on WordPress sites with line numbers and a one-click clipboard copy utility.</p>
+              <a href="https://cr8vstacks.com/dev-playground/lumicode-syntax-highlighter/" class="c8abt-label" style="font-size: 9px; margin-top: 1.25rem; margin-bottom: 0; display: inline-flex;">Inspect Blueprint →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c8abt-tearline"><div class="c8abt-tearline-dot"></div><div class="c8abt-tearline-line"></div><div class="c8abt-tearline-dot"></div></div>
+
+      <!-- ── 8. PROCESS WORKFLOW & STACKING CARDS ── -->
+      <div class="c8abt-process-heading">
+        <div class="c8abt-label">Our Process Workflow</div>
+        <h2 class="c8abt-section-title">The 5-Step Stack Process</h2>
+        <p class="c8abt-body-text" style="max-width: 700px">Scroll — we build the way we build sites: one layer stacked deliberately on the last.</p>
+      </div>
+
+      <div class="c8abt-stack-section">
+        <div class="c8abt-stack-pin">
+          <div class="c8abt-stack-pin-inner">
+            <div class="c8abt-stack-intro">
+              <div class="c8abt-label" style="margin-bottom: 1.25rem">Layer By Layer</div>
+              <h3 class="c8abt-stack-heading">Nothing ships until the layer below it is solid.</h3>
+              <p class="c8abt-body-text">From positioning audit to funnel launch, each step is a foundation the next one is built on — not a checklist item.</p>
+              <div class="c8abt-stack-progress" data-c8abt-progress>
+                <span class="is-active"></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="c8abt-stack-cards" data-c8abt-stack>
+              <div class="c8abt-stack-card" data-c8abt-card="0">
+                <div class="c8abt-stack-card-dot">01</div>
+                <h4 class="c8abt-stack-card-title">Positioning Audit</h4>
+                <div class="c8abt-stack-card-desc">We analyze your competitors, search traffic potential, and map your brand positioning before writing any code.</div>
+              </div>
+              <div class="c8abt-stack-card" data-c8abt-card="1">
+                <div class="c8abt-stack-card-dot">02</div>
+                <h4 class="c8abt-stack-card-title">UI/UX Wireframing</h4>
+                <div class="c8abt-stack-card-desc">We build lightweight mockups engineered to guide the user's eye directly to conversion touchpoints.</div>
+              </div>
+              <div class="c8abt-stack-card" data-c8abt-card="2">
+                <div class="c8abt-stack-card-dot">03</div>
+                <h4 class="c8abt-stack-card-title">Custom Coding</h4>
+                <div class="c8abt-stack-card-desc">We develop on lightweight frameworks, replacing bloated plugins with custom PHP and JS scripts.</div>
+              </div>
+              <div class="c8abt-stack-card" data-c8abt-card="3">
+                <div class="c8abt-stack-card-dot">04</div>
+                <h4 class="c8abt-stack-card-title">SEO Populating</h4>
+                <div class="c8abt-stack-card-desc">We write SEO-rich content and construct the technical keyword mapping to ensure immediate search visibility.</div>
+              </div>
+              <div class="c8abt-stack-card" data-c8abt-card="4">
+                <div class="c8abt-stack-card-dot">05</div>
+                <h4 class="c8abt-stack-card-title">Funnel Launch</h4>
+                <div class="c8abt-stack-card-desc">We configure lead-tracking, automated email flows, and ad campaigns to create a self-sustaining client acquisition loop.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c8abt-tearline"><div class="c8abt-tearline-dot"></div><div class="c8abt-tearline-line"></div><div class="c8abt-tearline-dot"></div></div>
+
+      <!-- ── 9. WHO WE BUILD FOR (FIT / NOT FIT) ── -->
+      <div class="c8abt-fit-section">
+        <div class="c8abt-label">Who We Build For</div>
+        <h2 class="c8abt-section-title">We're Not A Fit For Everyone</h2>
+        <p class="c8abt-body-text" style="max-width: 700px">That's on purpose. Here's how to tell, in about ten seconds.</p>
+        <div class="c8abt-fit-grid">
+          <div class="c8abt-fit-box c8abt-fit-yes">
+            <div class="c8abt-fit-title">You're in the right place if</div>
+            <div class="c8abt-fit-list">
+              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-yes">✓</span><span>You're tired of being told to "just install another plugin."</span></div>
+              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-yes">✓</span><span>You want a designer and a developer thinking about your homepage at the same time, not in sequence.</span></div>
+              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-yes">✓</span><span>You care about your PageSpeed score as much as your logo.</span></div>
+              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-yes">✓</span><span>You're building a brand you intend to keep for years, not a page you'll replace next quarter.</span></div>
+            </div>
+          </div>
+          <div class="c8abt-fit-box c8abt-fit-no">
+            <div class="c8abt-fit-title">We're probably not your agency if</div>
+            <div class="c8abt-fit-list">
+              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-no">✕</span><span>You want the cheapest possible theme install by Friday.</span></div>
+              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-no">✕</span><span>You're looking for someone to quietly "manage" an existing bloated site without questioning it.</span></div>
+              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-no">✕</span><span>Design trends matter more to you than load times and conversion data.</span></div>
+              <div class="c8abt-fit-item"><span class="c8abt-icon-sq is-no">✕</span><span>You want a set-and-forget vendor, not a technical partner.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c8abt-tearline"><div class="c8abt-tearline-dot"></div><div class="c8abt-tearline-line"></div><div class="c8abt-tearline-dot"></div></div>
+
+      <!-- ── 10. LEADERSHIP & FOUNDER PASS ── -->
+      <div class="c8abt-layout-grid c8abt-leadership-section">
+        <div class="c8abt-founder-pass">
+          <div class="c8abt-pass-header">
+            <span class="c8abt-pass-title">CR8V STACKS // SECURE PASS</span>
+            <span class="c8abt-pass-meta">ID: 080-MA</span>
+          </div>
+          <div class="c8abt-pass-body">
+            <div class="c8abt-pass-row">
+              <span class="c8abt-pass-label">Holder Name</span>
+              <span class="c8abt-pass-value">Mallami Adekunle</span>
+            </div>
+            <div class="c8abt-pass-row">
+              <span class="c8abt-pass-label">Designation</span>
+              <span class="c8abt-pass-value">Founder &amp; Principal Architect</span>
+            </div>
+            <div class="c8abt-pass-row">
+              <span class="c8abt-pass-label">Core Stacks</span>
+              <span class="c8abt-pass-value">WordPress, Shopify, Figma, HTML5, CSS3, JS, PHP</span>
+            </div>
+          </div>
+          <div class="c8abt-pass-barcode-wrap">
+            <div class="c8abt-pass-barcode"></div>
+            <div class="c8abt-pass-stamp">M.A.</div>
+          </div>
+        </div>
+        <div class="c8abt-content">
+          <div class="c8abt-label">Leadership</div>
+          <h2 class="c8abt-section-title">Our Founder &amp; Dev-Led Culture</h2>
+          <div class="c8abt-lead">Bridging the gap between creative visual architecture and clean, lightweight code.</div>
+          <div class="c8abt-body-text">
+            <p>Founded by <strong>Mallami Adekunle</strong>, a digital architect and strategist, CR8V Stacks was established to combat the slow, template-stuffed sites typical of corporate digital agencies. Observing how heavy WordPress configurations and generic page templates cost companies traffic and conversions, Mallami assembled a team of developer-first designers.</p>
+          </div>
+          <div class="c8abt-quote-block">
+            <p>"Bloat is a compromise. We believe in absolute engineering efficiency, where design and speed exist as a single, indivisible experience."</p>
+            <cite>Mallami Adekunle, Founder</cite>
+          </div>
+          <div class="c8abt-body-text">
+            <p>At CR8V Stacks, our designers are trained in performance optimization, and our developers are trained in conversion-focused UI/UX — so we never sacrifice speed for looks.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 11. EDUCATIONAL CONTENT (YOUTUBE & AI WORKFLOWS) ── -->
+      <div class="c8abt-education-block">
+        <div class="c8abt-tearline"><div class="c8abt-tearline-dot"></div><div class="c8abt-tearline-line"></div><div class="c8abt-tearline-dot"></div></div>
+        
+        <!-- Tutorial Part 1: Elementor Hacks -->
+        <div class="c8abt-layout-grid" style="margin-top: 3rem; margin-bottom: 3rem;">
+          <div class="c8abt-content">
+            <div class="c8abt-label">Open Source &amp; Education</div>
+            <h2 class="c8abt-section-title">Advanced Elementor Tutorials</h2>
+            <div class="c8abt-lead">We teach what we practice. No heavy third-party add-ons.</div>
+            <div class="c8abt-body-text">
+              <p>We run a dedicated learning channel under the handle <strong>@cr8vstacks</strong>, focused on helping web developers and designers break free from bloated theme configurations and slow plugins. We teach the community how to write native CSS and JavaScript directly inside Elementor to construct advanced effects—like custom infinite marquees, interactive image hover reveals, and high-performance sliders—without compromising Google PageSpeed scores.</p>
+            </div>
+          </div>
           
-          <p class="values-body">We bridge the gap between creative visual branding and lightweight, custom-coded web architectures.</p>
-          <p class="values-body">At <strong>CR8V Stacks</strong>, founded by <strong>Mallami Adekunle</strong>, we approach web development and branding from a performance-first perspective. We don't believe in generic page builders and bloated themes that drag down loading speed and make businesses look identical.</p>
-          <p class="values-body">By keeping our technology stack lightweight and prioritizing custom layouts, we eliminate design bloat and give our clients the technical edge in speed, search ranking, and user experience.</p>
-        </div>
-
-        <a href="homepage_hero_section.html#case-studies" class="values-btn">Inspect Case Studies</a>
-      </div>
-
-      <!-- FLANKING CARDS STACK RIGHT COLUMN (WHY IT WORKS) -->
-      <div class="values-col-right">
-        <div class="value-item">
-          <div class="value-num">01</div>
-          <div>
-            <h3 class="value-h3">CODE ARCHITECTURE — ZERO BLOAT</h3>
-            <p class="value-p">Bespoke custom themes built from scratch with semantic HTML, CSS, and vanilla JS. No page builders, no unneeded plugins.</p>
+          <div class="c8abt-img-frame" style="position: relative; cursor: pointer; overflow: hidden;">
+            <a href="https://www.youtube.com/@cr8vstacks" target="_blank" style="display: block;">
+              <img src="assets/about_yt_tutorial.jpg" alt="CR8V Stacks Elementor Tutorial Video Mockup">
+              <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.15);">
+                <div class="c8abt-youtube-play-btn">
+                  <svg viewBox="0 0 24 24" fill="#FFFFFF" style="width: 28px; height: 28px; margin-left: 4px;"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
 
-        <div class="value-item">
-          <div class="value-num">02</div>
-          <div>
-            <h3 class="value-h3">LIQUID ENGINEERING — SUB-1.2S SPEED</h3>
-            <p class="value-p">Tuned for instant page loads and green Core Web Vitals across every single device, browser, and network condition.</p>
+        <div class="c8abt-tearline"><div class="c8abt-tearline-dot"></div><div class="c8abt-tearline-line"></div><div class="c8abt-tearline-dot"></div></div>
+
+        <!-- Tutorial Part 2: AI Workflows -->
+        <div class="c8abt-layout-grid" style="margin-top: 3rem; margin-bottom: 3rem;">
+          <div class="c8abt-img-frame">
+            <img src="assets/about_ai_workflow.jpg" alt="CR8V Stacks AI-to-WordPress Design Translation Mockup">
+          </div>
+          
+          <div class="c8abt-content">
+            <div class="c8abt-label">Workflow Automation</div>
+            <h2 class="c8abt-section-title">AI-to-WordPress Workflows</h2>
+            <div class="c8abt-lead">Bridging the gap between cutting-edge AI layouts and production-ready sites.</div>
+            <div class="c8abt-body-text" style="margin-bottom: 1.75rem;">
+              <p>We teach developers how to leverage advanced AI models (like Claude, Gemini, and ChatGPT) to generate custom code structures and automatically translate those mockups into live, pixel-perfect Elementor sections. By bridging AI-driven creative design with custom engineering guidelines, we help agencies and creators build visually premium pages at double the speed without sacrificing standard web accessibility (WCAG) and clean semantics.</p>
+            </div>
+            <a href="blog.html" class="c8abt-pill" style="display: inline-flex; align-items: center; gap: 8px; border-color: #080808; color: #080808; padding: 12px 24px; font-weight: 700;">
+              Read Our Blog Workflows →
+            </a>
           </div>
         </div>
-
-        <div class="value-item">
-          <div class="value-num">03</div>
-          <div>
-            <h3 class="value-h3">ENTITY SEO — ORGANIC DOMINANCE</h3>
-            <p class="value-p">Structured Schema JSON-LD markup and semantic HTML hierarchy ensuring total search engine clarity and ranking authority.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. CUSTOM PLUGINS & TOOLS (FYLLA 2x2 GRID LAYOUT) -->
-    <section class="studio-team-section">
-      <div class="team-header-row">
-        <div>
-          <span class="studio-meta-tag">// DEVELOPMENT PLAYGROUND</span>
-          <h2 class="team-h2">CUSTOM PLUGINS &amp; TOOLS</h2>
-        </div>
-        <p class="team-sub">We build lightweight, performance-first software utilities to solve slow loading speeds and administration bloat on WordPress and Shopify.</p>
       </div>
 
-      <div class="team-grid-frame">
-        <div class="plugin-card">
-          <span class="plugin-cat">CONTENT MACHINE</span>
-          <h3 class="plugin-name">WP Publishion AI</h3>
-          <p class="plugin-desc">Draft fact-checked, SEO-rich articles directly inside your block editor. Integrates Claude, Gemini, and OpenAI with Brave Search fact-verification.</p>
-          <a href="#" class="plugin-link">Inspect Blueprint →</a>
-        </div>
-
-        <div class="plugin-card">
-          <span class="plugin-cat">ADMIN EXPERIENCE</span>
-          <h3 class="plugin-name">Nativus Dashboard Pro</h3>
-          <p class="plugin-desc">A clean, custom whitelabeled WordPress admin interface built to hide plugin notice banners and restrict client dashboard menus safely.</p>
-          <a href="#" class="plugin-link">Inspect Blueprint →</a>
-        </div>
-
-        <div class="plugin-card">
-          <span class="plugin-cat">ACCESSIBILITY &amp; SEO</span>
-          <h3 class="plugin-name">AltText Buddy</h3>
-          <p class="plugin-desc">Automatically generate descriptive image alt text for your media library using 5 AI vision models to improve SEO rankings and compliance.</p>
-          <a href="#" class="plugin-link">Inspect Blueprint →</a>
-        </div>
-
-        <div class="plugin-card">
-          <span class="plugin-cat">CODE SHOWCASE</span>
-          <h3 class="plugin-name">LumiCode</h3>
-          <p class="plugin-desc">Display clean, VS Code-style syntax-highlighted code blocks on WordPress sites with line numbers and a one-click clipboard copy utility.</p>
-          <a href="#" class="plugin-link">Inspect Blueprint →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. PROVEN IMPACT STATS SECTION -->
-    <section class="stats-section">
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-num">3.5x</div>
-          <span class="stat-tag">Organic Traffic</span>
-          <p class="stat-desc">Average organic traffic increase within 6–12 months of custom SEO planning.</p>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-num">90%</div>
-          <span class="stat-tag">Retention Rate</span>
-          <p class="stat-desc">Long-term maintenance and optimization client support services.</p>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-num">40+</div>
-          <span class="stat-tag">Platforms Deployed</span>
-          <p class="stat-desc">Custom brand identities and e-commerce systems developed and deployed.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. CTA CONTACT SECTION -->
-    <section class="studio-cta-section">
-      <div class="cta-col-left">
-        <span class="studio-meta-tag">// CONTACT</span>
-        <h2 class="cta-h2">LET'S BRING YOUR BRAND TO THE NEXT LEVEL</h2>
-      </div>
-
-      <div class="cta-col-right">
-        <p class="cta-p">Together, let's elevate your brand to new heights by unleashing its full potential and captivating your target audience with custom zero-plugin architecture.</p>
-        <a href="discovery-call.html" class="cta-btn">Book A Discovery Call</a>
-      </div>
-    </section>
-
+    </div>
   </main>
+
+  <!-- PINNED STACKING CARDS SCRIPT -->
+  <script>
+  (function () {
+    var stackPin = document.querySelector('.c8abt-stack-pin');
+    var cards = document.querySelectorAll('[data-c8abt-card]');
+    var progressDots = document.querySelectorAll('[data-c8abt-progress] span');
+    
+    function cardTransform(i) {
+      return 'translateY(' + (i * -14) + 'px) translateX(' + (i * 8) + 'px) rotate(' + ((i % 2 === 0 ? -1 : 1) * (2 + i * 0.6)) + 'deg) scale(1)';
+    }
+
+    if (stackPin && cards.length) {
+      cards.forEach(function (card, i) { card.style.zIndex = String(i + 1); });
+      var ticking = false;
+      function updateStack() {
+        ticking = false;
+        var rect = stackPin.getBoundingClientRect();
+        var total = rect.height - window.innerHeight;
+        if (total <= 0) return;
+        var scrolled = Math.min(Math.max(-rect.top, 0), total);
+        var progress = scrolled / total;
+        var activeIndex = Math.round(progress * (cards.length - 1));
+        cards.forEach(function (card, i) {
+          if (i <= activeIndex) {
+            card.style.transform = cardTransform(i);
+            card.style.opacity = '1';
+            card.style.transition = 'transform 0.4s ease, opacity 0.3s ease';
+          } else {
+            card.style.transform = 'translateY(50vh) rotate(0deg) scale(1)';
+            card.style.opacity = '0';
+            card.style.transition = 'transform 0.4s ease, opacity 0.3s ease';
+          }
+        });
+        progressDots.forEach(function (dot, i) { dot.classList.toggle('is-active', i <= activeIndex); });
+      }
+      function onScroll() {
+        if (!ticking) { requestAnimationFrame(updateStack); ticking = true; }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      updateStack();
+    }
+  })();
+  </script>
 
 </body>
 </html>
