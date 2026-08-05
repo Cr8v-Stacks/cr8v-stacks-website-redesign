@@ -233,7 +233,23 @@
     
     <!-- TOP HERO BANNER -->
     <header class="art-hero-banner">
-      <span class="art-cat-pill">Liquid Performance Engineering</span>
+      <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; position: relative;">
+        <span class="art-cat-pill">Liquid Performance Engineering</span>
+        <span class="art-cat-pill">WordPress Architecture</span>
+        
+        <!-- Interactive Category Popover Pill -->
+        <div style="position: relative; display: inline-block;">
+          <button class="art-cat-pill" id="cat-more-btn" onclick="toggleCatPopover(event)" style="cursor: pointer; background: #0047E1; color: #FFFFFF; border: none; display: flex; align-items: center; gap: 4px; padding: 4px 10px; font-size: 11px;">
+            +2 Categories <span style="font-size: 9px;">▼</span>
+          </button>
+          <div id="cat-popover-menu" style="display: none; position: absolute; top: calc(100% + 6px); left: 0; z-index: 100; background: #080808; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 0.75rem; min-width: 210px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            <div style="font-family: var(--font-mono); font-size: 9px; color: #7C93FF; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.1em;">ALL CATEGORIES</div>
+            <a href="#" style="display: block; font-family: var(--font-mono); font-size: 11px; color: #FAFAF7; text-decoration: none; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">Entity SEO Optimization</a>
+            <a href="#" style="display: block; font-family: var(--font-mono); font-size: 11px; color: #FAFAF7; text-decoration: none; padding: 4px 0;">Core Web Vitals Tuning</a>
+          </div>
+        </div>
+      </div>
+
       <h1 class="art-h1">What Liquid Performance Means For Modern Web Platforms</h1>
       <div class="art-meta-date">Published August 4, 2026 · 5 Min Read · By Cr8v Stacks Engineering</div>
     </header>
@@ -252,7 +268,7 @@
               <img src="https://cdn.simpleicons.org/x/080808" alt="X">
             </button>
             <button class="share-btn" onclick="shareArticle('linkedin')" title="Share on LinkedIn">
-              <img src="https://cdn.simpleicons.org/linkedin/080808" alt="LinkedIn">
+              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/linkedin/default.svg" alt="LinkedIn">
             </button>
             <button class="share-btn" onclick="shareArticle('facebook')" title="Share on Facebook">
               <img src="https://cdn.simpleicons.org/facebook/080808" alt="Facebook">
@@ -550,6 +566,21 @@
         window.open(aiURLs[engine], '_blank');
       }
     }
+
+    function toggleCatPopover(event) {
+      event.stopPropagation();
+      var menu = document.getElementById('cat-popover-menu');
+      if (menu) {
+        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+      }
+    }
+
+    document.addEventListener('click', function(e) {
+      var catMenu = document.getElementById('cat-popover-menu');
+      if (catMenu && !catMenu.contains(e.target) && e.target.id !== 'cat-more-btn') {
+        catMenu.style.display = 'none';
+      }
+    });
 
     function toggleFAQ(element) {
       element.classList.toggle('active');

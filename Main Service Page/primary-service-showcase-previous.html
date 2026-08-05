@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Primary Service Showcase (Previous Sticky Nav Version) — Cr8v Stacks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #FFFFFF; color: #080808; font-family: 'DM Sans', sans-serif; padding: 4rem 2rem; line-height: 1.65; }
+    
+    .c8srv-wrap { max-width: 1440px; margin: 0 auto; }
+    .c8srv-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: #0047E1; display: flex; align-items: center; gap: 10px; margin-bottom: 1.75rem; }
+    .c8srv-label::before { content: '—'; color: #0047E1; font-weight: 700; }
+    .c8srv-section-title { font-family: 'Michroma', sans-serif; font-size: clamp(1.4rem, 2.5vw, 2.0rem); font-weight: 700; letter-spacing: 0.02em; color: #080808; margin-bottom: 1.25rem; text-transform: uppercase; }
+    .c8srv-serif-text { font-family: 'Georgia', serif; font-style: italic; font-weight: 400; text-transform: none; }
+    .c8srv-lead { font-size: 17px; font-weight: 300; color: #6B6B6B; max-width: 720px; line-height: 1.6; }
+
+    /* ── Sticky Showcase Component ── */
+    .c8srv-showcase { display: flex; gap: 5rem; align-items: flex-start; position: relative; padding: 4rem 0; }
+    @media (max-width: 1024px) { .c8srv-showcase { flex-direction: column; gap: 3rem; } }
+    
+    .c8srv-showcase-sticky-left { position: sticky; top: 100px; width: 35%; flex-shrink: 0; z-index: 10; }
+    @media (max-width: 1024px) { .c8srv-showcase-sticky-left { position: relative; top: 0; width: 100%; } }
+
+    .c8srv-showcase-nav-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 3rem; }
+    @media (max-width: 1024px) { .c8srv-showcase-nav-list { flex-direction: row; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; } }
+
+    .c8srv-showcase-nav-item {
+      font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+      padding: 12px 18px; background: #FFFFFF; border: 1px solid rgba(8,8,8,0.1); color: #6B6B6B;
+      text-align: left; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 12px; border-radius: 4px;
+    }
+    .c8srv-showcase-nav-item .c8srv-nav-num { font-size: 9px; opacity: 0.5; }
+    .c8srv-showcase-nav-item.is-active { background: #0047E1; color: #FAFAF7; border-color: #0047E1; padding-left: 24px; }
+
+    .c8srv-showcase-scroll-right { width: 65%; display: flex; flex-direction: column; gap: 5rem; position: relative; }
+    @media (max-width: 1024px) { .c8srv-showcase-scroll-right { width: 100%; gap: 3rem; } }
+
+    .c8srv-showcase-card {
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; padding: 2.5rem;
+      display: grid; grid-template-columns: 1.15fr 1fr; gap: 2.5rem; align-items: center;
+      box-shadow: 0 10px 40px rgba(8, 8, 8, 0.015); position: sticky; z-index: 2; transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .c8srv-showcase-card:nth-child(1) { top: 100px; background: linear-gradient(135deg, #1C2436 0%, #0B111E 100%); }
+    .c8srv-showcase-card:nth-child(2) { top: 125px; background: linear-gradient(135deg, #1A2E66 0%, #0E1A3D 100%); }
+    .c8srv-showcase-card:nth-child(3) { top: 150px; background: linear-gradient(135deg, #153C9E 0%, #0B225C 100%); }
+    .c8srv-showcase-card:nth-child(4) { top: 175px; background: linear-gradient(135deg, #072899 0%, #031352 100%); }
+    .c8srv-showcase-card:nth-child(5) { top: 200px; background: linear-gradient(135deg, #0047E1 0%, #001B5C 100%); }
+    .c8srv-showcase-card:nth-child(6) { top: 225px; background: linear-gradient(135deg, #0f38b0 0%, #071c59 100%); }
+
+    .c8srv-showcase-card .c8srv-showcase-card-title { font-family: 'Michroma', sans-serif; font-size: 1.3rem; font-weight: 700; color: #FAFAF7; margin-bottom: 0.75rem; text-transform: uppercase; }
+    .c8srv-showcase-card .c8srv-showcase-card-desc { font-size: 14px; color: rgba(250, 250, 247, 0.8); margin-bottom: 1.5rem; line-height: 1.6; }
+    .c8srv-cap-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .c8srv-cap-item { display: flex; gap: 10px; align-items: center; font-size: 13px; color: #FAFAF7; font-weight: 500; }
+    .c8srv-cap-dot { width: 6px; height: 6px; background: #FAFAF7; border-radius: 50%; flex-shrink: 0; }
+    .c8srv-explore { font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; color: #FAFAF7; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-weight: 700; }
+    .c8srv-showcase-card-img { border: 1px solid rgba(255,255,255,0.1); background: #FFFFFF; padding: 8px; border-radius: 4px; width: 100%; aspect-ratio: 16/11; overflow: hidden; }
+    .c8srv-showcase-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+  <main class="c8srv-wrap">
+    <!-- Primary: Web Design & Development (sticky tabs layout) -->
+    <div class="c8srv-showcase" id="primary-showcase">
+      <div class="c8srv-showcase-sticky-left">
+        <div class="c8srv-label">Primary Service // 01</div>
+        <h2 class="c8srv-section-title">Web Design &amp; <span class="c8srv-serif-text">Development</span></h2>
+        <p class="c8srv-lead" style="margin-bottom: 2rem;">One service, every platform. Whichever foundation your business runs on, it's built the same way — zero bloat, engineered for speed and conversion.</p>
+        
+        <div class="c8srv-showcase-nav-list" data-c8srv-navs>
+          <button class="c8srv-showcase-nav-item is-active" data-c8srv-nav="0">
+            <span class="c8srv-nav-num">01</span> WordPress
+          </button>
+          <button class="c8srv-showcase-nav-item" data-c8srv-nav="1">
+            <span class="c8srv-nav-num">02</span> Shopify
+          </button>
+          <button class="c8srv-showcase-nav-item" data-c8srv-nav="2">
+            <span class="c8srv-nav-num">03</span> WooCommerce
+          </button>
+          <button class="c8srv-showcase-nav-item" data-c8srv-nav="3">
+            <span class="c8srv-nav-num">04</span> Custom Dev
+          </button>
+          <button class="c8srv-showcase-nav-item" data-c8srv-nav="4">
+            <span class="c8srv-nav-num">05</span> AI MVP
+          </button>
+          <button class="c8srv-showcase-nav-item" data-c8srv-nav="5">
+            <span class="c8srv-nav-num">06</span> Redesigns
+          </button>
+        </div>
+      </div>
+
+      <div class="c8srv-showcase-scroll-right">
+        <!-- WordPress -->
+        <div class="c8srv-showcase-card" data-c8srv-card="0">
+          <div class="c8srv-showcase-card-img">
+            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800&auto=format&fit=crop" alt="WordPress no-code build">
+          </div>
+          <div class="c8srv-showcase-card-body">
+            <h3 class="c8srv-showcase-card-title">WordPress, No-Code</h3>
+            <p class="c8srv-showcase-card-desc">Fully custom WordPress builds on Elementor and native blocks — zero page-builder bloat, editable by your team without touching code.</p>
+            <div class="c8srv-cap-list">
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Elementor-safe custom widgets</div>
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Editable by non-technical staff</div>
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>95+ Google PageSpeed scores</div>
+            </div>
+            <a href="https://cr8vstacks.com/services/wordpress-development/" class="c8srv-explore">Explore WordPress <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Shopify -->
+        <div class="c8srv-showcase-card" data-c8srv-card="1">
+          <div class="c8srv-showcase-card-img">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Shopify storefront build">
+          </div>
+          <div class="c8srv-showcase-card-body">
+            <h3 class="c8srv-showcase-card-title">Shopify</h3>
+            <p class="c8srv-showcase-card-desc">Conversion-focused Shopify storefronts built on a custom theme, not a marketplace template — designed to move product, not just display it.</p>
+            <div class="c8srv-cap-list">
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Custom Liquid theming</div>
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Checkout &amp; upsell flow design</div>
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>App-free performance tuning</div>
+            </div>
+            <a href="https://cr8vstacks.com/services/shopify-ecommerce-design/" class="c8srv-explore">Explore Shopify <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- WooCommerce -->
+        <div class="c8srv-showcase-card" data-c8srv-card="2">
+          <div class="c8srv-showcase-card-img">
+            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800&auto=format&fit=crop" alt="WooCommerce store build">
+          </div>
+          <div class="c8srv-showcase-card-body">
+            <h3 class="c8srv-showcase-card-title">WooCommerce</h3>
+            <p class="c8srv-showcase-card-desc">Full ecommerce control on your own WordPress stack — for brands that want to own their data, hosting, and margins.</p>
+            <div class="c8srv-cap-list">
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Custom checkout flows</div>
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Multi-currency &amp; tax logic</div>
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Full data ownership</div>
+            </div>
+            <a href="https://cr8vstacks.com/services/woocommerce-development/" class="c8srv-explore">Explore WooCommerce <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Custom Dev -->
+        <div class="c8srv-showcase-card" data-c8srv-card="3">
+          <div class="c8srv-showcase-card-img">
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800&auto=format&fit=crop" alt="Custom dev build">
+          </div>
+          <div class="c8srv-showcase-card-body">
+            <h3 class="c8srv-showcase-card-title">Custom Dev</h3>
+            <p class="c8srv-showcase-card-desc">When no platform fits, we build from a blank file — custom PHP, JS, and API integrations engineered around exactly what your business needs.</p>
+            <div class="c8srv-cap-list">
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Custom web applications</div>
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Third-party API integrations</div>
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Custom admin dashboards</div>
+            </div>
+            <a href="https://cr8vstacks.com/services/custom-web-development/" class="c8srv-explore">Explore Custom Dev <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- AI MVP -->
+        <div class="c8srv-showcase-card" data-c8srv-card="4">
+          <div class="c8srv-showcase-card-img">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop" alt="AI MVP build">
+          </div>
+          <div class="c8srv-showcase-card-body">
+            <h3 class="c8srv-showcase-card-title">AI MVP</h3>
+            <p class="c8srv-showcase-card-desc">Rapid, functional MVPs for AI-powered products — validate an idea with real working software, not a slide deck.</p>
+            <div class="c8srv-cap-list">
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>LLM-integrated prototypes</div>
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>API-first architecture</div>
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Launch in weeks, not quarters</div>
+            </div>
+            <a href="https://cr8vstacks.com/services/ai-mvp-development/" class="c8srv-explore">Explore AI MVP <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Redesigns -->
+        <div class="c8srv-showcase-card" data-c8srv-card="5">
+          <div class="c8srv-showcase-card-img">
+            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop" alt="Website redesign mockup">
+          </div>
+          <div class="c8srv-showcase-card-body">
+            <h3 class="c8srv-showcase-card-title">Website Redesigns</h3>
+            <p class="c8srv-showcase-card-desc">Structural refactoring and frontend modernization for proprietary portals, slow WordPress sites, and template-locked Shopify/WooCommerce storefronts.</p>
+            <div class="c8srv-cap-list">
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Conversion &amp; checkout audits</div>
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Theme &amp; speed modernization</div>
+              <div class="c8srv-cap-item"><span class="c8srv-cap-dot"></span>Bloated plugin cleanups</div>
+            </div>
+            <a href="https://cr8vstacks.com/contact/" class="c8srv-explore">Explore Redesigns <span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function() {
+      var navBtns = document.querySelectorAll('[data-c8srv-nav]');
+      var cards = document.querySelectorAll('[data-c8srv-card]');
+      
+      navBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var idx = btn.getAttribute('data-c8srv-nav');
+          var targetCard = document.querySelector('[data-c8srv-card="' + idx + '"]');
+          if (targetCard) {
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      window.addEventListener('scroll', function() {
+        var scrollPos = window.scrollY + 200;
+        cards.forEach(function(card, idx) {
+          var top = card.offsetTop;
+          var height = card.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            navBtns.forEach(function(b) { b.classList.remove('is-active'); });
+            if (navBtns[idx]) navBtns[idx].classList.add('is-active');
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
