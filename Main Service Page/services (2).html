@@ -334,7 +334,7 @@ body {
 
 /* Slanted Card Stack (Growth Layer) */
 .c8srv-root .c8srv-folder-section {
-  padding: 4rem 3.5rem !important;
+  padding: 3rem 0rem !important;
   position: relative !important;
   z-index: 2 !important;
 }
@@ -361,30 +361,9 @@ body {
   margin-bottom: 0px !important; /* Set margin-bottom to 0 so sticky cards overlap correctly */
 }
 .c8srv-root .c8srv-folder-card:nth-child(1) { top: 130px !important; z-index: 10 !important; position: sticky !important; }
-.c8srv-root .c8srv-folder-card:nth-child(2) { top: 130px !important; z-index: 20 !important; position: sticky !important; }
 .c8srv-root .c8srv-folder-card:nth-child(3) { top: 130px !important; z-index: 30 !important; position: sticky !important; }
+.c8srv-root .c8srv-folder-card:nth-child(3) .c8srv-folder-tab { left: 30.3rem !important; }
 
-@media (max-width: 900px) {
-  .c8srv-root .c8srv-folder-deck {
-    position: relative !important;
-    display: block !important;
-    margin-top: 3rem !important;
-    padding-bottom: 60px !important;
-    margin-bottom: 4rem !important;
-  }
-  .c8srv-root .c8srv-folder-card {
-    grid-template-columns: 1fr !important;
-    padding: 2rem 1.5rem !important;
-    gap: 1.75rem !important;
-    position: sticky !important;
-    top: 90px !important;
-    margin-bottom: 40px !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06) !important;
-  }
-  .c8srv-root .c8srv-folder-card:nth-child(1) { top: 90px !important; z-index: 10 !important; position: sticky !important; }
-  .c8srv-root .c8srv-folder-card:nth-child(2) { top: 110px !important; z-index: 20 !important; position: sticky !important; }
-  .c8srv-root .c8srv-folder-card:nth-child(3) { top: 130px !important; z-index: 30 !important; position: sticky !important; }
-}
 .c8srv-root .c8srv-folder-card-left {
   display: flex !important;
   flex-direction: column !important;
@@ -419,17 +398,6 @@ body {
   .c8srv-root .c8srv-folder-card-right {
     justify-content: flex-start !important;
   }
-}
-.c8srv-root .c8srv-folder-card-img {
-  width: 100% !important;
-  max-width: 460px !important;
-  aspect-ratio: 16/10 !important;
-  border-radius: 4px !important;
-  border: 1px solid rgba(8,8,8,0.08) !important;
-  background: #FFFFFF !important;
-  padding: 8px !important;
-  box-shadow: 10px 10px 0px rgba(0,71,225,0.05) !important;
-  overflow: hidden !important;
 }
 .c8srv-root .c8srv-folder-card-img img {
   width: 100% !important;
