@@ -367,18 +367,27 @@ body {
 @media (max-width: 900px) {
   .c8srv-root .c8srv-folder-deck {
     margin-top: 3rem !important;
+    padding-bottom: 100px !important;
+    margin-bottom: 0px !important;
   }
   .c8srv-root .c8srv-folder-card {
     grid-template-columns: 1fr !important;
     padding: 2rem 1.5rem !important;
     gap: 1.75rem !important;
     position: sticky !important;
+    min-height: 480px !important;
   }
   .c8srv-root .c8srv-folder-card:nth-child(1),
-  .c8srv-root .c8srv-folder-card:nth-child(2),
-  .c8srv-root .c8srv-folder-card:nth-child(3) {
+  .c8srv-root .c8srv-folder-card:nth-child(2) {
     top: 100px !important;
     position: sticky !important;
+  }
+  .c8srv-root .c8srv-folder-card:nth-child(3) {
+    top: 130px !important;
+    z-index: 30 !important;
+    position: sticky !important;
+    min-height: 680px !important;
+    margin-bottom: 15px !important;
   }
 }
 
@@ -887,6 +896,42 @@ body {
   .c8srv-root .c8srv-folder-card:nth-child(1) .c8srv-folder-tab,
   .c8srv-root .c8srv-folder-card:nth-child(2) .c8srv-folder-tab,
   .c8srv-root .c8srv-folder-card:nth-child(3) .c8srv-folder-tab { left: 1.5rem !important; }
+}
+
+.c8srv-root .c8srv-folder-card-left { display: flex !important; flex-direction: column !important; }
+.c8srv-root .c8srv-folder-card-title {
+  font-family: 'Michroma', sans-serif !important;
+  font-size: clamp(1.2rem, 2vw, 1.6rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  color: #080808 !important;
+  margin-bottom: 1rem !important;
+  text-transform: uppercase !important;
+}
+.c8srv-root .c8srv-folder-card-desc {
+  font-size: 14.5px !important;
+  color: #6B6B6B !important;
+  line-height: 1.65 !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+.c8srv-root .c8srv-folder-card-right { display: flex !important; justify-content: center !important; }
+.c8srv-root .c8srv-folder-card-img {
+  border: 1px solid rgba(8,8,8,0.08) !important;
+  background: #FFFFFF !important;
+  padding: 8px !important;
+  box-shadow: 10px 10px 0px rgba(0,71,225,0.03) !important;
+  border-radius: 4px !important;
+  width: 100% !important;
+  max-width: 440px !important;
+  aspect-ratio: 4/3 !important;
+  overflow: hidden !important;
+}
+.c8srv-root .c8srv-folder-card-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 6px !important;
+  display: block !important;
 }
 
 /* ?? Full Catalog Styles (CSS tool popover clouds) ?? */
