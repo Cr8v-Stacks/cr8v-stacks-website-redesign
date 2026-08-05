@@ -59,9 +59,15 @@
       .cat-dropdown-wrapper:hover .cat-popover-dropdown {
         opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto;
       }
+      .cat-dropdown-wrapper:hover .cat-dropdown-arrow {
+        transform: rotate(180deg);
+      }
     }
     .cat-popover-dropdown.is-open {
       opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important;
+    }
+    .cat-dropdown-wrapper.is-open .cat-dropdown-arrow {
+      transform: rotate(180deg) !important;
     }
     .art-h1 {
       font-family: var(--font-heading); font-size: clamp(1.6rem, 3.2vw, 2.4rem);
@@ -163,6 +169,31 @@
     .art-btn-primary { background: var(--c8-blue); color: #FFFFFF !important; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; text-transform: uppercase; }
     .art-btn-secondary { background: #080808; color: #FFFFFF !important; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; text-transform: uppercase; }
 
+    .art-btn-primary, .art-btn-secondary, .cta-card-btn {
+      position: relative !important;
+      overflow: hidden !important;
+      transition: transform 0.25s ease, background 0.25s ease !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    .art-btn-primary::before, .art-btn-secondary::before, .cta-card-btn::before {
+      content: '' !important;
+      position: absolute !important;
+      top: -50% !important; left: -100% !important;
+      width: 100% !important; height: 200% !important;
+      background: linear-gradient(115deg, transparent, rgba(255,255,255,0.4), rgba(61, 107, 255, 0.4), rgba(0, 194, 255, 0.4), transparent) !important;
+      transform: rotate(25deg) !important;
+      transition: left 0.75s ease !important;
+      pointer-events: none !important;
+    }
+    .art-btn-primary:hover::before, .art-btn-secondary:hover::before, .cta-card-btn:hover::before {
+      left: 150% !important;
+    }
+    .art-btn-primary:hover, .art-btn-secondary:hover, .cta-card-btn:hover {
+      transform: translateY(-2px) !important;
+    }
+
     .art-body-text a { color: var(--c8-blue); text-decoration: none; border-bottom: 1px solid var(--c8-blue); transition: color 0.2s ease; }
     .art-body-text a:hover { color: var(--c8-blue-hi); border-color: var(--c8-blue-hi); }
 
@@ -253,10 +284,10 @@
       <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; position: relative;">
         <span class="art-cat-pill">Liquid Performance Engineering</span>
         
-        <!-- Interactive Animated Category Popover Pill (+3) -->
+        <!-- Interactive Animated Category Popover Pill (+3 with Animated SVG Arrow) -->
         <div class="cat-dropdown-wrapper" style="position: relative; display: inline-block;">
-          <button class="art-cat-pill" id="cat-more-btn" onclick="toggleCatPopover(event)" style="cursor: pointer; background: #0047E1; color: #FFFFFF; border: none; display: inline-flex; align-items: center; justify-content: center; padding: 4px 11px; font-size: 0.8rem; font-weight: 700; font-family: var(--font-mono); border-radius: 4px;">
-            +3
+          <button class="art-cat-pill" id="cat-more-btn" onclick="toggleCatPopover(event)" style="cursor: pointer; background: #0047E1; color: #FFFFFF; border: none; display: inline-flex; align-items: center; gap: 4px; padding: 4px 14px; font-size: 1rem !important; font-weight: 700; font-family: var(--font-mono); border-radius: 4px;">
+            +3 <svg class="cat-dropdown-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none" style="transition: transform 0.25s ease;"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div id="cat-popover-menu" class="cat-popover-dropdown">
             <div style="font-family: var(--font-mono); font-size: 9px; color: #7C93FF; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.1em; font-weight: 700;">MORE CATEGORIES</div>
@@ -593,7 +624,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      var blogButtons = document.querySelectorAll('.art-btn-primary, .art-btn-secondary, .sidebar-cta-btn, .c8-btn-primary');
+      var blogButtons = document.querySelectorAll('.art-btn-primary, .art-btn-secondary, .sidebar-cta-btn, .cta-card-btn, .c8-btn-primary');
       var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
       blogButtons.forEach(function(btn) {
