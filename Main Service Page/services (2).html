@@ -26,6 +26,64 @@
 .c8srv-root .c8srv-label.is-light::before { color: #7C93FF !important; }
 .c8srv-root .c8srv-stroke-text { color: transparent !important; -webkit-text-stroke: 1.5px #080808 !important; }
 
+/* ── UNIFIED GLOBAL PRIMARY BUTTON SYSTEM (SHIMMER + MATRIX SCRAMBLE) ── */
+.c8srv-root .c8-btn-primary,
+.c8srv-root .c8srv-price-btn {
+  background: #0047E1 !important;
+  color: #FFFFFF !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  padding: 0.9rem 2.2rem !important;
+  border-radius: 4px !important;
+  border: 1px solid transparent !important;
+  position: relative !important;
+  overflow: hidden !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease !important;
+}
+.c8srv-root .c8-btn-primary.is-dark { background: #080808 !important; color: #FFFFFF !important; }
+.c8srv-root .c8-btn-primary.is-light { background: #FFFFFF !important; color: #080808 !important; border: 1px solid rgba(8,8,8,0.14) !important; }
+.c8srv-root .c8-btn-primary.is-dark:hover { background: #0047E1 !important; color: #FFFFFF !important; }
+.c8srv-root .c8-btn-primary.is-light:hover { background: #F4F4F4 !important; color: #0047E1 !important; }
+
+.c8srv-root .c8-btn-primary::before,
+.c8srv-root .c8srv-price-btn::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -50% !important; left: -100% !important;
+  width: 100% !important; height: 200% !important;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,0.4), rgba(61, 107, 255, 0.4), rgba(0, 194, 255, 0.4), transparent) !important;
+  transform: rotate(25deg) !important;
+  transition: left 0.75s ease !important;
+  pointer-events: none !important;
+}
+.c8srv-root .c8-btn-primary:hover::before,
+.c8srv-root .c8srv-price-btn:hover::before { left: 150% !important; }
+.c8srv-root .c8-btn-primary:hover,
+.c8srv-root .c8srv-price-btn:hover { transform: translateY(-2px) !important; }
+
+/* ── BORDER RADIUS OVERRIDE TO 4PX GLOBALLY ── */
+.c8srv-root .c8srv-showcase-card,
+.c8srv-root .c8srv-showcase-card-img,
+.c8srv-root .c8srv-folder-card,
+.c8srv-root .c8srv-folder-card-img,
+.c8srv-root .c8srv-flank-card,
+.c8srv-root .c8srv-price-box,
+.c8srv-root .c8srv-estimator,
+.c8srv-root .c8srv-est-result,
+.c8srv-root .c8srv-badge,
+.c8srv-root .c8srv-pill,
+.c8srv-root .c8srv-est-choice {
+  border-radius: 4px !important;
+}
+
 .c8srv-root .c8srv-serif-text { font-family: 'Georgia', serif !important; font-style: italic !important; text-transform: none !important; font-weight: 400 !important; }
 .c8srv-root .c8srv-gradient-text {
   background: linear-gradient(135deg, #0047E1 0%, #00C6FF 100%) !important;
@@ -308,23 +366,28 @@ body {
 
 @media (max-width: 900px) {
   .c8srv-root .c8srv-folder-deck {
-    position: relative !important;
-    display: block !important;
-    margin-top: 4rem !important;
-    padding-bottom: 120px !important; /* Extra scrollable space for 3rd card to stack fully */
-    margin-bottom: 8rem !important;
+    padding-bottom: 0 !important;
+    margin-top: 2rem !important;
+    margin-bottom: 3rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2.5rem !important;
   }
   .c8srv-root .c8srv-folder-card {
     grid-template-columns: 1fr !important;
     padding: 2rem 1.5rem !important;
     gap: 2rem !important;
-    position: sticky !important;
-    top: 100px !important;
-    margin-bottom: 80px !important;
+    position: relative !important;
+    top: 0 !important;
+    min-height: auto !important;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    height: auto !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04) !important;
   }
-  .c8srv-root .c8srv-folder-card:nth-child(1) { top: 100px !important; z-index: 10 !important; }
-  .c8srv-root .c8srv-folder-card:nth-child(2) { top: 100px !important; z-index: 20 !important; }
-  .c8srv-root .c8srv-folder-card:nth-child(3) { top: 100px !important; z-index: 30 !important; }
+  .c8srv-root .c8srv-folder-card:nth-child(1),
+  .c8srv-root .c8srv-folder-card:nth-child(2),
+  .c8srv-root .c8srv-folder-card:nth-child(3) { top: 0 !important; position: relative !important; }
 }
 .c8srv-root .c8srv-folder-card-left {
   display: flex !important;
@@ -1119,12 +1182,179 @@ body {
     </div>
   </div>
 
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- PRIMARY SERVICE ALTERNATIVE SHOWCASES (OPTIONS 1, 2, AND 3)      -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+
+  <!-- ── OPTION 1: SERVICES ACCORDION (HOMEPAGE & ABOUT US PARITY) ── -->
+  <div class="c8srv-opt-container" id="option-1-accordion" style="margin-bottom: 5rem !important;">
+    <div class="c8srv-label">Primary Service // OPTION 1 — ACCORDION SHOWCASE</div>
+    <h2 class="c8srv-section-title">Web Design &amp; <span class="c8srv-serif-text">Development</span></h2>
+    <p class="c8srv-lead" style="margin-bottom: 2.5rem !important;">Interactive horizontal accordion layout — expandable deliverable rows, live preview thumbnails, and direct CTAs.</p>
+
+    <div class="sdv-accordion" style="display: flex; flex-direction: column; border-top: 1px solid rgba(8,8,8,0.12);">
+      
+      <!-- 01 WordPress -->
+      <div class="sdv-item is-open" id="opt1-wp" style="border-bottom: 1px solid rgba(8,8,8,0.12); padding: 1.5rem 0;">
+        <div style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;" onclick="this.parentElement.classList.toggle('is-open')">
+          <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; color: #0047E1; font-weight: 700;">01</span>
+            <h3 style="font-family: 'Michroma', sans-serif; font-size: 1.25rem; font-weight: 700; text-transform: uppercase; color: #080808; margin: 0;">WordPress, No-Code</h3>
+          </div>
+          <span style="font-family: 'Space Mono', monospace; font-size: 1.2rem; color: #0047E1; font-weight: 700;">+</span>
+        </div>
+        <div style="margin-top: 1.25rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: center;">
+          <div>
+            <p style="font-size: 0.95rem; color: #6B6B6B; line-height: 1.65; margin-bottom: 1.25rem;">Fully custom WordPress builds on Elementor and native blocks — zero page-builder bloat, editable by your team without touching code.</p>
+            <a href="https://cr8vstacks.com/services/wordpress-development/" class="c8-btn-primary">Explore WordPress →</a>
+          </div>
+          <div style="border-radius: 4px; overflow: hidden; border: 1px solid rgba(8,8,8,0.1); aspect-ratio: 16/9;">
+            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800&auto=format&fit=crop" alt="WordPress preview" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 Shopify -->
+      <div class="sdv-item" id="opt1-shopify" style="border-bottom: 1px solid rgba(8,8,8,0.12); padding: 1.5rem 0;">
+        <div style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;" onclick="this.parentElement.classList.toggle('is-open')">
+          <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; color: #0047E1; font-weight: 700;">02</span>
+            <h3 style="font-family: 'Michroma', sans-serif; font-size: 1.25rem; font-weight: 700; text-transform: uppercase; color: #080808; margin: 0;">Shopify Storefronts</h3>
+          </div>
+          <span style="font-family: 'Space Mono', monospace; font-size: 1.2rem; color: #0047E1; font-weight: 700;">+</span>
+        </div>
+        <div style="margin-top: 1.25rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: center;">
+          <div>
+            <p style="font-size: 0.95rem; color: #6B6B6B; line-height: 1.65; margin-bottom: 1.25rem;">Conversion-focused Shopify storefronts built on custom Liquid themes — designed to move product, not just display it.</p>
+            <a href="https://cr8vstacks.com/services/shopify-ecommerce-design/" class="c8-btn-primary">Explore Shopify →</a>
+          </div>
+          <div style="border-radius: 4px; overflow: hidden; border: 1px solid rgba(8,8,8,0.1); aspect-ratio: 16/9;">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Shopify preview" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 Custom Dev -->
+      <div class="sdv-item" id="opt1-custom" style="border-bottom: 1px solid rgba(8,8,8,0.12); padding: 1.5rem 0;">
+        <div style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;" onclick="this.parentElement.classList.toggle('is-open')">
+          <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; color: #0047E1; font-weight: 700;">03</span>
+            <h3 style="font-family: 'Michroma', sans-serif; font-size: 1.25rem; font-weight: 700; text-transform: uppercase; color: #080808; margin: 0;">Custom Development</h3>
+          </div>
+          <span style="font-family: 'Space Mono', monospace; font-size: 1.2rem; color: #0047E1; font-weight: 700;">+</span>
+        </div>
+        <div style="margin-top: 1.25rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: center;">
+          <div>
+            <p style="font-size: 0.95rem; color: #6B6B6B; line-height: 1.65; margin-bottom: 1.25rem;">Bespoke web applications, APIs, and custom dashboards built from line one without SaaS lock-in.</p>
+            <a href="https://cr8vstacks.com/services/custom-web-development/" class="c8-btn-primary">Explore Custom Dev →</a>
+          </div>
+          <div style="border-radius: 4px; overflow: hidden; border: 1px solid rgba(8,8,8,0.1); aspect-ratio: 16/9;">
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800&auto=format&fit=crop" alt="Custom dev preview" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <div class="c8srv-tearline"><div class="c8srv-tearline-dot"></div><div class="c8srv-tearline-line"></div><div class="c8srv-tearline-dot"></div></div>
 
-  <!-- Primary: Web Design & Development (sticky tabs layout) -->
+  <!-- ── OPTION 2: BENTO GRID MATRIX ── -->
+  <div class="c8srv-opt-container" id="option-2-bento" style="margin-bottom: 5rem !important;">
+    <div class="c8srv-label">Primary Service // OPTION 2 — BENTO GRID MATRIX</div>
+    <h2 class="c8srv-section-title">Web Design &amp; <span class="c8srv-serif-text">Development</span></h2>
+    <p class="c8srv-lead" style="margin-bottom: 2.5rem !important;">Multi-card Bento layout showcasing platforms with distinct feature cards, technology tags, and PageSpeed metrics.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+      
+      <!-- Card 1: WordPress -->
+      <div style="background: #FAFAF7; border: 1px solid rgba(8,8,8,0.12); border-radius: 4px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <span style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: #0047E1; font-weight: 700; text-transform: uppercase;">01 / PLATFORM</span>
+          <h3 style="font-family: 'Michroma', sans-serif; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; color: #080808; margin: 0.75rem 0;">WordPress Engine</h3>
+          <p style="font-size: 0.9rem; color: #6B6B6B; line-height: 1.6; margin-bottom: 1.5rem;">Elementor-safe custom themes engineered for sub-1.2s loads and 95+ PageSpeed scores.</p>
+        </div>
+        <a href="https://cr8vstacks.com/services/wordpress-development/" class="c8-btn-primary">Explore WordPress</a>
+      </div>
+
+      <!-- Card 2: Shopify -->
+      <div style="background: #080808; color: #FAFAF7; border-radius: 4px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <span style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: #7C93FF; font-weight: 700; text-transform: uppercase;">02 / E-COMMERCE</span>
+          <h3 style="font-family: 'Michroma', sans-serif; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; color: #FAFAF7; margin: 0.75rem 0;">Shopify Storefronts</h3>
+          <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 1.5rem;">Bespoke Liquid storefronts designed to maximize mobile checkout speed and store conversion.</p>
+        </div>
+        <a href="https://cr8vstacks.com/services/shopify-ecommerce-design/" class="c8-btn-primary is-light">Explore Shopify</a>
+      </div>
+
+      <!-- Card 3: Custom Dev -->
+      <div style="background: #0047E1; color: #FFFFFF; border-radius: 4px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <span style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: rgba(255,255,255,0.7); font-weight: 700; text-transform: uppercase;">03 / SOFTWARE</span>
+          <h3 style="font-family: 'Michroma', sans-serif; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; color: #FFFFFF; margin: 0.75rem 0;">Custom Development</h3>
+          <p style="font-size: 0.9rem; color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: 1.5rem;">Tailored web applications, internal tools, and APIs built without SaaS dependencies.</p>
+        </div>
+        <a href="https://cr8vstacks.com/services/custom-web-development/" class="c8-btn-primary is-light">Explore Custom Dev</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="c8srv-tearline"><div class="c8srv-tearline-dot"></div><div class="c8srv-tearline-line"></div><div class="c8srv-tearline-dot"></div></div>
+
+  <!-- ── OPTION 3: CDN LOGO TABBED BREAKOUT ── -->
+  <div class="c8srv-opt-container" id="option-3-tabs" style="margin-bottom: 5rem !important;">
+    <div class="c8srv-label">Primary Service // OPTION 3 — CDN LOGO TABBED BREAKOUT</div>
+    <h2 class="c8srv-section-title">Web Design &amp; <span class="c8srv-serif-text">Development</span></h2>
+    <p class="c8srv-lead" style="margin-bottom: 2.5rem !important;">Tabbed showcase with SimpleIcons CDN logos, auto-proceeding progress bars, and real performance metrics.</p>
+
+    <div style="background: #FAFAF7; border: 1px solid rgba(8,8,8,0.12); border-radius: 4px; display: grid; grid-template-columns: 160px 1fr; overflow: hidden; min-height: 380px;">
+      <!-- Left Logo Tabs -->
+      <div style="display: flex; flex-direction: column; background: #FFFFFF; border-right: 1px solid rgba(8,8,8,0.12);">
+        <button style="padding: 1.5rem 1rem; border: none; border-bottom: 1px solid rgba(8,8,8,0.12); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; background: #FAFAF7; box-shadow: inset 4px 0 0 #0047E1;">
+          <img src="https://cdn.simpleicons.org/wordpress/0047E1" alt="WordPress" style="width: 32px; height: 32px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; color: #080808;">WordPress</span>
+        </button>
+        <button style="padding: 1.5rem 1rem; border: none; border-bottom: 1px solid rgba(8,8,8,0.12); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; background: #FFFFFF;">
+          <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" style="width: 32px; height: 32px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; color: #080808;">Shopify</span>
+        </button>
+        <button style="padding: 1.5rem 1rem; border: none; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; background: #FFFFFF;">
+          <img src="https://cdn.simpleicons.org/php/777BB4" alt="Custom Dev" style="width: 32px; height: 32px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; color: #080808;">Custom Dev</span>
+        </button>
+      </div>
+
+      <!-- Right Main Content Pane -->
+      <div style="padding: 3rem; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h3 style="font-family: 'Michroma', sans-serif; font-size: 1.3rem; font-weight: 700; text-transform: uppercase; color: #080808; margin-bottom: 1rem;">WORDPRESS CUSTOM ENGINE</h3>
+          <p style="font-size: 0.95rem; color: #6B6B6B; line-height: 1.65; max-width: 680px; margin-bottom: 2rem;">Hand-written PHP templates, Elementor-safe widgets, and optimized asset loading ensuring sub-1.2s page loads and 95+ PageSpeed scores.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; padding-top: 1.75rem; border-top: 1px solid rgba(8,8,8,0.12);">
+          <div>
+            <div style="font-family: 'Michroma', sans-serif; font-size: 1.8rem; font-weight: 700; color: #0047E1;">95%+</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 0.68rem; color: #6B6B6B; text-transform: uppercase;">PageSpeed Score</div>
+          </div>
+          <div>
+            <div style="font-family: 'Michroma', sans-serif; font-size: 1.8rem; font-weight: 700; color: #0047E1;">&lt; 1.2s</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 0.68rem; color: #6B6B6B; text-transform: uppercase;">Page Load Time</div>
+          </div>
+          <div>
+            <div style="font-family: 'Michroma', sans-serif; font-size: 1.8rem; font-weight: 700; color: #0047E1;">100%</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 0.68rem; color: #6B6B6B; text-transform: uppercase;">Code Ownership</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="c8srv-tearline"><div class="c8srv-tearline-dot"></div><div class="c8srv-tearline-line"></div><div class="c8srv-tearline-dot"></div></div>
+
+  <!-- Primary: Web Design & Development (sticky tabs layout - PREVIOUS VERSION) -->
   <div class="c8srv-showcase" id="primary-showcase">
     <div class="c8srv-showcase-sticky-left">
-      <div class="c8srv-label">Primary Service // 01</div>
+      <div class="c8srv-label">Primary Service // PREVIOUS VERSION</div>
       <h2 class="c8srv-section-title">Web Design &amp; <span class="c8srv-serif-text">Development</span></h2>
       <p class="c8srv-lead" style="margin-bottom: 2rem !important;">One service, every platform. Whichever foundation your business runs on, it's built the same way — zero bloat, engineered for speed and conversion.</p>
       
@@ -2161,10 +2391,36 @@ body {
         var b = i.querySelector('.c8srv-accordion-body');
         if (b) b.style.gridTemplateRows = '0fr';
       });
-      if (!wasOpen && body) {
-        item.classList.add('is-open');
-        body.style.gridTemplateRows = '1fr';
-      }
+  /* Live Matrix Text Scramble Script */
+  var srvMatrixButtons = root.querySelectorAll('.c8-btn-primary, .c8srv-price-btn, .c8srv-explore');
+  var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  srvMatrixButtons.forEach(function(btn) {
+    var originalText = btn.innerText.trim();
+    var scrambleInterval = null;
+
+    btn.addEventListener('mouseenter', function() {
+      var iteration = 0;
+      clearInterval(scrambleInterval);
+
+      scrambleInterval = setInterval(function() {
+        btn.innerText = originalText.split('')
+          .map(function(char, index) {
+            if (char === ' ' || index < iteration) return originalText[index];
+            return srvMatrixChars[Math.floor(Math.random() * srvMatrixChars.length)];
+          })
+          .join('');
+
+        if (iteration >= originalText.length) {
+          clearInterval(scrambleInterval);
+        }
+        iteration += 1 / 2;
+      }, 25);
+    });
+
+    btn.addEventListener('mouseleave', function() {
+      clearInterval(scrambleInterval);
+      btn.innerText = originalText;
     });
   });
 })();
