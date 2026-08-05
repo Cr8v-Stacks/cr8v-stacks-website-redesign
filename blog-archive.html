@@ -61,6 +61,34 @@
     .card-date { font-family: var(--font-mono); font-size: 0.7rem; color: #8A8A8A; font-weight: 400; }
     .card-category-pill { font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); border: 1px solid rgba(8, 8, 8, 0.3); border-radius: 12px; padding: 0.18rem 0.65rem; letter-spacing: 0.05em; }
 
+    /* CATEGORY DROPDOWN POPOVER ANIMATION */
+    .cat-dropdown-wrapper { position: relative; display: inline-flex; align-items: center; }
+    .cat-popover-dropdown {
+      position: absolute; top: 100%; right: 0; z-index: 100;
+      background: #080808; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;
+      padding: 0.75rem; min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      opacity: 0; visibility: hidden; transform: translateY(4px);
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+      pointer-events: none; margin-top: 6px;
+    }
+    .cat-popover-dropdown::before {
+      content: '' !important; position: absolute !important; top: -14px !important; left: 0 !important; right: 0 !important; height: 14px !important; background: transparent !important;
+    }
+    @media (hover: hover) {
+      .cat-dropdown-wrapper:hover .cat-popover-dropdown {
+        opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto;
+      }
+      .cat-dropdown-wrapper:hover .cat-dropdown-arrow {
+        transform: rotate(180deg);
+      }
+    }
+    .cat-popover-dropdown.is-open {
+      opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important;
+    }
+    .cat-dropdown-wrapper.is-open .cat-dropdown-arrow {
+      transform: rotate(180deg) !important;
+    }
+
     .card-img-container { aspect-ratio: 16 / 10; border-radius: 2px; overflow: hidden; background: #000000; margin-bottom: 1rem; border: 1px solid var(--c8-grid-line); }
     .card-img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -102,7 +130,19 @@
         <div>
           <div class="card-top-meta">
             <span class="card-date">August 4, 2026</span>
-            <span class="card-category-pill">ENGINEERING</span>
+            <div style="display: flex; align-items: center; gap: 0.35rem;">
+              <span class="card-category-pill">ENGINEERING</span>
+              <div class="cat-dropdown-wrapper">
+                <button class="art-cat-pill" onclick="toggleCatPopover(event, 'arc-1')" style="cursor: pointer; background: #0047E1; color: #FFFFFF; border: none; display: inline-flex; align-items: center; gap: 3px; padding: 2px 7px; font-size: 0.72rem; font-weight: 700; font-family: var(--font-mono); border-radius: 4px;">
+                  +2 <svg class="cat-dropdown-arrow" viewBox="0 0 24 24" width="10" height="10" stroke="currentColor" stroke-width="2.5" fill="none" style="transition: transform 0.25s ease;"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div id="arc-1" class="cat-popover-dropdown" style="min-width: 170px;">
+                  <div style="font-family: var(--font-mono); font-size: 8.5px; color: #7C93FF; text-transform: uppercase; margin-bottom: 0.4rem; letter-spacing: 0.1em; font-weight: 700;">MORE CATEGORIES</div>
+                  <a href="#" style="display: block; font-family: var(--font-mono); font-size: 10px; color: #FAFAF7; text-decoration: none; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">Liquid Performance</a>
+                  <a href="#" style="display: block; font-family: var(--font-mono); font-size: 10px; color: #FAFAF7; text-decoration: none; padding: 4px 0;">Architecture</a>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="card-img-container">
             <img src="assets/case_study_blvck_hair_1785571402640.jpg" alt="Liquid Performance Architecture" class="card-img">
@@ -115,7 +155,19 @@
         <div>
           <div class="card-top-meta">
             <span class="card-date">June 29, 2026</span>
-            <span class="card-category-pill">ENGINEERING</span>
+            <div style="display: flex; align-items: center; gap: 0.35rem;">
+              <span class="card-category-pill">ENGINEERING</span>
+              <div class="cat-dropdown-wrapper">
+                <button class="art-cat-pill" onclick="toggleCatPopover(event, 'arc-2')" style="cursor: pointer; background: #0047E1; color: #FFFFFF; border: none; display: inline-flex; align-items: center; gap: 3px; padding: 2px 7px; font-size: 0.72rem; font-weight: 700; font-family: var(--font-mono); border-radius: 4px;">
+                  +2 <svg class="cat-dropdown-arrow" viewBox="0 0 24 24" width="10" height="10" stroke="currentColor" stroke-width="2.5" fill="none" style="transition: transform 0.25s ease;"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div id="arc-2" class="cat-popover-dropdown" style="min-width: 170px;">
+                  <div style="font-family: var(--font-mono); font-size: 8.5px; color: #7C93FF; text-transform: uppercase; margin-bottom: 0.4rem; letter-spacing: 0.1em; font-weight: 700;">MORE CATEGORIES</div>
+                  <a href="#" style="display: block; font-family: var(--font-mono); font-size: 10px; color: #FAFAF7; text-decoration: none; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">Code Optimization</a>
+                  <a href="#" style="display: block; font-family: var(--font-mono); font-size: 10px; color: #FAFAF7; text-decoration: none; padding: 4px 0;">Speed Refactoring</a>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="card-img-container">
             <img src="assets/hww_process_layers_1785672427589.jpg" alt="Debloating WordPress" class="card-img">
@@ -128,7 +180,19 @@
         <div>
           <div class="card-top-meta">
             <span class="card-date">May 28, 2026</span>
-            <span class="card-category-pill">ENGINEERING</span>
+            <div style="display: flex; align-items: center; gap: 0.35rem;">
+              <span class="card-category-pill">ENGINEERING</span>
+              <div class="cat-dropdown-wrapper">
+                <button class="art-cat-pill" onclick="toggleCatPopover(event, 'arc-3')" style="cursor: pointer; background: #0047E1; color: #FFFFFF; border: none; display: inline-flex; align-items: center; gap: 3px; padding: 2px 7px; font-size: 0.72rem; font-weight: 700; font-family: var(--font-mono); border-radius: 4px;">
+                  +2 <svg class="cat-dropdown-arrow" viewBox="0 0 24 24" width="10" height="10" stroke="currentColor" stroke-width="2.5" fill="none" style="transition: transform 0.25s ease;"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div id="arc-3" class="cat-popover-dropdown" style="min-width: 170px;">
+                  <div style="font-family: var(--font-mono); font-size: 8.5px; color: #7C93FF; text-transform: uppercase; margin-bottom: 0.4rem; letter-spacing: 0.1em; font-weight: 700;">MORE CATEGORIES</div>
+                  <a href="#" style="display: block; font-family: var(--font-mono); font-size: 10px; color: #FAFAF7; text-decoration: none; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">PHP Meta Boxes</a>
+                  <a href="#" style="display: block; font-family: var(--font-mono); font-size: 10px; color: #FAFAF7; text-decoration: none; padding: 4px 0;">Custom Schema</a>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="card-img-container">
             <img src="assets/hww_stacks_visual_1785672004212.jpg" alt="Native Meta Boxes" class="card-img">
@@ -152,6 +216,35 @@
     </section>
 
   </main>
+
+  <script>
+    function toggleCatPopover(event, menuId) {
+      event.stopPropagation();
+      var menu = menuId ? document.getElementById(menuId) : document.getElementById('cat-popover-menu');
+      var wrapper = event.currentTarget.closest('.cat-dropdown-wrapper');
+      
+      document.querySelectorAll('.cat-popover-dropdown.is-open').forEach(function(el) {
+        if (el !== menu) el.classList.remove('is-open');
+      });
+      document.querySelectorAll('.cat-dropdown-wrapper.is-open').forEach(function(el) {
+        if (el !== wrapper) el.classList.remove('is-open');
+      });
+
+      if (menu) menu.classList.toggle('is-open');
+      if (wrapper) wrapper.classList.toggle('is-open');
+    }
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.cat-dropdown-wrapper')) {
+        document.querySelectorAll('.cat-popover-dropdown.is-open').forEach(function(el) {
+          el.classList.remove('is-open');
+        });
+        document.querySelectorAll('.cat-dropdown-wrapper.is-open').forEach(function(el) {
+          el.classList.remove('is-open');
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
