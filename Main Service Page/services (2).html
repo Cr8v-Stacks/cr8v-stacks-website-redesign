@@ -1548,182 +1548,214 @@ body {
     </div>
   </div>
 
-  <!-- Section: FAQ -->
-  <div class="c8srv-faq-section" style="padding: 6rem 0 !important;">
-    <div class="c8srv-label c8srv-reveal">FAQ</div>
-    <h2 class="c8srv-section-title c8srv-reveal">Questions, <span class="c8srv-serif-text">Answered Honestly</span></h2>
-    <p class="c8srv-lead c8srv-reveal" style="margin-bottom: 3rem;">Clear answers to common questions about our design, development, and marketing processes.</p>
+  <!-- Section: FAQ (HOMEPAGE DESIGN PARITY & FONT FAMILY) -->
+  <section class="faq-section" id="faq" style="background: #FAFAF7 !important; padding: clamp(5rem, 10vw, 9rem) 0 !important;">
+    <style>
+      .faq-section { background: #FAFAF7 !important; padding: clamp(5rem, 10vw, 9rem) 0 !important; }
+      .faq-inner { max-width: 1360px !important; margin: 0 auto !important; padding: 0 clamp(1.5rem, 5vw, 5rem) !important; display: grid !important; grid-template-columns: 300px 1fr !important; gap: clamp(3rem, 6vw, 8rem) !important; align-items: start !important; }
+      .faq-aside { position: sticky !important; top: 5rem !important; }
+      .faq-eyebrow { font-family: 'Space Mono', monospace !important; font-size: 0.65rem !important; letter-spacing: 0.14em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 1rem !important; font-weight: 700 !important; }
+      .faq-h2 { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.6rem, 2.8vw, 2.2rem) !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.2 !important; margin-bottom: 1.5rem !important; }
+      .faq-sub { font-family: 'DM Sans', sans-serif !important; font-size: 0.85rem !important; font-weight: 300 !important; color: #555555 !important; line-height: 1.7 !important; margin-bottom: 2rem !important; }
+      .faq-cta-link { font-family: 'Space Mono', monospace !important; font-size: 0.75rem !important; font-weight: 700 !important; color: #0047E1 !important; text-transform: uppercase !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; letter-spacing: 0.08em !important; transition: color 0.2s ease !important; }
+      .faq-cta-link:hover { color: #0037B5 !important; }
+      .faq-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+      .faq-item { border-bottom: 1px solid rgba(8,8,8,0.1) !important; }
+      .faq-item:first-child { border-top: 1px solid rgba(8,8,8,0.1) !important; }
+      .faq-trigger { width: 100% !important; background: none !important; border: none !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.4rem 0 !important; text-align: left !important; }
+      .faq-q { font-family: 'DM Sans', sans-serif !important; font-size: clamp(0.88rem, 1.3vw, 0.95rem) !important; font-weight: 500 !important; color: #080808 !important; line-height: 1.4 !important; }
+      .faq-icon { width: 28px !important; height: 28px !important; border-radius: 50% !important; border: 1px solid rgba(8,8,8,0.14) !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; transition: background 0.25s, border-color 0.25s !important; }
+      .faq-icon svg { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+      .faq-item.is-open .faq-icon { background: #0047E1 !important; border-color: #0047E1 !important; }
+      .faq-item.is-open .faq-icon svg { transform: rotate(45deg) !important; stroke: #ffffff !important; }
+      .faq-body { display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+      .faq-item.is-open .faq-body { grid-template-rows: 1fr !important; }
+      .faq-body-inner { overflow: hidden !important; }
+      .faq-a { font-family: 'DM Sans', sans-serif !important; font-size: 0.88rem !important; font-weight: 300 !important; line-height: 1.75 !important; color: #555555 !important; padding-bottom: 1.4rem !important; }
+      .faq-a a { color: #0047E1 !important; text-decoration: underline !important; }
+      @media (max-width: 900px) {
+        .faq-inner { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+        .faq-aside { position: static !important; }
+      }
+    </style>
 
-    <div class="c8srv-accordion" style="border-top: 1px solid rgba(8,8,8,0.1) !important;">
-      <div class="c8srv-accordion-item is-open" style="border-bottom: 1px solid rgba(8,8,8,0.1) !important;">
-        <div class="c8srv-accordion-head" data-c8srv-accordion-head style="display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important;">
-          <h3 class="c8srv-accordion-title" style="font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 1.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important;">How much does it cost to build a professional website in 2025?</h3>
-          <div class="c8srv-accordion-toggle" style="width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important;"></div>
-        </div>
-        <div class="c8srv-accordion-body" style="display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important;">
-          <div style="overflow: hidden !important;">
-            <p class="c8srv-accordion-desc" style="font-size: 14.5px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.72 !important; padding: 0 0.25rem 1.75rem 0.25rem !important;">Our custom builds start from $1,200 for single-page setups and scale depending on the platform, page count, and feature complexity. We evaluate your scope beforehand to give a firm starting price estimate that matches exactly what you need without hidden fees.</p>
-          </div>
-        </div>
+    <div class="faq-inner">
+      <div class="faq-aside">
+        <div class="faq-eyebrow"><span style="color:#0047E1;font-weight:800;font-size:0.85rem;margin-right:2px;">//</span> COMMON QUESTIONS</div>
+        <h2 class="faq-h2">Questions, Answered Honestly</h2>
+        <p class="faq-sub">Clear answers to common questions about our design, development, and marketing processes.</p>
+        <a href="https://cr8vstacks.com/contact/" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
       </div>
 
-      <div class="c8srv-accordion-item" style="border-bottom: 1px solid rgba(8,8,8,0.1) !important;">
-        <div class="c8srv-accordion-head" data-c8srv-accordion-head style="display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important;">
-          <h3 class="c8srv-accordion-title" style="font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 1.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important;">How long does it take to design and build a website?</h3>
-          <div class="c8srv-accordion-toggle" style="width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important;"></div>
-        </div>
-        <div class="c8srv-accordion-body" style="display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important;">
-          <div style="overflow: hidden !important;">
-            <p class="c8srv-accordion-desc" style="font-size: 14.5px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.72 !important; padding: 0 0.25rem 1.75rem 0.25rem !important;">A standard landing page or simple build takes 2 to 3 weeks. Custom portals, high-end e-commerce configurations, or AI MVP builds typically span 4 to 8 weeks. We define clear milestones and release live progress links during each stage so you always know the exact status.</p>
+      <ul class="faq-list" id="srv-faq-list">
+        <li class="faq-item is-open">
+          <button class="faq-trigger" aria-expanded="true">
+            <span class="faq-q">How much does it cost to build a professional website in 2025?</span>
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-body" style="grid-template-rows: 1fr;">
+            <div class="faq-body-inner">
+              <p class="faq-a">Our custom builds start from $1,200 for single-page setups and scale depending on the platform, page count, and feature complexity. We evaluate your scope beforehand to give a firm starting price estimate that matches exactly what you need without hidden fees.</p>
+            </div>
           </div>
-        </div>
-      </div>
+        </li>
 
-      <div class="c8srv-accordion-item" style="border-bottom: 1px solid rgba(8,8,8,0.1) !important;">
-        <div class="c8srv-accordion-head" data-c8srv-accordion-head style="display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important;">
-          <h3 class="c8srv-accordion-title" style="font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 1.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important;">What web design and development services do you offer?</h3>
-          <div class="c8srv-accordion-toggle" style="width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important;"></div>
-        </div>
-        <div class="c8srv-accordion-body" style="display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important;">
-          <div style="overflow: hidden !important;">
-            <p class="c8srv-accordion-desc" style="font-size: 14.5px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.72 !important; padding: 0 0.25rem 1.75rem 0.25rem !important;">We build custom WordPress sites (no-code Gutenberg or custom code blocks), custom Shopify themes, WooCommerce stores, custom PHP/JS applications, and AI MVP prototypes. We also provide brand identity guidelines, technical SEO Audits, and digital marketing retainer setups.</p>
+        <li class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">How long does it take to design and build a website?</span>
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p class="faq-a">A standard landing page or simple build takes 2 to 3 weeks. Custom portals, high-end e-commerce configurations, or AI MVP builds typically span 4 to 8 weeks. We define clear milestones and release live progress links during each stage so you always know the exact status.</p>
+            </div>
           </div>
-        </div>
-      </div>
+        </li>
 
-      <div class="c8srv-accordion-item" style="border-bottom: 1px solid rgba(8,8,8,0.1) !important;">
-        <div class="c8srv-accordion-head" data-c8srv-accordion-head style="display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important;">
-          <h3 class="c8srv-accordion-title" style="font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 1.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important;">Do you build websites on WordPress, Shopify, or both?</h3>
-          <div class="c8srv-accordion-toggle" style="width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important;"></div>
-        </div>
-        <div class="c8srv-accordion-body" style="display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important;">
-          <div style="overflow: hidden !important;">
-            <p class="c8srv-accordion-desc" style="font-size: 14.5px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.72 !important; padding: 0 0.25rem 1.75rem 0.25rem !important;">We build on both depending on your operational goals. If you need complete design control, hosting ownership, and low long-term software overhead, we build on WordPress (or WooCommerce). If you want hands-off hosted infrastructure, speed of deployment, and a simpler backend out of the box, we build on Shopify using custom Liquid templates.</p>
+        <li class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">What web design and development services do you offer?</span>
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p class="faq-a">We build custom WordPress sites (no-code Gutenberg or custom code blocks), custom Shopify themes, WooCommerce stores, custom PHP/JS applications, and AI MVP prototypes. We also provide brand identity guidelines, technical SEO Audits, and digital marketing retainer setups.</p>
+            </div>
           </div>
-        </div>
-      </div>
+        </li>
 
-      <div class="c8srv-accordion-item" style="border-bottom: 1px solid rgba(8,8,8,0.1) !important;">
-        <div class="c8srv-accordion-head" data-c8srv-accordion-head style="display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important;">
-          <h3 class="c8srv-accordion-title" style="font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 1.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important;">Which payment gateways do you integrate into websites?</h3>
-          <div class="c8srv-accordion-toggle" style="width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important;"></div>
-        </div>
-        <div class="c8srv-accordion-body" style="display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important;">
-          <div style="overflow: hidden !important;">
-            <p class="c8srv-accordion-desc" style="font-size: 14.5px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.72 !important; padding: 0 0.25rem 1.75rem 0.25rem !important;">We support and integrate all major international and regional payment processors, including Stripe, PayPal, Lemon Squeezy, Paystack, and Flutterwave. The integrations are wired natively at the code level to guarantee clean, secure user experiences.</p>
+        <li class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">Do you build websites on WordPress, Shopify, or both?</span>
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p class="faq-a">We build on both depending on your operational goals. If you need complete design control, hosting ownership, and low long-term software overhead, we build on WordPress (or WooCommerce). If you want hands-off hosted infrastructure, speed of deployment, and a simpler backend out of the box, we build on Shopify using custom Liquid templates.</p>
+            </div>
           </div>
-        </div>
-      </div>
+        </li>
 
-      <div class="c8srv-accordion-item" style="border-bottom: 1px solid rgba(8,8,8,0.1) !important;">
-        <div class="c8srv-accordion-head" data-c8srv-accordion-head style="display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important;">
-          <h3 class="c8srv-accordion-title" style="font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 1.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important;">Can you redesign or rebuild an existing website?</h3>
-          <div class="c8srv-accordion-toggle" style="width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important;"></div>
-        </div>
-        <div class="c8srv-accordion-body" style="display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important;">
-          <div style="overflow: hidden !important;">
-            <p class="c8srv-accordion-desc" style="font-size: 14.5px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.72 !important; padding: 0 0.25rem 1.75rem 0.25rem !important;">Yes. We handle structural migrations and design revamps. We preserve your existing content, customer data, and SEO indexing structures through mapping and redirects so your traffic does not drop upon rebuilding.</p>
+        <li class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">Which payment gateways do you integrate into websites?</span>
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p class="faq-a">We support and integrate all major international and regional payment processors, including Stripe, PayPal, Lemon Squeezy, Paystack, and Flutterwave. The integrations are wired natively at the code level to guarantee clean, secure user experiences.</p>
+            </div>
           </div>
-        </div>
-      </div>
+        </li>
 
-      <div class="c8srv-accordion-item" style="border-bottom: 1px solid rgba(8,8,8,0.1) !important;">
-        <div class="c8srv-accordion-head" data-c8srv-accordion-head style="display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important;">
-          <h3 class="c8srv-accordion-title" style="font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 1.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important;">Do you offer SEO as part of the website build?</h3>
-          <div class="c8srv-accordion-toggle" style="width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important;"></div>
-        </div>
-        <div class="c8srv-accordion-body" style="display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important;">
-          <div style="overflow: hidden !important;">
-            <p class="c8srv-accordion-desc" style="font-size: 14.5px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.72 !important; padding: 0 0.25rem 1.75rem 0.25rem !important;">Yes. Every project includes basic technical SEO setup: schema mapping, canonical URL structures, semantic coding, sitemap submission, and fast loading performance. We also offer advanced SEO strategy packages covering content strategy and keyword alignment.</p>
+        <li class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">Can you redesign or rebuild an existing website?</span>
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p class="faq-a">Yes. We handle structural migrations and design revamps. We preserve your existing content, customer data, and SEO indexing structures through mapping and redirects so your traffic does not drop upon rebuilding.</p>
+            </div>
           </div>
-        </div>
-      </div>
+        </li>
 
-      <div class="c8srv-accordion-item" style="border-bottom: 1px solid rgba(8,8,8,0.1) !important;">
-        <div class="c8srv-accordion-head" data-c8srv-accordion-head style="display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important;">
-          <h3 class="c8srv-accordion-title" style="font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 1.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important;">What ongoing support do you offer after a website goes live?</h3>
-          <div class="c8srv-accordion-toggle" style="width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important;"></div>
-        </div>
-        <div class="c8srv-accordion-body" style="display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important;">
-          <div style="overflow: hidden !important;">
-            <p class="c8srv-accordion-desc" style="font-size: 14.5px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.72 !important; padding: 0 0.25rem 1.75rem 0.25rem !important;">Every build includes a 30-day post-launch warranty cover window to fix unexpected code issues. Afterward, you can sign up for our monthly Growth Retainer ($950/mo) for dedicated developer hours, technical maintenance, updates, SEO execution, and active copy support.</p>
+        <li class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">Do you offer SEO as part of the website build?</span>
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p class="faq-a">Yes. Every project includes basic technical SEO setup: schema mapping, canonical URL structures, semantic coding, sitemap submission, and fast loading performance. We also offer advanced SEO strategy packages covering content strategy and keyword alignment.</p>
+            </div>
           </div>
-        </div>
-      </div>
+        </li>
 
-      <div class="c8srv-accordion-item" style="border-bottom: 1px solid rgba(8,8,8,0.1) !important;">
-        <div class="c8srv-accordion-head" data-c8srv-accordion-head style="display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important;">
-          <h3 class="c8srv-accordion-title" style="font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 1.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important;">Do you work with early-stage startups and new businesses?</h3>
-          <div class="c8srv-accordion-toggle" style="width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important;"></div>
-        </div>
-        <div class="c8srv-accordion-body" style="display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important;">
-          <div style="overflow: hidden !important;">
-            <p class="c8srv-accordion-desc" style="font-size: 14.5px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.72 !important; padding: 0 0.25rem 1.75rem 0.25rem !important;">Some of our best work has been with fresh startups that need help articulating what they're building before they go to market. If you've got a business or product and need to explain it clearly to customers, investors, or partners, we can help.</p>
+        <li class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">What ongoing support do you offer after a website goes live?</span>
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p class="faq-a">Every build includes a 30-day post-launch warranty cover window to fix unexpected code issues. Afterward, you can sign up for our monthly Growth Retainer ($950/mo) for dedicated developer hours, technical maintenance, updates, SEO execution, and active copy support.</p>
+            </div>
           </div>
-        </div>
-      </div>
+        </li>
 
-      <div class="c8srv-accordion-item" style="border-bottom: 1px solid rgba(8,8,8,0.1) !important;">
-        <div class="c8srv-accordion-head" data-c8srv-accordion-head style="display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important;">
-          <h3 class="c8srv-accordion-title" style="font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 1.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important;">How much does it cost to work with Cr8v Stacks?</h3>
-          <div class="c8srv-accordion-toggle" style="width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important;"></div>
-        </div>
-        <div class="c8srv-accordion-body" style="display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important;">
-          <div style="overflow: hidden !important;">
-            <p class="c8srv-accordion-desc" style="font-size: 14.5px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.72 !important; padding: 0 0.25rem 1.75rem 0.25rem !important;">We scope projects individually after we learn about your specific requirements and goals, with a minimum project engagement of $6,000. Alternatively, you can engage with us on a retainer basis, which starts at $5,000/month and gives you access to our full range of strategy, design, and development capabilities.</p>
+        <li class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">Do you work with early-stage startups and new businesses?</span>
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p class="faq-a">Some of our best work has been with fresh startups that need help articulating what they're building before they go to market. If you've got a business or product and need to explain it clearly to customers, investors, or partners, we can help.</p>
+            </div>
           </div>
-        </div>
-      </div>
+        </li>
 
-      <div class="c8srv-accordion-item" style="border-bottom: 1px solid rgba(8,8,8,0.1) !important;">
-        <div class="c8srv-accordion-head" data-c8srv-accordion-head style="display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important;">
-          <h3 class="c8srv-accordion-title" style="font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 1.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important;">What makes our approach different?</h3>
-          <div class="c8srv-accordion-toggle" style="width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important;"></div>
-        </div>
-        <div class="c8srv-accordion-body" style="display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important;">
-          <div style="overflow: hidden !important;">
-            <p class="c8srv-accordion-desc" style="font-size: 14.5px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.72 !important; padding: 0 0.25rem 1.75rem 0.25rem !important;">Everything we do comes back to one thing: clarity of communication. We distill complex products and brands down to their essence — what they do, why it matters, and how they help. No jargon, no fluff, just clean, impactful execution.</p>
+        <li class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">What makes our approach different?</span>
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p class="faq-a">Everything we do comes back to one thing: clarity of communication. We distill complex products and brands down to their essence — what they do, why it matters, and how they help. No jargon, no fluff, just clean, impactful execution.</p>
+            </div>
           </div>
-        </div>
-      </div>
+        </li>
 
-      <div class="c8srv-accordion-item" style="border-bottom: 1px solid rgba(8,8,8,0.1) !important;">
-        <div class="c8srv-accordion-head" data-c8srv-accordion-head style="display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important;">
-          <h3 class="c8srv-accordion-title" style="font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 1.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important;">What do we think about AI?</h3>
-          <div class="c8srv-accordion-toggle" style="width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important;"></div>
-        </div>
-        <div class="c8srv-accordion-body" style="display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important;">
-          <div style="overflow: hidden !important;">
-            <p class="c8srv-accordion-desc" style="font-size: 14.5px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.72 !important; padding: 0 0.25rem 1.75rem 0.25rem !important;">It's cool (environmental and ethical issues nonwithstanding). However, it is not a replacement for raw human craftsmanship — it's not better than us, but in some instances it helps us work more efficiently and do better work. And if one day it is better than us, we'll close up shop.</p>
+        <li class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">Why should I hire Cr8v Stacks over freelancers?</span>
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p class="faq-a">Freelancers can obviously be great, especially for specific tasks. However, an agency like Cr8v Stacks gives you a full team with diverse expertise — strategy, design, development, and project management — all collaborating under one system. You get consistent availability, quality control, and the capacity to scale quickly. With freelancers, you're often coordinating multiple people yourself, which can slow things down and create gaps in accountability.</p>
+            </div>
           </div>
-        </div>
-      </div>
+        </li>
 
-      <div class="c8srv-accordion-item" style="border-bottom: 1px solid rgba(8,8,8,0.1) !important;">
-        <div class="c8srv-accordion-head" data-c8srv-accordion-head style="display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important;">
-          <h3 class="c8srv-accordion-title" style="font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 1.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important;">Why should I hire Cr8v Stacks over freelancers?</h3>
-          <div class="c8srv-accordion-toggle" style="width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important;"></div>
-        </div>
-        <div class="c8srv-accordion-body" style="display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important;">
-          <div style="overflow: hidden !important;">
-            <p class="c8srv-accordion-desc" style="font-size: 14.5px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.72 !important; padding: 0 0.25rem 1.75rem 0.25rem !important;">Freelancers can obviously be great, especially for specific tasks. However, an agency like Cr8v Stacks gives you a full team with diverse expertise — strategy, design, development, and project management — all collaborating under one system. You get consistent availability, quality control, and the capacity to scale quickly. With freelancers, you're often coordinating multiple people yourself, which can slow things down and create gaps in accountability.</p>
+        <li class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">What does "Cr8v Stacks" mean?</span>
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p class="faq-a">We believe design and engineering should never be separated. "Cr8v" represents our focus on high-fidelity user experience and clear storytelling, while "Stacks" represents our deep technical expertise in full-stack architecture and clean code. Together, it means we build digital products that look stunning and perform flawlessly.</p>
+            </div>
           </div>
-        </div>
-      </div>
-
-      <div class="c8srv-accordion-item" style="border-bottom: 1px solid rgba(8,8,8,0.1) !important;">
-        <div class="c8srv-accordion-head" data-c8srv-accordion-head style="display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important;">
-          <h3 class="c8srv-accordion-title" style="font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 1.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important;">What does "Cr8v Stacks" mean?</h3>
-          <div class="c8srv-accordion-toggle" style="width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important;"></div>
-        </div>
-        <div class="c8srv-accordion-body" style="display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important;">
-          <div style="overflow: hidden !important;">
-            <p class="c8srv-accordion-desc" style="font-size: 14.5px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.72 !important; padding: 0 0.25rem 1.75rem 0.25rem !important;">We believe design and engineering should never be separated. "Cr8v" represents our focus on high-fidelity user experience and clear storytelling, while "Stacks" represents our deep technical expertise in full-stack architecture and clean code. Together, it means we build digital products that look stunning and perform flawlessly.</p>
-          </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
-  </div>
+  </section>
+
+  <script>
+  (function(){
+    var list = document.getElementById('srv-faq-list');
+    if(!list) return;
+    list.addEventListener('click', function(e){
+      var trigger = e.target.closest('.faq-trigger');
+      if(!trigger) return;
+      var item = trigger.closest('.faq-item');
+      var isOpen = item.classList.contains('is-open');
+      list.querySelectorAll('.faq-item.is-open').forEach(function(el){
+        el.classList.remove('is-open');
+        var trg = el.querySelector('.faq-trigger');
+        if (trg) trg.setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded','true');
+      }
+    });
+  })();
+  </script>
 
   <div class="c8srv-tearline"><div class="c8srv-tearline-dot"></div><div class="c8srv-tearline-line"></div><div class="c8srv-tearline-dot"></div></div>
 
