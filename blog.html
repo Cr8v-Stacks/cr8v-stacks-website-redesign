@@ -370,6 +370,24 @@
         });
       }
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var catWrappers = document.querySelectorAll('.cat-dropdown-wrapper');
+      catWrappers.forEach(function(wrapper) {
+        var menu = wrapper.querySelector('.cat-popover-dropdown');
+        var btn = wrapper.querySelector('button');
+        if (menu && btn) {
+          var categoryItems = menu.querySelectorAll('a');
+          var totalExtra = categoryItems.length;
+          if (totalExtra > 0) {
+            var arrowSVG = '<svg class="cat-dropdown-arrow" viewBox="0 0 24 24" width="10" height="10" stroke="currentColor" stroke-width="2.5" fill="none" style="transition: transform 0.25s ease;"><polyline points="6 9 12 15 18 9"/></svg>';
+            btn.innerHTML = '+' + totalExtra + ' ' + arrowSVG;
+          } else {
+            wrapper.style.display = 'none';
+          }
+        }
+      });
+    });
   </script>
 </body>
 </html>

@@ -40,11 +40,6 @@
       border-bottom: 1px solid var(--c8-grid-line);
       background: #FFFFFF;
     }
-    .art-cat-pill {
-      display: inline-block; font-family: var(--font-mono); font-size: 0.72rem;
-      color: var(--c8-blue); border: 1px solid var(--c8-grid-line); background: #FFFFFF;
-      padding: 4px 10px; border-radius: 4px; text-transform: uppercase; margin-bottom: 0.8rem;
-    }
 
     /* CATEGORY DROPDOWN POPOVER ANIMATION (HOVER ON DESKTOP, TAP ON MOBILE) */
     .cat-dropdown-wrapper { position: relative; display: inline-flex; align-items: center; }
@@ -665,6 +660,23 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
+      // DYNAMIC CATEGORY POPOVER COUNT CALCULATOR
+      var catWrappers = document.querySelectorAll('.cat-dropdown-wrapper');
+      catWrappers.forEach(function(wrapper) {
+        var menu = wrapper.querySelector('.cat-popover-dropdown');
+        var btn = wrapper.querySelector('button');
+        if (menu && btn) {
+          var categoryItems = menu.querySelectorAll('a');
+          var totalExtra = categoryItems.length;
+          if (totalExtra > 0) {
+            var arrowSVG = '<svg class="cat-dropdown-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5" fill="none" style="transition: transform 0.25s ease;"><polyline points="6 9 12 15 18 9"/></svg>';
+            btn.innerHTML = '+' + totalExtra + ' ' + arrowSVG;
+          } else {
+            wrapper.style.display = 'none';
+          }
+        }
+      });
+
       var blogButtons = document.querySelectorAll('.art-btn-primary, .art-btn-secondary, .sidebar-cta-btn, .cta-card-btn, .c8-btn-primary');
       var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
