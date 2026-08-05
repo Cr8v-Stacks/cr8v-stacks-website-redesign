@@ -845,44 +845,6 @@ body {
 .c8srv-root .c8srv-vs-table tr[data-c8srv-row].is-highlighted td { background: #F4F1EA !important; }
 .c8srv-root .c8srv-vs-winner { font-family: 'Space Mono', monospace !important; font-size: 9.5px !important; letter-spacing: .08em !important; text-transform: uppercase !important; color: #0047E1 !important; display: block !important; margin-top: 4px !important; }
 .c8srv-root .c8srv-vs-note { font-size: 12.5px !important; color: #8A8A8A !important; font-weight: 300 !important; margin-top: 1.5rem !important; }
-
-/* ── Folder Tab Deck Stack UI (Growth Layer) ── */
-.c8srv-root .c8srv-folder-deck {
-  position: relative !important;
-  display: block !important;
-  margin-top: 5rem !important;
-  padding-bottom: 120px !important; /* Extra scrollable space for 3rd card to stack fully on desktop */
-  margin-bottom: 6rem !important; /* Spacing below the folder deck */
-}
-
-.c8srv-root .c8srv-folder-card:nth-child(1) { top: 130px !important; z-index: 10 !important; }
-.c8srv-root .c8srv-folder-card:nth-child(2) { top: 130px !important; z-index: 20 !important; }
-.c8srv-root .c8srv-folder-card:nth-child(3) { top: 130px !important; z-index: 30 !important; }
-
-@media (max-width: 900px) {
-  .c8srv-root .c8srv-folder-deck {
-    padding-bottom: 0 !important;
-    margin-top: 4rem !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 3.5rem !important;
-  }
-  .c8srv-root .c8srv-folder-card {
-    grid-template-columns: 1fr !important;
-    padding: 2.5rem 1.5rem !important;
-    gap: 2rem !important;
-    position: relative !important;
-    top: 100px !important;
-    min-height: auto !important;
-    margin-bottom: 0 !important;
-    margin-top: 30px !important;
-    height: auto !important;
-    box-shadow: none !important;
-  }
-  .c8srv-root .c8srv-folder-card:nth-child(1),
-  .c8srv-root .c8srv-folder-card:nth-child(2),
-  .c8srv-root .c8srv-folder-card:nth-child(3) { top: 100px !important; }
-}
 .c8srv-root .c8srv-folder-tab {
   position: absolute !important;
   top: -38px !important;
