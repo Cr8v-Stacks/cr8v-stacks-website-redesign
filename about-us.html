@@ -197,7 +197,7 @@
     .dp-half-left {
       flex: 1; background: #FFFFFF; position: relative; display: flex;
       align-items: center; padding: 7rem 3.5rem; overflow: visible;
-      border-right: 1px solid var(--c8-grid-line);
+      border-right: none;
     }
     .dp-half-right {
       flex: 1; background: #0047E1; position: relative; display: flex;
@@ -509,7 +509,7 @@
     .c8abt-pass-value { font-size: 12px; color: #FAFAF7; font-weight: 500; }
     .c8abt-pass-barcode-wrap { display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 1rem; margin-top: 1rem; }
     .c8abt-pass-barcode { width: 140px; height: 24px; background: repeating-linear-gradient(90deg, #FFFFFF, #FFFFFF 2px, transparent 2px, transparent 5px, #FFFFFF 5px, #FFFFFF 8px, transparent 8px, transparent 10px); opacity: 0.85; }
-    .c8abt-pass-stamp { font-size: 10px; font-weight: 700; border: 1px solid rgba(255,255,255,0.3); padding: 4px 8px; border-radius: 3px; color: #7C93FF; }
+    .c8abt-pass-stamp { font-size: 9.5px; font-weight: 700; border: 1.5px solid #7C93FF; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #7C93FF; text-transform: uppercase; flex-shrink: 0; }
 
     /* ── SECTION 10: OPEN SOURCE & EDUCATIONAL TUTORIALS ── */
     .fylla-edu-section { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
@@ -1182,7 +1182,7 @@
               <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
             </button>
             <button class="tmn-thumb-btn" data-tmn-tab="tmn-pane-4">
-              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/dark.svg" alt="AI Models Logo" class="tmn-thumb-icon">
+              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/light.svg" alt="AI Models Logo" class="tmn-thumb-icon">
               <span class="tmn-thumb-label">AI Workflows</span>
               <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
             </button>
@@ -1317,21 +1317,6 @@
               <h3 class="c8-about-card-h3">COMPLETE CLIENT OWNERSHIP</h3>
             </div>
             <p class="c8-about-card-p">Codebase, domain, and data repositories are 100% yours from day one. No lock-in fees or dependencies to keep your site running.</p>
-          </div>
-        </div>
-
-        <div class="c8-about-stats-row">
-          <div class="c8-about-stat-item">
-            <div class="c8-about-stat-num">95%</div>
-            <div class="c8-about-stat-lbl">Delivery Rate</div>
-          </div>
-          <div class="c8-about-stat-item">
-            <div class="c8-about-stat-num">3.5x</div>
-            <div class="c8-about-stat-lbl">Organic Traffic</div>
-          </div>
-          <div class="c8-about-stat-item">
-            <div class="c8-about-stat-num">100%</div>
-            <div class="c8-about-stat-lbl">Code Ownership</div>
           </div>
         </div>
       </div>
@@ -1505,22 +1490,58 @@
       });
     });
 
-    // Performance & Tech Stack Tab Controller
-    var techTabs = document.querySelectorAll('[data-tmn-tab]');
+    // Performance & Tech Stack Auto-Proceed Tab Controller
+    var techTabs = Array.from(document.querySelectorAll('[data-tmn-tab]'));
     var techPanes = document.querySelectorAll('.tmn-pane');
+    var techCurrentIndex = 0;
+    var techTimer = null;
 
-    techTabs.forEach(function (btn) {
+    function activateTechTab(idx) {
+      if (!techTabs[idx]) return;
+      techCurrentIndex = idx;
+      techTabs.forEach(function (t) {
+        t.classList.remove('is-active');
+        var fill = t.querySelector('.tmn-progress-fill');
+        if (fill) {
+          fill.style.animation = 'none';
+          void fill.offsetWidth;
+          fill.style.animation = '';
+        }
+      });
+      techPanes.forEach(function (p) { p.classList.remove('is-active'); });
+
+      techTabs[idx].classList.add('is-active');
+      var targetPaneId = techTabs[idx].getAttribute('data-tmn-tab');
+      var targetPane = document.getElementById(targetPaneId);
+      if (targetPane) targetPane.classList.add('is-active');
+    }
+
+    function startTechAutoProceed() {
+      stopTechAutoProceed();
+      techTimer = setInterval(function () {
+        var nextIdx = (techCurrentIndex + 1) % techTabs.length;
+        activateTechTab(nextIdx);
+      }, 6000);
+    }
+
+    function stopTechAutoProceed() {
+      if (techTimer) { clearInterval(techTimer); techTimer = null; }
+    }
+
+    techTabs.forEach(function (btn, index) {
       btn.addEventListener('click', function () {
-        var targetPaneId = btn.getAttribute('data-tmn-tab');
-
-        techTabs.forEach(function (t) { t.classList.remove('is-active'); });
-        techPanes.forEach(function (p) { p.classList.remove('is-active'); });
-
-        btn.classList.add('is-active');
-        var targetPane = document.getElementById(targetPaneId);
-        if (targetPane) targetPane.classList.add('is-active');
+        activateTechTab(index);
+        startTechAutoProceed();
       });
     });
+
+    var techWrapper = document.querySelector('.tmn-wrapper-card');
+    if (techWrapper) {
+      techWrapper.addEventListener('mouseenter', stopTechAutoProceed);
+      techWrapper.addEventListener('mouseleave', startTechAutoProceed);
+    }
+
+    startTechAutoProceed();
 
     // Live Matrix Text Scramble for Standardized Buttons
     var matrixButtons = document.querySelectorAll('.c8-btn-primary, .fylla-btn, .dp-btn-primary, .cta-btn, .dp-btn-ghost');
