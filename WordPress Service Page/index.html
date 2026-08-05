@@ -733,11 +733,10 @@
 .c8isv-root .c8isv-accordion-item { border-bottom: 1px solid rgba(8,8,8,0.1) !important; }
 .c8isv-root .c8isv-accordion-head { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important; }
 .c8isv-root .c8isv-accordion-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 0.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important; }
-.c8isv-root .c8isv-accordion-toggle { width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important; }
-.c8isv-root .c8isv-accordion-toggle::before, .c8isv-root .c8isv-accordion-toggle::after { content: '' !important; position: absolute !important; background: #080808 !important; transition: transform 0.25s ease, opacity 0.25s ease !important; }
-.c8isv-root .c8isv-accordion-toggle::before { width: 12px !important; height: 1px !important; }
-.c8isv-root .c8isv-accordion-toggle::after { width: 1px !important; height: 12px !important; }
-.c8isv-root .c8isv-accordion-item.is-open .c8isv-accordion-toggle::after { transform: rotate(90deg) !important; opacity: 0 !important; }
+.c8isv-root .c8isv-accordion-toggle::before, .c8isv-root .c8isv-accordion-toggle::after { content: '' !important; position: absolute !important; top: 50% !important; left: 50% !important; background: #080808 !important; transition: transform 0.25s ease, opacity 0.25s ease !important; }
+.c8isv-root .c8isv-accordion-toggle::before { width: 12px !important; height: 1.5px !important; transform: translate(-50%, -50%) !important; }
+.c8isv-root .c8isv-accordion-toggle::after { width: 1.5px !important; height: 12px !important; transform: translate(-50%, -50%) !important; }
+.c8isv-root .c8isv-accordion-item.is-open .c8isv-accordion-toggle::after { transform: translate(-50%, -50%) rotate(90deg) !important; opacity: 0 !important; }
 .c8isv-root .c8isv-accordion-body { display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important; }
 .c8isv-root .c8isv-accordion-item.is-open .c8isv-accordion-body { grid-template-rows: 1fr !important; }
 .c8isv-root .c8isv-accordion-body-inner { overflow: hidden !important; }
@@ -2505,6 +2504,8 @@
 
   /* ── Scroll handling scroll-linked animations ── */
   function handleScrollAnimations() {
+    if (reduceMotion) return;
+
     var flankContainer = root.querySelector('[data-c8isv-flank-trigger]');
     var flankCards = root.querySelectorAll('[data-c8isv-flank-card]');
 
@@ -2516,6 +2517,104 @@
     var testiGrid = root.querySelector('[data-c8isv-testi-trigger]');
     var testiLeft = root.querySelector('[data-c8isv-testi-left]');
     var testiRight = root.querySelector('[data-c8isv-testi-right]');
+
+    // 1. Flank Cards Stack Lay-Down
+    if (flankContainer && flankCards.length) {
+      var rect = flankContainer.getBoundingClientRect();
+      var viewportH = window.innerHeight;
+      var start = viewportH;
+      var end = viewportH * 0.15;
+      
+      var p = 0;
+      if (rect.top < start) {
+        p = (start - rect.top) / (start - end);
+        if (p > 1) p = 1;
+        if (p < 0) p = 0;
+      }
+
+      flankCards.forEach(function (card, i) {
+        var localT = Math.min(1, Math.max(0, p * 1.5 - i * 0.16));
+        var isMobile = window.innerWidth < 901;
+        if (isMobile) {
+          var ty = 55 * (1 - localT);
+          var spread = (i === 0 ? -35 : i === 1 ? 0 : 35) * (1 - localT);
+          var rotM = (i === 0 ? -4 : i === 2 ? 4 : 0) * (1 - localT);
+          var scale = 0.94 + 0.06 * localT;
+          card.style.transform = 'translate3d(' + spread + 'px, ' + ty + 'px, 0) scale(' + scale + ') rotate(' + rotM + 'deg)';
+        } else {
+          var startX = -100 * i;
+          var startRotate = i === 0 ? 0 : (i % 2 === 0 ? -7 : 7);
+          var x = startX * (1 - localT);
+          var rot = startRotate * (1 - localT);
+          var scale = 0.92 + 0.08 * localT;
+          card.style.transform = 'translateX(' + x + '%) rotate(' + rot + 'deg) scale(' + scale + ')';
+        }
+        card.style.opacity = String(0.35 + 0.65 * localT);
+      });
+    }
+
+    // 2. Our Work Zoom Card
+    if (portfolioCard) {
+      var p = getElementProgress(portfolioCard, 0.95, 0.3);
+      var scale = 0.75 + 0.25 * p;
+      portfolioCard.style.transform = 'scale(' + scale + ')';
+      portfolioCard.style.opacity = 0.5 + 0.5 * p;
+    }
+
+    // 3. How We Approach It Slanted cards
+    if (approachCards.length) {
+      approachCards.forEach(function (card, i) {
+        if (i === 0) {
+          card.style.transform = 'none';
+          card.style.boxShadow = '0 5px 15px rgba(8, 8, 8, 0.02)';
+          return;
+        }
+        var p = getCardProgress(card.parentElement, 0.95, 0.5);
+        var isMobile = window.innerWidth < 901;
+        var maxSlant = (6 + (i - 1) * 3) * (isMobile ? 0.65 : 1.0);
+        var rot = maxSlant * (1 - p);
+        var ty = (isMobile ? -55 : -80) * (1 - p);
+        
+        card.style.transform = 'translate3d(0, ' + ty + 'px, 0) rotate(' + rot + 'deg)';
+        card.style.opacity = '1';
+        
+        var shadowY = 15 - 10 * p;
+        var shadowBlur = 30 - 15 * p;
+        var shadowAlpha = 0.08 - 0.06 * p;
+        card.style.boxShadow = '0 ' + shadowY + 'px ' + shadowBlur + 'px rgba(8, 8, 8, ' + shadowAlpha + ')';
+      });
+    }
+
+    // 4. Client Feedback Testimonials Fan Out
+    if (testiGrid && testiLeft && testiRight) {
+      var isMobile = window.innerWidth < 901;
+      if (isMobile) {
+        var pL = getElementProgress(testiLeft, 0.95, 0.3);
+        var pR = getElementProgress(testiRight, 0.95, 0.3);
+        var tyL = 45 * (1 - pL);
+        var rotL = -6 * (1 - pL);
+        testiLeft.style.transform = 'translate3d(-20px, ' + tyL + 'px, 0) rotate(' + rotL + 'deg)';
+        testiLeft.style.opacity = pL;
+        testiLeft.style.pointerEvents = pL > 0.1 ? 'auto' : 'none';
+        var tyR = 45 * (1 - pR);
+        var rotR = 6 * (1 - pR);
+        testiRight.style.transform = 'translate3d(20px, ' + tyR + 'px, 0) rotate(' + rotR + 'deg)';
+        testiRight.style.opacity = pR;
+        testiRight.style.pointerEvents = pR > 0.1 ? 'auto' : 'none';
+      } else {
+        var p = getElementProgress(testiGrid, 0.85, 0.3);
+        var tx = p * 340;
+        var ty = 15 * (1 - p);
+        var rot = p * 8;
+        testiLeft.style.transform = 'translate3d(' + (-tx) + 'px, ' + ty + 'px, 0) scale(' + (0.9 + 0.1 * p) + ') rotate(' + (-rot) + 'deg)';
+        testiLeft.style.opacity = p;
+        testiLeft.style.pointerEvents = p > 0.1 ? 'auto' : 'none';
+
+        testiRight.style.transform = 'translate3d(' + tx + 'px, ' + ty + 'px, 0) scale(' + (0.9 + 0.1 * p) + ') rotate(' + rot + 'deg)';
+        testiRight.style.opacity = p;
+        testiRight.style.pointerEvents = p > 0.1 ? 'auto' : 'none';
+      }
+    }
   }
 
   window.addEventListener('scroll', handleScrollAnimations);

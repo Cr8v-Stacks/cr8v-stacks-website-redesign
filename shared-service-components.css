@@ -580,7 +580,11 @@
     left: 1.5rem !important;
     height: 30px !important;
     padding: 0 15px !important;
-    width: auto !important;
+    width: 220px !important;
+    max-width: 80vw !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
   .c8srv-root .c8srv-folder-card:nth-child(1) .c8srv-folder-tab,
   .c8isv-root .c8srv-folder-card:nth-child(1) .c8srv-folder-tab,
