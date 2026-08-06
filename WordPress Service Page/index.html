@@ -27,7 +27,6 @@
   z-index: 2 !important;
 }
 @media (max-width: 1100px) { .c8isv-root .c8isv-wrap { padding: 3rem 1.25rem !important; } }
-.c8isv-root h1, .c8isv-root h2, .c8isv-root h3, .c8isv-root h4 { margin: 0 !important; font-weight: inherit !important; line-height: 1.1 !important; }
 .c8isv-root p { margin: 0 0 1rem 0 !important; }
 .c8isv-root p:last-child { margin-bottom: 0 !important; }
 .c8isv-root button { font-family: inherit !important; cursor: pointer !important; border: none !important; background: none !important; }
@@ -521,7 +520,7 @@
 .c8isv-root .c8isv-portfolio-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.2rem, 2vw, 1.7rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.02em !important; margin-bottom: 1rem !important; }
 .c8isv-root .c8isv-portfolio-desc { font-size: 14px !important; color: #6B6B6B !important; line-height: 1.72 !important; margin-bottom: 2rem !important; font-weight: 300 !important; }
 .c8isv-root .c8isv-portfolio-stats { display: flex !important; flex-wrap: wrap !important; gap: 2rem !important; margin-bottom: 2rem !important; border-top: 1px solid rgba(8,8,8,0.08) !important; padding-top: 1.5rem !important; }
-.c8isv-root .c8isv-portfolio-stat-val { font-family: 'Michroma', sans-serif !important; font-size: 2rem !important; font-weight: 700 !important; color: #0047E1 !important; line-height: 1 !important; display: block !important; }
+.c8isv-root .c8isv-portfolio-stat-val { font-family: 'Michroma', sans-serif !important; font-size: 1.2rem !important; font-weight: 400 !important; color: #0047E1 !important; line-height: 1 !important; display: block !important; }
 .c8isv-root .c8isv-portfolio-stat-lbl { font-family: 'Space Mono', monospace !important; font-size: 9px !important; letter-spacing: .12em !important; text-transform: uppercase !important; color: #8A8A8A !important; }
 .c8isv-root .c8isv-portfolio-footer { text-align: center !important; padding-top: 2.5rem !important; }
 
@@ -1381,8 +1380,8 @@
               <span class="c8isv-portfolio-stat-val">99/100</span>
               <span class="c8isv-portfolio-stat-lbl">Mobile PageSpeed</span>
             </div>
-            <div style="grid-column: span 2;">
-              <span class="c8isv-portfolio-stat-val" style="font-size: 1.25rem;">Native Gutenberg Block Theme &middot; Zero Plugins</span>
+            <div class="c8isv-portfolio-deliverables" style="grid-column: span 2; margin-top: 0.25rem;">
+              <span class="c8isv-portfolio-stat-val" style="font-size: 1.25rem; margin-bottom: 0.35rem;">Native Gutenberg Block Theme &middot; Zero Plugins</span>
               <span class="c8isv-portfolio-stat-lbl">Key Deliverables</span>
             </div>
           </div>
@@ -2591,14 +2590,16 @@
       if (isMobile) {
         var pL = getElementProgress(testiLeft, 0.95, 0.3);
         var pR = getElementProgress(testiRight, 0.95, 0.3);
-        var tyL = 45 * (1 - pL);
+        var txL = -90 * (1 - pL);
+        var tyL = 20 * (1 - pL);
         var rotL = -6 * (1 - pL);
-        testiLeft.style.transform = 'translate3d(-20px, ' + tyL + 'px, 0) rotate(' + rotL + 'deg)';
+        testiLeft.style.transform = 'translate3d(' + txL + 'px, ' + tyL + 'px, 0) rotate(' + rotL + 'deg)';
         testiLeft.style.opacity = pL;
         testiLeft.style.pointerEvents = pL > 0.1 ? 'auto' : 'none';
-        var tyR = 45 * (1 - pR);
+        var txR = 90 * (1 - pR);
+        var tyR = 20 * (1 - pR);
         var rotR = 6 * (1 - pR);
-        testiRight.style.transform = 'translate3d(20px, ' + tyR + 'px, 0) rotate(' + rotR + 'deg)';
+        testiRight.style.transform = 'translate3d(' + txR + 'px, ' + tyR + 'px, 0) rotate(' + rotR + 'deg)';
         testiRight.style.opacity = pR;
         testiRight.style.pointerEvents = pR > 0.1 ? 'auto' : 'none';
       } else {

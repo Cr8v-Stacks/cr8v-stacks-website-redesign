@@ -115,7 +115,6 @@
   z-index: 2 !important;
 }
 @media (max-width: 1100px) { .c8srv-root, .c8isv-root .c8srv-wrap, .c8isv-wrap { padding: 3rem 1.25rem !important; } }
-.c8srv-root, .c8isv-root h1, .c8srv-root, .c8isv-root h2, .c8srv-root, .c8isv-root h3, .c8srv-root, .c8isv-root h4 { margin: 0 !important; font-weight: inherit !important; line-height: 1.1 !important; }
 .c8srv-root, .c8isv-root p { margin: 0 0 1rem 0 !important; }
 .c8srv-root, .c8isv-root p:last-child { margin-bottom: 0 !important; }
 .c8srv-root, .c8isv-root button { font-family: inherit !important; cursor: pointer !important; border: none !important; background: none !important; }
@@ -1250,7 +1249,7 @@
 }
 
 .c8isv-root .c8srv-price-title, .c8srv-root .c8srv-price-title, .c8srv-price-title {
-  font-family: 'Michroma', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 1.5rem !important;
   color: #080808 !important;
   margin-bottom: 0.5rem !important;
@@ -1258,7 +1257,7 @@
 }
 
 .c8isv-root .c8srv-price-amount, .c8srv-root .c8srv-price-amount, .c8srv-price-amount {
-  font-family: 'Michroma', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 2.2rem !important;
   font-weight: 700 !important;
   color: #0047E1 !important;
@@ -1385,10 +1384,11 @@
 .c8isv-root .c8srv-est-choice, .c8srv-root .c8srv-est-choice, .c8srv-est-choice {
   background: #FFFFFF !important;
   border: 1px solid rgba(8,8,8,0.12) !important;
-  border-radius: 8px !important;
+  border-radius: 4px !important;
   padding: 0.75rem 1.25rem !important;
-  font-family: 'Space Mono', monospace !important;
-  font-size: 12px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 13.5px !important;
   color: #080808 !important;
   cursor: pointer !important;
   transition: all 0.25s ease !important;
