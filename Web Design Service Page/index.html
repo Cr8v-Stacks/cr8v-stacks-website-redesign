@@ -1,28 +1,63 @@
 <link rel="stylesheet" href="../shared-service-components.css">
 <div class="c8isv-root">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
-
-/* ═══════════════════════════════════════════════════
-   CR8V STACKS — WEB DESIGN SERVICE PAGE
-   Design parity with main service page.
-   Fonts: Michroma (headings) · Space Mono (labels) · DM Sans (body)
-   Bebas Neue: hoverlist titles ONLY (same as main page)
-   ═══════════════════════════════════════════════════ */
-
-.c8isv-root, .c8isv-root * { box-sizing: border-box !important; }
-.c8isv-root {
-  overflow-x: clip !important;
-  background: #FFFFFF !important;
-  color: #080808 !important;
-  font-family: 'DM Sans', sans-serif !important;
-  line-height: 1.65 !important;
-  position: relative !important;
+/* Page Specific Styles Only */
+.c8isv-root #pricing-scope .c8isv-label,
+.c8srv-root #pricing-scope .c8isv-label {
+  justify-content: center !important;
+  align-self: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
-.c8isv-root .c8isv-wrap {
-  padding: 5rem 3.5rem !important;
-  max-width: 1440px !important;
-  margin: 0 auto !important;
+
+/* ── Section Alignment Overrides ── */
+.c8isv-root .c8isv-folder-section .c8isv-label,
+.c8srv-root .c8isv-folder-section .c8isv-label,
+.c8isv-root .c8isv-folder-section .c8isv-section-title,
+.c8srv-root .c8isv-folder-section .c8isv-section-title,
+.c8isv-root .c8isv-folder-section .c8isv-lead,
+.c8srv-root .c8isv-folder-section .c8isv-lead {
+  text-align: left !important;
+  margin-left: 0 !important;
+}
+
+.c8isv-root .c8isv-label.is-light,
+.c8srv-root .c8isv-label.is-light {
+  text-align: left !important;
+  margin-left: 0 !important;
+}
+
+.c8isv-root .c8isv-approach-outer .c8isv-label,
+.c8srv-root .c8isv-approach-outer .c8isv-label,
+.c8isv-root .c8isv-approach-outer .c8isv-section-title,
+.c8srv-root .c8isv-approach-outer .c8isv-section-title,
+.c8isv-root .c8isv-approach-outer .c8isv-lead,
+.c8srv-root .c8isv-approach-outer .c8isv-lead,
+.c8isv-root .c8isv-fits-outer .c8isv-label,
+.c8srv-root .c8isv-fits-outer .c8isv-label,
+.c8isv-root .c8isv-fits-outer .c8isv-section-title,
+.c8srv-root .c8isv-fits-outer .c8isv-section-title,
+.c8isv-root .c8isv-fits-outer .c8isv-lead,
+.c8srv-root .c8isv-fits-outer .c8isv-lead,
+.c8isv-root .c8isv-hl-section .c8isv-label,
+.c8srv-root .c8isv-hl-section .c8isv-label,
+.c8isv-root .c8isv-hl-section .c8isv-section-title,
+.c8srv-root .c8isv-hl-section .c8isv-section-title,
+.c8isv-root .c8isv-hl-section .c8isv-lead,
+.c8srv-root .c8isv-hl-section .c8isv-lead {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.c8isv-root .c8isv-faq-outer .c8isv-label,
+.c8srv-root .c8isv-faq-outer .c8isv-label,
+.c8isv-root .c8isv-faq-outer .c8isv-section-title,
+.c8srv-root .c8isv-faq-outer .c8isv-section-title {
+  text-align: left !important;
+  margin-left: 0 !important;
+}
+</style>
   position: relative !important;
   z-index: 2 !important;
 }
@@ -1230,10 +1265,6 @@
   align-self: center !important;
   margin-left: auto !important;
   margin-right: auto !important;
-}
-
-</style>
-
 <!-- ══════════════════════════════════════════
      SECTION 1: HERO (Dark)
      ══════════════════════════════════════════ -->
@@ -2527,6 +2558,60 @@
     var testiGrid = root.querySelector('[data-c8isv-testi-trigger]');
     var testiLeft = root.querySelector('[data-c8isv-testi-left]');
     var testiRight = root.querySelector('[data-c8isv-testi-right]');
+
+    if (reduceMotion) return;
+
+    /* Flank card fan out */
+    if (flankContainer && flankCards.length === 3) {
+      var p = getElementProgress(flankContainer, 0.95, 0.35);
+      var deg = p * 6;
+      flankCards[0].style.transform = 'translate3d(' + (-p * 340) + 'px, ' + (p * 15) + 'px, 0) scale(' + (1 - p * 0.1) + ') rotate(' + (-deg) + 'deg)';
+      flankCards[0].style.opacity = p > 0.05 ? Math.min(1, p * 1.5) : 0;
+      flankCards[2].style.transform = 'translate3d(' + (p * 340) + 'px, ' + (p * 15) + 'px, 0) scale(' + (1 - p * 0.1) + ') rotate(' + deg + 'deg)';
+      flankCards[2].style.opacity = p > 0.05 ? Math.min(1, p * 1.5) : 0;
+    }
+
+    /* Portfolio zoom */
+    if (portfolioCard) {
+      var pP = getElementProgress(portfolioCard, 0.95, 0.3);
+      var scale = 0.75 + (pP * 0.25);
+      var opacity = 0.5 + (pP * 0.5);
+      portfolioCard.style.transform = 'scale(' + scale + ')';
+      portfolioCard.style.opacity = opacity;
+    }
+
+    /* Approach cards slant stack */
+    if (approachDeck && approachCards.length > 0) {
+      approachCards.forEach(function (card, idx) {
+        var cp = getCardProgress(card, 0.95, 0.45);
+        if (idx === 0) {
+          card.style.transform = 'scale(1)';
+          card.style.opacity = '1';
+        } else {
+          var translateY = (1 - cp) * 40;
+          var scaleC = 0.96 + (cp * 0.04);
+          card.style.transform = 'translateY(' + translateY + 'px) scale(' + scaleC + ')';
+          card.style.opacity = Math.max(0.4, cp);
+        }
+      });
+    }
+
+    /* Testimonials flank fan */
+    if (testiGrid && testiLeft && testiRight) {
+      var pT = getElementProgress(testiGrid, 0.95, 0.35);
+      var degT = pT * 8;
+      if (window.innerWidth <= 900) {
+        testiLeft.style.transform = 'translate3d(' + (-90 * (1 - pT)) + 'px, ' + (20 * (1 - pT)) + 'px, 0) rotate(' + (-6 * (1 - pT)) + 'deg)';
+        testiLeft.style.opacity = Math.min(1, 0.4 + pT * 0.6);
+        testiRight.style.transform = 'translate3d(' + (90 * (1 - pT)) + 'px, ' + (20 * (1 - pT)) + 'px, 0) rotate(' + (6 * (1 - pT)) + 'deg)';
+        testiRight.style.opacity = Math.min(1, 0.4 + pT * 0.6);
+      } else {
+        testiLeft.style.transform = 'translate3d(' + (-pT * 340) + 'px, ' + (pT * 15) + 'px, 0) scale(' + (1 - pT * 0.1) + ') rotate(' + (-degT) + 'deg)';
+        testiLeft.style.opacity = pT > 0.05 ? Math.min(1, pT * 1.5) : 0;
+        testiRight.style.transform = 'translate3d(' + (pT * 340) + 'px, ' + (pT * 15) + 'px, 0) scale(' + (1 - pT * 0.1) + ') rotate(' + degT + 'deg)';
+        testiRight.style.opacity = pT > 0.05 ? Math.min(1, pT * 1.5) : 0;
+      }
+    }
   }
 
   window.addEventListener('scroll', handleScrollAnimations);
