@@ -1,680 +1,7 @@
 <link rel="stylesheet" href="../shared-service-components.css">
 <div class="c8isv-root">
 <style>
-/* Page Specific Styles Only */
-.c8isv-root #pricing-scope .c8isv-label,
-.c8srv-root #pricing-scope .c8isv-label {
-  justify-content: center !important;
-  align-self: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* ── Section Alignment Overrides ── */
-.c8isv-root .c8isv-folder-section .c8isv-label,
-.c8srv-root .c8isv-folder-section .c8isv-label,
-.c8isv-root .c8isv-folder-section .c8isv-section-title,
-.c8srv-root .c8isv-folder-section .c8isv-section-title,
-.c8isv-root .c8isv-folder-section .c8isv-lead,
-.c8srv-root .c8isv-folder-section .c8isv-lead {
-  text-align: left !important;
-  margin-left: 0 !important;
-}
-
-.c8isv-root .c8isv-label.is-light,
-.c8srv-root .c8isv-label.is-light {
-  text-align: left !important;
-  margin-left: 0 !important;
-}
-
-.c8isv-root .c8isv-approach-outer .c8isv-label,
-.c8srv-root .c8isv-approach-outer .c8isv-label,
-.c8isv-root .c8isv-approach-outer .c8isv-section-title,
-.c8srv-root .c8isv-approach-outer .c8isv-section-title,
-.c8isv-root .c8isv-approach-outer .c8isv-lead,
-.c8srv-root .c8isv-approach-outer .c8isv-lead,
-.c8isv-root .c8isv-fits-outer .c8isv-label,
-.c8srv-root .c8isv-fits-outer .c8isv-label,
-.c8isv-root .c8isv-fits-outer .c8isv-section-title,
-.c8srv-root .c8isv-fits-outer .c8isv-section-title,
-.c8isv-root .c8isv-fits-outer .c8isv-lead,
-.c8srv-root .c8isv-fits-outer .c8isv-lead,
-.c8isv-root .c8isv-hl-section .c8isv-label,
-.c8srv-root .c8isv-hl-section .c8isv-label,
-.c8isv-root .c8isv-hl-section .c8isv-section-title,
-.c8srv-root .c8isv-hl-section .c8isv-section-title,
-.c8isv-root .c8isv-hl-section .c8isv-lead,
-.c8srv-root .c8isv-hl-section .c8isv-lead {
-  text-align: center !important;
-  margin-left: auto !important;
-}
-/* ═══ SECTION 1: HERO (Dark) ═══ */
-.c8isv-root .c8isv-hero-wrap {
-  position: relative !important;
-  background: #050813 !important;
-  min-height: 88vh !important;
-  display: flex !important;
-  align-items: center !important;
-  overflow: hidden !important;
-}
-.c8isv-root .c8isv-hero-atmos {
-  position: absolute !important;
-  top: 0 !important; left: 0 !important;
-  width: 100% !important; height: 100% !important;
-  z-index: 0 !important;
-  pointer-events: none !important;
-  overflow: hidden !important;
-}
-.c8isv-root .c8isv-atmos-svg { position: absolute !important; top: -10% !important; left: 0 !important; width: 100% !important; height: 130% !important; }
-.c8isv-root .c8isv-atmos-blob { filter: blur(2px) !important; opacity: 0.38 !important; }
-.c8isv-root .c8isv-hero-glow {
-  position: absolute !important;
-  width: 600px !important; height: 600px !important;
-  background: radial-gradient(circle, rgba(0,71,225,0.28) 0%, transparent 68%) !important;
-  transform: translate(-50%,-50%) !important;
-  pointer-events: none !important;
-  z-index: 1 !important;
-  top: 50% !important; left: 50% !important;
-  opacity: 0 !important;
-  transition: opacity 0.4s ease !important;
-}
-.c8isv-root .c8isv-hero-wrap.is-active .c8isv-hero-glow { opacity: 1 !important; }
-.c8isv-root .c8isv-hero-wrap .c8isv-wrap { width: 100% !important; }
-.c8isv-root .c8isv-hero-grid {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 3rem !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-@media (min-width: 1025px) {
-  .c8isv-root .c8isv-hero-grid {
-    display: grid !important;
-    grid-template-columns: 1.2fr 1fr !important;
-    gap: 4rem !important;
-    align-items: center !important;
-  }
-}
-.c8isv-root .c8isv-hero-content { position: relative !important; z-index: 2 !important; max-width: 820px !important; }
-
-/* Between Breaths Parallax Shatter Canvas Styles */
-.c8isv-root .c8isv-anim-container {
-  position: relative !important;
-  width: 100% !important;
-  aspect-ratio: 1 / 1 !important; /* Square aspect ratio */
-  max-width: 440px !important; /* Larger max-width */
-  margin: 0 auto !important;
-  border-radius: 16px !important; /* Rounded corners for premium feel */
-  overflow: hidden !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3) !important;
-}
-@media (max-width: 1024px) {
-  .c8isv-root .c8isv-anim-container {
-    display: none !important;
-  }
-}
-.c8isv-root .c8isv-anim-container canvas, 
-.c8isv-root .c8isv-anim-container #c8isv-anim-fog {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  display: block !important;
-}
-.c8isv-root #c8isv-canvas-bg    { z-index: 1 !important; }
-.c8isv-root #c8isv-canvas-main  { z-index: 2 !important; pointer-events: none !important; }
-.c8isv-root #c8isv-canvas-noise { z-index: 3 !important; pointer-events: none !important; }
-.c8isv-root #c8isv-anim-fog {
-  z-index: 4 !important;
-  pointer-events: none !important;
-  background: linear-gradient(
-    0deg,
-    rgba(220,245,255,0.25) 0%,
-    rgba(180,230,250,0.16) 28%,
-    rgba(130,210,240,0.06) 55%,
-    transparent 90%
-  ) !important;
-  animation: c8isv-fogBreathe 24s ease-in-out infinite alternate !important;
-}
-@keyframes c8isv-fogBreathe {
-  0%   { opacity: 0.50; transform: translateY(3px)   scale(1.00); }
-  50%  { opacity: 0.78; transform: translateY(-4px)  scale(1.015); }
-  100% { opacity: 0.45; transform: translateY(1px)   scale(1.00); }
-}
-.c8isv-root .c8isv-breadcrumb {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 10px !important; letter-spacing: .08em !important; text-transform: uppercase !important;
-  color: rgba(250,250,247,0.35) !important;
-  margin-bottom: 1.5rem !important;
-  display: flex !important; align-items: center !important; gap: 8px !important;
-}
-.c8isv-root .c8isv-breadcrumb a { color: rgba(250,250,247,0.35) !important; }
-.c8isv-root .c8isv-breadcrumb a:hover { color: #7C93FF !important; }
-.c8isv-root .c8isv-breadcrumb .is-current { color: #7C93FF !important; }
-.c8isv-root .c8isv-headline {
-  font-family: 'Michroma', sans-serif !important;
-  font-size: clamp(2rem, 4.5vw, 4rem) !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.02em !important;
-  line-height: 1.12 !important;
-  text-transform: uppercase !important;
-  color: #FAFAF7 !important;
-  margin-bottom: 1.5rem !important;
-}
-.c8isv-root .c8isv-hero-intro {
-  font-size: 17px !important;
-  font-weight: 300 !important;
-  color: rgba(250,250,247,0.6) !important;
-  line-height: 1.6 !important;
-  max-width: 560px !important;
-}
-.c8isv-root .c8isv-hero-ctas { display: flex !important; flex-wrap: wrap !important; gap: 1rem !important; margin-top: 2.5rem !important; }
-.c8isv-root .c8isv-btn-primary {
-  background: #0047E1 !important; color: #FAFAF7 !important;
-  font-family: 'Space Mono', monospace !important; font-size: 11px !important;
-  letter-spacing: .08em !important; text-transform: uppercase !important;
-  padding: 16px 28px !important; display: inline-flex !important; align-items: center !important; gap: 8px !important;
-  border-radius: 8px !important;
-  transition: background 0.2s ease !important;
-}
-.c8isv-root .c8isv-btn-primary:hover { background: #0036ad !important; }
-.c8isv-root .c8isv-btn-ghost {
-  background: transparent !important; color: rgba(250,250,247,0.7) !important;
-  font-family: 'Space Mono', monospace !important; font-size: 11px !important;
-  letter-spacing: .08em !important; text-transform: uppercase !important;
-  padding: 16px 28px !important; display: inline-flex !important; align-items: center !important; gap: 8px !important;
-  border: 1px solid rgba(250,250,247,0.2) !important;
-  border-radius: 8px !important;
-  transition: border-color 0.2s ease, color 0.2s ease !important;
-}
-.c8isv-root .c8isv-btn-ghost:hover { border-color: rgba(250,250,247,0.45) !important; color: #FAFAF7 !important; }
-.c8isv-root .c8isv-pill-row { display: flex !important; flex-wrap: wrap !important; gap: 0.6rem !important; margin-top: 2.25rem !important; }
-.c8isv-root .c8isv-pill {
-  border: 1px solid rgba(250,250,247,0.18) !important;
-  background: transparent !important;
-  padding: 8px 15px !important;
-  font-size: 12px !important; font-weight: 500 !important;
-  border-radius: 30px !important;
-  font-family: 'Space Mono', monospace !important;
-  letter-spacing: 0.05em !important;
-  color: rgba(250,250,247,0.55) !important;
-}
-@media (max-width: 768px) { .c8isv-root .c8isv-hero-wrap { min-height: 80vh !important; } }
-
-/* ═══ SECTION 2: FLANK CARDS (Why Custom Web Design) ═══ */
-.c8isv-root .c8isv-flank-section {
-  width: 100vw !important;
-  margin-left: 50% !important;
-  transform: translateX(-50%) !important;
-  background: #F4F6FB !important;
-  padding: 6rem 0 !important;
-  overflow: hidden !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-.c8isv-root .c8isv-flank-inner {
-  max-width: 1440px !important;
-  margin: 0 auto !important;
-  padding: 0 3.5rem !important;
-  text-align: center !important;
-}
-@media (max-width: 1100px) { .c8isv-root .c8isv-flank-inner { padding: 0 1.25rem !important; } }
-.c8isv-root .c8isv-flank-container {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: 1.5rem !important;
-  margin-top: 3.5rem !important;
-  position: relative !important;
-}
-@media (max-width: 900px) {
-  .c8isv-root .c8isv-flank-container {
-    grid-template-columns: 1fr !important;
-    gap: 1.25rem !important;
-  }
-}
-.c8isv-root .c8isv-flank-card {
-  background: #FFFFFF !important;
-  border: 1px solid rgba(8,8,8,0.1) !important;
-  padding: 2.25rem 2rem !important;
-  border-radius: 12px !important;
-  will-change: transform, opacity !important;
-  position: relative !important;
-  box-shadow: 4px 4px 0px rgba(0,71,225,0.02) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-start !important;
-  align-items: flex-start !important;
-  min-height: 350px !important;
-  text-align: left !important;
-}
-@media (max-width: 900px) {
-  .c8isv-root .c8isv-flank-card {
-    min-height: auto !important;
-  }
-}
-.c8isv-root .c8isv-flank-card-quote {
-  font-family: 'Georgia', serif !important;
-  font-size: 3rem !important;
-  line-height: 1 !important;
-  color: #0047E1 !important;
-  margin-bottom: 0.5rem !important;
-}
-.c8isv-root .c8isv-flank-card-step {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 10px !important;
-  letter-spacing: 0.1em !important;
-  color: #080808 !important;
-  text-transform: uppercase !important;
-  margin-bottom: 0.5rem !important;
-}
-.c8isv-root .c8isv-flank-card-divider {
-  width: 100% !important;
-  height: 1px !important;
-  background: rgba(8,8,8,0.12) !important;
-  margin-bottom: 1.5rem !important;
-}
-.c8isv-root .c8isv-flank-card-title {
-  font-family: 'Michroma', sans-serif !important;
-  font-size: 1.25rem !important;
-  font-weight: 700 !important;
-  color: #080808 !important;
-  margin-bottom: 0.75rem !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.01em !important;
-}
-.c8isv-root .c8isv-flank-card-desc {
-  font-size: 13.5px !important;
-  color: #6B6B6B !important;
-  line-height: 1.6 !important;
-  font-family: 'DM Sans', sans-serif !important;
-  margin-bottom: 1.5rem !important;
-}
-.c8isv-root .c8isv-flank-card-icon {
-  width: 46px !important; height: 46px !important;
-  border-radius: 8px !important;
-  background: rgba(0,71,225,0.06) !important;
-  color: #0047E1 !important;
-  display: flex !important; align-items: center !important; justify-content: center !important;
-  margin-top: auto !important;
-  padding: 10px !important;
-}
-.c8isv-root .c8isv-flank-card-icon svg { width: 100% !important; height: 100% !important; stroke: #0047E1 !important; fill: none !important; stroke-width: 1.5 !important; }
-
-/* ═══ SECTION 3: FOLDER DECK (What You Get) ═══ */
-.c8isv-root .c8isv-approach-outer {
-  padding: 8rem 0 !important;
-  background: #F4F6FB !important; /* Light blue-grey background */
-  position: relative !important;
-  z-index: 2 !important;
-}
-.c8isv-root .c8isv-approach-deck {
-  max-width: 100% !important; /* Full screen width */
-  width: 100% !important;
-  margin: 4rem auto 0 auto !important;
-  padding: 0 0 10vh 0 !important; /* No side padding for edge-to-edge background */
-  position: relative !important;
-}
-@media (max-width: 1100px) {
-  .c8isv-root .c8isv-approach-deck {
-    padding: 0 0 10vh 0 !important;
-  }
-}
-.c8isv-root .c8isv-approach-wrap {
-  position: relative !important;
-  margin-bottom: 0 !important;
-}
-.c8isv-root .c8isv-approach-wrap:nth-child(1) { z-index: 40 !important; }
-.c8isv-root .c8isv-approach-wrap:nth-child(2) { z-index: 30 !important; }
-.c8isv-root .c8isv-approach-wrap:nth-child(3) { z-index: 20 !important; }
-.c8isv-root .c8isv-approach-wrap:nth-child(4) { z-index: 10 !important; }
-.c8isv-root .c8isv-approach-wrap:not(:first-child) {
-  margin-top: 0 !important; /* No negative margin when straight */
-}
-.c8isv-root .c8isv-approach-card {
-  position: relative !important;
-  z-index: 1 !important;
-  background: #FFFFFF !important;
-  border-top: 1px solid rgba(8,8,8,0.08) !important;
-  border-bottom: 1px solid rgba(8,8,8,0.08) !important;
-  border-left: none !important; /* Edge to edge */
-  border-right: none !important;
-  border-radius: 0px !important; /* Flat card corners */
-  padding: 1.5rem 8% !important; /* Premium centered side padding */
-  display: grid !important;
-  grid-template-columns: 60px 150px 200px 1fr 240px !important; /* Enlarge image from 180px to 240px */
-  gap: 2.5rem !important;
-  align-items: center !important;
-  height: 260px !important; /* Increased height */
-  transform-origin: top center !important;
-  transition: none !important; /* Remove transition to make scroll-linking smooth and instant */
-  will-change: transform !important;
-  box-shadow: 0 15px 30px rgba(8,8,8,0.08) !important; /* Premium drop shadow at the bottom */
-}
-@media (max-width: 1024px) {
-  .c8isv-root .c8isv-approach-card {
-    grid-template-columns: 50px 130px 160px 1fr 130px !important;
-    padding: 1.5rem 2rem !important;
-    gap: 1.5rem !important;
-  }
-}
-@media (max-width: 900px) {
-  .c8isv-root .c8isv-approach-card {
-    grid-template-columns: 1fr !important;
-    gap: 1.25rem !important;
-    padding: 2rem 1.5rem !important;
-    border-radius: 8px !important;
-    box-shadow: 0 10px 30px rgba(8,8,8,0.02) !important;
-    height: auto !important; /* height auto on mobile viewports */
-  }
-}
-.c8isv-root .c8isv-approach-col-num {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 14px !important;
-  font-weight: 700 !important;
-  color: #080808 !important;
-}
-.c8isv-root .c8isv-approach-col-name {
-  font-family: 'Georgia', serif !important;
-  font-size: 2.2rem !important;
-  font-weight: 400 !important;
-  color: #080808 !important;
-  margin: 0 !important;
-  line-height: 1.1 !important;
-}
-@media (max-width: 900px) {
-  .c8isv-root .c8isv-approach-col-name {
-    font-size: 1.8rem !important;
-  }
-}
-.c8isv-root .c8isv-approach-col-tags {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 10.5px !important;
-  color: #E24F30 !important; /* Red color matching screenshot */
-  line-height: 1.5 !important;
-  font-weight: 500 !important;
-  text-transform: none !important;
-}
-.c8isv-root .c8isv-approach-col-desc {
-  font-size: 14px !important;
-  font-weight: 400 !important;
-  color: #4A4A4A !important;
-  line-height: 1.65 !important;
-  margin: 0 !important;
-  font-family: 'DM Sans', sans-serif !important;
-}
-.c8isv-root .c8isv-approach-col-img {
-  width: 100% !important;
-  height: 190px !important; /* Taller image height almost as tall as card */
-  border-radius: 4px !important;
-  overflow: hidden !important;
-  border: 1px solid rgba(8,8,8,0.06) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-.c8isv-root .c8isv-approach-col-img img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  display: block !important;
-}
-@media (max-width: 900px) {
-  .c8isv-root .c8isv-approach-col-img { max-width: 320px !important; }
-  .c8isv-root .c8isv-approach-wsrv-root .c8srv-estimator, .c8srv-estimator {
-  margin-top: 4rem !important;
-  background: #FAFAF9 !important;
-  border: 1px solid rgba(8,8,8,0.1) !important;
-  border-radius: 16px !important;
-  padding: 3rem !important;
-}
-
-.c8isv-root .c8srv-estimator-grid, .c8srv-root .c8srv-estimator-grid, .c8srv-estimator-grid {
-  display: grid !important;
-  grid-template-columns: 1fr 340px !important;
-  gap: 3rem !important;
-}
-
-@media (max-width: 950px) {
-  .c8isv-root .c8srv-estimator-grid, .c8srv-root .c8srv-estimator-grid, .c8srv-estimator-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-.c8isv-root .c8srv-est-options, .c8srv-root .c8srv-est-options, .c8srv-est-options {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 2rem !important;
-}
-
-.c8isv-root .c8srv-est-group-title, .c8srv-root .c8srv-est-group-title, .c8srv-est-group-title {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  color: #080808 !important;
-  letter-spacing: 0.05em !important;
-  margin-bottom: 1rem !important;
-  display: block !important;
-}
-
-.c8isv-root .c8srv-est-choices, .c8srv-root .c8srv-est-choices, .c8srv-est-choices {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 0.75rem !important;
-}
-
-.c8isv-root .c8srv-est-choice, .c8srv-root .c8srv-est-choice, .c8srv-est-choice {
-  background: #FFFFFF !important;
-  border: 1px solid rgba(8,8,8,0.12) !important;
-  border-radius: 8px !important;
-  padding: 0.75rem 1.25rem !important;
-  font-family: 'Space Mono', monospace !important;
-  font-size: 12px !important;
-  color: #080808 !important;
-  cursor: pointer !important;
-  transition: all 0.25s ease !important;
-  outline: none !important;
-}
-
-.c8isv-root .c8srv-est-choice:hover, .c8srv-root .c8srv-est-choice:hover, .c8srv-est-choice:hover {
-  border-color: #0047E1 !important;
-  color: #0047E1 !important;
-}
-
-.c8isv-root .c8srv-est-choice.is-active, .c8srv-root .c8srv-est-choice.is-active, .c8srv-est-choice.is-active {
-  background: #0047E1 !important;
-  color: #FFFFFF !important;
-  border-color: #0047E1 !important;
-  box-shadow: 0 4px 12px rgba(0,71,225,0.25) !important;
-}
-
-.c8isv-root .c8srv-est-result, .c8srv-root .c8srv-est-result, .c8srv-est-result {
-  background: #FFFFFF !important;
-  border: 1px solid #0047E1 !important;
-  border-radius: 12px !important;
-  padding: 2rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  box-shadow: 0 8px 30px rgba(0,71,225,0.08) !important;
-}
-
-.c8isv-root .c8srv-est-range-label, .c8srv-root .c8srv-est-range-label, .c8srv-est-range-label {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 11px !important;
-  text-transform: uppercase !important;
-  color: #6B6B6B !important;
-  letter-spacing: 0.05em !important;
-  display: block !important;
-  margin-bottom: 0.5rem !important;
-}
-
-.c8isv-root .c8srv-est-range, .c8srv-root .c8srv-est-range, .c8srv-est-range {
-  font-family: 'Michroma', sans-serif !important;
-  font-size: 1.8rem !important;
-  font-weight: 700 !important;
-  color: #0047E1 !important;
-  margin-bottom: 1.5rem !important;
-}
-
-.c8isv-root .c8srv-est-deliverables-title, .c8srv-root .c8srv-est-deliverables-title, .c8srv-est-deliverables-title {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  color: #080808 !important;
-  margin-bottom: 0.75rem !important;
-  display: block !important;
-}
-
-.c8isv-root .c8srv-est-deliverables, .c8srv-root .c8srv-est-deliverables, .c8srv-est-deliverables {
-  font-size: 13px !important;
-  color: #6B6B6B !important;
-  line-height: 1.6 !important;
-  margin-bottom: 2rem !important;
-}
-
-/* ── Platform Selection Cards ── */
-.c8isv-root .c8isv-fits-outer, .c8srv-root .c8isv-fits-outer, .c8isv-fits-outer {
-  background: #F4F6FB !important;
-  padding: 6rem 0 !important;
-  border-top: 1px solid rgba(8,8,8,0.05) !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-.c8isv-root .c8isv-platform-deck, .c8srv-root .c8isv-platform-deck, .c8isv-platform-deck {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
-  gap: 1.5rem !important;
-  margin-bottom: 3rem !important;
-}
-
-.c8isv-root .c8isv-platform-card, .c8srv-root .c8isv-platform-card, .c8isv-platform-card {
-  background: #ffffff !important;
-  padding: 2.25rem !important;
-  border-radius: 12px !important;
-  border: 1px solid rgba(8,8,8,0.08) !important;
-  box-shadow: 0 4px 12px rgba(8,8,8,0.02) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  transition: transform 0.4s ease, opacity 0.4s ease, border-color 0.3s ease !important;
-}
-
-.c8isv-root .c8isv-platform-card:hover, .c8srv-root .c8isv-platform-card:hover, .c8isv-platform-card:hover {
-  border-color: #0047E1 !important;
-  transform: translateY(-4px) !important;
-}
-
-.c8isv-root .c8isv-platform-badge, .c8srv-root .c8isv-platform-badge, .c8isv-platform-badge {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 10px !important;
-  text-transform: uppercase !important;
-  color: #0047E1 !important;
-  letter-spacing: 0.1em !important;
-  margin-bottom: 0.5rem !important;
-  display: block !important;
-  font-weight: 700 !important;
-}
-
-.c8isv-root .c8isv-platform-divider, .c8srv-root .c8isv-platform-divider, .c8isv-platform-divider {
-  width: 100% !important;
-  height: 1px !important;
-  background: rgba(8,8,8,0.08) !important;
-  margin-bottom: 1rem !important;
-}
-
-.c8isv-root .c8isv-platform-title, .c8srv-root .c8isv-platform-title, .c8isv-platform-title {
-  font-family: 'Michroma', sans-serif !important;
-  font-size: 1.1rem !important;
-  color: #080808 !important;
-  margin-bottom: 0.5rem !important;
-  font-weight: 700 !important;
-}
-
-.c8isv-root .c8isv-platform-desc, .c8srv-root .c8isv-platform-desc, .c8isv-platform-desc {
-  font-size: 0.85rem !important;
-  color: #6B6B6B !important;
-  line-height: 1.5 !important;
-  margin-bottom: 1.5rem !important;
-  font-weight: 300 !important;
-  flex-grow: 1 !important;
-}
-
-.c8isv-root .c8isv-platform-icon, .c8srv-root .c8isv-platform-icon, .c8isv-platform-icon {
-  margin-top: auto !important;
-  display: flex !important;
-  align-items: center !important;
-}
-
-.c8isv-root .c8isv-platform-icon svg, .c8srv-root .c8isv-platform-icon svg, .c8isv-platform-icon svg {
-  width: 28px !important;
-  height: 28px !important;
-  stroke: #0047E1 !important;
-  fill: none !important;
-  stroke-width: 1.5 !important;
-}
-
-
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   SECTION TEXT ALIGNMENT & SPACING SYSTEM
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* ── Section 4: What You Get (Folder Deck) -> Left Aligned ── */
-.c8isv-root .c8isv-folder-section .c8isv-label,
-.c8srv-root .c8isv-folder-section .c8isv-label,
-.c8isv-root .c8isv-folder-section .c8isv-section-title,
-.c8srv-root .c8isv-folder-section .c8isv-section-title,
-.c8isv-root .c8isv-folder-section .c8isv-lead,
-.c8srv-root .c8isv-folder-section .c8isv-lead {
-  text-align: left !important;
-  margin-left: 0 !important;
-}
-
-/* ── Hero Light Badge -> Left Aligned ── */
-.c8isv-root .c8isv-label.is-light,
-.c8srv-root .c8isv-label.is-light {
-  text-align: left !important;
-  margin-left: 0 !important;
-}
-
-/* ── Section 5: How We Approach It (Process Cards) -> Center Aligned ── */
-.c8isv-root .c8isv-approach-outer .c8isv-label,
-.c8srv-root .c8isv-approach-outer .c8isv-label,
-.c8isv-root .c8isv-approach-outer .c8isv-section-title,
-.c8srv-root .c8isv-approach-outer .c8isv-section-title,
-.c8isv-root .c8isv-approach-outer .c8isv-lead,
-.c8srv-root .c8isv-approach-outer .c8isv-lead {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* ── Section 5.5: Platform Selection Deck -> Center Aligned ── */
-.c8isv-root .c8isv-fits-outer .c8isv-label,
-.c8srv-root .c8isv-fits-outer .c8isv-label,
-.c8isv-root .c8isv-fits-outer .c8isv-section-title,
-.c8srv-root .c8isv-fits-outer .c8isv-section-title,
-.c8isv-root .c8isv-fits-outer .c8isv-lead,
-.c8srv-root .c8isv-fits-outer .c8isv-lead {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* ── Section 6: Full Catalog Hoverlist -> Center Aligned ── */
-.c8isv-root .c8isv-hl-section .c8isv-label,
-.c8srv-root .c8isv-hl-section .c8isv-label,
-.c8isv-root .c8isv-hl-section .c8isv-section-title,
-.c8srv-root .c8isv-hl-section .c8isv-section-title,
-.c8isv-root .c8isv-hl-section .c8isv-lead,
-.c8srv-root .c8isv-hl-section .c8isv-lead {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
+/* Page Specific Alignment Overrides */
 </style>
 
 <!-- ══════════════════════════════════════════
@@ -1214,13 +541,74 @@
 
 <!-- ══════════════════════════════════════════
      SECTION 9: FAQ
-     White — 10 PAA-focused questions
      ══════════════════════════════════════════ -->
+<div class="c8isv-faq-outer">
+  <div class="c8isv-wrap">
+    <div class="c8isv-label c8isv-reveal">FAQ</div>
+    <h2 class="c8isv-section-title c8isv-reveal">WordPress Development Questions, <span class="c8isv-serif">Answered Honestly</span></h2>
+    <div class="c8isv-accordion" data-c8isv-accordion>
+      <div class="c8isv-accordion-item">
+        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+          <h3 class="c8isv-accordion-title">Why build a custom WordPress theme instead of buying a pre-made template?</h3>
+          <div class="c8isv-accordion-toggle"></div>
+        </div>
+        <div class="c8isv-accordion-body">
+          <div class="c8isv-accordion-body-inner">
+            <div class="c8isv-accordion-desc">Pre-made commercial WordPress templates come bundled with tens of thousands of lines of bloated CSS/JS, unused page builder framework files, and third-party dependencies that slow your site down. A bespoke custom theme contains only the clean PHP, CSS, and JS necessary for your exact design, resulting in sub-500ms load times and 95+ Core Web Vitals performance.</div>
+          </div>
+        </div>
+      </div>
 
+      <div class="c8isv-accordion-item">
+        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+          <h3 class="c8isv-accordion-title">Will I be able to edit page content myself without writing code?</h3>
+          <div class="c8isv-accordion-toggle"></div>
+        </div>
+        <div class="c8isv-accordion-body">
+          <div class="c8isv-accordion-body-inner">
+            <div class="c8isv-accordion-desc">Yes. We engineer native WordPress Block Editor (Gutenberg) custom blocks and custom fields (ACF Pro) so your team can easily update headings, text, media, portfolio showcases, and testimonials through a clean dashboard without touching code or risking broken layouts.</div>
+          </div>
+        </div>
+      </div>
 
+      <div class="c8isv-accordion-item">
+        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+          <h3 class="c8isv-accordion-title">How long does a custom WordPress website project take?</h3>
+          <div class="c8isv-accordion-toggle"></div>
+        </div>
+        <div class="c8isv-accordion-body">
+          <div class="c8isv-accordion-body-inner">
+            <div class="c8isv-accordion-desc">A standard custom WordPress theme project with 3-5 bespoke page layouts takes approximately 3 to 4 weeks from initial wireframe sign-off to live launch. Complex e-commerce integrations or enterprise portals take 4 to 6 weeks.</div>
+          </div>
+        </div>
+      </div>
 
-        
+      <div class="c8isv-accordion-item">
+        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+          <h3 class="c8isv-accordion-title">Do you handle WordPress plugin updates and security?</h3>
+          <div class="c8isv-accordion-toggle"></div>
+        </div>
+        <div class="c8isv-accordion-body">
+          <div class="c8isv-accordion-body-inner">
+            <div class="c8isv-accordion-desc">Because we write native code directly into theme functions without relying on 30+ plugin add-ons, security risks and plugin update conflicts are minimized. We also offer monthly retainer plans covering automated backups, security patching, and ongoing speed optimization.</div>
+          </div>
+        </div>
+      </div>
 
+      <div class="c8isv-accordion-item">
+        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
+          <h3 class="c8isv-accordion-title">Do I own the custom theme code and database?</h3>
+          <div class="c8isv-accordion-toggle"></div>
+        </div>
+        <div class="c8isv-accordion-body">
+          <div class="c8isv-accordion-body-inner">
+            <div class="c8isv-accordion-desc">100% yes. Upon project completion, all source code, theme files, vector assets, database files, and licensing are transferred directly to you. There are no ongoing proprietary platform lock-in fees.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════
      SECTION: PRICING MODELS & PROJECT ESTIMATOR
