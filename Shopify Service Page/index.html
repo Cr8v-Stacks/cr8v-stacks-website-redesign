@@ -1,28 +1,63 @@
 <link rel="stylesheet" href="../shared-service-components.css">
 <div class="c8isv-root">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
-
-/* ═══════════════════════════════════════════════════
-   CR8V STACKS — SHOPIFY SERVICE PAGE
-   Design parity with main service page.
-   Fonts: Michroma (headings) · Space Mono (labels) · DM Sans (body)
-   Bebas Neue: hoverlist titles ONLY (same as main page)
-   ═══════════════════════════════════════════════════ */
-
-.c8isv-root, .c8isv-root * { box-sizing: border-box !important; }
-.c8isv-root {
-  overflow-x: clip !important;
-  background: #FFFFFF !important;
-  color: #080808 !important;
-  font-family: 'DM Sans', sans-serif !important;
-  line-height: 1.65 !important;
-  position: relative !important;
+/* Page Specific Styles Only */
+.c8isv-root #pricing-scope .c8isv-label,
+.c8srv-root #pricing-scope .c8isv-label {
+  justify-content: center !important;
+  align-self: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
-.c8isv-root .c8isv-wrap {
-  padding: 5rem 3.5rem !important;
-  max-width: 1440px !important;
-  margin: 0 auto !important;
+
+/* ── Section Alignment Overrides ── */
+.c8isv-root .c8isv-folder-section .c8isv-label,
+.c8srv-root .c8isv-folder-section .c8isv-label,
+.c8isv-root .c8isv-folder-section .c8isv-section-title,
+.c8srv-root .c8isv-folder-section .c8isv-section-title,
+.c8isv-root .c8isv-folder-section .c8isv-lead,
+.c8srv-root .c8isv-folder-section .c8isv-lead {
+  text-align: left !important;
+  margin-left: 0 !important;
+}
+
+.c8isv-root .c8isv-label.is-light,
+.c8srv-root .c8isv-label.is-light {
+  text-align: left !important;
+  margin-left: 0 !important;
+}
+
+.c8isv-root .c8isv-approach-outer .c8isv-label,
+.c8srv-root .c8isv-approach-outer .c8isv-label,
+.c8isv-root .c8isv-approach-outer .c8isv-section-title,
+.c8srv-root .c8isv-approach-outer .c8isv-section-title,
+.c8isv-root .c8isv-approach-outer .c8isv-lead,
+.c8srv-root .c8isv-approach-outer .c8isv-lead,
+.c8isv-root .c8isv-fits-outer .c8isv-label,
+.c8srv-root .c8isv-fits-outer .c8isv-label,
+.c8isv-root .c8isv-fits-outer .c8isv-section-title,
+.c8srv-root .c8isv-fits-outer .c8isv-section-title,
+.c8isv-root .c8isv-fits-outer .c8isv-lead,
+.c8srv-root .c8isv-fits-outer .c8isv-lead,
+.c8isv-root .c8isv-hl-section .c8isv-label,
+.c8srv-root .c8isv-hl-section .c8isv-label,
+.c8isv-root .c8isv-hl-section .c8isv-section-title,
+.c8srv-root .c8isv-hl-section .c8isv-section-title,
+.c8isv-root .c8isv-hl-section .c8isv-lead,
+.c8srv-root .c8isv-hl-section .c8isv-lead {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.c8isv-root .c8isv-faq-outer .c8isv-label,
+.c8srv-root .c8isv-faq-outer .c8isv-label,
+.c8isv-root .c8isv-faq-outer .c8isv-section-title,
+.c8srv-root .c8isv-faq-outer .c8isv-section-title {
+  text-align: left !important;
+  margin-left: 0 !important;
+}
+
   position: relative !important;
   z-index: 2 !important;
 }
@@ -1230,7 +1265,6 @@
   margin-left: auto !important;
   margin-right: auto !important;
 }
-
 </style>
 
 <!-- ══════════════════════════════════════════

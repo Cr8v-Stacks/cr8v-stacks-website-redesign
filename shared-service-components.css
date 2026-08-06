@@ -937,63 +937,64 @@
 .c8srv-root, .c8isv-root .c8srv-fan-left, .c8isv-fan-left { background: #0047E1 !important; border: 1px solid rgba(255,255,255,0.12) !important; z-index: 10 !important; transform: translateX(-105px) translateY(-18px) rotate(-10deg) !important; }
 .c8srv-root, .c8isv-root .c8srv-fan-center, .c8isv-fan-center { background: #F5F0E8 !important; border: 1px solid rgba(8,8,8,0.1) !important; z-index: 20 !important; transform: translateX(0) rotate(0deg) !important; }
 .c8srv-root, .c8isv-root .c8srv-fan-right, .c8isv-fan-right { background: #080808 !important; border: 1px solid rgba(255,255,255,0.08) !important; z-index: 15 !important; transform: translateX(105px) translateY(-18px) rotate(10deg) !important; }
-.c8srv-root, .c8isv-root .c8srv-fan-word, .c8isv-fan-word {
+.c8srv-root .c8srv-fan-word, .c8isv-root .c8isv-fan-word {
   font-family: 'Michroma', sans-serif !important; font-size: clamp(1.1rem, 2vw, 0.8rem) !important; font-weight: 700 !important;
   font-size: 36px !important; line-height: 1 !important; letter-spacing: 0.04em !important;
   text-align: center !important; white-space: normal !important; word-break: break-word !important;
   overflow: hidden !important; width: 100% !important; display: block !important;
 }
-.c8srv-root, .c8isv-root .c8srv-fan-left, .c8isv-fan-left .c8srv-fan-word, .c8isv-fan-word, .c8srv-root, .c8isv-root .c8srv-fan-right, .c8isv-fan-right .c8srv-fan-word, .c8isv-fan-word { color: #FAFAF7 !important; }
-.c8srv-root, .c8isv-root .c8srv-fan-center, .c8isv-fan-center .c8srv-fan-word, .c8isv-fan-word { color: #080808 !important; }
-@media (prefers-reduced-motion: reduce) { .c8srv-root, .c8isv-root .c8srv-hoverlist-preview, .c8isv-hoverlist-preview { display: none !important; } }
+.c8srv-root .c8srv-fan-left .c8srv-fan-word, .c8srv-root .c8srv-fan-right .c8srv-fan-word,
+.c8isv-root .c8isv-fan-left .c8isv-fan-word, .c8isv-root .c8isv-fan-right .c8isv-fan-word { color: #FAFAF7 !important; }
+.c8srv-root .c8srv-fan-center .c8srv-fan-word, .c8isv-root .c8isv-fan-center .c8isv-fan-word { color: #080808 !important; }
+@media (prefers-reduced-motion: reduce) { .c8srv-root .c8srv-hoverlist-preview, .c8isv-root .c8isv-hoverlist-preview { display: none !important; } }
 
 /* ═══ SECTION 7: INVESTMENT ═══ */
-.c8srv-root, .c8isv-root .c8srv-pricing-section, .c8isv-pricing-section { padding: 6rem 0 !important; position: relative !important; z-index: 2 !important; background: #FFFFFF !important; }
-.c8srv-root, .c8isv-root .c8srv-pricing-split, .c8isv-pricing-split {
+.c8srv-root .c8srv-pricing-section, .c8isv-root .c8isv-pricing-section { padding: 6rem 0 !important; position: relative !important; z-index: 2 !important; background: #FFFFFF !important; }
+.c8srv-root .c8srv-pricing-split, .c8isv-root .c8isv-pricing-split {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
   gap: 3.5rem !important;
   margin-top: 4rem !important;
 }
-@media (max-width: 900px) { .c8srv-root, .c8isv-root .c8srv-pricing-split, .c8isv-pricing-split { grid-template-columns: 1fr !important; gap: 2.5rem !important; } }
-.c8srv-root, .c8isv-root .c8srv-price-box, .c8isv-price-box {
+@media (max-width: 900px) { .c8srv-root .c8srv-pricing-split, .c8isv-root .c8isv-pricing-split { grid-template-columns: 1fr !important; gap: 2.5rem !important; } }
+.c8srv-root .c8srv-price-box, .c8isv-root .c8isv-price-box {
   background: #FAFAF9 !important;
   border: 1px solid rgba(8,8,8,0.1) !important;
-  border-radius: 20px !important;
+  border-radius: 4px !important;
   padding: 3.5rem !important;
   display: flex !important;
   flex-direction: column !important;
   box-shadow: 0 10px 40px rgba(0,0,0,0.02) !important;
   position: relative !important;
 }
-@media (max-width: 600px) { .c8srv-root, .c8isv-root .c8srv-price-box, .c8isv-price-box { padding: 2rem !important; } }
-.c8srv-root, .c8isv-root .c8srv-price-box, .c8isv-price-box.is-highlight { background: #080808 !important; border-color: #080808 !important; color: #FAFAF7 !important; }
-.c8srv-root, .c8isv-root .c8srv-price-header, .c8isv-price-header { margin-bottom: 2rem !important; }
-.c8srv-root, .c8isv-root .c8srv-price-type, .c8isv-price-type { font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 0.75rem !important; display: block !important; }
-.c8srv-root, .c8isv-root .c8srv-price-box, .c8isv-price-box.is-highlight .c8srv-price-type, .c8isv-price-type { color: #7C93FF !important; }
-.c8srv-root, .c8isv-root .c8srv-price-title, .c8isv-price-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.2rem, 2.5vw, 1.8rem) !important; font-weight: 700 !important; letter-spacing: 0.02em !important; margin-bottom: 1rem !important; text-transform: uppercase !important; }
-.c8srv-root, .c8isv-root .c8srv-price-amount, .c8isv-price-amount { font-family: 'DM Sans', sans-serif !important; font-size: clamp(2rem, 4vw, 2.8rem) !important; font-weight: 700 !important; letter-spacing: -0.02em !important; color: #0047E1 !important; margin-bottom: 1.5rem !important; }
-.c8srv-root, .c8isv-root .c8srv-price-box, .c8isv-price-box.is-highlight .c8srv-price-amount, .c8isv-price-amount { color: #FAFAF7 !important; }
-.c8srv-root, .c8isv-root .c8srv-price-amount, .c8isv-price-amount span { font-size: 14px !important; font-weight: 400 !important; color: #6B6B6B !important; }
-.c8srv-root, .c8isv-root .c8srv-price-box, .c8isv-price-box.is-highlight .c8srv-price-amount, .c8isv-price-amount span { color: rgba(250,250,247,0.6) !important; }
-.c8srv-root, .c8isv-root .c8srv-price-desc, .c8isv-price-desc { font-size: 14.5px !important; color: #6B6B6B !important; line-height: 1.6 !important; margin-bottom: 2rem !important; }
-.c8srv-root, .c8isv-root .c8srv-price-box, .c8isv-price-box.is-highlight .c8srv-price-desc, .c8isv-price-desc { color: rgba(250,250,247,0.7) !important; }
-.c8srv-root, .c8isv-root .c8srv-price-features, .c8isv-price-features { display: flex !important; flex-direction: column !important; gap: 1rem !important; margin-bottom: 3rem !important; margin-top: auto !important; }
-.c8srv-root, .c8isv-root .c8srv-price-feature, .c8isv-price-feature { display: flex !important; align-items: center !important; gap: 12px !important; font-size: 14px !important; font-weight: 500 !important; }
-.c8srv-root, .c8isv-root .c8srv-price-btn, .c8isv-price-btn {
+@media (max-width: 600px) { .c8srv-root .c8srv-price-box, .c8isv-root .c8isv-price-box { padding: 2rem !important; } }
+.c8srv-root .c8srv-price-box.is-highlight, .c8isv-root .c8isv-price-box.is-highlight { background: #080808 !important; border-color: #080808 !important; color: #FAFAF7 !important; }
+.c8srv-root .c8srv-price-header, .c8isv-root .c8isv-price-header { margin-bottom: 2rem !important; }
+.c8srv-root .c8srv-price-type, .c8isv-root .c8isv-price-type { font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 0.75rem !important; display: block !important; }
+.c8srv-root .c8srv-price-box.is-highlight .c8srv-price-type, .c8isv-root .c8isv-price-box.is-highlight .c8isv-price-type { color: #7C93FF !important; }
+.c8srv-root .c8srv-price-title, .c8isv-root .c8isv-price-title { font-family: 'DM Sans', sans-serif !important; font-size: clamp(1.2rem, 2.5vw, 1.8rem) !important; font-weight: 700 !important; letter-spacing: 0.02em !important; margin-bottom: 1rem !important; text-transform: uppercase !important; }
+.c8srv-root .c8srv-price-amount, .c8isv-root .c8isv-price-amount { font-family: 'DM Sans', sans-serif !important; font-size: clamp(2rem, 4vw, 2.8rem) !important; font-weight: 700 !important; letter-spacing: -0.02em !important; color: #0047E1 !important; margin-bottom: 1.5rem !important; }
+.c8srv-root .c8srv-price-box.is-highlight .c8srv-price-amount, .c8isv-root .c8isv-price-box.is-highlight .c8isv-price-amount { color: #FAFAF7 !important; }
+.c8srv-root .c8srv-price-amount span, .c8isv-root .c8isv-price-amount span { font-size: 14px !important; font-weight: 400 !important; color: #6B6B6B !important; }
+.c8srv-root .c8srv-price-box.is-highlight .c8srv-price-amount span, .c8isv-root .c8isv-price-box.is-highlight .c8isv-price-amount span { color: rgba(250,250,247,0.6) !important; }
+.c8srv-root .c8srv-price-desc, .c8isv-root .c8isv-price-desc { font-size: 14.5px !important; color: #6B6B6B !important; line-height: 1.6 !important; margin-bottom: 2rem !important; }
+.c8srv-root .c8srv-price-box.is-highlight .c8srv-price-desc, .c8isv-root .c8isv-price-box.is-highlight .c8isv-price-desc { color: rgba(250,250,247,0.7) !important; }
+.c8srv-root .c8srv-price-features, .c8isv-root .c8isv-price-features { display: flex !important; flex-direction: column !important; gap: 1rem !important; margin-bottom: 3rem !important; margin-top: auto !important; }
+.c8srv-root .c8srv-price-feature, .c8isv-root .c8isv-price-feature { display: flex !important; align-items: center !important; gap: 12px !important; font-size: 14px !important; font-weight: 500 !important; }
+.c8srv-root .c8srv-price-btn, .c8isv-root .c8isv-price-btn {
   font-family: 'Space Mono', monospace !important;
   font-size: 11px !important; letter-spacing: 0.1em !important; text-transform: uppercase !important;
   padding: 16px 24px !important; text-align: center !important; font-weight: 700 !important;
-  border-radius: 8px !important; transition: all 0.3s ease !important; display: block !important; width: 100% !important;
+  border-radius: 4px !important; transition: all 0.3s ease !important; display: block !important; width: 100% !important;
 }
-.c8srv-root, .c8isv-root .c8srv-price-btn, .c8isv-price-btn.is-primary { background: #0047E1 !important; color: #FFFFFF !important; }
-.c8srv-root, .c8isv-root .c8srv-price-btn, .c8isv-price-btn.is-primary:hover { background: #0036ad !important; }
-.c8srv-root, .c8isv-root .c8srv-price-btn, .c8isv-price-btn.is-outline { background: transparent !important; color: #080808 !important; border: 1px solid rgba(8,8,8,0.25) !important; }
-.c8srv-root, .c8isv-root .c8srv-price-btn, .c8isv-price-btn.is-outline:hover { border-color: #080808 !important; }
-.c8srv-root, .c8isv-root .c8srv-pricing-note, .c8isv-pricing-note { font-size: 12.5px !important; color: #8A8A8A !important; font-style: italic !important; text-align: center !important; margin-top: 2rem !important; }
+.c8srv-root .c8srv-price-btn.is-primary, .c8isv-root .c8isv-price-btn.is-primary { background: #0047E1 !important; color: #FFFFFF !important; }
+.c8srv-root .c8srv-price-btn.is-primary:hover, .c8isv-root .c8isv-price-btn.is-primary:hover { background: #0036ad !important; }
+.c8srv-root .c8srv-price-btn.is-outline, .c8isv-root .c8isv-price-btn.is-outline { background: transparent !important; color: #080808 !important; border: 1px solid rgba(8,8,8,0.25) !important; }
+.c8srv-root .c8srv-price-btn.is-outline:hover, .c8isv-root .c8isv-price-btn.is-outline:hover { border-color: #080808 !important; }
+.c8srv-root .c8srv-pricing-note, .c8isv-root .c8isv-pricing-note { font-size: 12.5px !important; color: #8A8A8A !important; font-style: italic !important; text-align: center !important; margin-top: 2rem !important; }
 
 /* ═══ SECTION 8: TESTIMONIALS (light, flank-style fanning layout) ═══ */
-.c8srv-root, .c8isv-root .c8srv-testi-outer, .c8isv-testi-outer {
+.c8srv-root .c8srv-testi-outer, .c8isv-root .c8isv-testi-outer {
   width: 100vw !important;
   margin-left: 50% !important;
   transform: translateX(-50%) !important;
@@ -1003,8 +1004,8 @@
   z-index: 2 !important;
   overflow: hidden !important;
 }
-.c8srv-root, .c8isv-root .c8srv-testi-inner, .c8isv-testi-inner { max-width: 1200px !important; margin: 0 auto !important; padding: 0 2rem 5rem !important; text-align: center !important; }
-.c8srv-root, .c8isv-root .c8srv-testi-grid, .c8isv-testi-grid {
+.c8srv-root .c8srv-testi-inner, .c8isv-root .c8isv-testi-inner { max-width: 1200px !important; margin: 0 auto !important; padding: 0 2rem 5rem !important; text-align: center !important; }
+.c8srv-root .c8srv-testi-grid, .c8isv-root .c8isv-testi-grid {
   position: relative !important;
   height: 480px !important;
   margin-top: 3.5rem !important;
@@ -1013,18 +1014,18 @@
   align-items: center !important;
 }
 @media (max-width: 900px) {
-  .c8srv-root, .c8isv-root .c8srv-testi-grid, .c8isv-testi-grid {
+  .c8srv-root .c8srv-testi-grid, .c8isv-root .c8isv-testi-grid {
     height: auto !important;
     flex-direction: column !important;
     gap: 1.5rem !important;
   }
 }
-.c8srv-root, .c8isv-root .c8srv-testi-card, .c8isv-testi-card {
+.c8srv-root .c8srv-testi-card, .c8isv-root .c8isv-testi-card {
   width: 320px !important;
   height: 380px !important;
   background: #FFFFFF !important;
   border: 1px solid rgba(8,8,8,0.08) !important;
-  border-radius: 16px !important;
+  border-radius: 4px !important;
   padding: 2.5rem 2rem !important;
   display: flex !important;
   flex-direction: column !important;
@@ -1235,6 +1236,106 @@
 
 .c8isv-root .c8srv-price-header, .c8srv-root .c8srv-price-header, .c8srv-price-header {
   margin-bottom: 1.5rem !important;
+}
+
+.c8isv-root .c8srv-price-type, .c8srv-root .c8srv-price-type, .c8srv-price-type {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  color: #0047E1 !important;
+  letter-spacing: 0.1em !important;
+  display: block !important;
+  margin-bottom: 0.5rem !important;
+  font-weight: 700 !important;
+}
+
+.c8isv-root .c8srv-price-title, .c8srv-root .c8srv-price-title, .c8srv-price-title {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 1.5rem !important;
+  color: #080808 !important;
+  margin-bottom: 0.5rem !important;
+  font-weight: 700 !important;
+}
+
+.c8isv-root .c8srv-price-amount, .c8srv-root .c8srv-price-amount, .c8srv-price-amount {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 2.2rem !important;
+  font-weight: 700 !important;
+  color: #0047E1 !important;
+}
+
+.c8isv-root .c8srv-price-amount span, .c8srv-root .c8srv-price-amount span, .c8srv-price-amount span {
+  font-size: 1rem !important;
+  color: #6B6B6B !important;
+  font-weight: 400 !important;
+}
+
+.c8isv-root .c8srv-price-desc, .c8srv-root .c8srv-price-desc, .c8srv-price-desc {
+  font-size: 14.5px !important;
+  color: #6B6B6B !important;
+  line-height: 1.6 !important;
+  margin-bottom: 2rem !important;
+  font-weight: 300 !important;
+}
+
+.c8isv-root .c8srv-price-features, .c8srv-root .c8srv-price-features, .c8srv-price-features {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem !important;
+  margin-bottom: 2rem !important;
+  margin-top: auto !important;
+}
+
+.c8isv-root .c8srv-price-feature, .c8srv-root .c8srv-price-feature, .c8srv-price-feature {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  font-size: 13.5px !important;
+  color: #080808 !important;
+}
+
+.c8isv-root .c8srv-icon-sq, .c8srv-root .c8srv-icon-sq, .c8srv-icon-sq {
+  width: 20px !important;
+  height: 20px !important;
+  background: #0047E1 !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.c8isv-root .c8srv-price-btn, .c8srv-root .c8srv-price-btn, .c8srv-price-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  padding: 1rem 1.5rem !important;
+  border-radius: 8px !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.c8isv-root .c8srv-price-btn.is-primary, .c8srv-root .c8srv-price-btn.is-primary, .c8srv-price-btn.is-primary {
+  background: #0047E1 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #0047E1 !important;
+}
+
+.c8isv-root .c8srv-price-btn.is-light, .c8srv-root .c8srv-price-btn.is-light, .c8srv-price-btn.is-light {
+  background: #FFFFFF !important;
+  color: #080808 !important;
+  border: 1px solid rgba(8,8,8,0.15) !important;
+}
+
+.c8isv-root .c8srv-price-btn:hover, .c8srv-root .c8srv-price-btn:hover, .c8srv-price-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 15px rgba(0,71,225,0.2) !important;
 }
 
 /* ── Estimator Grid ── */
