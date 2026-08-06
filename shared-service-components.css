@@ -1003,7 +1003,7 @@
   z-index: 2 !important;
   overflow: hidden !important;
 }
-.c8srv-root, .c8isv-root .c8srv-testi-inner, .c8isv-testi-inner { max-width: 1200px !important; margin: 0 auto !important; padding: 0 2rem !important; text-align: center !important; }
+.c8srv-root, .c8isv-root .c8srv-testi-inner, .c8isv-testi-inner { max-width: 1200px !important; margin: 0 auto !important; padding: 0 2rem 5rem !important; text-align: center !important; }
 .c8srv-root, .c8isv-root .c8srv-testi-grid, .c8isv-testi-grid {
   position: relative !important;
   height: 480px !important;
@@ -1235,106 +1235,6 @@
 
 .c8isv-root .c8srv-price-header, .c8srv-root .c8srv-price-header, .c8srv-price-header {
   margin-bottom: 1.5rem !important;
-}
-
-.c8isv-root .c8srv-price-type, .c8srv-root .c8srv-price-type, .c8srv-price-type {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 11px !important;
-  text-transform: uppercase !important;
-  color: #0047E1 !important;
-  letter-spacing: 0.1em !important;
-  display: block !important;
-  margin-bottom: 0.5rem !important;
-  font-weight: 700 !important;
-}
-
-.c8isv-root .c8srv-price-title, .c8srv-root .c8srv-price-title, .c8srv-price-title {
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 1.5rem !important;
-  color: #080808 !important;
-  margin-bottom: 0.5rem !important;
-  font-weight: 700 !important;
-}
-
-.c8isv-root .c8srv-price-amount, .c8srv-root .c8srv-price-amount, .c8srv-price-amount {
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 2.2rem !important;
-  font-weight: 700 !important;
-  color: #0047E1 !important;
-}
-
-.c8isv-root .c8srv-price-amount span, .c8srv-root .c8srv-price-amount span, .c8srv-price-amount span {
-  font-size: 1rem !important;
-  color: #6B6B6B !important;
-  font-weight: 400 !important;
-}
-
-.c8isv-root .c8srv-price-desc, .c8srv-root .c8srv-price-desc, .c8srv-price-desc {
-  font-size: 14.5px !important;
-  color: #6B6B6B !important;
-  line-height: 1.6 !important;
-  margin-bottom: 2rem !important;
-  font-weight: 300 !important;
-}
-
-.c8isv-root .c8srv-price-features, .c8srv-root .c8srv-price-features, .c8srv-price-features {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.85rem !important;
-  margin-bottom: 2rem !important;
-  margin-top: auto !important;
-}
-
-.c8isv-root .c8srv-price-feature, .c8srv-root .c8srv-price-feature, .c8srv-price-feature {
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.75rem !important;
-  font-size: 13.5px !important;
-  color: #080808 !important;
-}
-
-.c8isv-root .c8srv-icon-sq, .c8srv-root .c8srv-icon-sq, .c8srv-icon-sq {
-  width: 20px !important;
-  height: 20px !important;
-  background: #0047E1 !important;
-  border-radius: 4px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-shrink: 0 !important;
-}
-
-.c8isv-root .c8srv-price-btn, .c8srv-root .c8srv-price-btn, .c8srv-price-btn {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 100% !important;
-  padding: 1rem 1.5rem !important;
-  border-radius: 8px !important;
-  font-family: 'Space Mono', monospace !important;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  text-decoration: none !important;
-  transition: all 0.3s ease !important;
-}
-
-.c8isv-root .c8srv-price-btn.is-primary, .c8srv-root .c8srv-price-btn.is-primary, .c8srv-price-btn.is-primary {
-  background: #0047E1 !important;
-  color: #FFFFFF !important;
-  border: 1px solid #0047E1 !important;
-}
-
-.c8isv-root .c8srv-price-btn.is-light, .c8srv-root .c8srv-price-btn.is-light, .c8srv-price-btn.is-light {
-  background: #FFFFFF !important;
-  color: #080808 !important;
-  border: 1px solid rgba(8,8,8,0.15) !important;
-}
-
-.c8isv-root .c8srv-price-btn:hover, .c8srv-root .c8srv-price-btn:hover, .c8srv-price-btn:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 15px rgba(0,71,225,0.2) !important;
 }
 
 /* ── Estimator Grid ── */

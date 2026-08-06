@@ -1,331 +1,82 @@
-<script src="../assets_b64.js">(function () {
-  var root = document.currentScript.closest('.c8isv-root');
-  if (!root || root.getAttribute('data-c8isv-init') === '1') return;
-  root.setAttribute('data-c8isv-init', '1');
+<script src="assets_b64.js"></script>
+<script>
+(function () {
+  function initHeroCanvas() {
+    var root = document.querySelector('.c8isv-root');
+    if (!root || root.getAttribute('data-c8isv-init') === '1') return;
+    root.setAttribute('data-c8isv-init', '1');
 
-  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
 
-  /* ── Between Breaths Hero Canvas Animation ── */
-  (function () {
-    if (reduceMotion || window.innerWidth < 1025) return;
-    
-    var animWrapper = root.querySelector('#c8isv-anim-wrapper');
-    if (!animWrapper) return;
-
-    var IDS = ['c8isv-canvas-bg', 'c8isv-canvas-main', 'c8isv-canvas-noise'];
-    var CV = {}, CX = {};
-    IDS.forEach(function (id) {
-      CV[id] = root.querySelector('#' + id);
-      if (CV[id]) CX[id] = CV[id].getContext('2d');
-    });
-
-    if (!CV['c8isv-canvas-bg'] || !CX['c8isv-canvas-bg']) return;
-
-    var W, H, dpr;
-    var grainDirty = true;
-
-    function resize() {
-      dpr = Math.min(window.devicePixelRatio || 1, 3);
-      W = animWrapper.clientWidth;
-      H = animWrapper.clientHeight;
-      IDS.forEach(function (id) {
-        if (!CV[id]) return;
-        CV[id].width  = W * dpr;
-        CV[id].height = H * dpr;
-        CV[id].style.width  = W + 'px';
-        CV[id].style.height = H + 'px';
-        CX[id].setTransform(dpr, 0, 0, dpr, 0, 0);
-      });
-      grainDirty = true;
-      invalidateLogo();
-    }
-    window.addEventListener('resize', resize);
-
-    var mx = 0, my = 0, sx = 0, sy = 0, hovered = false;
-    var lastSx = 0, lastSy = 0, mouseVel = 0;
-    
-    animWrapper.addEventListener('mousemove', function (e) {
-      var r = animWrapper.getBoundingClientRect();
-      mx = e.clientX - r.left;
-      my = e.clientY - r.top;
-      hovered = true;
-    });
-    animWrapper.addEventListener('mouseleave', function () {
-      hovered = false;
-      mouseVel = 0;
-    });
-
-    var bgOC = null, bgReady = false;
-    var bgImg = new Image();
-    bgImg.onload = function () {
-      bgOC = document.createElement('canvas');
-      bgOC.width  = bgImg.naturalWidth;
-      bgOC.height = bgImg.naturalHeight;
-      bgOC.getContext('2d').drawImage(bgImg, 0, 0);
-      bgReady = true;
-    };
-    bgImg.src = typeof BG_DATA_URL !== 'undefined' ? BG_DATA_URL : 'background.jpg';
-
-    function drawBg() {
-      var cx = CX['c8isv-canvas-bg'];
-      if (!cx) return;
-      if (W <= 0 || H <= 0) return;
-      cx.clearRect(0, 0, W, H);
-      if (!bgReady) { cx.fillStyle = '#aee4f0'; cx.fillRect(0, 0, W, H); return; }
-
-      var iW = bgOC.width, iH = bgOC.height;
-      var scale = Math.max(W / iW, H / iH);
-      var sc = 1 / scale;
-      var srcXBase = (iW - W * sc) / 2;
-      var srcYBase = (iH - H * sc) / 2;
-
-      var nX = hovered ? (sx / W - 0.5) * 2 : 0;
-      var nY = hovered ? (sy / H - 0.5) * 2 : 0;
-      var ampY = H * 0.04, ampX = W * 0.025;
-      var STRIP = 3;
-
-      for (var row = 0; row < H; row += STRIP) {
-        var depth = Math.pow(row / H, 2.3);
-        var dy = nY * ampY * depth * 2.6;
-        var dx = nX * ampX * (0.4 + depth * 1.1);
-        var srcY = srcYBase + row * sc + dy * sc;
-        srcY = Math.max(0, Math.min(iH - STRIP * sc - 1, srcY));
-        var srcX = srcXBase + (dx < 0 ? 0 : dx * sc);
-        var srcW = Math.max(1, W * sc - Math.abs(dx) * sc);
-        cx.drawImage(bgOC, srcX, srcY, srcW, STRIP * sc, 0, row, W, STRIP);
-      }
-    }
-
-    function getLayout() {
-      var fs = W * 0.165;
-      var lh = fs * 1.05;
-      var nX = hovered ? (sx / W - 0.5) * 2 : 0;
-      var nY = hovered ? (sy / H - 0.5) * 2 : 0;
-      var tx = W / 2 - nX * 15;
-      var y1 = H * 0.40 - nY * 8;
-      var y2 = y1 + lh;
-
-      var logoW  = W * 0.285;
-      var logoH  = logoReady
-        ? (logoImg.naturalHeight / logoImg.naturalWidth) * logoW
-        : logoW * 0.55;
-      var logoCX = W / 2;
-      var logoCY = y1 + lh * 0.45;
-      var logoX  = logoCX - logoW / 2;
-      var logoY  = logoCY - logoH / 2;
-
-      return { fs: fs, lh: lh, tx: tx, y1: y1, y2: y2, logoW: logoW, logoH: logoH, logoCX: logoCX, logoCY: logoCY, logoX: logoX, logoY: logoY };
-    }
-
-    var logoImg = new Image();
-    var logoReady = false;
-    logoImg.onload = function () { logoReady = true; invalidateLogo(); };
-
-    if (typeof LOGO_DATA_URL !== 'undefined') {
-      logoImg.src = LOGO_DATA_URL;
-    } else {
-      if (window.location.protocol !== 'file:') {
-        logoImg.crossOrigin = 'anonymous';
-      }
-      logoImg.src = 'logo.png';
-    }
-
-    var logoPx = null, logoPxW = 0, logoPxH = 0;
-    var logoOutData = null;
-    var logoOutCanvas = null;
-    var smearT = 0;
-    var cellMap = null;
-    var cellDirs = null;
-
-    function invalidateLogo() {
-      logoPx = null; logoOutData = null; logoOutCanvas = null;
-      cellMap = null; cellDirs = null;
-    }
-
-    function ensureLogoPx(sw, sh) {
-      if (logoPx && logoPxW === sw && logoPxH === sh) return true;
-      var sc = document.createElement('canvas');
-      sc.width = sw; sc.height = sh;
-      var sctx = sc.getContext('2d');
-      sctx.drawImage(logoImg, 0, 0, sw, sh);
-      try {
-        logoPx = sctx.getImageData(0, 0, sw, sh).data;
-      } catch (e) {
-        console.warn('Logo pixel read blocked:', e.message);
-        return false;
-      }
-      logoPxW = sw; logoPxH = sh;
-      logoOutData   = new ImageData(sw, sh);
-      logoOutCanvas = document.createElement('canvas');
-      logoOutCanvas.width = sw; logoOutCanvas.height = sh;
-
-      var cols = 12;
-      var rows = 9;
-      var numCells = cols * rows;
-      var centers = [];
-      cellDirs = [];
-
-      for (var r = 0; r < rows; r++) {
-        for (var c = 0; c < cols; c++) {
-          var cx = ((c + 0.5) + (Math.random() - 0.5) * 0.4) * (sw / cols);
-          var cy = ((r + 0.5) + (Math.random() - 0.5) * 0.4) * (sh / rows);
-          centers.push({ x: cx, y: cy });
-
-          var vx = cx - sw / 2;
-          var vy = cy - sh / 2;
-          var len = Math.sqrt(vx * vx + vy * vy) || 1;
-
-          var angle = Math.random() * Math.PI * 2;
-          var dx = (vx / len) * 0.70 + Math.cos(angle) * 0.30;
-          var dy = (vy / len) * 0.70 + Math.sin(angle) * 0.30;
-          var dlen = Math.sqrt(dx * dx + dy * dy) || 1;
-
-          cellDirs.push({ x: dx / dlen, y: dy / dlen });
-        }
-      }
-
-      cellMap = new Int32Array(sw * sh);
-      for (var y = 0; y < sh; y++) {
-        for (var x = 0; x < sw; x++) {
-          var minDist = Infinity;
-          var closestIdx = 0;
-          for (var i = 0; i < numCells; i++) {
-            var dx2 = x - centers[i].x;
-            var dy2 = y - centers[i].y;
-            var dSq = dx2 * dx2 + dy2 * dy2;
-            if (dSq < minDist) {
-              minDist = dSq;
-              closestIdx = i;
-            }
-          }
-          cellMap[y * sw + x] = closestIdx;
-        }
-      }
-
-      return true;
-    }
-
-    function drawLogo(cx, L) {
-      if (!logoReady) return;
-
-      var targetSmear = 0;
-      if (hovered) {
-        targetSmear = 0.05;
-        var dx = sx - L.logoCX;
-        var dy = sy - L.logoCY;
-        var dist = Math.sqrt(dx * dx + dy * dy);
-        var maxDist = Math.min(W, H) * 0.30;
-
-        if (dist < maxDist) {
-          var prox = 1 - dist / maxDist;
-          targetSmear = 0.05 + prox * 0.95;
-
-          if (dist < L.logoW * 0.95) {
-            var pulseFactor = Math.min(1.0, 0.98 + (1.0 - Math.min(mouseVel, 3) / 3) * 0.02);
-            targetSmear *= pulseFactor;
-          }
-        }
-      }
+    /* ── Between Breaths Hero Canvas Animation ── */
+    (function () {
+      if (reduceMotion || window.innerWidth < 1025) return;
       
-      smearT += (targetSmear - smearT) * 0.10;
+      var animWrapper = root.querySelector('#c8isv-anim-wrapper');
+      if (!animWrapper) return;
 
-      var sw = Math.max(1, Math.round(L.logoW));
-      var sh = Math.max(1, Math.round(L.logoH));
-      if (!ensureLogoPx(sw, sh)) {
-        cx.drawImage(logoImg, L.logoX, L.logoY, L.logoW, L.logoH);
-        return;
+      var IDS = ['c8isv-canvas-bg', 'c8isv-canvas-main', 'c8isv-canvas-noise'];
+      var CV = {}, CX = {};
+      IDS.forEach(function (id) {
+        CV[id] = root.querySelector('#' + id);
+        if (CV[id]) CX[id] = CV[id].getContext('2d');
+      });
+
+      if (!CV['c8isv-canvas-bg'] || !CX['c8isv-canvas-bg']) return;
+
+      var W, H, dpr;
+      var grainDirty = true;
+
+      function resize() {
+        dpr = Math.min(window.devicePixelRatio || 1, 3);
+        W = animWrapper.clientWidth;
+        H = animWrapper.clientHeight;
+        IDS.forEach(function (id) {
+          if (!CV[id]) return;
+          CV[id].width  = W * dpr;
+          CV[id].height = H * dpr;
+          CV[id].style.width  = W + 'px';
+          CV[id].style.height = H + 'px';
+          CX[id].setTransform(dpr, 0, 0, dpr, 0, 0);
+        });
+        grainDirty = true;
+        invalidateLogo();
       }
+      window.addEventListener('resize', resize);
 
-      var src = logoPx;
-      var out = logoOutData.data;
-      var maxDisp = L.logoW * 0.285;
+      var mx = 0, my = 0, sx = 0, sy = 0, hovered = false;
+      var lastSx = 0, lastSy = 0, mouseVel = 0;
+      
+      animWrapper.addEventListener('mousemove', function (e) {
+        var r = animWrapper.getBoundingClientRect();
+        mx = e.clientX - r.left;
+        my = e.clientY - r.top;
+        hovered = true;
+      });
+      animWrapper.addEventListener('mouseleave', function () {
+        hovered = false;
+        mouseVel = 0;
+      });
 
-      for (var py = 0; py < sh; py++) {
-        for (var px = 0; px < sw; px++) {
-          var idx = cellMap[py * sw + px];
-          var dir = cellDirs[idx];
+      var bgOC = null, bgReady = false;
+      var bgImg = new Image();
+      bgImg.onload = function () {
+        bgOC = document.createElement('canvas');
+        bgOC.width  = bgImg.naturalWidth;
+        bgOC.height = bgImg.naturalHeight;
+        bgOC.getContext('2d').drawImage(bgImg, 0, 0);
+        bgReady = true;
+      };
+      bgImg.src = typeof BG_DATA_URL !== 'undefined' ? BG_DATA_URL : 'background.jpg';
 
-          var dx3 = dir.x * smearT * maxDisp;
-          var dy3 = dir.y * smearT * maxDisp;
+      function drawBg() {
+        var cx = CX['c8isv-canvas-bg'];
+        if (!cx) return;
+        if (W <= 0 || H <= 0) return;
+        cx.clearRect(0, 0, W, H);
+        if (!bgReady) { cx.fillStyle = '#aee4f0'; cx.fillRect(0, 0, W, H); return; }
 
-          var srcPx = px - dx3;
-          var srcPy = py - dy3;
-
-          var oi = (py * sw + px) * 4;
-          var r = 0, g = 0, b = 0, alpha = 0;
-          if (srcPx >= 0 && srcPx < sw && srcPy >= 0 && srcPy < sh) {
-            var sxi = Math.floor(srcPx);
-            var syi = Math.floor(srcPy);
-            var si = (syi * sw + sxi) * 4;
-            r = src[si];
-            g = src[si+1];
-            b = src[si+2];
-            alpha = src[si+3];
-          }
-
-          out[oi]   = r;
-          out[oi+1] = g;
-          out[oi+2] = b;
-          out[oi+3] = alpha;
-          
-          if (smearT > 0.08 && alpha > 0) {
-            out[oi]   = Math.min(255, out[oi]   + Math.floor(14 * smearT));
-            out[oi+1] = Math.min(255, out[oi+1] + Math.floor(14 * smearT));
-            out[oi+2] = Math.min(255, out[oi+2] + Math.floor(18 * smearT));
-          }
-        }
-      }
-
-      logoOutCanvas.getContext('2d').putImageData(logoOutData, 0, 0);
-      cx.drawImage(logoOutCanvas, L.logoX, L.logoY, L.logoW, L.logoH);
-    }
-
-    function drawMain(t) {
-      var cx = CX['c8isv-canvas-main'];
-      if (!cx) return;
-      if (W <= 0 || H <= 0) return;
-      cx.clearRect(0, 0, W, H);
-      var L = getLayout();
-      var font = '400 ' + L.fs + 'px Michroma, sans-serif';
-
-      /* ── 1. Ghost text ── */
-      cx.save();
-      cx.font = font;
-      cx.textAlign    = 'center';
-      cx.textBaseline = 'middle';
-      cx.fillStyle = 'rgba(255,255,255,0.42)';
-      cx.fillText('Cr8v',   L.tx, L.y1);
-      cx.fillText('Stacks', L.tx, L.y2);
-      cx.restore();
-
-      /* ── 2. Reflection ── */
-      {
-        var rh = L.lh + L.fs;
-        var rtmp = document.createElement('canvas');
-        rtmp.width = W; rtmp.height = Math.ceil(rh);
-        var rx = rtmp.getContext('2d');
-        rx.font = font; rx.textAlign = 'center'; rx.textBaseline = 'middle';
-        rx.fillStyle = 'rgba(255,255,255,0.06)';
-        rx.fillText('Cr8v',   L.tx, L.fs * 0.5);
-        rx.fillText('Stacks', L.tx, L.fs * 0.5 + L.lh);
-        var rfade = rx.createLinearGradient(0, 0, 0, rh);
-        rfade.addColorStop(0, 'rgba(0,0,0,0.35)');
-        rfade.addColorStop(1, 'rgba(0,0,0,0)');
-        rx.globalCompositeOperation = 'destination-in';
-        rx.fillStyle = rfade; rx.fillRect(0, 0, W, rh);
-        cx.save();
-        cx.filter = 'blur(2px)';
-        cx.transform(1, 0, 0, -1, 0, L.y2 + rh + L.fs * 0.05);
-        cx.drawImage(rtmp, 0, 0, W, rh);
-        cx.restore();
-      }
-
-      /* ── 3. Logo ── */
-      drawLogo(cx, L);
-
-      /* ── 4. Foreground Mountain Wave Occlusion ── */
-      if (bgReady) {
         var iW = bgOC.width, iH = bgOC.height;
         var scale = Math.max(W / iW, H / iH);
         var sc = 1 / scale;
@@ -336,9 +87,8 @@
         var nY = hovered ? (sy / H - 0.5) * 2 : 0;
         var ampY = H * 0.04, ampX = W * 0.025;
         var STRIP = 3;
-        var startRow = Math.floor(H * 0.58);
 
-        for (var row = startRow; row < H; row += STRIP) {
+        for (var row = 0; row < H; row += STRIP) {
           var depth = Math.pow(row / H, 2.3);
           var dy = nY * ampY * depth * 2.6;
           var dx = nX * ampX * (0.4 + depth * 1.1);
@@ -350,92 +100,352 @@
         }
       }
 
-      /* ── 5. Spotlight ── */
-      if (hovered) {
-        var sr = Math.min(W, H) * 0.095;
-        var ftmp = document.createElement('canvas');
-        ftmp.width = W; ftmp.height = H;
-        var ft = ftmp.getContext('2d');
+      function getLayout() {
+        var fs = W * 0.165;
+        var lh = fs * 1.05;
+        var nX = hovered ? (sx / W - 0.5) * 2 : 0;
+        var nY = hovered ? (sy / H - 0.5) * 2 : 0;
+        var tx = W / 2 - nX * 15;
+        var y1 = H * 0.40 - nY * 8;
+        var y2 = y1 + lh;
 
-        ft.font = font;
-        ft.textAlign = 'center'; ft.textBaseline = 'middle';
-        ft.fillStyle = '#ffffff';
-        ft.fillText('Cr8v',   L.tx, L.y1);
-        ft.fillText('Stacks', L.tx, L.y2);
+        var logoW  = W * 0.285;
+        var logoH  = logoReady
+          ? (logoImg.naturalHeight / logoImg.naturalWidth) * logoW
+          : logoW * 0.55;
+        var logoCX = W / 2;
+        var logoCY = y1 + lh * 0.45;
+        var logoX  = logoCX - logoW / 2;
+        var logoY  = logoCY - logoH / 2;
 
-        var sg = ft.createRadialGradient(sx, sy, sr * 0.0, sx, sy, sr);
-        sg.addColorStop(0,    'rgba(0,0,0,1)');
-        sg.addColorStop(0.76, 'rgba(0,0,0,1)');
-        sg.addColorStop(1,    'rgba(0,0,0,0)');
-
-        ft.globalCompositeOperation = 'destination-in';
-        ft.fillStyle = sg;
-        ft.fillRect(0, 0, W, H);
-
-        cx.save();
-        cx.globalCompositeOperation = 'lighter';
-        cx.globalAlpha = 0.95;
-        cx.drawImage(ftmp, 0, 0);
-        cx.restore();
+        return { fs: fs, lh: lh, tx: tx, y1: y1, y2: y2, logoW: logoW, logoH: logoH, logoCX: logoCX, logoCY: logoCY, logoX: logoX, logoY: logoY };
       }
-    }
 
-    var GRAIN_SIZE = 256;
-    var grainCanvas = null, grainCtx = null, grainFrame = 0;
-    function initGrain() {
-      grainCanvas = document.createElement('canvas');
-      grainCanvas.width = grainCanvas.height = GRAIN_SIZE;
-      grainCtx = grainCanvas.getContext('2d');
-    }
-    function rebakeGrain(seed) {
-      var idata = grainCtx.createImageData(GRAIN_SIZE, GRAIN_SIZE);
-      var buf = idata.data;
-      for (var i = 0; i < buf.length; i += 4) {
-        seed = (seed * 1664525 + 1013904223) & 0xffffffff;
-        var v = (seed >>> 24) / 255;
-        buf[i] = buf[i+1] = buf[i+2] = 255;
-        buf[i+3] = v < 0.60 ? 0 : Math.floor((v - 0.60) / 0.40 * 10);
+      var logoImg = new Image();
+      var logoReady = false;
+      logoImg.onload = function () { logoReady = true; invalidateLogo(); };
+
+      if (typeof LOGO_DATA_URL !== 'undefined') {
+        logoImg.src = LOGO_DATA_URL;
+      } else {
+        if (window.location.protocol !== 'file:') {
+          logoImg.crossOrigin = 'anonymous';
+        }
+        logoImg.src = 'logo.png';
       }
-      grainCtx.putImageData(idata, 0, 0);
-    }
-    function drawNoise(t) {
-      var cx = CX['c8isv-canvas-noise'];
-      if (!cx) return;
-      if (W <= 0 || H <= 0) return;
-      cx.clearRect(0, 0, W, H);
-      grainFrame++;
-      if (grainFrame % 2 === 0) rebakeGrain(Math.floor(t * 60) * 997 | 0);
-      var cols = Math.ceil(W / GRAIN_SIZE), rows = Math.ceil(H / GRAIN_SIZE);
-      for (var c = 0; c < cols; c++) {
+
+      var logoPx = null, logoPxW = 0, logoPxH = 0;
+      var logoOutData = null;
+      var logoOutCanvas = null;
+      var smearT = 0;
+      var cellMap = null;
+      var cellDirs = null;
+
+      function invalidateLogo() {
+        logoPx = null; logoOutData = null; logoOutCanvas = null;
+        cellMap = null; cellDirs = null;
+      }
+
+      function ensureLogoPx(sw, sh) {
+        if (logoPx && logoPxW === sw && logoPxH === sh) return true;
+        var sc = document.createElement('canvas');
+        sc.width = sw; sc.height = sh;
+        var sctx = sc.getContext('2d');
+        sctx.drawImage(logoImg, 0, 0, sw, sh);
+        try {
+          logoPx = sctx.getImageData(0, 0, sw, sh).data;
+        } catch (e) {
+          console.warn('Logo pixel read blocked:', e.message);
+          return false;
+        }
+        logoPxW = sw; logoPxH = sh;
+        logoOutData   = new ImageData(sw, sh);
+        logoOutCanvas = document.createElement('canvas');
+        logoOutCanvas.width = sw; logoOutCanvas.height = sh;
+
+        var cols = 12;
+        var rows = 9;
+        var numCells = cols * rows;
+        var centers = [];
+        cellDirs = [];
+
         for (var r = 0; r < rows; r++) {
-          cx.drawImage(grainCanvas, c * GRAIN_SIZE, r * GRAIN_SIZE);
+          for (var c = 0; c < cols; c++) {
+            var cx = ((c + 0.5) + (Math.random() - 0.5) * 0.4) * (sw / cols);
+            var cy = ((r + 0.5) + (Math.random() - 0.5) * 0.4) * (sh / rows);
+            centers.push({ x: cx, y: cy });
+
+            var vx = cx - sw / 2;
+            var vy = cy - sh / 2;
+            var len = Math.sqrt(vx * vx + vy * vy) || 1;
+
+            var angle = Math.random() * Math.PI * 2;
+            var dx = (vx / len) * 0.70 + Math.cos(angle) * 0.30;
+            var dy = (vy / len) * 0.70 + Math.sin(angle) * 0.30;
+            var dlen = Math.sqrt(dx * dx + dy * dy) || 1;
+
+            cellDirs.push({ x: dx / dlen, y: dy / dlen });
+          }
+        }
+
+        cellMap = new Int32Array(sw * sh);
+        for (var y = 0; y < sh; y++) {
+          for (var x = 0; x < sw; x++) {
+            var minDist = Infinity;
+            var closestIdx = 0;
+            for (var i = 0; i < numCells; i++) {
+              var dx2 = x - centers[i].x;
+              var dy2 = y - centers[i].y;
+              var dSq = dx2 * dx2 + dy2 * dy2;
+              if (dSq < minDist) {
+                minDist = dSq;
+                closestIdx = i;
+              }
+            }
+            cellMap[y * sw + x] = closestIdx;
+          }
+        }
+
+        return true;
+      }
+
+      function drawLogo(cx, L) {
+        if (!logoReady) return;
+
+        var targetSmear = 0;
+        if (hovered) {
+          targetSmear = 0.05;
+          var dx = sx - L.logoCX;
+          var dy = sy - L.logoCY;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          var maxDist = Math.min(W, H) * 0.30;
+
+          if (dist < maxDist) {
+            var prox = 1 - dist / maxDist;
+            targetSmear = 0.05 + prox * 0.95;
+
+            if (dist < L.logoW * 0.95) {
+              var pulseFactor = Math.min(1.0, 0.98 + (1.0 - Math.min(mouseVel, 3) / 3) * 0.02);
+              targetSmear *= pulseFactor;
+            }
+          }
+        }
+        
+        smearT += (targetSmear - smearT) * 0.10;
+
+        var sw = Math.max(1, Math.round(L.logoW));
+        var sh = Math.max(1, Math.round(L.logoH));
+        if (!ensureLogoPx(sw, sh)) {
+          cx.drawImage(logoImg, L.logoX, L.logoY, L.logoW, L.logoH);
+          return;
+        }
+
+        var src = logoPx;
+        var out = logoOutData.data;
+        var maxDisp = L.logoW * 0.285;
+
+        for (var py = 0; py < sh; py++) {
+          for (var px = 0; px < sw; px++) {
+            var idx = cellMap[py * sw + px];
+            var dir = cellDirs[idx];
+
+            var dx3 = dir.x * smearT * maxDisp;
+            var dy3 = dir.y * smearT * maxDisp;
+
+            var srcPx = px - dx3;
+            var srcPy = py - dy3;
+
+            var oi = (py * sw + px) * 4;
+            var r = 0, g = 0, b = 0, alpha = 0;
+            if (srcPx >= 0 && srcPx < sw && srcPy >= 0 && srcPy < sh) {
+              var sxi = Math.floor(srcPx);
+              var syi = Math.floor(srcPy);
+              var si = (syi * sw + sxi) * 4;
+              r = src[si];
+              g = src[si+1];
+              b = src[si+2];
+              alpha = src[si+3];
+            }
+
+            out[oi]   = r;
+            out[oi+1] = g;
+            out[oi+2] = b;
+            out[oi+3] = alpha;
+            
+            if (smearT > 0.08 && alpha > 0) {
+              out[oi]   = Math.min(255, out[oi]   + Math.floor(14 * smearT));
+              out[oi+1] = Math.min(255, out[oi+1] + Math.floor(14 * smearT));
+              out[oi+2] = Math.min(255, out[oi+2] + Math.floor(18 * smearT));
+            }
+          }
+        }
+
+        logoOutCanvas.getContext('2d').putImageData(logoOutData, 0, 0);
+        cx.drawImage(logoOutCanvas, L.logoX, L.logoY, L.logoW, L.logoH);
+      }
+
+      function drawMain(t) {
+        var cx = CX['c8isv-canvas-main'];
+        if (!cx) return;
+        if (W <= 0 || H <= 0) return;
+        cx.clearRect(0, 0, W, H);
+        var L = getLayout();
+        var font = '400 ' + L.fs + 'px Michroma, sans-serif';
+
+        /* ── 1. Ghost text ── */
+        cx.save();
+        cx.font = font;
+        cx.textAlign    = 'center';
+        cx.textBaseline = 'middle';
+        cx.fillStyle = 'rgba(255,255,255,0.42)';
+        cx.fillText('Cr8v',   L.tx, L.y1);
+        cx.fillText('Stacks', L.tx, L.y2);
+        cx.restore();
+
+        /* ── 2. Reflection ── */
+        {
+          var rh = L.lh + L.fs;
+          var rtmp = document.createElement('canvas');
+          rtmp.width = W; rtmp.height = Math.ceil(rh);
+          var rx = rtmp.getContext('2d');
+          rx.font = font; rx.textAlign = 'center'; rx.textBaseline = 'middle';
+          rx.fillStyle = 'rgba(255,255,255,0.06)';
+          rx.fillText('Cr8v',   L.tx, L.fs * 0.5);
+          rx.fillText('Stacks', L.tx, L.fs * 0.5 + L.lh);
+          var rfade = rx.createLinearGradient(0, 0, 0, rh);
+          rfade.addColorStop(0, 'rgba(0,0,0,0.35)');
+          rfade.addColorStop(1, 'rgba(0,0,0,0)');
+          rx.globalCompositeOperation = 'destination-in';
+          rx.fillStyle = rfade; rx.fillRect(0, 0, W, rh);
+          cx.save();
+          cx.filter = 'blur(2px)';
+          cx.transform(1, 0, 0, -1, 0, L.y2 + rh + L.fs * 0.05);
+          cx.drawImage(rtmp, 0, 0, W, rh);
+          cx.restore();
+        }
+
+        /* ── 3. Logo ── */
+        drawLogo(cx, L);
+
+        /* ── 4. Foreground Mountain Wave Occlusion ── */
+        if (bgReady) {
+          var iW = bgOC.width, iH = bgOC.height;
+          var scale = Math.max(W / iW, H / iH);
+          var sc = 1 / scale;
+          var srcXBase = (iW - W * sc) / 2;
+          var srcYBase = (iH - H * sc) / 2;
+
+          var nX = hovered ? (sx / W - 0.5) * 2 : 0;
+          var nY = hovered ? (sy / H - 0.5) * 2 : 0;
+          var ampY = H * 0.04, ampX = W * 0.025;
+          var STRIP = 3;
+          var startRow = Math.floor(H * 0.58);
+
+          for (var row = startRow; row < H; row += STRIP) {
+            var depth = Math.pow(row / H, 2.3);
+            var dy = nY * ampY * depth * 2.6;
+            var dx = nX * ampX * (0.4 + depth * 1.1);
+            var srcY = srcYBase + row * sc + dy * sc;
+            srcY = Math.max(0, Math.min(iH - STRIP * sc - 1, srcY));
+            var srcX = srcXBase + (dx < 0 ? 0 : dx * sc);
+            var srcW = Math.max(1, W * sc - Math.abs(dx) * sc);
+            cx.drawImage(bgOC, srcX, srcY, srcW, STRIP * sc, 0, row, W, STRIP);
+          }
+        }
+
+        /* ── 5. Spotlight ── */
+        if (hovered) {
+          var sr = Math.min(W, H) * 0.095;
+          var ftmp = document.createElement('canvas');
+          ftmp.width = W; ftmp.height = H;
+          var ft = ftmp.getContext('2d');
+
+          ft.font = font;
+          ft.textAlign = 'center'; ft.textBaseline = 'middle';
+          ft.fillStyle = '#ffffff';
+          ft.fillText('Cr8v',   L.tx, L.y1);
+          ft.fillText('Stacks', L.tx, L.y2);
+
+          var sg = ft.createRadialGradient(sx, sy, sr * 0.0, sx, sy, sr);
+          sg.addColorStop(0,    'rgba(0,0,0,1)');
+          sg.addColorStop(0.76, 'rgba(0,0,0,1)');
+          sg.addColorStop(1,    'rgba(0,0,0,0)');
+
+          ft.globalCompositeOperation = 'destination-in';
+          ft.fillStyle = sg;
+          ft.fillRect(0, 0, W, H);
+
+          cx.save();
+          cx.globalCompositeOperation = 'lighter';
+          cx.globalAlpha = 0.95;
+          cx.drawImage(ftmp, 0, 0);
+          cx.restore();
         }
       }
-    }
 
-    function tick(ts) {
-      var t = ts / 1000;
-      var lastX = sx, lastY = sy;
-      sx += (mx - sx) * 0.09;
-      sy += (my - sy) * 0.09;
-      
-      var dx = sx - lastX;
-      var dy = sy - lastY;
-      var currentVel = Math.sqrt(dx * dx + dy * dy);
-      mouseVel += (currentVel - mouseVel) * 0.15;
-      
-      drawBg();
-      drawMain(t);
-      drawNoise(t);
+      var GRAIN_SIZE = 256;
+      var grainCanvas = null, grainCtx = null, grainFrame = 0;
+      function initGrain() {
+        grainCanvas = document.createElement('canvas');
+        grainCanvas.width = grainCanvas.height = GRAIN_SIZE;
+        grainCtx = grainCanvas.getContext('2d');
+      }
+      function rebakeGrain(seed) {
+        var idata = grainCtx.createImageData(GRAIN_SIZE, GRAIN_SIZE);
+        var buf = idata.data;
+        for (var i = 0; i < buf.length; i += 4) {
+          seed = (seed * 1664525 + 1013904223) & 0xffffffff;
+          var v = (seed >>> 24) / 255;
+          buf[i] = buf[i+1] = buf[i+2] = 255;
+          buf[i+3] = v < 0.60 ? 0 : Math.floor((v - 0.60) / 0.40 * 10);
+        }
+        grainCtx.putImageData(idata, 0, 0);
+      }
+      function drawNoise(t) {
+        var cx = CX['c8isv-canvas-noise'];
+        if (!cx) return;
+        if (W <= 0 || H <= 0) return;
+        cx.clearRect(0, 0, W, H);
+        grainFrame++;
+        if (grainFrame % 2 === 0) rebakeGrain(Math.floor(t * 60) * 997 | 0);
+        var cols = Math.ceil(W / GRAIN_SIZE), rows = Math.ceil(H / GRAIN_SIZE);
+        for (var c = 0; c < cols; c++) {
+          for (var r = 0; r < rows; r++) {
+            cx.drawImage(grainCanvas, c * GRAIN_SIZE, r * GRAIN_SIZE);
+          }
+        }
+      }
+
+      function tick(ts) {
+        var t = ts / 1000;
+        var lastX = sx, lastY = sy;
+        sx += (mx - sx) * 0.09;
+        sy += (my - sy) * 0.09;
+        
+        var dx = sx - lastX;
+        var dy = sy - lastY;
+        var currentVel = Math.sqrt(dx * dx + dy * dy);
+        mouseVel += (currentVel - mouseVel) * 0.15;
+        
+        drawBg();
+        drawMain(t);
+        drawNoise(t);
+        requestAnimationFrame(tick);
+      }
+
+      initGrain();
+      resize();
+      sx = mx = W / 2;
+      sy = my = H / 2;
       requestAnimationFrame(tick);
-    }
-
-    initGrain();
-    resize();
-    sx = mx = W / 2;
-    sy = my = H / 2;
-    requestAnimationFrame(tick);
-  })();
+    })();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroCanvas);
+  } else {
+    initHeroCanvas();
+  }
+})();
 </script>
 <link rel="stylesheet" href="../shared-service-components.css">
 <div class="c8isv-root">
@@ -463,657 +473,6 @@
   position: relative !important;
   z-index: 2 !important;
 }
-@media (max-width: 1100px) { .c8isv-root .c8isv-wrap { padding: 3rem 1.25rem !important; } }
-.c8isv-root h1, .c8isv-root h2, .c8isv-root h3 { margin: 0 !important; font-weight: inherit !important; line-height: 1.1 !important; }
-.c8isv-root p { margin: 0 0 1rem 0 !important; }
-.c8isv-root p:last-child { margin-bottom: 0 !important; }
-.c8isv-root a { text-decoration: none !important; }
-
-/* ── Design tokens ── */
-.c8isv-root .c8isv-label { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: .25em !important; text-transform: uppercase !important; color: #0047E1 !important; display: flex !important; align-items: center !important; gap: 10px !important; margin-bottom: 1.75rem !important; }
-.c8isv-root .c8isv-label::before { content: '—' !important; color: #0047E1 !important; font-weight: 700 !important; }
-.c8isv-root .c8isv-label.is-light { color: #7C93FF !important; }
-.c8isv-root .c8isv-label.is-light::before { color: #7C93FF !important; }
-.c8isv-root .c8isv-section-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.4rem, 2.5vw, 2.0rem) !important; font-weight: 700 !important; letter-spacing: 0.02em !important; color: #080808 !important; margin-bottom: 1.25rem !important; text-transform: uppercase !important; }
-.c8isv-root .c8isv-lead { font-size: 17px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.6 !important; }
-.c8isv-root .c8isv-serif { font-family: 'Georgia', serif !important; font-style: italic !important; text-transform: none !important; font-weight: 400 !important; }
-.c8isv-root .c8isv-tearline { display: flex !important; align-items: center !important; margin: 0 0 5rem 0 !important; }
-.c8isv-root .c8isv-tearline-dot { width: 9px !important; height: 9px !important; border-radius: 50% !important; background: #080808 !important; flex-shrink: 0 !important; }
-.c8isv-root .c8isv-tearline-line { flex: 1 !important; border-top: 1px dashed rgba(8,8,8,0.28) !important; margin: 0 10px !important; }
-.c8isv-root .c8isv-reveal { opacity: 0 !important; transform: translateY(24px) !important; transition: opacity 0.7s cubic-bezier(.16,.8,.24,1), transform 0.7s cubic-bezier(.16,.8,.24,1) !important; }
-.c8isv-root .c8isv-reveal.is-visible { opacity: 1 !important; transform: translateY(0) !important; }
-.c8isv-root .c8isv-reveal-d1 { transition-delay: 0.08s !important; }
-.c8isv-root .c8isv-reveal-d2 { transition-delay: 0.16s !important; }
-.c8isv-root .c8isv-reveal-d3 { transition-delay: 0.24s !important; }
-.c8isv-root .c8isv-reveal-d4 { transition-delay: 0.32s !important; }
-
-/* ── Breadcrumb ── */
-.c8isv-root .c8isv-breadcrumb { display: flex !important; align-items: center !important; gap: 8px !important; font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.12em !important; color: #6B6B6B !important; text-transform: uppercase !important; margin-bottom: 3rem !important; }
-.c8isv-root .c8isv-breadcrumb a { color: #0047E1 !important; }
-.c8isv-root .c8isv-breadcrumb-sep { color: rgba(8,8,8,0.25) !important; }
-
-/* ── Hero ── */
-.c8isv-root .c8isv-hero { margin-bottom: 6rem !important; }
-.c8isv-root .c8isv-hero-eyebrow { display: inline-flex !important; align-items: center !important; gap: 10px !important; background: #F0F4FF !important; border: 1px solid rgba(0,71,225,0.12) !important; border-radius: 100px !important; padding: 6px 16px !important; font-family: 'Space Mono', monospace !important; font-size: 9px !important; letter-spacing: 0.18em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 2rem !important; }
-.c8isv-root .c8isv-hero-eyebrow::before { content: '' !important; width: 6px !important; height: 6px !important; border-radius: 50% !important; background: #0047E1 !important; }
-.c8isv-root .c8isv-hero-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(2rem, 5vw, 3.6rem) !important; font-weight: 700 !important; letter-spacing: 0.02em !important; text-transform: uppercase !important; color: #080808 !important; line-height: 1.08 !important; margin-bottom: 2rem !important; max-width: 900px !important; }
-.c8isv-root .c8isv-hero-desc { font-size: 18px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 680px !important; line-height: 1.65 !important; margin-bottom: 2rem !important; }
-.c8isv-root .c8isv-hero-meta { display: flex !important; gap: 2rem !important; flex-wrap: wrap !important; margin-bottom: 2rem !important; }
-.c8isv-root .c8isv-hero-meta-item { display: flex !important; align-items: center !important; gap: 8px !important; font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; color: #080808 !important; }
-.c8isv-root .c8isv-hero-meta-dot { width: 6px !important; height: 6px !important; border-radius: 50% !important; background: #0047E1 !important; }
-.c8isv-root .c8isv-hero-cta-row { display: flex !important; gap: 1rem !important; flex-wrap: wrap !important; align-items: center !important; }
-.c8isv-root .c8isv-hero-cta { display: inline-flex !important; align-items: center !important; gap: 10px !important; background: #0047E1 !important; color: #FFFFFF !important; padding: 14px 28px !important; border-radius: 8px !important; font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; transition: background 0.2s ease, transform 0.2s ease !important; }
-.c8isv-root .c8isv-hero-cta:hover { background: #0038C0 !important; transform: translateY(-2px) !important; }
-.c8isv-root .c8isv-hero-cta-ghost { display: inline-flex !important; align-items: center !important; gap: 8px !important; color: #0047E1 !important; font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; border: 1px solid rgba(0,71,225,0.3) !important; padding: 14px 24px !important; border-radius: 8px !important; transition: border-color 0.2s ease !important; }
-.c8isv-root .c8isv-hero-cta-ghost:hover { border-color: #0047E1 !important; background: rgba(0,71,225,0.04) !important; }
-
-/* ── Platform Pills ── */
-.c8isv-root .c8isv-platform-row { display: flex !important; gap: 1rem !important; margin-bottom: 2rem !important; flex-wrap: wrap !important; }
-.c8isv-root .c8isv-platform-pill { display: inline-flex !important; align-items: center !important; gap: 8px !important; padding: 8px 20px !important; border-radius: 100px !important; font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; border: 1px solid rgba(8,8,8,0.12) !important; color: #080808 !important; }
-.c8isv-root .c8isv-platform-pill.is-woo { border-color: rgba(124,58,237,0.3) !important; color: #6B21A8 !important; }
-.c8isv-root .c8isv-platform-pill.is-shopify { border-color: rgba(0,166,80,0.3) !important; color: #008053 !important; }
-.c8isv-root .c8isv-platform-pill .pill-dot { width: 6px !important; height: 6px !important; border-radius: 50% !important; }
-.c8isv-root .c8isv-platform-pill.is-woo .pill-dot { background: #7C3AED !important; }
-.c8isv-root .c8isv-platform-pill.is-shopify .pill-dot { background: #00A650 !important; }
-
-/* ── Metrics Bar ── */
-.c8isv-root .c8isv-metrics-bar { display: grid !important; grid-template-columns: repeat(3,1fr) !important; border: 1px solid rgba(8,8,8,0.08) !important; border-radius: 16px !important; overflow: hidden !important; margin-bottom: 6rem !important; }
-@media (max-width: 768px) { .c8isv-root .c8isv-metrics-bar { grid-template-columns: 1fr !important; } }
-.c8isv-root .c8isv-metric-item { padding: 2.5rem 2rem !important; border-right: 1px solid rgba(8,8,8,0.08) !important; }
-.c8isv-root .c8isv-metric-item:last-child { border-right: none !important; }
-@media (max-width: 768px) { .c8isv-root .c8isv-metric-item { border-right: none !important; border-bottom: 1px solid rgba(8,8,8,0.08) !important; } }
-.c8isv-root .c8isv-metric-val { font-family: 'Michroma', sans-serif !important; font-size: clamp(2rem,4vw,3rem) !important; font-weight: 700 !important; color: #0047E1 !important; margin-bottom: 0.4rem !important; }
-.c8isv-root .c8isv-metric-lbl { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; color: #6B6B6B !important; }
-
-/* ── Flank (Why section) ── */
-.c8isv-root .c8isv-flank-section { margin-bottom: 6rem !important; }
-.c8isv-root .c8isv-flank-container { display: grid !important; grid-template-columns: 1fr 1fr 1fr !important; gap: 1.5rem !important; }
-@media (max-width: 900px) { .c8isv-root .c8isv-flank-container { grid-template-columns: 1fr !important; } }
-.c8isv-root .c8isv-flank-card { background: #FFFFFF !important; border: 1px solid rgba(8,8,8,0.1) !important; padding: 2.25rem 2rem !important; border-radius: 12px !important; will-change: transform,opacity !important; position: relative !important; display: flex !important; flex-direction: column !important; min-height: 320px !important; }
-@media (max-width: 900px) { .c8isv-root .c8isv-flank-card { min-height: auto !important; } }
-.c8isv-root .c8isv-flank-card-step { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 0.75rem !important; }
-.c8isv-root .c8isv-flank-card-divider { width: 32px !important; height: 2px !important; background: #0047E1 !important; margin-bottom: 1.25rem !important; }
-.c8isv-root .c8isv-flank-card-title { font-family: 'Michroma', sans-serif !important; font-size: 1rem !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.03em !important; margin-bottom: 1rem !important; color: #080808 !important; }
-.c8isv-root .c8isv-flank-card-body { font-size: 15px !important; font-weight: 300 !important; color: #6B6B6B !important; line-height: 1.7 !important; flex: 1 !important; }
-
-/* Flank card initial animation states */
-.c8isv-root .c8isv-flank-card:nth-child(1) { opacity: 0; transform: translate3d(-35px,55px,0) scale(0.94) rotate(-4deg); pointer-events: none; }
-.c8isv-root .c8isv-flank-card:nth-child(2) { opacity: 0; transform: translate3d(0,55px,0) scale(0.94); pointer-events: none; }
-.c8isv-root .c8isv-flank-card:nth-child(3) { opacity: 0; transform: translate3d(35px,55px,0) scale(0.94) rotate(4deg); pointer-events: none; }
-
-/* ── Platform Comparison ── */
-.c8isv-root .c8isv-compare-section { margin-bottom: 6rem !important; }
-.c8isv-root .c8isv-compare-header { margin-bottom: 3rem !important; }
-.c8isv-root .c8isv-compare-grid { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; gap: 1.5rem !important; }
-@media (max-width: 900px) { .c8isv-root .c8isv-compare-grid { grid-template-columns: 1fr !important; } }
-.c8isv-root .c8isv-compare-card { border: 1px solid rgba(8,8,8,0.1) !important; border-radius: 20px !important; overflow: hidden !important; }
-.c8isv-root .c8isv-compare-head { padding: 2rem 2.5rem !important; display: flex !important; align-items: center !important; gap: 1rem !important; border-bottom: 1px solid rgba(8,8,8,0.08) !important; }
-.c8isv-root .c8isv-compare-card.is-woo .c8isv-compare-head { background: rgba(124,58,237,0.04) !important; }
-.c8isv-root .c8isv-compare-card.is-shopify .c8isv-compare-head { background: rgba(0,166,80,0.04) !important; }
-.c8isv-root .c8isv-compare-icon { width: 44px !important; height: 44px !important; border-radius: 10px !important; display: flex !important; align-items: center !important; justify-content: center !important; font-family: 'Space Mono', monospace !important; font-size: 11px !important; font-weight: 700 !important; flex-shrink: 0 !important; }
-.c8isv-root .c8isv-compare-card.is-woo .c8isv-compare-icon { background: #7C3AED !important; color: #fff !important; }
-.c8isv-root .c8isv-compare-card.is-shopify .c8isv-compare-icon { background: #00A650 !important; color: #fff !important; }
-.c8isv-root .c8isv-compare-name { font-family: 'Michroma', sans-serif !important; font-size: 1.1rem !important; font-weight: 700 !important; text-transform: uppercase !important; color: #080808 !important; }
-.c8isv-root .c8isv-compare-tag { font-family: 'Space Mono', monospace !important; font-size: 9px !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; color: #6B6B6B !important; margin-top: 3px !important; }
-.c8isv-root .c8isv-compare-body { padding: 2rem 2.5rem !important; }
-.c8isv-root .c8isv-compare-list { list-style: none !important; padding: 0 !important; margin: 0 0 1.5rem 0 !important; }
-.c8isv-root .c8isv-compare-list li { display: flex !important; align-items: flex-start !important; gap: 10px !important; padding: 0.75rem 0 !important; border-bottom: 1px solid rgba(8,8,8,0.06) !important; font-size: 14px !important; color: #080808 !important; line-height: 1.5 !important; }
-.c8isv-root .c8isv-compare-list li:last-child { border-bottom: none !important; }
-.c8isv-root .c8isv-compare-check { font-size: 12px !important; flex-shrink: 0 !important; margin-top: 2px !important; }
-.c8isv-root .c8isv-compare-card.is-woo .c8isv-compare-check { color: #7C3AED !important; }
-.c8isv-root .c8isv-compare-card.is-shopify .c8isv-compare-check { color: #00A650 !important; }
-.c8isv-root .c8isv-compare-best { background: rgba(8,8,8,0.03) !important; border-radius: 10px !important; padding: 1rem 1.25rem !important; }
-.c8isv-root .c8isv-compare-best-lbl { font-family: 'Space Mono', monospace !important; font-size: 9px !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 0.4rem !important; }
-.c8isv-root .c8isv-compare-best-txt { font-size: 13px !important; color: #080808 !important; line-height: 1.5 !important; }
-
-/* ── Decision Bar ── */
-.c8isv-root .c8isv-decide-bar { background: #080808 !important; border-radius: 20px !important; padding: 2.5rem 3rem !important; margin-bottom: 6rem !important; display: grid !important; grid-template-columns: 1fr auto !important; gap: 2rem !important; align-items: center !important; }
-@media (max-width: 768px) { .c8isv-root .c8isv-decide-bar { grid-template-columns: 1fr !important; padding: 2rem !important; } }
-.c8isv-root .c8isv-decide-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.1rem,2vw,1.5rem) !important; font-weight: 700 !important; text-transform: uppercase !important; color: #FAFAF7 !important; margin-bottom: 0.6rem !important; }
-.c8isv-root .c8isv-decide-sub { font-size: 15px !important; color: rgba(250,250,247,0.55) !important; font-weight: 300 !important; }
-.c8isv-root .c8isv-decide-cta { display: inline-flex !important; align-items: center !important; gap: 10px !important; background: #0047E1 !important; color: #FFFFFF !important; padding: 14px 28px !important; border-radius: 8px !important; font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; white-space: nowrap !important; transition: background 0.2s ease !important; }
-.c8isv-root .c8isv-decide-cta:hover { background: #0038C0 !important; }
-
-/* ── Folder Deck ── */
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   MASTER ESTIMATOR & PLATFORM DECK STYLES (.c8isv-root & .c8srv-root)
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-.c8isv-root .c8srv-pricing-section, .c8srv-root .c8srv-pricing-section, .c8srv-pricing-section {
-  padding: 6rem 0 !important;
-  position: relative !important;
-  z-index: 5 !important;
-  background: #FFFFFF !important;
-  display: block !important;
-}
-
-.c8isv-root .c8srv-pricing-split, .c8srv-root .c8srv-pricing-split, .c8srv-pricing-split {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
-  gap: 2rem !important;
-  margin-top: 3.5rem !important;
-}
-
-.c8isv-root .c8srv-price-box, .c8srv-root .c8srv-price-box, .c8srv-price-box {
-  background: #FAFAF9 !important;
-  border: 1px solid rgba(8,8,8,0.1) !important;
-  border-radius: 16px !important;
-  padding: 2.5rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.02) !important;
-  transition: transform 0.3s ease, border-color 0.3s ease !important;
-}
-
-.c8isv-root .c8srv-price-box.is-highlight, .c8srv-root .c8srv-price-box.is-highlight, .c8srv-price-box.is-highlight {
-  border-color: #0047E1 !important;
-  background: #FFFFFF !important;
-  box-shadow: 0 8px 30px rgba(0,71,225,0.08) !important;
-}
-
-.c8isv-root .c8srv-price-header, .c8srv-root .c8srv-price-header, .c8srv-price-header {
-  margin-bottom: 1.5rem !important;
-}
-
-.c8isv-root .c8srv-price-type, .c8srv-root .c8srv-price-type, .c8srv-price-type {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 11px !important;
-  text-transform: uppercase !important;
-  color: #0047E1 !important;
-  letter-spacing: 0.1em !important;
-  display: block !important;
-  margin-bottom: 0.5rem !important;
-  font-weight: 700 !important;
-}
-
-.c8isv-root .c8srv-price-title, .c8srv-root .c8srv-price-title, .c8srv-price-title {
-  font-family: 'Michroma', sans-serif !important;
-  font-size: 1.5rem !important;
-  color: #080808 !important;
-  margin-bottom: 0.5rem !important;
-  font-weight: 700 !important;
-}
-
-.c8isv-root .c8srv-price-amount, .c8srv-root .c8srv-price-amount, .c8srv-price-amount {
-  font-family: 'Michroma', sans-serif !important;
-  font-size: 2.2rem !important;
-  font-weight: 700 !important;
-  color: #0047E1 !important;
-}
-
-.c8isv-root .c8srv-price-amount span, .c8srv-root .c8srv-price-amount span, .c8srv-price-amount span {
-  font-size: 1rem !important;
-  color: #6B6B6B !important;
-  font-weight: 400 !important;
-}
-
-.c8isv-root .c8srv-price-desc, .c8srv-root .c8srv-price-desc, .c8srv-price-desc {
-  font-size: 14.5px !important;
-  color: #6B6B6B !important;
-  line-height: 1.6 !important;
-  margin-bottom: 2rem !important;
-  font-weight: 300 !important;
-}
-
-.c8isv-root .c8srv-price-features, .c8srv-root .c8srv-price-features, .c8srv-price-features {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.85rem !important;
-  margin-bottom: 2rem !important;
-  margin-top: auto !important;
-}
-
-.c8isv-root .c8srv-price-feature, .c8srv-root .c8srv-price-feature, .c8srv-price-feature {
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.75rem !important;
-  font-size: 13.5px !important;
-  color: #080808 !important;
-}
-
-.c8isv-root .c8srv-icon-sq, .c8srv-root .c8srv-icon-sq, .c8srv-icon-sq {
-  width: 20px !important;
-  height: 20px !important;
-  background: #0047E1 !important;
-  border-radius: 4px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-shrink: 0 !important;
-}
-
-.c8isv-root .c8srv-price-btn, .c8srv-root .c8srv-price-btn, .c8srv-price-btn {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 100% !important;
-  padding: 1rem 1.5rem !important;
-  border-radius: 8px !important;
-  font-family: 'Space Mono', monospace !important;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  text-decoration: none !important;
-  transition: all 0.3s ease !important;
-}
-
-.c8isv-root .c8srv-price-btn.is-primary, .c8srv-root .c8srv-price-btn.is-primary, .c8srv-price-btn.is-primary {
-  background: #0047E1 !important;
-  color: #FFFFFF !important;
-  border: 1px solid #0047E1 !important;
-}
-
-.c8isv-root .c8srv-price-btn.is-light, .c8srv-root .c8srv-price-btn.is-light, .c8srv-price-btn.is-light {
-  background: #FFFFFF !important;
-  color: #080808 !important;
-  border: 1px solid rgba(8,8,8,0.15) !important;
-}
-
-.c8isv-root .c8srv-price-btn:hover, .c8srv-root .c8srv-price-btn:hover, .c8srv-price-btn:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 15px rgba(0,71,225,0.2) !important;
-}
-
-/* ── Estimator Grid ── */
-.c8isv-root .c8srv-estimator, .c8srv-root .c8srv-estimator, .c8srv-estimator {
-  margin-top: 4rem !important;
-  background: #FAFAF9 !important;
-  border: 1px solid rgba(8,8,8,0.1) !important;
-  border-radius: 16px !important;
-  padding: 3rem !important;
-}
-
-.c8isv-root .c8srv-estimator-grid, .c8srv-root .c8srv-estimator-grid, .c8srv-estimator-grid {
-  display: grid !important;
-  grid-template-columns: 1fr 340px !important;
-  gap: 3rem !important;
-}
-
-@media (max-width: 950px) {
-  .c8isv-root .c8srv-estimator-grid, .c8srv-root .c8srv-estimator-grid, .c8srv-estimator-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-.c8isv-root .c8srv-est-options, .c8srv-root .c8srv-est-options, .c8srv-est-options {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 2rem !important;
-}
-
-.c8isv-root .c8srv-est-group-title, .c8srv-root .c8srv-est-group-title, .c8srv-est-group-title {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  color: #080808 !important;
-  letter-spacing: 0.05em !important;
-  margin-bottom: 1rem !important;
-  display: block !important;
-}
-
-.c8isv-root .c8srv-est-choices, .c8srv-root .c8srv-est-choices, .c8srv-est-choices {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 0.75rem !important;
-}
-
-.c8isv-root .c8srv-est-choice, .c8srv-root .c8srv-est-choice, .c8srv-est-choice {
-  background: #FFFFFF !important;
-  border: 1px solid rgba(8,8,8,0.12) !important;
-  border-radius: 8px !important;
-  padding: 0.75rem 1.25rem !important;
-  font-family: 'Space Mono', monospace !important;
-  font-size: 12px !important;
-  color: #080808 !important;
-  cursor: pointer !important;
-  transition: all 0.25s ease !important;
-  outline: none !important;
-}
-
-.c8isv-root .c8srv-est-choice:hover, .c8srv-root .c8srv-est-choice:hover, .c8srv-est-choice:hover {
-  border-color: #0047E1 !important;
-  color: #0047E1 !important;
-}
-
-.c8isv-root .c8srv-est-choice.is-active, .c8srv-root .c8srv-est-choice.is-active, .c8srv-est-choice.is-active {
-  background: #0047E1 !important;
-  color: #FFFFFF !important;
-  border-color: #0047E1 !important;
-  box-shadow: 0 4px 12px rgba(0,71,225,0.25) !important;
-}
-
-.c8isv-root .c8srv-est-result, .c8srv-root .c8srv-est-result, .c8srv-est-result {
-  background: #FFFFFF !important;
-  border: 1px solid #0047E1 !important;
-  border-radius: 12px !important;
-  padding: 2rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  box-shadow: 0 8px 30px rgba(0,71,225,0.08) !important;
-}
-
-.c8isv-root .c8srv-est-range-label, .c8srv-root .c8srv-est-range-label, .c8srv-est-range-label {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 11px !important;
-  text-transform: uppercase !important;
-  color: #6B6B6B !important;
-  letter-spacing: 0.05em !important;
-  display: block !important;
-  margin-bottom: 0.5rem !important;
-}
-
-.c8isv-root .c8srv-est-range, .c8srv-root .c8srv-est-range, .c8srv-est-range {
-  font-family: 'Michroma', sans-serif !important;
-  font-size: 1.8rem !important;
-  font-weight: 700 !important;
-  color: #0047E1 !important;
-  margin-bottom: 1.5rem !important;
-}
-
-.c8isv-root .c8srv-est-deliverables-title, .c8srv-root .c8srv-est-deliverables-title, .c8srv-est-deliverables-title {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  color: #080808 !important;
-  margin-bottom: 0.75rem !important;
-  display: block !important;
-}
-
-.c8isv-root .c8srv-est-deliverables, .c8srv-root .c8srv-est-deliverables, .c8srv-est-deliverables {
-  font-size: 13px !important;
-  color: #6B6B6B !important;
-  line-height: 1.6 !important;
-  margin-bottom: 2rem !important;
-}
-
-/* ── Platform Selection Cards ── */
-.c8isv-root .c8isv-fits-outer, .c8srv-root .c8isv-fits-outer, .c8isv-fits-outer {
-  background: #F4F6FB !important;
-  padding: 6rem 0 !important;
-  border-top: 1px solid rgba(8,8,8,0.05) !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-.c8isv-root .c8isv-platform-deck, .c8srv-root .c8isv-platform-deck, .c8isv-platform-deck {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
-  gap: 1.5rem !important;
-  margin-bottom: 3rem !important;
-}
-
-.c8isv-root .c8isv-platform-card, .c8srv-root .c8isv-platform-card, .c8isv-platform-card {
-  background: #ffffff !important;
-  padding: 2.25rem !important;
-  border-radius: 12px !important;
-  border: 1px solid rgba(8,8,8,0.08) !important;
-  box-shadow: 0 4px 12px rgba(8,8,8,0.02) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  transition: transform 0.4s ease, opacity 0.4s ease, border-color 0.3s ease !important;
-}
-
-.c8isv-root .c8isv-platform-card:hover, .c8srv-root .c8isv-platform-card:hover, .c8isv-platform-card:hover {
-  border-color: #0047E1 !important;
-  transform: translateY(-4px) !important;
-}
-
-.c8isv-root .c8isv-platform-badge, .c8srv-root .c8isv-platform-badge, .c8isv-platform-badge {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 10px !important;
-  text-transform: uppercase !important;
-  color: #0047E1 !important;
-  letter-spacing: 0.1em !important;
-  margin-bottom: 0.5rem !important;
-  display: block !important;
-  font-weight: 700 !important;
-}
-
-.c8isv-root .c8isv-platform-divider, .c8srv-root .c8isv-platform-divider, .c8isv-platform-divider {
-  width: 100% !important;
-  height: 1px !important;
-  background: rgba(8,8,8,0.08) !important;
-  margin-bottom: 1rem !important;
-}
-
-.c8isv-root .c8isv-platform-title, .c8srv-root .c8isv-platform-title, .c8isv-platform-title {
-  font-family: 'Michroma', sans-serif !important;
-  font-size: 1.1rem !important;
-  color: #080808 !important;
-  margin-bottom: 0.5rem !important;
-  font-weight: 700 !important;
-}
-
-.c8isv-root .c8isv-platform-desc, .c8srv-root .c8isv-platform-desc, .c8isv-platform-desc {
-  font-size: 0.85rem !important;
-  color: #6B6B6B !important;
-  line-height: 1.5 !important;
-  margin-bottom: 1.5rem !important;
-  font-weight: 300 !important;
-  flex-grow: 1 !important;
-}
-
-.c8isv-root .c8isv-platform-icon, .c8srv-root .c8isv-platform-icon, .c8isv-platform-icon {
-  margin-top: auto !important;
-  display: flex !important;
-  align-items: center !important;
-}
-
-.c8isv-root .c8isv-platform-icon svg, .c8srv-root .c8isv-platform-icon svg, .c8isv-platform-icon svg {
-  width: 28px !important;
-  height: 28px !important;
-  stroke: #0047E1 !important;
-  fill: none !important;
-  stroke-width: 1.5 !important;
-}
-
-
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   SECTION TEXT ALIGNMENT & SPACING SYSTEM
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* ── Section 4: What You Get (Folder Deck) -> Left Aligned ── */
-.c8isv-root .c8isv-folder-section .c8isv-label,
-.c8srv-root .c8isv-folder-section .c8isv-label,
-.c8isv-root .c8isv-folder-section .c8isv-section-title,
-.c8srv-root .c8isv-folder-section .c8isv-section-title,
-.c8isv-root .c8isv-folder-section .c8isv-lead,
-.c8srv-root .c8isv-folder-section .c8isv-lead {
-  text-align: left !important;
-  margin-left: 0 !important;
-}
-
-/* ── Hero Light Badge -> Left Aligned ── */
-.c8isv-root .c8isv-label.is-light,
-.c8srv-root .c8isv-label.is-light {
-  text-align: left !important;
-  margin-left: 0 !important;
-}
-
-/* ── Section 5: How We Approach It (Process Cards) -> Center Aligned ── */
-.c8isv-root .c8isv-approach-outer .c8isv-label,
-.c8srv-root .c8isv-approach-outer .c8isv-label,
-.c8isv-root .c8isv-approach-outer .c8isv-section-title,
-.c8srv-root .c8isv-approach-outer .c8isv-section-title,
-.c8isv-root .c8isv-approach-outer .c8isv-lead,
-.c8srv-root .c8isv-approach-outer .c8isv-lead {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* ── Section 5.5: Platform Selection Deck -> Center Aligned ── */
-.c8isv-root .c8isv-fits-outer .c8isv-label,
-.c8srv-root .c8isv-fits-outer .c8isv-label,
-.c8isv-root .c8isv-fits-outer .c8isv-section-title,
-.c8srv-root .c8isv-fits-outer .c8isv-section-title,
-.c8isv-root .c8isv-fits-outer .c8isv-lead,
-.c8srv-root .c8isv-fits-outer .c8isv-lead {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* ── Section 6: Full Catalog Hoverlist -> Center Aligned ── */
-.c8isv-root .c8isv-hl-section .c8isv-label,
-.c8srv-root .c8isv-hl-section .c8isv-label,
-.c8isv-root .c8isv-hl-section .c8isv-section-title,
-.c8srv-root .c8isv-hl-section .c8isv-section-title,
-.c8isv-root .c8isv-hl-section .c8isv-lead,
-.c8srv-root .c8isv-hl-section .c8isv-lead {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* ── Section 8: Pricing Models & Estimator -> Center Aligned ── */
-.c8isv-root #pricing-scope .c8isv-label,
-.c8srv-root #pricing-scope .c8isv-label,
-.c8isv-root #pricing-scope .c8isv-section-title,
-.c8srv-root #pricing-scope .c8isv-section-title,
-.c8isv-root #pricing-scope .c8isv-lead,
-.c8srv-root #pricing-scope .c8isv-lead {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* ── Section 9: FAQ Accordions -> Left Aligned with Increased Margin Bottom ── */
-.c8isv-root .c8isv-faq-outer .c8isv-label,
-.c8srv-root .c8isv-faq-outer .c8isv-label {
-  text-align: left !important;
-  margin-left: 0 !important;
-}
-
-.c8isv-root .c8isv-faq-outer .c8isv-section-title,
-.c8srv-root .c8isv-faq-outer .c8isv-section-title {
-  text-align: left !important;
-  margin-left: 0 !important;
-  margin-bottom: 2.75rem !important;
-}
-
-
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   SECTION-SCOPED LABEL FLEX ALIGNMENT OVERRIDES (.c8isv-root & .c8srv-root)
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* ── Left-Aligned Section Labels (Hero, Section 4 What You Get, Section 9 FAQ) ── */
-.c8isv-root .c8isv-hero-wrap .c8isv-label,
-.c8srv-root .c8isv-hero-wrap .c8isv-label,
-.c8isv-root .c8isv-folder-section .c8isv-label,
-.c8srv-root .c8isv-folder-section .c8isv-label,
-.c8isv-root .c8isv-faq-outer .c8isv-label,
-.c8srv-root .c8isv-faq-outer .c8isv-label {
-  justify-content: flex-start !important;
-  align-self: flex-start !important;
-  margin-left: 0 !important;
-  margin-right: auto !important;
-}
-
-/* ── Center-Aligned Section Labels (Approach, Platform Deck, Catalog, Estimator) ── */
-.c8isv-root .c8isv-approach-outer .c8isv-label,
-.c8srv-root .c8isv-approach-outer .c8isv-label,
-.c8isv-root .c8isv-fits-outer .c8isv-label,
-.c8srv-root .c8isv-fits-outer .c8isv-label,
-.c8isv-root .c8isv-hl-section .c8isv-label,
-.c8srv-root .c8isv-hl-section .c8isv-label,
-.c8isv-root #pricing-scope .c8isv-label,
-.c8srv-root #pricing-scope .c8isv-label {
-  justify-content: center !important;
-  align-self: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-
-/* ═══ SECTION 6: FULL CATALOG HOVERLIST ═══ */
-.c8isv-root .c8isv-hl-section { position: relative !important; z-index: 2 !important; background: #FFFFFF !important; }
-.c8isv-root .c8isv-hoverlist { border-top: 1px solid rgba(8,8,8,0.1) !important; }
-.c8isv-root .c8isv-hoverlist-item {
-  display: flex !important; align-items: center !important; justify-content: space-between !important;
-  gap: 2rem !important;
-  padding: 2.1rem 0.5rem !important;
-  border-bottom: 1px solid rgba(8,8,8,0.1) !important;
-  cursor: pointer !important;
-  position: relative !important;
-  transition: padding-left 0.3s ease !important;
-}
-.c8isv-root .c8isv-hoverlist-item:hover { padding-left: 1.25rem !important; }
-.c8isv-root .c8isv-hoverlist-left { display: flex !important; align-items: baseline !important; gap: 1.5rem !important; flex: 1 !important; min-width: 0 !important; }
-.c8isv-root .c8isv-hoverlist-num { font-family: 'Space Mono', monospace !important; font-size: 12px !important; color: #0047E1 !important; flex-shrink: 0 !important; }
-.c8isv-root .c8isv-hoverlist-title {
-  font-size: clamp(1.1rem, 2vw, 0.8rem) !important;
-  font-family: 'Michroma', sans-serif !important; font-size: clamp(1.1rem, 2vw, 0.8rem) !important; font-weight: 700 !important;
-  
-  text-transform: uppercase !important;
-  letter-spacing: 0.01em !important;
-  transition: color 0.25s ease !important;
-  margin: 0 !important;
-}
-.c8isv-root .c8isv-hoverlist-item:hover .c8isv-hoverlist-title {
-  font-size: clamp(1.1rem, 2vw, 0.8rem) !important; color: #0047E1 !important; }
-.c8isv-root .c8isv-hoverlist-tagline { font-size: 13px !important; color: #8A8A8A !important; font-weight: 300 !important; display: none !important; }
-@media (min-width: 951px) { .c8isv-root .c8isv-hoverlist-tagline { display: block !important; margin-left: 1rem !important; } }
-.c8isv-root .c8isv-hoverlist-right { display: flex !important; align-items: center !important; gap: 1.5rem !important; flex-shrink: 0 !important; }
-.c8isv-root .c8isv-hoverlist-tech {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 11px !important;
-  color: #8A8A8A !important;
-  letter-spacing: 0.05em !important;
-  text-transform: uppercase !important;
-}
-.c8isv-root .c8isv-hoverlist-arrow {
-  font-size: 20px !important;
-  color: #080808 !important;
-  transition: transform 0.25s ease, color 0.25s ease !important;
-}
-.c8isv-root .c8isv-hoverlist-item:hover .c8isv-hoverlist-arrow {
-  transform: translateX(6px) !important;
-  color: #0047E1 !important;
-}
-
-/* Fan preview */
-.c8isv-root .c8isv-hoverlist-preview {
-  position: absolute !important;
-  width: 310px !important; height: 240px !important;
-  pointer-events: none !important;
-  z-index: 50 !important;
-  display: block !important;
-  opacity: 0 !important;
-  transition: opacity 0.28s ease !important;
-  transform: translate(-50%,-50%) !important;
-}
-.c8isv-root .c8isv-hoverlist-preview.is-active { opacity: 1 !important; }
-.c8isv-root .c8isv-fan-card {
-  position: absolute !important;
-  bottom: 0 !important; left: 50% !important;
-  width: 118px !important; height: 155px !important;
-  margin-left: -59px !important;
-  border-radius: 10px !important;
-  box-shadow: 0 14px 36px rgba(8,8,8,0.22) !important;
-  display: flex !important; align-items: center !important; justify-content: center !important;
-  overflow: hidden !important;
-  padding: 0 10px !important;
-  transition: transform 0.45s cubic-bezier(.16,.8,.24,1) !important;
-}
-.c8isv-root .c8isv-fan-left { background: #0047E1 !important; border: 1px solid rgba(255,255,255,0.12) !important; z-index: 10 !important; transform: translateX(-105px) translateY(-18px) rotate(-10deg) !important; }
-.c8isv-root .c8isv-fan-center { background: #F5F0E8 !important; border: 1px solid rgba(8,8,8,0.1) !important; z-index: 20 !important; transform: translateX(0) rotate(0deg) !important; }
-.c8isv-root .c8isv-fan-right { background: #080808 !important; border: 1px solid rgba(255,255,255,0.08) !important; z-index: 15 !important; transform: translateX(105px) translateY(-18px) rotate(10deg) !important; }
-.c8isv-root .c8isv-fan-word {
-  font-family: 'Michroma', sans-serif !important; font-size: clamp(1.1rem, 2vw, 0.8rem) !important; font-weight: 700 !important;
-  font-size: 36px !important; line-height: 1 !important; letter-spacing: 0.04em !important;
-  text-align: center !important; white-space: normal !important; word-break: break-word !important;
-  overflow: hidden !important; width: 100% !important; display: block !important;
-}
-.c8isv-root .c8isv-fan-left .c8isv-fan-word, .c8isv-root .c8isv-fan-right .c8isv-fan-word { color: #FAFAF7 !important; }
-.c8isv-root .c8isv-fan-center .c8isv-fan-word { color: #080808 !important; }
 @media (prefers-reduced-motion: reduce) { .c8isv-root .c8isv-hoverlist-preview { display: none !important; } }
 
 
@@ -1218,10 +577,6 @@
   <div class="c8isv-wrap">
     <div class="c8isv-hero-grid">
       <div class="c8isv-hero-content">
-        <div class="c8isv-breadcrumb">
-          <a href="../Main Service Page/">Services</a><span>/</span><span class="is-current">E-Commerce Development</span>
-        </div>
-        <div class="c8isv-label is-light">E-Commerce Development</div>
         <h1 class="c8isv-headline">Shopify & WooCommerce <br><span class="c8isv-serif">Stores That Sell.</span></h1>
         <p class="c8isv-hero-intro">We engineer bespoke e-commerce stores on both Shopify and WooCommerce — custom Liquid development, WooCommerce PHP extensions, performance-tuned checkout flows, and conversion architectures built to generate revenue from day one.</p>
         <div class="c8isv-hero-ctas">
@@ -1530,7 +885,8 @@
       <div class="c8isv-portfolio-footer">
         <a href="../portfolio/" class="c8isv-explore">See All Projects &rarr;</a>
       </div>
-    
+    </div><!-- /.c8isv-portfolio-inner -->
+  </div><!-- /.c8isv-portfolio-outer -->
 
 <div class="c8isv-hl-section">
   <div class="c8isv-wrap" style="padding-bottom:0">
