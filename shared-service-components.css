@@ -675,24 +675,22 @@
   display: block !important;
 }
 
-/* Folder Deck Alternative (Growth Layer Slanted Card Deck) */
+/* ══════════════════════════════════════════
+   SECTION 3: WHAT YOU GET / FOLDER STACK (Pristine Visual Parity with services (2).html)
+   ══════════════════════════════════════════ */
 .c8isv-folder-section, .c8srv-folder-section {
-  padding: 4rem 0 !important;
+  padding: 3rem 0rem !important;
   position: relative !important;
   z-index: 2 !important;
   background: #FFFFFF !important;
 }
 
-.c8isv-folder-section .c8isv-section-title,
-.c8srv-folder-section .c8srv-section-title {
-  color: #080808 !important;
-}
-
 .c8isv-folder-deck, .c8srv-folder-deck {
   position: relative !important;
   display: block !important;
-  margin-top: 4rem !important;
+  margin-top: 5rem !important;
   padding-bottom: 120px !important;
+  margin-bottom: 6rem !important;
 }
 
 .c8isv-folder-card, .c8srv-folder-card {
@@ -704,40 +702,87 @@
   grid-template-columns: 1fr 1.2fr !important;
   gap: 4rem !important;
   align-items: center !important;
-  box-shadow: 0 10px 30px rgba(8, 8, 8, 0.04) !important;
+  box-shadow: 0 10px 10px rgba(8, 8, 8, 0.01) !important;
   position: sticky !important;
   top: 130px !important;
   margin-bottom: 0px !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  transition: transform 0.1s ease, box-shadow 0.3s ease !important;
 }
 
-.c8isv-folder-card, .c8srv-folder-card {
-  position: sticky !important;
-  top: 130px !important;
-  margin-bottom: 0px !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-}
+.c8isv-folder-card:nth-child(1), .c8srv-folder-card:nth-child(1) { top: 130px !important; z-index: 10 !important; position: sticky !important; }
+.c8isv-folder-card:nth-child(2), .c8srv-folder-card:nth-child(2) { top: 130px !important; z-index: 20 !important; position: sticky !important; }
+.c8isv-folder-card:nth-child(3), .c8srv-folder-card:nth-child(3) { top: 130px !important; z-index: 30 !important; position: sticky !important; }
+.c8isv-folder-card:nth-child(4), .c8srv-folder-card:nth-child(4) { top: 130px !important; z-index: 40 !important; position: sticky !important; }
+.c8isv-folder-card:nth-child(5), .c8srv-folder-card:nth-child(5) { top: 130px !important; z-index: 50 !important; position: sticky !important; }
+.c8isv-folder-card:nth-child(6), .c8srv-folder-card:nth-child(6) { top: 130px !important; z-index: 60 !important; position: sticky !important; }
 
-.c8isv-folder-card:nth-child(1), .c8srv-folder-card:nth-child(1) { top: 130px !important; z-index: 10 !important; }
-.c8isv-folder-card:nth-child(2), .c8srv-folder-card:nth-child(2) { top: 130px !important; z-index: 20 !important; }
-.c8isv-folder-card:nth-child(3), .c8srv-folder-card:nth-child(3) { top: 130px !important; z-index: 30 !important; }
-.c8isv-folder-card:nth-child(4), .c8srv-folder-card:nth-child(4) { top: 130px !important; z-index: 40 !important; }
-.c8isv-folder-card:nth-child(5), .c8srv-folder-card:nth-child(5) { top: 130px !important; z-index: 50 !important; }
-.c8isv-folder-card:nth-child(6), .c8srv-folder-card:nth-child(6) { top: 130px !important; z-index: 60 !important; }
+.c8isv-folder-tab, .c8srv-folder-tab {
+  position: absolute !important;
+  top: -38px !important;
+  height: 38px !important;
+  background: #FAFAF9 !important;
+  border: 1px solid rgba(8,8,8,0.1) !important;
+  border-bottom: none !important;
+  border-radius: 4px 4px 0 0 !important;
+  padding: 8px 20px !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  color: #0047E1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  display: flex !important;
+  align-items: center !important;
+}
 
 .c8srv-folder-card:nth-child(1) .c8srv-folder-tab, .c8isv-folder-card:nth-child(1) .c8isv-folder-tab { left: 2.5rem !important; }
-.c8srv-folder-card:nth-child(2) .c8srv-folder-tab, .c8isv-folder-card:nth-child(2) .c8isv-folder-tab { left: 14.5rem !important; }
-.c8srv-folder-card:nth-child(3) .c8srv-folder-tab, .c8isv-folder-card:nth-child(3) .c8isv-folder-tab { left: 26.5rem !important; }
-.c8srv-folder-card:nth-child(4) .c8srv-folder-tab, .c8isv-folder-card:nth-child(4) .c8isv-folder-tab { left: 38.5rem !important; }
-.c8srv-folder-card:nth-child(5) .c8srv-folder-tab, .c8isv-folder-card:nth-child(5) .c8isv-folder-tab { left: 50.5rem !important; }
-.c8srv-folder-card:nth-child(6) .c8srv-folder-tab, .c8isv-folder-card:nth-child(6) .c8isv-folder-tab { left: 62.5rem !important; }
+.c8srv-folder-card:nth-child(2) .c8srv-folder-tab, .c8isv-folder-card:nth-child(2) .c8isv-folder-tab { left: 16rem !important; }
+.c8srv-folder-card:nth-child(3) .c8srv-folder-tab, .c8isv-folder-card:nth-child(3) .c8isv-folder-tab { left: 29.5rem !important; }
+.c8srv-folder-card:nth-child(4) .c8srv-folder-tab, .c8isv-folder-card:nth-child(4) .c8isv-folder-tab { left: 43rem !important; }
+.c8srv-folder-card:nth-child(5) .c8srv-folder-tab, .c8isv-folder-card:nth-child(5) .c8isv-folder-tab { left: 56.5rem !important; }
 
 @media (max-width: 900px) {
+  .c8isv-folder-deck, .c8srv-folder-deck {
+    margin-top: 3rem !important;
+    padding-bottom: 100px !important;
+    margin-bottom: 0px !important;
+  }
   .c8isv-folder-card, .c8srv-folder-card {
     grid-template-columns: 1fr !important;
     padding: 2rem 1.5rem !important;
     gap: 1.75rem !important;
+    position: sticky !important;
+    min-height: 480px !important;
   }
+  .c8isv-folder-tab, .c8srv-folder-tab {
+    position: absolute !important;
+    top: -30px !important;
+    left: 1.5rem !important;
+    height: 30px !important;
+    padding: 0 15px !important;
+    background: #FAFAF9 !important;
+    border: 1px solid rgba(8,8,8,0.1) !important;
+    border-bottom: none !important;
+    border-radius: 4px 4px 0 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 0 !important;
+    width: 220px !important;
+    max-width: 80vw !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .c8srv-folder-card:nth-child(1) .c8srv-folder-tab,
+  .c8srv-folder-card:nth-child(2) .c8srv-folder-tab,
+  .c8srv-folder-card:nth-child(3) .c8srv-folder-tab,
+  .c8srv-folder-card:nth-child(4) .c8srv-folder-tab,
+  .c8srv-folder-card:nth-child(5) .c8srv-folder-tab { left: 1.5rem !important; }
+}
+
+.c8isv-folder-card-left, .c8srv-folder-card-left {
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .c8isv-folder-card-num, .c8srv-folder-card-num {
@@ -749,16 +794,16 @@
 
 .c8isv-folder-card-title, .c8srv-folder-card-title {
   font-family: 'Michroma', sans-serif !important;
-  font-size: clamp(1.3rem, 2vw, 1.7rem) !important;
+  font-size: clamp(1.2rem, 2vw, 1.6rem) !important;
   font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
   color: #080808 !important;
   margin-bottom: 1rem !important;
   text-transform: uppercase !important;
 }
 
-.c8isv-folder-card-desc, .c8srv-folder-card-desc,
-.c8isv-folder-card-body, .c8srv-folder-card-body {
-  font-size: 15px !important;
+.c8isv-folder-card-desc, .c8srv-folder-card-desc {
+  font-size: 14.5px !important;
   color: #6B6B6B !important;
   line-height: 1.65 !important;
   font-family: 'DM Sans', sans-serif !important;
@@ -770,20 +815,30 @@
   justify-content: flex-end !important;
 }
 
+@media (max-width: 900px) {
+  .c8isv-folder-card-right, .c8srv-folder-card-right {
+    justify-content: flex-start !important;
+  }
+}
+
+.c8isv-folder-card-img, .c8srv-folder-card-img {
+  border: 1px solid rgba(8,8,8,0.08) !important;
+  background: #FFFFFF !important;
+  padding: 8px !important;
+  box-shadow: 10px 10px 0px rgba(0,71,225,0.03) !important;
+  border-radius: 4px !important;
+  width: 100% !important;
+  max-width: 440px !important;
+  aspect-ratio: 4/3 !important;
+  overflow: hidden !important;
+}
+
 .c8isv-folder-card-img img, .c8srv-folder-card-img img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  border-radius: 4px !important;
+  border-radius: 6px !important;
   display: block !important;
-}
-
-.c8isv-folder-tag, .c8srv-folder-tag {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 10px !important;
-  color: #E24F30 !important;
-  letter-spacing: 0.1em !important;
-  text-transform: uppercase !important;
 }
 
 /* ══════════════════════════════════════════
