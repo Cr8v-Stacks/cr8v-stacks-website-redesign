@@ -46,8 +46,9 @@
 .c8isv-root h2, .c8srv-root h2,
 .c8isv-root h3, .c8srv-root h3,
 .c8isv-root h4, .c8srv-root h4 {
-  margin: 0 !important;
-  font-weight: inherit !important;
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
   line-height: 1.1 !important;
 }
 
@@ -590,7 +591,7 @@
 
 .c8isv-approach-deck, .c8srv-approach-deck {
   width: 100% !important;
-  margin: 4rem auto 0 auto !important;
+  margin: 1rem auto 4rem auto !important;
   position: relative !important;
 }
 
@@ -842,13 +843,30 @@
   display: block !important;
 }
 
+.c8isv-portfolio-head, .c8srv-portfolio-head {
+  text-align: center !important;
+  margin-bottom: 3rem !important;
+}
+
+.c8isv-portfolio-head .c8isv-label, .c8srv-portfolio-head .c8srv-label {
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.c8isv-portfolio-head .c8isv-section-title, .c8srv-portfolio-head .c8srv-section-title {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .c8isv-portfolio-title, .c8srv-portfolio-title {
   font-family: 'Michroma', sans-serif !important;
-  font-size: clamp(1.2rem, 2vw, 1.7rem) !important;
+  font-size: 1.2rem !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   color: #080808 !important;
-  margin-bottom: 1rem !important;
+  margin-bottom: 0.55rem !important;
 }
 
 .c8isv-portfolio-desc, .c8srv-portfolio-desc {
