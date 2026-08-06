@@ -736,10 +736,10 @@
 }
 
 .c8srv-folder-card:nth-child(1) .c8srv-folder-tab, .c8isv-folder-card:nth-child(1) .c8isv-folder-tab { left: 2.5rem !important; }
-.c8srv-folder-card:nth-child(2) .c8srv-folder-tab, .c8isv-folder-card:nth-child(2) .c8isv-folder-tab { left: 16rem !important; }
-.c8srv-folder-card:nth-child(3) .c8srv-folder-tab, .c8isv-folder-card:nth-child(3) .c8isv-folder-tab { left: 29.5rem !important; }
-.c8srv-folder-card:nth-child(4) .c8srv-folder-tab, .c8isv-folder-card:nth-child(4) .c8isv-folder-tab { left: 43rem !important; }
-.c8srv-folder-card:nth-child(5) .c8srv-folder-tab, .c8isv-folder-card:nth-child(5) .c8isv-folder-tab { left: 56.5rem !important; }
+.c8srv-folder-card:nth-child(2) .c8srv-folder-tab, .c8isv-folder-card:nth-child(2) .c8isv-folder-tab { left: 12.5rem !important; }
+.c8srv-folder-card:nth-child(3) .c8srv-folder-tab, .c8isv-folder-card:nth-child(3) .c8isv-folder-tab { left: 22.5rem !important; }
+.c8srv-folder-card:nth-child(4) .c8srv-folder-tab, .c8isv-folder-card:nth-child(4) .c8isv-folder-tab { left: 32.5rem !important; }
+.c8srv-folder-card:nth-child(5) .c8srv-folder-tab, .c8isv-folder-card:nth-child(5) .c8isv-folder-tab { left: 42.5rem !important; }
 
 @media (max-width: 900px) {
   .c8isv-folder-deck, .c8srv-folder-deck {
@@ -957,6 +957,13 @@
   margin-bottom: 2rem !important;
   border-top: 1px solid rgba(8,8,8,0.08) !important;
   padding-top: 1.5rem !important;
+}
+
+.c8isv-portfolio-stats .c8isv-portfolio-deliverables,
+.c8srv-portfolio-stats .c8srv-portfolio-deliverables {
+  border-top: none !important;
+  padding-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .c8isv-portfolio-stat-val, .c8srv-portfolio-stat-val {
@@ -1392,7 +1399,8 @@
   color: #FAFAF7 !important;
 }
 
-.c8srv-price-btn, .c8isv-price-btn {
+.c8srv-price-btn, .c8isv-price-btn,
+.c8isv-btn-primary, .c8srv-btn-primary {
   font-family: 'Space Mono', monospace !important;
   font-size: 11px !important;
   letter-spacing: 0.1em !important;
@@ -1401,11 +1409,38 @@
   text-align: center !important;
   font-weight: 700 !important;
   border-radius: 4px !important;
-  transition: all 0.3s ease !important;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
   display: block !important;
   width: 100% !important;
   text-decoration: none !important;
   box-sizing: border-box !important;
+  position: relative !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+}
+
+.c8srv-price-btn::before, .c8isv-price-btn::before,
+.c8isv-btn-primary::before, .c8srv-btn-primary::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 200% !important;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,0.4), rgba(61, 107, 255, 0.4), rgba(0, 194, 255, 0.4), transparent) !important;
+  transform: rotate(25deg) !important;
+  transition: left 0.75s ease !important;
+  pointer-events: none !important;
+}
+
+.c8srv-price-btn:hover::before, .c8isv-price-btn:hover::before,
+.c8isv-btn-primary:hover::before, .c8srv-btn-primary:hover::before {
+  left: 150% !important;
+}
+
+.c8srv-price-btn:hover, .c8isv-price-btn:hover,
+.c8isv-btn-primary:hover, .c8srv-btn-primary:hover {
+  transform: translateY(-2px) !important;
 }
 
 .c8srv-price-btn.is-primary, .c8isv-price-btn.is-primary {
