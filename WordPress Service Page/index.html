@@ -473,11 +473,10 @@
         </div>
       </div>
     </div>
-    <!-- 3-Card Fan Stack Preview with SVG CDN Logos -->
+    <!-- 2-Card Fan Stack Preview with SVG CDN Logos -->
     <div class="c8isv-hoverlist-preview" data-c8isv-preview>
       <div class="c8isv-fan-card c8isv-fan-left"><img class="c8isv-fan-logo" data-c8isv-fan-logo="left" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/php.svg" alt="PHP"></div>
-      <div class="c8isv-fan-card c8isv-fan-center"><img class="c8isv-fan-logo" data-c8isv-fan-logo="center" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg" alt="WordPress"></div>
-      <div class="c8isv-fan-card c8isv-fan-right"><img class="c8isv-fan-logo" data-c8isv-fan-logo="right" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/mysql.svg" alt="MySQL"></div>
+      <div class="c8isv-fan-card c8isv-fan-right"><img class="c8isv-fan-logo" data-c8isv-fan-logo="right" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg" alt="WordPress"></div>
     </div>
   </div>
 </div>
@@ -1405,14 +1404,11 @@
     hoverItems.forEach(function (item) {
       item.addEventListener('mouseenter', function () {
         var imgL = preview.querySelector('[data-c8isv-fan-logo="left"]');
-        var imgC = preview.querySelector('[data-c8isv-fan-logo="center"]');
         var imgR = preview.querySelector('[data-c8isv-fan-logo="right"]');
         var l1 = item.getAttribute('data-logo-1');
         var l2 = item.getAttribute('data-logo-2');
-        var l3 = item.getAttribute('data-logo-3') || l1;
         if (imgL && l1) imgL.src = l1;
-        if (imgC && l2) imgC.src = l2;
-        if (imgR && l3) imgR.src = l3;
+        if (imgR && l2) imgR.src = l2;
       });
     });
   }
@@ -1518,11 +1514,13 @@
     }
 
     /* Live Matrix Text Scramble Script */
-    var srvMatrixButtons = root.querySelectorAll('.c8-btn-primary, .c8isv-btn-primary, .c8srv-btn-primary, .c8srv-price-btn, .c8isv-price-btn, .c8srv-explore, .c8isv-explore');
+    var srvMatrixButtons = root.querySelectorAll('.c8-btn-primary, .c8isv-btn-primary, .c8srv-btn-primary, .c8srv-price-btn, .c8isv-price-btn, .c8srv-explore, .c8isv-explore, .c8isv-btn-ghost');
     var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
     srvMatrixButtons.forEach(function(btn) {
-      var originalText = btn.innerText.trim();
+      var textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; });
+      var targetObj = textNode ? textNode : btn;
+      var originalText = targetObj.textContent.trim();
       var scrambleInterval = null;
 
       btn.addEventListener('mouseenter', function() {
@@ -1530,7 +1528,7 @@
         clearInterval(scrambleInterval);
 
         scrambleInterval = setInterval(function() {
-          btn.innerText = originalText.split('')
+          targetObj.textContent = originalText.split('')
             .map(function(char, index) {
               if (char === ' ' || index < iteration) return originalText[index];
               return srvMatrixChars[Math.floor(Math.random() * srvMatrixChars.length)];
@@ -1546,7 +1544,7 @@
 
       btn.addEventListener('mouseleave', function() {
         clearInterval(scrambleInterval);
-        btn.innerText = originalText;
+        targetObj.textContent = originalText;
       });
     });
   })();

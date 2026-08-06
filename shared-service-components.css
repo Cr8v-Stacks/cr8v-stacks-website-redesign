@@ -1125,21 +1125,14 @@
   background: #0047E1 !important;
   border: 1px solid rgba(255,255,255,0.12) !important;
   z-index: 10 !important;
-  transform: translateX(-105px) translateY(-18px) rotate(-10deg) !important;
-}
-
-.c8isv-fan-center, .c8srv-fan-center {
-  background: #F5F0E8 !important;
-  border: 1px solid rgba(8,8,8,0.1) !important;
-  z-index: 20 !important;
-  transform: translateX(0) rotate(0deg) !important;
+  transform: translateX(-45px) translateY(-10px) rotate(-8deg) !important;
 }
 
 .c8isv-fan-right, .c8srv-fan-right {
   background: #080808 !important;
   border: 1px solid rgba(255,255,255,0.08) !important;
   z-index: 15 !important;
-  transform: translateX(105px) translateY(-18px) rotate(10deg) !important;
+  transform: translateX(45px) translateY(-10px) rotate(8deg) !important;
 }
 
 .c8isv-fan-logo, .c8srv-fan-logo {
@@ -1147,10 +1140,6 @@
   height: 42px !important;
   object-fit: contain !important;
   filter: brightness(0) invert(1) !important;
-}
-
-.c8isv-fan-center .c8isv-fan-logo, .c8srv-fan-center .c8srv-fan-logo {
-  filter: none !important;
 }
 
 /* ══════════════════════════════════════════

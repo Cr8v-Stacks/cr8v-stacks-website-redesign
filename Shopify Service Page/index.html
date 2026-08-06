@@ -406,11 +406,10 @@
         </div>
       </div>
     </div>
-    <!-- 3-Card Fan Stack Preview with SVG CDN Logos -->
+    <!-- 2-Card Fan Stack Preview with SVG CDN Logos -->
     <div class="c8isv-hoverlist-preview" data-c8isv-preview>
       <div class="c8isv-fan-card c8isv-fan-left"><img class="c8isv-fan-logo" data-c8isv-fan-logo="left" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg" alt="Shopify"></div>
-      <div class="c8isv-fan-card c8isv-fan-center"><img class="c8isv-fan-logo" data-c8isv-fan-logo="center" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/graphql.svg" alt="GraphQL"></div>
-      <div class="c8isv-fan-card c8isv-fan-right"><img class="c8isv-fan-logo" data-c8isv-fan-logo="right" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/stripe.svg" alt="Stripe"></div>
+      <div class="c8isv-fan-card c8isv-fan-right"><img class="c8isv-fan-logo" data-c8isv-fan-logo="right" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/graphql.svg" alt="GraphQL"></div>
     </div>
   </div>
 </div>
@@ -1483,11 +1482,13 @@
     }
 
     /* Live Matrix Text Scramble Script */
-    var srvMatrixButtons = root.querySelectorAll('.c8-btn-primary, .c8isv-btn-primary, .c8srv-btn-primary, .c8srv-price-btn, .c8isv-price-btn, .c8srv-explore, .c8isv-explore');
+    var srvMatrixButtons = root.querySelectorAll('.c8-btn-primary, .c8isv-btn-primary, .c8srv-btn-primary, .c8srv-price-btn, .c8isv-price-btn, .c8srv-explore, .c8isv-explore, .c8isv-btn-ghost');
     var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
     srvMatrixButtons.forEach(function(btn) {
-      var originalText = btn.innerText.trim();
+      var textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; });
+      var targetObj = textNode ? textNode : btn;
+      var originalText = targetObj.textContent.trim();
       var scrambleInterval = null;
 
       btn.addEventListener('mouseenter', function() {
@@ -1495,7 +1496,7 @@
         clearInterval(scrambleInterval);
 
         scrambleInterval = setInterval(function() {
-          btn.innerText = originalText.split('')
+          targetObj.textContent = originalText.split('')
             .map(function(char, index) {
               if (char === ' ' || index < iteration) return originalText[index];
               return srvMatrixChars[Math.floor(Math.random() * srvMatrixChars.length)];
@@ -1511,7 +1512,7 @@
 
       btn.addEventListener('mouseleave', function() {
         clearInterval(scrambleInterval);
-        btn.innerText = originalText;
+        targetObj.textContent = originalText;
       });
     });
   })();
