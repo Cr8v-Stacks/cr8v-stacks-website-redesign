@@ -2185,11 +2185,13 @@ body {
   });
 
   /* Live Matrix Text Scramble Script */
-  var srvMatrixButtons = root.querySelectorAll('.c8-btn-primary, .c8srv-price-btn, .c8srv-explore');
+  var srvMatrixButtons = root.querySelectorAll('.c8-btn-primary, .c8srv-price-btn, .c8srv-explore, .c8isv-explore, .faq-cta-link, .faq-q, .c8srv-vs-priority-btn, .c8srv-est-choice');
   var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
   srvMatrixButtons.forEach(function(btn) {
-    var originalText = btn.innerText.trim();
+    var textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; });
+    var targetObj = textNode ? textNode : btn;
+    var originalText = targetObj.textContent.trim();
     var scrambleInterval = null;
 
     btn.addEventListener('mouseenter', function() {
@@ -2197,7 +2199,7 @@ body {
       clearInterval(scrambleInterval);
 
       scrambleInterval = setInterval(function() {
-        btn.innerText = originalText.split('')
+        targetObj.textContent = originalText.split('')
           .map(function(char, index) {
             if (char === ' ' || index < iteration) return originalText[index];
             return srvMatrixChars[Math.floor(Math.random() * srvMatrixChars.length)];
@@ -2213,7 +2215,7 @@ body {
 
     btn.addEventListener('mouseleave', function() {
       clearInterval(scrambleInterval);
-      btn.innerText = originalText;
+      targetObj.textContent = originalText;
     });
   });
 })();
