@@ -1514,7 +1514,8 @@
     }
 
     /* Live Matrix Text Scramble Script */
-    var srvMatrixButtons = root.querySelectorAll('.c8-btn-primary, .c8isv-btn-primary, .c8srv-btn-primary, .c8srv-price-btn, .c8isv-price-btn, .c8srv-explore, .c8isv-explore, .c8isv-btn-ghost');
+    var docRoot = document.querySelector('.c8isv-root, .c8srv-root') || document.body;
+    var srvMatrixButtons = docRoot.querySelectorAll('.c8-btn-primary, .c8isv-btn-primary, .c8srv-btn-primary, .c8srv-price-btn, .c8isv-price-btn, .c8srv-explore, .c8isv-explore, .c8isv-btn-ghost, .faq-cta-link, .faq-q, .c8srv-vs-priority-btn, .c8srv-est-choice');
     var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
     srvMatrixButtons.forEach(function(btn) {
