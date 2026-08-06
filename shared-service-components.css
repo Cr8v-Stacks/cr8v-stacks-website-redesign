@@ -679,7 +679,7 @@
    SECTION 3: WHAT YOU GET / FOLDER STACK (Pristine Visual Parity with services (2).html)
    ══════════════════════════════════════════ */
 .c8isv-folder-section, .c8srv-folder-section {
-  padding: 3rem 0rem !important;
+  padding: 3rem 0rem 0rem !important;
   position: relative !important;
   z-index: 2 !important;
   background: #FFFFFF !important;
@@ -697,36 +697,27 @@
   background: #FAFAF9 !important;
   border: 1px solid rgba(8,8,8,0.1) !important;
   border-radius: 4px !important;
-  padding: 3rem 3.5rem !important;
+  padding: 3.5rem !important;
   display: grid !important;
-  grid-template-columns: 1fr 1.2fr !important;
-  gap: 4rem !important;
-  align-items: center !important;
-  box-shadow: 0 10px 10px rgba(8, 8, 8, 0.01) !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 3.5rem !important;
+  box-shadow: 0 -10px 30px rgba(0,0,0,0.03) !important;
   position: sticky !important;
   top: 130px !important;
   margin-bottom: 0px !important;
-  transition: transform 0.1s ease, box-shadow 0.3s ease !important;
+  min-height: 440px !important;
 }
-
-.c8isv-folder-card:nth-child(1), .c8srv-folder-card:nth-child(1) { top: 130px !important; z-index: 10 !important; position: sticky !important; }
-.c8isv-folder-card:nth-child(2), .c8srv-folder-card:nth-child(2) { top: 130px !important; z-index: 20 !important; position: sticky !important; }
-.c8isv-folder-card:nth-child(3), .c8srv-folder-card:nth-child(3) { top: 130px !important; z-index: 30 !important; position: sticky !important; }
-.c8isv-folder-card:nth-child(4), .c8srv-folder-card:nth-child(4) { top: 130px !important; z-index: 40 !important; position: sticky !important; }
-.c8isv-folder-card:nth-child(5), .c8srv-folder-card:nth-child(5) { top: 130px !important; z-index: 50 !important; position: sticky !important; }
-.c8isv-folder-card:nth-child(6), .c8srv-folder-card:nth-child(6) { top: 130px !important; z-index: 60 !important; position: sticky !important; }
 
 .c8isv-folder-tab, .c8srv-folder-tab {
   position: absolute !important;
   top: -38px !important;
-  height: 38px !important;
+  padding: 8px 20px !important;
   background: #FAFAF9 !important;
   border: 1px solid rgba(8,8,8,0.1) !important;
   border-bottom: none !important;
   border-radius: 4px 4px 0 0 !important;
-  padding: 8px 20px !important;
   font-family: 'Space Mono', monospace !important;
-  font-size: 10.5px !important;
+  font-size: 11px !important;
   font-weight: 700 !important;
   color: #0047E1 !important;
   text-transform: uppercase !important;
@@ -738,7 +729,7 @@
 .c8srv-folder-card:nth-child(1) .c8srv-folder-tab, .c8isv-folder-card:nth-child(1) .c8isv-folder-tab { left: 2.5rem !important; }
 .c8srv-folder-card:nth-child(2) .c8srv-folder-tab, .c8isv-folder-card:nth-child(2) .c8isv-folder-tab { left: 12.5rem !important; }
 .c8srv-folder-card:nth-child(3) .c8srv-folder-tab, .c8isv-folder-card:nth-child(3) .c8isv-folder-tab { left: 22.5rem !important; }
-.c8srv-folder-card:nth-child(4) .c8srv-folder-tab, .c8isv-folder-card:nth-child(4) .c8isv-folder-tab { left: 32.5rem !important; }
+.c8srv-folder-card:nth-child(4) .c8srv-folder-tab, .c8isv-folder-card:nth-child(4) .c8isv-folder-tab { left: 32rem !important; }
 .c8srv-folder-card:nth-child(5) .c8srv-folder-tab, .c8isv-folder-card:nth-child(5) .c8isv-folder-tab { left: 42.5rem !important; }
 
 @media (max-width: 900px) {
@@ -1166,6 +1157,40 @@
 
 .c8isv-fan-center .c8isv-fan-word, .c8srv-fan-center .c8srv-fan-word {
   color: #080808 !important;
+}
+
+/* Lightweight CDN SVG Tech Badges Preview */
+.c8isv-tech-preview, .c8srv-tech-preview {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.c8isv-tech-badge, .c8srv-tech-badge {
+  background: #FAFAF9 !important;
+  border: 1px solid rgba(8,8,8,0.1) !important;
+  border-radius: 6px !important;
+  padding: 10px 16px !important;
+  box-shadow: 0 10px 30px rgba(0,71,225,0.12) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: #0047E1 !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+}
+
+.c8isv-tech-badge img, .c8srv-tech-badge img {
+  width: 18px !important;
+  height: 18px !important;
+  object-fit: contain !important;
 }
 
 /* ══════════════════════════════════════════
