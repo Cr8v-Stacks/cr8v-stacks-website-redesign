@@ -877,7 +877,8 @@
   font-weight: 300 !important;
 }
 
-.c8isv-portfolio-stats, .c8srv-portfolio-stats {
+.c8isv-portfolio-stats, .c8srv-portfolio-stats,
+.c8isv-portfolio-deliverables, .c8srv-portfolio-deliverables {
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 2rem !important;
@@ -888,8 +889,8 @@
 
 .c8isv-portfolio-stat-val, .c8srv-portfolio-stat-val {
   font-family: 'Michroma', sans-serif !important;
-  font-size: 2rem !important;
-  font-weight: 700 !important;
+  font-size: 1.2rem !important;
+  font-weight: 500 !important;
   color: #0047E1 !important;
   line-height: 1 !important;
   display: block !important;
@@ -901,6 +902,13 @@
   letter-spacing: .12em !important;
   text-transform: uppercase !important;
   color: #8A8A8A !important;
+}
+
+.c8isv-portfolio-footer, .c8srv-portfolio-footer {
+  margin-top: 50px !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* ══════════════════════════════════════════
@@ -920,7 +928,7 @@
 
 .c8isv-hoverlist, .c8srv-hoverlist {
   border-top: 1px solid rgba(8,8,8,0.1) !important;
-  margin-top: 3rem !important;
+  margin-top: 0.2rem !important;
 }
 
 .c8isv-hoverlist-item, .c8srv-hoverlist-item {
@@ -956,13 +964,14 @@
 
 .c8isv-hoverlist-title, .c8srv-hoverlist-title {
   font-family: 'Bebas Neue', sans-serif !important;
-  font-size: clamp(1.8rem, 3.5vw, 3.2rem) !important;
+  font-size: clamp(1.8rem, 3.5vw, 1.2rem) !important;
   text-transform: uppercase !important;
   letter-spacing: 0.01em !important;
   color: #080808 !important;
   transition: color 0.25s ease !important;
   margin: 0 !important;
   line-height: 1 !important;
+  font-weight: 500 !important;
 }
 
 .c8isv-hoverlist-item:hover .c8isv-hoverlist-title,
@@ -1738,21 +1747,25 @@
 /* ═══════════════════════════════════════════════════════════════════════════
    SECTION ALIGNMENT SYSTEM
    ═══════════════════════════════════════════════════════════════════════════ */
+/* Left-aligned Eyebrows & Headings (Hero, Folder Section, FAQ, Platform Selection) */
 .c8isv-hero-wrap .c8isv-label, .c8srv-hero-wrap .c8srv-label,
 .c8isv-folder-section .c8isv-label, .c8srv-folder-section .c8srv-label,
-.c8isv-faq-outer .c8isv-label, .c8srv-faq-outer .c8srv-label {
+.c8isv-faq-outer .c8isv-label, .c8srv-faq-outer .c8srv-label,
+.c8isv-fits-outer .c8isv-label, .c8srv-fits-outer .c8srv-label {
   justify-content: flex-start !important;
   align-self: flex-start !important;
   margin-left: 0 !important;
   margin-right: auto !important;
+  text-align: left !important;
 }
 
+/* Center-aligned Eyebrows & Headings (Approach, Full Catalog, Portfolio, Pricing) */
 .c8isv-approach-outer .c8isv-label, .c8srv-approach-outer .c8srv-label,
-.c8isv-fits-outer .c8isv-label, .c8srv-fits-outer .c8srv-label,
 .c8isv-hl-section .c8isv-label, .c8srv-hl-section .c8srv-label,
 #pricing-scope .c8isv-label, #pricing-scope .c8srv-label {
   justify-content: center !important;
   align-self: center !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  text-align: center !important;
 }
