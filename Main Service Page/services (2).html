@@ -898,7 +898,7 @@ body {
   .c8srv-root .c8srv-folder-card:nth-child(3) .c8srv-folder-tab { left: 1.5rem !important; }
 }
 
-.c8srv-root .c8srv-folder-card-left { display: flex !important; flex-direction: column !important; }
+.c8srv-root .c8srv-folder-card-left { display: flex !important; flex-direction: column !important; height: 100% !important; }
 .c8srv-root .c8srv-folder-card-title {
   font-family: 'Michroma', sans-serif !important;
   font-size: clamp(1.2rem, 2vw, 1.6rem) !important;
@@ -913,6 +913,8 @@ body {
   color: #6B6B6B !important;
   line-height: 1.65 !important;
   font-family: 'DM Sans', sans-serif !important;
+  margin-top: auto !important;
+  margin-bottom: 1.5rem !important;
 }
 .c8srv-root .c8srv-folder-card-right { display: flex !important; justify-content: center !important; }
 .c8srv-root .c8srv-folder-card-img {
@@ -2185,7 +2187,7 @@ body {
   });
 
   /* Live Matrix Text Scramble Script */
-  var srvMatrixButtons = root.querySelectorAll('.c8-btn-primary, .c8srv-price-btn, .c8srv-explore, .c8isv-explore, .faq-cta-link, .faq-q, .c8srv-vs-priority-btn, .c8srv-est-choice');
+  var srvMatrixButtons = root.querySelectorAll('.c8-btn-primary, .c8srv-price-btn, .c8isv-btn-ghost, .faq-cta-link');
   var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
   srvMatrixButtons.forEach(function(btn) {
