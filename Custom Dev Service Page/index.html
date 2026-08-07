@@ -731,18 +731,21 @@
 @media (max-width: 900px) { .c8isv-root .c8isv-related-grid { grid-template-columns: 1fr !important; } }
 .c8isv-root .c8isv-related-card {
   border: 1px solid rgba(255,255,255,0.08) !important;
-  border-radius: 4px !important;
+  border-radius: 0 !important;
   padding: 2.5rem !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  transition: all 0.3s cubic-bezier(0.16, 0.8, 0.24, 1) !important;
+  transition: background 0.35s cubic-bezier(0.16, 0.8, 0.24, 1), border-color 0.35s ease, transform 0.35s cubic-bezier(0.16, 0.8, 0.24, 1), box-shadow 0.35s ease !important;
   color: inherit !important;
 }
 .c8isv-root .c8isv-related-card:nth-child(1) { background: linear-gradient(135deg, #1C2436 0%, #0B111E 100%) !important; }
 .c8isv-root .c8isv-related-card:nth-child(2) { background: linear-gradient(135deg, #1A2E66 0%, #0E1A3D 100%) !important; }
 .c8isv-root .c8isv-related-card:nth-child(3) { background: linear-gradient(135deg, #153C9E 0%, #0B225C 100%) !important; }
-.c8isv-root .c8isv-related-card:hover { border-color: #0047E1 !important; transform: translateY(-4px) !important; box-shadow: 0 12px 30px rgba(0,71,225,0.18) !important; }
+.c8isv-root .c8isv-related-card:hover { border-color: #0047E1 !important; transform: translateY(-4px) !important; box-shadow: 0 12px 30px rgba(0,71,225,0.22) !important; }
+.c8isv-root .c8isv-related-card:nth-child(1):hover { background: linear-gradient(135deg, #0C1220 0%, #03060C 100%) !important; }
+.c8isv-root .c8isv-related-card:nth-child(2):hover { background: linear-gradient(135deg, #0D173A 0%, #050C24 100%) !important; }
+.c8isv-root .c8isv-related-card:nth-child(3):hover { background: linear-gradient(135deg, #09205E 0%, #031038 100%) !important; }
 .c8isv-root .c8isv-related-card-icon { width: 46px !important; height: 46px !important; border-radius: 8px !important; background: rgba(0,71,225,0.25) !important; display: flex !important; align-items: center !important; justify-content: center !important; margin-bottom: 1.5rem !important; }
 .c8isv-root .c8isv-related-card-icon svg { width: 22px !important; height: 22px !important; stroke: #7C93FF !important; fill: none !important; stroke-width: 1.5 !important; }
 .c8isv-root .c8isv-related-card-platform { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: .15em !important; text-transform: uppercase !important; color: #7C93FF !important; margin-bottom: 0.75rem !important; display: block !important; }
@@ -1983,6 +1986,7 @@
       </a>
     </div>
   </div>
+<script src="assets_b64.js"></script>
 <script>
 (function () {
   var root = document.currentScript ? document.currentScript.closest('.c8isv-root') : null; if (!root) root = document.querySelector('.c8isv-root') || document.body;

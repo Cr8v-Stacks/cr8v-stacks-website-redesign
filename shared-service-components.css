@@ -755,7 +755,7 @@
     padding: 2rem 1.5rem !important;
     gap: 1.75rem !important;
     position: sticky !important;
-    min-height: 480px !important;
+    min-height: 630px !important;
   }
   .c8isv-folder-tab, .c8srv-folder-tab {
     position: absolute !important;
@@ -1982,24 +1982,15 @@ button.c8isv-est-choice.is-active,
   font-family: 'DM Sans', sans-serif !important;
 }
 
-/* ══════════════════════════════════════════
-   SECTION 10: RELATED SERVICES (Dark Cards)
-   ══════════════════════════════════════════ */
-.c8isv-related-outer, .c8srv-related-outer {
-  padding: 6rem 0 !important;
-  background: #080808 !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-.c8isv-related-outer .c8isv-section-title,
-.c8srv-related-outer .c8srv-section-title {
-  color: #FAFAF7 !important;
-}
-
-.c8isv-related-outer .c8isv-lead,
-.c8srv-related-outer .c8srv-lead {
-  color: rgba(250,250,247,0.45) !important;
+.c8isv-root .c8isv-related-header, .c8srv-root .c8srv-related-header, .c8isv-related-header, .c8srv-related-header {
+  background: linear-gradient(83deg, #08163f 0%, #2444a1 100%) !important;
+  color: #FFFFFF !important;
+  padding: 3rem !important;
+  border-radius: 4px 4px 0 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 0 !important;
 }
 
 .c8srv-root, .c8isv-root .c8srv-related-grid, .c8isv-related-grid {
@@ -2022,9 +2013,9 @@ button.c8isv-est-choice.is-active,
   border-style: solid !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
   border-image: none !important;
-  border-radius: 4px !important;
+  border-radius: 0 !important;
   padding: 2.5rem !important;
-  transition: all 0.3s cubic-bezier(0.16, 0.8, 0.24, 1) !important;
+  transition: background 0.35s cubic-bezier(0.16, 0.8, 0.24, 1), border-color 0.35s ease, transform 0.35s cubic-bezier(0.16, 0.8, 0.24, 1), box-shadow 0.35s ease !important;
 }
 
 .c8isv-related-card:nth-child(1), .c8srv-related-card:nth-child(1) { background: linear-gradient(135deg, #1C2436 0%, #0B111E 100%) !important; }
@@ -2034,7 +2025,42 @@ button.c8isv-est-choice.is-active,
 .c8srv-root .c8srv-related-card:hover, .c8isv-root .c8isv-related-card:hover, .c8isv-related-card:hover, .c8srv-related-card:hover {
   border-color: #0047E1 !important;
   transform: translateY(-4px) !important;
-  box-shadow: 0 12px 30px rgba(0, 71, 225, 0.18) !important;
+  box-shadow: 0 12px 30px rgba(0, 71, 225, 0.22) !important;
+}
+
+.c8isv-related-card:nth-child(1):hover, .c8srv-related-card:nth-child(1):hover {
+  background: linear-gradient(135deg, #0C1220 0%, #03060C 100%) !important;
+}
+.c8isv-related-card:nth-child(2):hover, .c8srv-related-card:nth-child(2):hover {
+  background: linear-gradient(135deg, #0D173A 0%, #050C24 100%) !important;
+}
+.c8isv-related-card:nth-child(3):hover, .c8srv-related-card:nth-child(3):hover {
+  background: linear-gradient(135deg, #09205E 0%, #031038 100%) !important;
+}
+
+.c8isv-related-card-label, .c8srv-related-card-label {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: #7C93FF !important;
+  margin-bottom: 0.75rem !important;
+  font-weight: 700 !important;
+  display: block !important;
+}
+
+.c8isv-related-card-arrow, .c8srv-related-card-arrow {
+  font-size: 22px !important;
+  color: #7C93FF !important;
+  margin-top: 1.5rem !important;
+  align-self: flex-end !important;
+  line-height: 1 !important;
+  transition: transform 0.28s ease, color 0.28s ease !important;
+}
+
+.c8isv-related-card:hover .c8isv-related-card-arrow, .c8srv-related-card:hover .c8srv-related-card-arrow {
+  transform: translate(4px, -4px) !important;
+  color: #FFFFFF !important;
 }
 
 .c8isv-related-card-icon, .c8srv-related-card-icon {
