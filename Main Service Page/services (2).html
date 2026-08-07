@@ -66,6 +66,37 @@
 .c8srv-root .c8-btn-primary:hover,
 .c8srv-root .c8srv-price-btn:hover { transform: translateY(-2px) !important; }
 
+.c8srv-root .c8srv-hero-ctas {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1rem !important;
+  margin-top: 2rem !important;
+  margin-bottom: 1.5rem !important;
+  align-items: center !important;
+}
+
+.c8srv-root .c8srv-btn-ghost {
+  background: transparent !important;
+  color: #080808 !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  padding: 16px 28px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  border: 1px solid rgba(8,8,8,0.2) !important;
+  border-radius: 4px !important;
+  transition: border-color 0.2s ease, color 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+.c8srv-root .c8srv-btn-ghost:hover {
+  border-color: #0047E1 !important;
+  color: #0047E1 !important;
+}
+
 /* ── BORDER RADIUS OVERRIDE TO 4PX GLOBALLY ── */
 .c8srv-root .c8srv-showcase-card,
 .c8srv-root .c8srv-showcase-card-img,
@@ -1128,9 +1159,9 @@ body {
     <div class="c8srv-hero-content">
       <h1 class="c8srv-headline">Every <span class="c8srv-serif-text">layer</span> of your presence, <span class="c8srv-gradient-text">engineered by Cr8v Stacks.</span></h1>
       <div class="c8srv-hero-intro c8srv-reveal c8srv-reveal-d1">Cr8v Stacks handles every layer of your presence — brand positioning, design, the build itself, and the growth work after launch. Whichever platform your business runs on (WordPress, Shopify, WooCommerce, or a fully custom stack) the build is only one layer. We start with who you're competing against and end with the campaigns that bring people to the site we just built.</div>
-      <div class="c8isv-hero-ctas">
-        <a href="#primary-service-6cards" class="c8isv-btn-primary">See What We Build &rarr;</a>
-        <a href="https://cr8vstacks.com/contact/" class="c8isv-btn-ghost">Get a Quote &rarr;</a>
+      <div class="c8srv-hero-ctas">
+        <a href="#primary-service-6cards" class="c8-btn-primary">See What We Build &rarr;</a>
+        <a href="https://cr8vstacks.com/contact/" class="c8srv-btn-ghost">Get a Quote &rarr;</a>
       </div>
       <div class="c8srv-pill-row">
         <span class="c8srv-pill">WordPress</span>
