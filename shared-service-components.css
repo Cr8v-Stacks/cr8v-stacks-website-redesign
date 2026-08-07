@@ -1688,7 +1688,7 @@ button.c8isv-est-choice.is-active,
   padding: 6rem 0 !important;
   position: relative !important;
   z-index: 2 !important;
-  overflow: hidden !important;
+  overflow: clip !important;
 }
 
 .c8isv-testi-inner, .c8srv-testi-inner {
