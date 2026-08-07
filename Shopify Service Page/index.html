@@ -716,7 +716,6 @@
   </div>
 </div>
 
-<script src="../assets_b64.js"></script>
 <script>
 (function () {
   var root = document.currentScript.closest('.c8isv-root');
@@ -838,17 +837,15 @@
       return { fs: fs, lh: lh, tx: tx, y1: y1, y2: y2, logoW: logoW, logoH: logoH, logoCX: logoCX, logoCY: logoCY, logoX: logoX, logoY: logoY };
     }
 
+    var LOGO_DEFAULT_SVG = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="%230047E1" rx="16"/><text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="%23FFFFFF" font-family="sans-serif" font-size="70" font-weight="bold">CR8V</text></svg>';
     var logoImg = new Image();
     var logoReady = false;
     logoImg.onload = function () { logoReady = true; invalidateLogo(); };
 
-    if (typeof LOGO_DATA_URL !== 'undefined') {
+    if (typeof LOGO_DATA_URL !== 'undefined' && LOGO_DATA_URL) {
       logoImg.src = LOGO_DATA_URL;
     } else {
-      if (window.location.protocol !== 'file:') {
-        logoImg.crossOrigin = 'anonymous';
-      }
-      logoImg.src = 'logo.png';
+      logoImg.src = LOGO_DEFAULT_SVG;
     }
 
     var logoPx = null, logoPxW = 0, logoPxH = 0;
