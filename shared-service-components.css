@@ -1999,7 +1999,7 @@ button.c8isv-est-choice.is-active,
 
 .c8srv-root, .c8isv-root .c8srv-related-outer, .c8isv-related-outer {
   background: #FFFFFF !important;
-  padding: 6rem 0 !important;
+  padding: 0 !important;
   position: relative !important;
   z-index: 5 !important;
   border-top: 1px solid rgba(8, 8, 8, 0.12) !important;
