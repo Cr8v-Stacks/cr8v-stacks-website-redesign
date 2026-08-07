@@ -1,1218 +1,49 @@
 <link rel="stylesheet" href="../shared-service-components.css">
 <div class="c8isv-root">
 <style>
-/* Page Specific Alignment Overrides */
-</style>
-  position: relative !important;
-  z-index: 2 !important;
-}
-@media (max-width: 1100px) { .c8isv-root .c8isv-wrap { padding: 3rem 1.25rem !important; } }
-.c8isv-root h1, .c8isv-root h2, .c8isv-root h3, .c8isv-root h4 { margin: 0 !important; font-weight: inherit !important; line-height: 1.1 !important; }
-.c8isv-root p { margin: 0 0 1rem 0 !important; }
-.c8isv-root p:last-child { margin-bottom: 0 !important; }
-.c8isv-root button { font-family: inherit !important; cursor: pointer !important; border: none !important; background: none !important; }
-.c8isv-root a { text-decoration: none !important; }
-
-/* ── Design tokens (mirrors main page exactly) ── */
-.c8isv-root .c8isv-label {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 10px !important;
-  letter-spacing: .25em !important;
-  text-transform: uppercase !important;
-  color: #0047E1 !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-  margin-bottom: 1.75rem !important;
-}
-.c8isv-root .c8isv-label::before { content: '—' !important; color: #0047E1 !important; font-weight: 700 !important; }
-.c8isv-root .c8isv-label.is-light { color: #7C93FF !important; }
-.c8isv-root .c8isv-label.is-light::before { color: #7C93FF !important; }
-.c8isv-root .c8isv-label.is-center { justify-content: center !important; }
-.c8isv-root .c8isv-label.is-muted { color: rgba(250,250,247,0.35) !important; }
-.c8isv-root .c8isv-label.is-muted::before { color: rgba(250,250,247,0.35) !important; }
-
-.c8isv-root .c8isv-section-title {
-  font-family: 'Michroma', sans-serif !important;
-  font-size: clamp(1.4rem, 2.5vw, 2.0rem) !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.02em !important;
-  color: #080808 !important;
-  margin-bottom: 1.25rem !important;
-  text-transform: uppercase !important;
-}
-.c8isv-root .c8isv-lead {
-  font-size: 17px !important;
-  font-weight: 300 !important;
-  color: #6B6B6B !important;
-  max-width: 720px !important;
-  line-height: 1.6 !important;
-  font-family: 'DM Sans', sans-serif !important;
-}
-.c8isv-root .c8isv-serif { font-family: 'Georgia', serif !important; font-style: italic !important; text-transform: none !important; font-weight: 400 !important; }
-
-.c8isv-root .c8isv-tearline { display: flex !important; align-items: center !important; margin: 0 0 5rem 0 !important; }
-.c8isv-root .c8isv-tearline-dot { width: 9px !important; height: 9px !important; border-radius: 50% !important; background: #080808 !important; flex-shrink: 0 !important; }
-.c8isv-root .c8isv-tearline-line { flex: 1 !important; border-top: 1px dashed rgba(8,8,8,0.28) !important; margin: 0 10px !important; }
-
-.c8isv-root .c8isv-reveal { opacity: 0 !important; transform: translateY(24px) !important; transition: opacity 0.7s cubic-bezier(.16,.8,.24,1), transform 0.7s cubic-bezier(.16,.8,.24,1) !important; }
-.c8isv-root .c8isv-reveal.is-visible { opacity: 1 !important; transform: translateY(0) !important; }
-.c8isv-root .c8isv-reveal-d1 { transition-delay: 0.08s !important; }
-.c8isv-root .c8isv-reveal-d2 { transition-delay: 0.16s !important; }
-.c8isv-root .c8isv-reveal-d3 { transition-delay: 0.24s !important; }
-@media (prefers-reduced-motion: reduce) { .c8isv-root .c8isv-reveal { opacity: 1 !important; transform: none !important; transition: none !important; } }
-
-.c8isv-root .c8isv-explore {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 11px !important;
-  letter-spacing: .08em !important;
-  text-transform: uppercase !important;
-  color: #0047E1 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  transition: gap 0.2s ease !important;
-}
-.c8isv-root .c8isv-explore:hover { gap: 10px !important; }
-
-.c8isv-root .c8isv-icon-sq {
-  width: 24px !important; height: 24px !important;
-  background: #0047E1 !important;
-  border-radius: 4px !important;
-  display: flex !important; align-items: center !important; justify-content: center !important;
-  flex-shrink: 0 !important;
-}
-.c8isv-root .c8isv-icon-sq svg { width: 14px !important; height: 14px !important; stroke: #FFFFFF !important; fill: none !important; stroke-width: 2 !important; stroke-linecap: round !important; stroke-linejoin: round !important; }
-
-/* ═══ SECTION 1: HERO (Dark) ═══ */
-.c8isv-root .c8isv-hero-wrap {
-  position: relative !important;
-  background: #050813 !important;
-  min-height: 88vh !important;
-  display: flex !important;
-  align-items: center !important;
-  overflow: hidden !important;
-}
-.c8isv-root .c8isv-hero-atmos {
-  position: absolute !important;
-  top: 0 !important; left: 0 !important;
-  width: 100% !important; height: 100% !important;
-  z-index: 0 !important;
-  pointer-events: none !important;
-  overflow: hidden !important;
-}
-.c8isv-root .c8isv-atmos-svg { position: absolute !important; top: -10% !important; left: 0 !important; width: 100% !important; height: 130% !important; }
-.c8isv-root .c8isv-atmos-blob { filter: blur(2px) !important; opacity: 0.38 !important; }
-.c8isv-root .c8isv-hero-glow {
-  position: absolute !important;
-  width: 600px !important; height: 600px !important;
-  background: radial-gradient(circle, rgba(0,71,225,0.28) 0%, transparent 68%) !important;
-  transform: translate(-50%,-50%) !important;
-  pointer-events: none !important;
-  z-index: 1 !important;
-  top: 50% !important; left: 50% !important;
-  opacity: 0 !important;
-  transition: opacity 0.4s ease !important;
-}
-.c8isv-root .c8isv-hero-wrap.is-active .c8isv-hero-glow { opacity: 1 !important; }
-.c8isv-root .c8isv-hero-wrap .c8isv-wrap { width: 100% !important; }
-.c8isv-root .c8isv-hero-grid {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 3rem !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-@media (min-width: 1025px) {
-  .c8isv-root .c8isv-hero-grid {
-    display: grid !important;
-    grid-template-columns: 1.2fr 1fr !important;
-    gap: 4rem !important;
-    align-items: center !important;
-  }
-}
-.c8isv-root .c8isv-hero-content { position: relative !important; z-index: 2 !important; max-width: 820px !important; }
-
-/* Between Breaths Parallax Shatter Canvas Styles */
-.c8isv-root .c8isv-anim-container {
-  position: relative !important;
-  width: 100% !important;
-  aspect-ratio: 1 / 1 !important; /* Square aspect ratio */
-  max-width: 440px !important; /* Larger max-width */
-  margin: 0 auto !important;
-  border-radius: 16px !important; /* Rounded corners for premium feel */
-  overflow: hidden !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3) !important;
-}
-@media (max-width: 1024px) {
-  .c8isv-root .c8isv-anim-container {
-    display: none !important;
-  }
-}
-.c8isv-root .c8isv-anim-container canvas, 
-.c8isv-root .c8isv-anim-container #c8isv-anim-fog {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  display: block !important;
-}
-.c8isv-root #c8isv-canvas-bg    { z-index: 1 !important; }
-.c8isv-root #c8isv-canvas-main  { z-index: 2 !important; pointer-events: none !important; }
-.c8isv-root #c8isv-canvas-noise { z-index: 3 !important; pointer-events: none !important; }
-.c8isv-root #c8isv-anim-fog {
-  z-index: 4 !important;
-  pointer-events: none !important;
-  background: linear-gradient(
-    0deg,
-    rgba(220,245,255,0.25) 0%,
-    rgba(180,230,250,0.16) 28%,
-    rgba(130,210,240,0.06) 55%,
-    transparent 90%
-  ) !important;
-  animation: c8isv-fogBreathe 24s ease-in-out infinite alternate !important;
-}
-@keyframes c8isv-fogBreathe {
-  0%   { opacity: 0.50; transform: translateY(3px)   scale(1.00); }
-  50%  { opacity: 0.78; transform: translateY(-4px)  scale(1.015); }
-  100% { opacity: 0.45; transform: translateY(1px)   scale(1.00); }
-}
-.c8isv-root .c8isv-breadcrumb {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 10px !important; letter-spacing: .08em !important; text-transform: uppercase !important;
-  color: rgba(250,250,247,0.35) !important;
-  margin-bottom: 1.5rem !important;
-  display: flex !important; align-items: center !important; gap: 8px !important;
-}
-.c8isv-root .c8isv-breadcrumb a { color: rgba(250,250,247,0.35) !important; }
-.c8isv-root .c8isv-breadcrumb a:hover { color: #7C93FF !important; }
-.c8isv-root .c8isv-breadcrumb .is-current { color: #7C93FF !important; }
-.c8isv-root .c8isv-headline {
-  font-family: 'Michroma', sans-serif !important;
-  font-size: clamp(2rem, 4.5vw, 4rem) !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.02em !important;
-  line-height: 1.12 !important;
-  text-transform: uppercase !important;
-  color: #FAFAF7 !important;
-  margin-bottom: 1.5rem !important;
-}
-.c8isv-root .c8isv-hero-intro {
-  font-size: 17px !important;
-  font-weight: 300 !important;
-  color: rgba(250,250,247,0.6) !important;
-  line-height: 1.6 !important;
-  max-width: 560px !important;
-}
-.c8isv-root .c8isv-hero-ctas { display: flex !important; flex-wrap: wrap !important; gap: 1rem !important; margin-top: 2.5rem !important; }
-.c8isv-root .c8isv-btn-primary {
-  background: #0047E1 !important; color: #FAFAF7 !important;
-  font-family: 'Space Mono', monospace !important; font-size: 11px !important;
-  letter-spacing: .08em !important; text-transform: uppercase !important;
-  padding: 16px 28px !important; display: inline-flex !important; align-items: center !important; gap: 8px !important;
-  border-radius: 8px !important;
-  transition: background 0.2s ease !important;
-}
-.c8isv-root .c8isv-btn-primary:hover { background: #0036ad !important; }
-.c8isv-root .c8isv-btn-ghost {
-  background: transparent !important; color: rgba(250,250,247,0.7) !important;
-  font-family: 'Space Mono', monospace !important; font-size: 11px !important;
-  letter-spacing: .08em !important; text-transform: uppercase !important;
-  padding: 16px 28px !important; display: inline-flex !important; align-items: center !important; gap: 8px !important;
-  border: 1px solid rgba(250,250,247,0.2) !important;
-  border-radius: 8px !important;
-  transition: border-color 0.2s ease, color 0.2s ease !important;
-}
-.c8isv-root .c8isv-btn-ghost:hover { border-color: rgba(250,250,247,0.45) !important; color: #FAFAF7 !important; }
-.c8isv-root .c8isv-pill-row { display: flex !important; flex-wrap: wrap !important; gap: 0.6rem !important; margin-top: 2.25rem !important; }
-.c8isv-root .c8isv-pill {
-  border: 1px solid rgba(250,250,247,0.18) !important;
-  background: transparent !important;
-  padding: 8px 15px !important;
-  font-size: 12px !important; font-weight: 500 !important;
-  border-radius: 30px !important;
-  font-family: 'Space Mono', monospace !important;
-  letter-spacing: 0.05em !important;
-  color: rgba(250,250,247,0.55) !important;
-}
-@media (max-width: 768px) { .c8isv-root .c8isv-hero-wrap { min-height: 80vh !important; } }
-
-/* ═══ SECTION 2: FLANK CARDS (Why Custom Web Design) ═══ */
-.c8isv-root .c8isv-flank-section {
-  width: 100vw !important;
-  margin-left: 50% !important;
-  transform: translateX(-50%) !important;
-  background: #F4F6FB !important;
-  padding: 6rem 0 !important;
-  overflow: hidden !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-.c8isv-root .c8isv-flank-inner {
-  max-width: 1440px !important;
-  margin: 0 auto !important;
-  padding: 0 3.5rem !important;
-  text-align: center !important;
-}
-@media (max-width: 1100px) { .c8isv-root .c8isv-flank-inner { padding: 0 1.25rem !important; } }
-.c8isv-root .c8isv-flank-container {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: 1.5rem !important;
-  margin-top: 3.5rem !important;
-  position: relative !important;
-}
-@media (max-width: 900px) {
-  .c8isv-root .c8isv-flank-container {
-    grid-template-columns: 1fr !important;
-    gap: 1.25rem !important;
-  }
-}
-.c8isv-root .c8isv-flank-card {
-  background: #FFFFFF !important;
-  border: 1px solid rgba(8,8,8,0.1) !important;
-  padding: 2.25rem 2rem !important;
-  border-radius: 12px !important;
-  will-change: transform, opacity !important;
-  position: relative !important;
-  box-shadow: 4px 4px 0px rgba(0,71,225,0.02) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-start !important;
-  align-items: flex-start !important;
-  min-height: 350px !important;
-  text-align: left !important;
-}
-@media (max-width: 900px) {
-  .c8isv-root .c8isv-flank-card {
-    min-height: auto !important;
-  }
-}
-.c8isv-root .c8isv-flank-card-quote {
-  font-family: 'Georgia', serif !important;
-  font-size: 3rem !important;
-  line-height: 1 !important;
-  color: #0047E1 !important;
-  margin-bottom: 0.5rem !important;
-}
-.c8isv-root .c8isv-flank-card-step {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 10px !important;
-  letter-spacing: 0.1em !important;
-  color: #080808 !important;
-  text-transform: uppercase !important;
-  margin-bottom: 0.5rem !important;
-}
-.c8isv-root .c8isv-flank-card-divider {
-  width: 100% !important;
-  height: 1px !important;
-  background: rgba(8,8,8,0.12) !important;
-  margin-bottom: 1.5rem !important;
-}
-.c8isv-root .c8isv-flank-card-title {
-  font-family: 'Michroma', sans-serif !important;
-  font-size: 1.25rem !important;
-  font-weight: 700 !important;
-  color: #080808 !important;
-  margin-bottom: 0.75rem !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.01em !important;
-}
-.c8isv-root .c8isv-flank-card-desc {
-  font-size: 13.5px !important;
-  color: #6B6B6B !important;
-  line-height: 1.6 !important;
-  font-family: 'DM Sans', sans-serif !important;
-  margin-bottom: 1.5rem !important;
-}
-.c8isv-root .c8isv-flank-card-icon {
-  width: 46px !important; height: 46px !important;
-  border-radius: 8px !important;
-  background: rgba(0,71,225,0.06) !important;
-  color: #0047E1 !important;
-  display: flex !important; align-items: center !important; justify-content: center !important;
-  margin-top: auto !important;
-  padding: 10px !important;
-}
-.c8isv-root .c8isv-flank-card-icon svg { width: 100% !important; height: 100% !important; stroke: #0047E1 !important; fill: none !important; stroke-width: 1.5 !important; }
-
-/* ═══ SECTION 3: FOLDER DECK (What You Get) ═══ */
-.c8isv-root .c8isv-approach-outer {
-  padding: 8rem 0 !important;
-  background: #F4F6FB !important; /* Light blue-grey background */
-  position: relative !important;
-  z-index: 2 !important;
-}
-.c8isv-root .c8isv-approach-deck {
-  max-width: 100% !important; /* Full screen width */
-  width: 100% !important;
-  margin: 4rem auto 0 auto !important;
-  padding: 0 0 10vh 0 !important; /* No side padding for edge-to-edge background */
-  position: relative !important;
-}
-@media (max-width: 1100px) {
-  .c8isv-root .c8isv-approach-deck {
-    padding: 0 0 10vh 0 !important;
-  }
-}
-.c8isv-root .c8isv-approach-wrap {
-  position: relative !important;
-  margin-bottom: 0 !important;
-}
-.c8isv-root .c8isv-approach-wrap:nth-child(1) { z-index: 40 !important; }
-.c8isv-root .c8isv-approach-wrap:nth-child(2) { z-index: 30 !important; }
-.c8isv-root .c8isv-approach-wrap:nth-child(3) { z-index: 20 !important; }
-.c8isv-root .c8isv-approach-wrap:nth-child(4) { z-index: 10 !important; }
-.c8isv-root .c8isv-approach-wrap:not(:first-child) {
-  margin-top: 0 !important; /* No negative margin when straight */
-}
-.c8isv-root .c8isv-approach-card {
-  position: relative !important;
-  z-index: 1 !important;
-  background: #FFFFFF !important;
-  border-top: 1px solid rgba(8,8,8,0.08) !important;
-  border-bottom: 1px solid rgba(8,8,8,0.08) !important;
-  border-left: none !important; /* Edge to edge */
-  border-right: none !important;
-  border-radius: 0px !important; /* Flat card corners */
-  padding: 1.5rem 8% !important; /* Premium centered side padding */
-  display: grid !important;
-  grid-template-columns: 60px 150px 200px 1fr 240px !important; /* Enlarge image from 180px to 240px */
-  gap: 2.5rem !important;
-  align-items: center !important;
-  height: 260px !important; /* Increased height */
-  transform-origin: top center !important;
-  transition: none !important; /* Remove transition to make scroll-linking smooth and instant */
-  will-change: transform !important;
-  box-shadow: 0 15px 30px rgba(8,8,8,0.08) !important; /* Premium drop shadow at the bottom */
-}
-@media (max-width: 1024px) {
-  .c8isv-root .c8isv-approach-card {
-    grid-template-columns: 50px 130px 160px 1fr 130px !important;
-    padding: 1.5rem 2rem !important;
-    gap: 1.5rem !important;
-  }
-}
-@media (max-width: 900px) {
-  .c8isv-root .c8isv-approach-card {
-    grid-template-columns: 1fr !important;
-    gap: 1.25rem !important;
-    padding: 2rem 1.5rem !important;
-    border-radius: 8px !important;
-    box-shadow: 0 10px 30px rgba(8,8,8,0.02) !important;
-    height: auto !important; /* height auto on mobile viewports */
-  }
-}
-.c8isv-root .c8isv-approach-col-num {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 14px !important;
-  font-weight: 700 !important;
-  color: #080808 !important;
-}
-.c8isv-root .c8isv-approach-col-name {
-  font-family: 'Georgia', serif !important;
-  font-size: 2.2rem !important;
-  font-weight: 400 !important;
-  color: #080808 !important;
-  margin: 0 !important;
-  line-height: 1.1 !important;
-}
-@media (max-width: 900px) {
-  .c8isv-root .c8isv-approach-col-name {
-    font-size: 1.8rem !important;
-  }
-}
-.c8isv-root .c8isv-approach-col-tags {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 10.5px !important;
-  color: #E24F30 !important; /* Red color matching screenshot */
-  line-height: 1.5 !important;
-  font-weight: 500 !important;
-  text-transform: none !important;
-}
-.c8isv-root .c8isv-approach-col-desc {
-  font-size: 14px !important;
-  font-weight: 400 !important;
-  color: #4A4A4A !important;
-  line-height: 1.65 !important;
-  margin: 0 !important;
-  font-family: 'DM Sans', sans-serif !important;
-}
-.c8isv-root .c8isv-approach-col-img {
-  width: 100% !important;
-  height: 190px !important; /* Taller image height almost as tall as card */
-  border-radius: 4px !important;
-  overflow: hidden !important;
-  border: 1px solid rgba(8,8,8,0.06) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-.c8isv-root .c8isv-approach-col-img img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  display: block !important;
-}
-@media (max-width: 900px) {
-  .c8isv-root .c8isv-approach-col-img { max-width: 320px !important; }
-  .c8isv-root .c8isv-approach-wrap:not(:first-child) { margin-top: 0 !important; }
+/* Universal White 4px Case Study Deliverable Pills CSS */
+.c8isv-portfolio-deliverables, .c8srv-portfolio-deliverables {
+  grid-column: 1 / -1 !important;
+  margin-top: 1.25rem !important;
+  padding-top: 1.25rem !important;
+  border-top: 1px solid rgba(8, 8, 8, 0.08) !important;
 }
 
-/* ═══ SECTION 5: PORTFOLIO ═══ */
-.c8isv-root .c8isv-portfolio-outer {
-  padding: 6rem 0 !important;
-  background: #FFFFFF !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-.c8isv-root .c8isv-portfolio-inner { max-width: 1440px !important; margin: 0 auto !important; padding: 0 3.5rem !important; }
-@media (max-width: 1100px) { .c8isv-root .c8isv-portfolio-inner { padding: 0 1.25rem !important; } }
-.c8isv-root .c8isv-portfolio-head { text-align: center !important; margin-bottom: 3rem !important; }
-.c8isv-root .c8isv-portfolio-head .c8isv-label { justify-content: center !important; }
-.c8isv-root .c8isv-portfolio-head .c8isv-section-title { text-align: center !important; }
-.c8isv-root .c8isv-portfolio-card {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  border: 1px solid rgba(8,8,8,0.08) !important;
-  border-radius: 20px !important;
-  overflow: hidden !important;
-  background: #FFFFFF !important;
-  box-shadow: 0 10px 40px rgba(8,8,8,0.04) !important;
-  /* Scroll scale defaults */
-  transform: scale(0.75);
-  opacity: 0.5;
-  will-change: transform, opacity !important;
-}
-@media (prefers-reduced-motion: reduce) {
-  .c8isv-root .c8isv-portfolio-card {
-    transform: none !important;
-    opacity: 1 !important;
-  }
-}
-@media (max-width: 850px) { .c8isv-root .c8isv-portfolio-card { grid-template-columns: 1fr !important; } }
-.c8isv-root .c8isv-portfolio-img { position: relative !important; overflow: hidden !important; min-height: 360px !important; }
-.c8isv-root .c8isv-portfolio-img img { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; transition: transform 0.65s ease !important; }
-.c8isv-root .c8isv-portfolio-card:hover .c8isv-portfolio-img img { transform: scale(1.03) !important; }
-.c8isv-root .c8isv-portfolio-info { padding: 3.5rem !important; display: flex !important; flex-direction: column !important; justify-content: center !important; }
-@media (max-width: 700px) { .c8isv-root .c8isv-portfolio-info { padding: 2.5rem 1.5rem !important; } }
-.c8isv-root .c8isv-portfolio-client { font-family: 'Space Mono', monospace !important; font-size: 9.5px !important; letter-spacing: .2em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 1rem !important; display: block !important; }
-.c8isv-root .c8isv-portfolio-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.2rem, 2vw, 1.7rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.02em !important; margin-bottom: 1rem !important; }
-.c8isv-root .c8isv-portfolio-desc { font-size: 14px !important; color: #6B6B6B !important; line-height: 1.72 !important; margin-bottom: 2rem !important; font-weight: 300 !important; }
-.c8isv-root .c8isv-portfolio-stats { display: flex !important; flex-wrap: wrap !important; gap: 2rem !important; margin-bottom: 2rem !important; border-top: 1px solid rgba(8,8,8,0.08) !important; padding-top: 1.5rem !important; }
-.c8isv-root .c8isv-portfolio-stat-val { font-family: 'Michroma', sans-serif !important; font-size: 2rem !important; font-weight: 700 !important; color: #0047E1 !important; line-height: 1 !important; display: block !important; }
-.c8isv-root .c8isv-portfolio-stat-lbl { font-family: 'Space Mono', monospace !important; font-size: 9px !important; letter-spacing: .12em !important; text-transform: uppercase !important; color: #8A8A8A !important; }
-.c8isv-root .c8isv-portfolio-footer { text-align: center !important; padding-top: 2.5rem !important; }
-
-/* ═══ SECTION 6: FULL CATALOG HOVERLIST ═══ */
-.c8isv-root .c8isv-hl-section { position: relative !important; z-index: 2 !important; background: #FFFFFF !important; }
-.c8isv-root .c8isv-hoverlist { border-top: 1px solid rgba(8,8,8,0.1) !important; }
-.c8isv-root .c8isv-hoverlist-item {
-  display: flex !important; align-items: center !important; justify-content: space-between !important;
-  gap: 2rem !important;
-  padding: 2.1rem 0.5rem !important;
-  border-bottom: 1px solid rgba(8,8,8,0.1) !important;
-  cursor: pointer !important;
-  position: relative !important;
-  transition: padding-left 0.3s ease !important;
-}
-.c8isv-root .c8isv-hoverlist-item:hover { padding-left: 1.25rem !important; }
-.c8isv-root .c8isv-hoverlist-left { display: flex !important; align-items: baseline !important; gap: 1.5rem !important; flex: 1 !important; min-width: 0 !important; }
-.c8isv-root .c8isv-hoverlist-num { font-family: 'Space Mono', monospace !important; font-size: 12px !important; color: #0047E1 !important; flex-shrink: 0 !important; }
-.c8isv-root .c8isv-hoverlist-title {
-  font-size: clamp(1.1rem, 2vw, 0.8rem) !important;
-  font-family: 'Michroma', sans-serif !important; font-size: clamp(1.1rem, 2vw, 0.8rem) !important; font-weight: 700 !important;
-  
-  text-transform: uppercase !important;
-  letter-spacing: 0.01em !important;
-  transition: color 0.25s ease !important;
-  margin: 0 !important;
-}
-.c8isv-root .c8isv-hoverlist-item:hover .c8isv-hoverlist-title {
-  font-size: clamp(1.1rem, 2vw, 0.8rem) !important; color: #0047E1 !important; }
-.c8isv-root .c8isv-hoverlist-tagline { font-size: 13px !important; color: #8A8A8A !important; font-weight: 300 !important; display: none !important; }
-@media (min-width: 951px) { .c8isv-root .c8isv-hoverlist-tagline { display: block !important; margin-left: 1rem !important; } }
-.c8isv-root .c8isv-hoverlist-right { display: flex !important; align-items: center !important; gap: 1.5rem !important; flex-shrink: 0 !important; }
-.c8isv-root .c8isv-hoverlist-tech {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 11px !important;
-  color: #8A8A8A !important;
-  letter-spacing: 0.05em !important;
-  text-transform: uppercase !important;
-}
-.c8isv-root .c8isv-hoverlist-arrow {
-  font-size: 20px !important;
-  color: #080808 !important;
-  transition: transform 0.25s ease, color 0.25s ease !important;
-}
-.c8isv-root .c8isv-hoverlist-item:hover .c8isv-hoverlist-arrow {
-  transform: translateX(6px) !important;
-  color: #0047E1 !important;
-}
-
-/* Fan preview */
-.c8isv-root .c8isv-hoverlist-preview {
-  position: absolute !important;
-  width: 310px !important; height: 240px !important;
-  pointer-events: none !important;
-  z-index: 50 !important;
-  display: block !important;
-  opacity: 0 !important;
-  transition: opacity 0.28s ease !important;
-  transform: translate(-50%,-50%) !important;
-}
-.c8isv-root .c8isv-hoverlist-preview.is-active { opacity: 1 !important; }
-.c8isv-root .c8isv-fan-card {
-  position: absolute !important;
-  bottom: 0 !important; left: 50% !important;
-  width: 118px !important; height: 155px !important;
-  margin-left: -59px !important;
-  border-radius: 10px !important;
-  box-shadow: 0 14px 36px rgba(8,8,8,0.22) !important;
-  display: flex !important; align-items: center !important; justify-content: center !important;
-  overflow: hidden !important;
-  padding: 0 10px !important;
-  transition: transform 0.45s cubic-bezier(.16,.8,.24,1) !important;
-}
-.c8isv-root .c8isv-fan-left { background: #0047E1 !important; border: 1px solid rgba(255,255,255,0.12) !important; z-index: 10 !important; transform: translateX(-105px) translateY(-18px) rotate(-10deg) !important; }
-.c8isv-root .c8isv-fan-center { background: #F5F0E8 !important; border: 1px solid rgba(8,8,8,0.1) !important; z-index: 20 !important; transform: translateX(0) rotate(0deg) !important; }
-.c8isv-root .c8isv-fan-right { background: #080808 !important; border: 1px solid rgba(255,255,255,0.08) !important; z-index: 15 !important; transform: translateX(105px) translateY(-18px) rotate(10deg) !important; }
-.c8isv-root .c8isv-fan-word {
-  font-family: 'Michroma', sans-serif !important; font-size: clamp(1.1rem, 2vw, 0.8rem) !important; font-weight: 700 !important;
-  font-size: 36px !important; line-height: 1 !important; letter-spacing: 0.04em !important;
-  text-align: center !important; white-space: normal !important; word-break: break-word !important;
-  overflow: hidden !important; width: 100% !important; display: block !important;
-}
-.c8isv-root .c8isv-fan-left .c8isv-fan-word, .c8isv-root .c8isv-fan-right .c8isv-fan-word { color: #FAFAF7 !important; }
-.c8isv-root .c8isv-fan-center .c8isv-fan-word { color: #080808 !important; }
-@media (prefers-reduced-motion: reduce) { .c8isv-root .c8isv-hoverlist-preview { display: none !important; } }
-
-/* ═══ SECTION 7: INVESTMENT ═══ */
-.c8isv-root .c8isv-pricing-section { padding: 6rem 0 !important; position: relative !important; z-index: 2 !important; background: #FFFFFF !important; }
-.c8isv-root .c8isv-pricing-split {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 3.5rem !important;
-  margin-top: 4rem !important;
-}
-@media (max-width: 900px) { .c8isv-root .c8isv-pricing-split { grid-template-columns: 1fr !important; gap: 2.5rem !important; } }
-.c8isv-root .c8isv-price-box {
-  background: #FAFAF9 !important;
-  border: 1px solid rgba(8,8,8,0.1) !important;
-  border-radius: 20px !important;
-  padding: 3.5rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.02) !important;
-  position: relative !important;
-}
-@media (max-width: 600px) { .c8isv-root .c8isv-price-box { padding: 2rem !important; } }
-.c8isv-root .c8isv-price-box.is-highlight { background: #080808 !important; border-color: #080808 !important; color: #FAFAF7 !important; }
-.c8isv-root .c8isv-price-header { margin-bottom: 2rem !important; }
-.c8isv-root .c8isv-price-type { font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 0.75rem !important; display: block !important; }
-.c8isv-root .c8isv-price-box.is-highlight .c8isv-price-type { color: #7C93FF !important; }
-.c8isv-root .c8isv-price-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.2rem, 2.5vw, 1.8rem) !important; font-weight: 700 !important; letter-spacing: 0.02em !important; margin-bottom: 1rem !important; text-transform: uppercase !important; }
-.c8isv-root .c8isv-price-amount { font-family: 'DM Sans', sans-serif !important; font-size: clamp(2rem, 4vw, 2.8rem) !important; font-weight: 700 !important; letter-spacing: -0.02em !important; color: #0047E1 !important; margin-bottom: 1.5rem !important; }
-.c8isv-root .c8isv-price-box.is-highlight .c8isv-price-amount { color: #FAFAF7 !important; }
-.c8isv-root .c8isv-price-amount span { font-size: 14px !important; font-weight: 400 !important; color: #6B6B6B !important; }
-.c8isv-root .c8isv-price-box.is-highlight .c8isv-price-amount span { color: rgba(250,250,247,0.6) !important; }
-.c8isv-root .c8isv-price-desc { font-size: 14.5px !important; color: #6B6B6B !important; line-height: 1.6 !important; margin-bottom: 2rem !important; }
-.c8isv-root .c8isv-price-box.is-highlight .c8isv-price-desc { color: rgba(250,250,247,0.7) !important; }
-.c8isv-root .c8isv-price-features { display: flex !important; flex-direction: column !important; gap: 1rem !important; margin-bottom: 3rem !important; margin-top: auto !important; }
-.c8isv-root .c8isv-price-feature { display: flex !important; align-items: center !important; gap: 12px !important; font-size: 14px !important; font-weight: 500 !important; }
-.c8isv-root .c8isv-price-btn {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 11px !important; letter-spacing: 0.1em !important; text-transform: uppercase !important;
-  padding: 16px 24px !important; text-align: center !important; font-weight: 700 !important;
-  border-radius: 8px !important; transition: all 0.3s ease !important; display: block !important; width: 100% !important;
-}
-.c8isv-root .c8isv-price-btn.is-primary { background: #0047E1 !important; color: #FFFFFF !important; }
-.c8isv-root .c8isv-price-btn.is-primary:hover { background: #0036ad !important; }
-.c8isv-root .c8isv-price-btn.is-outline { background: transparent !important; color: #080808 !important; border: 1px solid rgba(8,8,8,0.25) !important; }
-.c8isv-root .c8isv-price-btn.is-outline:hover { border-color: #080808 !important; }
-.c8isv-root .c8isv-pricing-note { font-size: 12.5px !important; color: #8A8A8A !important; font-style: italic !important; text-align: center !important; margin-top: 2rem !important; }
-
-/* ═══ SECTION 8: TESTIMONIALS (light, flank-style fanning layout) ═══ */
-.c8isv-root .c8isv-testi-outer {
-  width: 100vw !important;
-  margin-left: 50% !important;
-  transform: translateX(-50%) !important;
-  background: #F4F6FB !important;
-  padding: 6rem 0 !important;
-  position: relative !important;
-  z-index: 2 !important;
-  overflow: hidden !important;
-}
-.c8isv-root .c8isv-testi-inner { max-width: 1200px !important; margin: 0 auto !important; padding: 0 2rem !important; text-align: center !important; }
-.c8isv-root .c8isv-testi-grid {
-  position: relative !important;
-  height: 480px !important;
-  margin-top: 3.5rem !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-@media (max-width: 900px) {
-  .c8isv-root .c8isv-testi-grid {
-    height: auto !important;
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-  }
-}
-.c8isv-root .c8isv-testi-card {
-  width: 320px !important;
-  height: 380px !important;
-  background: #FFFFFF !important;
-  border: 1px solid rgba(8,8,8,0.08) !important;
-  border-radius: 16px !important;
-  padding: 2.5rem 2rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  text-align: left !important;
-  box-shadow: 0 10px 30px rgba(8,8,8,0.03) !important;
-  position: absolute !important;
-  transition: transform 0.65s cubic-bezier(.16,1,.3,1), opacity 0.65s ease !important;
-  will-change: transform, opacity !important;
-}
-@media (max-width: 900px) {
-  .c8isv-root .c8isv-testi-card {
-    position: relative !important;
-    width: 100% !important;
-    height: auto !important;
-    box-shadow: none !important;
-    pointer-events: auto !important;
-    transition: transform 0.6s ease, opacity 0.6s ease !important;
-  }
-}
-.c8isv-root .c8isv-testi-card.is-center {
-  z-index: 5 !important;
-  border-color: rgba(0,71,225,0.15) !important;
-  box-shadow: 0 15px 40px rgba(0,71,225,0.06) !important;
-}
-.c8isv-root .c8isv-testi-card.is-left {
-  z-index: 3 !important;
-  transform: translate3d(0, 15px, 0) scale(0.95) rotate(0deg);
-  opacity: 0;
-  pointer-events: none !important;
-}
-.c8isv-root .c8isv-testi-card.is-right {
-  z-index: 3 !important;
-  transform: translate3d(0, 15px, 0) scale(0.95) rotate(0deg);
-  opacity: 0;
-  pointer-events: none !important;
-}
-.c8isv-root .c8isv-testi-quote { font-family: 'Georgia', serif !important; font-size: 3rem !important; line-height: 1 !important; color: #0047E1 !important; margin-bottom: 0.5rem !important; }
-.c8isv-root .c8isv-testi-divider { width: 100% !important; height: 1px !important; background: rgba(8,8,8,0.12) !important; margin-bottom: 1.5rem !important; }
-.c8isv-root .c8isv-testi-text { font-size: 14px !important; font-weight: 300 !important; color: #6B6B6B !important; line-height: 1.65 !important; font-style: italic !important; margin-bottom: 1.5rem !important; flex: 1 !important; }
-.c8isv-root .c8isv-testi-author { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: .1em !important; text-transform: uppercase !important; color: #8A8A8A !important; }
-
-/* ═══ SECTION 9: FAQ ═══ */
-.c8isv-root .c8isv-faq-outer { position: relative !important; z-index: 2 !important; background: #FFFFFF !important; }
-.c8isv-root .c8isv-accordion { border-top: 1px solid rgba(8,8,8,0.1) !important; margin-top: 2.5rem !important; }
-.c8isv-root .c8isv-accordion-item { border-bottom: 1px solid rgba(8,8,8,0.1) !important; }
-.c8isv-root .c8isv-accordion-head { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.6rem 0.25rem !important; cursor: pointer !important; }
-.c8isv-root .c8isv-accordion-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(.9rem, 1.4vw, 0.1rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.01em !important; }
-.c8isv-root .c8isv-accordion-toggle { width: 26px !important; height: 26px !important; border: 1px solid rgba(8,8,8,0.2) !important; border-radius: 4px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; position: relative !important; }
-.c8isv-root .c8isv-accordion-toggle::before, .c8isv-root .c8isv-accordion-toggle::after { content: '' !important; position: absolute !important; background: #080808 !important; transition: transform 0.25s ease, opacity 0.25s ease !important; }
-.c8isv-root .c8isv-accordion-toggle::before { width: 12px !important; height: 1px !important; }
-.c8isv-root .c8isv-accordion-toggle::after { width: 1px !important; height: 12px !important; }
-.c8isv-root .c8isv-accordion-item.is-open .c8isv-accordion-toggle::after { transform: rotate(90deg) !important; opacity: 0 !important; }
-.c8isv-root .c8isv-accordion-body { display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.35s ease !important; }
-.c8isv-root .c8isv-accordion-item.is-open .c8isv-accordion-body { grid-template-rows: 1fr !important; }
-.c8isv-root .c8isv-accordion-body-inner { overflow: hidden !important; }
-.c8isv-root .c8isv-accordion-desc { font-size: 14.5px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 720px !important; line-height: 1.72 !important; padding: 0 0.25rem 1.75rem 0.25rem !important; }
-
-/* ═══ SECTION 10: RELATED SERVICES (dark gradient cards) ═══ */
-.c8isv-root .c8isv-related-outer { padding: 6rem 0 !important; background: #080808 !important; position: relative !important; z-index: 2 !important; }
-.c8isv-root .c8isv-related-outer .c8isv-section-title { color: #FAFAF7 !important; }
-.c8isv-root .c8isv-related-outer .c8isv-lead { color: rgba(250,250,247,0.45) !important; }
-.c8isv-root .c8isv-related-grid { display: grid !important; grid-template-columns: repeat(3,1fr) !important; }
-@media (max-width: 900px) { .c8isv-root .c8isv-related-grid { grid-template-columns: 1fr !important; } }
-.c8isv-root .c8isv-related-card {
-  border: 1px solid rgba(255,255,255,0.08) !important;
-  border-radius: 0 !important;
-  padding: 2.5rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  transition: background 0.35s cubic-bezier(0.16, 0.8, 0.24, 1), border-color 0.35s ease, transform 0.35s cubic-bezier(0.16, 0.8, 0.24, 1), box-shadow 0.35s ease !important;
-  color: inherit !important;
-}
-.c8isv-root .c8isv-related-card:nth-child(1) { background: linear-gradient(135deg, #1C2436 0%, #0B111E 100%) !important; }
-.c8isv-root .c8isv-related-card:nth-child(2) { background: linear-gradient(135deg, #1A2E66 0%, #0E1A3D 100%) !important; }
-.c8isv-root .c8isv-related-card:nth-child(3) { background: linear-gradient(135deg, #153C9E 0%, #0B225C 100%) !important; }
-.c8isv-root .c8isv-related-card:hover { border-color: #0047E1 !important; transform: translateY(-4px) !important; box-shadow: 0 12px 30px rgba(0,71,225,0.22) !important; }
-.c8isv-root .c8isv-related-card:nth-child(1):hover { background: linear-gradient(135deg, #0C1220 0%, #03060C 100%) !important; }
-.c8isv-root .c8isv-related-card:nth-child(2):hover { background: linear-gradient(135deg, #0D173A 0%, #050C24 100%) !important; }
-.c8isv-root .c8isv-related-card:nth-child(3):hover { background: linear-gradient(135deg, #09205E 0%, #031038 100%) !important; }
-.c8isv-root .c8isv-related-card-icon { width: 46px !important; height: 46px !important; border-radius: 8px !important; background: rgba(0,71,225,0.25) !important; display: flex !important; align-items: center !important; justify-content: center !important; margin-bottom: 1.5rem !important; }
-.c8isv-root .c8isv-related-card-icon svg { width: 22px !important; height: 22px !important; stroke: #7C93FF !important; fill: none !important; stroke-width: 1.5 !important; }
-.c8isv-root .c8isv-related-card-platform { font-family: 'Space Mono', monospace !important; font-size: 10px !important; letter-spacing: .15em !important; text-transform: uppercase !important; color: #7C93FF !important; margin-bottom: 0.75rem !important; display: block !important; }
-.c8isv-root .c8isv-related-card-title { font-family: 'Michroma', sans-serif !important; font-size: clamp(1rem, 1.6vw, 1.3rem) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.02em !important; color: #FAFAF7 !important; margin-bottom: 0.75rem !important; }
-.c8isv-root .c8isv-related-card-desc { font-size: 13.5px !important; color: rgba(250,250,247,0.6) !important; font-weight: 300 !important; line-height: 1.6 !important; margin-bottom: 1.5rem !important; flex: 1 !important; }
-.c8isv-root .c8isv-related-card-link { font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: .08em !important; text-transform: uppercase !important; color: #FAFAF7 !important; display: inline-flex !important; align-items: center !important; gap: 6px !important; transition: gap 0.2s ease !important; }
-.c8isv-root .c8isv-related-card-link:hover { gap: 10px !important; }
-
-.c8isv-root .c8isv-folder-card:nth-child(1) .c8isv-folder-tab { left: 15px !important; }
-.c8isv-root .c8isv-folder-card:nth-child(2) .c8isv-folder-tab { left: 185px !important; }
-.c8isv-root .c8isv-folder-card:nth-child(3) .c8isv-folder-tab { left: 355px !important; }
-.c8isv-root .c8isv-folder-card:nth-child(4) .c8isv-folder-tab { left: 525px !important; }
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   MASTER ESTIMATOR & PLATFORM DECK STYLES (.c8isv-root & .c8srv-root)
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-.c8isv-root .c8srv-pricing-section, .c8srv-root .c8srv-pricing-section, .c8srv-pricing-section {
-  padding: 6rem 0 !important;
-  position: relative !important;
-  z-index: 5 !important;
-  background: #FFFFFF !important;
-  display: block !important;
-}
-
-.c8isv-root .c8srv-pricing-split, .c8srv-root .c8srv-pricing-split, .c8srv-pricing-split {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
-  gap: 2rem !important;
-  margin-top: 3.5rem !important;
-}
-
-.c8isv-root .c8srv-price-box, .c8srv-root .c8srv-price-box, .c8srv-price-box {
-  background: #FAFAF9 !important;
-  border: 1px solid rgba(8,8,8,0.1) !important;
-  border-radius: 16px !important;
-  padding: 2.5rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.02) !important;
-  transition: transform 0.3s ease, border-color 0.3s ease !important;
-}
-
-.c8isv-root .c8srv-price-box.is-highlight, .c8srv-root .c8srv-price-box.is-highlight, .c8srv-price-box.is-highlight {
-  border-color: #0047E1 !important;
-  background: #FFFFFF !important;
-  box-shadow: 0 8px 30px rgba(0,71,225,0.08) !important;
-}
-
-.c8isv-root .c8srv-price-header, .c8srv-root .c8srv-price-header, .c8srv-price-header {
-  margin-bottom: 1.5rem !important;
-}
-
-.c8isv-root .c8srv-price-type, .c8srv-root .c8srv-price-type, .c8srv-price-type {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 11px !important;
-  text-transform: uppercase !important;
-  color: #0047E1 !important;
-  letter-spacing: 0.1em !important;
-  display: block !important;
-  margin-bottom: 0.5rem !important;
-  font-weight: 700 !important;
-}
-
-.c8isv-root .c8srv-price-title, .c8srv-root .c8srv-price-title, .c8srv-price-title {
-  font-family: 'Michroma', sans-serif !important;
-  font-size: 1.5rem !important;
-  color: #080808 !important;
-  margin-bottom: 0.5rem !important;
-  font-weight: 700 !important;
-}
-
-.c8isv-root .c8srv-price-amount, .c8srv-root .c8srv-price-amount, .c8srv-price-amount {
-  font-family: 'Michroma', sans-serif !important;
-  font-size: 2.2rem !important;
-  font-weight: 700 !important;
-  color: #0047E1 !important;
-}
-
-.c8isv-root .c8srv-price-amount span, .c8srv-root .c8srv-price-amount span, .c8srv-price-amount span {
-  font-size: 1rem !important;
-  color: #6B6B6B !important;
-  font-weight: 400 !important;
-}
-
-.c8isv-root .c8srv-price-desc, .c8srv-root .c8srv-price-desc, .c8srv-price-desc {
-  font-size: 14.5px !important;
-  color: #6B6B6B !important;
-  line-height: 1.6 !important;
-  margin-bottom: 2rem !important;
-  font-weight: 300 !important;
-}
-
-.c8isv-root .c8srv-price-features, .c8srv-root .c8srv-price-features, .c8srv-price-features {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.85rem !important;
-  margin-bottom: 2rem !important;
-  margin-top: auto !important;
-}
-
-.c8isv-root .c8srv-price-feature, .c8srv-root .c8srv-price-feature, .c8srv-price-feature {
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.75rem !important;
-  font-size: 13.5px !important;
-  color: #080808 !important;
-}
-
-.c8isv-root .c8srv-icon-sq, .c8srv-root .c8srv-icon-sq, .c8srv-icon-sq {
-  width: 20px !important;
-  height: 20px !important;
-  background: #0047E1 !important;
-  border-radius: 4px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-shrink: 0 !important;
-}
-
-.c8isv-root .c8srv-price-btn, .c8srv-root .c8srv-price-btn, .c8srv-price-btn {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 100% !important;
-  padding: 1rem 1.5rem !important;
-  border-radius: 8px !important;
-  font-family: 'Space Mono', monospace !important;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  text-decoration: none !important;
-  transition: all 0.3s ease !important;
-}
-
-.c8isv-root .c8srv-price-btn.is-primary, .c8srv-root .c8srv-price-btn.is-primary, .c8srv-price-btn.is-primary {
-  background: #0047E1 !important;
-  color: #FFFFFF !important;
-  border: 1px solid #0047E1 !important;
-}
-
-.c8isv-root .c8srv-price-btn.is-light, .c8srv-root .c8srv-price-btn.is-light, .c8srv-price-btn.is-light {
-  background: #FFFFFF !important;
-  color: #080808 !important;
-  border: 1px solid rgba(8,8,8,0.15) !important;
-}
-
-.c8isv-root .c8srv-price-btn:hover, .c8srv-root .c8srv-price-btn:hover, .c8srv-price-btn:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 15px rgba(0,71,225,0.2) !important;
-}
-
-/* ── Estimator Grid ── */
-.c8isv-root .c8srv-estimator, .c8srv-root .c8srv-estimator, .c8srv-estimator {
-  margin-top: 4rem !important;
-  background: #FAFAF9 !important;
-  border: 1px solid rgba(8,8,8,0.1) !important;
-  border-radius: 16px !important;
-  padding: 3rem !important;
-}
-
-.c8isv-root .c8srv-estimator-grid, .c8srv-root .c8srv-estimator-grid, .c8srv-estimator-grid {
-  display: grid !important;
-  grid-template-columns: 1fr 340px !important;
-  gap: 3rem !important;
-}
-
-@media (max-width: 950px) {
-  .c8isv-root .c8srv-estimator-grid, .c8srv-root .c8srv-estimator-grid, .c8srv-estimator-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-.c8isv-root .c8srv-est-options, .c8srv-root .c8srv-est-options, .c8srv-est-options {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 2rem !important;
-}
-
-.c8isv-root .c8srv-est-group-title, .c8srv-root .c8srv-est-group-title, .c8srv-est-group-title {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  color: #080808 !important;
-  letter-spacing: 0.05em !important;
-  margin-bottom: 1rem !important;
-  display: block !important;
-}
-
-.c8isv-root .c8srv-est-choices, .c8srv-root .c8srv-est-choices, .c8srv-est-choices {
+.c8isv-portfolio-pills, .c8srv-portfolio-pills {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 0.75rem !important;
+  gap: 0.5rem !important;
+  align-items: center !important;
+  margin-top: 0.4rem !important;
 }
 
-.c8isv-root .c8srv-est-choice, .c8srv-root .c8srv-est-choice, .c8srv-est-choice {
-  background: #FFFFFF !important;
-  border: 1px solid rgba(8,8,8,0.12) !important;
-  border-radius: 8px !important;
-  padding: 0.75rem 1.25rem !important;
+.c8isv-portfolio-pill, .c8srv-portfolio-pill {
   font-family: 'Space Mono', monospace !important;
-  font-size: 12px !important;
-  color: #080808 !important;
-  cursor: pointer !important;
-  transition: all 0.25s ease !important;
-  outline: none !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  background: #FFFFFF !important;
+  color: #4A4A4A !important;
+  border: 1px solid rgba(8, 8, 8, 0.14) !important;
+  padding: 0.35rem 0.85rem !important;
+  border-radius: 4px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.c8isv-root .c8srv-est-choice:hover, .c8srv-root .c8srv-est-choice:hover, .c8srv-est-choice:hover {
-  border-color: #0047E1 !important;
-  color: #0047E1 !important;
-}
-
-.c8isv-root .c8srv-est-choice.is-active, .c8srv-root .c8srv-est-choice.is-active, .c8srv-est-choice.is-active {
+.c8isv-portfolio-pill:hover, .c8srv-portfolio-pill:hover {
   background: #0047E1 !important;
   color: #FFFFFF !important;
   border-color: #0047E1 !important;
-  box-shadow: 0 4px 12px rgba(0,71,225,0.25) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 71, 225, 0.2) !important;
 }
+</style>
 
-.c8isv-root .c8srv-est-result, .c8srv-root .c8srv-est-result, .c8srv-est-result {
-  background: #FFFFFF !important;
-  border: 1px solid #0047E1 !important;
-  border-radius: 12px !important;
-  padding: 2rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  box-shadow: 0 8px 30px rgba(0,71,225,0.08) !important;
-}
-
-.c8isv-root .c8srv-est-range-label, .c8srv-root .c8srv-est-range-label, .c8srv-est-range-label {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 11px !important;
-  text-transform: uppercase !important;
-  color: #6B6B6B !important;
-  letter-spacing: 0.05em !important;
-  display: block !important;
-  margin-bottom: 0.5rem !important;
-}
-
-.c8isv-root .c8srv-est-range, .c8srv-root .c8srv-est-range, .c8srv-est-range {
-  font-family: 'Michroma', sans-serif !important;
-  font-size: 1.8rem !important;
-  font-weight: 700 !important;
-  color: #0047E1 !important;
-  margin-bottom: 1.5rem !important;
-}
-
-.c8isv-root .c8srv-est-deliverables-title, .c8srv-root .c8srv-est-deliverables-title, .c8srv-est-deliverables-title {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  color: #080808 !important;
-  margin-bottom: 0.75rem !important;
-  display: block !important;
-}
-
-.c8isv-root .c8srv-est-deliverables, .c8srv-root .c8srv-est-deliverables, .c8srv-est-deliverables {
-  font-size: 13px !important;
-  color: #6B6B6B !important;
-  line-height: 1.6 !important;
-  margin-bottom: 2rem !important;
-}
-
-/* ── Platform Selection Cards ── */
-.c8isv-root .c8isv-fits-outer, .c8srv-root .c8isv-fits-outer, .c8isv-fits-outer {
-  background: #F4F6FB !important;
-  padding: 6rem 0 !important;
-  border-top: 1px solid rgba(8,8,8,0.05) !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-.c8isv-root .c8isv-platform-deck, .c8srv-root .c8isv-platform-deck, .c8isv-platform-deck {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
-  gap: 1.5rem !important;
-  margin-bottom: 3rem !important;
-}
-
-.c8isv-root .c8isv-platform-card, .c8srv-root .c8isv-platform-card, .c8isv-platform-card {
-  background: #ffffff !important;
-  padding: 2.25rem !important;
-  border-radius: 12px !important;
-  border: 1px solid rgba(8,8,8,0.08) !important;
-  box-shadow: 0 4px 12px rgba(8,8,8,0.02) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  transition: transform 0.4s ease, opacity 0.4s ease, border-color 0.3s ease !important;
-}
-
-.c8isv-root .c8isv-platform-card:hover, .c8srv-root .c8isv-platform-card:hover, .c8isv-platform-card:hover {
-  border-color: #0047E1 !important;
-  transform: translateY(-4px) !important;
-}
-
-.c8isv-root .c8isv-platform-badge, .c8srv-root .c8isv-platform-badge, .c8isv-platform-badge {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 10px !important;
-  text-transform: uppercase !important;
-  color: #0047E1 !important;
-  letter-spacing: 0.1em !important;
-  margin-bottom: 0.5rem !important;
-  display: block !important;
-  font-weight: 700 !important;
-}
-
-.c8isv-root .c8isv-platform-divider, .c8srv-root .c8isv-platform-divider, .c8isv-platform-divider {
-  width: 100% !important;
-  height: 1px !important;
-  background: rgba(8,8,8,0.08) !important;
-  margin-bottom: 1rem !important;
-}
-
-.c8isv-root .c8isv-platform-title, .c8srv-root .c8isv-platform-title, .c8isv-platform-title {
-  font-family: 'Michroma', sans-serif !important;
-  font-size: 1.1rem !important;
-  color: #080808 !important;
-  margin-bottom: 0.5rem !important;
-  font-weight: 700 !important;
-}
-
-.c8isv-root .c8isv-platform-desc, .c8srv-root .c8isv-platform-desc, .c8isv-platform-desc {
-  font-size: 0.85rem !important;
-  color: #6B6B6B !important;
-  line-height: 1.5 !important;
-  margin-bottom: 1.5rem !important;
-  font-weight: 300 !important;
-  flex-grow: 1 !important;
-}
-
-.c8isv-root .c8isv-platform-icon, .c8srv-root .c8isv-platform-icon, .c8isv-platform-icon {
-  margin-top: auto !important;
-  display: flex !important;
-  align-items: center !important;
-}
-
-.c8isv-root .c8isv-platform-icon svg, .c8srv-root .c8isv-platform-icon svg, .c8isv-platform-icon svg {
-  width: 28px !important;
-  height: 28px !important;
-  stroke: #0047E1 !important;
-  fill: none !important;
-  stroke-width: 1.5 !important;
-}
-
-
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   SECTION TEXT ALIGNMENT & SPACING SYSTEM
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* ── Section 4: What You Get (Folder Deck) -> Left Aligned ── */
-.c8isv-root .c8isv-folder-section .c8isv-label,
-.c8srv-root .c8isv-folder-section .c8isv-label,
-.c8isv-root .c8isv-folder-section .c8isv-section-title,
-.c8srv-root .c8isv-folder-section .c8isv-section-title,
-.c8isv-root .c8isv-folder-section .c8isv-lead,
-.c8srv-root .c8isv-folder-section .c8isv-lead {
-  text-align: left !important;
-  margin-left: 0 !important;
-}
-
-/* ── Hero Light Badge -> Left Aligned ── */
-.c8isv-root .c8isv-label.is-light,
-.c8srv-root .c8isv-label.is-light {
-  text-align: left !important;
-  margin-left: 0 !important;
-}
-
-/* ── Section 5: How We Approach It (Process Cards) -> Center Aligned ── */
-.c8isv-root .c8isv-approach-outer .c8isv-label,
-.c8srv-root .c8isv-approach-outer .c8isv-label,
-.c8isv-root .c8isv-approach-outer .c8isv-section-title,
-.c8srv-root .c8isv-approach-outer .c8isv-section-title,
-.c8isv-root .c8isv-approach-outer .c8isv-lead,
-.c8srv-root .c8isv-approach-outer .c8isv-lead {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* ── Section 5.5: Platform Selection Deck -> Center Aligned ── */
-.c8isv-root .c8isv-fits-outer .c8isv-label,
-.c8srv-root .c8isv-fits-outer .c8isv-label,
-.c8isv-root .c8isv-fits-outer .c8isv-section-title,
-.c8srv-root .c8isv-fits-outer .c8isv-section-title,
-.c8isv-root .c8isv-fits-outer .c8isv-lead,
-.c8srv-root .c8isv-fits-outer .c8isv-lead {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* ── Section 6: Full Catalog Hoverlist -> Center Aligned ── */
-.c8isv-root .c8isv-hl-section .c8isv-label,
-.c8srv-root .c8isv-hl-section .c8isv-label,
-.c8isv-root .c8isv-hl-section .c8isv-section-title,
-.c8srv-root .c8isv-hl-section .c8isv-section-title,
-.c8isv-root .c8isv-hl-section .c8isv-lead,
-.c8srv-root .c8isv-hl-section .c8isv-lead {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* ── Section 8: Pricing Models & Estimator -> Center Aligned ── */
-.c8isv-root #pricing-scope .c8isv-label,
-.c8srv-root #pricing-scope .c8isv-label,
-.c8isv-root #pricing-scope .c8isv-section-title,
-.c8srv-root #pricing-scope .c8isv-section-title,
-.c8isv-root #pricing-scope .c8isv-lead,
-.c8srv-root #pricing-scope .c8isv-lead {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* ── Section 9: FAQ Accordions -> Left Aligned with Increased Margin Bottom ── */
-.c8isv-root .c8isv-faq-outer .c8isv-label,
-.c8srv-root .c8isv-faq-outer .c8isv-label {
-  text-align: left !important;
-  margin-left: 0 !important;
-}
-
-.c8isv-root .c8isv-faq-outer .c8isv-section-title,
-.c8srv-root .c8isv-faq-outer .c8isv-section-title {
-  text-align: left !important;
-  margin-left: 0 !important;
-  margin-bottom: 2.75rem !important;
-}
-
-
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   SECTION-SCOPED LABEL FLEX ALIGNMENT OVERRIDES (.c8isv-root & .c8srv-root)
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* ── Left-Aligned Section Labels (Hero, Section 4 What You Get, Section 9 FAQ) ── */
-.c8isv-root .c8isv-hero-wrap .c8isv-label,
-.c8srv-root .c8isv-hero-wrap .c8isv-label,
-.c8isv-root .c8isv-folder-section .c8isv-label,
-.c8srv-root .c8isv-folder-section .c8isv-label,
-.c8isv-root .c8isv-faq-outer .c8isv-label,
-.c8srv-root .c8isv-faq-outer .c8isv-label {
-  justify-content: flex-start !important;
-  align-self: flex-start !important;
-  margin-left: 0 !important;
-  margin-right: auto !important;
-}
-
-/* ── Center-Aligned Section Labels (Approach, Platform Deck, Catalog, Estimator) ── */
-.c8isv-root .c8isv-approach-outer .c8isv-label,
-.c8srv-root .c8isv-approach-outer .c8isv-label,
-.c8isv-root .c8isv-fits-outer .c8isv-label,
-.c8srv-root .c8isv-fits-outer .c8isv-label,
-.c8isv-root .c8isv-hl-section .c8isv-label,
-.c8srv-root .c8isv-hl-section .c8isv-label,
-.c8isv-root #pricing-scope .c8isv-label,
-.c8srv-root #pricing-scope .c8isv-label {
-  justify-content: center !important;
-  align-self: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
 <!-- ══════════════════════════════════════════
      SECTION 1: HERO (Dark)
      ══════════════════════════════════════════ -->
@@ -1248,23 +79,19 @@
   <div class="c8isv-wrap">
     <div class="c8isv-hero-grid">
       <div class="c8isv-hero-content">
-        <div class="c8isv-breadcrumb">
-          <a href="../Main Service Page/">Services</a><span>/</span><span class="is-current">Web Design</span>
-        </div>
-        <div  class="c8isv-label is-light">Custom UI/UX &amp; Interactive Prototyping</div>
-        <h1 class="c8isv-headline">Websites Designed to <span class="c8isv-serif">Drive Conversions</span>.</h1>
-        <p class="c8isv-hero-intro">Custom high-fidelity Figma prototypes and user experiences engineered to drive leads, turn traffic into revenue, and establish brand authority.</p>
+        <div class="c8isv-breadcrumb"><a href="../Main Service Page/services (2).html">SERVICES</a> <span>/</span> <span class="is-current">WEB DESIGN &amp; UX</span></div>
+        <div class="c8isv-label is-light">Strategic Interface &amp; User Experience Engineering</div>
+        <h1 class="c8isv-headline">Conversion-Driven <span class="c8isv-serif">Web Design &amp; UX</span></h1>
+        <p class="c8isv-hero-intro">Bespoke, high-converting digital experiences engineered for B2B, SaaS, and e-commerce brands. We bridge strategic positioning, high-end visual design, and speed-optimized layouts.</p>
         <div class="c8isv-hero-ctas">
           <a href="#c8isv-services" class="c8isv-btn-primary">See What We Build →</a>
           <a href="https://cr8vstacks.com/contact/" class="c8isv-btn-ghost">Get a Quote →</a>
         </div>
         <div class="c8isv-pill-row">
+          <span class="c8isv-pill">Web Design</span>
           <span class="c8isv-pill">Figma</span>
-          <span class="c8isv-pill">UI/UX</span>
-          <span class="c8isv-pill">Design Systems</span>
-          <span class="c8isv-pill">Wireframes</span>
+          <span class="c8isv-pill">UX Research</span>
           <span class="c8isv-pill">Responsive</span>
-          <span class="c8isv-pill">Handoff</span>
         </div>
       </div>
       
@@ -1286,54 +113,51 @@
 <div class="c8isv-flank-section">
   <div class="c8isv-flank-inner">
     <div class="c8isv-label c8isv-reveal is-center">Why Custom Web Design</div>
-    <h2 class="c8isv-section-title c8isv-reveal" >Premium user experiences engineered to drive conversions</h2>
+    <h2 class="c8isv-section-title c8isv-reveal">Websites Designed For Conversion &amp; Brand Authority</h2>
 
     <div class="c8isv-flank-container" data-c8isv-flank-trigger>
       <!-- Card 1 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="0">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step">Structure // Funnels</span>
+        <span class="c8isv-flank-card-step">Strategy // First</span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title">Designed to Convert</h3>
-        <p class="c8isv-flank-card-desc">A beautiful website that doesn't sell is a failure. We structure every layout around user profiles and clear calls-to-action, directing visitor attention precisely where it needs to go.</p>
+        <h3 class="c8isv-flank-card-title">Positioning-Led Interface Design</h3>
+        <p class="c8isv-flank-card-desc">Every layout is built around your market positioning and ideal customer profile before a single pixel is designed.</p>
         <div class="c8isv-flank-card-icon">
-          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
       </div>
-
       <!-- Card 2 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="1">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step">Figma // Interactive</span>
+        <span class="c8isv-flank-card-step">UX // Optimization</span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title">Interactive Prototyping</h3>
-        <p class="c8isv-flank-card-desc">We deliver fully interactive, clickable Figma prototypes. This lets you preview the exact user experience, verify checkout flows, and test pages before writing code.</p>
+        <h3 class="c8isv-flank-card-title">Frictionless User Journeys</h3>
+        <p class="c8isv-flank-card-desc">Intuitive navigation, clear content hierarchies, and targeted conversion paths that turn visitors into leads.</p>
         <div class="c8isv-flank-card-icon">
-          <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
       </div>
-
       <!-- Card 3 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="2">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step">Authority // Trust</span>
+        <span class="c8isv-flank-card-step">System // Scalability</span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title">Immediate Credibility</h3>
-        <p class="c8isv-flank-card-desc">We design custom layouts and premium typography that instantly build trust. A generic template signals a second-rate operation; high-end custom design establishes immediate authority.</p>
+        <h3 class="c8isv-flank-card-title">Figma Design Systems</h3>
+        <p class="c8isv-flank-card-desc">Componentized, production-ready design systems and asset libraries built for seamless developer handoff.</p>
         <div class="c8isv-flank-card-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
         </div>
       </div>
-
       <!-- Card 4 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="3">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step">Build // Launch</span>
+        <span class="c8isv-flank-card-step">SEO // Native</span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title">Platform Handoff &amp; Build</h3>
-        <p class="c8isv-flank-card-desc">Whether we hand the design over to your team or build it ourselves on WordPress, Shopify, or WooCommerce, we ensure a seamless design-to-code execution.</p>
+        <h3 class="c8isv-flank-card-title">Search-Optimized Structure</h3>
+        <p class="c8isv-flank-card-desc">Semantic HTML layout structure, responsive mobile viewports, and fast page load considerations built in from day one.</p>
         <div class="c8isv-flank-card-icon">
-          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         </div>
       </div>
     </div>
@@ -1348,11 +172,11 @@
     <div class="c8isv-portfolio-inner">
       <div class="c8isv-portfolio-head">
         <div class="c8isv-label c8isv-reveal is-center">Our Work</div>
-        <h2 class="c8isv-section-title c8isv-reveal" >Designed for Real Brands,<br><span class="c8isv-serif">Real Outcomes</span></h2>
+        <h2 class="c8isv-section-title c8isv-reveal">Built for Real Outcomes,<br><span class="c8isv-serif">Not Just Concepts</span></h2>
       </div>
       <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
         <div class="c8isv-portfolio-img">
-          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop" alt="The Duch Apartments Web Design layout — built by Cr8v Stacks">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop" alt="The Duch Apartments — built by Cr8v Stacks">
         </div>
         <div class="c8isv-portfolio-info">
           <span class="c8isv-portfolio-client">Case Study — The Duch Apartments</span>
@@ -1361,24 +185,25 @@
           <div class="c8isv-portfolio-stats">
             <div>
               <span class="c8isv-portfolio-stat-val">1</span>
-              <span class="c8isv-portfolio-stat-lbl">Unified Design &amp; SEO Scope</span>
-            </div>
-            <div style="background: rgba(0, 177, 89, 0.04); border: 1px solid rgba(0, 177, 89, 0.15); padding: 10px 16px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; min-width: 150px; margin-top: 4px;">
-              <span style="font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; color: #00B159; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px;">Verification</span>
-              <span style="font-family: 'Michroma', sans-serif; font-size: 11px; font-weight: 700; color: #00B159; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;">
-                ✓ Verifiable Live
-              </span>
+              <span class="c8isv-portfolio-stat-lbl">Design &amp; SEO Handled As One</span>
             </div>
             <div>
               <span class="c8isv-portfolio-stat-val">100%</span>
-              <span class="c8isv-portfolio-stat-lbl">Custom Layout</span>
+              <span class="c8isv-portfolio-stat-lbl">Custom Layout Base</span>
             </div>
           </div>
-          <a href="../portfolio/the-duch-apartments.html" class="c8isv-explore">View Case Study →</a>
+          <div class="c8isv-portfolio-deliverables" style="grid-column: span 2; margin-top: 0.5rem;">
+            <span class="c8isv-portfolio-stat-lbl" style="margin-bottom: 0.5rem; display: block;">Key Deliverables</span>
+            <div class="c8isv-portfolio-pills">
+              <span class="c8isv-portfolio-pill">Website Design</span>
+              <span class="c8isv-portfolio-pill">Entity SEO Optimization</span>
+            </div>
+          </div>
+          <a href="https://cr8vstacks.com/contact/" class="c8isv-explore" style="margin-top: 1.5rem;">Discuss Web Design Architecture &rarr;</a>
         </div>
       </div>
       <div class="c8isv-portfolio-footer">
-        <a href="../portfolio/" class="c8isv-explore">See All Projects →</a>
+        <a href="../portfolio/" class="c8isv-explore">See All Projects &rarr;</a>
       </div>
     </div>
 </div>
@@ -1388,112 +213,84 @@
      Cream #FAFAF9
      ══════════════════════════════════════════ -->
 <div class="c8srv-folder-section" id="c8isv-services">
-  <div  class="c8isv-label c8isv-reveal">What You Get</div>
-  <h2  class="c8isv-section-title c8isv-reveal">Every layer of your design, <span class="c8isv-serif">engineered by Cr8v Stacks.</span></h2>
-  <p  class="c8isv-lead c8isv-reveal" style="margin-bottom:2rem">From mood boards to developer handoffs — designed custom, with zero shortcuts.</p>
+  <div class="c8isv-wrap">
+    <div class="c8isv-label c8isv-reveal">What You Get</div>
+    <h2 class="c8isv-section-title c8isv-reveal">Every layer of your design, <span class="c8isv-serif">engineered by Cr8v Stacks.</span></h2>
+    <p class="c8isv-lead c8isv-reveal" style="margin-bottom:2rem">Figma visual designs, responsive UI libraries, wireframe prototypes, conversion audits, and developer handoff specs.</p>
 
-  <div class="c8srv-folder-deck" data-c8srv-folder-deck>
-    <!-- Card 1: Figma Prototypes -->
-    <div class="c8srv-folder-card">
-      <div class="c8srv-folder-tab">01 // Figma</div>
-      <div class="c8srv-folder-card-left">
-        <div class="c8srv-folder-card-tag">Custom Figma Mockups</div>
-        <h3 class="c8srv-folder-card-title">Interactive Figma Prototypes</h3>
-        <p class="c8srv-folder-card-desc">Custom high-fidelity UI/UX layouts and interactive prototypes built in Figma to preview user flows before coding.</p>
-        <div class="c8isv-cap-list">
-          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Interactive Figma links</div>
-          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Visual mockup previews</div>
-          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>User flow prototyping</div>
+    <div class="c8srv-folder-deck" data-c8srv-folder-deck>
+      <!-- Card 1 -->
+      <div class="c8srv-folder-card">
+        <div class="c8srv-folder-tab">01 // Strategy &amp; UX</div>
+        <div class="c8srv-folder-card-left">
+          <h3 class="c8srv-folder-card-title">User Flow &amp; Wireframe Blueprint</h3>
+          <p class="c8srv-folder-card-desc">Mapping information architecture, key user paths, and wireframe prototypes for frictionless navigation.</p>
+          <a href="https://cr8vstacks.com/contact/" class="c8srv-explore">Discuss wireframing &rarr;</a>
         </div>
-        <a href="https://cr8vstacks.com/contact/" class="c8isv-explore" style="margin-top:1rem">Discuss prototypes →</a>
-      </div>
-      <div class="c8srv-folder-card-right">
-        <div class="c8srv-folder-card-img">
-          <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800&auto=format&fit=crop" alt="Custom Figma layout mockups">
+        <div class="c8srv-folder-card-right">
+          <div class="c8srv-folder-card-img">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="User Flow & Wireframe Blueprint">
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Card 2: UX Architecture -->
-    <div class="c8srv-folder-card">
-      <div class="c8srv-folder-tab">02 // UX Layout</div>
-      <div class="c8srv-folder-card-left">
-        <div class="c8srv-folder-card-tag">Conversion Layouts</div>
-        <h3 class="c8srv-folder-card-title">Conversion-Led UI/UX</h3>
-        <p class="c8srv-folder-card-desc">Wireframes designed around customer profiles, lead funnels, and optimized calls-to-action to maximize sales.</p>
-        <div class="c8isv-cap-list">
-          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>User journey mapping</div>
-          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Conversion funnel UX</div>
-          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Call-to-action strategy</div>
+      <!-- Card 2 -->
+      <div class="c8srv-folder-card">
+        <div class="c8srv-folder-tab">02 // Visual UI</div>
+        <div class="c8srv-folder-card-left">
+          <h3 class="c8srv-folder-card-title">High-Fidelity Interface Design</h3>
+          <p class="c8srv-folder-card-desc">Bespoke typography, color palettes, and polished UI components tailored for your brand authority.</p>
+          <a href="https://cr8vstacks.com/contact/" class="c8srv-explore">Discuss visual UI &rarr;</a>
         </div>
-        <a href="https://cr8vstacks.com/contact/" class="c8isv-explore" style="margin-top:1rem">Discuss wireframes →</a>
-      </div>
-      <div class="c8srv-folder-card-right">
-        <div class="c8srv-folder-card-img">
-          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="UI UX layout wireframes">
+        <div class="c8srv-folder-card-right">
+          <div class="c8srv-folder-card-img">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="High-Fidelity Interface Design">
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Card 3: Design Systems -->
-    <div class="c8srv-folder-card">
-      <div class="c8srv-folder-tab">03 // Branding</div>
-      <div class="c8srv-folder-card-left">
-        <div class="c8srv-folder-card-tag">Visual Brand System</div>
-        <h3 class="c8srv-folder-card-title">Premium Design Systems</h3>
-        <p class="c8srv-folder-card-desc">Custom brand styling guidelines, color systems, buttons, layout rules, and component kits that ensure your site looks professional and consistent.</p>
-        <div class="c8isv-cap-list">
-          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Custom brand color strategy</div>
-          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Brand font guidelines</div>
-          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Reusable UI layout guidelines</div>
+      <!-- Card 3 -->
+      <div class="c8srv-folder-card">
+        <div class="c8srv-folder-tab">03 // Design Systems</div>
+        <div class="c8srv-folder-card-left">
+          <h3 class="c8srv-folder-card-title">Figma Asset &amp; UI Component Suite</h3>
+          <p class="c8srv-folder-card-desc">Reusable design system tokens, typography scales, and UI component libraries for long-term consistency.</p>
+          <a href="https://cr8vstacks.com/contact/" class="c8srv-explore">Discuss design systems &rarr;</a>
         </div>
-        <a href="https://cr8vstacks.com/contact/" class="c8isv-explore" style="margin-top:1rem">Discuss design systems →</a>
-      </div>
-      <div class="c8srv-folder-card-right">
-        <div class="c8srv-folder-card-img">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" alt="Custom design system UI kit">
+        <div class="c8srv-folder-card-right">
+          <div class="c8srv-folder-card-img">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Figma Asset & UI Component Suite">
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Card 4: Assets & Grids -->
-    <div class="c8srv-folder-card">
-      <div class="c8srv-folder-tab">04 // Handoff</div>
-      <div class="c8srv-folder-card-left">
-        <div class="c8srv-folder-card-tag">Developer Assets</div>
-        <h3 class="c8srv-folder-card-title">Responsive Handover Assets</h3>
-        <p class="c8srv-folder-card-desc">Fully organized design files with responsive mobile/tablet layers and exportable SVG assets for developers.</p>
-        <div class="c8isv-cap-list">
-          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Mobile-first layout grids</div>
-          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Exportable SVG assets</div>
-          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Developer specifications documentation</div>
+      <!-- Card 4 -->
+      <div class="c8srv-folder-card">
+        <div class="c8srv-folder-tab">04 // Conversion</div>
+        <div class="c8srv-folder-card-left">
+          <h3 class="c8srv-folder-card-title">CRO &amp; Page Speed Blueprint</h3>
+          <p class="c8srv-folder-card-desc">Layout optimization for mobile devices, fast asset loading, clear CTA positioning, and high conversion rates.</p>
+          <a href="https://cr8vstacks.com/contact/" class="c8srv-explore">Discuss conversion &rarr;</a>
         </div>
-        <a href="https://cr8vstacks.com/contact/" class="c8isv-explore" style="margin-top:1rem">Discuss handoff →</a>
-      </div>
-      <div class="c8srv-folder-card-right">
-        <div class="c8srv-folder-card-img">
-          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop" alt="Web Design developer assets handoff">
+        <div class="c8srv-folder-card-right">
+          <div class="c8srv-folder-card-img">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="CRO & Page Speed Blueprint">
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Card 5: Redesigns -->
-    <div class="c8srv-folder-card">
-      <div class="c8srv-folder-tab">05 // Redesign</div>
-      <div class="c8srv-folder-card-left">
-        <div class="c8srv-folder-card-tag">Legacy Upgrades</div>
-        <h3 class="c8srv-folder-card-title">Legacy Website Redesigns</h3>
-        <p class="c8srv-folder-card-desc">Complete visual and structural redesigns for slow, outdated, or low-converting websites. We audit checkout bottlenecks, modernize aesthetics, and rebuild for performance.</p>
-        <div class="c8isv-cap-list">
-          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Speed &amp; conversion audits</div>
-          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Visual aesthetic modernization</div>
-          <div class="c8isv-cap-item"><span class="c8isv-cap-dot"></span>Complete performance rebuilds</div>
+      <!-- Card 5 -->
+      <div class="c8srv-folder-card">
+        <div class="c8srv-folder-tab">05 // Handoff</div>
+        <div class="c8srv-folder-card-left">
+          <h3 class="c8srv-folder-card-title">Developer-Ready Handoff Spec</h3>
+          <p class="c8srv-folder-card-desc">Pixel-perfect Figma specs, asset exports, and CSS style tokens ready for smooth frontend implementation.</p>
+          <a href="https://cr8vstacks.com/contact/" class="c8srv-explore">Discuss developer handoff &rarr;</a>
         </div>
-        <a href="https://cr8vstacks.com/contact/?model=project&service=web-design" class="c8isv-explore" style="margin-top:1rem">Discuss website redesign →</a>
-      </div>
-      <div class="c8srv-folder-card-right">
-        <div class="c8srv-folder-card-img">
-          <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop" alt="Website redesign and optimization audits layout mockup">
+        <div class="c8srv-folder-card-right">
+          <div class="c8srv-folder-card-img">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Developer-Ready Handoff Spec">
+          </div>
         </div>
       </div>
     </div>
@@ -1506,9 +303,9 @@
      ══════════════════════════════════════════ -->
 <div class="c8isv-approach-outer">
   <div class="c8isv-wrap" style="padding-bottom:0">
-    <div  class="c8isv-label c8isv-reveal">How We Approach It</div>
-    <h2  class="c8isv-section-title c8isv-reveal">Four stages. No overlap, no shortcuts.</h2>
-    <p  class="c8isv-lead c8isv-reveal">Each card opens as you scroll — that is how deliberate the process is.</p>
+    <div class="c8isv-label c8isv-reveal">How We Approach It</div>
+    <h2 class="c8isv-section-title c8isv-reveal">How We Approach Web Design &amp; UX</h2>
+    <p class="c8isv-lead c8isv-reveal">A structured 4-step engineering roadmap designed for visual credibility, user conversion, and seamless build handoff.</p>
   </div>
   
   <div class="c8isv-approach-deck" data-c8isv-approach-deck>
@@ -1517,10 +314,10 @@
       <div class="c8isv-approach-card" data-c8isv-approach-card>
         <div class="c8isv-approach-col-num">01</div>
         <div class="c8isv-approach-col-name">Discover</div>
-        <div class="c8isv-approach-col-tags">Brand &middot; Competitive &middot;<br>Goals</div>
+        <div class="c8isv-approach-col-tags">Audits &middot; Competitors &middot;<br>Goals</div>
         <div class="c8isv-approach-col-desc">We analyze your brand identity, audit existing assets, map competitive landscapes, and outline conversion targets before wireframing. We understand your users before creating visuals.</div>
         <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" alt="Web Design Discovery and brand audit stage">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" alt="Web Design Discovery stage">
         </div>
       </div>
     </div>
@@ -1533,7 +330,7 @@
         <div class="c8isv-approach-col-tags">UX &middot; Figma &middot;<br>Styling</div>
         <div class="c8isv-approach-col-desc">We draft custom layout wireframes and craft high-fidelity interface mockups in Figma, selecting typography and brand colors designed to maximize visual credibility.</div>
         <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop" alt="Web Design Figma visual design stage">
+          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop" alt="Web Design Figma design stage">
         </div>
       </div>
     </div>
@@ -1542,8 +339,8 @@
     <div class="c8isv-approach-wrap">
       <div class="c8isv-approach-card" data-c8isv-approach-card>
         <div class="c8isv-approach-col-num">03</div>
-        <div class="c8isv-approach-col-name">Engineering</div>
-        <div class="c8isv-approach-col-tags">Grids &middot; Assets &middot;<br>Systems</div>
+        <div class="c8isv-approach-col-name">Systems</div>
+        <div class="c8isv-approach-col-tags">Grids &middot; Assets &middot;<br>UI Tokens</div>
         <div class="c8isv-approach-col-desc">We package design style systems, establish grid guidelines, configure reusable UI component assets, and define responsive layouts for developer delivery.</div>
         <div class="c8isv-approach-col-img">
           <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Web Design component system setup stage">
@@ -1554,8 +351,8 @@
     <div class="c8isv-approach-wrap">
       <div class="c8isv-approach-card" data-c8isv-approach-card>
         <div class="c8isv-approach-col-num">04</div>
-        <div class="c8isv-approach-col-name">Safe Launch</div>
-        <div class="c8isv-approach-col-tags">Handover &middot; QA &middot;<br>Signoff</div>
+        <div class="c8isv-approach-col-name">Handoff</div>
+        <div class="c8isv-approach-col-tags">QA &middot; Dev Spec &middot;<br>Signoff</div>
         <div class="c8isv-approach-col-desc">We audit responsive layouts, test prototype link interactions, and deliver a clean developer-ready handoff package to ensure pixel-perfect deployment.</div>
         <div class="c8isv-approach-col-img">
           <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Web Design visual signoff stage">
@@ -1566,162 +363,165 @@
 </div>
 
 <!-- ══════════════════════════════════════════
-     SECTION 5.5: PLATFORM SELECTION (ANIMATED DECK)
+     SECTION 5.5: WHERE THIS FITS IN (Platform Deck)
+     Rhythmic light #F4F6FB background — transition stack
      ══════════════════════════════════════════ -->
 <div class="c8isv-fits-outer" style="background: #FFFFFF !important; padding: 6rem 0 !important; border-top: 1px solid rgba(8,8,8,0.08) !important;">
   <div class="c8isv-wrap">
-    <div  class="c8isv-label c8isv-reveal">Platform Selection</div>
-    <h2  class="c8isv-section-title c8isv-reveal" style="margin-bottom: 1.5rem !important;">Web Design is the layer <span class="c8isv-serif">before the build</span></h2>
-    <p  class="c8isv-lead c8isv-reveal" style="max-width: 720px !important; margin-bottom: 3rem !important;">Once the Figma design is approved, it gets handed to whichever platform fits your business operational needs:</p>
+    <div class="c8isv-label c8isv-reveal">Build Platform Options</div>
+    <h2 class="c8isv-section-title c8isv-reveal" style="margin-bottom: 1.5rem !important;">Where Web Design <span class="c8isv-serif">Fits In The Build</span></h2>
+    <p class="c8isv-lead c8isv-reveal" style="max-width: 720px !important; margin-bottom: 3rem !important;">Web Design is the layer before the build. Once the Figma design is approved, it gets handed to whichever platform fits your business:</p>
     
-    <div class="c8isv-platform-deck" data-c8isv-platform-trigger style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+    <div class="c8isv-platform-deck" data-c8isv-platform-trigger>
       <!-- Option 1 -->
-      <div class="c8isv-platform-card c8isv-reveal" data-c8isv-platform-card style="background: #ffffff; padding: 2.25rem; border-radius: 12px; border: 1px solid rgba(8,8,8,0.08); box-shadow: 0 4px 12px rgba(8,8,8,0.02); display: flex; flex-direction: column; transition: transform 0.4s ease, opacity 0.4s ease;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 10px; text-transform: uppercase; color: #0047E1; letter-spacing: 0.1em; margin-bottom: 0.5rem; display: block; font-weight: 700;">CMS // Content</span>
-        <div style="width: 100%; height: 1px; background: rgba(8,8,8,0.08); margin-bottom: 1rem;"></div>
-        <h3 style="font-family: 'Michroma', sans-serif; font-size: 1.1rem; font-weight: 700; margin: 0 0 0.75rem 0; color: #080808; text-transform: uppercase;">
-          WordPress
-        </h3>
-        <p style="font-size: 0.88rem; line-height: 1.6; color: #6B6B6B; margin: 0 0 1.5rem 0;">If your team needs to edit content easily without touching code or database logic.</p>
-        <div style="margin-top: auto; width: 36px; height: 36px; border-radius: 6px; background: rgba(0,71,225,0.06); display: flex; align-items: center; justify-content: center; color: #0047E1;">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg>
+      <div class="c8isv-platform-card c8isv-reveal">
+        <span class="c8isv-platform-badge">Platform // WordPress</span>
+        <div class="c8isv-platform-divider"></div>
+        <h3 class="c8isv-platform-title">WordPress Development</h3>
+        <p class="c8isv-platform-desc">If your team needs to edit content easily without touching code.</p>
+        <div class="c8isv-platform-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></svg>
         </div>
       </div>
 
       <!-- Option 2 -->
-      <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d1" data-c8isv-platform-card style="background: #ffffff; padding: 2.25rem; border-radius: 12px; border: 1px solid rgba(8,8,8,0.08); box-shadow: 0 4px 12px rgba(8,8,8,0.02); display: flex; flex-direction: column; transition: transform 0.4s ease, opacity 0.4s ease;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 10px; text-transform: uppercase; color: #0047E1; letter-spacing: 0.1em; margin-bottom: 0.5rem; display: block; font-weight: 700;">Storefront // Liquid</span>
-        <div style="width: 100%; height: 1px; background: rgba(8,8,8,0.08); margin-bottom: 1rem;"></div>
-        <h3 style="font-family: 'Michroma', sans-serif; font-size: 1.1rem; font-weight: 700; margin: 0 0 0.75rem 0; color: #080808; text-transform: uppercase;">
-          Shopify
-        </h3>
-        <p style="font-size: 0.88rem; line-height: 1.6; color: #6B6B6B; margin: 0 0 1.5rem 0;">If you are selling products and want hosted, hands-off infrastructure with conversion tools.</p>
-        <div style="margin-top: auto; width: 36px; height: 36px; border-radius: 6px; background: rgba(0,71,225,0.06); display: flex; align-items: center; justify-content: center; color: #0047E1;">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+      <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d1">
+        <span class="c8isv-platform-badge">Platform // Shopify</span>
+        <div class="c8isv-platform-divider"></div>
+        <h3 class="c8isv-platform-title">Shopify Storefronts</h3>
+        <p class="c8isv-platform-desc">If you're selling physical or digital products and want hosted infrastructure.</p>
+        <div class="c8isv-platform-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
         </div>
       </div>
 
       <!-- Option 3 -->
-      <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d2" data-c8isv-platform-card style="background: #ffffff; padding: 2.25rem; border-radius: 12px; border: 1px solid rgba(8,8,8,0.08); box-shadow: 0 4px 12px rgba(8,8,8,0.02); display: flex; flex-direction: column; transition: transform 0.4s ease, opacity 0.4s ease;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 10px; text-transform: uppercase; color: #0047E1; letter-spacing: 0.1em; margin-bottom: 0.5rem; display: block; font-weight: 700;">Ecommerce // Data</span>
-        <div style="width: 100%; height: 1px; background: rgba(8,8,8,0.08); margin-bottom: 1rem;"></div>
-        <h3 style="font-family: 'Michroma', sans-serif; font-size: 1.1rem; font-weight: 700; margin: 0 0 0.75rem 0; color: #080808; text-transform: uppercase;">
-          WooCommerce
-        </h3>
-        <p style="font-size: 0.88rem; line-height: 1.6; color: #6B6B6B; margin: 0 0 1.5rem 0;">If you want complete custom ownership of your store's data, margins, and hosting.</p>
-        <div style="margin-top: auto; width: 36px; height: 36px; border-radius: 6px; background: rgba(0,71,225,0.06); display: flex; align-items: center; justify-content: center; color: #0047E1;">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+      <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d2">
+        <span class="c8isv-platform-badge">Platform // WooCommerce</span>
+        <div class="c8isv-platform-divider"></div>
+        <h3 class="c8isv-platform-title">WooCommerce Stores</h3>
+        <p class="c8isv-platform-desc">If you want full ownership of your store's data, hosting, and custom plugins.</p>
+        <div class="c8isv-platform-icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
       </div>
 
       <!-- Option 4 -->
-      <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d3" data-c8isv-platform-card style="background: #ffffff; padding: 2.25rem; border-radius: 12px; border: 1px solid rgba(8,8,8,0.08); box-shadow: 0 4px 12px rgba(8,8,8,0.02); display: flex; flex-direction: column; transition: transform 0.4s ease, opacity 0.4s ease;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 10px; text-transform: uppercase; color: #0047E1; letter-spacing: 0.1em; margin-bottom: 0.5rem; display: block; font-weight: 700;">Framework // Custom</span>
-        <div style="width: 100%; height: 1px; background: rgba(8,8,8,0.08); margin-bottom: 1rem;"></div>
-        <h3 style="font-family: 'Michroma', sans-serif; font-size: 1.1rem; font-weight: 700; margin: 0 0 0.75rem 0; color: #080808; text-transform: uppercase;">
-          Custom Dev
-        </h3>
-        <p style="font-size: 0.88rem; line-height: 1.6; color: #6B6B6B; margin: 0 0 1.5rem 0;">If nothing off-the-shelf fits what you are building and you need custom React/PHP frameworks.</p>
-        <div style="margin-top: auto; width: 36px; height: 36px; border-radius: 6px; background: rgba(0,71,225,0.06); display: flex; align-items: center; justify-content: center; color: #0047E1;">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d3">
+        <span class="c8isv-platform-badge">Platform // Custom</span>
+        <div class="c8isv-platform-divider"></div>
+        <h3 class="c8isv-platform-title">Custom Bespoke App</h3>
+        <p class="c8isv-platform-desc">If nothing off-the-shelf fits what you're building and you need custom PHP/React.</p>
+        <div class="c8isv-platform-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
       </div>
     </div>
-    
-    <p class="c8isv-reveal" style="font-size: 0.95rem !important; color: #6B6B6B !important; max-width: 800px !important; margin: 0 0 2rem 0 !important; line-height: 1.7 !important;">
+
+    <p class="c8isv-reveal" style="font-size: 0.95rem !important; color: #6B6B6B !important; max-width: 800px !important; margin: 2rem 0 !important; line-height: 1.7 !important;">
       <strong>Not sure which one?</strong> That's a normal question at this stage — tell us what you're building and we'll recommend the right platform as part of the design engagement.
     </p>
 
     <div class="c8isv-reveal" style="display: flex !important; margin-top: 2rem !important;">
-      <a href="https://cr8vstacks.com/contact/?model=project&service=web-design" class="c8isv-btn-primary">Start a Design Scoping Call →</a>
+      <a href="https://cr8vstacks.com/contact/?model=project&amp;service=web-design" class="c8isv-btn-primary">Start a Design Scoping Call →</a>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════
-     SECTION 6: FULL CATALOG HOVERLIST
+     SECTION 6: FULL CATALOG HOVERLIST (Project Types)
      White background — Capability index
      ══════════════════════════════════════════ -->
 <div class="c8isv-hl-section">
   <div class="c8isv-wrap" style="padding-bottom:0">
-    <div  class="c8isv-label c8isv-reveal">Full Catalog</div>
-    <h2  class="c8isv-section-title c8isv-reveal">Every Web Design Service We Offer</h2>
-    <p  class="c8isv-lead c8isv-reveal" style="margin-bottom:2rem">From custom UI/UX design to developer handoffs — every service you need to build a premium website. Hover to see the stack.</p>
+    <div class="c8isv-label c8isv-reveal">Project Catalog</div>
+    <h2 class="c8isv-section-title c8isv-reveal">Every Kind of Web Design &amp; UX We Engineer</h2>
+    <p class="c8isv-lead c8isv-reveal" style="margin-bottom:2rem">From SaaS product landing pages to enterprise web portals — hover to inspect the design stack.</p>
   </div>
   <div class="c8isv-wrap" style="padding-top:0 !important; position:relative">
     <div class="c8isv-hoverlist" data-c8isv-hoverlist>
-      <div class="c8isv-hoverlist-item c8isv-reveal" data-s1="Figma" data-s2="Visuals" data-s3="Grids">
+      <!-- Item 1 -->
+      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="HTML5" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">01</span>
-          <h3 class="c8isv-hoverlist-title">Custom UI/UX Design</h3>
-          <span class="c8isv-hoverlist-tagline">Premium custom web layouts and high-fidelity interface wireframes</span>
+          <h3 class="c8isv-hoverlist-title">B2B &amp; Enterprise Web Design</h3>
+          <span class="c8isv-hoverlist-tagline">High-credibility corporate sites, executive team profiles, investor relations portals, and multi-branch company hubs.</span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Figma / Visuals</span>
+          <span class="c8isv-hoverlist-tech">Corporate</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-s1="Figma" data-s2="Interactive" data-s3="UX">
+
+      <!-- Item 2 -->
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="React" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">02</span>
-          <h3 class="c8isv-hoverlist-title">High-Fidelity Prototyping</h3>
-          <span class="c8isv-hoverlist-tagline">Interactive page prototypes to preview click-through steps</span>
+          <h3 class="c8isv-hoverlist-title">SaaS &amp; Product Landing Pages</h3>
+          <span class="c8isv-hoverlist-tagline">Product feature showcases, interactive pricing calculators, API documentation hubs, and high-converting lead funnels.</span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Figma / UX</span>
+          <span class="c8isv-hoverlist-tech">SaaS / Tech</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d2" data-s1="Mobile" data-s2="Tablet" data-s3="Desktop">
+
+      <!-- Item 3 -->
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d2" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="CSS3" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/css3.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">03</span>
-          <h3 class="c8isv-hoverlist-title">Responsive Layout Systems</h3>
-          <span class="c8isv-hoverlist-tagline">Optimized visual grids for all desktop, tablet, and mobile screens</span>
+          <h3 class="c8isv-hoverlist-title">E-Commerce Storefront UI Design</h3>
+          <span class="c8isv-hoverlist-tagline">Bespoke Shopify and WooCommerce product pages, checkout flows, and collection grid designs.</span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Responsive</span>
+          <span class="c8isv-hoverlist-tech">E-Commerce</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d3" data-s1="UX" data-s2="Wireframes" data-s3="Funnels">
+
+      <!-- Item 4 -->
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d3" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="JavaScript" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/javascript.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">04</span>
-          <h3 class="c8isv-hoverlist-title">Conversion Funnel Mapping</h3>
-          <span class="c8isv-hoverlist-tagline">Designing page structures and call-to-actions that drive conversions</span>
+          <h3 class="c8isv-hoverlist-title">Custom Web App Interface Design</h3>
+          <span class="c8isv-hoverlist-tagline">SaaS dashboards, admin portals, onboarding workflows, and complex web app interfaces.</span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">UX / Funnels</span>
+          <span class="c8isv-hoverlist-tech">Web Apps</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
-      <div class="c8isv-hoverlist-item c8isv-reveal" data-s1="Logo" data-s2="Colors" data-s3="Typography">
+
+      <!-- Item 5 -->
+      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="HTML5" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">05</span>
-          <h3 class="c8isv-hoverlist-title">Brand Asset Styling</h3>
-          <span class="c8isv-hoverlist-tagline">Establishing clear brand guidelines and typography styling</span>
+          <h3 class="c8isv-hoverlist-title">Media, Editorial &amp; Content Hubs</h3>
+          <span class="c8isv-hoverlist-tagline">High-frequency article archives, publication layouts, and content-first web designs.</span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Brand / CSS</span>
+          <span class="c8isv-hoverlist-tech">Media / Editorial</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-s1="SVG" data-s2="Figma" data-s3="Handoff">
+
+      <!-- Item 6 -->
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="React" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">06</span>
-          <h3 class="c8isv-hoverlist-title">Developer Handoff Packages</h3>
-          <span class="c8isv-hoverlist-tagline">Organizing layers, style grids, and asset exports for coding</span>
+          <h3 class="c8isv-hoverlist-title">Website Redesign &amp; System Refactoring</h3>
+          <span class="c8isv-hoverlist-tagline">Rebuilding outdated site designs into modern, high-converting digital experiences without losing search rankings.</span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Figma / Handoff</span>
+          <span class="c8isv-hoverlist-tech">Redesign &amp; Refactor</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
     </div>
-    <!-- Fan preview -->
+    <!-- 2-Card Fan Stack Preview with SVG CDN Logos -->
     <div class="c8isv-hoverlist-preview" data-c8isv-preview>
-      <div class="c8isv-fan-card c8isv-fan-left"><span class="c8isv-fan-word" data-c8isv-fan-pos="left">Figma</span></div>
-      <div class="c8isv-fan-card c8isv-fan-center"><span class="c8isv-fan-word" data-c8isv-fan-pos="center">UI/UX</span></div>
-      <div class="c8isv-fan-card c8isv-fan-right"><span class="c8isv-fan-word" data-c8isv-fan-pos="right">Systems</span></div>
+      <div class="c8isv-fan-card c8isv-fan-left"><img class="c8isv-fan-logo" data-c8isv-fan-logo="left" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" alt="Figma"></div>
+      <div class="c8isv-fan-card c8isv-fan-right"><img class="c8isv-fan-logo" data-c8isv-fan-logo="right" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg" alt="React"></div>
     </div>
   </div>
 </div>
@@ -1739,44 +539,140 @@
       <div class="c8isv-testi-card is-left" data-c8isv-testi-left>
         <div class="c8isv-testi-quote">"</div>
         <div class="c8isv-testi-divider"></div>
-        <p class="c8isv-testi-text">The checkout we had before was bleeding sales. Rebuilt in three weeks — clean, fast, zero plugins. Conversion came back immediately and has stayed up.</p>
-        <div class="c8isv-testi-author">Sarah Jenkins — Head of E-Commerce &amp; Growth</div>
+        <p class="c8isv-testi-text">The Duch Apartments site design gave our luxury listings the elevated visual identity they deserved. The layout flows naturally and converted far more inquiries from day one.</p>
+        <div class="c8isv-testi-author">David Sterling — Principal Real Estate Architect</div>
       </div>
       <!-- Center Card -->
       <div class="c8isv-testi-card is-center">
         <div class="c8isv-testi-quote">"</div>
         <div class="c8isv-testi-divider"></div>
-        <p class="c8isv-testi-text">Our mobile load time went from 4.1 seconds to under half a second. The SEO results followed within two months. Biggest ROI we have seen on any development spend.</p>
-        <div class="c8isv-testi-author">Emeka Okafor — Director of Digital Operations</div>
+        <p class="c8isv-testi-text">Cr8v Stacks handled our design system in Figma with extreme precision. Handing off the designs to our development team was completely seamless.</p>
+        <div class="c8isv-testi-author">Amina Bello — Digital Marketing Lead</div>
       </div>
       <!-- Right Card -->
       <div class="c8isv-testi-card is-right" data-c8isv-testi-right>
         <div class="c8isv-testi-quote">"</div>
         <div class="c8isv-testi-divider"></div>
-        <p class="c8isv-testi-text">All three payment gateways and our custom subscription logic — wired without a single app store plugin. The store is fast, the code is clean, and I understand how it works.</p>
-        <div class="c8isv-testi-author">Marcus Vance — Lead Product Experience Manager</div>
+        <p class="c8isv-testi-text">The wireframing and user journey mapping completely transformed how visitors interact with our services. High quality work delivered on schedule.</p>
+        <div class="c8isv-testi-author">Richard Coleman — Technical Operations Director</div>
       </div>
-</div>
+    </div>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════════════
      SECTION 9: FAQ
-     White — 10 PAA-focused questions
      ══════════════════════════════════════════ -->
+<section class="faq-section" id="faq" style="background: #FFFFFF !important; padding: clamp(5rem, 10vw, 9rem) 0 !important;">
+  <style>
+    .faq-section { background: #FFFFFF !important; padding: clamp(5rem, 10vw, 9rem) 0 !important; position: relative !important; z-index: 5 !important; border-top: 1px solid rgba(8,8,8,0.12) !important; }
+    .faq-inner { max-width: 1360px !important; margin: 0 auto !important; padding: 0 clamp(1.5rem, 5vw, 5rem) !important; display: grid !important; grid-template-columns: 300px 1fr !important; gap: clamp(3rem, 6vw, 8rem) !important; align-items: start !important; }
+    .faq-aside { position: sticky !important; top: 6rem !important; align-self: start !important; }
+    .faq-eyebrow { font-family: 'Space Mono', monospace !important; font-size: 0.65rem !important; letter-spacing: 0.14em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 1rem !important; font-weight: 700 !important; }
+    .faq-h2 { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.6rem, 2.8vw, 2.2rem) !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.2 !important; margin-bottom: 1.5rem !important; }
+    .faq-sub { font-family: 'DM Sans', sans-serif !important; font-size: 0.85rem !important; font-weight: 300 !important; color: #555555 !important; line-height: 1.7 !important; margin-bottom: 2rem !important; }
+    .faq-cta-link { font-family: 'Space Mono', monospace !important; font-size: 0.75rem !important; font-weight: 700 !important; color: #0047E1 !important; text-transform: uppercase !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; letter-spacing: 0.08em !important; transition: color 0.2s ease !important; }
+    .faq-cta-link:hover { color: #0037B5 !important; }
+    .faq-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+    .faq-item { border-bottom: 1px solid rgba(8,8,8,0.1) !important; }
+    .faq-item:first-child { border-top: 1px solid rgba(8,8,8,0.1) !important; }
+    .faq-trigger { width: 100% !important; background: none !important; border: none !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.4rem 0 !important; text-align: left !important; }
+    .faq-q { font-family: 'DM Sans', sans-serif !important; font-size: clamp(0.88rem, 1.3vw, 0.95rem) !important; font-weight: 400 !important; color: #080808 !important; line-height: 1.4 !important; }
+    .faq-icon { width: 28px !important; height: 28px !important; border-radius: 50% !important; border: 1px solid rgba(8,8,8,0.14) !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; transition: background 0.25s, border-color 0.25s !important; }
+    .faq-icon svg { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+    .faq-item.is-open .faq-icon { background: #0047E1 !important; border-color: #0047E1 !important; }
+    .faq-item.is-open .faq-icon svg { transform: rotate(45deg) !important; stroke: #ffffff !important; }
+    .faq-body { display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+    .faq-item.is-open .faq-body { grid-template-rows: 1fr !important; }
+    .faq-body-inner { overflow: hidden !important; }
+    .faq-a { font-family: 'DM Sans', sans-serif !important; font-size: 0.88rem !important; font-weight: 300 !important; line-height: 1.75 !important; color: #555555 !important; padding-bottom: 1.4rem !important; }
+    .faq-a a { color: #0047E1 !important; text-decoration: underline !important; }
+    @media (max-width: 900px) {
+      .faq-inner { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .faq-aside { position: static !important; }
+    }
+  </style>
 
+  <div class="faq-inner">
+    <div class="faq-aside">
+      <div class="faq-eyebrow"><span style="color:#0047E1;font-weight:800;font-size:0.85rem;margin-right:2px;">//</span> COMMON QUESTIONS</div>
+      <h2 class="faq-h2">Web Design Questions, Answered Honestly</h2>
+      <p class="faq-sub">Clear answers to common questions about our custom web design, Figma UI/UX prototyping, and conversion optimization processes.</p>
+      <a href="https://cr8vstacks.com/contact/" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
 
+    <ul class="faq-list" id="srv-faq-list">
+      <li class="faq-item is-open">
+        <button class="faq-trigger" aria-expanded="true">
+          <span class="faq-q">Why invest in custom Web Design &amp; UX instead of using a generic pre-made template?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body" style="grid-template-rows: 1fr;">
+          <div class="faq-body-inner">
+            <p class="faq-a">Generic templates force your brand into rigid pre-existing layouts, contain heavy bloat code that slows page speed, and make your business look like thousands of competitors. Custom web design builds a tailored user experience around your specific market positioning, increasing conversion rates and brand trust.</p>
+          </div>
+        </div>
+      </li>
 
-        
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">How much does a custom Web Design project cost?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">Our fixed-scope Web Design projects start from $1,200 for a bespoke layout design, Figma design system, and responsive mobile mockups. The final investment scales with the number of unique page layouts and prototype interactions required.</p>
+          </div>
+        </div>
+      </li>
 
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">What deliverables will I receive at the end of the Web Design engagement?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">You receive a complete, production-ready Figma design file containing all high-fidelity desktop and mobile layouts, organized design system components (colors, typography, buttons), exported image/icon assets, and detailed developer handoff specs.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">Can Cr8v Stacks also develop the website after designing it?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">Yes. We provide end-to-end service from initial strategy and Figma design to full custom engineering on WordPress, Shopify, WooCommerce, or custom React/PHP.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">How long does a Web Design project take?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">A standard Web Design engagement for a 3–5 page core website takes approximately 2 to 3 weeks from initial discovery call to final Figma sign-off.</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
 
 <!-- ══════════════════════════════════════════
      SECTION: PRICING MODELS & PROJECT ESTIMATOR
      ══════════════════════════════════════════ -->
 <div class="c8srv-pricing-section" id="pricing-scope" style="padding: 6rem 0 !important; position: relative !important; z-index: 5 !important; background: #FFFFFF !important; display: block !important;">
-  <div class="c8isv-wrap">
-    <div  class="c8isv-label c8srv-reveal">PRICING MODELS</div>
-    <h2  class="c8isv-section-title c8srv-reveal">HOW WE <span class="c8isv-serif">WORK TOGETHER</span></h2>
-    <p  class="c8isv-lead c8srv-reveal">Whether you need a dedicated extension of your team or a custom design &amp; code project with guaranteed delivery, we have a model to fit.</p>
+  <div class="c8isv-wrap" style="text-align: left !important;">
+    <div class="c8isv-label c8srv-reveal" style="justify-content: flex-start !important; margin-left: 0 !important; margin-right: auto !important; text-align: left !important;">PRICING MODELS</div>
+    <h2 class="c8isv-section-title c8srv-reveal" style="text-align: left !important; margin-left: 0 !important;">HOW WE <span class="c8isv-serif">WORK TOGETHER</span></h2>
+    <p class="c8isv-lead c8srv-reveal" style="text-align: left !important; margin-left: 0 !important;">Whether you need a dedicated extension of your team or a custom design &amp; code project with guaranteed delivery, we have a model to fit.</p>
 
     <div class="c8srv-pricing-split">
       <!-- Retainer Card -->
@@ -1832,7 +728,7 @@
 
     <!-- Scope Estimator -->
     <div class="c8srv-estimator c8srv-reveal">
-      <div style="margin-bottom: 2.5rem !important;"">
+      <div style="margin-bottom: 2.5rem !important;">
         <span class="c8srv-price-type">Project Scope Estimator</span>
         <h3 class="c8srv-price-title" style="font-size: 1.8rem !important; margin-bottom: 0.5rem !important;">Build Your Stack Estimate</h3>
         <p class="c8srv-price-desc" style="margin-bottom: 0 !important; margin-left: auto !important; margin-right: auto !important;">Select your desired setup below to calculate an immediate starting price range estimate for your project.</p>
@@ -1844,11 +740,11 @@
           <div>
             <span class="c8srv-est-group-title">1. Core Architecture</span>
             <div class="c8srv-est-choices" data-est-group="platform">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="wordpress" data-est-price="1200">WordPress Custom ($1,200)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="webdesign" data-est-price="1200">Web Design &amp; UX ($1,200)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="wordpress" data-est-price="1200">WordPress Custom ($1,200)</button>
               <button type="button" class="c8srv-est-choice" data-est-val="shopify" data-est-price="1800">Shopify Storefront ($1,800)</button>
               <button type="button" class="c8srv-est-choice" data-est-val="woocommerce" data-est-price="1800">WooCommerce Store ($1,800)</button>
               <button type="button" class="c8srv-est-choice" data-est-val="custom" data-est-price="2500">Custom Dev ($2,500)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="aimvp" data-est-price="3500">AI MVP Prototype ($3,500)</button>
             </div>
           </div>
 
@@ -1878,84 +774,14 @@
           <div class="c8srv-est-range" id="est-range-display">$1,200 - $1,500</div>
           
           <span class="c8srv-est-deliverables-title">Included Deliverables:</span>
-          <div class="c8srv-est-deliverables" id="est-deliverables-list"></div>
+          <div class="c8srv-est-deliverables" id="est-deliverables-list"><div>• Custom Figma interface design file</div><div>• Responsive mobile &amp; desktop component layout</div><div>• Up to 5 editable layout pages</div></div>
 
-          <a href="https://cr8vstacks.com/contact/" id="est-cta-link" class="c8srv-price-btn is-primary">Submit Scope Request</a>
+          <a href="https://cr8vstacks.com/contact/?platform=webdesign&amp;est=1200-1500" id="est-cta-link" class="c8srv-price-btn is-primary" style="margin-top: 1rem !important; margin-bottom: 1rem !important;">Submit Scope Request</a>
+          <a href="https://cr8vstacks.com/toolkits/website-cost-calculator/" class="c8srv-explore" style="justify-content: center !important; font-size: 11px !important; margin-top: 0.5rem !important; display: flex !important; font-family: 'Space Mono', monospace !important; color: #0047E1 !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important; align-items: center !important; gap: 8px !important;">Or build a custom stack with our Calculator &rarr;</a>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<div class="c8isv-faq-outer" style="padding: 6rem 0 !important; background: #FFFFFF !important; position: relative !important; z-index: 2 !important;">
-  <div class="c8isv-wrap">
-    <div  class="c8isv-label c8isv-reveal">FAQ</div>
-    <h2   class="c8isv-section-title c8isv-reveal">Web Design Questions, <span class="c8isv-serif">Answered Honestly</span></h2>
-    <div class="c8isv-accordion" data-c8isv-accordion>
-</div>
-
-
-
-
-      <div class="c8isv-accordion-item">
-        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
-          <h3 class="c8isv-accordion-title">How much does custom web design cost?</h3>
-          <div class="c8isv-accordion-toggle"></div>
-        </div>
-        <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">Our custom visual web design projects start from $1,200 for high-fidelity interactive Figma wireframes and prototypes. The final price depends on the number of unique page layouts needed, the complexity of interactive elements, and whether custom iconography or brand identity assets are required. We scope every design brief individually and deliver a firm estimate within 24 hours.</div></div></div>
-      </div>
-
-      <div class="c8isv-accordion-item">
-        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
-          <h3 class="c8isv-accordion-title">How long does it take to design a custom website?</h3>
-          <div class="c8isv-accordion-toggle"></div>
-        </div>
-        <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">A standard high-fidelity design project—covering wireframes, typography selection, style systems, and interactive Figma mockups for 3-5 pages—typically takes two to four weeks. Enterprise projects with complex interactive dashboards or extensive landing pages take four to six weeks. We provide clear milestone updates and design reviews at every stage.</div></div></div>
-      </div>
-
-      <div class="c8isv-accordion-item">
-        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
-          <h3 class="c8isv-accordion-title">Do you design in Figma?</h3>
-          <div class="c8isv-accordion-toggle"></div>
-        </div>
-        <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">Yes. All design work is created inside Figma using organized, responsive auto-layout components. We build clean design style guides containing colors, typography, buttons, grids, and components. When the designs are finalized, you receive full edit and view access to the Figma files, containing organized layers ready for developer handover.</div></div></div>
-      </div>
-
-      <div class="c8isv-accordion-item">
-        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
-          <h3 class="c8isv-accordion-title">Do I own the design assets and Figma files?</h3>
-          <div class="c8isv-accordion-toggle"></div>
-        </div>
-        <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">Absolutely. Upon project completion and final sign-off, full ownership of all Figma files, layout structures, custom SVGs, typography sheets, and design system kits is transferred to you. We never lock you into proprietary platforms or hold your brand assets hostage.</div></div></div>
-      </div>
-
-      <div class="c8isv-accordion-item">
-        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
-          <h3 class="c8isv-accordion-title">Do you write code or build the website after designing?</h3>
-          <div class="c8isv-accordion-toggle"></div>
-        </div>
-        <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">This service is focused on premium visual UI/UX design and Figma prototyping. However, we are a full-stack studio. If you would like us to build the approved design, we can translate it into a custom Shopify theme, a WordPress custom layout, or a custom PHP/React web application. We can scope the design and development phases together or separately.</div></div></div>
-      </div>
-
-      <div class="c8isv-accordion-item">
-        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
-          <h3 class="c8isv-accordion-title">How do you design to increase my website conversions?</h3>
-          <div class="c8isv-accordion-toggle"></div>
-        </div>
-        <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">We design websites for conversion, not just raw aesthetics. Every layout is structured around user profiles, prominent and clear calls-to-action, high-contrast headings, readable typography hierarchies, and intuitive layouts. We map out the exact paths you want users to take to buy, book, or contact, reducing friction at every step.</div></div></div>
-      </div>
-
-      <div class="c8isv-accordion-item">
-        <div class="c8isv-accordion-head" data-c8isv-accordion-head>
-          <h3 class="c8isv-accordion-title">What deliverables are included in the developer handoff package?</h3>
-          <div class="c8isv-accordion-toggle"></div>
-        </div>
-        <div class="c8isv-accordion-body"><div class="c8isv-accordion-body-inner"><div class="c8isv-accordion-desc">The handover package includes access to the interactive Figma files, responsive page grids, a comprehensive design system UI kit, optimized exportable SVG assets, visual type sheets, and layout specifications. This ensures any developer can translate our designs into code with pixel-perfect accuracy.        </div>
-  </div>
-</div>
-
-</div>
-</div>
 </div>
 
 <!-- ══════════════════════════════════════════
@@ -1966,25 +792,25 @@
   <div class="c8isv-wrap">
     <div class="c8isv-label c8isv-reveal is-muted">Other Ways We Build</div>
     <h2 class="c8isv-section-title c8isv-reveal">Related Services</h2>
-    <p class="c8isv-lead c8isv-reveal">Web Design is one of several services we offer. If a standalone design is not what you need, check these out.</p>
+    <p class="c8isv-lead c8isv-reveal">Web Design &amp; UX is one of several services we offer. If a standalone web design engagement is not what you need, check these out.</p>
     <div class="c8isv-related-grid">
-      <a href="../Shopify Service Page/" class="c8isv-related-card c8isv-reveal">
+      <a href="../WordPress Service Page/" class="c8isv-related-card c8isv-reveal">
         <div class="c8isv-related-card-icon">
-          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></svg>
         </div>
-        <span class="c8isv-related-card-platform">01 / Shopify</span>
-        <h3 class="c8isv-related-card-title">Shopify Storefronts</h3>
-        <p class="c8isv-related-card-desc">Custom Liquid theme development. App-free cart and checkout. Shopify-native performance without the template tax — for brands that want speed with Shopify's hosted infrastructure.</p>
-        <span class="c8isv-related-card-link">Explore Shopify →</span>
+        <span class="c8isv-related-card-platform">01 / WordPress</span>
+        <h3 class="c8isv-related-card-title">WordPress Development</h3>
+        <p class="c8isv-related-card-desc">Lightweight, custom-coded WordPress themes built for sub-second page loads, clean organic search visibility, and editing autonomy for your team.</p>
+        <span class="c8isv-related-card-link">Explore WordPress →</span>
       </a>
-      <a href="../WooCommerce Service Page/" class="c8isv-related-card c8isv-reveal c8isv-reveal-d1">
+      <a href="../Brand Strategy Service Page/" class="c8isv-related-card c8isv-reveal c8isv-reveal-d1">
         <div class="c8isv-related-card-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
         </div>
-        <span class="c8isv-related-card-platform">02 / WooCommerce</span>
-        <h3 class="c8isv-related-card-title">WooCommerce Custom Stores</h3>
-        <p class="c8isv-related-card-desc">Self-hosted WordPress e-commerce. Custom PHP themes, zero plugin overhead, and payment gateway wiring. Perfect for brands that want full database ownership with no platform licensing fees.</p>
-        <span class="c8isv-related-card-link">Explore WooCommerce →</span>
+        <span class="c8isv-related-card-platform">02 / Brand Strategy</span>
+        <h3 class="c8isv-related-card-title">Brand Strategy &amp; Positioning</h3>
+        <p class="c8isv-related-card-desc">Competitor analysis, pricing scoping, and messaging frameworks that give your website design clear strategic direction before a single pixel is designed.</p>
+        <span class="c8isv-related-card-link">Explore Brand Strategy →</span>
       </a>
       <a href="../Custom Dev Service Page/" class="c8isv-related-card c8isv-reveal c8isv-reveal-d2">
         <div class="c8isv-related-card-icon">
@@ -1999,10 +825,10 @@
   </div>
 </div>
 
-<script src="../assets_b64.js"></script>
+<script src="assets_b64.js"></script>
 <script>
 (function () {
-  var root = document.currentScript.closest('.c8isv-root');
+  var root = document.currentScript ? document.currentScript.closest('.c8isv-root') : null; if (!root) root = document.querySelector('.c8isv-root') || document.body;
   if (!root || root.getAttribute('data-c8isv-init') === '1') return;
   root.setAttribute('data-c8isv-init', '1');
 
@@ -2457,17 +1283,39 @@
   }
 
   /* ── Reveal on scroll ── */
-  var revealEls = root.querySelectorAll('.c8isv-reveal');
+  var revealEls = root.querySelectorAll('.c8isv-reveal, .c8srv-reveal');
   if ('IntersectionObserver' in window && !reduceMotion) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
-    revealEls.forEach(function (el) { io.observe(el); });
+    revealEls.forEach(function (el) { io.observe(el); el.classList.add('is-visible'); });
   } else {
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
+
+  /* ── FAQ Accordion 2-column Toggle ── */
+  var faqTriggers = root.querySelectorAll('.faq-trigger');
+  faqTriggers.forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      var item = trigger.closest('.faq-item');
+      if (!item) return;
+      var isOpen = item.classList.contains('is-open');
+      var list = trigger.closest('.faq-list');
+      if (list) {
+        list.querySelectorAll('.faq-item').forEach(function (other) {
+          other.classList.remove('is-open');
+          var btn = other.querySelector('.faq-trigger');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+      }
+      if (!isOpen) {
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 
   /* Helper to calculate scroll progress of an element relative to viewport */
   function getElementProgress(el, startOffsetRatio, endOffsetRatio) {
@@ -2495,6 +1343,8 @@
 
   /* ── Scroll handling scroll-linked animations ── */
   function handleScrollAnimations() {
+    if (reduceMotion) return;
+
     var flankContainer = root.querySelector('[data-c8isv-flank-trigger]');
     var flankCards = root.querySelectorAll('[data-c8isv-flank-card]');
 
@@ -2507,57 +1357,103 @@
     var testiLeft = root.querySelector('[data-c8isv-testi-left]');
     var testiRight = root.querySelector('[data-c8isv-testi-right]');
 
-    if (reduceMotion) return;
+    // 1. Flank Cards Stack Lay-Down
+    if (flankContainer && flankCards.length) {
+      var rect = flankContainer.getBoundingClientRect();
+      var viewportH = window.innerHeight;
+      var start = viewportH;
+      var end = viewportH * 0.15;
+      
+      var p = 0;
+      if (rect.top < start) {
+        p = (start - rect.top) / (start - end);
+        if (p > 1) p = 1;
+        if (p < 0) p = 0;
+      }
 
-    /* Flank card fan out */
-    if (flankContainer && flankCards.length === 3) {
-      var p = getElementProgress(flankContainer, 0.95, 0.35);
-      var deg = p * 6;
-      flankCards[0].style.transform = 'translate3d(' + (-p * 340) + 'px, ' + (p * 15) + 'px, 0) scale(' + (1 - p * 0.1) + ') rotate(' + (-deg) + 'deg)';
-      flankCards[0].style.opacity = p > 0.05 ? Math.min(1, p * 1.5) : 0;
-      flankCards[2].style.transform = 'translate3d(' + (p * 340) + 'px, ' + (p * 15) + 'px, 0) scale(' + (1 - p * 0.1) + ') rotate(' + deg + 'deg)';
-      flankCards[2].style.opacity = p > 0.05 ? Math.min(1, p * 1.5) : 0;
-    }
-
-    /* Portfolio zoom */
-    if (portfolioCard) {
-      var pP = getElementProgress(portfolioCard, 0.95, 0.3);
-      var scale = 0.75 + (pP * 0.25);
-      var opacity = 0.5 + (pP * 0.5);
-      portfolioCard.style.transform = 'scale(' + scale + ')';
-      portfolioCard.style.opacity = opacity;
-    }
-
-    /* Approach cards slant stack */
-    if (approachDeck && approachCards.length > 0) {
-      approachCards.forEach(function (card, idx) {
-        var cp = getCardProgress(card, 0.95, 0.45);
-        if (idx === 0) {
-          card.style.transform = 'scale(1)';
-          card.style.opacity = '1';
+      flankCards.forEach(function (card, i) {
+        var localT = Math.min(1, Math.max(0, p * 1.5 - i * 0.16));
+        var isMobile = window.innerWidth < 901;
+        if (isMobile) {
+          var ty = 55 * (1 - localT);
+          var spread = (i === 0 ? -35 : i === 1 ? 0 : 35) * (1 - localT);
+          var rotM = (i === 0 ? -4 : i === 2 ? 4 : 0) * (1 - localT);
+          var scale = 0.94 + 0.06 * localT;
+          card.style.transform = 'translate3d(' + spread + 'px, ' + ty + 'px, 0) scale(' + scale + ') rotate(' + rotM + 'deg)';
         } else {
-          var translateY = (1 - cp) * 40;
-          var scaleC = 0.96 + (cp * 0.04);
-          card.style.transform = 'translateY(' + translateY + 'px) scale(' + scaleC + ')';
-          card.style.opacity = Math.max(0.4, cp);
+          var startX = -100 * i;
+          var startRotate = i === 0 ? 0 : (i % 2 === 0 ? -7 : 7);
+          var x = startX * (1 - localT);
+          var rot = startRotate * (1 - localT);
+          var scale = 0.92 + 0.08 * localT;
+          card.style.transform = 'translateX(' + x + '%) rotate(' + rot + 'deg) scale(' + scale + ')';
         }
+        card.style.opacity = String(0.35 + 0.65 * localT);
       });
     }
 
-    /* Testimonials flank fan */
+    // 2. Our Work Zoom Card
+    if (portfolioCard) {
+      var p = getElementProgress(portfolioCard, 0.95, 0.3);
+      var scale = 0.75 + 0.25 * p;
+      portfolioCard.style.transform = 'scale(' + scale + ')';
+      portfolioCard.style.opacity = 0.5 + 0.5 * p;
+    }
+
+    // 3. How We Approach It Slanted cards
+    if (approachCards.length) {
+      approachCards.forEach(function (card, i) {
+        if (i === 0) {
+          card.style.transform = 'none';
+          card.style.boxShadow = '0 5px 15px rgba(8, 8, 8, 0.02)';
+          return;
+        }
+        var p = getCardProgress(card.parentElement, 0.95, 0.5);
+        var isMobile = window.innerWidth < 901;
+        var maxSlant = (6 + (i - 1) * 3) * (isMobile ? 0.65 : 1.0);
+        var rot = maxSlant * (1 - p);
+        var ty = (isMobile ? -55 : -80) * (1 - p);
+        
+        card.style.transform = 'translate3d(0, ' + ty + 'px, 0) rotate(' + rot + 'deg)';
+        card.style.opacity = '1';
+        
+        var shadowY = 15 - 10 * p;
+        var shadowBlur = 30 - 15 * p;
+        var shadowAlpha = 0.08 - 0.06 * p;
+        card.style.boxShadow = '0 ' + shadowY + 'px ' + shadowBlur + 'px rgba(8, 8, 8, ' + shadowAlpha + ')';
+      });
+    }
+
+    // 4. Client Feedback Testimonials Fan Out
     if (testiGrid && testiLeft && testiRight) {
-      var pT = getElementProgress(testiGrid, 0.95, 0.35);
-      var degT = pT * 8;
-      if (window.innerWidth <= 900) {
-        testiLeft.style.transform = 'translate3d(' + (-90 * (1 - pT)) + 'px, ' + (20 * (1 - pT)) + 'px, 0) rotate(' + (-6 * (1 - pT)) + 'deg)';
-        testiLeft.style.opacity = Math.min(1, 0.4 + pT * 0.6);
-        testiRight.style.transform = 'translate3d(' + (90 * (1 - pT)) + 'px, ' + (20 * (1 - pT)) + 'px, 0) rotate(' + (6 * (1 - pT)) + 'deg)';
-        testiRight.style.opacity = Math.min(1, 0.4 + pT * 0.6);
+      var isMobile = window.innerWidth < 901;
+      if (isMobile) {
+        var pL = getElementProgress(testiLeft, 0.95, 0.3);
+        var pR = getElementProgress(testiRight, 0.95, 0.3);
+        var txL = -90 * (1 - pL);
+        var tyL = 20 * (1 - pL);
+        var rotL = -6 * (1 - pL);
+        testiLeft.style.transform = 'translate3d(' + txL + 'px, ' + tyL + 'px, 0) rotate(' + rotL + 'deg)';
+        testiLeft.style.opacity = pL;
+        testiLeft.style.pointerEvents = pL > 0.1 ? 'auto' : 'none';
+        var txR = 90 * (1 - pR);
+        var tyR = 20 * (1 - pR);
+        var rotR = 6 * (1 - pR);
+        testiRight.style.transform = 'translate3d(' + txR + 'px, ' + tyR + 'px, 0) rotate(' + rotR + 'deg)';
+        testiRight.style.opacity = pR;
+        testiRight.style.pointerEvents = pR > 0.1 ? 'auto' : 'none';
       } else {
-        testiLeft.style.transform = 'translate3d(' + (-pT * 340) + 'px, ' + (pT * 15) + 'px, 0) scale(' + (1 - pT * 0.1) + ') rotate(' + (-degT) + 'deg)';
-        testiLeft.style.opacity = pT > 0.05 ? Math.min(1, pT * 1.5) : 0;
-        testiRight.style.transform = 'translate3d(' + (pT * 340) + 'px, ' + (pT * 15) + 'px, 0) scale(' + (1 - pT * 0.1) + ') rotate(' + degT + 'deg)';
-        testiRight.style.opacity = pT > 0.05 ? Math.min(1, pT * 1.5) : 0;
+        var p = getElementProgress(testiGrid, 0.85, 0.3);
+        var tx = p * 340;
+        var ty = 15 * (1 - p);
+        var rot = p * 8;
+        testiLeft.style.transform = 'translate3d(' + (-tx) + 'px, ' + ty + 'px, 0) scale(' + (0.9 + 0.1 * p) + ') rotate(' + (-rot) + 'deg)';
+        testiLeft.style.opacity = p;
+        testiLeft.style.pointerEvents = p > 0.1 ? 'auto' : 'none';
+
+        testiRight.style.transform = 'translate3d(' + tx + 'px, ' + ty + 'px, 0) scale(' + (0.9 + 0.1 * p) + ') rotate(' + rot + 'deg)';
+        testiRight.style.opacity = p;
+        testiRight.style.pointerEvents = p > 0.1 ? 'auto' : 'none';
       }
     }
   }
@@ -2580,12 +1476,12 @@
     hoverlist.addEventListener('mouseleave', function () { preview.classList.remove('is-active'); });
     hoverItems.forEach(function (item) {
       item.addEventListener('mouseenter', function () {
-        var wL = preview.querySelector('[data-c8isv-fan-pos="left"]');
-        var wC = preview.querySelector('[data-c8isv-fan-pos="center"]');
-        var wR = preview.querySelector('[data-c8isv-fan-pos="right"]');
-        if (wL) wL.textContent = item.getAttribute('data-s1') || '';
-        if (wC) wC.textContent = item.getAttribute('data-s2') || '';
-        if (wR) wR.textContent = item.getAttribute('data-s3') || '';
+        var imgL = preview.querySelector('[data-c8isv-fan-logo="left"]');
+        var imgR = preview.querySelector('[data-c8isv-fan-logo="right"]');
+        var l1 = item.getAttribute('data-logo-1');
+        var l2 = item.getAttribute('data-logo-2');
+        if (imgL && l1) imgL.src = l1;
+        if (imgR && l2) imgR.src = l2;
       });
     });
   }
@@ -2615,11 +1511,11 @@
       if (!choices.length || !rangeDisplay) return;
 
       var platformBases = {
+        webdesign: { price: 1200, name: 'Web Design & UX', deliverables: ["Custom Figma interface design file", "Responsive mobile & desktop component layout", "Up to 5 editable layout pages"] },
         wordpress: { price: 1200, name: 'WordPress Custom Theme', deliverables: ["Custom theme build & setup", "Zero-bloat optimized speed architecture", "Up to 5 editable layout pages"] },
         shopify: { price: 1800, name: 'Shopify Storefront', deliverables: ["Custom Liquid storefront coding", "Cart drawer & upsell conversions built-in", "App-free speed performance tuning"] },
         woocommerce: { price: 1800, name: 'WooCommerce Store', deliverables: ["Custom checkout flows & data layout", "Multi-currency & native tax logical setups", "Full data ownership & local hosting options"] },
-        custom: { price: 2500, name: 'Bespoke Custom Dev (PHP/JS)', deliverables: ["Custom PHP/JS/React framework engineering", "Third-party APIs and custom database queries", "Client dashboard whitelabel panel"] },
-        aimvp: { price: 3500, name: 'AI MVP Prototype', deliverables: ["AI LLM fine-tuning & prompt layer setup", "Brave Search fact-checking API integration", "Immediate working MVP launch in 3 weeks"] }
+        custom: { price: 2500, name: 'Bespoke Custom Dev (PHP/JS)', deliverables: ["Custom PHP/JS/React framework engineering", "Third-party APIs and custom database queries", "Client dashboard whitelabel panel"] }
       };
 
       var estimatorAddons = {
@@ -2633,7 +1529,7 @@
         var activeScaleBtn = root.querySelector('[data-est-group="scale"] .c8srv-est-choice.is-active');
         var activeGrowthBtn = root.querySelector('[data-est-group="growth"] .c8srv-est-choice.is-active');
 
-        var platformVal = activePlatformBtn ? activePlatformBtn.getAttribute('data-est-val') : 'wordpress';
+        var platformVal = activePlatformBtn ? activePlatformBtn.getAttribute('data-est-val') : 'webdesign';
         var basePrice = platformBases[platformVal] ? platformBases[platformVal].price : 1200;
         var scaleMult = activeScaleBtn ? parseFloat(activeScaleBtn.getAttribute('data-est-multiplier')) || 1.0 : 1.0;
         var growthVal = activeGrowthBtn ? activeGrowthBtn.getAttribute('data-est-val') || 'none' : 'none';
@@ -2689,8 +1585,44 @@
     } else {
       initEstimator();
     }
+
+    /* Live Matrix Text Scramble Script */
+    var docRoot = document.querySelector('.c8isv-root, .c8srv-root') || document.body;
+    var srvMatrixButtons = docRoot.querySelectorAll('.c8-btn-primary, .c8isv-btn-primary, .c8srv-btn-primary, .c8srv-price-btn, .c8isv-price-btn, .c8srv-explore, .c8isv-explore, .c8isv-btn-ghost, .c8srv-btn-ghost, .faq-cta-link, .c8srv-vs-priority-btn, .c8isv-related-card-link, .c8srv-related-card-link');
+    var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    srvMatrixButtons.forEach(function(btn) {
+      var textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; });
+      var targetObj = textNode ? textNode : btn;
+      var originalText = targetObj.textContent.trim();
+      var scrambleInterval = null;
+
+      btn.addEventListener('mouseenter', function() {
+        var iteration = 0;
+        clearInterval(scrambleInterval);
+
+        scrambleInterval = setInterval(function() {
+          targetObj.textContent = originalText.split('')
+            .map(function(char, index) {
+              if (char === ' ' || index < iteration) return originalText[index];
+              return srvMatrixChars[Math.floor(Math.random() * srvMatrixChars.length)];
+            })
+            .join('');
+
+          if (iteration >= originalText.length) {
+            clearInterval(scrambleInterval);
+          }
+          iteration += 1 / 2;
+        }, 25);
+      });
+
+      btn.addEventListener('mouseleave', function() {
+        clearInterval(scrambleInterval);
+        targetObj.textContent = originalText;
+      });
+    });
   })();
   </script>
-
+  
 </div>
 </div>

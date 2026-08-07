@@ -1,7 +1,47 @@
 <link rel="stylesheet" href="../shared-service-components.css">
 <div class="c8isv-root">
 <style>
-/* Page Specific Alignment Overrides */
+/* Universal White 4px Case Study Deliverable Pills CSS */
+.c8isv-portfolio-deliverables, .c8srv-portfolio-deliverables {
+  grid-column: 1 / -1 !important;
+  margin-top: 1.25rem !important;
+  padding-top: 1.25rem !important;
+  border-top: 1px solid rgba(8, 8, 8, 0.08) !important;
+}
+
+.c8isv-portfolio-pills, .c8srv-portfolio-pills {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.5rem !important;
+  align-items: center !important;
+  margin-top: 0.4rem !important;
+}
+
+.c8isv-portfolio-pill, .c8srv-portfolio-pill {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  background: #FFFFFF !important;
+  color: #4A4A4A !important;
+  border: 1px solid rgba(8, 8, 8, 0.14) !important;
+  padding: 0.35rem 0.85rem !important;
+  border-radius: 4px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.c8isv-portfolio-pill:hover, .c8srv-portfolio-pill:hover {
+  background: #0047E1 !important;
+  color: #FFFFFF !important;
+  border-color: #0047E1 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 71, 225, 0.2) !important;
+}
 </style>
 
 <!-- ══════════════════════════════════════════
@@ -158,9 +198,12 @@
             <span class="c8isv-portfolio-stat-val">2.1s</span>
             <span class="c8isv-portfolio-stat-lbl">Mobile Speed</span>
           </div>
-          <div class="c8isv-portfolio-deliverables" style="grid-column: span 2; margin-top: 0.25rem;">
-            <span class="c8isv-portfolio-stat-val" style="font-size: 1.25rem; margin-bottom: 0.35rem;">WooCommerce Store &middot; Google &amp; Meta Ads</span>
-            <span class="c8isv-portfolio-stat-lbl">Key Deliverables</span>
+          <div class="c8isv-portfolio-deliverables" style="grid-column: span 2; margin-top: 0.5rem;">
+            <span class="c8isv-portfolio-stat-lbl" style="margin-bottom: 0.5rem; display: block;">Key Deliverables</span>
+            <div class="c8isv-portfolio-pills">
+              <span class="c8isv-portfolio-pill">WooCommerce Store</span>
+              <span class="c8isv-portfolio-pill">Google &amp; Meta Ads</span>
+            </div>
           </div>
         </div>
         <a href="https://cr8vstacks.com/contact/" class="c8isv-explore">Discuss E-Commerce Build &rarr;</a>
