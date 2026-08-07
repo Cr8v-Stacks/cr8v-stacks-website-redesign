@@ -8,10 +8,7 @@
    dashed tear-line dividers throughout.
 */
 .c8srv-root, .c8srv-root * { box-sizing: border-box !important; }
-.c8srv-root {
-  overflow-x: clip !important;
-  overflow-x: clip !important;
-  overflow-x: clip !important; background: #FFFFFF !important; color: #080808 !important; font-family: 'DM Sans', sans-serif !important; line-height: 1.65 !important; position: relative !important; }
+.c8srv-root { overflow: visible !important; background: #FFFFFF !important; color: #080808 !important; font-family: 'DM Sans', sans-serif !important; line-height: 1.65 !important; position: relative !important; }
 .c8srv-root .c8srv-wrap { padding: 5rem 3.5rem !important; max-width: 1440px !important; margin: 0 auto !important; position: relative !important; z-index: 2 !important; }
 @media (max-width: 1100px) { .c8srv-root .c8srv-wrap { padding: 3rem 1.25rem !important; } }
 .c8srv-root h1, .c8srv-root h2, .c8srv-root h3, .c8srv-root h4 { margin: 0 !important; line-height: 1.1 !important; }
@@ -1511,7 +1508,7 @@ body {
     <style>
       .faq-section { background: #FFFFFF !important; padding: clamp(5rem, 10vw, 9rem) 0 !important; }
       .faq-inner { max-width: 1360px !important; margin: 0 auto !important; padding: 0 clamp(1.5rem, 5vw, 5rem) !important; display: grid !important; grid-template-columns: 300px 1fr !important; gap: clamp(3rem, 6vw, 8rem) !important; align-items: start !important; }
-      .faq-aside { position: sticky !important; top: 5rem !important; }
+      .faq-aside { position: sticky !important; top: 6rem !important; align-self: start !important; }
       .faq-eyebrow { font-family: 'Space Mono', monospace !important; font-size: 0.65rem !important; letter-spacing: 0.14em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 1rem !important; font-weight: 700 !important; }
       .faq-h2 { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.6rem, 2.8vw, 2.2rem) !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.2 !important; margin-bottom: 1.5rem !important; }
       .faq-sub { font-family: 'DM Sans', sans-serif !important; font-size: 0.85rem !important; font-weight: 300 !important; color: #555555 !important; line-height: 1.7 !important; margin-bottom: 2rem !important; }
@@ -1521,7 +1518,7 @@ body {
       .faq-item { border-bottom: 1px solid rgba(8,8,8,0.1) !important; }
       .faq-item:first-child { border-top: 1px solid rgba(8,8,8,0.1) !important; }
       .faq-trigger { width: 100% !important; background: none !important; border: none !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.4rem 0 !important; text-align: left !important; }
-      .faq-q { font-family: 'DM Sans', sans-serif !important; font-size: clamp(0.88rem, 1.3vw, 0.95rem) !important; font-weight: 500 !important; color: #080808 !important; line-height: 1.4 !important; }
+      .faq-q { font-family: 'DM Sans', sans-serif !important; font-size: clamp(0.88rem, 1.3vw, 0.95rem) !important; font-weight: 400 !important; color: #080808 !important; line-height: 1.4 !important; }
       .faq-icon { width: 28px !important; height: 28px !important; border-radius: 50% !important; border: 1px solid rgba(8,8,8,0.14) !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; transition: background 0.25s, border-color 0.25s !important; }
       .faq-icon svg { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important; }
       .faq-item.is-open .faq-icon { background: #0047E1 !important; border-color: #0047E1 !important; }
