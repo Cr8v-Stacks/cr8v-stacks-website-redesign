@@ -1,7 +1,47 @@
 <link rel="stylesheet" href="../shared-service-components.css">
 <div class="c8isv-root">
 <style>
-/* Page Specific Alignment Overrides */
+/* Universal White 4px Case Study Deliverable Pills CSS */
+.c8isv-portfolio-deliverables, .c8srv-portfolio-deliverables {
+  grid-column: 1 / -1 !important;
+  margin-top: 1.25rem !important;
+  padding-top: 1.25rem !important;
+  border-top: 1px solid rgba(8, 8, 8, 0.08) !important;
+}
+
+.c8isv-portfolio-pills, .c8srv-portfolio-pills {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.5rem !important;
+  align-items: center !important;
+  margin-top: 0.4rem !important;
+}
+
+.c8isv-portfolio-pill, .c8srv-portfolio-pill {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  background: #FFFFFF !important;
+  color: #4A4A4A !important;
+  border: 1px solid rgba(8, 8, 8, 0.14) !important;
+  padding: 0.35rem 0.85rem !important;
+  border-radius: 4px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.c8isv-portfolio-pill:hover, .c8srv-portfolio-pill:hover {
+  background: #0047E1 !important;
+  color: #FFFFFF !important;
+  border-color: #0047E1 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 71, 225, 0.2) !important;
+}
 </style>
 
 <!-- ══════════════════════════════════════════
@@ -40,21 +80,20 @@
     <div class="c8isv-hero-grid">
       <div class="c8isv-hero-content">
         <div class="c8isv-breadcrumb">
-          <a href="../Main Service Page/">Services</a><span>/</span><span class="is-current">Shopify Development</span>
+          <a href="../Main Service Page/services (2).html">Services</a><span>/</span><span class="is-current">Shopify Development</span>
         </div>
-        <div  class="c8isv-label is-light">Shopify Plus & Custom Themes</div>
+        <div  class="c8isv-label is-light">Shopify Plus &amp; Custom Storefront Engineering</div>
         <h1 class="c8isv-headline">Shopify Stores Built for <span class="c8isv-serif">High Conversion</span>.</h1>
-        <p class="c8isv-hero-intro">Custom Liquid themes, zero app bloat, and lightning-fast storefronts that run on Shopify's bulletproof hosted infrastructure.</p>
+        <p class="c8isv-hero-intro">Purpose-built Shopify storefronts crafted for high add-to-cart conversion, friction-free mobile checkouts, and scalable hosted infrastructure.</p>
         <div class="c8isv-hero-ctas">
           <a href="#c8isv-services" class="c8isv-btn-primary">See What We Build →</a>
           <a href="https://cr8vstacks.com/contact/" class="c8isv-btn-ghost">Get a Quote →</a>
         </div>
         <div class="c8isv-pill-row">
-          <span class="c8isv-pill">Shopify Plus</span>
+          <span class="c8isv-pill">Shopify</span>
           <span class="c8isv-pill">Liquid</span>
-          <span class="c8isv-pill">JavaScript</span>
-          <span class="c8isv-pill">WebP</span>
-          <span class="c8isv-pill">GraphQL</span>
+          <span class="c8isv-pill">CSS</span>
+          <span class="c8isv-pill">Shopify Plus</span>
         </div>
       </div>
       
@@ -76,16 +115,16 @@
 <div class="c8isv-flank-section">
   <div class="c8isv-flank-inner">
     <div class="c8isv-label c8isv-reveal is-center">Why Shopify</div>
-    <h2 class="c8isv-section-title c8isv-reveal" >The platform built for scaling brands with hosted stability</h2>
+    <h2 class="c8isv-section-title c8isv-reveal" >Shopify Storefronts Built For Sales Growth &amp; Scalability</h2>
 
     <div class="c8isv-flank-container" data-c8isv-flank-trigger>
       <!-- Card 1 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="0">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step">Your Store // Setup Speed</span>
+        <span class="c8isv-flank-card-step">Theme // Custom</span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title">Zero DevOps Setup</h3>
-        <p class="c8isv-flank-card-desc">No server configurations, no security patches, no database administration. Launch faster on Shopify's bulletproof hosted infrastructure.</p>
+        <h3 class="c8isv-flank-card-title">Bespoke Liquid Storefronts</h3>
+        <p class="c8isv-flank-card-desc">Tailored sections built for high add-to-cart conversion and brand credibility without template constraints.</p>
         <div class="c8isv-flank-card-icon">
           <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         </div>
@@ -94,10 +133,10 @@
       <!-- Card 2 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="1">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step">Every Build // App Consolidation</span>
+        <span class="c8isv-flank-card-step">Checkout // Mobile</span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title">Clean Custom Code</h3>
-        <p class="c8isv-flank-card-desc">AJAX cart drawers, tier discounts, and native bundles coded directly. Say goodbye to 10+ slow plug-and-play apps and monthly fees.</p>
+        <h3 class="c8isv-flank-card-title">Fast Mobile Checkout</h3>
+        <p class="c8isv-flank-card-desc">Optimized AJAX cart drawers, dynamic filters, and smooth mobile buying flows that keep visitors buying.</p>
         <div class="c8isv-flank-card-icon">
           <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
@@ -106,10 +145,10 @@
       <!-- Card 3 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="2">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step">Any Gateway // Checkout</span>
+        <span class="c8isv-flank-card-step">Apps // Curation</span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title">Payment Freedom</h3>
-        <p class="c8isv-flank-card-desc">Shopify Payments, Stripe, Paystack, Flutterwave, and Apple Pay wired natively. Seamless one-click checkout flows that maximize conversions.</p>
+        <h3 class="c8isv-flank-card-title">App Stack Curation</h3>
+        <p class="c8isv-flank-card-desc">Audited essential Shopify apps to prevent store slowdown, unnecessary app fees, and script clutter.</p>
         <div class="c8isv-flank-card-icon">
           <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
         </div>
@@ -118,10 +157,10 @@
       <!-- Card 4 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="3">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step">Plus First // Scalability</span>
+        <span class="c8isv-flank-card-step">Global // Sales</span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title">Enterprise Scale</h3>
-        <p class="c8isv-flank-card-desc">Shopify Plus support, multi-currency localizations, wholesale B2B portals, and ERP inventory syncing built for high-volume sales.</p>
+        <h3 class="c8isv-flank-card-title">Global Multi-Currency Sales</h3>
+        <p class="c8isv-flank-card-desc">Shopify Markets and international gateway configuration for effortless worldwide brand expansion.</p>
         <div class="c8isv-flank-card-icon">
           <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
@@ -138,7 +177,7 @@
     <div class="c8isv-portfolio-inner">
       <div class="c8isv-portfolio-head">
         <div class="c8isv-label c8isv-reveal is-center">Our Work</div>
-        <h2 class="c8isv-section-title c8isv-reveal" >Built for Real Stores,<br><span class="c8isv-serif">Real Outcomes</span></h2>
+        <h2 class="c8isv-section-title c8isv-reveal" >Built for Real Outcomes,<br><span class="c8isv-serif">Not Just Concepts</span></h2>
       </div>
       <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
         <div class="c8isv-portfolio-img">
@@ -146,29 +185,32 @@
         </div>
         <div class="c8isv-portfolio-info">
           <span class="c8isv-portfolio-client">Case Study — Victoria's Lane</span>
-          <h3 class="c8isv-portfolio-title">Handbag &amp; Purse Ecommerce, Rebuilt on Shopify</h3>
-          <p class="c8isv-portfolio-desc">Victoria's Lane came to us running on a generic, slow theme that wasn't built for how people actually shop for handbags online. We rebuilt the entire storefront in Shopify, hand-coded in Liquid, with a checkout designed around impulse and gift-buying behavior.</p>
+          <h3 class="c8isv-portfolio-title">Handbag &amp; Purse E-Commerce, Rebuilt on Shopify</h3>
+          <p class="c8isv-portfolio-desc">Victoria's Lane came to us running on a generic, slow theme that wasn't built for how people actually shop for luxury handbags online. We rebuilt the entire storefront in Shopify, hand-coded in Liquid, with a checkout designed around impulse and gift-buying behavior.</p>
           <div class="c8isv-portfolio-stats">
-            <div class="c8isv-portfolio-deliverables">
-              <div>
-                <span class="c8isv-portfolio-stat-val">1.4s</span>
-                <span class="c8isv-portfolio-stat-lbl">Mobile load time</span>
-              </div>
-              <div>
-                <span class="c8isv-portfolio-stat-val">+38%</span>
-                <span class="c8isv-portfolio-stat-lbl">Add-to-cart rate</span>
-              </div>
-              <div>
-                <span class="c8isv-portfolio-stat-val">−22%</span>
-                <span class="c8isv-portfolio-stat-lbl">Cart abandonment rate</span>
-              </div>
+            <div>
+              <span class="c8isv-portfolio-stat-val">1.4s</span>
+              <span class="c8isv-portfolio-stat-lbl">Mobile Load Time</span>
+            </div>
+            <div>
+              <span class="c8isv-portfolio-stat-val">+38%</span>
+              <span class="c8isv-portfolio-stat-lbl">Add-to-Cart Rate</span>
             </div>
           </div>
-          <a href="../portfolio/victorias-lane.html" class="c8isv-explore">View Case Study →</a>
+          <div class="c8isv-portfolio-deliverables">
+            <span class="c8isv-portfolio-stat-lbl">Key Deliverables</span>
+            <div class="c8isv-portfolio-pills">
+              <span class="c8isv-portfolio-pill">Shopify Storefront</span>
+              <span class="c8isv-portfolio-pill">Custom Liquid</span>
+              <span class="c8isv-portfolio-pill">AJAX Cart</span>
+              <span class="c8isv-portfolio-pill">Checkout CRO</span>
+            </div>
+          </div>
+          <a href="https://cr8vstacks.com/contact/" class="c8isv-explore" style="margin-top: 1.5rem;">Discuss Shopify Store &rarr;</a>
         </div>
       </div>
       <div class="c8isv-portfolio-footer">
-        <a href="../portfolio/" class="c8isv-explore">See All Projects →</a>
+        <a href="../portfolio/" class="c8isv-explore">See All Projects &rarr;</a>
       </div>
     </div>
 </div>
@@ -244,17 +286,17 @@
         </div>
       </div>
 
-      <!-- Card 5: Redesigns -->
+      <!-- Card 5: Launch QA & Training -->
       <div class="c8srv-folder-card">
-        <div class="c8srv-folder-tab">05 // Redesign</div>
+        <div class="c8srv-folder-tab">05 // Launch</div>
         <div class="c8srv-folder-card-left">
-          <h3 class="c8srv-folder-card-title">Shopify Store Redesigns</h3>
-          <p class="c8srv-folder-card-desc">Complete redesign and migration services for slow, template-locked, or low-converting e-commerce stores. We audit and rebuild checkout flows, optimize theme speed, and clean up app bloat.</p>
-          <a href="https://cr8vstacks.com/contact/?model=project&amp;service=shopify" class="c8srv-explore">Discuss Shopify redesign &rarr;</a>
+          <h3 class="c8srv-folder-card-title">Store Launch QA &amp; Training</h3>
+          <p class="c8srv-folder-card-desc">Complete payment gateway testing, domain cutover, 301 redirect mapping, and staff training on the Shopify admin dashboard.</p>
+          <a href="https://cr8vstacks.com/contact/?model=project&amp;service=shopify" class="c8srv-explore">Discuss launch QA &rarr;</a>
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop" alt="Shopify redesign and conversion audit mockup">
+            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop" alt="Store Launch QA and Training">
           </div>
         </div>
       </div>
@@ -270,7 +312,7 @@
   <div class="c8isv-wrap" style="padding-bottom:0">
     <div  class="c8isv-label c8isv-reveal">How We Approach It</div>
     <h2  class="c8isv-section-title c8isv-reveal">Four stages. No overlap, no shortcuts.</h2>
-    <p  class="c8isv-lead c8isv-reveal">Each card opens as you scroll — that is how deliberate the process is.</p>
+    <p  class="c8isv-lead c8isv-reveal">A battle-tested 4-stage Liquid storefront development process crafted for brand storytelling, app curation, and mobile sales velocity.</p>
   </div>
   
   <div class="c8isv-approach-deck" data-c8isv-approach-deck>
@@ -328,9 +370,69 @@
 </div>
 
 <!-- ══════════════════════════════════════════
-     SECTION 6: FULL CATALOG HOVERLIST
-     White background — Capability index
+     SECTION 5.5: SHOPIFY BUILD STACK DECK
      ══════════════════════════════════════════ -->
+<div class="c8isv-fits-outer" style="background: #FFFFFF !important; padding: 6rem 0 !important; border-top: 1px solid rgba(8,8,8,0.08) !important;">
+  <div class="c8isv-wrap">
+    <div class="c8isv-label c8isv-reveal">Shopify Stack Options</div>
+    <h2 class="c8isv-section-title c8isv-reveal" style="margin-bottom: 1.5rem !important;">Choosing The Right <span class="c8isv-serif">Shopify Architecture</span></h2>
+    <p class="c8isv-lead c8isv-reveal" style="max-width: 720px !important; margin-bottom: 3rem !important;">Whether you need rapid theme setup, custom Liquid layouts, enterprise Plus features, or headless React — we engineer the right setup for your brand:</p>
+    
+    <div class="c8isv-platform-deck" data-c8isv-platform-trigger>
+      <!-- Option 1 -->
+      <div class="c8isv-platform-card c8isv-reveal">
+        <span class="c8isv-platform-badge">Liquid // Storefront</span>
+        <div class="c8isv-platform-divider"></div>
+        <h3 class="c8isv-platform-title">Liquid Storefront Architecture</h3>
+        <p class="c8isv-platform-desc">Custom Liquid section coding on Dawn starter bases or aggressively customized premium Shopify themes — leveraging built-in features to reduce development costs while maintaining fast mobile speeds.</p>
+        <div class="c8isv-platform-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+      </div>
+
+      <!-- Option 2 -->
+      <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d1">
+        <span class="c8isv-platform-badge">Apps // Optimization</span>
+        <div class="c8isv-platform-divider"></div>
+        <h3 class="c8isv-platform-title">Shopify App &amp; Cart Optimization</h3>
+        <p class="c8isv-platform-desc">Custom slide-out AJAX cart drawers and app curation to eliminate unnecessary monthly subscription costs.</p>
+        <div class="c8isv-platform-icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+      </div>
+
+      <!-- Option 3 -->
+      <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d2">
+        <span class="c8isv-platform-badge">Plus // B2B</span>
+        <div class="c8isv-platform-divider"></div>
+        <h3 class="c8isv-platform-title">Shopify Plus B2B Setup</h3>
+        <p class="c8isv-platform-desc">Enterprise wholesale pricing, customized checkout extensions, and multi-region expansion.</p>
+        <div class="c8isv-platform-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+      </div>
+
+      <!-- Option 4 -->
+      <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d3">
+        <span class="c8isv-platform-badge">API // Headless</span>
+        <div class="c8isv-platform-divider"></div>
+        <h3 class="c8isv-platform-title">Headless Hydrogen Storefront</h3>
+        <p class="c8isv-platform-desc">Ultra-fast React frontend powered by Shopify's Storefront API for complex WebGL/custom UX.</p>
+        <div class="c8isv-platform-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <p class="c8isv-reveal" style="font-size: 0.95rem !important; color: #6B6B6B !important; max-width: 800px !important; margin: 2rem 0 !important; line-height: 1.7 !important;">
+      <strong>Not sure which one?</strong> Tell us what you're selling and we'll recommend the right Shopify architecture as part of the initial scoping call.
+    </p>
+
+    <div class="c8isv-reveal" style="display: flex !important; margin-top: 2rem !important;">
+      <a href="https://cr8vstacks.com/contact/?model=project&amp;service=shopify" class="c8isv-btn-primary">Start a Shopify Scoping Call →</a>
+    </div>
+  </div>
+</div>
 <!-- ══════════════════════════════════════════
      SECTION 6: FULL CATALOG HOVERLIST (Project Types)
      White background — Capability index
@@ -344,11 +446,11 @@
   <div class="c8isv-wrap" style="padding-top:0 !important; position:relative">
     <div class="c8isv-hoverlist" data-c8isv-hoverlist>
       <!-- Item 1 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Shopify CLI" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg" data-tech-2="Liquid Code" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/ruby.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Shopify" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg" data-tech-2="JavaScript" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/javascript.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">01</span>
           <h3 class="c8isv-hoverlist-title">DTC Beauty, Cosmetics &amp; Skincare Stores</h3>
-          <span class="c8isv-hoverlist-tagline">Shade finder quizzes, bundle builders, high-converting product detail pages, and subscription replenishment</span>
+          <span class="c8isv-hoverlist-tagline">Shade finder quizzes, bundle builders, high-converting product detail pages, and subscription replenishment.</span>
         </div>
         <div class="c8isv-hoverlist-right">
           <span class="c8isv-hoverlist-tech">Beauty &amp; Skincare</span>
@@ -357,11 +459,11 @@
       </div>
 
       <!-- Item 2 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="GraphQL API" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/graphql.svg" data-tech-2="Node.js Sync" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/nodedotjs.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="Shopify" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg" data-tech-2="HTML5" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">02</span>
           <h3 class="c8isv-hoverlist-title">High-Volume Consumer Electronics &amp; Gadgets</h3>
-          <span class="c8isv-hoverlist-tagline">3D product rotators, tech spec comparison grids, warranty add-ons, and multi-warehouse stock sync</span>
+          <span class="c8isv-hoverlist-tagline">3D product rotators, tech spec comparison grids, warranty add-ons, and multi-warehouse stock sync.</span>
         </div>
         <div class="c8isv-hoverlist-right">
           <span class="c8isv-hoverlist-tech">Electronics</span>
@@ -370,11 +472,11 @@
       </div>
 
       <!-- Item 3 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d2" data-tech-1="Stripe Checkout" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/stripe.svg" data-tech-2="Recharge Billing" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/stripe.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d2" data-tech-1="Shopify" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg" data-tech-2="Stripe" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/stripe.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">03</span>
           <h3 class="c8isv-hoverlist-title">Health, Wellness &amp; Supplement Brands</h3>
-          <span class="c8isv-hoverlist-tagline">Nutritional ingredient breakdown popups, recurring subscription delivery, and bulk buy discount tiers</span>
+          <span class="c8isv-hoverlist-tagline">Nutritional ingredient breakdown popups, recurring subscription delivery, and bulk buy discount tiers.</span>
         </div>
         <div class="c8isv-hoverlist-right">
           <span class="c8isv-hoverlist-tech">Supplements</span>
@@ -383,11 +485,11 @@
       </div>
 
       <!-- Item 4 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d3" data-tech-1="Shopify Markets" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg" data-tech-2="Cloudflare CDN" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/cloudflare.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d3" data-tech-1="Shopify" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg" data-tech-2="CSS3" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/css3.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">04</span>
           <h3 class="c8isv-hoverlist-title">Food, Beverage &amp; Gourmet Subscription Stores</h3>
-          <span class="c8isv-hoverlist-tagline">Perishable shipping date selectors, recurring box builders, and localized zip-code delivery routing</span>
+          <span class="c8isv-hoverlist-tagline">Perishable shipping date selectors, recurring box builders, and localized zip-code delivery routing.</span>
         </div>
         <div class="c8isv-hoverlist-right">
           <span class="c8isv-hoverlist-tech">Food &amp; Beverage</span>
@@ -396,27 +498,14 @@
       </div>
 
       <!-- Item 5 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Figma UI" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="React Frontend" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Shopify" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg" data-tech-2="WordPress" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">05</span>
-          <h3 class="c8isv-hoverlist-title">Home, Furniture &amp; Interior Living Catalogues</h3>
-          <span class="c8isv-hoverlist-tagline">AR room visualizer embeds, heavy item shipping calculators, and custom swatch request drawers</span>
+          <h3 class="c8isv-hoverlist-title">WooCommerce to Shopify Store Migrations</h3>
+          <span class="c8isv-hoverlist-tagline">Full store migrations transferring products, order histories, customer accounts, and 301 SEO redirects seamlessly.</span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Home &amp; Furniture</span>
-          <span class="c8isv-hoverlist-arrow">→</span>
-        </div>
-      </div>
-
-      <!-- Item 6 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="Shopify POS" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg" data-tech-2="Nginx Server" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/nginx.svg">
-        <div class="c8isv-hoverlist-left">
-          <span class="c8isv-hoverlist-num">06</span>
-          <h3 class="c8isv-hoverlist-title">Omnichannel Retail &amp; POS Store Synchronization</h3>
-          <span class="c8isv-hoverlist-tagline">Syncing physical retail POS inventory, multi-store pickup, and unified customer loyalty rewards</span>
-        </div>
-        <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Omnichannel POS</span>
+          <span class="c8isv-hoverlist-tech">Migrations</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
@@ -424,7 +513,7 @@
     <!-- 2-Card Fan Stack Preview with SVG CDN Logos -->
     <div class="c8isv-hoverlist-preview" data-c8isv-preview>
       <div class="c8isv-fan-card c8isv-fan-left"><img class="c8isv-fan-logo" data-c8isv-fan-logo="left" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg" alt="Shopify"></div>
-      <div class="c8isv-fan-card c8isv-fan-right"><img class="c8isv-fan-logo" data-c8isv-fan-logo="right" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/graphql.svg" alt="GraphQL"></div>
+      <div class="c8isv-fan-card c8isv-fan-right"><img class="c8isv-fan-logo" data-c8isv-fan-logo="right" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/javascript.svg" alt="JavaScript"></div>
     </div>
   </div>
 </div>
@@ -442,7 +531,7 @@
       <div class="c8isv-testi-card is-left" data-c8isv-testi-left>
         <div class="c8isv-testi-quote">"</div>
         <div class="c8isv-testi-divider"></div>
-        <p class="c8isv-testi-text">Our old Shopify theme took nearly 5 seconds to load on mobile phones. Rebuilding in hand-coded Liquid dropped mobile load times to 1.4s and boosted our add-to-cart rate by 38%.</p>
+        <p class="c8isv-testi-text">Our old Shopify theme took nearly 20 seconds to load on mobile phones due to unoptimized app scripts. Rebuilding in custom Liquid dropped mobile load times to 1.4s and boosted our add-to-cart rate by 38%.</p>
         <div class="c8isv-testi-author">Claire Dupont — E-Commerce Brand Director</div>
       </div>
       <!-- Center Card -->
@@ -464,9 +553,145 @@
 </div>
 
 <!-- ══════════════════════════════════════════
-     SECTION 9: FAQ
-     White — 10 PAA-focused questions
+     SECTION 10: FAQ
      ══════════════════════════════════════════ -->
+<section class="faq-section" id="faq" style="background: #FFFFFF !important; padding: clamp(5rem, 10vw, 9rem) 0 !important;">
+  <style>
+    .faq-section { background: #FFFFFF !important; padding: clamp(5rem, 10vw, 9rem) 0 !important; position: relative !important; z-index: 5 !important; border-top: 1px solid rgba(8,8,8,0.12) !important; }
+    .faq-inner { max-width: 1360px !important; margin: 0 auto !important; padding: 0 clamp(1.5rem, 5vw, 5rem) !important; display: grid !important; grid-template-columns: 300px 1fr !important; gap: clamp(3rem, 6vw, 8rem) !important; align-items: start !important; }
+    .faq-aside { position: sticky !important; top: 6rem !important; align-self: start !important; }
+    .faq-eyebrow { font-family: 'Space Mono', monospace !important; font-size: 0.65rem !important; letter-spacing: 0.14em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 1rem !important; font-weight: 700 !important; }
+    .faq-h2 { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.6rem, 2.8vw, 2.2rem) !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.2 !important; margin-bottom: 1.5rem !important; }
+    .faq-sub { font-family: 'DM Sans', sans-serif !important; font-size: 0.85rem !important; font-weight: 300 !important; color: #555555 !important; line-height: 1.7 !important; margin-bottom: 2rem !important; }
+    .faq-cta-link { font-family: 'Space Mono', monospace !important; font-size: 0.75rem !important; font-weight: 700 !important; color: #0047E1 !important; text-transform: uppercase !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; letter-spacing: 0.08em !important; transition: color 0.2s ease !important; }
+    .faq-cta-link:hover { color: #0037B5 !important; }
+    .faq-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+    .faq-item { border-bottom: 1px solid rgba(8,8,8,0.1) !important; }
+    .faq-item:first-child { border-top: 1px solid rgba(8,8,8,0.1) !important; }
+    .faq-trigger { width: 100% !important; background: none !important; border: none !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.4rem 0 !important; text-align: left !important; }
+    .faq-q { font-family: 'DM Sans', sans-serif !important; font-size: clamp(0.88rem, 1.3vw, 0.95rem) !important; font-weight: 400 !important; color: #080808 !important; line-height: 1.4 !important; }
+    .faq-icon { width: 28px !important; height: 28px !important; border-radius: 50% !important; border: 1px solid rgba(8,8,8,0.14) !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; transition: background 0.25s, border-color 0.25s !important; }
+    .faq-icon svg { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+    .faq-item.is-open .faq-icon { background: #0047E1 !important; border-color: #0047E1 !important; }
+    .faq-item.is-open .faq-icon svg { transform: rotate(45deg) !important; stroke: #ffffff !important; }
+    .faq-body { display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+    .faq-item.is-open .faq-body { grid-template-rows: 1fr !important; }
+    .faq-body-inner { overflow: hidden !important; }
+    .faq-a { font-family: 'DM Sans', sans-serif !important; font-size: 0.88rem !important; font-weight: 300 !important; line-height: 1.75 !important; color: #555555 !important; padding-bottom: 1.4rem !important; }
+    .faq-a a { color: #0047E1 !important; text-decoration: underline !important; }
+    @media (max-width: 900px) {
+      .faq-inner { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .faq-aside { position: static !important; }
+    }
+  </style>
+
+  <div class="faq-inner">
+    <div class="faq-aside">
+      <div class="faq-eyebrow"><span style="color:#0047E1;font-weight:800;font-size:0.85rem;margin-right:2px;">//</span> COMMON QUESTIONS</div>
+      <h2 class="faq-h2">Shopify Questions, Answered Honestly</h2>
+      <p class="faq-sub">Clear answers to common questions about our custom Liquid theme development, Shopify app auditing, and checkout optimization.</p>
+      <a href="https://cr8vstacks.com/contact/" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+
+    <ul class="faq-list" id="srv-faq-list">
+      <li class="faq-item is-open">
+        <button class="faq-trigger" aria-expanded="true">
+          <span class="faq-q">Why choose Shopify over WooCommerce?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body" style="grid-template-rows: 1fr;">
+          <div class="faq-body-inner">
+            <p class="faq-a">Shopify provides fully hosted server infrastructure, zero server maintenance overhead, built-in global PCI security compliance, and an effortless app ecosystem for rapid scaling without managing databases or hosting servers.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">How much does a custom Shopify theme cost?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">Our fixed-scope custom Shopify builds start from $1,800 for a custom Liquid theme setup, custom AJAX cart drawers, and connecting payment gateways. The price scales with catalog complexity, B2B wholesale needs, or custom app integrations. We scope every project individually and give you a firm number within 24 hours.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">Why hire an agency like Cr8v Stacks instead of a solo freelancer?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">Solo freelancers often handle design, Liquid code, and app setups alone, leading to single-point delays. Cr8v Stacks provides a dedicated team — combining e-commerce UI/UX designers, senior Liquid developers, conversion specialists, and SEO leads — backed by milestone SLAs.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">Do you handle multi-currency, geolocation redirects, and migrations from WooCommerce?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">Yes. We configure Shopify Markets for multi-currency pricing, automatic IP geolocation redirects, and execute full data migrations from WooCommerce, Magento, or WordPress — transferring products, orders, customers, and 301 SEO redirects seamlessly.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">How long does a custom Shopify store project take?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">A standard custom Liquid storefront build takes 3 to 5 weeks from initial design wireframes to live store launch. Complex Shopify Plus B2B implementations or custom app integrations take 5 to 8 weeks.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">Will my team be able to edit theme sections without needing a page builder like PageFly or Shogun?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">Yes. We build native Shopify OS 2.0 JSON templates and customizable sections so your team can easily drag, drop, and edit page content directly within the native Shopify Theme Editor without needing heavy third-party page builder plugins like PageFly or Shogun.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">Will my store load fast if I use Shopify apps?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">Every app you add to Shopify injects external scripts that can slow down your site. Our approach is to hardcode features (like cart drawers, sticky bars, and bundle offers) directly in Liquid. This keeps your theme lean and guarantees fast mobile load times.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">What support do I get after my Shopify store goes live?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">We include 30 days of post-launch development support to cover any adjustments or layout tweaks. We also run a full handover training session with your team. For ongoing help, our Growth Retainer at $950/month provides dedicated hours for custom Liquid edits, app integrations, and regular audits.</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
 
 
 
@@ -594,131 +819,6 @@
   </div>
 </div>
 
-<section class="faq-section" id="faq" style="background: #FFFFFF !important; padding: clamp(5rem, 10vw, 9rem) 0 !important;">
-  <style>
-    .faq-section { background: #FFFFFF !important; padding: clamp(5rem, 10vw, 9rem) 0 !important; position: relative !important; z-index: 5 !important; border-top: 1px solid rgba(8,8,8,0.12) !important; }
-    .faq-inner { max-width: 1360px !important; margin: 0 auto !important; padding: 0 clamp(1.5rem, 5vw, 5rem) !important; display: grid !important; grid-template-columns: 300px 1fr !important; gap: clamp(3rem, 6vw, 8rem) !important; align-items: start !important; }
-    .faq-aside { position: sticky !important; top: 6rem !important; align-self: start !important; }
-    .faq-eyebrow { font-family: 'Space Mono', monospace !important; font-size: 0.65rem !important; letter-spacing: 0.14em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 1rem !important; font-weight: 700 !important; }
-    .faq-h2 { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.6rem, 2.8vw, 2.2rem) !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.2 !important; margin-bottom: 1.5rem !important; }
-    .faq-sub { font-family: 'DM Sans', sans-serif !important; font-size: 0.85rem !important; font-weight: 300 !important; color: #555555 !important; line-height: 1.7 !important; margin-bottom: 2rem !important; }
-    .faq-cta-link { font-family: 'Space Mono', monospace !important; font-size: 0.75rem !important; font-weight: 700 !important; color: #0047E1 !important; text-transform: uppercase !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; letter-spacing: 0.08em !important; transition: color 0.2s ease !important; }
-    .faq-cta-link:hover { color: #0037B5 !important; }
-    .faq-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
-    .faq-item { border-bottom: 1px solid rgba(8,8,8,0.1) !important; }
-    .faq-item:first-child { border-top: 1px solid rgba(8,8,8,0.1) !important; }
-    .faq-trigger { width: 100% !important; background: none !important; border: none !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.4rem 0 !important; text-align: left !important; }
-    .faq-q { font-family: 'DM Sans', sans-serif !important; font-size: clamp(0.88rem, 1.3vw, 0.95rem) !important; font-weight: 400 !important; color: #080808 !important; line-height: 1.4 !important; }
-    .faq-icon { width: 28px !important; height: 28px !important; border-radius: 50% !important; border: 1px solid rgba(8,8,8,0.14) !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; transition: background 0.25s, border-color 0.25s !important; }
-    .faq-icon svg { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important; }
-    .faq-item.is-open .faq-icon { background: #0047E1 !important; border-color: #0047E1 !important; }
-    .faq-item.is-open .faq-icon svg { transform: rotate(45deg) !important; stroke: #ffffff !important; }
-    .faq-body { display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important; }
-    .faq-item.is-open .faq-body { grid-template-rows: 1fr !important; }
-    .faq-body-inner { overflow: hidden !important; }
-    .faq-a { font-family: 'DM Sans', sans-serif !important; font-size: 0.88rem !important; font-weight: 300 !important; line-height: 1.75 !important; color: #555555 !important; padding-bottom: 1.4rem !important; }
-    .faq-a a { color: #0047E1 !important; text-decoration: underline !important; }
-    @media (max-width: 900px) {
-      .faq-inner { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
-      .faq-aside { position: static !important; }
-    }
-  </style>
-
-  <div class="faq-inner">
-    <div class="faq-aside">
-      <div class="faq-eyebrow"><span style="color:#0047E1;font-weight:800;font-size:0.85rem;margin-right:2px;">//</span> COMMON QUESTIONS</div>
-      <h2 class="faq-h2">Shopify Questions, Answered Honestly</h2>
-      <p class="faq-sub">Clear answers to common questions about our custom Liquid storefront builds, performance tuning, and checkout integrations.</p>
-      <a href="https://cr8vstacks.com/contact/" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-    </div>
-
-    <ul class="faq-list" id="srv-faq-list">
-      <li class="faq-item is-open">
-        <button class="faq-trigger" aria-expanded="true">
-          <span class="faq-q">How much does a custom Shopify storefront cost?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-        </button>
-        <div class="faq-body" style="grid-template-rows: 1fr;">
-          <div class="faq-body-inner">
-            <p class="faq-a">Our fixed-scope custom Shopify builds start from $1,800. This includes custom Liquid design and development, setting up product pages and collections, custom AJAX cart drawers, and connecting payment gateways. The price scales with catalog complexity, B2B wholesale needs, or if you need custom app integrations. We scope every project individually and give you a firm number within 24 hours.</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">Will my store load fast if I use Shopify apps?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">
-            <p class="faq-a">Every app you add to Shopify injects external scripts that can slow down your site. Our approach is to hardcode as many features as possible (like cart drawers, countdowns, and bundle offers) directly in Liquid. This keeps your theme lean and guarantees mobile load times under 1.0s.</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">Can you integrate local payment gateways like Paystack or Flutterwave?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">
-            <p class="faq-a">Yes. We integrate Stripe, Paystack, Flutterwave, Apple Pay, and local payment alternatives directly into your Shopify checkout. We handle all configuration and testing under live sandboxed environments to ensure your checkout operates seamlessly.</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">Do you support Shopify Plus and wholesale storefronts?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">
-            <p class="faq-a">Absolutely. We design custom B2B wholesale portals, multi-region currencies, custom checkout branding using Shopify's checkout extensibility, and automated backend scripts (Shopify Flow) for enterprise-scale merchants.</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">Can you migrate my customer and order history from WooCommerce or Magento?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">
-            <p class="faq-a">Yes. We handle the complete migration of product databases, historical customer lists, and past order records using CSV datasets and Shopify APIs. We map all old URLs to new paths, preserving your SEO authority and search rankings.</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">Do I need a page builder like PageFly or Shogun?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">
-            <p class="faq-a">No. In fact, page builders inject heavy CSS and JS which degrade mobile performance. We build using Shopify's native Online Store 2.0 block architecture. This gives your team full visual drag-and-drop editing capabilities directly in the Shopify customizer without sacrificing page speed.</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">What support do I get after my Shopify store goes live?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">
-            <p class="faq-a">We include 30 days of post-launch development support to cover any adjustments or layout tweaks. We also run a full handover training session with your team. For ongoing help, our Growth Retainer at $950/month provides dedicated hours for custom Liquid edits, app integrations, and regular audits.</p>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
 
 <!-- ══════════════════════════════════════════
      SECTION 10: RELATED SERVICES (Alternatives)
