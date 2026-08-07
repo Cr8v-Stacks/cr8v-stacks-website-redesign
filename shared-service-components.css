@@ -391,11 +391,23 @@
   border: 1px solid rgba(250,250,247,0.2) !important;
   border-radius: 4px !important;
   transition: border-color 0.2s ease, color 0.2s ease !important;
+  text-decoration: none !important;
 }
 
 .c8isv-btn-ghost:hover, .c8srv-btn-ghost:hover {
   border-color: rgba(250,250,247,0.45) !important;
   color: #FAFAF7 !important;
+}
+
+.c8srv-root .c8srv-btn-ghost, .c8srv-root .c8isv-btn-ghost, .c8srv-btn-ghost.is-light, .c8isv-btn-ghost.is-light {
+  color: #080808 !important;
+  border: 1px solid rgba(8,8,8,0.2) !important;
+  background: transparent !important;
+}
+
+.c8srv-root .c8srv-btn-ghost:hover, .c8srv-root .c8isv-btn-ghost:hover, .c8srv-btn-ghost.is-light:hover, .c8isv-btn-ghost.is-light:hover {
+  border-color: #0047E1 !important;
+  color: #0047E1 !important;
 }
 
 .c8isv-pill-row, .c8srv-pill-row {
@@ -1864,7 +1876,7 @@ button.c8isv-est-choice.is-active,
 .faq-q {
   font-family: 'DM Sans', sans-serif !important;
   font-size: clamp(0.88rem, 1.3vw, 0.95rem) !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
   color: #080808 !important;
   line-height: 1.4 !important;
 }
