@@ -887,28 +887,6 @@
 </head>
 <body>
 
-  <!-- Top Navigation Bar -->
-  <header class="c8-nav-header">
-    <a href="homepage_hero_section.html" class="c8-logo">
-      <div class="c8-logo-badge">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
-        </svg>
-      </div>
-      <span>Cr8v Stacks</span>
-    </a>
-
-    <ul class="c8-nav-menu">
-      <li><a href="Web Design Service Page/index.html">Web Design</a></li>
-      <li><a href="Custom Dev Service Page/index.html">Custom Dev</a></li>
-      <li><a href="AI MVP Service Page/index.html">AI MVP</a></li>
-      <li><a href="Main Service Page/services (2).html">Services</a></li>
-      <li><a href="#selected-work">Case Studies</a></li>
-    </ul>
-
-    <a href="https://cr8vstacks.com/contact/" class="c8-btn-primary" style="padding:0.65rem 1.4rem;">Start a Project →</a>
-  </header>
-
   <!-- HERO WRITTEN CONTENT -->
   <section class="c8-hero-top">
     <div class="c8-hero-in">
@@ -994,7 +972,7 @@
        ════════════════════════════════════════════════════════════════ -->
   <style>
     /* Global CTA Underline Reset & Text CTA Standard */
-    a, a:hover, a:focus, .c8-btn-primary, .dp-btn-ghost, .stage-link, .c8srv-explore, .sw-play-btn {
+    a, a:hover, a:focus, .c8-btn-primary, .dp-btn-ghost, .stage-link, .c8srv-explore, .sw-play-btn, .c8-text-cta {
       text-decoration: none !important;
     }
 
@@ -1045,7 +1023,7 @@
 
     .sw-matrix-h2 {
       font-family: 'Michroma', sans-serif;
-      font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+      font-size: clamp(1.2rem, 2.6vw, 1.1rem);
       font-weight: 700;
       color: #080808;
       text-transform: uppercase;
@@ -1060,31 +1038,6 @@
       color: #555555;
       line-height: 1.7;
       margin-bottom: 2rem;
-    }
-
-    .sw-matrix-testimonial {
-      border-top: 1px solid rgba(8, 8, 8, 0.1);
-      padding-top: 1.5rem;
-      margin-top: auto;
-      margin-bottom: 2rem;
-    }
-
-    .sw-matrix-quote {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      font-style: italic;
-      color: #333333;
-      line-height: 1.65;
-      margin-bottom: 1rem;
-    }
-
-    .sw-matrix-role {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #0047E1;
     }
 
     .sw-matrix-img-box {
@@ -1120,7 +1073,7 @@
 
     .sw-matrix-stat-val {
       font-family: 'Michroma', sans-serif;
-      font-size: 1.1rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: #0047E1;
     }
@@ -1175,6 +1128,19 @@
   <div class="sw-wrapper" id="selected-work">
     <div class="sw-matrix-wrapper">
 
+      <!-- ── MATRIX INTRO HEADER CELL ── -->
+      <div class="sw-matrix-cell sw-matrix-intro-cell">
+        <div class="sw-matrix-left" style="background:#FFFFFF; padding:3.5rem;">
+          <div class="sw-matrix-eyebrow">// SELECTED WORK</div>
+          <h2 class="sw-matrix-h2" style="font-size: clamp(1.4rem, 3.2vw, 2.2rem); margin-bottom: 0;">WORK THAT'S VERIFIABLY <span style="color:#0047E1;">LIVE.</span></h2>
+        </div>
+        <div class="sw-matrix-right" style="padding:3.5rem;">
+          <p class="sw-matrix-sub" style="margin-bottom:0;">
+            These aren't concept projects or fictitious mockups. Every case study below is a live engagement — search the clients on Google and see the work for yourself. We only show projects we're allowed to talk about.
+          </p>
+        </div>
+      </div>
+
       <!-- ── CASE 1: BLVCK HAIR NG ── -->
       <div class="sw-matrix-cell" id="cs-blvck-hair">
         <div class="sw-matrix-left">
@@ -1186,14 +1152,22 @@
             </p>
           </div>
 
-          <div class="sw-matrix-testimonial">
-            <p class="sw-matrix-quote">"Keyword mapping, page architecture, and content engineered for two international markets simultaneously. Both storefronts now rank and convert independently."</p>
-            <div class="sw-matrix-role">SEO &amp; E-Commerce Strategy · Nigeria &amp; UK</div>
+          <!-- REVERTED TESTIMONIAL CARD UI -->
+          <div class="sw-testimonial-card" style="margin-bottom: 2rem;">
+            <p class="sw-testimonial-quote">We handled their SEO end-to-end — keyword mapping, page architecture, and content — from the ground up. We built out the strategy for two markets simultaneously, and both storefronts are now ranking and converting independently.</p>
+            <div class="sw-testimonial-meta">
+              <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(149,191,71,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(149,191,71,0.3);">
+                <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" style="width:20px;height:20px;">
+              </div>
+              <div>
+                <div class="sw-testimonial-role">SEO &amp; E-Commerce · Nigeria &amp; UK</div>
+              </div>
+            </div>
           </div>
 
           <div>
             <a href="Case Studies/blvck-hair-ng.html" class="c8-text-cta">
-              Explore Case Study
+              <span>Explore Case Study</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
@@ -1221,14 +1195,22 @@
             </p>
           </div>
 
-          <div class="sw-matrix-testimonial">
-            <p class="sw-matrix-quote">"Custom layout, zero template base — with technical SEO architecture coded in before a single page went live. Direct booking integration maximized revenue from sprint one."</p>
-            <div class="sw-matrix-role">Web Design &amp; Technical SEO · Lagos, Nigeria</div>
+          <!-- REVERTED TESTIMONIAL CARD UI -->
+          <div class="sw-testimonial-card" style="margin-bottom: 2rem;">
+            <p class="sw-testimonial-quote">We designed and built the full site — custom layout, zero template base — with SEO architecture already coded in before a single page went live. Direct booking integration was included from the first sprint, maximising their direct revenue channel from day one.</p>
+            <div class="sw-testimonial-meta">
+              <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(33,117,155,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(33,117,155,0.3);">
+                <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress" style="width:20px;height:20px;">
+              </div>
+              <div>
+                <div class="sw-testimonial-role">Web Design &amp; Technical SEO · Lagos, Nigeria</div>
+              </div>
+            </div>
           </div>
 
           <div>
             <a href="Case Studies/the-duch-apartments.html" class="c8-text-cta">
-              Explore Case Study
+              <span>Explore Case Study</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
@@ -1256,14 +1238,22 @@
             </p>
           </div>
 
-          <div class="sw-matrix-testimonial">
-            <p class="sw-matrix-quote">"Engineered to showcase our proprietary AI capabilities: LLM prompt orchestration, RAG vector pipelines, and automated editorial publishing."</p>
-            <div class="sw-matrix-role">OpenAI &amp; Claude AI MVP · In-House Platform</div>
+          <!-- REVERTED TESTIMONIAL CARD UI -->
+          <div class="sw-testimonial-card" style="margin-bottom: 2rem;">
+            <p class="sw-testimonial-quote">Engineered as our in-house flagship AI platform: OpenAI API orchestration, vector embedding indexes, automated content generation pipelines, and multi-site WordPress publishing workflows.</p>
+            <div class="sw-testimonial-meta">
+              <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(217,119,87,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(217,119,87,0.3);">
+                <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Anthropic Claude" style="width:20px;height:20px;">
+              </div>
+              <div>
+                <div class="sw-testimonial-role">OpenAI &amp; Claude AI MVP · In-House Platform</div>
+              </div>
+            </div>
           </div>
 
           <div>
             <a href="Case Studies/wp-publishion-ai.html" class="c8-text-cta">
-              Explore Case Study
+              <span>Explore Case Study</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
@@ -3884,7 +3874,7 @@
   <script>
     // Live Matrix Text Scramble for Option G Standardized Buttons
     document.addEventListener('DOMContentLoaded', function() {
-      var matrixButtons = document.querySelectorAll('.c8-btn-primary, .dp-btn-primary, .cta-btn-pill, .tmn-schedule-btn, .faq-cta-link, .btn-secondary, .dp-btn-ghost, .sdv-panel-cta');
+      var matrixButtons = document.querySelectorAll('.c8-btn-primary, .dp-btn-primary, .cta-btn-pill, .tmn-schedule-btn, .faq-cta-link, .btn-secondary, .dp-btn-ghost, .sdv-panel-cta, .c8-text-cta, .stage-link');
       var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
       matrixButtons.forEach(function(btn) {

@@ -392,6 +392,8 @@ body {
 .c8srv-root .c8srv-folder-card:nth-child(1) { top: 130px !important; z-index: 10 !important; position: sticky !important; }
 .c8srv-root .c8srv-folder-card:nth-child(2) { top: 130px !important; z-index: 20 !important; position: sticky !important; }
 .c8srv-root .c8srv-folder-card:nth-child(3) { top: 130px !important; z-index: 30 !important; position: sticky !important; }
+.c8srv-root .c8srv-folder-card:nth-child(4) { top: 130px !important; z-index: 40 !important; position: sticky !important; }
+.c8srv-root .c8srv-folder-card:nth-child(5) { top: 130px !important; z-index: 50 !important; position: sticky !important; }
 
 @media (max-width: 900px) {
   .c8srv-root .c8srv-folder-deck {
@@ -407,16 +409,12 @@ body {
     min-height: 480px !important;
   }
   .c8srv-root .c8srv-folder-card:nth-child(1),
-  .c8srv-root .c8srv-folder-card:nth-child(2) {
+  .c8srv-root .c8srv-folder-card:nth-child(2),
+  .c8srv-root .c8srv-folder-card:nth-child(3),
+  .c8srv-root .c8srv-folder-card:nth-child(4),
+  .c8srv-root .c8srv-folder-card:nth-child(5) {
     top: 100px !important;
     position: sticky !important;
-  }
-  .c8srv-root .c8srv-folder-card:nth-child(3) {
-    top: 130px !important;
-    z-index: 30 !important;
-    position: sticky !important;
-    min-height: 680px !important;
-    margin-bottom: 15px !important;
   }
 }
 
@@ -899,8 +897,10 @@ body {
   align-items: center !important;
 }
 .c8srv-root .c8srv-folder-card:nth-child(1) .c8srv-folder-tab { left: 2.5rem !important; }
-.c8srv-root .c8srv-folder-card:nth-child(2) .c8srv-folder-tab { left: 16rem !important; }
-.c8srv-root .c8srv-folder-card:nth-child(3) .c8srv-folder-tab { left: 30.3rem !important; }
+.c8srv-root .c8srv-folder-card:nth-child(2) .c8srv-folder-tab { left: 14.9rem !important; }
+.c8srv-root .c8srv-folder-card:nth-child(3) .c8srv-folder-tab { left: 26.9rem !important; }
+.c8srv-root .c8srv-folder-card:nth-child(4) .c8srv-folder-tab { left: 38.4rem !important; }
+.c8srv-root .c8srv-folder-card:nth-child(5) .c8srv-folder-tab { left: 49.4rem !important; }
 
 @media (max-width: 900px) {
   .c8srv-root .c8srv-folder-tab {
@@ -924,7 +924,9 @@ body {
   }
   .c8srv-root .c8srv-folder-card:nth-child(1) .c8srv-folder-tab,
   .c8srv-root .c8srv-folder-card:nth-child(2) .c8srv-folder-tab,
-  .c8srv-root .c8srv-folder-card:nth-child(3) .c8srv-folder-tab { left: 1.5rem !important; }
+  .c8srv-root .c8srv-folder-card:nth-child(3) .c8srv-folder-tab,
+  .c8srv-root .c8srv-folder-card:nth-child(4) .c8srv-folder-tab,
+  .c8srv-root .c8srv-folder-card:nth-child(5) .c8srv-folder-tab { left: 1.5rem !important; }
 }
 
 .c8srv-root .c8srv-folder-card-left { display: flex !important; flex-direction: column !important; height: 100% !important; }

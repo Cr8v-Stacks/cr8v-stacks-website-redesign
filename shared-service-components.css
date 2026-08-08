@@ -7,6 +7,10 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ── Global Container & Base Reset ── */
+a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c8srv-price-btn, .c8isv-btn-primary, .dp-btn-ghost {
+  text-decoration: none !important;
+}
+
 .c8isv-root, .c8srv-root,
 .c8isv-root *, .c8srv-root * {
   box-sizing: border-box !important;
