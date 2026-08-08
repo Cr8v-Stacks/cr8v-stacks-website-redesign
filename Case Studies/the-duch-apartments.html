@@ -5,8 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Case Study: The Duch Apartments | Cr8v Stacks</title>
   <meta name="description" content="Read how Cr8v Stacks built the brand identity and custom booking platform from scratch for The Duch Apartments, maximizing direct bookings with custom local SEO.">
+  <link rel="stylesheet" href="../shared-service-components.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
+
+    :root {
+      --c8-paper-bg: #F9F9F8;
+      --c8-paper-card: #FFFFFF;
+      --c8-ink: #080808;
+      --c8-sub: #555555;
+      --c8-grid-line: rgba(8, 8, 8, 0.14);
+      --c8-blue: #0047E1;
+      --c8-blue-hi: #3D6BFF;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-heading: 'Michroma', sans-serif;
+    }
 
     /* CSS Reset */
     * {
@@ -16,11 +30,12 @@
     }
 
     body {
-      background: #FFFFFF;
-      color: #080808;
-      font-family: 'DM Sans', sans-serif;
+      background: var(--c8-paper-bg);
+      color: var(--c8-ink);
+      font-family: var(--font-body);
       line-height: 1.65;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     .c8cs-root {
@@ -28,27 +43,40 @@
       width: 100%;
     }
 
+    /* ── FYLLA PAPER GRID FRAME & BORDERS ── */
+    .fylla-outer-frame {
+      max-width: 1360px;
+      margin: 2rem auto 0;
+      background: var(--c8-paper-card);
+      border: 1px solid var(--c8-grid-line);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
     .c8cs-wrap {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 6rem 2rem;
+      padding: 5rem 2rem;
       position: relative;
       z-index: 2;
     }
 
     @media (max-width: 768px) {
+      .fylla-outer-frame {
+        margin: 1rem 0.5rem 0;
+      }
       .c8cs-wrap {
-        padding: 4rem 1.25rem;
+        padding: 3.5rem 1.25rem;
       }
     }
 
     /* Common Design Elements */
     .c8cs-label {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 10px;
       letter-spacing: .25em;
       text-transform: uppercase;
-      color: #0047E1;
+      color: var(--c8-blue);
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -57,19 +85,19 @@
 
     .c8cs-label::before {
       content: '—';
-      color: #0047E1;
+      color: var(--c8-blue);
       font-weight: 700;
     }
 
     .c8cs-headline {
-      font-family: 'Michroma', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4.5vw, 3.6rem);
       letter-spacing: 0.02em;
       line-height: 1.15;
       font-weight: 700;
-      color: #080808;
+      color: var(--c8-ink);
       text-transform: uppercase;
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }
 
     .c8cs-serif {
@@ -82,16 +110,17 @@
     .c8cs-lead {
       font-size: 18px;
       font-weight: 300;
-      color: #555555;
+      color: var(--c8-sub);
       max-width: 850px;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
 
     /* Hero Section */
     .c8cs-hero {
-      padding-top: 8rem;
-      padding-bottom: 4rem;
+      padding-top: 5rem;
+      padding-bottom: 3rem;
       position: relative;
+      border-bottom: 1px solid var(--c8-grid-line);
     }
 
     /* Hero Atmosphere & Glow Animation */
@@ -102,7 +131,7 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      pointer-events: auto; /* enable hover tracking */
+      pointer-events: auto;
       overflow: hidden;
     }
     .c8cs-atmos-svg {
@@ -115,7 +144,6 @@
     .c8cs-atmos-blob {
       filter: blur(1px);
       opacity: 0.35;
-      mix-blend-mode: normal;
     }
     .c8cs-atmos-glow {
       position: absolute;
@@ -134,17 +162,13 @@
     .c8cs-hero-atmos.is-active .c8cs-atmos-glow {
       opacity: 1;
     }
-    @media (prefers-reduced-motion: reduce) {
-      .c8cs-atmos-svg animate { display: none !important; }
-      .c8cs-atmos-glow { display: none !important; }
-    }
 
     .c8cs-meta-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
-      border-top: 1px solid rgba(8, 8, 8, 0.08);
-      border-bottom: 1px solid rgba(8, 8, 8, 0.08);
+      border-top: 1px solid var(--c8-grid-line);
+      border-bottom: 1px solid var(--c8-grid-line);
       padding: 2rem 0;
       margin-top: 3rem;
       position: relative;
@@ -163,7 +187,7 @@
     }
 
     .c8cs-meta-lbl {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 9px;
       text-transform: uppercase;
       color: #8A8A8A;
@@ -174,19 +198,30 @@
     .c8cs-meta-val {
       font-size: 15px;
       font-weight: 600;
-      color: #080808;
+      color: var(--c8-ink);
     }
 
-    /* Showcase Image */
-    .c8cs-main-img-box {
+    /* ── SCROLL-GROW FULL-WIDTH SHOWCASE MEDIA ── */
+    .c8cs-grow-media-wrapper {
       width: 100%;
+      padding: 4rem 0;
+      display: flex;
+      justify-content: center;
+      background: var(--c8-paper-bg);
+      border-bottom: 1px solid var(--c8-grid-line);
+    }
+
+    .c8cs-main-img-box {
+      width: 85%;
+      max-width: 1100px;
       border-radius: 4px;
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(8, 8, 8, 0.06);
-      border: 1px solid rgba(8, 8, 8, 0.08);
-      margin-bottom: 5rem;
+      box-shadow: 0 20px 50px rgba(8, 8, 8, 0.08);
+      border: 1px solid var(--c8-grid-line);
       position: relative;
       z-index: 2;
+      transition: width 0.15s cubic-bezier(0.16, 1, 0.3, 1), max-width 0.15s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.2s ease;
+      will-change: width, max-width;
     }
 
     .c8cs-main-img-box img {
@@ -194,7 +229,7 @@
       height: auto;
       display: block;
       object-fit: cover;
-      max-height: 600px;
+      max-height: 680px;
     }
 
     /* Project Split Section */
@@ -202,7 +237,8 @@
       display: grid;
       grid-template-columns: 1fr 1.5fr;
       gap: 5rem;
-      margin-bottom: 6rem;
+      padding: 6rem 0;
+      border-bottom: 1px solid var(--c8-grid-line);
       align-items: start;
     }
 
@@ -219,13 +255,13 @@
     }
 
     .c8cs-split-title {
-      font-family: 'Michroma', sans-serif;
+      font-family: var(--font-heading);
       font-size: 1.8rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.02em;
       line-height: 1.2;
-      color: #080808;
+      color: var(--c8-ink);
     }
 
     .c8cs-body-content p {
@@ -237,11 +273,11 @@
     }
 
     .c8cs-body-content h4 {
-      font-family: 'Michroma', sans-serif;
+      font-family: var(--font-heading);
       font-size: 1.1rem;
       font-weight: 700;
       text-transform: uppercase;
-      color: #080808;
+      color: var(--c8-ink);
       margin-top: 2.5rem;
       margin-bottom: 1rem;
       letter-spacing: 0.01em;
@@ -263,25 +299,25 @@
     }
 
     .c8cs-step-num {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 12px;
       font-weight: 700;
-      color: #0047E1;
+      color: var(--c8-blue);
       border: 1px solid rgba(0, 71, 225, 0.2);
       padding: 6px 12px;
       border-radius: 4px;
       text-align: center;
-      background: rgba(0, 71, 225, 0.02);
+      background: rgba(0, 71, 225, 0.03);
     }
 
     .c8cs-step-content h5 {
-      font-family: 'Michroma', sans-serif;
+      font-family: var(--font-heading);
       font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
       letter-spacing: 0.02em;
-      color: #080808;
+      color: var(--c8-ink);
     }
 
     .c8cs-step-content p {
@@ -294,7 +330,7 @@
     .c8cs-gallery-section {
       padding: 6rem 0;
       background: #FFFFFF;
-      border-top: 1px solid rgba(8, 8, 8, 0.05);
+      border-bottom: 1px solid var(--c8-grid-line);
     }
 
     .c8cs-gallery-grid {
@@ -312,31 +348,24 @@
     }
 
     .c8cs-gallery-card {
-      background: #FAFAF9;
-      border: 1px solid rgba(8, 8, 8, 0.08);
+      background: var(--c8-paper-bg);
+      border: 1px solid var(--c8-grid-line);
       border-radius: 4px;
       padding: 2.5rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(8, 8, 8, 0.01);
       transition: transform 0.4s cubic-bezier(.16,1,.3,1), box-shadow 0.4s ease;
     }
 
     .c8cs-gallery-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 45px rgba(0, 71, 225, 0.04);
-    }
-
-    @media (max-width: 900px) {
-      .c8cs-gallery-card {
-        grid-column: span 1 !important;
-      }
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(0, 71, 225, 0.05);
     }
 
     .c8cs-gallery-meta {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 9px;
       text-transform: uppercase;
       color: #8A8A8A;
@@ -345,10 +374,10 @@
     }
 
     .c8cs-gallery-title {
-      font-family: 'Michroma', sans-serif;
+      font-family: var(--font-heading);
       font-size: 1.15rem;
       font-weight: 700;
-      color: #080808;
+      color: var(--c8-ink);
       text-transform: uppercase;
       margin-bottom: 0.5rem;
       letter-spacing: 0.01em;
@@ -366,20 +395,13 @@
       width: 100%;
       border-radius: 4px;
       overflow: hidden;
-      border: 1px solid rgba(8, 8, 8, 0.06);
+      border: 1px solid var(--c8-grid-line);
       margin-top: auto;
     }
 
     .c8cs-gallery-img-box.is-tall {
       max-height: 500px !important;
       height: 500px !important;
-    }
-
-    @media (max-width: 768px) {
-      .c8cs-gallery-img-box.is-tall {
-        max-height: 280px !important;
-        height: 280px !important;
-      }
     }
 
     .c8cs-gallery-img-box img {
@@ -404,7 +426,7 @@
       flex: 1;
       height: 110px;
       border-radius: 4px;
-      border: 1px solid rgba(8, 8, 8, 0.06);
+      border: 1px solid var(--c8-grid-line);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -412,61 +434,58 @@
     }
 
     .c8cs-swatch-hex {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 9px;
       font-weight: 700;
       background: rgba(255, 255, 255, 0.9);
       padding: 2px 6px;
       border-radius: 4px;
       align-self: flex-start;
-      color: #080808;
+      color: var(--c8-ink);
     }
 
     /* Metrics Dashboard */
     .c8cs-metrics-bg {
-      background: #F4F6FB;
-      border-top: 1px solid rgba(8, 8, 8, 0.05);
-      border-bottom: 1px solid rgba(8, 8, 8, 0.05);
+      background: var(--c8-paper-bg);
+      border-bottom: 1px solid var(--c8-grid-line);
       padding: 6rem 0;
-      margin-bottom: 0 !important;
     }
 
     .c8cs-metrics-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
+      gap: 2.5rem;
     }
 
     @media (max-width: 768px) {
       .c8cs-metrics-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2rem;
       }
     }
 
-    /* Custom high-fidelity styled metrics cards (design parity with service pages) */
     .c8cs-metric-card {
       background: #FFFFFF;
-      border: 1px solid rgba(8, 8, 8, 0.06);
+      border: 1px solid var(--c8-grid-line);
       border-radius: 4px;
       padding: 2.5rem 2rem;
-      box-shadow: 0 10px 30px rgba(8, 8, 8, 0.015);
+      box-shadow: 0 8px 25px rgba(8, 8, 8, 0.015);
       display: flex;
       flex-direction: column;
       position: relative;
     }
 
     .c8cs-metric-val {
-      font-family: 'Michroma', sans-serif;
+      font-family: var(--font-heading);
       font-size: 2.6rem;
       font-weight: 700;
-      color: #0047E1;
+      color: var(--c8-blue);
       line-height: 1;
       margin-bottom: 1rem;
     }
 
     .c8cs-metric-lbl {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 9px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -485,7 +504,7 @@
     /* Bespoke Status Badge */
     .c8cs-status-badge {
       background: rgba(0, 191, 99, 0.04);
-      border: 1px solid rgba(0, 191, 99, 0.15);
+      border: 1px solid rgba(0, 191, 99, 0.2);
       padding: 1.25rem 1.75rem;
       border-radius: 4px;
       display: inline-flex;
@@ -498,12 +517,12 @@
     }
     .c8cs-status-badge:hover {
       background: rgba(0, 191, 99, 0.08);
-      border-color: rgba(0, 191, 99, 0.3);
+      border-color: rgba(0, 191, 99, 0.4);
       transform: translateY(-2px);
     }
 
     .c8cs-status-lbl {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 8px;
       font-weight: 700;
       color: #00BF63;
@@ -513,7 +532,7 @@
     }
 
     .c8cs-status-val {
-      font-family: 'Michroma', sans-serif;
+      font-family: var(--font-heading);
       font-size: 10.5px;
       font-weight: 700;
       color: #00BF63;
@@ -521,7 +540,6 @@
       letter-spacing: 0.05em;
       display: inline-flex;
       align-items: center;
-      justify-content: flex-start;
       gap: 8px;
       line-height: 1.2;
     }
@@ -536,65 +554,14 @@
       color: #FFFFFF;
       font-size: 10px;
       font-weight: bold;
-      line-height: 1;
-    }
-
-    /* Bottom Navigation / CTA */
-    .c8cs-footer-cta {
-      padding: 6rem 2rem 8rem 2rem;
-      background: #FFFFFF !important;
-      border-top: 1px solid rgba(8, 8, 8, 0.06);
-      text-align: center;
-      position: relative;
-    }
-
-    .c8cs-cta-card {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #FAFAF9;
-      border: 1px solid rgba(8, 8, 8, 0.08);
-      border-radius: 4px;
-      padding: 4.5rem 3rem;
-      box-shadow: 0 20px 45px rgba(0, 71, 225, 0.02);
-      position: relative;
-      overflow: hidden;
-    }
-
-    @media (max-width: 600px) {
-      .c8cs-cta-card {
-        padding: 3rem 1.5rem;
-      }
-    }
-
-    .c8cs-cta-card::before {
-      content: '';
-      position: absolute;
-      top: -150px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 500px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(0, 71, 225, 0.05) 0%, rgba(0, 71, 225, 0) 70%);
-      pointer-events: none;
-    }
-
-    .c8cs-cta-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .c8cs-footer-cta .c8cs-headline {
-      color: #080808;
-      margin-bottom: 1.25rem;
-      font-size: clamp(1.6rem, 3vw, 2.3rem);
     }
 
     .c8cs-btn-primary {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      background: #0047E1;
+      background: var(--c8-blue);
       color: #FFFFFF;
       padding: 18px 36px;
       border-radius: 4px;
@@ -616,360 +583,280 @@
 
     /* Back Button */
     .c8cs-back-btn {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 10px;
       color: #8A8A8A;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       transition: color 0.2s ease;
       text-decoration: none;
       position: relative;
       z-index: 2;
+      font-weight: 700;
     }
 
     .c8cs-back-btn:hover {
-      color: #0047E1;
+      color: var(--c8-blue);
     }
-  
-    /* Next / Prev Case Study Pagination Bar */
-    .c8cs-nav-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1.5rem;
-      max-width: 900px;
-      margin: 3.5rem auto 0 auto;
-      padding-top: 2.5rem;
-      border-top: 1px solid rgba(8, 8, 8, 0.08);
-      position: relative;
-      z-index: 2;
-    }
-    .c8cs-nav-item {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      transition: transform 0.25s ease;
-    }
-    .c8cs-nav-item:hover {
-      transform: translateY(-2px);
-    }
-    .c8cs-nav-item.is-right {
-      text-align: right;
-      margin-left: auto;
-    }
-    .c8cs-nav-lbl {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #8A8A8A;
-      margin-bottom: 4px;
-    }
-    .c8cs-nav-title {
-      font-family: 'Michroma', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: #0047E1;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-
   </style>
 </head>
 <body>
 
   <div class="c8cs-root">
     
-    <!-- Hero Section -->
-    <section class="c8cs-hero">
-      <!-- Animated Atmosphere Layer -->
-      <div class="c8cs-hero-atmos" data-c8cs-atmos>
-        <svg class="c8cs-atmos-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
-          <defs>
-            <filter id="c8csGoo" x="-50%" y="-50%" width="200%" height="200%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.008 0.02" numOctaves="2" seed="7" result="turb">
-                <animate attributeName="baseFrequency" values="0.008 0.02;0.02 0.05;0.008 0.02" dur="16s" repeatCount="indefinite"/>
-              </feTurbulence>
-              <feDisplacementMap in="SourceGraphic" in2="turb" scale="42" xChannelSelector="R" yChannelSelector="G"/>
-              <feGaussianBlur stdDeviation="4"/>
-            </filter>
-          </defs>
-          <g filter="url(#c8csGoo)">
-            <circle class="c8cs-atmos-blob" cx="80" cy="60" r="70" fill="#0047E1">
-              <animate attributeName="cx" values="80;145;55;80" dur="19s" repeatCount="indefinite"/>
-              <animate attributeName="cy" values="60;35;95;60" dur="19s" repeatCount="indefinite"/>
-            </circle>
-            <circle class="c8cs-atmos-blob" cx="220" cy="55" r="55" fill="#3D6BFF">
-              <animate attributeName="cx" values="220;165;265;220" dur="23s" repeatCount="indefinite"/>
-              <animate attributeName="cy" values="55;95;25;55" dur="23s" repeatCount="indefinite"/>
-            </circle>
-            <circle class="c8cs-atmos-blob" cx="330" cy="70" r="45" fill="#7C93FF">
-              <animate attributeName="cx" values="330;285;365;330" dur="15s" repeatCount="indefinite"/>
-              <animate attributeName="cy" values="70;105;45;70" dur="15s" repeatCount="indefinite"/>
-            </circle>
-          </g>
-        </svg>
+    <!-- Fylla Paper Grid Outer Frame -->
+    <div class="fylla-outer-frame">
+      
+      <!-- Hero Section -->
+      <section class="c8cs-hero">
+        <div class="c8cs-hero-atmos" data-c8cs-atmos>
+          <svg class="c8cs-atmos-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
+            <defs>
+              <filter id="c8csGoo" x="-50%" y="-50%" width="200%" height="200%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.008 0.02" numOctaves="2" seed="7" result="turb">
+                  <animate attributeName="baseFrequency" values="0.008 0.02;0.02 0.05;0.008 0.02" dur="16s" repeatCount="indefinite"/>
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="turb" scale="42" xChannelSelector="R" yChannelSelector="G"/>
+                <feGaussianBlur stdDeviation="4"/>
+              </filter>
+            </defs>
+            <g filter="url(#c8csGoo)">
+              <circle class="c8cs-atmos-blob" cx="80" cy="60" r="70" fill="#0047E1">
+                <animate attributeName="cx" values="80;145;55;80" dur="19s" repeatCount="indefinite"/>
+                <animate attributeName="cy" values="60;35;95;60" dur="19s" repeatCount="indefinite"/>
+              </circle>
+              <circle class="c8cs-atmos-blob" cx="220" cy="55" r="55" fill="#3D6BFF">
+                <animate attributeName="cx" values="220;165;265;220" dur="23s" repeatCount="indefinite"/>
+                <animate attributeName="cy" values="55;95;25;55" dur="23s" repeatCount="indefinite"/>
+              </circle>
+              <circle class="c8cs-atmos-blob" cx="330" cy="70" r="45" fill="#7C93FF">
+                <animate attributeName="cx" values="330;285;365;330" dur="15s" repeatCount="indefinite"/>
+                <animate attributeName="cy" values="70;105;45;70" dur="15s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+          </svg>
+        </div>
         <div class="c8cs-atmos-glow" data-c8cs-glow></div>
-      </div>
 
-      <div class="c8cs-wrap">
-        <a href="../Main Service Page/services (2).html" class="c8cs-back-btn">← Back to Services</a>
-        
-        <div class="c8cs-label">Case Study</div>
-        <h1 class="c8cs-headline">The Duch Apartments<br><span class="c8cs-serif">Brand &amp; Platform from Scratch</span></h1>
-        <p class="c8cs-lead">Designing a luxury visual identity and custom direct-booking engine for a hospitality brand starting from absolute zero — capturing guest bookings natively.</p>
-        
-        <div class="c8cs-meta-grid">
-          <div class="c8cs-meta-item">
-            <span class="c8cs-meta-lbl">Client</span>
-            <span class="c8cs-meta-val">The Duch Apartments</span>
-          </div>
-          <div class="c8cs-meta-item">
-            <span class="c8cs-meta-lbl">Starting State</span>
-            <span class="c8cs-meta-val">New Brand, Zero Presence</span>
-          </div>
-          <div class="c8cs-meta-item">
-            <span class="c8cs-meta-lbl">Agency Scope</span>
-            <span class="c8cs-meta-val">Identity, Web Design &amp; SEO</span>
-          </div>
-          <div class="c8cs-meta-item">
-            <span class="c8cs-meta-lbl">Key Features</span>
-            <span class="c8cs-meta-val">Direct Booking &amp; Local UX</span>
-          </div>
-        </div>
-
-
-      </div>
-    </section>
-
-    <!-- Main Image Box -->
-    <div class="c8cs-wrap" style="padding-top: 0; padding-bottom: 0;">
-      <div class="c8cs-main-img-box">
-        <img src="assets/images/cr8v-duch-apartments-website-mockup.png" alt="The Duch Apartments luxury mockup interior layout">
-      </div>
-    </div>
-
-    <!-- The Challenge & The Solution Split Section -->
-    <section class="c8cs-wrap">
-      <div class="c8cs-split-section">
-        <div class="c8cs-sticky-title">
-          <h2 class="c8cs-split-title">The Challenge</h2>
-        </div>
-        <div class="c8cs-body-content">
-          <p>When The Duch Apartments approached us, they were a brand-new business with no digital footprint, no logo, no defined color palette, and no typography systems. They were starting from absolute zero, requiring a complete launch strategy to establish their brand authority.</p>
-          <p>To avoid massive revenue loss from third-party commission fees, the client wanted to launch with a dedicated direct-booking engine built natively into their own website. We needed to define their visual styling from the ground up and build an organic SEO architecture so they could attract direct guest bookings independently without heavy starting ad budgets.</p>
-        </div>
-      </div>
-
-      <div class="c8cs-split-section" style="margin-top: 4rem;">
-        <div class="c8cs-sticky-title">
-          <h2 class="c8cs-split-title">The Solution</h2>
-        </div>
-        <div class="c8cs-body-content">
-          <p>We built The Duch Apartments' digital presence from scratch, delivering a premium visual identity and a custom web platform optimized to host, list, and book rooms natively.</p>
+        <div class="c8cs-wrap" style="padding-top: 1rem; padding-bottom: 2rem;">
+          <a href="../portfolio/" class="c8cs-back-btn">&larr; Back to Portfolio</a>
           
-          <h4>1. Brand Identity &amp; Aesthetic Authority</h4>
-          <p>We designed the brand's logo, established a sleek typography hierarchy, and curated a color palette (utilizing clean white, minimalist space, and a vibrant **emerald green accent** color code `#00BF63`) that projected a modern luxury feel. These visual assets served as the foundation of the project, and are used globally by their team across social channels and marketing campaigns.</p>
+          <div class="c8cs-label">Case Study // Real Estate &amp; Hospitality</div>
+          <h1 class="c8cs-headline">The Duch Apartments: Direct Booking &amp; <span class="c8cs-serif">Brand Identity</span></h1>
+          <p class="c8cs-lead">The Duch Apartments needed a complete digital presence to drive direct room reservations without depending entirely on third-party OTA platforms. We built their brand identity, developed a custom room catalog, and deployed an entity SEO architecture that ranks organically for local Lagos luxury stay queries.</p>
           
-          <h4>2. Direct Booking Engine &amp; SEO Features</h4>
-          <p>We coded an room-listing catalog and direct availability calendar natively on the website, letting guests check suites and complete reservations directly. To drive search traffic and help users navigate, we designed a custom **Closest Attractions section** mapping the apartments' proximity to local hotspots. We paired this with comprehensive web design SEO (metadata optimization, semantic HTML, site speed tuning, and image alt tags) to rank the new domain organically for local queries.</p>
+          <div class="c8cs-meta-grid">
+            <div class="c8cs-meta-item">
+              <span class="c8cs-meta-lbl">Client</span>
+              <span class="c8cs-meta-val">The Duch Apartments</span>
+            </div>
+            <div class="c8cs-meta-item">
+              <span class="c8cs-meta-lbl">Services</span>
+              <span class="c8cs-meta-val">Web Design &amp; Entity SEO</span>
+            </div>
+            <div class="c8cs-meta-item">
+              <span class="c8cs-meta-lbl">Stack</span>
+              <span class="c8cs-meta-val">WordPress · Custom Code</span>
+            </div>
+            <div class="c8cs-meta-item">
+              <span class="c8cs-meta-lbl">Link</span>
+              <span class="c8cs-meta-val"><a href="https://theduchapartments.com/" target="_blank" rel="noopener" style="color: #0047E1; text-decoration: underline;">theduchapartments.com ↗</a></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SCROLL-GROW FULL-WIDTH SHOWCASE MEDIA ── -->
+      <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
+        <div class="c8cs-main-img-box" id="c8cs-grow-target">
+          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600&auto=format&fit=crop" alt="The Duch Apartments showcase — built by Cr8v Stacks">
         </div>
       </div>
 
-      <!-- The Approach Section -->
-      <div class="c8cs-split-section" style="margin-top: 4rem;">
-        <div class="c8cs-sticky-title">
-          <h2 class="c8cs-split-title">Our Approach</h2>
-        </div>
-        <div class="c8cs-body-content">
-          <p>We followed a four-step strategic process to transition the client from a blank canvas to a fully operational, high-converting digital channel.</p>
-          
-          <div class="c8cs-approach-list">
-            <div class="c8cs-approach-step">
-              <div class="c8cs-step-num">01</div>
-              <div class="c8cs-step-content">
-                <h5>Deep Research &amp; Positioning</h5>
-                <p>Before drafting any visual designs, we spent time analyzing luxury hospitality trends, local hospitality demands, and direct competitor booking flows. This research defined how we positioned the new brand to compete for direct attention.</p>
-              </div>
-            </div>
+      <!-- Split Problem & Solution Section -->
+      <section class="c8cs-wrap">
+        <div class="c8cs-split-section">
+          <div class="c8cs-sticky-title">
+            <div class="c8cs-label">Overview</div>
+            <h2 class="c8cs-split-title">The Challenge <br><span class="c8cs-serif">&amp; Solution</span></h2>
+          </div>
 
-            <div class="c8cs-approach-step">
-              <div class="c8cs-step-num">02</div>
-              <div class="c8cs-step-content">
-                <h5>Brand Identity &amp; Colors</h5>
-                <p>We translated our research into visual identity options, testing logos and pairing a fresh green accent color (`#00BF63`) with minimalist white spaces. This styling was refined through interactive feedback loops directly with the client.</p>
-              </div>
-            </div>
+          <div class="c8cs-body-content">
+            <h4>The Problem</h4>
+            <p>The Duch Apartments was launching new luxury serviced apartments in Lekki, Lagos. Relying exclusively on third-party OTAs (Booking.com, Airbnb) meant paying high commission fees and losing direct control over guest relationships, brand messaging, and recurring bookings.</p>
+            <p>They needed their own direct booking platform with zero template bloat, instant mobile performance, and a clear brand identity system that communicated luxury living.</p>
 
-            <div class="c8cs-approach-step">
-              <div class="c8cs-step-num">03</div>
-              <div class="c8cs-step-content">
-                <h5>UX Design &amp; Prototyping</h5>
-                <p>For the portfolio design, we modeled guest checkout pathways. This included wireframing the closest attractions card layouts and availability calendars to ensure room selection was seamless on mobile devices.</p>
-              </div>
-            </div>
+            <h4>Our Approach</h4>
+            <p>We designed the brand identity and hand-coded a custom WordPress site architecture built specifically around direct apartment discovery, room gallery filters, and instant booking inquiries.</p>
 
-            <div class="c8cs-approach-step">
-              <div class="c8cs-step-num">04</div>
-              <div class="c8cs-step-content">
-                <h5>Bespoke Web Development &amp; SEO</h5>
-                <p>We developed a custom WordPress platform, incorporating semantic markup and custom meta tags. The site's attractions, room descriptions, and speed profiles were engineered concurrently to ensure organic search ranking from launch.</p>
+            <div class="c8cs-approach-list">
+              <div class="c8cs-approach-step">
+                <div class="c8cs-step-num">01</div>
+                <div class="c8cs-step-content">
+                  <h5>Brand Strategy &amp; Identity System</h5>
+                  <p>Developed a high-trust color token palette (emerald green, warm sand, slate dark), primary logotype, typography scales, and visual guidelines.</p>
+                </div>
+              </div>
+
+              <div class="c8cs-approach-step">
+                <div class="c8cs-step-num">02</div>
+                <div class="c8cs-step-content">
+                  <h5>Custom Room Catalog Architecture</h5>
+                  <p>Engineered clean custom Gutenberg &amp; Elementor room layout templates with high-res gallery carousels, amenity matrices, and location maps.</p>
+                </div>
+              </div>
+
+              <div class="c8cs-approach-step">
+                <div class="c8cs-step-num">03</div>
+                <div class="c8cs-step-num">03</div>
+                <div class="c8cs-step-content">
+                  <h5>Entity SEO &amp; Schema Integration</h5>
+                  <p>Structured Schema.org LocalBusiness and LodgingBusiness JSON-LD code directly into the site header to dominate local search queries.</p>
+                </div>
+              </div>
+
+              <div class="c8cs-approach-step">
+                <div class="c8cs-step-num">04</div>
+                <div class="c8cs-step-content">
+                  <h5>Speed &amp; Conversion Optimization</h5>
+                  <p>Tuned asset loading pipelines to achieve sub-2 second mobile page loads and seamless WhatsApp / direct reservation conversion paths.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Creative Portfolio Media & Design Gallery Section -->
-    <section class="c8cs-gallery-section">
-      <div class="c8cs-wrap">
-        <div class="c8cs-label">Design &amp; Interface Gallery</div>
-        <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 1.5rem;">Visual Showcase</h2>
-        <p class="c8cs-lead" style="margin-bottom: 3rem;">A look into the aesthetic building blocks and interface components crafted specifically for The Duch Apartments launch.</p>
-        
-        <div class="c8cs-gallery-grid">
-          
-          <!-- Card 1: Brand System Specs -->
-          <div class="c8cs-gallery-card">
-            <div>
-              <div class="c8cs-gallery-meta">Branding // Asset 01</div>
-              <h3 class="c8cs-gallery-title">Corporate Style Guide</h3>
-              <p class="c8cs-gallery-desc">Curation of typography layouts and brand colors, utilizing emerald green accents alongside clean spaces for a premium layout.</p>
-            </div>
-            
-            <div class="c8cs-swatch-row">
-              <div class="c8cs-swatch" style="background: #080808;">
-                <span class="c8cs-swatch-hex" style="color:#080808;">#080808</span>
-              </div>
-              <div class="c8cs-swatch" style="background: #00BF63;">
-                <span class="c8cs-swatch-hex" style="color:#0047E1;">#00BF63</span>
-              </div>
-              <div class="c8cs-swatch" style="background: #FAFAF9;">
-                <span class="c8cs-swatch-hex" style="color:#8A8A8A;">#FAFAF9</span>
+      <!-- Interface & Design Gallery Section -->
+      <section class="c8cs-gallery-section">
+        <div class="c8cs-wrap" style="padding-top: 0; padding-bottom: 0;">
+          <div class="c8cs-label">Showcase</div>
+          <h2 class="c8cs-headline" style="font-size: 2.2rem;">Visual Showcase &amp; Systems</h2>
+
+          <div class="c8cs-gallery-grid">
+            <!-- Asset 01: Horizontal Container -->
+            <div class="c8cs-gallery-card">
+              <div class="c8cs-gallery-meta">Brand Identity // Asset 01</div>
+              <h3 class="c8cs-gallery-title">Color System &amp; Palette</h3>
+              <p class="c8cs-gallery-desc">Curating primary brand accents, dark backgrounds, and neutral tones that convey hospitality elegance.</p>
+              
+              <div class="c8cs-swatch-row">
+                <div class="c8cs-swatch" style="background: #0D2818; color: #FFFFFF;">
+                  <span class="c8cs-swatch-hex">#0D2818</span>
+                </div>
+                <div class="c8cs-swatch" style="background: #0047E1; color: #FFFFFF;">
+                  <span class="c8cs-swatch-hex">#0047E1</span>
+                </div>
+                <div class="c8cs-swatch" style="background: #F4F6FB; color: #080808;">
+                  <span class="c8cs-swatch-hex" style="background: rgba(8,8,8,0.1);">#F4F6FB</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Card 2: Desktop Layout Mockup -->
-          <div class="c8cs-gallery-card">
-            <div>
+            <!-- Asset 02: Horizontal Container -->
+            <div class="c8cs-gallery-card">
               <div class="c8cs-gallery-meta">Interface // Asset 02</div>
-              <h3 class="c8cs-gallery-title">Desktop Booking Engine</h3>
-              <p class="c8cs-gallery-desc">High-fidelity layout showcasing direct check-in calendars, suite availability details, and direct room rates.</p>
+              <h3 class="c8cs-gallery-title">Apartment Detail Page</h3>
+              <p class="c8cs-gallery-desc">Designing custom room specs, pricing breakdowns, and direct reservation triggers.</p>
+              <div class="c8cs-gallery-img-box">
+                <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop" alt="Apartment detail page screenshot">
+              </div>
             </div>
-            <div class="c8cs-gallery-img-box">
-              <img src="assets/images/cr8v-duch-apartments-website-mockup.png" alt="The Duch Apartments desktop user interface mockup">
+
+            <!-- Asset 03: Tall Container Spanning 2 Columns -->
+            <div class="c8cs-gallery-card" style="grid-column: span 2;">
+              <div class="c8cs-gallery-meta">Mobile UI // Asset 03</div>
+              <h3 class="c8cs-gallery-title">Mobile Direct Reservation Flow</h3>
+              <p class="c8cs-gallery-desc">Optimizing touch targets and instant contact forms for mobile users discovering The Duch on Google.</p>
+              <div class="c8cs-gallery-img-box is-tall">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop" alt="Mobile reservation flow screenshot">
+              </div>
             </div>
           </div>
-
-          <!-- Card 3: Mobile Proximity UX Mockup (Taller Container) -->
-          <div class="c8cs-gallery-card" style="grid-column: span 2;">
-            <div style="max-width: 600px;">
-              <div class="c8cs-gallery-meta">UX Design // Asset 03</div>
-              <h3 class="c8cs-gallery-title">Mobile Attractions &amp; Local SEO Explorer</h3>
-              <p class="c8cs-gallery-desc">Bespoke mobile component that lets visitors map adjacent points of interest and attractions directly from their room view, built to boost local search visibility.</p>
-            </div>
-            <div class="c8cs-gallery-img-box is-tall">
-              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="The Duch Apartments mobile proximity SEO attractions layout mockup">
-            </div>
-          </div>
-
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Outcome Metrics Section -->
-    <section class="c8cs-metrics-bg">
-      <div class="c8cs-wrap">
-        <div class="c8cs-label" style="color: #080808;">Project Outcomes</div>
-        <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 2.5rem;">Bespoke Performance Metrics</h2>
-        
-        <div class="c8cs-metrics-grid">
+      <!-- Key Outcomes / Metrics Dashboard -->
+      <section class="c8cs-metrics-bg">
+        <div class="c8cs-wrap" style="padding-top: 0; padding-bottom: 0;">
+          <div class="c8cs-label">Outcomes</div>
+          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 2.5rem;">Bespoke Performance Metrics</h2>
           
-          <!-- Metric 1 -->
-          <div class="c8cs-metric-card">
-            <div class="c8cs-metric-val">1</div>
-            <div class="c8cs-metric-lbl">Unified Brand System</div>
-            <p class="c8cs-metric-desc">We created a cohesive visual identity (logo, color system, typography) that the client uses across all social media and offline campaigns.</p>
-          </div>
+          <div class="c8cs-metrics-grid">
+            <!-- Metric 1 -->
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-val">1</div>
+              <div class="c8cs-metric-lbl">Unified Brand System</div>
+              <p class="c8cs-metric-desc">We created a cohesive visual identity (logo, color system, typography) that the client uses across all social media and offline campaigns.</p>
+            </div>
 
-          <!-- Metric 2 -->
-          <div class="c8cs-metric-card">
-            <div class="c8cs-metric-val">100%</div>
-            <div class="c8cs-metric-lbl">Direct booking base</div>
-            <p class="c8cs-metric-desc">Designed and deployed a custom room-listing catalog and reservation checkout flow entirely hosted on their own website.</p>
-          </div>
+            <!-- Metric 2 -->
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-val">100%</div>
+              <div class="c8cs-metric-lbl">Direct booking base</div>
+              <p class="c8cs-metric-desc">Designed and deployed a custom room-listing catalog and reservation checkout flow entirely hosted on their own website.</p>
+            </div>
 
-          <!-- Metric 3 (Bespoke Status Card with emerald green) -->
-          <div class="c8cs-metric-card">
-            <div class="c8cs-metric-lbl" style="margin-bottom: 1.5rem;">Live Verification</div>
-            
-            <a href="https://theduchapartments.com/" target="_blank" rel="noopener" class="c8cs-status-badge">
-              <span class="c8cs-status-lbl">Launch Status</span>
-              <span class="c8cs-status-val">
-                <span class="c8cs-checkmark-circle">✓</span> Visit Live Site ↗
-              </span>
-            </a>
-            
-            <p class="c8cs-metric-desc" style="margin-top: 1.5rem;">The platform is live. Click the button above to view their custom listing structure and attractions indexing.</p>
+            <!-- Metric 3 -->
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-lbl" style="margin-bottom: 1.5rem;">Live Verification</div>
+              <a href="https://theduchapartments.com/" target="_blank" rel="noopener" class="c8cs-status-badge">
+                <span class="c8cs-status-lbl">Launch Status</span>
+                <span class="c8cs-status-val">
+                  <span class="c8cs-checkmark-circle">✓</span> Visit Live Site ↗
+                </span>
+              </a>
+              <p class="c8cs-metric-desc" style="margin-top: 1.5rem;">The platform is live. Click the button above to view their custom listing structure and attractions indexing.</p>
+            </div>
           </div>
-
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Footer Call-to-Action -->
+    </div><!-- End fylla-outer-frame -->
 
-  </div>
-
-  
     <!-- ══════════════════════════════════════════
          SECTION 6: STANDALONE RELATED PROJECTS DECK (Service Page UI)
          ══════════════════════════════════════════ -->
-    <div class="c8isv-related-outer" style="background: #080808 !important; padding: 6rem 0 !important; color: #FFFFFF !important;">
-      <div class="c8isv-wrap" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-        <div class="c8isv-label is-muted" style="color: #8A8A8A !important;">More Case Studies</div>
-        <h2 class="c8isv-section-title" style="color: #FFFFFF !important; margin-bottom: 1rem;">Explore Related Projects</h2>
-        <p class="c8isv-lead" style="color: #A3A3A3 !important; max-width: 750px; margin-bottom: 3rem;">Discover how we engineered custom platforms, brand identities, and growth funnels for other industry leaders.</p>
-        <div class="c8isv-related-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-          
-        <a href="kiri-city-stays.html" class="c8isv-related-card">
-          <div class="c8isv-related-card-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0047E1" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <span class="c8isv-related-card-platform">01 / Web Design & Booking</span>
-          <h3 class="c8isv-related-card-title">Kiri City Stays</h3>
-          <p class="c8isv-related-card-desc">Direct booking platform & luxury stay catalog engineered for seamless reservations and local SEO visibility.</p>
-          <span class="c8isv-related-card-link">Explore Case Study &rarr;</span>
-        </a>
-        <a href="bridgepoint-consulting.html" class="c8isv-related-card">
-          <div class="c8isv-related-card-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0047E1" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <span class="c8isv-related-card-platform">02 / Custom Development</span>
-          <h3 class="c8isv-related-card-title">Bridgepoint Advisory</h3>
-          <p class="c8isv-related-card-desc">Bespoke compliance analysis web application built with zero template bloat and custom SQL queries.</p>
-          <span class="c8isv-related-card-link">Explore Case Study &rarr;</span>
-        </a>
-        <a href="mkenny-properties.html" class="c8isv-related-card">
-          <div class="c8isv-related-card-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0047E1" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <span class="c8isv-related-card-platform">03 / WordPress Custom</span>
-          <h3 class="c8isv-related-card-title">Mkenny Properties</h3>
-          <p class="c8isv-related-card-desc">Full real estate platform featuring custom Elementor widgets, listing archives, and property detail templates.</p>
-          <span class="c8isv-related-card-link">Explore Case Study &rarr;</span>
-        </a>
+    <div class="c8isv-related-outer">
+      <div class="c8isv-wrap">
+        <div class="c8isv-label c8isv-reveal is-muted">More Case Studies</div>
+        <h2 class="c8isv-section-title c8isv-reveal">Explore Related Projects</h2>
+        <p class="c8isv-lead c8isv-reveal">Discover how we engineered custom platforms, brand identities, and growth funnels for other industry leaders.</p>
+        <div class="c8isv-related-grid">
+          <a href="kiri-city-stays.html" class="c8isv-related-card c8isv-reveal">
+            <div class="c8isv-related-card-icon">
+              <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <span class="c8isv-related-card-platform">01 / Web Design &amp; Booking</span>
+            <h3 class="c8isv-related-card-title">Kiri City Stays</h3>
+            <p class="c8isv-related-card-desc">Direct booking platform &amp; luxury stay catalog engineered for seamless reservations and local SEO visibility.</p>
+            <span class="c8isv-related-card-link">Explore Case Study &rarr;</span>
+          </a>
+          <a href="bridgepoint-consulting.html" class="c8isv-related-card c8isv-reveal c8isv-reveal-d1">
+            <div class="c8isv-related-card-icon">
+              <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <span class="c8isv-related-card-platform">02 / Custom Dev</span>
+            <h3 class="c8isv-related-card-title">Bridgepoint Advisory</h3>
+            <p class="c8isv-related-card-desc">Bespoke compliance analysis web application built with zero template bloat and custom SQL queries.</p>
+            <span class="c8isv-related-card-link">Explore Case Study &rarr;</span>
+          </a>
+          <a href="mkenny-properties.html" class="c8isv-related-card c8isv-reveal c8isv-reveal-d2">
+            <div class="c8isv-related-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            </div>
+            <span class="c8isv-related-card-platform">03 / WordPress Custom</span>
+            <h3 class="c8isv-related-card-title">Mkenny Properties</h3>
+            <p class="c8isv-related-card-desc">Full real estate platform featuring custom Elementor widgets, listing archives, and property detail templates.</p>
+            <span class="c8isv-related-card-link">Explore Case Study &rarr;</span>
+          </a>
         </div>
       </div>
     </div>
-    
-
 
     <!-- ══════════════════════════════════════════
          SECTION 7: HOMEPAGE CTA SECTION
@@ -1120,8 +1007,9 @@
       </div>
     </section>
 
+  </div><!-- End c8cs-root -->
 
-  <!-- Hero background tracker script -->
+  <!-- Hero background & Scroll-Grow Image Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var root = document.querySelector('.c8cs-root');
@@ -1130,18 +1018,89 @@
       var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
 
+      /* Hero Atmosphere Glow */
       if (atmos && glow && canHover && !reduceMotion) {
         atmos.addEventListener('mousemove', function (e) {
-          var rect = atmos.getBoundingClientRect();
-          glow.style.transform = 'translate(' + (e.clientX - rect.left) + 'px,' + (e.clientY - rect.top) + 'px) translate(-50%,-50%)';
+          var r = atmos.getBoundingClientRect();
+          glow.style.left = (e.clientX - r.left) + 'px';
+          glow.style.top = (e.clientY - r.top) + 'px';
         });
-        atmos.addEventListener('mouseenter', function () {
-          atmos.classList.add('is-active');
-        });
-        atmos.addEventListener('mouseleave', function () {
-          atmos.classList.remove('is-active');
-        });
+        atmos.addEventListener('mouseenter', function () { atmos.classList.add('is-active'); });
+        atmos.addEventListener('mouseleave', function () { atmos.classList.remove('is-active'); });
       }
+
+      /* ── Scroll-Grow Full-Width Showcase Media Animation ── */
+      var growTarget = document.getElementById('c8cs-grow-target');
+      var growTrigger = document.getElementById('c8cs-grow-trigger');
+
+      if (growTarget && growTrigger && !reduceMotion) {
+        function handleGrowScroll() {
+          var rect = growTrigger.getBoundingClientRect();
+          var viewportH = window.innerHeight;
+          
+          // Calculate progress as element passes middle of screen
+          var start = viewportH * 0.9;
+          var end = viewportH * 0.3;
+          
+          var progress = 0;
+          if (rect.top < start) {
+            progress = (start - rect.top) / (start - end);
+            if (progress > 1) progress = 1;
+            if (progress < 0) progress = 0;
+          }
+
+          var widthVal = 85 + (15 * progress);
+          var maxWVal = 1100 + ((window.innerWidth - 1100) * progress);
+
+          growTarget.style.width = widthVal + '%';
+          growTarget.style.maxWidth = maxWVal + 'px';
+
+          if (progress > 0.9) {
+            growTarget.style.borderRadius = '0px';
+          } else {
+            growTarget.style.borderRadius = '4px';
+          }
+        }
+
+        window.addEventListener('scroll', handleGrowScroll);
+        window.addEventListener('resize', handleGrowScroll);
+        handleGrowScroll();
+      }
+
+      /* ── Live Matrix Text Scramble Script ── */
+      var srvMatrixButtons = document.querySelectorAll('.c8-btn-primary, .c8cs-btn-primary, .cta-btn-pill, .c8isv-related-card-link, .c8cs-back-btn');
+      var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+      srvMatrixButtons.forEach(function(btn) {
+        var textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; });
+        var targetObj = textNode ? textNode : btn;
+        var originalText = targetObj.textContent.trim();
+        var scrambleInterval = null;
+
+        btn.addEventListener('mouseenter', function() {
+          var iteration = 0;
+          clearInterval(scrambleInterval);
+
+          scrambleInterval = setInterval(function() {
+            targetObj.textContent = originalText.split('')
+              .map(function(char, index) {
+                if (char === ' ' || index < iteration) return originalText[index];
+                return srvMatrixChars[Math.floor(Math.random() * srvMatrixChars.length)];
+              })
+              .join('');
+
+            if (iteration >= originalText.length) {
+              clearInterval(scrambleInterval);
+            }
+            iteration += 1 / 2;
+          }, 25);
+        });
+
+        btn.addEventListener('mouseleave', function() {
+          clearInterval(scrambleInterval);
+          targetObj.textContent = originalText;
+        });
+      });
     });
   </script>
 </body>
