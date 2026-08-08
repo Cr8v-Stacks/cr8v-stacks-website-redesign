@@ -1,0 +1,731 @@
+<!-- ══════════════════════════════════════════════════════════
+   CR8V STACKS — BLOG MASTER HEADER
+   Desktop: New Modern Capsule Pill Header & Floating Card Mega Menu
+   Mobile: Preserved Established Blog Category Accordion Drawer Layout
+═══════════════════════════════════════════════════════════ -->
+<div class="c8bm-root">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+.c8bm-root, .c8bm-root * {box-sizing:border-box!important;}
+.c8bm-root a {text-decoration:none!important;color:inherit!important;}
+.c8bm-root ul {list-style:none!important;margin:0!important;padding:0!important;}
+.c8bm-root button {font-family:'DM Sans',sans-serif!important;}
+
+/* ── Header Shell — Fixed ── */
+.c8bm-root .c8bm-header {
+  position:fixed!important;top:0!important;left:0!important;right:0!important;
+  z-index:9500!important;height:68px!important;
+  background:#FAFAF7!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;
+  transition:box-shadow .3s!important;
+}
+.c8bm-root .c8bm-header.c8bm-scrolled {box-shadow:0 4px 40px rgba(0,0,0,0.07)!important;}
+
+body.admin-bar .c8bm-root .c8bm-header {top:32px!important;}
+body.admin-bar .c8bm-root .c8bm-mega, body.admin-bar .c8bm-root .c8bm-mega-back {top:calc(68px + 32px)!important;}
+body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-overlay {top:32px!important;}
+@media (max-width:782px){
+  body.admin-bar .c8bm-root .c8bm-header {top:46px!important;}
+  body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-overlay {top:46px!important;}
+}
+
+.c8bm-root .c8bm-bar {
+  max-width:1440px!important;margin:0 auto!important;height:68px!important;
+  padding:0 3.5rem!important;display:flex!important;align-items:center!important;
+  justify-content:space-between!important;gap:1.2rem!important;
+}
+@media (max-width:1100px){ .c8bm-root .c8bm-bar {padding:0 1.25rem!important;} }
+
+/* ── Logo ── */
+.c8bm-root .c8bm-logo {display:flex!important;align-items:center!important;gap:10px!important;flex-shrink:0!important;}
+.c8bm-root .c8bm-logo-img {display:block!important;height:44px!important;width:auto!important;}
+
+/* ── New Desktop Capsule Pill Nav ── */
+.c8bm-root .c8bm-pnav {
+  display:flex!important;align-items:center!important;gap:2px!important;
+  background:#F3F2EC!important;border-radius:999px!important;padding:4px!important;height:46px!important;
+}
+.c8bm-root .c8bm-pnav-item {position:static!important;}
+.c8bm-root .c8bm-pnav-link {
+  display:flex!important;align-items:center!important;gap:4px!important;
+  font-size:12.5px!important;font-weight:500!important;color:#080808!important;
+  padding:0 .9rem!important;height:38px!important;letter-spacing:.01em!important;
+  cursor:pointer!important;position:relative!important;border-radius:999px!important;
+  transition:background .2s ease,color .2s ease,box-shadow .2s ease!important;
+  white-space:nowrap!important;user-select:none!important;font-family:'DM Sans',sans-serif!important;
+}
+.c8bm-root .c8bm-pnav-link:hover, .c8bm-root .c8bm-pnav-link.c8bm-open {
+  background:#FFFFFF!important;color:#0047E1!important;box-shadow:0 2px 10px rgba(8,8,8,0.07)!important;
+}
+.c8bm-root .c8bm-chev {width:10px!important;height:10px!important;opacity:.5!important;transition:transform .22s ease,opacity .2s!important;flex-shrink:0!important;stroke:currentColor!important;}
+.c8bm-root .c8bm-pnav-link.c8bm-open .c8bm-chev {transform:rotate(180deg)!important;opacity:1!important;}
+@media (max-width:1100px){ .c8bm-root .c8bm-pnav {display:none!important;} }
+
+/* ── Header Right (Search + Option G CTA Button) ── */
+.c8bm-root .c8bm-right {display:flex!important;align-items:center!important;gap:.75rem!important;flex-shrink:0!important;}
+.c8bm-root .c8bm-search-btn {
+  width:36px!important;height:36px!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  border:1px solid rgba(8,8,8,0.08)!important;background:#F4F3EE!important;border-radius:999px!important;
+  transition:background .2s,border-color .2s!important;cursor:pointer!important;
+}
+.c8bm-root .c8bm-search-btn:hover {background:#EEF3FF!important;border-color:#0047E1!important;}
+.c8bm-root .c8bm-search-btn svg {width:14px!important;height:14px!important;stroke:#6B6B6B!important;stroke-width:1.75!important;fill:none!important;}
+
+.c8bm-root .c8bm-btn-cta {
+  position:relative!important;overflow:hidden!important;
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  gap:8px!important;font-family:'DM Sans',sans-serif!important;
+  font-size:12.5px!important;font-weight:600!important;color:#FAFAF7!important;
+  background:#0047E1!important;padding:0 1.3rem!important;height:40px!important;
+  border-radius:999px!important;letter-spacing:.03em!important;white-space:nowrap!important;
+  transition:background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease!important;
+  box-shadow:0 4px 14px rgba(0, 71, 225, 0.28)!important;
+}
+.c8bm-root .c8bm-btn-cta::before {
+  content:''!important;position:absolute!important;top:0!important;left:-100%!important;
+  width:60%!important;height:100%!important;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)!important;
+  transform:skewX(-20deg)!important;
+  transition:left 0.65s ease!important;
+}
+.c8bm-root .c8bm-btn-cta:hover {
+  background:#0038C0!important;transform:translateY(-1px)!important;
+  box-shadow:0 8px 24px rgba(0, 71, 225, 0.38)!important;
+}
+.c8bm-root .c8bm-btn-cta:hover::before { left:180%!important; }
+@media (max-width:1100px){ .c8bm-root .c8bm-btn-cta {display:none!important;} }
+
+.c8bm-root .c8bm-hbg {display:none!important;flex-direction:column!important;gap:5px!important;padding:10px!important;cursor:pointer!important;background:none!important;border:none!important;}
+.c8bm-root .c8bm-hbg span {display:block!important;width:22px!important;height:1.5px!important;background:#080808!important;transition:all .25s!important;}
+.c8bm-root .c8bm-hbg.c8bm-open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)!important;}
+.c8bm-root .c8bm-hbg.c8bm-open span:nth-child(2){opacity:0!important;transform:scaleX(0)!important;}
+.c8bm-root .c8bm-hbg.c8bm-open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)!important;}
+@media (max-width:1100px){ .c8bm-root .c8bm-hbg {display:flex!important;} }
+
+/* ── Mega Backdrop & Floating Card Shell ── */
+.c8bm-root .c8bm-mega-back {
+  position:fixed!important;top:68px!important;left:0!important;right:0!important;bottom:0!important;
+  background:rgba(8,8,8,0.18)!important;z-index:9400!important;
+  opacity:0!important;pointer-events:none!important;transition:opacity .3s ease!important;
+}
+.c8bm-root .c8bm-mega-back.c8bm-show {opacity:1!important;pointer-events:auto!important;}
+
+.c8bm-root .c8bm-mega {
+  position:fixed!important;top:68px!important;left:0!important;right:0!important;z-index:9450!important;
+  display:flex!important;justify-content:center!important;padding-top:14px!important;
+  background:transparent!important;pointer-events:none!important;
+  opacity:0!important;transform:translateY(-8px)!important;
+  transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .25s ease!important;
+}
+.c8bm-root .c8bm-mega.c8bm-open {transform:translateY(0)!important;opacity:1!important;pointer-events:auto!important;}
+@media (max-width:1100px){ .c8bm-root .c8bm-mega, .c8bm-root .c8bm-mega-back {display:none!important;} }
+
+.c8bm-root .c8bm-mega-card {
+  background:#FFFFFF!important;width:min(1280px, calc(100% - 4rem))!important;
+  border-radius:22px!important;border:1px solid rgba(8,8,8,0.07)!important;
+  box-shadow:0 30px 80px rgba(8,8,8,0.16)!important;overflow:hidden!important;pointer-events:auto!important;
+}
+
+.c8bm-root .c8bm-mega-grid {display:grid!important;grid-template-columns:1.1fr 1.3fr 1.1fr!important;}
+
+.c8bm-root .c8bm-mcol {padding:2.1rem 1.9rem!important;border-right:1px solid rgba(8,8,8,0.06)!important;}
+.c8bm-root .c8bm-mcol:last-child {border-right:none!important;}
+
+.c8bm-root .c8bm-mcol-eyebrow {
+  font-family:'Space Mono',monospace!important;font-size:9.5px!important;letter-spacing:.28em!important;
+  text-transform:uppercase!important;color:#0047E1!important;margin-bottom:1.1rem!important;
+  display:flex!important;align-items:center!important;gap:8px!important;
+}
+.c8bm-root .c8bm-mcol-eyebrow::before {content:''!important;width:14px!important;height:1px!important;background:#0047E1!important;display:inline-block!important;flex-shrink:0!important;}
+
+.c8bm-root .c8bm-mcol-heading {font-family:'Michroma',sans-serif!important;font-size:1.4rem!important;line-height:1.25!important;color:#080808!important;margin-bottom:.65rem!important;}
+.c8bm-root .c8bm-mcol-desc {font-size:12px!important;color:#7A7A75!important;line-height:1.6!important;margin-bottom:1.2rem!important;}
+
+.c8bm-root .c8bm-sublink {
+  display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;
+  padding:10px 0!important;font-size:13px!important;font-weight:500!important;color:#080808!important;
+  border-bottom:1px solid rgba(8,8,8,0.06)!important;transition:color .15s,padding-left .15s!important;
+}
+.c8bm-root .c8bm-sublink:last-of-type {border-bottom:none!important;}
+.c8bm-root .c8bm-sublink:hover {color:#0047E1!important;padding-left:5px!important;}
+.c8bm-root .c8bm-count {font-family:'Space Mono',monospace!important;font-size:10px!important;color:#7A7A75!important;background:#F4F3EE!important;padding:2px 7px!important;border-radius:3px!important;}
+
+/* Dark Upsell Card inside Mega Menu */
+.c8bm-root .c8bm-upsell {
+  background:#080808!important;border-radius:14px!important;padding:1.75rem 1.6rem!important;
+  display:flex!important;flex-direction:column!important;position:relative!important;overflow:hidden!important;
+  height:100%!important;border:1px solid rgba(255,255,255,0.08)!important;
+}
+.c8bm-root .c8bm-upsell::before {
+  content:''!important;position:absolute!important;inset:0!important;
+  background:radial-gradient(circle at 80% 15%,rgba(0,71,225,0.5) 0%,transparent 60%)!important;
+}
+.c8bm-root .c8bm-upsell-tag {font-family:'Space Mono',monospace!important;font-size:9px!important;letter-spacing:.25em!important;text-transform:uppercase!important;color:#4A9EFF!important;margin-bottom:8px!important;position:relative!important;z-index:1!important;}
+.c8bm-root .c8bm-upsell-title {font-family:'Michroma',sans-serif!important;font-size:1.15rem!important;line-height:1.25!important;color:#FAFAF7!important;margin-bottom:8px!important;position:relative!important;z-index:1!important;}
+.c8bm-root .c8bm-upsell-desc {font-size:12px!important;color:rgba(255,255,255,0.65)!important;line-height:1.55!important;margin-bottom:1.2rem!important;position:relative!important;z-index:1!important;}
+.c8bm-root .c8bm-upsell-link {
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;
+  font-size:12px!important;font-weight:600!important;color:#FFFFFF!important;background:#0047E1!important;
+  padding:10px 16px!important;border-radius:999px!important;position:relative!important;z-index:1!important;margin-top:auto!important;
+  transition:background .2s ease!important;
+}
+.c8bm-root .c8bm-upsell-link:hover {background:#0038C0!important;}
+
+/* Recent Reads Column */
+.c8bm-root .c8bm-post-item {display:flex!important;gap:12px!important;align-items:flex-start!important;padding:10px 0!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;}
+.c8bm-root .c8bm-post-item:last-of-type {border-bottom:none!important;}
+.c8bm-root .c8bm-post-num {font-family:'Space Mono',monospace!important;font-size:12px!important;font-weight:700!important;color:#0047E1!important;line-height:1.2!important;flex-shrink:0!important;}
+.c8bm-root .c8bm-post-tag {font-family:'Space Mono',monospace!important;font-size:8.5px!important;letter-spacing:.2em!important;color:#0047E1!important;text-transform:uppercase!important;margin-bottom:2px!important;}
+.c8bm-root .c8bm-post-title {font-size:12px!important;font-weight:500!important;color:#080808!important;line-height:1.4!important;transition:color .18s!important;}
+.c8bm-root .c8bm-post-item:hover .c8bm-post-title {color:#0047E1!important;}
+
+/* ── PRESERVED OLD MOBILE DRAWER LAYOUT (Category Accordion List) ── */
+.c8bm-root .c8bm-drawer-overlay {position:fixed!important;inset:0!important;background:rgba(8,8,8,0.5)!important;z-index:9600!important;opacity:0!important;pointer-events:none!important;transition:opacity .3s!important;}
+.c8bm-root .c8bm-drawer-overlay.c8bm-show {opacity:1!important;pointer-events:auto!important;}
+.c8bm-root .c8bm-drawer {
+  position:fixed!important;inset:0!important;z-index:9700!important;
+  background:#FAFAF7!important;transform:translateX(100%)!important;
+  transition:transform .38s cubic-bezier(.4,0,.2,1)!important;
+  display:flex!important;flex-direction:column!important;overflow:hidden!important;
+}
+.c8bm-root .c8bm-drawer.c8bm-open {transform:translateX(0)!important;}
+
+.c8bm-root .c8bm-bd-top {background:#080808!important;flex-shrink:0!important;position:relative!important;overflow:hidden!important;padding-bottom:1rem!important;}
+.c8bm-root .c8bm-bd-top-bar {
+  height:60px!important;padding:0 1.25rem!important;display:flex!important;align-items:center!important;justify-content:space-between!important;
+  border-bottom:1px solid rgba(255,255,255,0.1)!important;position:relative!important;z-index:1!important;
+}
+.c8bm-root .c8bm-bd-logo-img {display:block!important;height:38px!important;width:auto!important;filter:brightness(0) invert(1)!important;}
+.c8bm-root .c8bm-bd-close {
+  width:34px!important;height:34px!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  background:rgba(255,255,255,0.08)!important;border:1px solid rgba(255,255,255,0.15)!important;cursor:pointer!important;
+  flex-shrink:0!important;padding:0!important;line-height:0!important;border-radius:999px!important;
+}
+.c8bm-root .c8bm-bd-intro {padding:1rem 1.25rem 0!important;position:relative!important;z-index:1!important;}
+.c8bm-root .c8bm-bd-intro-tag {font-family:'Space Mono',monospace!important;font-size:8.5px!important;letter-spacing:.28em!important;text-transform:uppercase!important;color:#4A9EFF!important;margin-bottom:4px!important;}
+.c8bm-root .c8bm-bd-intro-title {font-family:'Michroma',sans-serif!important;font-size:1.15rem!important;line-height:1.2!important;color:#FAFAF7!important;}
+
+.c8bm-root .c8bm-bd-body {flex:1!important;overflow-y:auto!important;background:#FAFAF7!important;}
+.c8bm-root .c8bm-bd-section-label {
+  font-family:'Space Mono',monospace!important;font-size:9px!important;letter-spacing:.32em!important;text-transform:uppercase!important;
+  color:#0047E1!important;padding:1.1rem 1.25rem .5rem!important;display:flex!important;align-items:center!important;gap:8px!important;
+}
+.c8bm-root .c8bm-bd-section-label::before {content:''!important;width:14px!important;height:1px!important;background:#0047E1!important;display:block!important;flex-shrink:0!important;}
+
+.c8bm-root .c8bm-bd-cat-list {padding:0 1.25rem!important;}
+.c8bm-root .c8bm-bd-cat-item {display:flex!important;align-items:center!important;padding:12px 0!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;cursor:pointer!important;}
+.c8bm-root .c8bm-bdc-inner {display:flex!important;align-items:center!important;justify-content:space-between!important;flex:1!important;}
+.c8bm-root .c8bm-bdc-left {display:flex!important;flex-direction:column!important;gap:2px!important;}
+.c8bm-root .c8bm-bdc-name {font-size:14px!important;font-weight:500!important;color:#080808!important;}
+.c8bm-root .c8bm-bdc-subs {font-size:11px!important;color:#7A7A75!important;font-weight:400!important;}
+.c8bm-root .c8bm-bdc-right {display:flex!important;align-items:center!important;gap:8px!important;}
+.c8bm-root .c8bm-bdc-count {font-family:'Space Mono',monospace!important;font-size:10px!important;color:#7A7A75!important;background:#F4F3EE!important;padding:2px 8px!important;border-radius:3px!important;}
+.c8bm-root .c8bm-bdc-chev {width:12px!important;height:12px!important;color:#0047E1!important;opacity:.5!important;transition:transform .2s!important;}
+.c8bm-root .c8bm-bd-cat-item.c8bm-bdc-active .c8bm-bdc-chev {transform:rotate(180deg)!important;opacity:1!important;}
+
+.c8bm-root .c8bm-bdc-sub {display:none!important;background:#F4F3EE!important;padding:6px 1.25rem 10px!important;}
+.c8bm-root .c8bm-bdc-sub-open {display:block!important;}
+.c8bm-root .c8bm-bdc-sub-link {display:flex!important;align-items:center!important;gap:8px!important;padding:8px 0!important;font-size:12.5px!important;color:#080808!important;}
+.c8bm-root .c8bm-bdc-sub-link::before {content:''!important;width:4px!important;height:4px!important;border-radius:50%!important;background:#0047E1!important;}
+
+.c8bm-root .c8bm-bd-foot {padding:1.1rem 1.25rem 1.5rem!important;border-top:1px solid rgba(8,8,8,0.06)!important;background:#080808!important;flex-shrink:0!important;}
+.c8bm-root .c8bm-bd-services {display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;width:100%!important;height:46px!important;background:#0047E1!important;color:#FAFAF7!important;font-size:13px!important;font-weight:600!important;border-radius:999px!important;}
+</style>
+
+<!-- ── Desktop Backdrop ── -->
+<div class="c8bm-mega-back" id="c8bmMegaBack"></div>
+
+<!-- ── Modernized Blog Header ── -->
+<header class="c8bm-header" id="c8bmHeader">
+  <div class="c8bm-bar">
+    <a href="https://cr8vstacks.com" class="c8bm-logo">
+      <img src="https://cr8vstacks.com/wp-content/uploads/2022/08/1.png" alt="CR8V Stacks" class="c8bm-logo-img">
+    </a>
+
+    <nav>
+      <ul class="c8bm-pnav" id="c8bmPnav">
+        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-brand">
+          <span class="c8bm-pnav-link" tabindex="0">Brand Strategy
+            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
+        <li class="c8bm-pnav-item">
+          <a class="c8bm-pnav-link" href="https://cr8vstacks.com/business-brand-strategy/business-productivity/">Productivity</a>
+        </li>
+
+        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-biztips">
+          <span class="c8bm-pnav-link" tabindex="0">Business Tips
+            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
+        <li class="c8bm-pnav-item">
+          <a class="c8bm-pnav-link" href="https://cr8vstacks.com/career-planning/">Career Planning</a>
+        </li>
+
+        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-content">
+          <span class="c8bm-pnav-link" tabindex="0">Content Creation
+            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
+        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-digimkt">
+          <span class="c8bm-pnav-link" tabindex="0">Digital Marketing
+            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
+        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-webdesign">
+          <span class="c8bm-pnav-link" tabindex="0">Web Design
+            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
+        <li class="c8bm-pnav-item">
+          <a class="c8bm-pnav-link" href="https://cr8vstacks.com/tutorials/">Tutorials</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="c8bm-right">
+      <button class="c8bm-search-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <a href="https://cr8vstacks.com/services/" class="c8bm-btn-cta">
+        Our Services →
+      </a>
+      <button class="c8bm-hbg" id="c8bmHbg" type="button" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ── MEGA PANEL: Brand Strategy ── -->
+<div class="c8bm-mega" id="c8bm-mega-brand">
+  <div class="c8bm-mega-card">
+    <div class="c8bm-mega-grid">
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// CATEGORY</div>
+        <div class="c8bm-mcol-heading">Brand Strategy</div>
+        <p class="c8bm-mcol-desc">Positioning your business for long-term recognition and trust.</p>
+        <a href="https://cr8vstacks.com/business-brand-strategy/business-marketing/" class="c8bm-sublink">
+          Business Marketing <span class="c8bm-count" data-cat-slug="business-marketing">9</span>
+        </a>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-upsell">
+          <div class="c8bm-upsell-tag">↳ NEED THIS DONE FOR YOU?</div>
+          <div class="c8bm-upsell-title">Brand Strategy Services</div>
+          <p class="c8bm-upsell-desc">We build identities that make your business memorable, credible, and easy to trust at first glance.</p>
+          <a href="https://cr8vstacks.com/services/brand-strategy/" class="c8bm-upsell-link">View Service →</a>
+        </div>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// RECENT READS</div>
+        <a href="https://cr8vstacks.com/elevate-brand-status-in-depth-research-brand-positioning/" class="c8bm-post-item">
+          <div class="c8bm-post-num">01</div>
+          <div><div class="c8bm-post-tag">Strategy</div><div class="c8bm-post-title">Elevate Brand Status With In-Depth Positioning Research</div></div>
+        </a>
+        <a href="https://cr8vstacks.com/reasons-company-utilize-hubspot-marketing-agency/" class="c8bm-post-item">
+          <div class="c8bm-post-num">02</div>
+          <div><div class="c8bm-post-tag">Marketing</div><div class="c8bm-post-title">5 Reasons Your Company Should Utilize A HubSpot Agency</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MEGA PANEL: Business Tips ── -->
+<div class="c8bm-mega" id="c8bm-mega-biztips">
+  <div class="c8bm-mega-card">
+    <div class="c8bm-mega-grid">
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// CATEGORY</div>
+        <div class="c8bm-mcol-heading">Business Tips</div>
+        <p class="c8bm-mcol-desc">Practical, tested advice for running a growing business.</p>
+        <a href="https://cr8vstacks.com/business-tips/ecommerce-hub/" class="c8bm-sublink">Ecommerce Hub <span class="c8bm-count" data-cat-slug="ecommerce-hub">14</span></a>
+        <a href="https://cr8vstacks.com/business-tips/small-business-hub/" class="c8bm-sublink">Small Business Hub <span class="c8bm-count" data-cat-slug="small-business-hub">11</span></a>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-upsell">
+          <div class="c8bm-upsell-tag">↳ SELLING ONLINE?</div>
+          <div class="c8bm-upsell-title">Ecommerce Websites</div>
+          <p class="c8bm-upsell-desc">From Shopify builds to full custom stores — we design and develop ecommerce sites that convert.</p>
+          <a href="https://cr8vstacks.com/web-design-and-development/ecommerce-website/" class="c8bm-upsell-link">View Service →</a>
+        </div>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// RECENT READS</div>
+        <a href="https://cr8vstacks.com/key-advantages-of-hiring-a-professional-web-design-company/" class="c8bm-post-item">
+          <div class="c8bm-post-num">01</div>
+          <div><div class="c8bm-post-tag">Ecommerce</div><div class="c8bm-post-title">Key Advantages of Hiring a Professional Web Design Company</div></div>
+        </a>
+        <a href="https://cr8vstacks.com/things-you-should-know-about-temu-the-popular-shopping-app/" class="c8bm-post-item">
+          <div class="c8bm-post-num">02</div>
+          <div><div class="c8bm-post-tag">Ecommerce</div><div class="c8bm-post-title">Things You Should Know About Temu Shopping App</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MEGA PANEL: Content Creation ── -->
+<div class="c8bm-mega" id="c8bm-mega-content">
+  <div class="c8bm-mega-card">
+    <div class="c8bm-mega-grid">
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// CATEGORY</div>
+        <div class="c8bm-mcol-heading">Content Creation</div>
+        <p class="c8bm-mcol-desc">Writing and formats that keep an audience coming back.</p>
+        <a href="https://cr8vstacks.com/content-creation/blogging/" class="c8bm-sublink">Blogging <span class="c8bm-count" data-cat-slug="blogging">7</span></a>
+        <a href="https://cr8vstacks.com/content-creation/content-writing/" class="c8bm-sublink">Content Writing <span class="c8bm-count" data-cat-slug="content-writing">10</span></a>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-upsell">
+          <div class="c8bm-upsell-tag">↳ NEED CONTENT WRITING?</div>
+          <div class="c8bm-upsell-title">Content Writing Services</div>
+          <p class="c8bm-upsell-desc">Blog posts, web copy, and long-form content written to rank and convert readers into clients.</p>
+          <a href="https://cr8vstacks.com/services/content-writing-services/" class="c8bm-upsell-link">View Service →</a>
+        </div>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// RECENT READS</div>
+        <a href="https://cr8vstacks.com/diy-seo-for-small-businesses-ultimate-ranking-guide/" class="c8bm-post-item">
+          <div class="c8bm-post-num">01</div>
+          <div><div class="c8bm-post-tag">SEO</div><div class="c8bm-post-title">DIY SEO for Small Businesses: Ultimate Ranking Guide</div></div>
+        </a>
+        <a href="https://cr8vstacks.com/the-psychological-effects-of-propaganda-in-advertising/" class="c8bm-post-item">
+          <div class="c8bm-post-num">02</div>
+          <div><div class="c8bm-post-tag">Writing</div><div class="c8bm-post-title">The Psychological Effects of Propaganda in Advertising</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MEGA PANEL: Digital Marketing ── -->
+<div class="c8bm-mega" id="c8bm-mega-digimkt">
+  <div class="c8bm-mega-card">
+    <div class="c8bm-mega-grid">
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// CATEGORY</div>
+        <div class="c8bm-mcol-heading">Digital Marketing</div>
+        <p class="c8bm-mcol-desc">Strategies to grow reach, traffic, and qualified leads.</p>
+        <a href="https://cr8vstacks.com/digital-marketing-news/email-marketing/" class="c8bm-sublink">Email Marketing <span class="c8bm-count" data-cat-slug="email-marketing">8</span></a>
+        <a href="https://cr8vstacks.com/digital-marketing-news/sem/" class="c8bm-sublink">SEM <span class="c8bm-count" data-cat-slug="sem">6</span></a>
+        <a href="https://cr8vstacks.com/digital-marketing-news/seo/" class="c8bm-sublink">SEO <span class="c8bm-count" data-cat-slug="seo">15</span></a>
+        <a href="https://cr8vstacks.com/digital-marketing-news/social-media-management/" class="c8bm-sublink">Social Media <span class="c8bm-count" data-cat-slug="social-media-management">12</span></a>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-upsell">
+          <div class="c8bm-upsell-tag">↳ READY TO GROW FAST?</div>
+          <div class="c8bm-upsell-title">Digital Marketing Services</div>
+          <p class="c8bm-upsell-desc">SEO, email, and social strategy handled end-to-end so traffic turns into real customers.</p>
+          <a href="https://cr8vstacks.com/services/digital-marketing/" class="c8bm-upsell-link">View Service →</a>
+        </div>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// RECENT READS</div>
+        <a href="https://cr8vstacks.com/what-is-seo-all-you-need-to-know/" class="c8bm-post-item">
+          <div class="c8bm-post-num">01</div>
+          <div><div class="c8bm-post-tag">SEO</div><div class="c8bm-post-title">What Is SEO – All You Need To Know</div></div>
+        </a>
+        <a href="https://cr8vstacks.com/temu-marketing-strategy-and-business-model/" class="c8bm-post-item">
+          <div class="c8bm-post-num">02</div>
+          <div><div class="c8bm-post-tag">Strategy</div><div class="c8bm-post-title">Temu Marketing Strategy and Business Model</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MEGA PANEL: Web Design ── -->
+<div class="c8bm-mega" id="c8bm-mega-webdesign">
+  <div class="c8bm-mega-card">
+    <div class="c8bm-mega-grid">
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// CATEGORY</div>
+        <div class="c8bm-mcol-heading">Web Design</div>
+        <p class="c8bm-mcol-desc">Building fast, functional sites that look as good as they perform.</p>
+        <a href="https://cr8vstacks.com/web-design-and-development/ecommerce-website/" class="c8bm-sublink">Ecommerce Website <span class="c8bm-count" data-cat-slug="ecommerce-website">10</span></a>
+        <a href="https://cr8vstacks.com/web-design-and-development/website-design-website-design/" class="c8bm-sublink">Website Design <span class="c8bm-count" data-cat-slug="website-design-website-design">13</span></a>
+        <a href="https://cr8vstacks.com/web-design-and-development/shopify/" class="c8bm-sublink">Shopify <span class="c8bm-count" data-cat-slug="shopify">9</span></a>
+        <a href="https://cr8vstacks.com/web-design-and-development/wordpress/" class="c8bm-sublink">WordPress <span class="c8bm-count" data-cat-slug="wordpress">17</span></a>
+        <a href="https://cr8vstacks.com/web-design-and-development/web-development/" class="c8bm-sublink">Web Development <span class="c8bm-count" data-cat-slug="web-development">11</span></a>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-upsell">
+          <div class="c8bm-upsell-tag">↳ TIME FOR A NEW SITE?</div>
+          <div class="c8bm-upsell-title">Website Design &amp; Dev</div>
+          <p class="c8bm-upsell-desc">WordPress, Shopify, or fully custom — we design and build sites that are built to convert.</p>
+          <a href="https://cr8vstacks.com/services/website-design-development/" class="c8bm-upsell-link">View Service →</a>
+        </div>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// RECENT READS</div>
+        <a href="https://cr8vstacks.com/what-is-ecommerce-web-development-guide/" class="c8bm-post-item">
+          <div class="c8bm-post-num">01</div>
+          <div><div class="c8bm-post-tag">Ecommerce</div><div class="c8bm-post-title">What is Ecommerce Web Development? A Comprehensive Guide</div></div>
+        </a>
+        <a href="https://cr8vstacks.com/how-to-choose-the-best-ecommerce-web-development-platform/" class="c8bm-post-item">
+          <div class="c8bm-post-num">02</div>
+          <div><div class="c8bm-post-tag">Ecommerce</div><div class="c8bm-post-title">How to Choose the Best Ecommerce Development Platform</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PRESERVED OLD MOBILE DRAWER LAYOUT (Category Accordion List) ── -->
+<div class="c8bm-drawer-overlay" id="c8bmDrawerOverlay"></div>
+<div class="c8bm-drawer" id="c8bmDrawer">
+
+  <div class="c8bm-bd-top">
+    <div class="c8bm-bd-top-bar">
+      <img src="https://cr8vstacks.com/wp-content/uploads/2022/08/1.png" alt="CR8V Stacks" class="c8bm-bd-logo-img">
+      <button class="c8bm-bd-close" id="c8bmCloseBtn" type="button" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FAFAF7" stroke-width="1.75" style="display:block;width:13px;height:13px;stroke:#FAFAF7;"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="c8bm-bd-intro">
+      <div class="c8bm-bd-intro-tag">↳ CR8V STACKS BLOG</div>
+      <div class="c8bm-bd-intro-title">Browse By Category</div>
+    </div>
+  </div>
+
+  <div class="c8bm-bd-body">
+    <div class="c8bm-bd-section-label">Categories</div>
+    <div class="c8bm-bd-cat-list">
+
+      <div class="c8bm-bd-cat-item" onclick="c8bmToggleCat(this)">
+        <div class="c8bm-bdc-inner">
+          <div class="c8bm-bdc-left">
+            <span class="c8bm-bdc-name">Brand Strategy</span>
+            <span class="c8bm-bdc-subs">Business Marketing</span>
+          </div>
+          <div class="c8bm-bdc-right">
+            <span class="c8bm-bdc-count" data-cat-slug="business-brand-strategy">9</span>
+            <svg class="c8bm-bdc-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="c8bm-bdc-sub">
+        <a href="https://cr8vstacks.com/business-brand-strategy/business-marketing/" class="c8bm-bdc-sub-link">Business Marketing</a>
+      </div>
+
+      <a href="https://cr8vstacks.com/business-brand-strategy/business-productivity/" class="c8bm-bd-cat-item">
+        <div class="c8bm-bdc-inner">
+          <div class="c8bm-bdc-left">
+            <span class="c8bm-bdc-name">Business Productivity</span>
+            <span class="c8bm-bdc-subs">Systems, tools, and workflows</span>
+          </div>
+          <div class="c8bm-bdc-right">
+            <span class="c8bm-bdc-count" data-cat-slug="business-productivity">6</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="c8bm-bd-cat-item" onclick="c8bmToggleCat(this)">
+        <div class="c8bm-bdc-inner">
+          <div class="c8bm-bdc-left">
+            <span class="c8bm-bdc-name">Business Tips</span>
+            <span class="c8bm-bdc-subs">Ecommerce · Small Business</span>
+          </div>
+          <div class="c8bm-bdc-right">
+            <span class="c8bm-bdc-count" data-cat-slug="business-tips">25</span>
+            <svg class="c8bm-bdc-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="c8bm-bdc-sub">
+        <a href="https://cr8vstacks.com/business-tips/ecommerce-hub/" class="c8bm-bdc-sub-link">Ecommerce Hub</a>
+        <a href="https://cr8vstacks.com/business-tips/small-business-hub/" class="c8bm-bdc-sub-link">Small Business Hub</a>
+      </div>
+
+      <a href="https://cr8vstacks.com/career-planning/" class="c8bm-bd-cat-item">
+        <div class="c8bm-bdc-inner">
+          <div class="c8bm-bdc-left">
+            <span class="c8bm-bdc-name">Career Planning</span>
+            <span class="c8bm-bdc-subs">Grow your professional life</span>
+          </div>
+          <div class="c8bm-bdc-right">
+            <span class="c8bm-bdc-count" data-cat-slug="career-planning">5</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="c8bm-bd-cat-item" onclick="c8bmToggleCat(this)">
+        <div class="c8bm-bdc-inner">
+          <div class="c8bm-bdc-left">
+            <span class="c8bm-bdc-name">Content Creation</span>
+            <span class="c8bm-bdc-subs">Blogging · Content Writing</span>
+          </div>
+          <div class="c8bm-bdc-right">
+            <span class="c8bm-bdc-count" data-cat-slug="content-creation">17</span>
+            <svg class="c8bm-bdc-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="c8bm-bdc-sub">
+        <a href="https://cr8vstacks.com/content-creation/blogging/" class="c8bm-bdc-sub-link">Blogging</a>
+        <a href="https://cr8vstacks.com/content-creation/content-writing/" class="c8bm-bdc-sub-link">Content Writing</a>
+      </div>
+
+      <div class="c8bm-bd-cat-item" onclick="c8bmToggleCat(this)">
+        <div class="c8bm-bdc-inner">
+          <div class="c8bm-bdc-left">
+            <span class="c8bm-bdc-name">Digital Marketing</span>
+            <span class="c8bm-bdc-subs">Email · SEM · SEO · Social</span>
+          </div>
+          <div class="c8bm-bdc-right">
+            <span class="c8bm-bdc-count" data-cat-slug="digital-marketing-news">41</span>
+            <svg class="c8bm-bdc-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="c8bm-bdc-sub">
+        <a href="https://cr8vstacks.com/digital-marketing-news/email-marketing/" class="c8bm-bdc-sub-link">Email Marketing</a>
+        <a href="https://cr8vstacks.com/digital-marketing-news/sem/" class="c8bm-bdc-sub-link">SEM</a>
+        <a href="https://cr8vstacks.com/digital-marketing-news/seo/" class="c8bm-bdc-sub-link">SEO</a>
+        <a href="https://cr8vstacks.com/digital-marketing-news/social-media-management/" class="c8bm-bdc-sub-link">Social Media Management</a>
+      </div>
+
+      <div class="c8bm-bd-cat-item" onclick="c8bmToggleCat(this)">
+        <div class="c8bm-bdc-inner">
+          <div class="c8bm-bdc-left">
+            <span class="c8bm-bdc-name">Web Design &amp; Development</span>
+            <span class="c8bm-bdc-subs">WordPress · Shopify · Ecommerce</span>
+          </div>
+          <div class="c8bm-bdc-right">
+            <span class="c8bm-bdc-count" data-cat-slug="web-design-and-development">60</span>
+            <svg class="c8bm-bdc-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="c8bm-bdc-sub">
+        <a href="https://cr8vstacks.com/web-design-and-development/ecommerce-website/" class="c8bm-bdc-sub-link">Ecommerce Website</a>
+        <a href="https://cr8vstacks.com/web-design-and-development/website-design-website-design/" class="c8bm-bdc-sub-link">Website Design</a>
+        <a href="https://cr8vstacks.com/web-design-and-development/shopify/" class="c8bm-bdc-sub-link">Shopify</a>
+        <a href="https://cr8vstacks.com/web-design-and-development/wordpress/" class="c8bm-bdc-sub-link">WordPress</a>
+        <a href="https://cr8vstacks.com/web-design-and-development/web-development/" class="c8bm-bdc-sub-link">Web Development</a>
+      </div>
+
+      <a href="https://cr8vstacks.com/tutorials/" class="c8bm-bd-cat-item">
+        <div class="c8bm-bdc-inner">
+          <div class="c8bm-bdc-left">
+            <span class="c8bm-bdc-name">Tutorials</span>
+            <span class="c8bm-bdc-subs">Step-by-step guides and how-tos</span>
+          </div>
+          <div class="c8bm-bdc-right">
+            <span class="c8bm-bdc-count" data-cat-slug="tutorials">22</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="c8bm-bd-foot">
+    <a href="https://cr8vstacks.com/services/" class="c8bm-bd-services">Explore Our Services →</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  // Fetch real WP category counts
+  fetch('https://cr8vstacks.com/wp-json/wp/v2/categories?per_page=100')
+    .then(function(r){ return r.json(); })
+    .then(function(cats){
+      var bySlug = {};
+      cats.forEach(function(c){ bySlug[c.slug] = c.count; });
+      document.querySelectorAll('[data-cat-slug]').forEach(function(el){
+        var slug = el.getAttribute('data-cat-slug');
+        if (bySlug.hasOwnProperty(slug)) el.textContent = bySlug[slug];
+      });
+    })
+    .catch(function(){});
+
+  // Desktop Hover Mega Logic
+  var active = null, timer = null;
+  var back = document.getElementById('c8bmMegaBack');
+
+  function open(id){
+    clearTimeout(timer);
+    var panel = document.getElementById(id);
+    if (!panel) return;
+    if (active && active !== panel){
+      active.classList.remove('c8bm-open');
+      document.querySelectorAll('#c8bmPnav .c8bm-pnav-link').forEach(function(l){ l.classList.remove('c8bm-open'); });
+    }
+    panel.classList.add('c8bm-open');
+    if (back) back.classList.add('c8bm-show');
+    active = panel;
+    document.querySelectorAll('[data-c8bm-mega="'+id+'"] .c8bm-pnav-link').forEach(function(l){ l.classList.add('c8bm-open'); });
+  }
+  function close(immediate){
+    clearTimeout(timer);
+    var fn = function(){
+      if (active){ active.classList.remove('c8bm-open'); active = null; }
+      if (back) back.classList.remove('c8bm-show');
+      document.querySelectorAll('#c8bmPnav .c8bm-pnav-link').forEach(function(l){ l.classList.remove('c8bm-open'); });
+    };
+    if (immediate) fn(); else timer = setTimeout(fn, 180);
+  }
+
+  document.querySelectorAll('#c8bmPnav .c8bm-pnav-item[data-c8bm-mega]').forEach(function(item){
+    var link = item.querySelector('.c8bm-pnav-link');
+    var id = item.getAttribute('data-c8bm-mega');
+    link.addEventListener('mouseenter', function(){ open(id); });
+    link.addEventListener('click', function(e){
+      if (active && active.id === id) close(true); else open(id);
+    });
+    item.addEventListener('mouseleave', function(){ close(false); });
+  });
+
+  document.querySelectorAll('.c8bm-mega').forEach(function(p){
+    p.addEventListener('mouseenter', function(){ clearTimeout(timer); });
+    p.addEventListener('mouseleave', function(){ close(false); });
+  });
+  if (back) back.addEventListener('click', function(){ close(true); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(true); });
+
+  // Mobile Drawer Toggle
+  var hbg = document.getElementById('c8bmHbg');
+  var drawer = document.getElementById('c8bmDrawer');
+  var overlay = document.getElementById('c8bmDrawerOverlay');
+  var closeBtn = document.getElementById('c8bmCloseBtn');
+
+  function toggleDrawer(){
+    var isOpen = drawer.classList.toggle('c8bm-open');
+    overlay.classList.toggle('c8bm-show', isOpen);
+    hbg.classList.toggle('c8bm-open', isOpen);
+  }
+  if (hbg && drawer && overlay && closeBtn) {
+    hbg.addEventListener('click', toggleDrawer);
+    closeBtn.addEventListener('click', toggleDrawer);
+    overlay.addEventListener('click', toggleDrawer);
+  }
+
+  window.c8bmToggleCat = function(el){
+    var sub = el.nextElementSibling;
+    if (!sub || !sub.classList.contains('c8bm-bdc-sub')) return;
+    var isOpen = sub.classList.contains('c8bm-bdc-sub-open');
+    document.querySelectorAll('.c8bm-bdc-sub.c8bm-bdc-sub-open').forEach(function(s){ s.classList.remove('c8bm-bdc-sub-open'); });
+    document.querySelectorAll('.c8bm-bd-cat-item').forEach(function(i){ i.classList.remove('c8bm-bdc-active'); });
+    if (!isOpen){ sub.classList.add('c8bm-bdc-sub-open'); el.classList.add('c8bm-bdc-active'); }
+  };
+})();
+</script>
+</div>
