@@ -635,13 +635,11 @@
         <div class="c8srv-est-options">
           <!-- Step 1 -->
           <div>
-            <span class="c8srv-est-group-title">1. Core Architecture</span>
+            <span class="c8srv-est-group-title">1. Core Scope</span>
             <div class="c8srv-est-choices" data-est-group="platform">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="marketing" data-est-price="1000">Digital Marketing ($1,000)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="wordpress" data-est-price="1200">WordPress Custom ($1,200)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="shopify" data-est-price="1800">Shopify Storefront ($1,800)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="woocommerce" data-est-price="1800">WooCommerce Store ($1,800)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="custom" data-est-price="2500">Custom Dev ($2,500)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="funnel" data-est-price="1000">Funnel Setup ($1,000)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="multichannel" data-est-price="1500">Multi-Channel Ads ($1,500)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="retargeting" data-est-price="2000">Retargeting Engine ($2,000)</button>
             </div>
           </div>
 
@@ -649,9 +647,8 @@
           <div>
             <span class="c8srv-est-group-title">2. Project Scale</span>
             <div class="c8srv-est-choices" data-est-group="scale">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="landing" data-est-multiplier="1.0">Funnel Setup (1.0x)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="core" data-est-multiplier="1.4">Growth Retainer (1.4x)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="portal" data-est-multiplier="2.0">Scale Retainer (2.0x)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="single" data-est-multiplier="1.0">Single Channel (1.0x)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="multi" data-est-multiplier="1.4">Omnichannel Scale (1.4x)</button>
             </div>
           </div>
 
@@ -660,8 +657,8 @@
             <span class="c8srv-est-group-title">3. Growth Add-Ons</span>
             <div class="c8srv-est-choices" data-est-group="growth">
               <button type="button" class="c8srv-est-choice is-active" data-est-val="none" data-est-price="0">No Add-Ons</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="seo" data-est-price="600">SEO Clean (+ $600)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="marketing" data-est-price="1000">Marketing Funnel (+ $1,000)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="email" data-est-price="600">Email Flows (+ $600)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="cro" data-est-price="800">CRO Audit (+ $800)</button>
             </div>
           </div>
         </div>
@@ -1539,17 +1536,15 @@
       if (!choices.length || !rangeDisplay) return;
 
       var platformBases = {
-        marketing: { price: 1000, name: 'Digital Marketing & Funnels', deliverables: ["Multi-channel Funnel Setup", "Google & Meta Ad campaign wiring", "Server-side GTM & GA4 conversion tracking"] },
-        wordpress: { price: 1200, name: 'WordPress Custom Theme', deliverables: ["Custom theme build & setup", "Zero-bloat optimized speed architecture", "Up to 5 editable layout pages"] },
-        shopify: { price: 1800, name: 'Shopify Storefront', deliverables: ["Custom Liquid storefront coding", "Cart drawer & upsell conversions built-in", "App-free speed performance tuning"] },
-        woocommerce: { price: 1800, name: 'WooCommerce Store', deliverables: ["Custom checkout flows & data layout", "Multi-currency & native tax logical setups", "Full data ownership & local hosting options"] },
-        custom: { price: 2500, name: 'Bespoke Custom Dev (PHP/JS)', deliverables: ["Custom PHP/JS/React framework engineering", "Third-party APIs and custom database queries", "Client dashboard whitelabel panel"] }
+        funnel: { price: 1000, name: 'Funnel Setup', deliverables: ["High-Intent Landing Page Conversion Architecture", "Meta & Google Pixel Attribution Wiring", "GA4 Conversion Event Dashboard"] },
+        multichannel: { price: 1500, name: 'Multi-Channel Ads', deliverables: ["Google Search & Meta Ad Campaign Setup", "Ad Copywriting & Creative Concept Testing", "Cost-Per-Acquisition (CPA) Optimization"] },
+        retargeting: { price: 2000, name: 'Retargeting Engine', deliverables: ["Full Funnel Dynamic Retargeting Matrix", "Klaviyo Abandoned Cart & Nurture Sequences", "Weekly ROAS Performance Reporting"] }
       };
 
       var estimatorAddons = {
         none: { price: 0, deliverables: [] },
-        seo: { price: 600, deliverables: ['Technical Schema & Crawl Audit', 'Keyword Matrix Mapping'] },
-        marketing: { price: 1000, deliverables: ['Multi-channel Funnel Setup', 'Email Autoresponder Wiring'] }
+        email: { price: 600, deliverables: ['Automated Klaviyo Email Autoresponder Sequences', 'Lead Nurture Flow Setup'] },
+        cro: { price: 800, deliverables: ['Conversion Rate Optimization (CRO) Audit', 'A/B Test Variant Setup'] }
       };
 
       function updateEstimate() {

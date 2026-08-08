@@ -635,13 +635,11 @@
         <div class="c8srv-est-options">
           <!-- Step 1 -->
           <div>
-            <span class="c8srv-est-group-title">1. Core Architecture</span>
+            <span class="c8srv-est-group-title">1. Core Scope</span>
             <div class="c8srv-est-choices" data-est-group="platform">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="brandidentity" data-est-price="1500">Brand Identity Design ($1,500)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="wordpress" data-est-price="1200">WordPress Custom ($1,200)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="shopify" data-est-price="1800">Shopify Storefront ($1,800)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="woocommerce" data-est-price="1800">WooCommerce Store ($1,800)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="custom" data-est-price="2500">Custom Dev ($2,500)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="fullidentity" data-est-price="1500">Full Identity ($1,500)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="logosystem" data-est-price="900">Logo System ($900)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="tokens" data-est-price="600">Color &amp; Fonts ($600)</button>
             </div>
           </div>
 
@@ -649,19 +647,19 @@
           <div>
             <span class="c8srv-est-group-title">2. Project Scale</span>
             <div class="c8srv-est-choices" data-est-group="scale">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="landing" data-est-multiplier="1.0">Core Identity Package (1.0x)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="core" data-est-multiplier="1.4">Complete Brand System (1.4x)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="portal" data-est-multiplier="2.0">Enterprise Identity &amp; Collateral (2.0x)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="core" data-est-multiplier="1.0">Core Package (1.0x)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="full" data-est-multiplier="1.3">Full System (1.3x)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="enterprise" data-est-multiplier="1.6">Enterprise Collateral (1.6x)</button>
             </div>
           </div>
 
           <!-- Step 3 -->
           <div>
-            <span class="c8srv-est-group-title">3. Growth Add-Ons</span>
+            <span class="c8srv-est-group-title">3. Strategic Add-Ons</span>
             <div class="c8srv-est-choices" data-est-group="growth">
               <button type="button" class="c8srv-est-choice is-active" data-est-val="none" data-est-price="0">No Add-Ons</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="seo" data-est-price="600">SEO Clean (+ $600)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="marketing" data-est-price="1000">Marketing Funnel (+ $1,000)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="motion" data-est-price="500">Motion Logo (+ $500)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="guidelines" data-est-price="300">Style Guidelines Book (+ $300)</button>
             </div>
           </div>
         </div>
@@ -1539,17 +1537,15 @@
       if (!choices.length || !rangeDisplay) return;
 
       var platformBases = {
-        brandidentity: { price: 1500, name: 'Brand Identity Design', deliverables: ["Primary & Secondary Vector Logo Suite", "Color Token & Palette Architecture", "Figma Brand Identity Guidelines & Fonts"] },
-        wordpress: { price: 1200, name: 'WordPress Custom Theme', deliverables: ["Custom theme build & setup", "Zero-bloat optimized speed architecture", "Up to 5 editable layout pages"] },
-        shopify: { price: 1800, name: 'Shopify Storefront', deliverables: ["Custom Liquid storefront coding", "Cart drawer & upsell conversions built-in", "App-free speed performance tuning"] },
-        woocommerce: { price: 1800, name: 'WooCommerce Store', deliverables: ["Custom checkout flows & data layout", "Multi-currency & native tax logical setups", "Full data ownership & local hosting options"] },
-        custom: { price: 2500, name: 'Bespoke Custom Dev (PHP/JS)', deliverables: ["Custom PHP/JS/React framework engineering", "Third-party APIs and custom database queries", "Client dashboard whitelabel panel"] }
+        fullidentity: { price: 1500, name: 'Full Identity', deliverables: ["Primary, Secondary & Monogram Logo Suite", "Color Token & Typography Hierarchy", "Digital Guidelines & Asset Package"] },
+        logosystem: { price: 900, name: 'Logo System', deliverables: ["Primary Vector Logo & Monogram", "Favicon & Social App Icon Suite", "Vector File Exports (SVG, EPS, PNG)"] },
+        tokens: { price: 600, name: 'Color & Fonts', deliverables: ["Curated Typography Hierarchy", "Primary & Secondary Color Tokens", "Usage Guidelines Sheet"] }
       };
 
       var estimatorAddons = {
         none: { price: 0, deliverables: [] },
-        seo: { price: 600, deliverables: ['Technical Schema & Crawl Audit', 'Keyword Matrix Mapping'] },
-        marketing: { price: 1000, deliverables: ['Multi-channel Funnel Setup', 'Email Autoresponder Wiring'] }
+        motion: { price: 500, deliverables: ['Animated Motion Logo Intro (Lottie/MP4)', 'Social Video Watermark'] },
+        guidelines: { price: 300, deliverables: ['Print-Ready PDF Style Guidelines Book', 'Brand Rules & Usage Manual'] }
       };
 
       function updateEstimate() {

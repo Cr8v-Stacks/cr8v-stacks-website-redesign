@@ -1545,38 +1545,56 @@
 
     startTechAutoProceed();
 
-    // Live Matrix Text Scramble for Standardized Buttons
-    var matrixButtons = document.querySelectorAll('.c8-btn-primary, .fylla-btn, .dp-btn-primary, .cta-btn, .dp-btn-ghost');
-    var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    // Live Matrix Text Scramble Script
+    function initMatrixScramble() {
+      var matrixButtons = document.querySelectorAll('.c8-btn-primary, .fylla-btn, .dp-btn-primary, .cta-btn, .dp-btn-ghost, .sdv-panel-cta, .c8-text-cta, .stage-link, .ab-btn-primary, .c8srv-explore, .c8isv-explore, .c8srv-price-btn, .c8isv-btn-primary, .faq-cta-link');
+      var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-    matrixButtons.forEach(function(btn) {
-      var originalText = btn.innerText.trim();
-      var scrambleInterval = null;
+      matrixButtons.forEach(function(btn) {
+        if (btn._scrambleInitialized) return;
+        btn._scrambleInitialized = true;
 
-      btn.addEventListener('mouseenter', function() {
-        var iteration = 0;
-        clearInterval(scrambleInterval);
-
-        scrambleInterval = setInterval(function() {
-          btn.innerText = originalText.split('')
-            .map(function(char, index) {
-              if (char === ' ' || index < iteration) return originalText[index];
-              return matrixChars[Math.floor(Math.random() * matrixChars.length)];
-            })
-            .join('');
-
-          if (iteration >= originalText.length) {
-            clearInterval(scrambleInterval);
+        btn.addEventListener('mouseenter', function() {
+          var targetObj = btn.querySelector('span') || Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; }) || btn;
+          if (!btn.getAttribute('data-original-text')) {
+            btn.setAttribute('data-original-text', targetObj.textContent.trim());
           }
-          iteration += 1 / 2;
-        }, 25);
-      });
+          var originalText = btn.getAttribute('data-original-text');
+          var iteration = 0;
+          clearInterval(btn._scrambleTimer);
 
-      btn.addEventListener('mouseleave', function() {
-        clearInterval(scrambleInterval);
-        btn.innerText = originalText;
+          btn._scrambleTimer = setInterval(function() {
+            targetObj.textContent = originalText.split('')
+              .map(function(char, index) {
+                if (char === ' ' || index < iteration) return originalText[index];
+                return matrixChars[Math.floor(Math.random() * matrixChars.length)];
+              })
+              .join('');
+
+            if (iteration >= originalText.length) {
+              clearInterval(btn._scrambleTimer);
+              targetObj.textContent = originalText;
+            }
+            iteration += 1 / 2;
+          }, 25);
+        });
+
+        btn.addEventListener('mouseleave', function() {
+          var targetObj = btn.querySelector('span') || Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; }) || btn;
+          var originalText = btn.getAttribute('data-original-text');
+          clearInterval(btn._scrambleTimer);
+          if (originalText) {
+            targetObj.textContent = originalText;
+          }
+        });
       });
-    });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMatrixScramble);
+    } else {
+      initMatrixScramble();
+    }
   })();
   </script>
 

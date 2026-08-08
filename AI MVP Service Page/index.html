@@ -604,19 +604,19 @@
           <h3 class="c8srv-price-title">Fixed Projects</h3>
           <div class="c8srv-price-amount">From $3,500<span> entry</span></div>
         </div>
-        <p class="c8srv-price-desc">A deep, focused design &amp; code engagement with transparent scoping, clear milestones, and guaranteed delivery. Best for building a new custom site, e-commerce storefront, or AI MVP prototype.</p>
+        <p class="c8srv-price-desc">Production-ready AI software sprint delivering a working product prototype to market in 14 business days.</p>
         <div class="c8srv-price-features">
           <div class="c8srv-price-feature">
             <span class="c8srv-icon-sq"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Pre-project positioning &amp; speed audit</span>
+            <span>Multi-LLM API orchestration (OpenAI, Claude, &amp; Gemini)</span>
           </div>
           <div class="c8srv-price-feature">
             <span class="c8srv-icon-sq"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Guaranteed milestones &amp; delivery timeline</span>
+            <span>Vector search index &amp; RAG document pipeline</span>
           </div>
           <div class="c8srv-price-feature">
             <span class="c8srv-icon-sq"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>95+ PageSpeed &amp; SEO launch configuration</span>
+            <span>14-day rapid market-validation prototype</span>
           </div>
         </div>
         <a href="https://cr8vstacks.com/contact/?model=project" class="c8srv-price-btn is-primary">Start A Project</a>
@@ -635,13 +635,11 @@
         <div class="c8srv-est-options">
           <!-- Step 1 -->
           <div>
-            <span class="c8srv-est-group-title">1. Core Architecture</span>
+            <span class="c8srv-est-group-title">1. Core Scope</span>
             <div class="c8srv-est-choices" data-est-group="platform">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="aimvp" data-est-price="3500">AI MVP Prototype ($3,500)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="custom" data-est-price="2500">Custom Dev ($2,500)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="wordpress" data-est-price="1200">WordPress Custom ($1,200)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="shopify" data-est-price="1800">Shopify Storefront ($1,800)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="woocommerce" data-est-price="1800">WooCommerce Store ($1,800)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="prototype" data-est-price="3500">Working Prototype ($3,500)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="fullapp" data-est-price="4900">Full AI Web App ($4,900)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="enterprise" data-est-price="7000">Enterprise AI ($7,000)</button>
             </div>
           </div>
 
@@ -649,19 +647,18 @@
           <div>
             <span class="c8srv-est-group-title">2. Project Scale</span>
             <div class="c8srv-est-choices" data-est-group="scale">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="landing" data-est-multiplier="1.0">Prototype (1.0x)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="core" data-est-multiplier="1.4">Working MVP (1.4x)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="portal" data-est-multiplier="2.0">Launchable Product (2.0x)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="single" data-est-multiplier="1.0">Single Flow (1.0x)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="multirole" data-est-multiplier="1.4">Multi-Role Platform (1.4x)</button>
             </div>
           </div>
 
           <!-- Step 3 -->
           <div>
-            <span class="c8srv-est-group-title">3. Growth Add-Ons</span>
+            <span class="c8srv-est-group-title">3. Advanced Add-Ons</span>
             <div class="c8srv-est-choices" data-est-group="growth">
               <button type="button" class="c8srv-est-choice is-active" data-est-val="none" data-est-price="0">No Add-Ons</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="seo" data-est-price="600">SEO Clean (+ $600)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="marketing" data-est-price="1000">Marketing Funnel (+ $1,000)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="rag" data-est-price="1200">Vector Search RAG (+ $1,200)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="dbauth" data-est-price="800">Supabase DB &amp; Auth (+ $800)</button>
             </div>
           </div>
         </div>
@@ -1539,17 +1536,15 @@
       if (!choices.length || !rangeDisplay) return;
 
       var platformBases = {
-        aimvp: { price: 3500, name: 'AI MVP Prototype', deliverables: ["AI LLM fine-tuning & prompt layer setup", "Brave Search fact-checking API integration", "Immediate working MVP launch in 3 weeks"] },
-        custom: { price: 2500, name: 'Bespoke Custom Dev (PHP/JS)', deliverables: ["Custom PHP/JS/React framework engineering", "Third-party APIs and custom database queries", "Client dashboard whitelabel panel"] },
-        wordpress: { price: 1200, name: 'WordPress Custom Theme', deliverables: ["Custom theme build & setup", "Zero-bloat optimized speed architecture", "Up to 5 editable layout pages"] },
-        shopify: { price: 1800, name: 'Shopify Storefront', deliverables: ["Custom Liquid storefront coding", "Cart drawer & upsell conversions built-in", "App-free speed performance tuning"] },
-        woocommerce: { price: 1800, name: 'WooCommerce Store', deliverables: ["Custom checkout flows & data layout", "Multi-currency & native tax logical setups", "Full data ownership & local hosting options"] }
+        prototype: { price: 3500, name: 'Working Prototype', deliverables: ["Multi-LLM API Wiring (OpenAI/Claude/Gemini)", "Interactive Web UI", "Prompt Engine Layer"] },
+        fullapp: { price: 4900, name: 'Full AI Web App', deliverables: ["Complete User Auth & Dashboard", "Custom Database Schema", "Payment Gateway Integration"] },
+        enterprise: { price: 7000, name: 'Enterprise AI', deliverables: ["Multi-Tenant Workspace Architecture", "Vector Search RAG Pipeline", "Custom API Endpoint Suite"] }
       };
 
       var estimatorAddons = {
         none: { price: 0, deliverables: [] },
-        seo: { price: 600, deliverables: ['Technical Schema & Crawl Audit', 'Keyword Matrix Mapping'] },
-        marketing: { price: 1000, deliverables: ['Multi-channel Funnel Setup', 'Email Autoresponder Wiring'] }
+        rag: { price: 1200, deliverables: ['Vector Database Embeddings Index', 'Document RAG Context Pipeline'] },
+        dbauth: { price: 800, deliverables: ['Supabase Relational Database Schema', 'User Auth & Role Management'] }
       };
 
       function updateEstimate() {

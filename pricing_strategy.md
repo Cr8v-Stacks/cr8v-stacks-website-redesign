@@ -119,3 +119,95 @@ LLM prompt engineering, OpenAI & Claude API integrations, Supabase backends.
 Starting Estimate = Math.round(BasePrice * ScaleMultiplier + AddOnPrice);
 Ending Estimate = Math.round(Starting Estimate * 1.25);
 ```
+
+---
+
+## 4. Tailored Service-Specific Estimator Matrices & Included Deliverables
+
+### A. Web Design & UX ($1,200 entry)
+- **1. Core Scope:**
+  - `Landing Page Design ($1,200)`: Custom Visual Landing Page Layout, Responsive Desktop & Mobile Layout System, Figma Design File & Style Kit Handoff
+  - `Core Site Design ($1,680)`: 3-5 Custom Page Visual Designs, Brand Typography & Component Tokens, Interactive Navigation Prototype
+  - `Full Design System ($2,400)`: 10+ Page High-Authority Visual Design Suite, Full Design System UI Kit & Asset Exports, CMS & Developer Integration Handoff
+- **2. Project Scale:** Standard Site (1.0x), Complex Layouts (1.4x)
+- **3. Strategic Add-Ons:** Interactive Prototype (+$500), CMS Theme Handoff (+$600)
+
+### B. AI MVP Prototype ($3,500 entry)
+- **1. Core Scope:**
+  - `Working Prototype ($3,500)`: Multi-LLM API Wiring (OpenAI / Claude / Gemini), Interactive Web UI, Prompt Engine Layer
+  - `Full AI Web App ($4,900)`: Complete User Auth & Dashboard, Custom Database Schema, Payment Gateway Integration
+  - `Enterprise AI ($7,000)`: Multi-Tenant Workspace Architecture, Vector Search RAG Pipeline, Custom API Endpoint Suite
+- **2. Project Scale:** Single Flow (1.0x), Multi-Role Platform (1.4x)
+- **3. Strategic Add-Ons:** Vector Search RAG (+$1,200), Supabase DB & Auth (+$800)
+
+### C. Brand Strategy & Positioning ($800 entry)
+- **1. Core Scope:**
+  - `Positioning Blueprint ($800)`: Competitor Gap Analysis, Core Differentiator Mapping, Value Proposition Framing
+  - `Go-To-Market Scope ($1,200)`: Launch Channel Architecture, Campaign Message Hierarchy, Audience Target Profiles
+  - `Full Strategy ($1,500)`: Market Positioning Framework, Customer Persona Architecture, Messaging Matrix & Brand Voice Guidelines
+- **2. Project Scale:** Startup Scope (1.0x), Growth Scale (1.3x), Enterprise System (1.6x)
+- **3. Strategic Add-Ons:** Identity Alignment Sheet (+$500), Content Topic Roadmap (+$400)
+
+### D. Brand Identity Design ($900 entry)
+- **1. Core Scope:**
+  - `Color & Fonts ($600)`: Curated Typography Hierarchy, Primary & Secondary Color Tokens, Usage Guidelines Sheet
+  - `Logo System ($900)`: Primary Vector Logo & Monogram, Favicon & Social App Icon Suite, Vector File Exports (SVG, EPS, PNG)
+  - `Full Identity ($1,500)`: Primary, Secondary & Monogram Logo Suite, Color Token & Typography Hierarchy, Digital Guidelines & Asset Package
+- **2. Project Scale:** Core Package (1.0x), Full System (1.3x), Enterprise Collateral (1.6x)
+- **3. Strategic Add-Ons:** Motion Logo Intro (+$500), PDF Style Guidelines Book (+$300)
+
+### E. Custom Dev (PHP/JS/React) ($2,500 entry)
+- **1. Core Scope:**
+  - `MVP Web App ($2,500)`: Bespoke React / Next.js Frontend Architecture, Custom Database Schema & Relational Tables, 100% Client-Owned Source Code Repo
+  - `Full Application ($3,500)`: Multi-Role Admin & User Authentication, Tailored REST/GraphQL API Endpoints, Whitelabel Admin Management Panel
+  - `Enterprise Platform ($5,000)`: High-Volume Multi-Tenant Architecture, Custom Payment & External API Wiring, Cloud CI/CD Automated Deployment
+- **2. Project Scale:** Core Features (1.0x), Multi-Tenant (1.4x)
+- **3. Strategic Add-Ons:** REST/GraphQL API (+$800), Whitelabel Admin Dashboard (+$600)
+
+### F. Technical SEO & Content ($600 entry)
+- **1. Core Scope:**
+  - `Technical Clean ($600)`: Screaming Frog Crawl Audit, Entity JSON-LD Schema Setup, Indexation & Robots.txt Hardening
+  - `Search Engine ($1,200)`: Semantic Keyword Matrix Mapping, Topical Cluster Content Architecture, On-Page Metadata & Header Tuning
+  - `Enterprise SEO ($1,800)`: Full Multi-Regional Technical Clean, Competitor Keyword Moat Analysis, Continuous Search Rank Monitoring
+- **2. Project Scale:** Single Market (1.0x), Multi-Regional (1.5x)
+- **3. Strategic Add-Ons:** Keyword Cluster Package (+$500), Core Web Vitals Tuning (+$400)
+
+### G. Digital Marketing & Funnels ($1,000 entry)
+- **1. Core Scope:**
+  - `Funnel Setup ($1,000)`: High-Intent Landing Page Conversion Architecture, Meta & Google Pixel Attribution Wiring, GA4 Conversion Event Dashboard
+  - `Multi-Channel Ads ($1,500)`: Google Search & Meta Ad Campaign Setup, Ad Copywriting & Creative Concept Testing, Cost-Per-Acquisition (CPA) Optimization
+  - `Retargeting Engine ($2,000)`: Full Funnel Dynamic Retargeting Matrix, Klaviyo Abandoned Cart & Nurture Sequences, Weekly ROAS Performance Reporting
+- **2. Project Scale:** Single Channel (1.0x), Omnichannel Scale (1.4x)
+- **3. Strategic Add-Ons:** Klaviyo Email Flows (+$600), CRO Audit (+$800)
+
+### H. WordPress Custom Theme ($1,200 entry)
+- **1. Core Scope:**
+  - `WP Landing ($1,200)`: Custom Gutenberg Block Suite Architecture, Zero-Bloat Base Theme Code, Sub-1.2s Speed Optimization
+  - `WP Core Site ($1,680)`: Custom Post Types & Taxonomy System, Advanced Custom Fields (ACF Pro) Integration, Role-Based Client Admin Access
+  - `WP Enterprise ($2,400)`: Headless / Enterprise WP Portal Architecture, Multi-Language & Custom API Endpoint Suite, Continuous Security & Firewall Hardening
+- **2. Project Scale:** Standard Site (1.0x), Custom Post Types (1.4x)
+- **3. Strategic Add-Ons:** ACF Pro Schemas (+$400), Security Hardening (+$500)
+
+### I. Shopify Storefront ($1,800 entry)
+- **1. Core Scope:**
+  - `Shopify Landing ($1,800)`: Custom Liquid 2.0 Theme Engineering, App-Free Speed Performance Tuning, Responsive OS 2.0 Section Architecture
+  - `Shopify Store ($2,520)`: Slide-Out Cart Drawer & Dynamic Upsells, Custom Product Page (PDP) Layouts, Payment & Shipping Gateway Configuration
+  - `Shopify Plus ($3,600)`: Enterprise Checkout Customization, Headless Hydrogen / Storefront API Architecture, Multi-Currency & International Tax Setup
+- **2. Project Scale:** Standard Store (1.0x), Large Catalog (1.4x)
+- **3. Strategic Add-Ons:** Cart Drawer & Upsells (+$500), Klaviyo Setup (+$600)
+
+### J. WooCommerce Store ($1,800 entry)
+- **1. Core Scope:**
+  - `Woo Landing ($1,800)`: Custom WooCommerce Product & Checkout UX, Zero SaaS Transaction Fees Setup, Self-Hosted Database Ownership
+  - `Woo Store ($2,520)`: Multi-Currency & Tax Logic Architecture, Custom Checkout Flow Optimization, Stripe & PayPal Native Gateway Setup
+  - `Woo Enterprise ($3,600)`: High-Volume Server Load & Database Tuning, Custom ERP / Inventory API Sync Wiring, Continuous WooCommerce Security Hardening
+- **2. Project Scale:** Standard Catalog (1.0x), Large Catalog (1.4x)
+- **3. Strategic Add-Ons:** Stripe/PayPal Gateway (+$500), Custom Shipping Matrix (+$400)
+
+### K. E-Commerce Hub ($1,800 entry)
+- **1. Core Scope:**
+  - `Shopify Store ($1,800)`: Custom Liquid 2.0 Storefront Engineering, App-Free Speed Performance Tuning, Cart Drawer & Checkout Conversion UX
+  - `WooCommerce Store ($1,800)`: Custom WooCommerce Product & Cart Architecture, Multi-Currency & Native Tax Logic, 100% Self-Hosted Data Ownership
+  - `Custom Headless Store ($3,500)`: Next.js / Headless E-Commerce Frontend, GraphQL Storefront API Wiring, High-Volume Transaction Server Architecture
+- **2. Project Scale:** Standard Store (1.0x), Large Catalog (1.4x)
+- **3. Strategic Add-Ons:** Klaviyo Setup (+$600), CRO Audit (+$800)
