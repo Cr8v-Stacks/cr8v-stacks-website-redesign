@@ -137,7 +137,7 @@
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--c8-bg);
+      background: #FFFFFF !important;
       color: var(--c8-ink);
       line-height: 1.65;
       overflow-x: hidden;
@@ -2618,26 +2618,32 @@
       color: var(--c8-muted); line-height: 1.85;
     }
 
-    /* Bento Grid */
+    /* Bento Grid (Architectural Paper Grid Matrix) */
     .hww-bento {
       display: grid;
       grid-template-columns: 0.88fr 1fr 1.15fr 1.1fr;
       grid-template-rows: 285px 230px;
-      gap: 1rem;
+      gap: 0;
+      border: 1px solid rgba(8, 8, 8, 0.14);
+      background: #FFFFFF;
     }
 
     /* Cards base */
     .hww-card {
-      border-radius: 4px; overflow: hidden;
+      border-radius: 0 !important;
+      overflow: hidden;
       position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-right: 1px solid rgba(8, 8, 8, 0.14);
+      border-bottom: 1px solid rgba(8, 8, 8, 0.14);
+      box-shadow: none !important;
+      transition: background 0.3s ease;
     }
-    .hww-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.10); }
+    .hww-card:hover { transform: none !important; box-shadow: none !important; }
 
-    .hww-card-white  { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.07); padding: 1.75rem; }
+    .hww-card-white  { background: #FAFAF7; padding: 1.75rem; }
     .hww-card-blue   { background: var(--c8-blue); padding: 1.75rem; }
     .hww-card-dark   { background: #0A0A0A; padding: 1.75rem; }
-    .hww-card-light  { background: #EAECF5; border: none !important; padding: 1.75rem; }
+    .hww-card-light  { background: #FAFAF7; padding: 1.75rem; }
 
     /* Grid placement */
     .hww-c1 { grid-column: 1; grid-row: 1; }
@@ -3878,7 +3884,8 @@
       var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
       matrixButtons.forEach(function(btn) {
-        var originalText = btn.innerText.trim();
+        var textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; }) || btn.querySelector('span') || btn;
+        var originalText = textNode.textContent.trim();
         var scrambleInterval = null;
 
         btn.addEventListener('mouseenter', function() {
@@ -3886,7 +3893,7 @@
           clearInterval(scrambleInterval);
 
           scrambleInterval = setInterval(function() {
-            btn.innerText = originalText.split('')
+            textNode.textContent = originalText.split('')
               .map(function(char, index) {
                 if (char === ' ' || index < iteration) return originalText[index];
                 return matrixChars[Math.floor(Math.random() * matrixChars.length)];
@@ -3902,7 +3909,7 @@
 
         btn.addEventListener('mouseleave', function() {
           clearInterval(scrambleInterval);
-          btn.innerText = originalText;
+          textNode.textContent = originalText;
         });
       });
     });
