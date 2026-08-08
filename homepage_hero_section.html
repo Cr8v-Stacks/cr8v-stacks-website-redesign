@@ -988,229 +988,299 @@
     </div>
   </div>
 
-  <!-- SECTION 5: SELECTED WORK (3 BEST PRIMARY CASE STUDIES, ZIG-ZAG LAYOUT) -->
+  <!-- ════════════════════════════════════════════════════════════════
+       SECTION 5: SELECTED WORK (ARCHITECTURAL CELL MATRIX TILING LAYOUT)
+       Contiguous 1px solid rgba(8,8,8,0.14) grid cells — no soft floating cards
+       ════════════════════════════════════════════════════════════════ -->
+  <style>
+    /* Global CTA Underline Reset & Text CTA Standard */
+    a, a:hover, a:focus, .c8-btn-primary, .dp-btn-ghost, .stage-link, .c8srv-explore, .sw-play-btn {
+      text-decoration: none !important;
+    }
+
+    /* Architectural Cell Matrix Container */
+    .sw-matrix-wrapper {
+      max-width: 1360px;
+      margin: 4rem auto 6rem auto;
+      border: 1px solid rgba(8, 8, 8, 0.14);
+      background: #FFFFFF;
+    }
+
+    .sw-matrix-cell {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid rgba(8, 8, 8, 0.14);
+    }
+    .sw-matrix-cell:last-child {
+      border-bottom: none;
+    }
+
+    .sw-matrix-left {
+      padding: 4rem 3.5rem;
+      border-right: 1px solid rgba(8, 8, 8, 0.14);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #FAFAF7;
+    }
+
+    .sw-matrix-right {
+      padding: 2.5rem;
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .sw-matrix-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #0047E1;
+      margin-bottom: 1rem;
+    }
+
+    .sw-matrix-h2 {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+      font-weight: 700;
+      color: #080808;
+      text-transform: uppercase;
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+    }
+
+    .sw-matrix-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #555555;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .sw-matrix-testimonial {
+      border-top: 1px solid rgba(8, 8, 8, 0.1);
+      padding-top: 1.5rem;
+      margin-top: auto;
+      margin-bottom: 2rem;
+    }
+
+    .sw-matrix-quote {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #333333;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .sw-matrix-role {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #0047E1;
+    }
+
+    .sw-matrix-img-box {
+      width: 100%;
+      aspect-ratio: 16/10;
+      border: 1px solid rgba(8, 8, 8, 0.14);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .sw-matrix-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .sw-matrix-img-box:hover .sw-matrix-img {
+      transform: scale(1.03);
+    }
+
+    .sw-matrix-stat-floating {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(8, 8, 8, 0.14);
+      padding: 0.6rem 1.2rem;
+      z-index: 3;
+    }
+
+    .sw-matrix-stat-val {
+      font-family: 'Michroma', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0047E1;
+    }
+
+    .sw-matrix-stat-lbl {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #555555;
+    }
+
+    /* Standardized Text CTA UI (dp-btn-ghost baseline) */
+    .c8-text-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #0047E1;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none !important;
+      border-bottom: 1px solid rgba(0, 71, 225, 0.35);
+      padding-bottom: 3px;
+      transition: color 0.25s ease, border-color 0.25s ease, gap 0.25s ease;
+    }
+
+    .c8-text-cta:hover {
+      color: #0037B5;
+      border-color: #0047E1;
+      gap: 12px;
+      text-decoration: none !important;
+    }
+
+    @media (max-width: 900px) {
+      .sw-matrix-cell {
+        grid-template-columns: 1fr;
+      }
+      .sw-matrix-left {
+        border-right: none;
+        border-bottom: 1px solid rgba(8, 8, 8, 0.14);
+        padding: 2.5rem 1.5rem;
+      }
+      .sw-matrix-right {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+
   <div class="sw-wrapper" id="selected-work">
+    <div class="sw-matrix-wrapper">
 
-    <!-- ── INTRO HEADER ── -->
-    <style>
-      .sw-intro {
-    padding: 7rem 0rem 2rem 0rem;
-        max-width: 1360px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: end;
-      }
-      .sw-intro-h2 {
-        font-family: 'Michroma', sans-serif;
-        font-size: clamp(1.6rem, 3.5vw, 2.8rem);
-        font-weight: 700;
-        color: var(--c8-ink);
-        text-transform: uppercase;
-        line-height: 1.18;
-        letter-spacing: 0.01em;
-      }
-      .sw-intro-h2 em {
-        font-style: normal;
-        color: var(--c8-blue);
-      }
-      .sw-intro-right p {
-        font-family: 'DM Sans', sans-serif;
-        font-size: 1.0rem;
-        font-weight: 300;
-        color: var(--c8-muted);
-        line-height: 1.7;
-      }
-      @media (max-width: 900px) {
-        .sw-intro {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-          padding: 5rem 1.5rem 3rem 1.5rem;
-        }
-      }
-    </style>
+      <!-- ── CASE 1: BLVCK HAIR NG ── -->
+      <div class="sw-matrix-cell" id="cs-blvck-hair">
+        <div class="sw-matrix-left">
+          <div>
+            <div class="sw-matrix-eyebrow">// ORGANIC ACQUISITION ENGINE</div>
+            <h2 class="sw-matrix-h2">Organic E-Commerce Growth From The Ground Up</h2>
+            <p class="sw-matrix-sub">
+              Full-stack SEO architecture and multi-market e-commerce scaling for blvck Hair NG — growing from a single early storefront to active revenue-generating stores in both Nigeria and the UK.
+            </p>
+          </div>
 
-    <div class="sw-intro">
-      <div>
-        <div class="c8-eyebrow"><span class="c8-eyebrow-slash">//</span> SELECTED WORK</div>
-        <h2 class="sw-intro-h2">Work That's<br>Verifiably <em>Live.</em></h2>
+          <div class="sw-matrix-testimonial">
+            <p class="sw-matrix-quote">"Keyword mapping, page architecture, and content engineered for two international markets simultaneously. Both storefronts now rank and convert independently."</p>
+            <div class="sw-matrix-role">SEO &amp; E-Commerce Strategy · Nigeria &amp; UK</div>
+          </div>
+
+          <div>
+            <a href="Case Studies/blvck-hair-ng.html" class="c8-text-cta">
+              Explore Case Study
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="sw-matrix-right">
+          <div class="sw-matrix-stat-floating">
+            <div class="sw-matrix-stat-val">2 Active Stores</div>
+            <div class="sw-matrix-stat-lbl">UK &amp; NG Growth</div>
+          </div>
+          <div class="sw-matrix-img-box">
+            <img src="assets/case_studies/case_study_blvck_hair.jpg" alt="blvck Hair NG" class="sw-matrix-img">
+          </div>
+        </div>
       </div>
-      <div class="sw-intro-right">
-        <p>
-          These aren't concept projects or fictitious mockups. Every case study below is a live engagement — search the clients on Google and see the work for yourself. We only show projects we're allowed to talk about.
-        </p>
+
+      <!-- ── CASE 2: THE DUCH APARTMENTS ── -->
+      <div class="sw-matrix-cell" id="cs-duch-apartments">
+        <div class="sw-matrix-left">
+          <div>
+            <div class="sw-matrix-eyebrow">// BUILT-IN SEO ARCHITECTURE</div>
+            <h2 class="sw-matrix-h2">Website Design With SEO Folded In From Day One</h2>
+            <p class="sw-matrix-sub">
+              Bespoke website design for The Duch Apartments — engineered with search engine optimization folded directly into the code structure from line one rather than patched after launch.
+            </p>
+          </div>
+
+          <div class="sw-matrix-testimonial">
+            <p class="sw-matrix-quote">"Custom layout, zero template base — with technical SEO architecture coded in before a single page went live. Direct booking integration maximized revenue from sprint one."</p>
+            <div class="sw-matrix-role">Web Design &amp; Technical SEO · Lagos, Nigeria</div>
+          </div>
+
+          <div>
+            <a href="Case Studies/the-duch-apartments.html" class="c8-text-cta">
+              Explore Case Study
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="sw-matrix-right">
+          <div class="sw-matrix-stat-floating">
+            <div class="sw-matrix-stat-val">100% Custom</div>
+            <div class="sw-matrix-stat-lbl">Design &amp; SEO Day 1</div>
+          </div>
+          <div class="sw-matrix-img-box">
+            <img src="assets/case_studies/case_study_duch_apartments.jpg" alt="The Duch Apartments" class="sw-matrix-img">
+          </div>
+        </div>
       </div>
+
+      <!-- ── CASE 3: WP PUBLISHION AI ── -->
+      <div class="sw-matrix-cell" id="cs-nativus-dashboard">
+        <div class="sw-matrix-left">
+          <div>
+            <div class="sw-matrix-eyebrow">// PROPRIETARY AI MVP PLATFORM</div>
+            <h2 class="sw-matrix-h2">WP Publishion AI — Automated Publishing Architecture</h2>
+            <p class="sw-matrix-sub">
+              Our in-house flagship AI platform: OpenAI and Claude API orchestration, vector embedding search indexes, automated content generation pipelines, and multi-site publishing workflows.
+            </p>
+          </div>
+
+          <div class="sw-matrix-testimonial">
+            <p class="sw-matrix-quote">"Engineered to showcase our proprietary AI capabilities: LLM prompt orchestration, RAG vector pipelines, and automated editorial publishing."</p>
+            <div class="sw-matrix-role">OpenAI &amp; Claude AI MVP · In-House Platform</div>
+          </div>
+
+          <div>
+            <a href="Case Studies/wp-publishion-ai.html" class="c8-text-cta">
+              Explore Case Study
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="sw-matrix-right">
+          <div class="sw-matrix-stat-floating">
+            <div class="sw-matrix-stat-val">AI MVP Engine</div>
+            <div class="sw-matrix-stat-lbl">Proprietary AI Build</div>
+          </div>
+          <div class="sw-matrix-img-box">
+            <img src="assets/case_study_bridgepoint_compliance_1785571461489.jpg" alt="WP Publishion AI" class="sw-matrix-img">
+          </div>
+        </div>
+      </div>
+
     </div>
-
-        <!-- ── CASE 1: BLVCK HAIR NG (Text LEFT, Image RIGHT) ── -->
-    <section class="sw-case-section" id="cs-blvck-hair" data-index="0">
-      <div class="sw-container">
-        <div class="sw-left">
-          <div class="c8-eyebrow"><span class="c8-eyebrow-slash">//</span> Built for Live Performance</div>
-          <h2 class="sw-h2">Organic E-Commerce Growth From The Ground Up.</h2>
-          <p class="sw-sub">
-            We ran SEO for blvck Hair NG from their early growth stage. Since then, they've grown exponentially — from a single storefront to running active stores in both Nigeria and the UK.
-          </p>
-
-          <!-- WHAT WE DID CARD -->
-          <div class="sw-testimonial-card">
-            <p class="sw-testimonial-quote">We handled their SEO end-to-end — keyword mapping, page architecture, and content — from the ground up. We built out the strategy for two markets simultaneously, and both storefronts are now ranking and converting independently.</p>
-            <div class="sw-testimonial-meta">
-              <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(149,191,71,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(149,191,71,0.3);">
-                <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" style="width:20px;height:20px;">
-              </div>
-              <div>
-                <div class="sw-testimonial-role">SEO &amp; E-Commerce · Nigeria &amp; UK</div>
-              </div>
-            </div>
-          </div>
-
-          <a href="Case Studies/blvck-hair-ng.html" class="c8-btn-primary">
-            <span>Explore Case Study</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
-        </div>
-
-        <div class="sw-right">
-          <div class="sw-card-wrapper" id="sw-card-1">
-            <div class="sw-stat-floating">
-              <div class="sw-stat-val">2 Active Stores</div>
-              <div class="sw-stat-label">UK &amp; Nigeria Growth</div>
-            </div>
-
-            <div class="sw-card-img-wrapper">
-              <img src="assets/case_studies/case_study_blvck_hair.jpg" alt="blvck Hair NG" class="sw-card-img">
-
-              <div class="sw-card-bottom">
-                <div>
-                  <div class="sw-client-title">blvck Hair NG</div>
-                  <div class="sw-client-role">SEO &amp; Organic Acquisition</div>
-                </div>
-                <a href="Case Studies/blvck-hair-ng.html" class="sw-play-btn" title="View Case Study">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── CASE 2: THE DUCH APARTMENTS (Image LEFT, Text RIGHT — ZIG ZAG) ── -->
-    <section class="sw-case-section" id="cs-duch-apartments" data-index="1">
-      <div class="sw-container">
-        <div class="sw-left">
-          <div class="c8-eyebrow"><span class="c8-eyebrow-slash">//</span> Built-In SEO Architecture</div>
-          <h2 class="sw-h2">Website Design With SEO Folded In From Day One.</h2>
-          <p class="sw-sub">
-            A full website design for The Duch Apartments — with search engine optimization folded into the code from day one rather than added afterward.
-          </p>
-
-          <!-- WHAT WE DID CARD -->
-          <div class="sw-testimonial-card">
-            <p class="sw-testimonial-quote">We designed and built the full site — custom layout, zero template base — with SEO architecture already coded in before a single page went live. Direct booking integration was included from the first sprint, maximising their direct revenue channel from day one.</p>
-            <div class="sw-testimonial-meta">
-              <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(33,117,155,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(33,117,155,0.3);">
-                <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress" style="width:20px;height:20px;">
-              </div>
-              <div>
-                <div class="sw-testimonial-role">Web Design &amp; SEO · Lagos, Nigeria</div>
-              </div>
-            </div>
-          </div>
-
-          <a href="Case Studies/the-duch-apartments.html" class="c8-btn-primary">
-            <span>Explore Case Study</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
-        </div>
-
-        <div class="sw-right">
-          <div class="sw-card-wrapper" id="sw-card-2">
-            <div class="sw-stat-floating">
-              <div class="sw-stat-val">100% Custom</div>
-              <div class="sw-stat-label">Design &amp; SEO — Day 1</div>
-            </div>
-
-            <div class="sw-card-img-wrapper">
-              <img src="assets/case_studies/case_study_duch_apartments.jpg" alt="The Duch Apartments" class="sw-card-img">
-
-              <div class="sw-card-bottom">
-                <div>
-                  <div class="sw-client-title">The Duch Apartments</div>
-                  <div class="sw-client-role">Web Design &amp; SEO</div>
-                </div>
-                <a href="Case Studies/the-duch-apartments.html" class="sw-play-btn" title="View Case Study">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── CASE 3: WP PUBLISHION AI (AI MVP CASE STUDY) ── -->
-    <section class="sw-case-section" id="cs-nativus-dashboard" data-index="2">
-      <div class="sw-container">
-        <div class="sw-left">
-          <div class="c8-eyebrow"><span class="c8-eyebrow-slash">//</span> IN-HOUSE AI MVP PLATFORM</div>
-          <h2 class="sw-h2">WP Publishion AI — Automated Publishing Architecture.</h2>
-          <p class="sw-sub">
-            We don't just build for clients — we showcase our own proprietary AI engineering. WP Publishion AI is our custom WordPress automation platform engineered for OpenAI API orchestration, vector search RAG pipelines, and automated editorial publishing.
-          </p>
-
-          <!-- WHAT WE DID CARD -->
-          <div class="sw-testimonial-card">
-            <p class="sw-testimonial-quote">Engineered as our in-house flagship AI platform: OpenAI API orchestration, vector embedding indexes, automated content generation pipelines, and multi-site WordPress publishing workflows.</p>
-            <div class="sw-testimonial-meta">
-              <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(217,119,87,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(217,119,87,0.3);">
-                <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Anthropic Claude" style="width:20px;height:20px;">
-              </div>
-              <div>
-                <div class="sw-testimonial-role">OpenAI &amp; Claude AI MVP · Proprietary AI Platform</div>
-              </div>
-            </div>
-          </div>
-
-          <a href="Case Studies/wp-publishion-ai.html" class="c8-btn-primary">
-            <span>Explore Case Study</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
-        </div>
-
-        <div class="sw-right">
-          <div class="sw-card-wrapper" id="sw-card-3">
-            <div class="sw-stat-floating" style="padding:0.75rem 1rem;">
-              <div class="sw-stat-author" style="display:flex;align-items:center;gap:0.75rem;">
-                <div style="width:32px;height:32px;border-radius:4px;background:rgba(33,117,155,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(33,117,155,0.3);">
-                  <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress" style="width:18px;height:18px;">
-                </div>
-                <div>
-                  <div class="sw-stat-name" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--c8-blue);">AI MVP ENGINE</div>
-                  <div class="sw-stat-role" style="font-family:var(--font-body);font-size:0.75rem;color:rgba(8,8,8,0.6);">Proprietary AI Build</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="sw-card-img-wrapper">
-              <img src="assets/case_study_bridgepoint_compliance_1785571461489.jpg" alt="WP Publishion AI" class="sw-card-img">
-
-              <div class="sw-card-bottom">
-                <div>
-                  <div class="sw-client-title">WP Publishion AI</div>
-                  <div class="sw-client-role">AI MVP Platform</div>
-                </div>
-                <a href="Case Studies/wp-publishion-ai.html" class="sw-play-btn" title="View Product">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </div>
 
 <!-- High-Performance 60FPS Continuous Canvas Controller -->
