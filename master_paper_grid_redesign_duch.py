@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+import os
+
+filepath = r"c:\Users\HP\Downloads\Mega Menu\Case Studies\the-duch-apartments.html"
+
+master_html = """<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -1322,3 +1326,9 @@
   </script>
 </body>
 </html>
+"""
+
+with open(filepath, 'w', encoding='utf-8') as f:
+    f.write(master_html)
+
+print("Master Architectural Paper Grid Case Study prototype rebuilt successfully!")
