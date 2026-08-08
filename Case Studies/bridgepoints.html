@@ -3,12 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Study: Bridgepoint Advisory Services — Branding | Cr8v Stacks</title>
-  <meta name="description" content="Read how Cr8v Stacks designed Bridgepoint Advisory Services' full visual identity, custom logo system, brand typography, and guidelines from a blank page.">
+  <title>Case Study: BridgePoints Brand Identity | Cr8v Stacks</title>
+  <meta name="description" content="Read how Cr8v Stacks engineered BridgePoints Brand Identity with custom web design, high-performance architecture, and growth systems.">
+  <link rel="stylesheet" href="../shared-service-components.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
 
-    /* CSS Reset */
+    :root {
+      --c8-paper-bg: #F9F9F8;
+      --c8-paper-card: #FFFFFF;
+      --c8-ink: #080808;
+      --c8-sub: #555555;
+      --c8-grid-line: rgba(8, 8, 8, 0.14);
+      --c8-blue: #0047E1;
+      --c8-blue-hi: #3D6BFF;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-heading: 'Michroma', sans-serif;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -17,10 +30,11 @@
 
     body {
       background: #FFFFFF;
-      color: #080808;
-      font-family: 'DM Sans', sans-serif;
+      color: var(--c8-ink);
+      font-family: var(--font-body);
       line-height: 1.65;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     .c8cs-root {
@@ -29,26 +43,25 @@
     }
 
     .c8cs-wrap {
-      max-width: 1200px;
+      max-width: 1340px;
       margin: 0 auto;
-      padding: 6rem 2rem;
+      padding: 5rem 2rem;
       position: relative;
       z-index: 2;
     }
 
     @media (max-width: 768px) {
       .c8cs-wrap {
-        padding: 4rem 1.25rem;
+        padding: 3.5rem 1.25rem;
       }
     }
 
-    /* Common Design Elements */
     .c8cs-label {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 10px;
       letter-spacing: .25em;
       text-transform: uppercase;
-      color: #0047E1;
+      color: var(--c8-blue);
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -56,20 +69,20 @@
     }
 
     .c8cs-label::before {
-      content: '—';
-      color: #0047E1;
+      content: '// ';
+      color: var(--c8-blue);
       font-weight: 700;
     }
 
     .c8cs-headline {
-      font-family: 'Michroma', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
       letter-spacing: 0.02em;
       line-height: 1.15;
       font-weight: 700;
-      color: #080808;
+      color: var(--c8-ink);
       text-transform: uppercase;
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }
 
     .c8cs-serif {
@@ -77,24 +90,45 @@
       font-style: italic;
       text-transform: none;
       font-weight: 400;
+      color: var(--c8-blue);
     }
 
     .c8cs-lead {
-      font-size: 18px;
+      font-size: 18.5px;
       font-weight: 300;
-      color: #555555;
-      max-width: 850px;
-      margin-bottom: 3rem;
+      color: var(--c8-sub);
+      max-width: 860px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
     }
 
-    /* Hero Section */
+    .fylla-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .fylla-pill {
+      border: 1px solid var(--c8-grid-line);
+      background: #FAFAF7;
+      padding: 0.4rem 0.9rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--c8-ink);
+      font-weight: 700;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
     .c8cs-hero {
-      padding-top: 8rem;
+      padding-top: 7rem;
       padding-bottom: 4rem;
       position: relative;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--c8-grid-line);
     }
 
-    /* Hero Atmosphere & Glow Animation */
     .c8cs-hero-atmos {
       position: absolute;
       top: 0;
@@ -102,7 +136,7 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      pointer-events: auto; /* enable hover tracking */
+      pointer-events: auto;
       overflow: hidden;
     }
     .c8cs-atmos-svg {
@@ -115,7 +149,6 @@
     .c8cs-atmos-blob {
       filter: blur(1px);
       opacity: 0.35;
-      mix-blend-mode: normal;
     }
     .c8cs-atmos-glow {
       position: absolute;
@@ -134,59 +167,92 @@
     .c8cs-hero-atmos.is-active .c8cs-atmos-glow {
       opacity: 1;
     }
-    @media (prefers-reduced-motion: reduce) {
-      .c8cs-atmos-svg animate { display: none !important; }
-      .c8cs-atmos-glow { display: none !important; }
-    }
 
+    /* ── TRANSPARENT HERO META GRID WITH SUBTLE HOVER ANIMATION ── */
     .c8cs-meta-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      border-top: 1px solid rgba(8, 8, 8, 0.08);
-      border-bottom: 1px solid rgba(8, 8, 8, 0.08);
-      padding: 2rem 0;
-      margin-top: 3rem;
+      gap: 0;
+      border: 1px solid var(--c8-grid-line);
+      border-radius: 4px;
+      background: transparent;
+      margin-top: 3.5rem;
       position: relative;
       z-index: 2;
+      overflow: hidden;
     }
 
     @media (max-width: 768px) {
       .c8cs-meta-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
       }
     }
 
-    .c8cs-meta-item span {
-      display: block;
+    .c8cs-meta-item {
+      padding: 2rem 2.25rem;
+      border-right: 1px solid var(--c8-grid-line);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: transparent;
+      transition: background 0.35s ease, border-color 0.35s ease;
+    }
+
+    .c8cs-meta-item:hover {
+      background: #FAFAF7;
+    }
+
+    .c8cs-meta-item:last-child {
+      border-right: none;
+    }
+
+    @media (max-width: 768px) {
+      .c8cs-meta-item:nth-child(2) {
+        border-right: none;
+      }
+      .c8cs-meta-item:nth-child(1), .c8cs-meta-item:nth-child(2) {
+        border-bottom: 1px solid var(--c8-grid-line);
+      }
     }
 
     .c8cs-meta-lbl {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 9px;
       text-transform: uppercase;
-      color: #8A8A8A;
+      color: var(--c8-blue);
       margin-bottom: 0.5rem;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
+      font-weight: 700;
     }
 
     .c8cs-meta-val {
       font-size: 15px;
-      font-weight: 600;
-      color: #080808;
+      font-weight: 700;
+      color: var(--c8-ink);
     }
 
-    /* Showcase Image */
-    .c8cs-main-img-box {
+    /* ── SCROLL-GROW SHOWCASE MEDIA (NO GRAY BG, NO EXTRA PADDING) ── */
+    .c8cs-grow-media-wrapper {
       width: 100%;
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: center;
+      background: transparent;
+      border-bottom: 1px solid var(--c8-grid-line);
+      overflow: hidden;
+    }
+
+    .c8cs-main-img-box {
+      width: 85%;
+      max-width: 1200px;
       border-radius: 4px;
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(8, 8, 8, 0.06);
-      border: 1px solid rgba(8, 8, 8, 0.08);
-      margin-bottom: 5rem;
+      box-shadow: 0 20px 50px rgba(8, 8, 8, 0.08);
+      border: 1px solid var(--c8-grid-line);
       position: relative;
       z-index: 2;
+      transition: width 0.15s cubic-bezier(0.16, 1, 0.3, 1), max-width 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: width, max-width;
     }
 
     .c8cs-main-img-box img {
@@ -194,201 +260,232 @@
       height: auto;
       display: block;
       object-fit: cover;
-      max-height: 600px;
+      max-height: 700px;
     }
 
-    /* Project Split Section */
+    /* ── OVERVIEW SPLIT SECTION (STICKY LEFT & HOVER ANIMATION) ── */
     .c8cs-split-section {
       display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 5rem;
-      margin-bottom: 6rem;
-      align-items: start;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 0;
+      border: 1px solid var(--c8-grid-line);
+      border-radius: 4px;
+      background: #FFFFFF;
+      margin: 4rem 0;
     }
 
     @media (max-width: 900px) {
       .c8cs-split-section {
         grid-template-columns: 1fr;
-        gap: 3rem;
       }
     }
 
-    .c8cs-sticky-title {
+    .c8cs-split-left {
+      padding: 4.5rem 4rem;
+      border-right: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
       position: sticky;
       top: 100px;
+      align-self: start;
+      height: fit-content;
+    }
+
+    @media (max-width: 900px) {
+      .c8cs-split-left {
+        position: relative;
+        top: 0;
+        border-right: none;
+        border-bottom: 1px solid var(--c8-grid-line);
+        padding: 3rem 2rem;
+      }
+    }
+
+    .c8cs-split-right {
+      background: #FAFAF7;
+      display: flex;
+      flex-direction: column;
     }
 
     .c8cs-split-title {
-      font-family: 'Michroma', sans-serif;
-      font-size: 1.8rem;
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.02em;
       line-height: 1.2;
-      color: #080808;
+      color: var(--c8-ink);
+      margin-bottom: 1.5rem;
     }
 
     .c8cs-body-content p {
-      font-size: 16px;
-      color: #4A4A4A;
-      margin-bottom: 1.75rem;
+      font-size: 15.5px;
+      color: var(--c8-sub);
+      margin-bottom: 1.5rem;
       line-height: 1.75;
       font-weight: 300;
     }
 
-    .c8cs-body-content h4 {
-      font-family: 'Michroma', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #080808;
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-      letter-spacing: 0.01em;
-    }
-
-    /* Step Process styling */
-    .c8cs-approach-list {
-      margin-top: 2.5rem;
+    .fylla-value-item {
+      padding: 3rem 3.5rem;
+      border-bottom: 1px solid var(--c8-grid-line);
       display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
+      gap: 1.75rem;
+      align-items: flex-start;
+      transition: background 0.35s ease;
+      background: #FAFAF7;
+    }
+    .fylla-value-item:hover {
+      background: #FFFFFF;
+    }
+    .fylla-value-item:last-child {
+      border-bottom: none;
+    }
+    @media (max-width: 768px) {
+      .fylla-value-item {
+        padding: 2rem;
+      }
     }
 
-    .c8cs-approach-step {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 1.5rem;
-      align-items: start;
-    }
-
-    .c8cs-step-num {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      color: #0047E1;
-      border: 1px solid rgba(0, 71, 225, 0.3);
-      padding: 6px 12px;
+    .fylla-value-icon-box {
+      width: 48px;
+      height: 48px;
       border-radius: 4px;
-      text-align: center;
+      background: rgba(0, 71, 225, 0.08);
+      border: 1px solid rgba(0, 71, 225, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c8-blue);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+    .fylla-value-icon-box svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 2;
     }
 
-    .c8cs-step-content h5 {
-      font-family: 'Michroma', sans-serif;
-      font-size: 12px;
+    .fylla-value-h3 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
       font-weight: 700;
-      color: #080808;
+      color: var(--c8-ink);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.65rem;
+    }
+    .fylla-value-desc {
+      font-size: 0.92rem;
+      color: var(--c8-sub);
+      line-height: 1.65;
     }
 
-    .c8cs-step-content p {
-      font-size: 14.5px;
-      color: #6B6B6B;
-      margin-bottom: 0;
-    }
-
-    /* Design Gallery Section */
+    /* ── ARCHITECTURAL PAPER GRID SHOWCASE GALLERY ── */
     .c8cs-gallery-section {
-      background: #FAFAF9;
-      border-top: 1px solid rgba(8, 8, 8, 0.06);
-      border-bottom: 1px solid rgba(8, 8, 8, 0.06);
+      padding: 6rem 0;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--c8-grid-line);
+    }
+
+    .c8cs-gallery-outer-box {
+      border: 1px solid var(--c8-grid-line);
+      border-radius: 4px;
+      background: #FFFFFF;
+      overflow: hidden;
+    }
+
+    .c8cs-gallery-header {
+      padding: 3.5rem 4rem;
+      border-bottom: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
     }
 
     .c8cs-gallery-grid {
       display: grid;
-      grid-template-columns: 1.25fr 1fr;
-      gap: 3rem;
-      margin-top: 2.5rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--c8-grid-line);
     }
 
     @media (max-width: 900px) {
       .c8cs-gallery-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
       }
     }
 
     .c8cs-gallery-card {
       background: #FFFFFF;
-      border: 1px solid rgba(8, 8, 8, 0.08);
-      border-radius: 4px;
-      padding: 2.5rem;
+      padding: 3.5rem 3rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(8, 8, 8, 0.01);
-      transition: transform 0.4s cubic-bezier(.16,1,.3,1), box-shadow 0.4s ease;
+      border-right: 1px solid var(--c8-grid-line);
+      border-bottom: 1px solid var(--c8-grid-line);
+      transition: background 0.35s ease;
     }
 
     .c8cs-gallery-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 45px rgba(0, 71, 225, 0.02);
+      background: #FAFAF7;
     }
 
-    @media (max-width: 900px) {
-      .c8cs-gallery-card {
-        grid-column: span 1 !important;
-      }
+    .c8cs-gallery-card.is-full {
+      grid-column: 1 / -1;
+      border-right: none;
+      border-bottom: none;
+      background: #FAFAF7;
     }
 
     .c8cs-gallery-meta {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 9px;
       text-transform: uppercase;
-      color: #8A8A8A;
+      color: var(--c8-blue);
       margin-bottom: 0.75rem;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
+      font-weight: 700;
     }
 
     .c8cs-gallery-title {
-      font-family: 'Michroma', sans-serif;
-      font-size: 1.15rem;
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
       font-weight: 700;
-      color: #080808;
+      color: var(--c8-ink);
       text-transform: uppercase;
+      margin-bottom: 0.5rem;
       letter-spacing: 0.01em;
-      margin-bottom: 1rem;
     }
 
     .c8cs-gallery-desc {
-      font-size: 14px;
-      color: #6B6B6B;
-      margin-bottom: 2rem;
+      font-size: 14.5px;
+      color: var(--c8-sub);
       font-weight: 300;
       line-height: 1.6;
+      margin-bottom: 2rem;
     }
 
     .c8cs-gallery-img-box {
       width: 100%;
       border-radius: 4px;
-      border: 1px solid rgba(8, 8, 8, 0.08);
       overflow: hidden;
-      background: #FFFFFF;
-      box-shadow: 0 5px 15px rgba(8, 8, 8, 0.02);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border: 1px solid var(--c8-grid-line);
       margin-top: auto;
+      background: #000000;
+    }
+
+    .c8cs-gallery-img-box.is-tall {
+      max-height: 520px !important;
+      height: 520px !important;
     }
 
     .c8cs-gallery-img-box img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       display: block;
+      object-fit: cover;
+      transition: transform 0.5s ease;
     }
 
-    .c8cs-gallery-img-box.is-tall {
-      height: 500px;
-    }
-
-    @media (max-width: 768px) {
-      .c8cs-gallery-img-box.is-tall {
-        height: 280px !important;
-      }
+    .c8cs-gallery-card:hover .c8cs-gallery-img-box img {
+      transform: scale(1.03);
     }
 
     .c8cs-swatch-row {
@@ -399,215 +496,318 @@
 
     .c8cs-swatch {
       flex: 1;
-      height: 80px;
+      height: 110px;
       border-radius: 4px;
-      position: relative;
-      box-shadow: inset 0 0 0 1px rgba(8,8,8,0.06);
+      border: 1px solid var(--c8-grid-line);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 12px;
     }
 
     .c8cs-swatch-hex {
-      position: absolute;
-      bottom: 8px;
-      left: 8px;
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 9px;
       font-weight: 700;
-      background: #FFFFFF;
+      background: rgba(255, 255, 255, 0.9);
       padding: 2px 6px;
       border-radius: 4px;
+      align-self: flex-start;
+      color: var(--c8-ink);
     }
 
-    /* Outcomes metrics section */
+    /* ── ARCHITECTURAL PAPER GRID OUTCOMES METRICS MATRIX ── */
     .c8cs-metrics-bg {
-      background: #F4F6FB;
-      border-top: 1px solid rgba(8, 8, 8, 0.05);
-      border-bottom: 1px solid rgba(8, 8, 8, 0.05);
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--c8-grid-line);
       padding: 6rem 0;
+    }
+
+    .c8cs-metrics-outer-box {
+      border: 1px solid var(--c8-grid-line);
+      border-radius: 4px;
+      background: #FFFFFF;
+      overflow: hidden;
+    }
+
+    .c8cs-metrics-header {
+      padding: 3.5rem 4rem;
+      border-bottom: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
     }
 
     .c8cs-metrics-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      margin-top: 2rem;
+      gap: 0;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
       .c8cs-metrics-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
       }
     }
 
     .c8cs-metric-card {
-      background: #FFFFFF;
-      border: 1px solid rgba(8, 8, 8, 0.06);
-      border-radius: 4px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 10px 30px rgba(8, 8, 8, 0.015);
+      background: #FAFAF7;
+      border-right: 1px solid var(--c8-grid-line);
+      padding: 3.5rem 3rem;
       display: flex;
       flex-direction: column;
       position: relative;
+      transition: background 0.35s ease;
     }
 
-    .c8cs-metric-val {
-      font-family: 'Michroma', sans-serif;
-      font-size: 2.6rem;
-      font-weight: 700;
-      color: #0047E1;
-      line-height: 1;
-      margin-bottom: 1rem;
+    .c8cs-metric-card:nth-child(even) {
+      background: #FFFFFF;
     }
 
-    .c8cs-metric-lbl {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #8A8A8A;
-      margin-bottom: 0.75rem;
-      line-height: 1.4;
+    .c8cs-metric-card:hover {
+      background: #F4F5F7;
     }
 
-    .c8cs-metric-desc {
-      font-size: 13.5px;
-      color: #6B6B6B;
-      font-weight: 300;
-      line-height: 1.5;
+    .c8cs-metric-card:last-child {
+      border-right: none;
     }
 
-    /* Bottom Navigation / CTA */
-    .c8cs-footer-cta {
-      padding: 6rem 2rem 8rem 2rem;
-      background: #FFFFFF !important;
-      border-top: 1px solid rgba(8, 8, 8, 0.06);
-      text-align: center;
-      position: relative;
-    }
-
-    .c8cs-cta-card {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #FAFAF9;
-      border: 1px solid rgba(8, 8, 8, 0.08);
-      border-radius: 4px;
-      padding: 4.5rem 3rem;
-      box-shadow: 0 20px 45px rgba(0, 71, 225, 0.02);
-      position: relative;
-      overflow: hidden;
-    }
-
-    @media (max-width: 600px) {
-      .c8cs-cta-card {
-        padding: 3rem 1.5rem;
+    @media (max-width: 768px) {
+      .c8cs-metric-card {
+        border-right: none;
+        border-bottom: 1px solid var(--c8-grid-line);
       }
     }
 
-    .c8cs-cta-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .c8cs-footer-cta .c8cs-headline {
-      color: #080808;
-      margin-bottom: 1.25rem;
-      font-size: clamp(1.6rem, 3vw, 2.3rem);
-    }
-
-    .c8cs-btn-primary {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      background: #0047E1;
-      color: #FFFFFF;
-      padding: 18px 36px;
-      border-radius: 4px;
+    .c8cs-metric-val {
+      font-family: var(--font-heading);
+      font-size: 3rem;
       font-weight: 700;
+      color: var(--c8-blue);
+      line-height: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .c8cs-metric-lbl {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c8-ink);
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+
+    .c8cs-metric-desc {
+      font-size: 14px;
+      color: var(--c8-sub);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .c8cs-status-badge {
+      background: rgba(0, 191, 99, 0.04);
+      border: 1px solid rgba(0, 191, 99, 0.25);
+      padding: 1.25rem 1.75rem;
+      border-radius: 4px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: auto;
+      text-decoration: none;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
+    }
+    .c8cs-status-badge:hover {
+      background: rgba(0, 191, 99, 0.08);
+      border-color: rgba(0, 191, 99, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .c8cs-status-lbl {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      font-weight: 700;
+      color: #00BF63;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .c8cs-status-val {
+      font-family: var(--font-heading);
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #00BF63;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-      margin-top: 1rem;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(0, 71, 225, 0.2);
+      line-height: 1.2;
     }
-
-    .c8cs-btn-primary:hover {
-      background: #0036ad;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 71, 225, 0.35);
+    .c8cs-checkmark-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #00BF63;
+      color: #FFFFFF;
+      font-size: 10px;
+      font-weight: bold;
     }
 
     .c8cs-back-btn {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 10px;
       color: #8A8A8A;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       transition: color 0.2s ease;
       text-decoration: none;
       position: relative;
       z-index: 2;
+      font-weight: 700;
     }
 
     .c8cs-back-btn:hover {
-      color: #0047E1;
-    }
-  
-    /* Next / Prev Case Study Pagination Bar */
-    .c8cs-nav-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1.5rem;
-      max-width: 900px;
-      margin: 3.5rem auto 0 auto;
-      padding-top: 2.5rem;
-      border-top: 1px solid rgba(8, 8, 8, 0.08);
-      position: relative;
-      z-index: 2;
-    }
-    .c8cs-nav-item {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      transition: transform 0.25s ease;
-    }
-    .c8cs-nav-item:hover {
-      transform: translateY(-2px);
-    }
-    .c8cs-nav-item.is-right {
-      text-align: right;
-      margin-left: auto;
-    }
-    .c8cs-nav-lbl {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #8A8A8A;
-      margin-bottom: 4px;
-    }
-    .c8cs-nav-title {
-      font-family: 'Michroma', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: #0047E1;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
+      color: var(--c8-blue);
     }
 
+    /* ── SHIMMER SWEEP EFFECT ON ALL CTA BUTTONS ── */
+    .cta-btn-pill,
+    .c8cs-btn-primary,
+    .c8-btn-primary {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-btn-pill::before,
+    .c8cs-btn-primary::before,
+    .c8-btn-primary::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -100%;
+      width: 100%; height: 200%;
+      background: linear-gradient(115deg, transparent, rgba(255,255,255,0.4), rgba(61, 107, 255, 0.4), rgba(0, 194, 255, 0.4), transparent);
+      transform: rotate(25deg);
+      transition: left 0.75s ease;
+      pointer-events: none;
+    }
+
+    .cta-btn-pill:hover::before,
+    .c8cs-btn-primary:hover::before,
+    .c8-btn-primary:hover::before {
+      left: 150%;
+    }
+
+    /* ── FULL-WIDTH ARCHITECTURAL PAPER GRID RELATED PROJECTS MATRIX ── */
+    .c8cs-related-paper-outer {
+      background: #FFFFFF;
+      padding: 6rem 0;
+      border-bottom: 1px solid var(--c8-grid-line);
+      width: 100%;
+    }
+    .c8cs-related-matrix-box {
+      max-width: 1340px;
+      margin: 0 auto;
+      border: 1px solid var(--c8-grid-line);
+      border-radius: 4px;
+      background: #FFFFFF;
+      overflow: hidden;
+    }
+    .c8cs-related-matrix-header {
+      padding: 3.5rem 4rem;
+      border-bottom: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
+    }
+    .c8cs-related-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    @media (max-width: 900px) {
+      .c8cs-related-matrix-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .c8cs-related-cell {
+      padding: 3.5rem 3rem;
+      border-right: 1px solid var(--c8-grid-line);
+      background: #FAFAF7;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: var(--c8-ink);
+      transition: background 0.35s ease;
+    }
+    .c8cs-related-cell:nth-child(even) {
+      background: #FFFFFF;
+    }
+    .c8cs-related-cell:last-child {
+      border-right: none;
+    }
+    @media (max-width: 900px) {
+      .c8cs-related-cell {
+        border-right: none;
+        border-bottom: 1px solid var(--c8-grid-line);
+      }
+    }
+    .c8cs-related-cell:hover {
+      background: #F4F5F7;
+    }
+    .c8cs-related-cell-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .c8cs-related-cell-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--c8-ink);
+      margin-bottom: 0.85rem;
+      line-height: 1.3;
+    }
+    .c8cs-related-cell-desc {
+      font-size: 14px;
+      color: var(--c8-sub);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .c8cs-related-cell-link {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+    .c8cs-related-cell:hover .c8cs-related-cell-link {
+      gap: 10px;
+    }
   </style>
 </head>
 <body>
 
   <div class="c8cs-root">
     
+    <!-- Hero Section -->
     <section class="c8cs-hero">
       <div class="c8cs-hero-atmos" data-c8cs-atmos>
         <svg class="c8cs-atmos-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
@@ -626,247 +826,247 @@
               <animate attributeName="cy" values="60;35;95;60" dur="19s" repeatCount="indefinite"/>
             </circle>
             <circle class="c8cs-atmos-blob" cx="220" cy="55" r="55" fill="#3D6BFF">
-              <animate attributeName="cx" values="220;165;285;220" dur="23s" repeatCount="indefinite"/>
-              <animate attributeName="cy" values="55;115;30;55" dur="23s" repeatCount="indefinite"/>
+              <animate attributeName="cx" values="220;165;265;220" dur="23s" repeatCount="indefinite"/>
+              <animate attributeName="cy" values="55;95;25;55" dur="23s" repeatCount="indefinite"/>
+            </circle>
+            <circle class="c8cs-atmos-blob" cx="330" cy="70" r="45" fill="#7C93FF">
+              <animate attributeName="cx" values="330;285;365;330" dur="15s" repeatCount="indefinite"/>
+              <animate attributeName="cy" values="70;105;45;70" dur="15s" repeatCount="indefinite"/>
             </circle>
           </g>
         </svg>
-        <div class="c8cs-atmos-glow" data-c8cs-glow></div>
       </div>
+      <div class="c8cs-atmos-glow" data-c8cs-glow></div>
 
-      <div class="c8cs-wrap">
-        <a href="../Brand Identity Design Service Page/index.html" class="c8cs-back-btn">
-          ← Back to Brand Identity Design
-        </a>
+      <div class="c8cs-wrap" style="padding-top: 1rem; padding-bottom: 2rem;">
+        <a href="../portfolio/" class="c8cs-back-btn">&larr; Back to Portfolio</a>
         
-        <div class="c8cs-label">Case Study Spotlight</div>
-        <h1 class="c8cs-headline">Bridgepoint Advisory Services<br><span class="c8cs-serif">Brand Identity Launch</span></h1>
-        <p class="c8cs-lead">Designing the complete visual identity system—logo, typography scales, primary color swatches, and guidelines book—from a blank canvas.</p>
+        <div class="c8cs-label">Case Study // Brand Identity & Vector Design</div>
+        <h1 class="c8cs-headline">BridgePoints: Corporate Visual <span class="c8cs-serif">Brand Identity</span></h1>
+        <p class="c8cs-lead">Bridgepoint Advisory Services needed a visual identity system that commanded authority in corporate financial markets. We crafted an original vector logo mark, set color swatch tokens, and compiled a comprehensive brand manual for digital and print collateral.</p>
+        
+        <div class="fylla-pill-row">
+          <span class="fylla-pill">Brand Identity</span>
+<span class="fylla-pill">Vector Logo</span>
+<span class="fylla-pill">Design Tokens</span>
+<span class="fylla-pill">Brand Manual</span>
+
+        </div>
 
         <div class="c8cs-meta-grid">
           <div class="c8cs-meta-item">
             <span class="c8cs-meta-lbl">Client</span>
-            <span class="c8cs-meta-val">Bridgepoint Advisory Services</span>
+            <span class="c8cs-meta-val">Bridgepoint Advisory</span>
           </div>
           <div class="c8cs-meta-item">
-            <span class="c8cs-meta-lbl">Starting State</span>
-            <span class="c8cs-meta-val">Blank Page, No Assets</span>
+            <span class="c8cs-meta-lbl">Services</span>
+            <span class="c8cs-meta-val">Brand Identity Design</span>
           </div>
           <div class="c8cs-meta-item">
-            <span class="c8cs-meta-lbl">Agency Scope</span>
-            <span class="c8cs-meta-val">Visual Identity &amp; Logo Design</span>
+            <span class="c8cs-meta-lbl">Stack</span>
+            <span class="c8cs-meta-val">Figma · Vector Assets</span>
           </div>
           <div class="c8cs-meta-item">
-            <span class="c8cs-meta-lbl">Key Focus</span>
-            <span class="c8cs-meta-val">Production-Ready Formats</span>
+            <span class="c8cs-meta-lbl">Link</span>
+            <span class="c8cs-meta-val"><a href="https://bridgepoints.ng/" target="_blank" rel="noopener" style="color: #0047E1; text-decoration: underline;">bridgepoints.ng ↗</a></span>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="c8cs-wrap" style="padding-top: 0; padding-bottom: 0;">
-      <div class="c8cs-main-img-box">
-        <img src="assets/images/cr8v-bridgepoint-brand-identity.png" alt="Bridgepoint Advisory Services brand identity guidelines book showcase banner">
+    <!-- ── SCROLL-GROW SHOWCASE MEDIA (TRANSPARENT BG & CLEAN PADDING) ── -->
+    <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
+      <div class="c8cs-main-img-box" id="c8cs-grow-target">
+        <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1600&auto=format&fit=crop" alt="BridgePoints Brand Identity showcase — built by Cr8v Stacks">
       </div>
     </div>
 
+    <!-- Split Problem & Solution Section (Sticky Left Column & Zero-Gap Cell Tiling) -->
     <section class="c8cs-wrap">
-      
       <div class="c8cs-split-section">
-        <div class="c8cs-sticky-title">
-          <h2 class="c8cs-split-title">The Challenge</h2>
+        <div class="c8cs-split-left">
+          <div class="c8cs-label">Overview</div>
+          <h2 class="c8cs-split-title">The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span></h2>
+          <div class="c8cs-body-content">
+            <p>As Bridgepoint expanded its corporate advisory portfolio, their legacy visual assets lacked the premium polish required for high-stakes enterprise presentations.</p>
+            <p>They needed a flexible vector design system that maintained absolute consistency across dark web UIs, executive pitch decks, and large-scale print collateral.</p>
+          </div>
         </div>
-        <div class="c8cs-body-content">
-          <p>Bridgepoint Advisory Services came to us seeking to establish a premium corporate presence. They were starting from absolute zero, with no logo, no color definitions, no fonts, and no brand guidelines. To compete in their industry and secure trust from high-level clients, they needed a cohesive visual identity built entirely from scratch.</p>
-          <p>The visual identity had to project modern corporate authority and scale seamlessly across all channels. We were commissioned to build a custom visual identity system, hand-drawing vector logo structures, defining typography hierarchies, and developing a comprehensive brand guidelines manual to secure design consistency for all future business assets.</p>
-        </div>
-      </div>
 
-      <div class="c8cs-split-section" style="margin-top: 4rem;">
-        <div class="c8cs-sticky-title">
-          <h2 class="c8cs-split-title">The Solution</h2>
-        </div>
-        <div class="c8cs-body-content">
-          <p>We designed their complete visual identity, delivering bespoke vectors, typography systems, and print-ready style manuals.</p>
+        <div class="c8cs-split-right">
           
-          <h4>1. Custom Logo System &amp; Vector Marks</h4>
-          <p>We designed their logo mark from a blank canvas, drawing custom vector paths and avoiding all pre-made shapes, stock designs, or AI generators. The resulting mark scales cleanly from tiny mobile icons to massive physical signage files.</p>
-          
-          <h4>2. Typography Pairing &amp; Brand Guidelines Manual</h4>
-          <p>We established a sleek corporate type scale and curated a palette utilizing professional deep navy blue, slate grey, and clean spaces to build trust. We compiled all guidelines (logo usage guidelines, color rules, spacing restrictions) into a master brand manual for their staff.</p>
-        </div>
-      </div>
-
-      <div class="c8cs-split-section" style="margin-top: 4rem;">
-        <div class="c8cs-sticky-title">
-          <h2 class="c8cs-split-title">Our Approach</h2>
-        </div>
-        <div class="c8cs-body-content">
-          <p>We executed the brand design through a four-phase roadmap, focusing on custom vector drawing and complete identity guidelines compilation.</p>
-          
-          <div class="c8cs-approach-list">
-            <div class="c8cs-approach-step">
-              <div class="c8cs-step-num">01</div>
-              <div class="c8cs-step-content">
-                <h5>Identity Scoping</h5>
-                <p>We audited corporate visual trends and competitor style guidelines to define the aesthetic parameters for the Bridgepoint Advisory Services mark.</p>
-              </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
-
-            <div class="c8cs-approach-step">
-              <div class="c8cs-step-num">02</div>
-              <div class="c8cs-step-content">
-                <h5>Bespoke Logo Vectoring</h5>
-                <p>We hand-drew custom vector marks, refining paths and line weights through multiple iterations directly with their executive team.</p>
-              </div>
+            <div>
+              <h3 class="fylla-value-h3">01 / Geometric Logo Exploration</h3>
+              <p class="fylla-value-desc">Hand-sketched and vectorized modern geometric logotypes representing structural stability and corporate growth.</p>
             </div>
-
-            <div class="c8cs-approach-step">
-              <div class="c8cs-step-num">03</div>
-              <div class="c8cs-step-content">
-                <h5>Typography &amp; Swatches</h5>
-                <p>We defined font hierarchies, paired headlines and body systems, and structured the brand's primary and secondary color palettes.</p>
-              </div>
+          </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
-
-            <div class="c8cs-approach-step">
-              <div class="c8cs-step-num">04</div>
-              <div class="c8cs-step-content">
-                <h5>Brand Guidelines Assembly</h5>
-                <p>We compiled all logo constraints, color rules, and layout templates into a comprehensive guidelines manual ready for immediate distribution.</p>
-              </div>
+            <div>
+              <h3 class="fylla-value-h3">02 / Color & Typography Tokenization</h3>
+              <p class="fylla-value-desc">Curated a high-contrast corporate palette (#0047E1 Royal Blue, Obsidian Slate) and paired precision sans-serif typography.</p>
+            </div>
+          </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3 class="fylla-value-h3">03 / Brand Guidelines Manual</h3>
+              <p class="fylla-value-desc">Compiled a 40-page digital brand book defining clear spacing grids, clear-space boundaries, and color usage rules.</p>
+            </div>
+          </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3 class="fylla-value-h3">04 / Production Asset Package</h3>
+              <p class="fylla-value-desc">Delivered complete SVG, EPS, PNG, and PDF asset packages optimized for print resolution and web UI performance.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ── ARCHITECTURAL PAPER GRID SHOWCASE GALLERY ── -->
     <section class="c8cs-gallery-section">
       <div class="c8cs-wrap">
-        <div class="c8cs-label">Design &amp; Interface Gallery</div>
-        <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 1.5rem;">Visual Showcase</h2>
-        <p class="c8cs-lead" style="margin-bottom: 3rem;">A look at the logo systems, typography pairings, and brand guidelines books configured for Bridgepoint Advisory Services.</p>
-        
-        <div class="c8cs-gallery-grid">
-          
-          <div class="c8cs-gallery-card">
-            <div>
-              <div class="c8cs-gallery-meta">Branding // Asset 01</div>
-              <h3 class="c8cs-gallery-title">Bridgepoint Advisory Style Guide</h3>
-              <p class="c8cs-gallery-desc">Curation of typography layouts and corporate color swatches, utilizing deep navy, cool slate, and light silver accents to project trust.</p>
-            </div>
-            
-            <div class="c8cs-swatch-row">
-              <div class="c8cs-swatch" style="background: #0047E1;">
-                <span class="c8cs-swatch-hex" style="color:#FFFFFF;">#0047E1</span>
-              </div>
-              <div class="c8cs-swatch" style="background: #6B7280;">
-                <span class="c8cs-swatch-hex" style="color:#FFFFFF;">#6B7280</span>
-              </div>
-              <div class="c8cs-swatch" style="background: #FFFFFF; border: 1px solid rgba(8,8,8,0.12);">
-                <span class="c8cs-swatch-hex" style="color:#080808;">#FFFFFF</span>
-              </div>
-            </div>
+        <div class="c8cs-gallery-outer-box">
+          <div class="c8cs-gallery-header">
+            <div class="c8cs-label">Showcase</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Visual Showcase &amp; Systems</h2>
           </div>
 
-          <div class="c8cs-gallery-card">
-            <div>
+          <div class="c8cs-gallery-grid">
+            <!-- Asset 01: Horizontal Cell -->
+            <div class="c8cs-gallery-card">
+              <div class="c8cs-gallery-meta">Brand Identity // Asset 01</div>
+              <h3 class="c8cs-gallery-title">Color System &amp; Palette</h3>
+              <p class="c8cs-gallery-desc">Curating primary brand accents, dark backgrounds, and neutral tones that convey luxury elegance.</p>
+              
+              <div class="c8cs-swatch-row">
+                <div class="c8cs-swatch" style="background: #080808; color: #FFFFFF;">
+                  <span class="c8cs-swatch-hex">#080808</span>
+                </div>
+                <div class="c8cs-swatch" style="background: #0047E1; color: #FFFFFF;">
+                  <span class="c8cs-swatch-hex">#0047E1</span>
+                </div>
+                <div class="c8cs-swatch" style="background: #F4F6FB; color: #080808;">
+                  <span class="c8cs-swatch-hex" style="background: rgba(8,8,8,0.1);">#F4F6FB</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Asset 02: Horizontal Cell -->
+            <div class="c8cs-gallery-card">
               <div class="c8cs-gallery-meta">Interface // Asset 02</div>
-              <h3 class="c8cs-gallery-title">Typography System</h3>
-              <p class="c8cs-gallery-desc">Establishing typography pairing systems, line-height hierarchies, and headline styling optimized for print and digital channels.</p>
+              <h3 class="c8cs-gallery-title">Platform Experience Page</h3>
+              <p class="c8cs-gallery-desc">Designing custom user interfaces, pricing breakdowns, and direct conversion triggers.</p>
+              <div class="c8cs-gallery-img-box">
+                <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop" alt="BridgePoints Brand Identity interface detail screenshot">
+              </div>
             </div>
-            <div class="c8cs-gallery-img-box">
-              <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop" alt="Bridgepoint Advisory corporate brand typography guide">
+
+            <!-- Asset 03: Full Width Cell Spanning Matrix -->
+            <div class="c8cs-gallery-card is-full">
+              <div class="c8cs-gallery-meta">Mobile UI // Asset 03</div>
+              <h3 class="c8cs-gallery-title">Responsive Mobile Flow</h3>
+              <p class="c8cs-gallery-desc">Optimizing touch targets and instant contact forms for mobile users discovering the platform online.</p>
+              <div class="c8cs-gallery-img-box is-tall">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop" alt="BridgePoints Brand Identity mobile experience flow">
+              </div>
             </div>
           </div>
-
-          <div class="c8cs-gallery-card" style="grid-column: span 2;">
-            <div style="max-width: 600px;">
-              <div class="c8cs-gallery-meta">Guidelines // Asset 03</div>
-              <h3 class="c8cs-gallery-title">Brand Guidelines Book</h3>
-              <p class="c8cs-gallery-desc">Compiling all vector mark usage rules, brand colors, and assets layout requirements in a cohesive print-ready brand guidelines manual.</p>
-            </div>
-            <div class="c8cs-gallery-img-box is-tall">
-              <img src="assets/images/cr8v-bridgepoint-brand-identity.png" alt="Bridgepoint Advisory corporate style guide manual book mockup">
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
 
+    <!-- ── ARCHITECTURAL PAPER GRID OUTCOMES METRICS MATRIX ── -->
     <section class="c8cs-metrics-bg">
       <div class="c8cs-wrap">
-        <div class="c8cs-label" style="color: #080808;">Project Outcomes</div>
-        <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 2.5rem;">Bespoke Performance Metrics</h2>
-        
-        <div class="c8cs-metrics-grid">
-          
-          <div class="c8cs-metric-card">
-            <div class="c8cs-metric-val">1</div>
-            <div class="c8cs-metric-lbl">Original Logo System</div>
-            <p class="c8cs-metric-desc">Bespoke mark and logotype drawn from scratch using custom vector paths and zero stock elements.</p>
+        <div class="c8cs-metrics-outer-box">
+          <div class="c8cs-metrics-header">
+            <div class="c8cs-label">Outcomes</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Bespoke Performance Metrics</h2>
           </div>
 
-          <div class="c8cs-metric-card">
-            <div class="c8cs-metric-val">0</div>
-            <div class="c8cs-metric-lbl">Template Shapes Used</div>
-            <p class="c8cs-metric-desc">Fully custom brand assets, developed independently without any pre-made shapes, template packages, or AI assistance.</p>
-          </div>
+          <div class="c8cs-metrics-grid">
+            
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-val">100%</div>
+              <div class="c8cs-metric-lbl">Original Vector System</div>
+              <p class="c8cs-metric-desc">Hand-crafted vector marks created entirely from scratch with zero stock templates or pre-made icons.</p>
+            </div>
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-val">1</div>
+              <div class="c8cs-metric-lbl">Unified Style Guide</div>
+              <p class="c8cs-metric-desc">Delivered a single source of truth for all external marketing, web development, and executive presentation design.</p>
+            </div>
 
-          <div class="c8cs-metric-card">
-            <div class="c8cs-metric-val">100%</div>
-            <div class="c8cs-metric-lbl">Vector Assets Delivered</div>
-            <p class="c8cs-metric-desc">Delivered fully vector-aligned, high-resolution formats ready for immediate print, digital, and media usage.</p>
+            <!-- Metric 3 -->
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-lbl" style="margin-bottom: 1.5rem;">Live Verification</div>
+              <a href="https://bridgepoints.ng/" target="_blank" rel="noopener" class="c8cs-status-badge">
+                <span class="c8cs-status-lbl">Launch Status</span>
+                <span class="c8cs-status-val">
+                  <span class="c8cs-checkmark-circle">✓</span> Visit Live Site ↗
+                </span>
+              </a>
+              <p class="c8cs-metric-desc" style="margin-top: 1.5rem;">The platform is active and live. Click the button above to view their custom site architecture.</p>
+            </div>
           </div>
-
         </div>
       </div>
     </section>
 
-  
     <!-- ══════════════════════════════════════════
-         SECTION 6: STANDALONE RELATED PROJECTS DECK (Service Page UI)
+         SECTION 6: ARCHITECTURAL PAPER GRID RELATED PROJECTS MATRIX
          ══════════════════════════════════════════ -->
-    <div class="c8isv-related-outer" style="background: #080808 !important; padding: 6rem 0 !important; color: #FFFFFF !important;">
-      <div class="c8isv-wrap" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-        <div class="c8isv-label is-muted" style="color: #8A8A8A !important;">More Case Studies</div>
-        <h2 class="c8isv-section-title" style="color: #FFFFFF !important; margin-bottom: 1rem;">Explore Related Projects</h2>
-        <p class="c8isv-lead" style="color: #A3A3A3 !important; max-width: 750px; margin-bottom: 3rem;">Discover how we engineered custom platforms, brand identities, and growth funnels for other industry leaders.</p>
-        <div class="c8isv-related-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-          
-        <a href="stride-plus-media.html" class="c8isv-related-card">
-          <div class="c8isv-related-card-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0047E1" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    <div class="c8cs-related-paper-outer">
+      <div class="c8cs-wrap" style="padding-top:0; padding-bottom:0;">
+        <div class="c8cs-related-matrix-box">
+          <div class="c8cs-related-matrix-header">
+            <div class="c8cs-label">More Case Studies</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Explore Related Projects</h2>
           </div>
-          <span class="c8isv-related-card-platform">01 / Digital Marketing</span>
-          <h3 class="c8isv-related-card-title">Stride Plus Media</h3>
-          <p class="c8isv-related-card-desc">Brand strategy positioning and multi-channel paid acquisition funnels for Stride Radio.</p>
-          <span class="c8isv-related-card-link">Explore Case Study &rarr;</span>
-        </a>
-        <a href="the-duch-apartments.html" class="c8isv-related-card">
-          <div class="c8isv-related-card-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0047E1" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+
+          <div class="c8cs-related-matrix-grid">
+            
+            <a href="stride-plus-media.html" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag">01 / Digital Marketing</div>
+                <h3 class="c8cs-related-cell-title">Stride Plus Media</h3>
+                <p class="c8cs-related-cell-desc">Brand strategy positioning and multi-channel paid acquisition funnels for Stride Radio.</p>
+              </div>
+              <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
+            </a>
+            <a href="the-duch-apartments.html" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag">02 / Web Design & SEO</div>
+                <h3 class="c8cs-related-cell-title">The Duch Apartments</h3>
+                <p class="c8cs-related-cell-desc">Brand identity and direct booking platform engineered with SEO architecture built in from day one.</p>
+              </div>
+              <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
+            </a>
+            <a href="victorias-lane.html" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag">03 / Shopify Storefront</div>
+                <h3 class="c8cs-related-cell-title">Victoria's Lane</h3>
+                <p class="c8cs-related-cell-desc">Luxury handbag e-commerce storefront hand-coded in custom Liquid with AJAX cart drawer.</p>
+              </div>
+              <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
+            </a>
           </div>
-          <span class="c8isv-related-card-platform">02 / Web Design & SEO</span>
-          <h3 class="c8isv-related-card-title">The Duch Apartments</h3>
-          <p class="c8isv-related-card-desc">Brand identity and direct booking platform engineered with SEO architecture built in from day one.</p>
-          <span class="c8isv-related-card-link">Explore Case Study &rarr;</span>
-        </a>
-        <a href="victorias-lane.html" class="c8isv-related-card">
-          <div class="c8isv-related-card-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0047E1" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <span class="c8isv-related-card-platform">03 / Shopify Storefront</span>
-          <h3 class="c8isv-related-card-title">Victoria's Lane</h3>
-          <p class="c8isv-related-card-desc">Luxury handbag e-commerce storefront hand-coded in custom Liquid with AJAX cart drawer.</p>
-          <span class="c8isv-related-card-link">Explore Case Study &rarr;</span>
-        </a>
         </div>
       </div>
     </div>
-    
-
 
     <!-- ══════════════════════════════════════════
          SECTION 7: HOMEPAGE CTA SECTION
@@ -1017,9 +1217,9 @@
       </div>
     </section>
 
+  </div><!-- End c8cs-root -->
 
-  </div>
-
+  <!-- Hero background & Scroll-Grow Image Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var root = document.querySelector('.c8cs-root');
@@ -1030,16 +1230,77 @@
 
       if (atmos && glow && canHover && !reduceMotion) {
         atmos.addEventListener('mousemove', function (e) {
-          var rect = atmos.getBoundingClientRect();
-          glow.style.transform = 'translate(' + (e.clientX - rect.left) + 'px,' + (e.clientY - rect.top) + 'px) translate(-50%,-50%)';
+          var r = atmos.getBoundingClientRect();
+          glow.style.left = (e.clientX - r.left) + 'px';
+          glow.style.top = (e.clientY - r.top) + 'px';
         });
-        atmos.addEventListener('mouseenter', function () {
-          atmos.classList.add('is-active');
-        });
-        atmos.addEventListener('mouseleave', function () {
-          atmos.classList.remove('is-active');
-        });
+        atmos.addEventListener('mouseenter', function () { atmos.classList.add('is-active'); });
+        atmos.addEventListener('mouseleave', function () { atmos.classList.remove('is-active'); });
       }
+
+      var growTarget = document.getElementById('c8cs-grow-target');
+      var growTrigger = document.getElementById('c8cs-grow-trigger');
+
+      if (growTarget && growTrigger && !reduceMotion) {
+        function handleGrowScroll() {
+          var rect = growTrigger.getBoundingClientRect();
+          var viewportH = window.innerHeight;
+          
+          var start = viewportH * 0.9;
+          var end = viewportH * 0.2;
+          
+          var progress = 0;
+          if (rect.top < start) {
+            progress = (start - rect.top) / (start - end);
+            if (progress > 1) progress = 1;
+            if (progress < 0) progress = 0;
+          }
+
+          var widthVal = 85 + (15 * progress);
+          var maxWVal = 1200 + ((window.innerWidth - 1200) * progress);
+
+          growTarget.style.width = widthVal + '%';
+          growTarget.style.maxWidth = maxWVal + 'px';
+        }
+
+        window.addEventListener('scroll', handleGrowScroll);
+        window.addEventListener('resize', handleGrowScroll);
+        handleGrowScroll();
+      }
+
+      var srvMatrixButtons = document.querySelectorAll('.c8-btn-primary, .c8cs-btn-primary, .cta-btn-pill, .c8isv-related-card-link, .c8cs-back-btn, .c8cs-related-cell-link');
+      var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+      srvMatrixButtons.forEach(function(btn) {
+        var textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; });
+        var targetObj = textNode ? textNode : btn;
+        var originalText = targetObj.textContent.trim();
+        var scrambleInterval = null;
+
+        btn.addEventListener('mouseenter', function() {
+          var iteration = 0;
+          clearInterval(scrambleInterval);
+
+          scrambleInterval = setInterval(function() {
+            targetObj.textContent = originalText.split('')
+              .map(function(char, index) {
+                if (char === ' ' || index < iteration) return originalText[index];
+                return srvMatrixChars[Math.floor(Math.random() * srvMatrixChars.length)];
+              })
+              .join('');
+
+            if (iteration >= originalText.length) {
+              clearInterval(scrambleInterval);
+            }
+            iteration += 1 / 2;
+          }, 25);
+        });
+
+        btn.addEventListener('mouseleave', function() {
+          clearInterval(scrambleInterval);
+          targetObj.textContent = originalText;
+        });
+      });
     });
   </script>
 </body>

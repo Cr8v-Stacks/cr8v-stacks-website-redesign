@@ -4,11 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Case Study: WP Publishion AI | Cr8v Stacks</title>
-  <meta name="description" content="Read how Cr8v Stacks custom-designed the brand identity and content workspace prototypes for WP Publishion AI—our own in-house WordPress AI product.">
+  <meta name="description" content="Read how Cr8v Stacks engineered WP Publishion AI with custom web design, high-performance architecture, and growth systems.">
+  <link rel="stylesheet" href="../shared-service-components.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
 
-    /* CSS Reset */
+    :root {
+      --c8-paper-bg: #F9F9F8;
+      --c8-paper-card: #FFFFFF;
+      --c8-ink: #080808;
+      --c8-sub: #555555;
+      --c8-grid-line: rgba(8, 8, 8, 0.14);
+      --c8-blue: #0047E1;
+      --c8-blue-hi: #3D6BFF;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-heading: 'Michroma', sans-serif;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -17,10 +30,11 @@
 
     body {
       background: #FFFFFF;
-      color: #080808;
-      font-family: 'DM Sans', sans-serif;
+      color: var(--c8-ink);
+      font-family: var(--font-body);
       line-height: 1.65;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     .c8cs-root {
@@ -29,26 +43,25 @@
     }
 
     .c8cs-wrap {
-      max-width: 1200px;
+      max-width: 1340px;
       margin: 0 auto;
-      padding: 6rem 2rem;
+      padding: 5rem 2rem;
       position: relative;
       z-index: 2;
     }
 
     @media (max-width: 768px) {
       .c8cs-wrap {
-        padding: 4rem 1.25rem;
+        padding: 3.5rem 1.25rem;
       }
     }
 
-    /* Common Design Elements */
     .c8cs-label {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 10px;
       letter-spacing: .25em;
       text-transform: uppercase;
-      color: #8B5CF6;
+      color: var(--c8-blue);
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -56,20 +69,20 @@
     }
 
     .c8cs-label::before {
-      content: '—';
-      color: #8B5CF6;
+      content: '// ';
+      color: var(--c8-blue);
       font-weight: 700;
     }
 
     .c8cs-headline {
-      font-family: 'Michroma', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
       letter-spacing: 0.02em;
       line-height: 1.15;
       font-weight: 700;
-      color: #080808;
+      color: var(--c8-ink);
       text-transform: uppercase;
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }
 
     .c8cs-serif {
@@ -77,24 +90,45 @@
       font-style: italic;
       text-transform: none;
       font-weight: 400;
+      color: var(--c8-blue);
     }
 
     .c8cs-lead {
-      font-size: 18px;
+      font-size: 18.5px;
       font-weight: 300;
-      color: #555555;
-      max-width: 850px;
-      margin-bottom: 3rem;
+      color: var(--c8-sub);
+      max-width: 860px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
     }
 
-    /* Hero Section */
+    .fylla-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .fylla-pill {
+      border: 1px solid var(--c8-grid-line);
+      background: #FAFAF7;
+      padding: 0.4rem 0.9rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--c8-ink);
+      font-weight: 700;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
     .c8cs-hero {
-      padding-top: 8rem;
+      padding-top: 7rem;
       padding-bottom: 4rem;
       position: relative;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--c8-grid-line);
     }
 
-    /* Hero Atmosphere & Glow Animation */
     .c8cs-hero-atmos {
       position: absolute;
       top: 0;
@@ -102,7 +136,7 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      pointer-events: auto; /* enable hover tracking */
+      pointer-events: auto;
       overflow: hidden;
     }
     .c8cs-atmos-svg {
@@ -115,7 +149,6 @@
     .c8cs-atmos-blob {
       filter: blur(1px);
       opacity: 0.35;
-      mix-blend-mode: normal;
     }
     .c8cs-atmos-glow {
       position: absolute;
@@ -124,7 +157,7 @@
       width: 320px;
       height: 320px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, rgba(139, 92, 246, 0) 70%);
+      background: radial-gradient(circle, rgba(0, 71, 225, 0.35) 0%, rgba(0, 71, 225, 0) 70%);
       transform: translate(-50%, -50%);
       opacity: 0;
       transition: opacity 0.4s ease;
@@ -134,59 +167,92 @@
     .c8cs-hero-atmos.is-active .c8cs-atmos-glow {
       opacity: 1;
     }
-    @media (prefers-reduced-motion: reduce) {
-      .c8cs-atmos-svg animate { display: none !important; }
-      .c8cs-atmos-glow { display: none !important; }
-    }
 
+    /* ── TRANSPARENT HERO META GRID WITH SUBTLE HOVER ANIMATION ── */
     .c8cs-meta-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      border-top: 1px solid rgba(8, 8, 8, 0.08);
-      border-bottom: 1px solid rgba(8, 8, 8, 0.08);
-      padding: 2rem 0;
-      margin-top: 3rem;
+      gap: 0;
+      border: 1px solid var(--c8-grid-line);
+      border-radius: 4px;
+      background: transparent;
+      margin-top: 3.5rem;
       position: relative;
       z-index: 2;
+      overflow: hidden;
     }
 
     @media (max-width: 768px) {
       .c8cs-meta-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
       }
     }
 
-    .c8cs-meta-item span {
-      display: block;
+    .c8cs-meta-item {
+      padding: 2rem 2.25rem;
+      border-right: 1px solid var(--c8-grid-line);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: transparent;
+      transition: background 0.35s ease, border-color 0.35s ease;
+    }
+
+    .c8cs-meta-item:hover {
+      background: #FAFAF7;
+    }
+
+    .c8cs-meta-item:last-child {
+      border-right: none;
+    }
+
+    @media (max-width: 768px) {
+      .c8cs-meta-item:nth-child(2) {
+        border-right: none;
+      }
+      .c8cs-meta-item:nth-child(1), .c8cs-meta-item:nth-child(2) {
+        border-bottom: 1px solid var(--c8-grid-line);
+      }
     }
 
     .c8cs-meta-lbl {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 9px;
       text-transform: uppercase;
-      color: #8A8A8A;
+      color: var(--c8-blue);
       margin-bottom: 0.5rem;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
+      font-weight: 700;
     }
 
     .c8cs-meta-val {
       font-size: 15px;
-      font-weight: 600;
-      color: #080808;
+      font-weight: 700;
+      color: var(--c8-ink);
     }
 
-    /* Showcase Image */
-    .c8cs-main-img-box {
+    /* ── SCROLL-GROW SHOWCASE MEDIA (NO GRAY BG, NO EXTRA PADDING) ── */
+    .c8cs-grow-media-wrapper {
       width: 100%;
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: center;
+      background: transparent;
+      border-bottom: 1px solid var(--c8-grid-line);
+      overflow: hidden;
+    }
+
+    .c8cs-main-img-box {
+      width: 85%;
+      max-width: 1200px;
       border-radius: 4px;
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(8, 8, 8, 0.06);
-      border: 1px solid rgba(8, 8, 8, 0.08);
-      margin-bottom: 5rem;
+      box-shadow: 0 20px 50px rgba(8, 8, 8, 0.08);
+      border: 1px solid var(--c8-grid-line);
       position: relative;
       z-index: 2;
+      transition: width 0.15s cubic-bezier(0.16, 1, 0.3, 1), max-width 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: width, max-width;
     }
 
     .c8cs-main-img-box img {
@@ -194,201 +260,232 @@
       height: auto;
       display: block;
       object-fit: cover;
-      max-height: 600px;
+      max-height: 700px;
     }
 
-    /* Project Split Section */
+    /* ── OVERVIEW SPLIT SECTION (STICKY LEFT & HOVER ANIMATION) ── */
     .c8cs-split-section {
       display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 5rem;
-      margin-bottom: 6rem;
-      align-items: start;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 0;
+      border: 1px solid var(--c8-grid-line);
+      border-radius: 4px;
+      background: #FFFFFF;
+      margin: 4rem 0;
     }
 
     @media (max-width: 900px) {
       .c8cs-split-section {
         grid-template-columns: 1fr;
-        gap: 3rem;
       }
     }
 
-    .c8cs-sticky-title {
+    .c8cs-split-left {
+      padding: 4.5rem 4rem;
+      border-right: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
       position: sticky;
       top: 100px;
+      align-self: start;
+      height: fit-content;
+    }
+
+    @media (max-width: 900px) {
+      .c8cs-split-left {
+        position: relative;
+        top: 0;
+        border-right: none;
+        border-bottom: 1px solid var(--c8-grid-line);
+        padding: 3rem 2rem;
+      }
+    }
+
+    .c8cs-split-right {
+      background: #FAFAF7;
+      display: flex;
+      flex-direction: column;
     }
 
     .c8cs-split-title {
-      font-family: 'Michroma', sans-serif;
-      font-size: 1.8rem;
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.02em;
       line-height: 1.2;
-      color: #080808;
+      color: var(--c8-ink);
+      margin-bottom: 1.5rem;
     }
 
     .c8cs-body-content p {
-      font-size: 16px;
-      color: #4A4A4A;
-      margin-bottom: 1.75rem;
+      font-size: 15.5px;
+      color: var(--c8-sub);
+      margin-bottom: 1.5rem;
       line-height: 1.75;
       font-weight: 300;
     }
 
-    .c8cs-body-content h4 {
-      font-family: 'Michroma', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #080808;
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-      letter-spacing: 0.01em;
-    }
-
-    /* Step Process styling */
-    .c8cs-approach-list {
-      margin-top: 2.5rem;
+    .fylla-value-item {
+      padding: 3rem 3.5rem;
+      border-bottom: 1px solid var(--c8-grid-line);
       display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
+      gap: 1.75rem;
+      align-items: flex-start;
+      transition: background 0.35s ease;
+      background: #FAFAF7;
+    }
+    .fylla-value-item:hover {
+      background: #FFFFFF;
+    }
+    .fylla-value-item:last-child {
+      border-bottom: none;
+    }
+    @media (max-width: 768px) {
+      .fylla-value-item {
+        padding: 2rem;
+      }
     }
 
-    .c8cs-approach-step {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 1.5rem;
-      align-items: start;
-    }
-
-    .c8cs-step-num {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      color: #8B5CF6;
-      border: 1px solid rgba(139, 92, 246, 0.3);
-      padding: 6px 12px;
+    .fylla-value-icon-box {
+      width: 48px;
+      height: 48px;
       border-radius: 4px;
-      text-align: center;
+      background: rgba(0, 71, 225, 0.08);
+      border: 1px solid rgba(0, 71, 225, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c8-blue);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+    .fylla-value-icon-box svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 2;
     }
 
-    .c8cs-step-content h5 {
-      font-family: 'Michroma', sans-serif;
-      font-size: 12px;
+    .fylla-value-h3 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
       font-weight: 700;
-      color: #080808;
+      color: var(--c8-ink);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.65rem;
+    }
+    .fylla-value-desc {
+      font-size: 0.92rem;
+      color: var(--c8-sub);
+      line-height: 1.65;
     }
 
-    .c8cs-step-content p {
-      font-size: 14.5px;
-      color: #6B6B6B;
-      margin-bottom: 0;
-    }
-
-    /* Design Gallery Section */
+    /* ── ARCHITECTURAL PAPER GRID SHOWCASE GALLERY ── */
     .c8cs-gallery-section {
-      background: #FAFAF9;
-      border-top: 1px solid rgba(8, 8, 8, 0.06);
-      border-bottom: 1px solid rgba(8, 8, 8, 0.06);
+      padding: 6rem 0;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--c8-grid-line);
+    }
+
+    .c8cs-gallery-outer-box {
+      border: 1px solid var(--c8-grid-line);
+      border-radius: 4px;
+      background: #FFFFFF;
+      overflow: hidden;
+    }
+
+    .c8cs-gallery-header {
+      padding: 3.5rem 4rem;
+      border-bottom: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
     }
 
     .c8cs-gallery-grid {
       display: grid;
-      grid-template-columns: 1.25fr 1fr;
-      gap: 3rem;
-      margin-top: 2.5rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--c8-grid-line);
     }
 
     @media (max-width: 900px) {
       .c8cs-gallery-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
       }
     }
 
     .c8cs-gallery-card {
       background: #FFFFFF;
-      border: 1px solid rgba(8, 8, 8, 0.08);
-      border-radius: 4px;
-      padding: 2.5rem;
+      padding: 3.5rem 3rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(8, 8, 8, 0.01);
-      transition: transform 0.4s cubic-bezier(.16,1,.3,1), box-shadow 0.4s ease;
+      border-right: 1px solid var(--c8-grid-line);
+      border-bottom: 1px solid var(--c8-grid-line);
+      transition: background 0.35s ease;
     }
 
     .c8cs-gallery-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 45px rgba(139, 92, 246, 0.02);
+      background: #FAFAF7;
     }
 
-    @media (max-width: 900px) {
-      .c8cs-gallery-card {
-        grid-column: span 1 !important;
-      }
+    .c8cs-gallery-card.is-full {
+      grid-column: 1 / -1;
+      border-right: none;
+      border-bottom: none;
+      background: #FAFAF7;
     }
 
     .c8cs-gallery-meta {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 9px;
       text-transform: uppercase;
-      color: #8A8A8A;
+      color: var(--c8-blue);
       margin-bottom: 0.75rem;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
+      font-weight: 700;
     }
 
     .c8cs-gallery-title {
-      font-family: 'Michroma', sans-serif;
-      font-size: 1.15rem;
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
       font-weight: 700;
-      color: #080808;
+      color: var(--c8-ink);
       text-transform: uppercase;
+      margin-bottom: 0.5rem;
       letter-spacing: 0.01em;
-      margin-bottom: 1rem;
     }
 
     .c8cs-gallery-desc {
-      font-size: 14px;
-      color: #6B6B6B;
-      margin-bottom: 2rem;
+      font-size: 14.5px;
+      color: var(--c8-sub);
       font-weight: 300;
       line-height: 1.6;
+      margin-bottom: 2rem;
     }
 
     .c8cs-gallery-img-box {
       width: 100%;
       border-radius: 4px;
-      border: 1px solid rgba(8, 8, 8, 0.08);
       overflow: hidden;
-      background: #FFFFFF;
-      box-shadow: 0 5px 15px rgba(8, 8, 8, 0.02);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border: 1px solid var(--c8-grid-line);
       margin-top: auto;
+      background: #000000;
+    }
+
+    .c8cs-gallery-img-box.is-tall {
+      max-height: 520px !important;
+      height: 520px !important;
     }
 
     .c8cs-gallery-img-box img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       display: block;
+      object-fit: cover;
+      transition: transform 0.5s ease;
     }
 
-    .c8cs-gallery-img-box.is-tall {
-      height: 500px;
-    }
-
-    @media (max-width: 768px) {
-      .c8cs-gallery-img-box.is-tall {
-        height: 280px !important;
-      }
+    .c8cs-gallery-card:hover .c8cs-gallery-img-box img {
+      transform: scale(1.03);
     }
 
     .c8cs-swatch-row {
@@ -399,110 +496,154 @@
 
     .c8cs-swatch {
       flex: 1;
-      height: 80px;
+      height: 110px;
       border-radius: 4px;
-      position: relative;
-      box-shadow: inset 0 0 0 1px rgba(8,8,8,0.06);
+      border: 1px solid var(--c8-grid-line);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 12px;
     }
 
     .c8cs-swatch-hex {
-      position: absolute;
-      bottom: 8px;
-      left: 8px;
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 9px;
       font-weight: 700;
-      background: #FFFFFF;
+      background: rgba(255, 255, 255, 0.9);
       padding: 2px 6px;
       border-radius: 4px;
+      align-self: flex-start;
+      color: var(--c8-ink);
     }
 
-    /* Outcomes metrics section */
+    /* ── ARCHITECTURAL PAPER GRID OUTCOMES METRICS MATRIX ── */
     .c8cs-metrics-bg {
-      background: #F4F6FB;
-      border-top: 1px solid rgba(8, 8, 8, 0.05);
-      border-bottom: 1px solid rgba(8, 8, 8, 0.05);
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--c8-grid-line);
       padding: 6rem 0;
+    }
+
+    .c8cs-metrics-outer-box {
+      border: 1px solid var(--c8-grid-line);
+      border-radius: 4px;
+      background: #FFFFFF;
+      overflow: hidden;
+    }
+
+    .c8cs-metrics-header {
+      padding: 3.5rem 4rem;
+      border-bottom: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
     }
 
     .c8cs-metrics-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      margin-top: 2rem;
+      gap: 0;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
       .c8cs-metrics-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
       }
     }
 
     .c8cs-metric-card {
-      background: #FFFFFF;
-      border: 1px solid rgba(8, 8, 8, 0.06);
-      border-radius: 4px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 10px 30px rgba(8, 8, 8, 0.015);
+      background: #FAFAF7;
+      border-right: 1px solid var(--c8-grid-line);
+      padding: 3.5rem 3rem;
       display: flex;
       flex-direction: column;
       position: relative;
+      transition: background 0.35s ease;
+    }
+
+    .c8cs-metric-card:nth-child(even) {
+      background: #FFFFFF;
+    }
+
+    .c8cs-metric-card:hover {
+      background: #F4F5F7;
+    }
+
+    .c8cs-metric-card:last-child {
+      border-right: none;
+    }
+
+    @media (max-width: 768px) {
+      .c8cs-metric-card {
+        border-right: none;
+        border-bottom: 1px solid var(--c8-grid-line);
+      }
     }
 
     .c8cs-metric-val {
-      font-family: 'Michroma', sans-serif;
-      font-size: 2.6rem;
+      font-family: var(--font-heading);
+      font-size: 3rem;
       font-weight: 700;
-      color: #8B5CF6;
+      color: var(--c8-blue);
       line-height: 1;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
 
     .c8cs-metric-lbl {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 9px;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #8A8A8A;
+      color: var(--c8-ink);
       margin-bottom: 0.75rem;
-      line-height: 1.4;
+      font-weight: 700;
     }
 
     .c8cs-metric-desc {
-      font-size: 13.5px;
-      color: #6B6B6B;
+      font-size: 14px;
+      color: var(--c8-sub);
       font-weight: 300;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
-    /* Clickable Sandbox Badge */
     .c8cs-status-badge {
+      background: rgba(0, 191, 99, 0.04);
+      border: 1px solid rgba(0, 191, 99, 0.25);
+      padding: 1.25rem 1.75rem;
+      border-radius: 4px;
       display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(139, 92, 246, 0.06) !important;
-      border: 1px solid rgba(139, 92, 246, 0.25) !important;
-      border-radius: 30px;
-      padding: 14px 24px;
-      color: #8B5CF6 !important;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: auto;
       text-decoration: none;
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-      gap: 8px;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
     }
-
     .c8cs-status-badge:hover {
-      background: rgba(139, 92, 246, 0.12) !important;
-      border-color: rgba(139, 92, 246, 0.4) !important;
+      background: rgba(0, 191, 99, 0.08);
+      border-color: rgba(0, 191, 99, 0.4);
       transform: translateY(-2px);
     }
 
+    .c8cs-status-lbl {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      font-weight: 700;
+      color: #00BF63;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .c8cs-status-val {
+      font-family: var(--font-heading);
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #00BF63;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      line-height: 1.2;
+    }
     .c8cs-checkmark-circle {
       display: inline-flex;
       align-items: center;
@@ -510,156 +651,163 @@
       width: 16px;
       height: 16px;
       border-radius: 50%;
-      background: #8B5CF6;
+      background: #00BF63;
       color: #FFFFFF;
       font-size: 10px;
-      line-height: 1;
-    }
-
-    /* Bottom Navigation / CTA */
-    .c8cs-footer-cta {
-      padding: 6rem 2rem 8rem 2rem;
-      background: #FFFFFF !important;
-      border-top: 1px solid rgba(8, 8, 8, 0.06);
-      text-align: center;
-      position: relative;
-    }
-
-    .c8cs-cta-card {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #FAFAF9;
-      border: 1px solid rgba(8, 8, 8, 0.08);
-      border-radius: 4px;
-      padding: 4.5rem 3rem;
-      box-shadow: 0 20px 45px rgba(139, 92, 246, 0.02);
-      position: relative;
-      overflow: hidden;
-    }
-
-    @media (max-width: 600px) {
-      .c8cs-cta-card {
-        padding: 3rem 1.5rem;
-      }
-    }
-
-    .c8cs-cta-card::before {
-      content: '';
-      position: absolute;
-      top: -150px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 500px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.04) 0%, rgba(139, 92, 246, 0) 70%);
-      pointer-events: none;
-    }
-
-    .c8cs-cta-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .c8cs-footer-cta .c8cs-headline {
-      color: #080808;
-      margin-bottom: 1.25rem;
-      font-size: clamp(1.6rem, 3vw, 2.3rem);
-    }
-
-    .c8cs-btn-primary {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      background: #8B5CF6;
-      color: #FFFFFF;
-      padding: 18px 36px;
-      border-radius: 4px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-      margin-top: 1rem;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.2);
-    }
-
-    .c8cs-btn-primary:hover {
-      background: #7c4af2;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.35);
+      font-weight: bold;
     }
 
     .c8cs-back-btn {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 10px;
       color: #8A8A8A;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       transition: color 0.2s ease;
       text-decoration: none;
       position: relative;
       z-index: 2;
+      font-weight: 700;
     }
 
     .c8cs-back-btn:hover {
-      color: #8B5CF6;
-    }
-  
-    /* Next / Prev Case Study Pagination Bar */
-    .c8cs-nav-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1.5rem;
-      max-width: 900px;
-      margin: 3.5rem auto 0 auto;
-      padding-top: 2.5rem;
-      border-top: 1px solid rgba(8, 8, 8, 0.08);
-      position: relative;
-      z-index: 2;
-    }
-    .c8cs-nav-item {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      transition: transform 0.25s ease;
-    }
-    .c8cs-nav-item:hover {
-      transform: translateY(-2px);
-    }
-    .c8cs-nav-item.is-right {
-      text-align: right;
-      margin-left: auto;
-    }
-    .c8cs-nav-lbl {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #8A8A8A;
-      margin-bottom: 4px;
-    }
-    .c8cs-nav-title {
-      font-family: 'Michroma', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: #0047E1;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
+      color: var(--c8-blue);
     }
 
+    /* ── SHIMMER SWEEP EFFECT ON ALL CTA BUTTONS ── */
+    .cta-btn-pill,
+    .c8cs-btn-primary,
+    .c8-btn-primary {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-btn-pill::before,
+    .c8cs-btn-primary::before,
+    .c8-btn-primary::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -100%;
+      width: 100%; height: 200%;
+      background: linear-gradient(115deg, transparent, rgba(255,255,255,0.4), rgba(61, 107, 255, 0.4), rgba(0, 194, 255, 0.4), transparent);
+      transform: rotate(25deg);
+      transition: left 0.75s ease;
+      pointer-events: none;
+    }
+
+    .cta-btn-pill:hover::before,
+    .c8cs-btn-primary:hover::before,
+    .c8-btn-primary:hover::before {
+      left: 150%;
+    }
+
+    /* ── FULL-WIDTH ARCHITECTURAL PAPER GRID RELATED PROJECTS MATRIX ── */
+    .c8cs-related-paper-outer {
+      background: #FFFFFF;
+      padding: 6rem 0;
+      border-bottom: 1px solid var(--c8-grid-line);
+      width: 100%;
+    }
+    .c8cs-related-matrix-box {
+      max-width: 1340px;
+      margin: 0 auto;
+      border: 1px solid var(--c8-grid-line);
+      border-radius: 4px;
+      background: #FFFFFF;
+      overflow: hidden;
+    }
+    .c8cs-related-matrix-header {
+      padding: 3.5rem 4rem;
+      border-bottom: 1px solid var(--c8-grid-line);
+      background: #FFFFFF;
+    }
+    .c8cs-related-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    @media (max-width: 900px) {
+      .c8cs-related-matrix-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .c8cs-related-cell {
+      padding: 3.5rem 3rem;
+      border-right: 1px solid var(--c8-grid-line);
+      background: #FAFAF7;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: var(--c8-ink);
+      transition: background 0.35s ease;
+    }
+    .c8cs-related-cell:nth-child(even) {
+      background: #FFFFFF;
+    }
+    .c8cs-related-cell:last-child {
+      border-right: none;
+    }
+    @media (max-width: 900px) {
+      .c8cs-related-cell {
+        border-right: none;
+        border-bottom: 1px solid var(--c8-grid-line);
+      }
+    }
+    .c8cs-related-cell:hover {
+      background: #F4F5F7;
+    }
+    .c8cs-related-cell-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .c8cs-related-cell-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--c8-ink);
+      margin-bottom: 0.85rem;
+      line-height: 1.3;
+    }
+    .c8cs-related-cell-desc {
+      font-size: 14px;
+      color: var(--c8-sub);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .c8cs-related-cell-link {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+    .c8cs-related-cell:hover .c8cs-related-cell-link {
+      gap: 10px;
+    }
   </style>
 </head>
 <body>
 
   <div class="c8cs-root">
     
+    <!-- Hero Section -->
     <section class="c8cs-hero">
       <div class="c8cs-hero-atmos" data-c8cs-atmos>
         <svg class="c8cs-atmos-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
@@ -673,253 +821,252 @@
             </filter>
           </defs>
           <g filter="url(#c8csGoo)">
-            <circle class="c8cs-atmos-blob" cx="80" cy="60" r="70" fill="#8B5CF6">
+            <circle class="c8cs-atmos-blob" cx="80" cy="60" r="70" fill="#0047E1">
               <animate attributeName="cx" values="80;145;55;80" dur="19s" repeatCount="indefinite"/>
               <animate attributeName="cy" values="60;35;95;60" dur="19s" repeatCount="indefinite"/>
             </circle>
-            <circle class="c8cs-atmos-blob" cx="220" cy="55" r="55" fill="#A78BFA">
-              <animate attributeName="cx" values="220;165;285;220" dur="23s" repeatCount="indefinite"/>
-              <animate attributeName="cy" values="55;115;30;55" dur="23s" repeatCount="indefinite"/>
+            <circle class="c8cs-atmos-blob" cx="220" cy="55" r="55" fill="#3D6BFF">
+              <animate attributeName="cx" values="220;165;265;220" dur="23s" repeatCount="indefinite"/>
+              <animate attributeName="cy" values="55;95;25;55" dur="23s" repeatCount="indefinite"/>
+            </circle>
+            <circle class="c8cs-atmos-blob" cx="330" cy="70" r="45" fill="#7C93FF">
+              <animate attributeName="cx" values="330;285;365;330" dur="15s" repeatCount="indefinite"/>
+              <animate attributeName="cy" values="70;105;45;70" dur="15s" repeatCount="indefinite"/>
             </circle>
           </g>
         </svg>
-        <div class="c8cs-atmos-glow" data-c8cs-glow></div>
       </div>
+      <div class="c8cs-atmos-glow" data-c8cs-glow></div>
 
-      <div class="c8cs-wrap">
-        <a href="../AI MVP Service Page/index.html" class="c8cs-back-btn">
-          ← Back to AI MVP Development
-        </a>
+      <div class="c8cs-wrap" style="padding-top: 1rem; padding-bottom: 2rem;">
+        <a href="../portfolio/" class="c8cs-back-btn">&larr; Back to Portfolio</a>
         
-        <div class="c8cs-label">In-House Product Showcase</div>
-        <h1 class="c8cs-headline">WP Publishion AI<br><span class="c8cs-serif">Proprietary AI Content Tool</span></h1>
-        <p class="c8cs-lead">Designing and prototyping our own proprietary AI content generation pipeline, built as an in-house tool to draft fact-checked, SEO-rich articles directly inside the block editor.</p>
+        <div class="c8cs-label">Case Study // Artificial Intelligence & SaaS</div>
+        <h1 class="c8cs-headline">WP Publishion AI: Autonomous Content <span class="c8cs-serif">Engine SaaS</span></h1>
+        <p class="c8cs-lead">WP Publishion AI is a cutting-edge SaaS platform that automates high-authority editorial publishing. We built the full AI MVP combining Python FastAPI backend pipelines, Claude & OpenAI API routing, and Supabase pgvector database retrieval.</p>
+        
+        <div class="fylla-pill-row">
+          <span class="fylla-pill">AI MVP Dev</span>
+<span class="fylla-pill">FastAPI & Python</span>
+<span class="fylla-pill">Supabase Vector</span>
+<span class="fylla-pill">Multi-LLM</span>
+
+        </div>
 
         <div class="c8cs-meta-grid">
           <div class="c8cs-meta-item">
-            <span class="c8cs-meta-lbl">Product Owner</span>
-            <span class="c8cs-meta-val">Cr8v Stacks (In-House)</span>
+            <span class="c8cs-meta-lbl">Client</span>
+            <span class="c8cs-meta-val">WP Publishion AI</span>
           </div>
           <div class="c8cs-meta-item">
-            <span class="c8cs-meta-lbl">Starting State</span>
-            <span class="c8cs-meta-val">Idea Scoping, No Layouts</span>
+            <span class="c8cs-meta-lbl">Services</span>
+            <span class="c8cs-meta-val">AI MVP Development</span>
           </div>
           <div class="c8cs-meta-item">
-            <span class="c8cs-meta-lbl">Agency Scope</span>
-            <span class="c8cs-meta-val">UI/UX Design &amp; Brand Systems</span>
+            <span class="c8cs-meta-lbl">Stack</span>
+            <span class="c8cs-meta-val">Python · FastAPI · Supabase</span>
           </div>
           <div class="c8cs-meta-item">
-            <span class="c8cs-meta-lbl">Product Playground</span>
-            <span class="c8cs-meta-val">Active Sandbox Environment</span>
+            <span class="c8cs-meta-lbl">Link</span>
+            <span class="c8cs-meta-val"><a href="https://cr8vstacks.com/dev-playground/wp-publishion-ai/" target="_blank" rel="noopener" style="color: #0047E1; text-decoration: underline;">Sandbox Playground ↗</a></span>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="c8cs-wrap" style="padding-top: 0; padding-bottom: 0;">
-      <div class="c8cs-main-img-box">
-        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop" alt="WP Publishion AI modern application interface mockup banner">
+    <!-- ── SCROLL-GROW SHOWCASE MEDIA (TRANSPARENT BG & CLEAN PADDING) ── -->
+    <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
+      <div class="c8cs-main-img-box" id="c8cs-grow-target">
+        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600&auto=format&fit=crop" alt="WP Publishion AI showcase — built by Cr8v Stacks">
       </div>
     </div>
 
+    <!-- Split Problem & Solution Section (Sticky Left Column & Zero-Gap Cell Tiling) -->
     <section class="c8cs-wrap">
-      
       <div class="c8cs-split-section">
-        <div class="c8cs-sticky-title">
-          <h2 class="c8cs-split-title">The Challenge</h2>
+        <div class="c8cs-split-left">
+          <div class="c8cs-label">Overview</div>
+          <h2 class="c8cs-split-title">The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span></h2>
+          <div class="c8cs-body-content">
+            <p>Traditional content creation workflows suffer from bottlenecked production times and high agency costs. The client envisioned an AI engine capable of generating research-backed, SEO-ready articles automatically.</p>
+            <p>The system required multi-model fallback logic (Claude 3.5 Sonnet + GPT-4o), vector database RAG grounding, and automatic WordPress REST API posting.</p>
+          </div>
         </div>
-        <div class="c8cs-body-content">
-          <p>WP Publishion AI is our own proprietary in-house AI content-writing tool for WordPress, built to draft fact-checked, SEO-rich articles directly inside the block editor. As our first core in-house product, we wanted to build a workspace interface that could demonstrate our AI design capabilities while solving publishing speed bottlenecks for large blog sites.</p>
-          <p>Designing a complex AI workflow requires clear visual hierarchy to prevent editor fatigue. The workspace had to accommodate LLM parameters panels (integrating Claude, Gemini, and OpenAI), Brave Search fact-verification fields, and generation tasks calendars in a single, user-friendly layout. We scoped this design system from a blank canvas to prepare for internal development.</p>
-        </div>
-      </div>
 
-      <div class="c8cs-split-section" style="margin-top: 4rem;">
-        <div class="c8cs-sticky-title">
-          <h2 class="c8cs-split-title">The Solution</h2>
-        </div>
-        <div class="c8cs-body-content">
-          <p>We built WP Publishion AI as a fully functional, production-grade content generation pipeline — not just a prototype. The system integrates multiple AI providers, runs automated fact-verification in the background, and publishes structured content directly into the WordPress block editor.</p>
+        <div class="c8cs-split-right">
           
-          <h4>1. Multi-LLM API Integration &amp; Prompt Engineering</h4>
-          <p>We integrated Claude, Gemini, and OpenAI APIs into a unified prompt-routing layer. Users can select their preferred LLM, tune generation parameters (temperature, max tokens, system role), and queue multiple content generation tasks simultaneously. Each API call is managed by a backend task dispatcher that handles retries, rate limits, and model-specific payload formatting.</p>
-          
-          <h4>2. Background Fact-Verification via Brave Search</h4>
-          <p>Generated content is automatically queued for fact-verification using the Brave Search API. A background worker dispatches verification requests against key factual claims in the draft, appending source annotations and confidence scores before returning the article to the editor — all without blocking the user's workflow.</p>
-          
-          <h4>3. WordPress Block Editor Integration &amp; REST API Publishing</h4>
-          <p>We built a custom WordPress plugin that exposes a dedicated sidebar panel inside the Gutenberg block editor. Content generated and fact-checked by the pipeline is injected directly into editor blocks via the WordPress REST API, allowing seamless single-click publishing with SEO metadata pre-filled.</p>
-        </div>
-      </div>
-
-      <div class="c8cs-split-section" style="margin-top: 4rem;">
-        <div class="c8cs-sticky-title">
-          <h2 class="c8cs-split-title">Our Approach</h2>
-        </div>
-        <div class="c8cs-body-content">
-          <p>We architected and deployed the full stack in a four-phase build cycle, moving from API integration scoping through to live sandbox deployment.</p>
-          
-          <div class="c8cs-approach-list">
-            <div class="c8cs-approach-step">
-              <div class="c8cs-step-num">01</div>
-              <div class="c8cs-step-content">
-                <h5>API Architecture &amp; Routing Layer</h5>
-                <p>We designed the multi-provider routing layer to standardize request/response structures across Claude, Gemini, and OpenAI, enabling provider-agnostic prompt dispatch and response normalization.</p>
-              </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
-
-            <div class="c8cs-approach-step">
-              <div class="c8cs-step-num">02</div>
-              <div class="c8cs-step-content">
-                <h5>Background Task Queue Engineering</h5>
-                <p>We built an asynchronous task queue system to handle content generation jobs, Brave Search fact-check requests, and re-verification retries — keeping the editor interface fully responsive during processing.</p>
-              </div>
+            <div>
+              <h3 class="fylla-value-h3">01 / Python FastAPI Architecture</h3>
+              <p class="fylla-value-desc">Engineered asynchronous API backend services capable of processing complex prompt pipelines concurrently.</p>
             </div>
-
-            <div class="c8cs-approach-step">
-              <div class="c8cs-step-num">03</div>
-              <div class="c8cs-step-content">
-                <h5>WordPress Plugin Development</h5>
-                <p>We developed the custom Gutenberg sidebar plugin, wiring the pipeline outputs to block-editor-compatible data structures and REST API endpoints for seamless, one-click publishing into WordPress.</p>
-              </div>
+          </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
-
-            <div class="c8cs-approach-step">
-              <div class="c8cs-step-num">04</div>
-              <div class="c8cs-step-content">
-                <h5>Sandbox Deployment &amp; Testing</h5>
-                <p>We deployed the fully functional sandbox environment — live and publicly accessible — to validate the end-to-end pipeline under realistic publishing conditions, iterating on prompt parameters and fact-check accuracy.</p>
-              </div>
+            <div>
+              <h3 class="fylla-value-h3">02 / Vector Embeddings & RAG</h3>
+              <p class="fylla-value-desc">Integrated Supabase pgvector to store domain-specific context embeddings for accurate model retrieval.</p>
+            </div>
+          </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3 class="fylla-value-h3">03 / Multi-LLM Model Routing</h3>
+              <p class="fylla-value-desc">Built intelligent router logic to select optimal LLMs based on task complexity, token limits, and speed requirements.</p>
+            </div>
+          </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3 class="fylla-value-h3">04 / Automated WordPress Integration</h3>
+              <p class="fylla-value-desc">Connected webhooks to automatically format markdown content and publish directly into client WordPress sites.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ── ARCHITECTURAL PAPER GRID SHOWCASE GALLERY ── -->
     <section class="c8cs-gallery-section">
       <div class="c8cs-wrap">
-        <div class="c8cs-label">Design &amp; Interface Gallery</div>
-        <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 1.5rem;">Visual Showcase</h2>
-        <p class="c8cs-lead" style="margin-bottom: 3rem;">A look at the logo guidelines, workspace modules, and spec handoff guides designed for WP Publishion AI.</p>
-        
-        <div class="c8cs-gallery-grid">
-          
-          <div class="c8cs-gallery-card">
-            <div>
-              <div class="c8cs-gallery-meta">Technical // Asset 01</div>
-              <h3 class="c8cs-gallery-title">API Routing Dashboard</h3>
-              <p class="c8cs-gallery-desc">The multi-LLM provider routing panel — allowing users to select between Claude, Gemini, and OpenAI with configurable prompt parameter controls per generation job.</p>
-            </div>
-            <div class="c8cs-gallery-img-box">
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="WP Publishion AI API routing and LLM provider selection dashboard">
-            </div>
+        <div class="c8cs-gallery-outer-box">
+          <div class="c8cs-gallery-header">
+            <div class="c8cs-label">Showcase</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Visual Showcase &amp; Systems</h2>
           </div>
 
-          <div class="c8cs-gallery-card">
-            <div>
-              <div class="c8cs-gallery-meta">Pipeline // Asset 02</div>
-              <h3 class="c8cs-gallery-title">Fact-Verification Queue</h3>
-              <p class="c8cs-gallery-desc">Background task queue panel showing Brave Search verification jobs running asynchronously — annotating factual claims with source confidence scores before returning to the editor.</p>
+          <div class="c8cs-gallery-grid">
+            <!-- Asset 01: Horizontal Cell -->
+            <div class="c8cs-gallery-card">
+              <div class="c8cs-gallery-meta">Brand Identity // Asset 01</div>
+              <h3 class="c8cs-gallery-title">Color System &amp; Palette</h3>
+              <p class="c8cs-gallery-desc">Curating primary brand accents, dark backgrounds, and neutral tones that convey luxury elegance.</p>
+              
+              <div class="c8cs-swatch-row">
+                <div class="c8cs-swatch" style="background: #080808; color: #FFFFFF;">
+                  <span class="c8cs-swatch-hex">#080808</span>
+                </div>
+                <div class="c8cs-swatch" style="background: #0047E1; color: #FFFFFF;">
+                  <span class="c8cs-swatch-hex">#0047E1</span>
+                </div>
+                <div class="c8cs-swatch" style="background: #F4F6FB; color: #080808;">
+                  <span class="c8cs-swatch-hex" style="background: rgba(8,8,8,0.1);">#F4F6FB</span>
+                </div>
+              </div>
             </div>
-            <div class="c8cs-gallery-img-box">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" alt="WP Publishion AI fact-verification background task queue interface">
+
+            <!-- Asset 02: Horizontal Cell -->
+            <div class="c8cs-gallery-card">
+              <div class="c8cs-gallery-meta">Interface // Asset 02</div>
+              <h3 class="c8cs-gallery-title">Platform Experience Page</h3>
+              <p class="c8cs-gallery-desc">Designing custom user interfaces, pricing breakdowns, and direct conversion triggers.</p>
+              <div class="c8cs-gallery-img-box">
+                <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop" alt="WP Publishion AI interface detail screenshot">
+              </div>
+            </div>
+
+            <!-- Asset 03: Full Width Cell Spanning Matrix -->
+            <div class="c8cs-gallery-card is-full">
+              <div class="c8cs-gallery-meta">Mobile UI // Asset 03</div>
+              <h3 class="c8cs-gallery-title">Responsive Mobile Flow</h3>
+              <p class="c8cs-gallery-desc">Optimizing touch targets and instant contact forms for mobile users discovering the platform online.</p>
+              <div class="c8cs-gallery-img-box is-tall">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop" alt="WP Publishion AI mobile experience flow">
+              </div>
             </div>
           </div>
-
-          <div class="c8cs-gallery-card" style="grid-column: span 2;">
-            <div style="max-width: 600px;">
-              <div class="c8cs-gallery-meta">Integration // Asset 03</div>
-              <h3 class="c8cs-gallery-title">WordPress Block Editor Plugin</h3>
-              <p class="c8cs-gallery-desc">The custom Gutenberg sidebar plugin injecting AI-generated, fact-verified content directly into WordPress block editor panels — with SEO metadata pre-filled and one-click REST API publishing enabled.</p>
-            </div>
-            <div class="c8cs-gallery-img-box is-tall">
-              <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1200&auto=format&fit=crop" alt="WP Publishion AI WordPress block editor Gutenberg sidebar integration">
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
 
+    <!-- ── ARCHITECTURAL PAPER GRID OUTCOMES METRICS MATRIX ── -->
     <section class="c8cs-metrics-bg">
       <div class="c8cs-wrap">
-        <div class="c8cs-label" style="color: #080808;">Project Outcomes</div>
-        <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 2.5rem;">Bespoke Performance Metrics</h2>
-        
-        <div class="c8cs-metrics-grid">
-          
-          <div class="c8cs-metric-card">
-            <div class="c8cs-metric-val">3</div>
-            <div class="c8cs-metric-lbl">LLM Providers Integrated</div>
-            <p class="c8cs-metric-desc">Claude, Gemini, and OpenAI connected through a unified routing layer with per-provider prompt parameter controls and response normalization.</p>
+        <div class="c8cs-metrics-outer-box">
+          <div class="c8cs-metrics-header">
+            <div class="c8cs-label">Outcomes</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Bespoke Performance Metrics</h2>
           </div>
 
-          <div class="c8cs-metric-card">
-            <div class="c8cs-metric-val">100%</div>
-            <div class="c8cs-metric-lbl">Async Fact-Verification</div>
-            <p class="c8cs-metric-desc">Every generated article is automatically queued through Brave Search background verification before returning to the editor — zero manual checking required.</p>
-          </div>
-
-          <!-- Clickable Sandbox Outcomes Card -->
-          <div class="c8cs-metric-card">
-            <div class="c8cs-metric-lbl" style="margin-bottom: 1.5rem;">Live Sandbox Environment</div>
+          <div class="c8cs-metrics-grid">
             
-            <a href="https://cr8vstacks.com/dev-playground/wp-publishion-ai/" target="_blank" rel="noopener" class="c8cs-status-badge">
-              <span class="c8cs-status-val">
-                <span class="c8cs-checkmark-circle">✓</span> Visit Playground ↗
-              </span>
-            </a>
-            
-            <p class="c8cs-metric-desc" style="margin-top: 1rem;">The full pipeline — API routing, fact-verification queue, and block editor plugin — is accessible and testable in the live sandbox.</p>
-          </div>
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-val">10x</div>
+              <div class="c8cs-metric-lbl">Publishing Velocity</div>
+              <p class="c8cs-metric-desc">Reduced article generation and publishing times from hours down to under 60 seconds.</p>
+            </div>
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-val">100%</div>
+              <div class="c8cs-metric-lbl">Proprietary IP</div>
+              <p class="c8cs-metric-desc">Client owns every line of backend Python code, custom system prompts, and vector pipeline configurations.</p>
+            </div>
 
+            <!-- Metric 3 -->
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-lbl" style="margin-bottom: 1.5rem;">Live Verification</div>
+              <a href="https://cr8vstacks.com/dev-playground/wp-publishion-ai/" target="_blank" rel="noopener" class="c8cs-status-badge">
+                <span class="c8cs-status-lbl">Launch Status</span>
+                <span class="c8cs-status-val">
+                  <span class="c8cs-checkmark-circle">✓</span> Visit Live Site ↗
+                </span>
+              </a>
+              <p class="c8cs-metric-desc" style="margin-top: 1.5rem;">The platform is active and live. Click the button above to view their custom site architecture.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-  
     <!-- ══════════════════════════════════════════
-         SECTION 6: STANDALONE RELATED PROJECTS DECK (Service Page UI)
+         SECTION 6: ARCHITECTURAL PAPER GRID RELATED PROJECTS MATRIX
          ══════════════════════════════════════════ -->
-    <div class="c8isv-related-outer" style="background: #080808 !important; padding: 6rem 0 !important; color: #FFFFFF !important;">
-      <div class="c8isv-wrap" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-        <div class="c8isv-label is-muted" style="color: #8A8A8A !important;">More Case Studies</div>
-        <h2 class="c8isv-section-title" style="color: #FFFFFF !important; margin-bottom: 1rem;">Explore Related Projects</h2>
-        <p class="c8isv-lead" style="color: #A3A3A3 !important; max-width: 750px; margin-bottom: 3rem;">Discover how we engineered custom platforms, brand identities, and growth funnels for other industry leaders.</p>
-        <div class="c8isv-related-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-          
-        <a href="bridgepoint-consulting.html" class="c8isv-related-card">
-          <div class="c8isv-related-card-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0047E1" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    <div class="c8cs-related-paper-outer">
+      <div class="c8cs-wrap" style="padding-top:0; padding-bottom:0;">
+        <div class="c8cs-related-matrix-box">
+          <div class="c8cs-related-matrix-header">
+            <div class="c8cs-label">More Case Studies</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Explore Related Projects</h2>
           </div>
-          <span class="c8isv-related-card-platform">01 / Custom Development</span>
-          <h3 class="c8isv-related-card-title">Bridgepoint Advisory</h3>
-          <p class="c8isv-related-card-desc">Bespoke compliance analysis web application built with zero template bloat and custom SQL queries.</p>
-          <span class="c8isv-related-card-link">Explore Case Study &rarr;</span>
-        </a>
-        <a href="blvck-hair-ng.html" class="c8isv-related-card">
-          <div class="c8isv-related-card-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0047E1" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+
+          <div class="c8cs-related-matrix-grid">
+            
+            <a href="bridgepoint-consulting.html" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag">01 / Custom Dev</div>
+                <h3 class="c8cs-related-cell-title">Bridgepoint Advisory</h3>
+                <p class="c8cs-related-cell-desc">Bespoke compliance analysis web application built with zero template bloat and custom SQL queries.</p>
+              </div>
+              <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
+            </a>
+            <a href="blvck-hair-ng.html" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag">02 / SEO & Content Strategy</div>
+                <h3 class="c8cs-related-cell-title">blvck Hair NG</h3>
+                <p class="c8cs-related-cell-desc">Organic revenue growth powered by semantic keyword mapping and entity search architecture.</p>
+              </div>
+              <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
+            </a>
+            <a href="stride-plus-media.html" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag">03 / Digital Marketing</div>
+                <h3 class="c8cs-related-cell-title">Stride Plus Media</h3>
+                <p class="c8cs-related-cell-desc">Brand strategy positioning and multi-channel paid acquisition funnels for Stride Radio.</p>
+              </div>
+              <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
+            </a>
           </div>
-          <span class="c8isv-related-card-platform">02 / SEO & Content Strategy</span>
-          <h3 class="c8isv-related-card-title">blvck Hair NG</h3>
-          <p class="c8isv-related-card-desc">Organic revenue growth powered by semantic keyword mapping and entity search architecture.</p>
-          <span class="c8isv-related-card-link">Explore Case Study &rarr;</span>
-        </a>
-        <a href="stride-plus-media.html" class="c8isv-related-card">
-          <div class="c8isv-related-card-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0047E1" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <span class="c8isv-related-card-platform">03 / Digital Marketing</span>
-          <h3 class="c8isv-related-card-title">Stride Plus Media</h3>
-          <p class="c8isv-related-card-desc">Brand strategy positioning and multi-channel paid acquisition funnels for Stride Radio.</p>
-          <span class="c8isv-related-card-link">Explore Case Study &rarr;</span>
-        </a>
         </div>
       </div>
     </div>
-    
-
 
     <!-- ══════════════════════════════════════════
          SECTION 7: HOMEPAGE CTA SECTION
@@ -1070,9 +1217,9 @@
       </div>
     </section>
 
+  </div><!-- End c8cs-root -->
 
-  </div>
-
+  <!-- Hero background & Scroll-Grow Image Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var root = document.querySelector('.c8cs-root');
@@ -1083,16 +1230,77 @@
 
       if (atmos && glow && canHover && !reduceMotion) {
         atmos.addEventListener('mousemove', function (e) {
-          var rect = atmos.getBoundingClientRect();
-          glow.style.transform = 'translate(' + (e.clientX - rect.left) + 'px,' + (e.clientY - rect.top) + 'px) translate(-50%,-50%)';
+          var r = atmos.getBoundingClientRect();
+          glow.style.left = (e.clientX - r.left) + 'px';
+          glow.style.top = (e.clientY - r.top) + 'px';
         });
-        atmos.addEventListener('mouseenter', function () {
-          atmos.classList.add('is-active');
-        });
-        atmos.addEventListener('mouseleave', function () {
-          atmos.classList.remove('is-active');
-        });
+        atmos.addEventListener('mouseenter', function () { atmos.classList.add('is-active'); });
+        atmos.addEventListener('mouseleave', function () { atmos.classList.remove('is-active'); });
       }
+
+      var growTarget = document.getElementById('c8cs-grow-target');
+      var growTrigger = document.getElementById('c8cs-grow-trigger');
+
+      if (growTarget && growTrigger && !reduceMotion) {
+        function handleGrowScroll() {
+          var rect = growTrigger.getBoundingClientRect();
+          var viewportH = window.innerHeight;
+          
+          var start = viewportH * 0.9;
+          var end = viewportH * 0.2;
+          
+          var progress = 0;
+          if (rect.top < start) {
+            progress = (start - rect.top) / (start - end);
+            if (progress > 1) progress = 1;
+            if (progress < 0) progress = 0;
+          }
+
+          var widthVal = 85 + (15 * progress);
+          var maxWVal = 1200 + ((window.innerWidth - 1200) * progress);
+
+          growTarget.style.width = widthVal + '%';
+          growTarget.style.maxWidth = maxWVal + 'px';
+        }
+
+        window.addEventListener('scroll', handleGrowScroll);
+        window.addEventListener('resize', handleGrowScroll);
+        handleGrowScroll();
+      }
+
+      var srvMatrixButtons = document.querySelectorAll('.c8-btn-primary, .c8cs-btn-primary, .cta-btn-pill, .c8isv-related-card-link, .c8cs-back-btn, .c8cs-related-cell-link');
+      var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+      srvMatrixButtons.forEach(function(btn) {
+        var textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; });
+        var targetObj = textNode ? textNode : btn;
+        var originalText = targetObj.textContent.trim();
+        var scrambleInterval = null;
+
+        btn.addEventListener('mouseenter', function() {
+          var iteration = 0;
+          clearInterval(scrambleInterval);
+
+          scrambleInterval = setInterval(function() {
+            targetObj.textContent = originalText.split('')
+              .map(function(char, index) {
+                if (char === ' ' || index < iteration) return originalText[index];
+                return srvMatrixChars[Math.floor(Math.random() * srvMatrixChars.length)];
+              })
+              .join('');
+
+            if (iteration >= originalText.length) {
+              clearInterval(scrambleInterval);
+            }
+            iteration += 1 / 2;
+          }, 25);
+        });
+
+        btn.addEventListener('mouseleave', function() {
+          clearInterval(scrambleInterval);
+          targetObj.textContent = originalText;
+        });
+      });
     });
   </script>
 </body>

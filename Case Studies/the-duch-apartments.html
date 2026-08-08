@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Case Study: The Duch Apartments | Cr8v Stacks</title>
-  <meta name="description" content="Read how Cr8v Stacks built the brand identity and custom booking platform from scratch for The Duch Apartments, maximizing direct bookings with custom local SEO.">
+  <meta name="description" content="Read how Cr8v Stacks engineered The Duch Apartments with custom web design, high-performance architecture, and growth systems.">
   <link rel="stylesheet" href="../shared-service-components.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
@@ -22,7 +22,6 @@
       --font-heading: 'Michroma', sans-serif;
     }
 
-    /* CSS Reset */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -44,7 +43,7 @@
     }
 
     .c8cs-wrap {
-      max-width: 1240px;
+      max-width: 1340px;
       margin: 0 auto;
       padding: 5rem 2rem;
       position: relative;
@@ -57,7 +56,6 @@
       }
     }
 
-    /* Common Design Elements */
     .c8cs-label {
       font-family: var(--font-mono);
       font-size: 10px;
@@ -104,7 +102,6 @@
       line-height: 1.7;
     }
 
-    /* Tech Pills Row (About Us Parity) */
     .fylla-pill-row {
       display: flex;
       flex-wrap: wrap;
@@ -124,7 +121,6 @@
       text-transform: uppercase;
     }
 
-    /* Hero Section */
     .c8cs-hero {
       padding-top: 7rem;
       padding-bottom: 4rem;
@@ -133,7 +129,6 @@
       border-bottom: 1px solid var(--c8-grid-line);
     }
 
-    /* Hero Atmosphere & Glow Animation */
     .c8cs-hero-atmos {
       position: absolute;
       top: 0;
@@ -173,14 +168,14 @@
       opacity: 1;
     }
 
-    /* ── ARCHITECTURAL PAPER GRID META MATRIX (Zero-Gap Tiling) ── */
+    /* ── TRANSPARENT HERO META GRID WITH SUBTLE HOVER ANIMATION ── */
     .c8cs-meta-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
       border: 1px solid var(--c8-grid-line);
       border-radius: 4px;
-      background: #FAFAF7;
+      background: transparent;
       margin-top: 3.5rem;
       position: relative;
       z-index: 2;
@@ -199,12 +194,12 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: #FAFAF7;
-      transition: background 0.25s ease;
+      background: transparent;
+      transition: background 0.35s ease, border-color 0.35s ease;
     }
 
     .c8cs-meta-item:hover {
-      background: #FFFFFF;
+      background: #FAFAF7;
     }
 
     .c8cs-meta-item:last-child {
@@ -236,20 +231,20 @@
       color: var(--c8-ink);
     }
 
-    /* ── SCROLL-GROW FULL-WIDTH SHOWCASE MEDIA ── */
+    /* ── SCROLL-GROW SHOWCASE MEDIA (NO GRAY BG, NO EXTRA PADDING) ── */
     .c8cs-grow-media-wrapper {
       width: 100%;
-      padding: 5rem 0;
+      padding: 1.5rem 0;
       display: flex;
       justify-content: center;
-      background: var(--c8-paper-bg);
+      background: transparent;
       border-bottom: 1px solid var(--c8-grid-line);
       overflow: hidden;
     }
 
     .c8cs-main-img-box {
       width: 85%;
-      max-width: 1100px;
+      max-width: 1200px;
       border-radius: 4px;
       overflow: hidden;
       box-shadow: 0 20px 50px rgba(8, 8, 8, 0.08);
@@ -268,7 +263,7 @@
       max-height: 700px;
     }
 
-    /* ── OVERVIEW SPLIT SECTION (STICKY LEFT COLUMN & ARCHITECTURAL PAPER GRID) ── */
+    /* ── OVERVIEW SPLIT SECTION (STICKY LEFT & HOVER ANIMATION) ── */
     .c8cs-split-section {
       display: grid;
       grid-template-columns: 1fr 1.3fr;
@@ -277,7 +272,6 @@
       border-radius: 4px;
       background: #FFFFFF;
       margin: 4rem 0;
-      /* IMPORTANT: NO overflow:hidden HERE so position:sticky works! */
     }
 
     @media (max-width: 900px) {
@@ -286,7 +280,6 @@
       }
     }
 
-    /* Sticky Left Column */
     .c8cs-split-left {
       padding: 4.5rem 4rem;
       border-right: 1px solid var(--c8-grid-line);
@@ -332,14 +325,13 @@
       font-weight: 300;
     }
 
-    /* Approach Item Cell Matrix (Zero-Gap Tiling) */
     .fylla-value-item {
       padding: 3rem 3.5rem;
       border-bottom: 1px solid var(--c8-grid-line);
       display: flex;
       gap: 1.75rem;
       align-items: flex-start;
-      transition: background 0.25s ease;
+      transition: background 0.35s ease;
       background: #FAFAF7;
     }
     .fylla-value-item:hover {
@@ -387,7 +379,7 @@
       line-height: 1.65;
     }
 
-    /* ── ARCHITECTURAL PAPER GRID SHOWCASE GALLERY MATRIX ── */
+    /* ── ARCHITECTURAL PAPER GRID SHOWCASE GALLERY ── */
     .c8cs-gallery-section {
       padding: 6rem 0;
       background: #FFFFFF;
@@ -428,7 +420,7 @@
       justify-content: space-between;
       border-right: 1px solid var(--c8-grid-line);
       border-bottom: 1px solid var(--c8-grid-line);
-      transition: background 0.3s ease;
+      transition: background 0.35s ease;
     }
 
     .c8cs-gallery-card:hover {
@@ -526,7 +518,7 @@
 
     /* ── ARCHITECTURAL PAPER GRID OUTCOMES METRICS MATRIX ── */
     .c8cs-metrics-bg {
-      background: var(--c8-paper-bg);
+      background: #FFFFFF;
       border-bottom: 1px solid var(--c8-grid-line);
       padding: 6rem 0;
     }
@@ -563,11 +555,15 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      transition: background 0.3s ease;
+      transition: background 0.35s ease;
     }
 
     .c8cs-metric-card:nth-child(even) {
       background: #FFFFFF;
+    }
+
+    .c8cs-metric-card:hover {
+      background: #F4F5F7;
     }
 
     .c8cs-metric-card:last-child {
@@ -607,7 +603,6 @@
       line-height: 1.6;
     }
 
-    /* Bespoke Status Badge */
     .c8cs-status-badge {
       background: rgba(0, 191, 99, 0.04);
       border: 1px solid rgba(0, 191, 99, 0.25);
@@ -662,7 +657,6 @@
       font-weight: bold;
     }
 
-    /* Back Button */
     .c8cs-back-btn {
       font-family: var(--font-mono);
       font-size: 10px;
@@ -711,13 +705,16 @@
       left: 150%;
     }
 
-    /* ── ARCHITECTURAL PAPER GRID RELATED PROJECTS MATRIX ── */
+    /* ── FULL-WIDTH ARCHITECTURAL PAPER GRID RELATED PROJECTS MATRIX ── */
     .c8cs-related-paper-outer {
       background: #FFFFFF;
       padding: 6rem 0;
       border-bottom: 1px solid var(--c8-grid-line);
+      width: 100%;
     }
     .c8cs-related-matrix-box {
+      max-width: 1340px;
+      margin: 0 auto;
       border: 1px solid var(--c8-grid-line);
       border-radius: 4px;
       background: #FFFFFF;
@@ -747,7 +744,7 @@
       justify-content: space-between;
       text-decoration: none;
       color: var(--c8-ink);
-      transition: background 0.3s ease;
+      transition: background 0.35s ease;
     }
     .c8cs-related-cell:nth-child(even) {
       background: #FFFFFF;
@@ -762,7 +759,7 @@
       }
     }
     .c8cs-related-cell:hover {
-      background: #FFFFFF;
+      background: #F4F5F7;
     }
     .c8cs-related-cell-tag {
       font-family: var(--font-mono);
@@ -844,15 +841,16 @@
       <div class="c8cs-wrap" style="padding-top: 1rem; padding-bottom: 2rem;">
         <a href="../portfolio/" class="c8cs-back-btn">&larr; Back to Portfolio</a>
         
-        <div class="c8cs-label">Case Study // Real Estate &amp; Hospitality</div>
-        <h1 class="c8cs-headline">The Duch Apartments: Direct Booking &amp; <span class="c8cs-serif">Brand Identity</span></h1>
+        <div class="c8cs-label">Case Study // Real Estate & Hospitality</div>
+        <h1 class="c8cs-headline">The Duch Apartments: Direct Booking & <span class="c8cs-serif">Brand Identity</span></h1>
         <p class="c8cs-lead">The Duch Apartments needed a complete digital presence to drive direct room reservations without depending entirely on third-party OTA platforms. We built their brand identity, developed a custom room catalog, and deployed an entity SEO architecture that ranks organically for local Lagos luxury stay queries.</p>
         
         <div class="fylla-pill-row">
           <span class="fylla-pill">Web Design</span>
-          <span class="fylla-pill">Entity SEO</span>
-          <span class="fylla-pill">WordPress Custom</span>
-          <span class="fylla-pill">Brand Identity</span>
+<span class="fylla-pill">Entity SEO</span>
+<span class="fylla-pill">WordPress Custom</span>
+<span class="fylla-pill">Brand Identity</span>
+
         </div>
 
         <div class="c8cs-meta-grid">
@@ -862,7 +860,7 @@
           </div>
           <div class="c8cs-meta-item">
             <span class="c8cs-meta-lbl">Services</span>
-            <span class="c8cs-meta-val">Web Design &amp; Entity SEO</span>
+            <span class="c8cs-meta-val">Web Design & Entity SEO</span>
           </div>
           <div class="c8cs-meta-item">
             <span class="c8cs-meta-lbl">Stack</span>
@@ -876,7 +874,7 @@
       </div>
     </section>
 
-    <!-- ── SCROLL-GROW FULL-WIDTH SHOWCASE MEDIA ── -->
+    <!-- ── SCROLL-GROW SHOWCASE MEDIA (TRANSPARENT BG & CLEAN PADDING) ── -->
     <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
       <div class="c8cs-main-img-box" id="c8cs-grow-target">
         <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600&auto=format&fit=crop" alt="The Duch Apartments showcase — built by Cr8v Stacks">
@@ -896,46 +894,40 @@
         </div>
 
         <div class="c8cs-split-right">
-          <!-- Milestone Step 01 -->
-          <div class="fylla-value-item">
-            <div class="fylla-value-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
-            </div>
-            <div>
-              <h3 class="fylla-value-h3">01 / Brand Strategy &amp; Identity System</h3>
-              <p class="fylla-value-desc">Developed a high-trust color token palette (emerald green, warm sand, slate dark), primary logotype, typography scales, and visual guidelines.</p>
-            </div>
-          </div>
-
-          <!-- Milestone Step 02 -->
-          <div class="fylla-value-item">
-            <div class="fylla-value-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
-            </div>
-            <div>
-              <h3 class="fylla-value-h3">02 / Custom Room Catalog Architecture</h3>
-              <p class="fylla-value-desc">Engineered clean custom Gutenberg &amp; Elementor room layout templates with high-res gallery carousels, amenity matrices, and location maps.</p>
-            </div>
-          </div>
-
-          <!-- Milestone Step 03 -->
+          
           <div class="fylla-value-item">
             <div class="fylla-value-icon-box">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
             <div>
-              <h3 class="fylla-value-h3">03 / Entity SEO &amp; Schema Integration</h3>
+              <h3 class="fylla-value-h3">01 / Brand Strategy & Identity System</h3>
+              <p class="fylla-value-desc">Developed a high-trust color token palette (emerald green, warm sand, slate dark), primary logotype, typography scales, and visual guidelines.</p>
+            </div>
+          </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3 class="fylla-value-h3">02 / Custom Room Catalog Architecture</h3>
+              <p class="fylla-value-desc">Engineered clean custom Gutenberg & Elementor room layout templates with high-res gallery carousels, amenity matrices, and location maps.</p>
+            </div>
+          </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3 class="fylla-value-h3">03 / Entity SEO & Schema Integration</h3>
               <p class="fylla-value-desc">Structured Schema.org LocalBusiness and LodgingBusiness JSON-LD code directly into the site header to dominate local search queries.</p>
             </div>
           </div>
-
-          <!-- Milestone Step 04 -->
           <div class="fylla-value-item">
             <div class="fylla-value-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
             <div>
-              <h3 class="fylla-value-h3">04 / Speed &amp; Conversion Optimization</h3>
+              <h3 class="fylla-value-h3">04 / Speed & Conversion Optimization</h3>
               <p class="fylla-value-desc">Tuned asset loading pipelines to achieve sub-2 second mobile page loads and seamless WhatsApp / direct reservation conversion paths.</p>
             </div>
           </div>
@@ -957,11 +949,11 @@
             <div class="c8cs-gallery-card">
               <div class="c8cs-gallery-meta">Brand Identity // Asset 01</div>
               <h3 class="c8cs-gallery-title">Color System &amp; Palette</h3>
-              <p class="c8cs-gallery-desc">Curating primary brand accents, dark backgrounds, and neutral tones that convey hospitality elegance.</p>
+              <p class="c8cs-gallery-desc">Curating primary brand accents, dark backgrounds, and neutral tones that convey luxury elegance.</p>
               
               <div class="c8cs-swatch-row">
-                <div class="c8cs-swatch" style="background: #0D2818; color: #FFFFFF;">
-                  <span class="c8cs-swatch-hex">#0D2818</span>
+                <div class="c8cs-swatch" style="background: #080808; color: #FFFFFF;">
+                  <span class="c8cs-swatch-hex">#080808</span>
                 </div>
                 <div class="c8cs-swatch" style="background: #0047E1; color: #FFFFFF;">
                   <span class="c8cs-swatch-hex">#0047E1</span>
@@ -975,20 +967,20 @@
             <!-- Asset 02: Horizontal Cell -->
             <div class="c8cs-gallery-card">
               <div class="c8cs-gallery-meta">Interface // Asset 02</div>
-              <h3 class="c8cs-gallery-title">Apartment Detail Page</h3>
-              <p class="c8cs-gallery-desc">Designing custom room specs, pricing breakdowns, and direct reservation triggers.</p>
+              <h3 class="c8cs-gallery-title">Platform Experience Page</h3>
+              <p class="c8cs-gallery-desc">Designing custom user interfaces, pricing breakdowns, and direct conversion triggers.</p>
               <div class="c8cs-gallery-img-box">
-                <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop" alt="Apartment detail page screenshot">
+                <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop" alt="The Duch Apartments interface detail screenshot">
               </div>
             </div>
 
             <!-- Asset 03: Full Width Cell Spanning Matrix -->
             <div class="c8cs-gallery-card is-full">
               <div class="c8cs-gallery-meta">Mobile UI // Asset 03</div>
-              <h3 class="c8cs-gallery-title">Mobile Direct Reservation Flow</h3>
-              <p class="c8cs-gallery-desc">Optimizing touch targets and instant contact forms for mobile users discovering The Duch on Google.</p>
+              <h3 class="c8cs-gallery-title">Responsive Mobile Flow</h3>
+              <p class="c8cs-gallery-desc">Optimizing touch targets and instant contact forms for mobile users discovering the platform online.</p>
               <div class="c8cs-gallery-img-box is-tall">
-                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop" alt="Mobile reservation flow screenshot">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop" alt="The Duch Apartments mobile experience flow">
               </div>
             </div>
           </div>
@@ -1006,14 +998,12 @@
           </div>
 
           <div class="c8cs-metrics-grid">
-            <!-- Metric 1 -->
+            
             <div class="c8cs-metric-card">
               <div class="c8cs-metric-val">1</div>
               <div class="c8cs-metric-lbl">Unified Brand System</div>
               <p class="c8cs-metric-desc">We created a cohesive visual identity (logo, color system, typography) that the client uses across all social media and offline campaigns.</p>
             </div>
-
-            <!-- Metric 2 -->
             <div class="c8cs-metric-card">
               <div class="c8cs-metric-val">100%</div>
               <div class="c8cs-metric-lbl">Direct booking base</div>
@@ -1029,7 +1019,7 @@
                   <span class="c8cs-checkmark-circle">✓</span> Visit Live Site ↗
                 </span>
               </a>
-              <p class="c8cs-metric-desc" style="margin-top: 1.5rem;">The platform is live. Click the button above to view their custom listing structure and attractions indexing.</p>
+              <p class="c8cs-metric-desc" style="margin-top: 1.5rem;">The platform is active and live. Click the button above to view their custom site architecture.</p>
             </div>
           </div>
         </div>
@@ -1048,17 +1038,15 @@
           </div>
 
           <div class="c8cs-related-matrix-grid">
-            <!-- Cell 1 -->
+            
             <a href="kiri-city-stays.html" class="c8cs-related-cell">
               <div>
-                <div class="c8cs-related-cell-tag">01 / Web Design &amp; Booking</div>
+                <div class="c8cs-related-cell-tag">01 / Web Design & Booking</div>
                 <h3 class="c8cs-related-cell-title">Kiri City Stays</h3>
-                <p class="c8cs-related-cell-desc">Direct booking platform &amp; luxury stay catalog engineered for seamless reservations and local SEO visibility.</p>
+                <p class="c8cs-related-cell-desc">Direct booking platform & luxury stay catalog engineered for seamless reservations and local SEO visibility.</p>
               </div>
               <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
             </a>
-
-            <!-- Cell 2 -->
             <a href="bridgepoint-consulting.html" class="c8cs-related-cell">
               <div>
                 <div class="c8cs-related-cell-tag">02 / Custom Dev</div>
@@ -1067,8 +1055,6 @@
               </div>
               <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
             </a>
-
-            <!-- Cell 3 -->
             <a href="mkenny-properties.html" class="c8cs-related-cell">
               <div>
                 <div class="c8cs-related-cell-tag">03 / WordPress Custom</div>
@@ -1242,7 +1228,6 @@
       var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
 
-      /* Hero Atmosphere Glow */
       if (atmos && glow && canHover && !reduceMotion) {
         atmos.addEventListener('mousemove', function (e) {
           var r = atmos.getBoundingClientRect();
@@ -1253,7 +1238,6 @@
         atmos.addEventListener('mouseleave', function () { atmos.classList.remove('is-active'); });
       }
 
-      /* ── Scroll-Grow Full-Width Showcase Media Animation ── */
       var growTarget = document.getElementById('c8cs-grow-target');
       var growTrigger = document.getElementById('c8cs-grow-trigger');
 
@@ -1273,7 +1257,7 @@
           }
 
           var widthVal = 85 + (15 * progress);
-          var maxWVal = 1100 + ((window.innerWidth - 1100) * progress);
+          var maxWVal = 1200 + ((window.innerWidth - 1200) * progress);
 
           growTarget.style.width = widthVal + '%';
           growTarget.style.maxWidth = maxWVal + 'px';
@@ -1284,7 +1268,6 @@
         handleGrowScroll();
       }
 
-      /* ── Live Matrix Text Scramble Script ── */
       var srvMatrixButtons = document.querySelectorAll('.c8-btn-primary, .c8cs-btn-primary, .cta-btn-pill, .c8isv-related-card-link, .c8cs-back-btn, .c8cs-related-cell-link');
       var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
