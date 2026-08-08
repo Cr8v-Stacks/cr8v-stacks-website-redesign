@@ -2901,11 +2901,13 @@
   <section class="wwa-section" id="who-we-are">
     <style>
       .wwa-section {
-        background-color: #080808 !important;
-      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%) !important;
-        padding: clamp(5rem, 9vw, 8rem) 0;
+        background-color: #FFFFFF !important;
+        background-image: none !important;
+        padding: clamp(4rem, 7vw, 6rem) 0;
         position: relative;
         overflow: hidden;
+        border-top: 1px solid rgba(8, 8, 8, 0.14);
+        border-bottom: 1px solid rgba(8, 8, 8, 0.14);
       }
       .wwa-inner {
         max-width: 1360px;
@@ -2918,161 +2920,194 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 3rem;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-        padding-bottom: 1.5rem;
+        margin-bottom: 2.5rem;
+        border-bottom: 1px solid rgba(8,8,8,0.14);
+        padding-bottom: 1.25rem;
       }
       .wwa-eyebrow {
         font-family: var(--font-mono);
-        font-size: 0.68rem;
+        font-size: 0.72rem;
+        font-weight: 700;
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        color: var(--c8-blue);
+        color: #0047E1;
       }
       .wwa-top-tag {
         font-family: var(--font-mono);
-        font-size: 0.65rem;
+        font-size: 0.68rem;
+        font-weight: 700;
         letter-spacing: 0.1em;
-        color: rgba(255,255,255,0.4);
+        color: #555555;
       }
       .wwa-main-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: clamp(2.5rem, 5vw, 5rem);
-        align-items: center;
+        gap: 0;
+        border: 1px solid rgba(8, 8, 8, 0.14);
+        background: #FFFFFF;
       }
       .wwa-left-col {
         display: flex;
         flex-direction: column;
-        gap: 1.8rem;
+        justify-content: space-between;
+        padding: 3.5rem;
+        background: #FAFAF7;
+        border-right: 1px solid rgba(8, 8, 8, 0.14);
       }
       .wwa-h2 {
-        font-family: var(--font-heading);
-        font-size: clamp(2.2rem, 4vw, 3.2rem);
+        font-family: 'Michroma', sans-serif;
+        font-size: clamp(1.8rem, 3.2vw, 2.6rem);
         font-weight: 700;
-        color: #fff;
-        line-height: 1.15;
+        color: #080808;
+        line-height: 1.2;
+        text-transform: uppercase;
+        margin-bottom: 1.25rem;
       }
       .wwa-h2 em {
         font-style: normal;
-        color: var(--c8-blue);
+        color: #0047E1;
       }
       .wwa-desc {
-        font-family: var(--font-body);
-        font-size: clamp(0.92rem, 1.4vw, 1.02rem);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.98rem;
         font-weight: 300;
-        color: rgba(255,255,255,0.65);
+        color: #555555;
         line-height: 1.8;
+        margin-bottom: 2rem;
       }
       .wwa-visual-card {
         position: relative;
         border-radius: 4px;
         overflow: hidden;
-        border: 1px solid rgba(255,255,255,0.12);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        margin-top: 0.5rem;
+        border: 1px solid rgba(8,8,8,0.14);
+        margin-top: 1rem;
+        background: #FFFFFF;
       }
       .wwa-visual-img {
         width: 100%;
-        height: 260px;
+        height: 240px;
         object-fit: cover;
         display: block;
-        transition: transform 0.6s ease;
+        transition: transform 0.4s ease;
       }
       .wwa-visual-card:hover .wwa-visual-img {
-        transform: scale(1.03);
+        transform: scale(1.02);
       }
       .wwa-visual-overlay {
         position: absolute;
         bottom: 0; inset-x: 0;
-        padding: 1.2rem 1.5rem;
-        background: linear-gradient(to top, rgba(15,15,15,0.95), transparent);
+        padding: 1rem 1.25rem;
+        background: rgba(255,255,255,0.92);
+        backdrop-filter: blur(6px);
+        border-top: 1px solid rgba(8,8,8,0.14);
         display: flex;
         align-items: center;
         justify-content: space-between;
       }
       .wwa-visual-caption {
-        font-family: var(--font-body);
+        font-family: 'DM Sans', sans-serif;
         font-size: 0.8rem;
-        color: rgba(255,255,255,0.85);
+        color: #080808;
         font-weight: 500;
       }
       .wwa-visual-badge {
-        font-family: var(--font-mono);
-        font-size: 0.62rem;
-        color: var(--c8-blue);
-        background: rgba(0,71,225,0.15);
-        border: none !important;
+        font-family: 'Space Mono', monospace;
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: #0047E1;
+        background: rgba(0,71,225,0.1);
+        border: 1px solid rgba(0,71,225,0.2) !important;
         padding: 0.25rem 0.6rem;
         border-radius: 4px;
       }
       .wwa-right-col {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        justify-content: space-between;
+        padding: 3.5rem;
+        background: #FFFFFF;
       }
       .wwa-features {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 0;
+        border: 1px solid rgba(8, 8, 8, 0.14);
+        margin-bottom: 2rem;
       }
       .wwa-feat {
         display: flex;
         gap: 1.2rem;
         align-items: flex-start;
-        padding: 1.2rem 1.5rem;
-        background: rgba(255,255,255,0.03);
-        border: 1px solid rgba(255,255,255,0.06);
-        border-radius: 4px;
-        transition: border-color 0.3s, background 0.3s;
+        padding: 1.5rem;
+        background: #FAFAF7;
+        border-bottom: 1px solid rgba(8,8,8,0.14);
+        transition: background 0.3s ease;
+      }
+      .wwa-feat:last-child {
+        border-bottom: none;
       }
       .wwa-feat:hover {
-        border-color: rgba(0,71,225,0.4);
-        background: rgba(0,71,225,0.04);
+        background: #FFFFFF;
       }
       .wwa-feat-num {
-        font-family: var(--font-heading);
+        font-family: 'Space Mono', monospace;
         font-size: 0.85rem;
-        color: var(--c8-blue);
-        background: rgba(0,71,225,0.12);
+        font-weight: 700;
+        color: #0047E1;
+        background: rgba(0,71,225,0.1);
         width: 32px; height: 32px;
         border-radius: 4px;
+        border: 1px solid rgba(0,71,225,0.2);
         display: flex; align-items: center; justify-content: center;
         flex-shrink: 0;
       }
       .wwa-feat-title {
-        font-family: var(--font-body);
+        font-family: 'Michroma', sans-serif;
         font-size: 0.95rem;
-        font-weight: 600;
-        color: #fff;
-        margin-bottom: 0.3rem;
+        font-weight: 700;
+        color: #080808;
+        text-transform: uppercase;
+        margin-bottom: 0.35rem;
       }
       .wwa-feat-body {
-        font-family: var(--font-body);
-        font-size: 0.82rem;
-        color: rgba(255,255,255,0.55);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.85rem;
+        color: #555555;
         line-height: 1.6;
       }
       .wwa-stats {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid rgba(255,255,255,0.08);
+        gap: 0;
+        border: 1px solid rgba(8,8,8,0.14);
+        background: #FAFAF7;
+      }
+      .wwa-stat {
+        padding: 1.25rem 1rem;
+        text-align: center;
+        border-right: 1px solid rgba(8,8,8,0.14);
+      }
+      .wwa-stat:last-child {
+        border-right: none;
       }
       .wwa-stat-num {
-        font-family: var(--font-heading);
-        font-size: 1.5rem;
-        color: #fff;
+        font-family: 'Michroma', sans-serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #0047E1;
       }
       .wwa-stat-label {
-        font-family: var(--font-body);
-        font-size: 0.72rem;
-        color: rgba(255,255,255,0.4);
+        font-family: 'Space Mono', monospace;
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: #555555;
+        text-transform: uppercase;
         margin-top: 0.2rem;
       }
       @media (max-width: 900px) {
         .wwa-main-grid { grid-template-columns: 1fr; }
+        .wwa-left-col { border-right: none; border-bottom: 1px solid rgba(8, 8, 8, 0.14); padding: 2.5rem 1.5rem; }
+        .wwa-right-col { padding: 2.5rem 1.5rem; }
       }
     </style>
 
@@ -3084,10 +3119,12 @@
 
       <div class="wwa-main-grid">
         <div class="wwa-left-col">
-          <h2 class="wwa-h2">One team.<br><em>Every layer.</em></h2>
-          <p class="wwa-desc">
-            Strategy, design, and code — handled by the same team from first call to launch, not handed off between departments who have never spoken to each other. Whether we are validating an AI product MVP, rebuilding a property platform from scratch, or running SEO for a growing brand.
-          </p>
+          <div>
+            <h2 class="wwa-h2">One team.<br><em>Every layer.</em></h2>
+            <p class="wwa-desc">
+              Strategy, design, and code — handled by the same team from first call to launch, not handed off between departments who have never spoken to each other. Whether we are validating an AI product MVP, rebuilding a property platform from scratch, or running SEO for a growing brand.
+            </p>
+          </div>
           
           <div class="wwa-visual-card">
             <img src="assets/wwa_studio_visual.jpg" alt="Cr8v Stacks Studio Workspace" class="wwa-visual-img">
