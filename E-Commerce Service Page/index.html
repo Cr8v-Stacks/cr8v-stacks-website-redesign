@@ -577,123 +577,6 @@
 </div>
 
 <!-- ══════════════════════════════════════════
-     SECTION 9: FAQ (Placed directly before Pricing)
-     ══════════════════════════════════════════ -->
-<section class="faq-section" id="faq" style="background: #FFFFFF !important; padding: clamp(5rem, 10vw, 9rem) 0 !important;">
-  <style>
-    .faq-section { background: #FFFFFF !important; padding: clamp(5rem, 10vw, 9rem) 0 !important; position: relative !important; z-index: 5 !important; border-top: 1px solid rgba(8,8,8,0.12) !important; }
-    .faq-inner { max-width: 1360px !important; margin: 0 auto !important; padding: 0 clamp(1.5rem, 5vw, 5rem) !important; display: grid !important; grid-template-columns: 300px 1fr !important; gap: clamp(3rem, 6vw, 8rem) !important; align-items: start !important; }
-    .faq-aside { position: sticky !important; top: 6rem !important; align-self: start !important; }
-    .faq-eyebrow { font-family: 'Space Mono', monospace !important; font-size: 0.65rem !important; letter-spacing: 0.14em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 1rem !important; font-weight: 700 !important; }
-    .faq-h2 { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.6rem, 2.8vw, 2.2rem) !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.2 !important; margin-bottom: 1.5rem !important; }
-    .faq-sub { font-family: 'DM Sans', sans-serif !important; font-size: 0.85rem !important; font-weight: 300 !important; color: #555555 !important; line-height: 1.7 !important; margin-bottom: 2rem !important; }
-    .faq-cta-link { font-family: 'Space Mono', monospace !important; font-size: 0.75rem !important; font-weight: 700 !important; color: #0047E1 !important; text-transform: uppercase !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; letter-spacing: 0.08em !important; transition: color 0.2s ease !important; }
-    .faq-cta-link:hover { color: #0037B5 !important; }
-    .faq-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
-    .faq-item { border-bottom: 1px solid rgba(8,8,8,0.1) !important; }
-    .faq-item:first-child { border-top: 1px solid rgba(8,8,8,0.1) !important; }
-    .faq-trigger { width: 100% !important; background: none !important; border: none !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.4rem 0 !important; text-align: left !important; }
-    .faq-q { font-family: 'DM Sans', sans-serif !important; font-size: clamp(0.88rem, 1.3vw, 0.95rem) !important; font-weight: 400 !important; color: #080808 !important; line-height: 1.4 !important; }
-    .faq-icon { width: 28px !important; height: 28px !important; border-radius: 50% !important; border: 1px solid rgba(8,8,8,0.14) !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; transition: background 0.25s, border-color 0.25s !important; }
-    .faq-icon svg { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important; }
-    .faq-item.is-open .faq-icon { background: #0047E1 !important; border-color: #0047E1 !important; }
-    .faq-item.is-open .faq-icon svg { transform: rotate(45deg) !important; stroke: #ffffff !important; }
-    .faq-body { display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important; }
-    .faq-item.is-open .faq-body { grid-template-rows: 1fr !important; }
-    .faq-body-inner { overflow: hidden !important; }
-    .faq-a { font-family: 'DM Sans', sans-serif !important; font-size: 0.88rem !important; font-weight: 300 !important; line-height: 1.75 !important; color: #555555 !important; padding-bottom: 1.4rem !important; }
-    .faq-a a { color: #0047E1 !important; text-decoration: underline !important; }
-    @media (max-width: 900px) {
-      .faq-inner { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
-      .faq-aside { position: static !important; }
-    }
-  </style>
-
-  <div class="faq-inner">
-    <div class="faq-aside">
-      <div class="faq-eyebrow"><span style="color:#0047E1;font-weight:800;font-size:0.85rem;margin-right:2px;">//</span> COMMON QUESTIONS</div>
-      <h2 class="faq-h2">E-Commerce Questions, Answered Honestly</h2>
-      <p class="faq-sub">Clear answers to common questions about our custom Shopify Liquid, WooCommerce PHP, payment gateway integration, and app-free store architectures.</p>
-      <a href="https://cr8vstacks.com/contact/" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-    </div>
-
-    <ul class="faq-list" id="srv-faq-list">
-      <li class="faq-item is-open">
-        <button class="faq-trigger" aria-expanded="true">
-          <span class="faq-q">Should I choose Shopify Plus or WooCommerce for my online store?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-        </button>
-        <div class="faq-body" style="grid-template-rows: 1fr;">
-          <div class="faq-body-inner">
-            <p class="faq-a">If you prefer a fully hosted ecosystem with zero server maintenance, high-converting native checkout, and multi-region Shopify Markets, Shopify is ideal. If you require 100% data ownership, custom database logic, complex product configurators, or zero monthly platform fees, WooCommerce is the better fit. We build both natively and will help you pick during scoping.</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">How much does a custom e-commerce storefront project cost?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">
-            <p class="faq-a">Our fixed-scope e-commerce projects start from $1,800 for a custom storefront build, payment gateway wiring, and a mobile-optimised checkout. Final pricing depends on catalog scale, SKU variations, multi-currency features, and platform migrations.</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">Why hire an agency like Cr8v Stacks over a solo freelancer?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">
-            <p class="faq-a">Solo freelancers often struggle to balance UI/UX design, payment gateway wiring, catalog logic, and conversion rate optimization single-handedly. Cr8v Stacks provides a full dedicated team — combining e-commerce UI designers, Liquid/PHP developers, conversion strategists, and technical SEO specialists — backed by guaranteed milestone contracts.</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">Can you migrate our legacy store to Shopify or WooCommerce without losing SEO rankings or order history?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">
-            <p class="faq-a">Yes. We map 1-to-1 301 redirects for every product and category URL to preserve your organic Google search rankings. We also import customer accounts, historical order data, and SKU variants cleanly during a zero-downtime DNS transition.</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">How long does a custom e-commerce build take from start to finish?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">
-            <p class="faq-a">A standard custom Shopify or WooCommerce build takes 3 to 5 weeks from initial wireframes to launch. Complex builds with B2B wholesale portals or custom multi-warehouse integrations take 5 to 8 weeks.</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">Will I be able to manage inventory and process orders easily?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">
-            <p class="faq-a">Yes. We configure intuitive admin dashboards in Shopify or WooCommerce so your team can fulfill orders, update stock levels, add new products, and create discount codes without touching any code.</p>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
      SECTION 10: PRICING MODELS & PROJECT ESTIMATOR
      ══════════════════════════════════════════ -->
 <div class="c8srv-pricing-section" id="pricing-scope" style="padding: 6rem 0 !important; position: relative !important; z-index: 5 !important; background: #FFFFFF !important; display: block !important;">
@@ -810,6 +693,125 @@
       </div>
     </div>
   </div>
+
+
+
+<!-- ══════════════════════════════════════════
+     SECTION 9: FAQ (Placed directly before Pricing)
+     ══════════════════════════════════════════ -->
+<section class="faq-section" id="faq" style="background: #FFFFFF !important; padding: clamp(5rem, 10vw, 9rem) 0 !important;">
+  <style>
+    .faq-section { background: #FFFFFF !important; padding: clamp(5rem, 10vw, 9rem) 0 !important; position: relative !important; z-index: 5 !important; border-top: 1px solid rgba(8,8,8,0.12) !important; }
+    .faq-inner { max-width: 1360px !important; margin: 0 auto !important; padding: 0 clamp(1.5rem, 5vw, 5rem) !important; display: grid !important; grid-template-columns: 300px 1fr !important; gap: clamp(3rem, 6vw, 8rem) !important; align-items: start !important; }
+    .faq-aside { position: sticky !important; top: 6rem !important; align-self: start !important; }
+    .faq-eyebrow { font-family: 'Space Mono', monospace !important; font-size: 0.65rem !important; letter-spacing: 0.14em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 1rem !important; font-weight: 700 !important; }
+    .faq-h2 { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.6rem, 2.8vw, 2.2rem) !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.2 !important; margin-bottom: 1.5rem !important; }
+    .faq-sub { font-family: 'DM Sans', sans-serif !important; font-size: 0.85rem !important; font-weight: 300 !important; color: #555555 !important; line-height: 1.7 !important; margin-bottom: 2rem !important; }
+    .faq-cta-link { font-family: 'Space Mono', monospace !important; font-size: 0.75rem !important; font-weight: 700 !important; color: #0047E1 !important; text-transform: uppercase !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; letter-spacing: 0.08em !important; transition: color 0.2s ease !important; }
+    .faq-cta-link:hover { color: #0037B5 !important; }
+    .faq-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+    .faq-item { border-bottom: 1px solid rgba(8,8,8,0.1) !important; }
+    .faq-item:first-child { border-top: 1px solid rgba(8,8,8,0.1) !important; }
+    .faq-trigger { width: 100% !important; background: none !important; border: none !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.4rem 0 !important; text-align: left !important; }
+    .faq-q { font-family: 'DM Sans', sans-serif !important; font-size: clamp(0.88rem, 1.3vw, 0.95rem) !important; font-weight: 400 !important; color: #080808 !important; line-height: 1.4 !important; }
+    .faq-icon { width: 28px !important; height: 28px !important; border-radius: 50% !important; border: 1px solid rgba(8,8,8,0.14) !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; transition: background 0.25s, border-color 0.25s !important; }
+    .faq-icon svg { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+    .faq-item.is-open .faq-icon { background: #0047E1 !important; border-color: #0047E1 !important; }
+    .faq-item.is-open .faq-icon svg { transform: rotate(45deg) !important; stroke: #ffffff !important; }
+    .faq-body { display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+    .faq-item.is-open .faq-body { grid-template-rows: 1fr !important; }
+    .faq-body-inner { overflow: hidden !important; }
+    .faq-a { font-family: 'DM Sans', sans-serif !important; font-size: 0.88rem !important; font-weight: 300 !important; line-height: 1.75 !important; color: #555555 !important; padding-bottom: 1.4rem !important; }
+    .faq-a a { color: #0047E1 !important; text-decoration: underline !important; }
+    @media (max-width: 900px) {
+      .faq-inner { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .faq-aside { position: static !important; }
+    }
+  </style>
+
+  <div class="faq-inner">
+    <div class="faq-aside">
+      <div class="faq-eyebrow"><span style="color:#0047E1;font-weight:800;font-size:0.85rem;margin-right:2px;">//</span> COMMON QUESTIONS</div>
+      <h2 class="faq-h2">E-Commerce Questions, Answered Honestly</h2>
+      <p class="faq-sub">Clear answers to common questions about our custom Shopify Liquid, WooCommerce PHP, payment gateway integration, and app-free store architectures.</p>
+      <a href="https://cr8vstacks.com/contact/" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+
+    <ul class="faq-list" id="srv-faq-list">
+      <li class="faq-item is-open">
+        <button class="faq-trigger" aria-expanded="true">
+          <span class="faq-q">Should I choose Shopify Plus or WooCommerce for my online store?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body" style="grid-template-rows: 1fr;">
+          <div class="faq-body-inner">
+            <p class="faq-a">If you prefer a fully hosted ecosystem with zero server maintenance, high-converting native checkout, and multi-region Shopify Markets, Shopify is ideal. If you require 100% data ownership, custom database logic, complex product configurators, or zero monthly platform fees, WooCommerce is the better fit. We build both natively and will help you pick during scoping.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">How much does a custom e-commerce storefront project cost?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">Our fixed-scope e-commerce projects start from $1,800 for a custom storefront build, payment gateway wiring, and a mobile-optimised checkout. Final pricing depends on catalog scale, SKU variations, multi-currency features, and platform migrations.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">Why hire an agency like Cr8v Stacks over a solo freelancer?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">Solo freelancers often struggle to balance UI/UX design, payment gateway wiring, catalog logic, and conversion rate optimization single-handedly. Cr8v Stacks provides a full dedicated team — combining e-commerce UI designers, Liquid/PHP developers, conversion strategists, and technical SEO specialists — backed by guaranteed milestone contracts.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">Can you migrate our legacy store to Shopify or WooCommerce without losing SEO rankings or order history?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">Yes. We map 1-to-1 301 redirects for every product and category URL to preserve your organic Google search rankings. We also import customer accounts, historical order data, and SKU variants cleanly during a zero-downtime DNS transition.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">How long does a custom e-commerce build take from start to finish?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">A standard custom Shopify or WooCommerce build takes 3 to 5 weeks from initial wireframes to launch. Complex builds with B2B wholesale portals or custom multi-warehouse integrations take 5 to 8 weeks.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">Will I be able to manage inventory and process orders easily?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a">Yes. We configure intuitive admin dashboards in Shopify or WooCommerce so your team can fulfill orders, update stock levels, add new products, and create discount codes without touching any code.</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
 </div>
 
 

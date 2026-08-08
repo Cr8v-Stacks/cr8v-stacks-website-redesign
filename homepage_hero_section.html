@@ -198,7 +198,12 @@
       fill: currentColor;
     }
 
-    .c8-nav-menu { display: none !important; }
+    .c8-nav-menu {
+      display: flex !important;
+      align-items: center !important;
+      gap: 2.25rem !important;
+      list-style: none !important;
+    }
 
     .c8-nav-menu a {
       font-family: 'DM Sans', sans-serif;
@@ -882,11 +887,30 @@
         border-radius: 4px;
       }
     }
-  </style>
 </head>
 <body>
 
-  
+  <!-- Top Navigation Bar -->
+  <header class="c8-nav-header">
+    <a href="homepage_hero_section.html" class="c8-logo">
+      <div class="c8-logo-badge">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+        </svg>
+      </div>
+      <span>Cr8v Stacks</span>
+    </a>
+
+    <ul class="c8-nav-menu">
+      <li><a href="Web Design Service Page/index.html">Web Design</a></li>
+      <li><a href="Custom Dev Service Page/index.html">Custom Dev</a></li>
+      <li><a href="AI MVP Service Page/index.html">AI MVP</a></li>
+      <li><a href="Main Service Page/services (2).html">Services</a></li>
+      <li><a href="#selected-work">Case Studies</a></li>
+    </ul>
+
+    <a href="https://cr8vstacks.com/contact/" class="c8-btn-primary" style="padding:0.65rem 1.4rem;">Start a Project →</a>
+  </header>
 
   <!-- HERO WRITTEN CONTENT -->
   <section class="c8-hero-top">
@@ -896,8 +920,8 @@
       <p class="c8-hero-sub">Strategy, design, and liquid performance engineering — built from scratch by one team for ambitious brands.</p>
       
       <div class="c8-hero-ctas">
-        <a href="discovery-call.html" class="c8-btn-primary">Start a Project →</a>
-        <a href="#case-studies" class="btn-secondary">See Our Work ↓</a>
+        <a href="https://cr8vstacks.com/contact/" class="c8-btn-primary">Start a Project →</a>
+        <a href="#selected-work" class="btn-secondary">See Our Work ↓</a>
       </div>
     </div>
   </section>
@@ -926,7 +950,7 @@
             <div class="stage-card-title">Custom Platforms</div>
             <div class="stage-card-text">Tailored WordPress, Shopify, and WooCommerce builds optimized for your exact workflow.</div>
           </div>
-          <a href="#web-design" class="stage-link">Explore Web Design &rarr;</a>
+          <a href="Web Design Service Page/index.html" class="stage-link">Explore Web Design &rarr;</a>
         </div>
 
         <!-- TRIGGER 2: CUSTOM DEVELOPMENT (Animation on LEFT -> Text strictly on FAR RIGHT) -->
@@ -940,7 +964,7 @@
             <div class="stage-card-title">Bespoke Engineering</div>
             <div class="stage-card-text">High-performance applications built from scratch with complete data ownership.</div>
           </div>
-          <a href="#custom-dev" class="stage-link">Explore Custom Dev &rarr;</a>
+          <a href="Custom Dev Service Page/index.html" class="stage-link">Explore Custom Dev &rarr;</a>
         </div>
 
         <!-- TRIGGER 3: AI MVP (Animation in CENTER -> Text FLANKING on LEFT & RIGHT) -->
@@ -959,7 +983,7 @@
             <div class="stage-card-title">Validated AI Applications</div>
             <div class="stage-card-text">Real software built for rapid market validation, not just slide decks.</div>
           </div>
-          <a href="#ai-mvp" class="stage-link">Explore AI MVP &rarr;</a>
+          <a href="AI MVP Service Page/index.html" class="stage-link">Explore AI MVP &rarr;</a>
         </div>
 
       </div>
@@ -1045,7 +1069,7 @@
             </div>
           </div>
 
-          <a href="blvck-hair-ng.html" class="c8-btn-primary">
+          <a href="Case Studies/blvck-hair-ng.html" class="c8-btn-primary">
             <span>Explore Case Study</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
@@ -1066,7 +1090,7 @@
                   <div class="sw-client-title">blvck Hair NG</div>
                   <div class="sw-client-role">SEO &amp; Organic Acquisition</div>
                 </div>
-                <a href="blvck-hair-ng.html" class="sw-play-btn" title="View Case Study">
+                <a href="Case Studies/blvck-hair-ng.html" class="sw-play-btn" title="View Case Study">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
               </div>
@@ -1099,7 +1123,7 @@
             </div>
           </div>
 
-          <a href="the-duch-apartments.html" class="c8-btn-primary">
+          <a href="Case Studies/the-duch-apartments.html" class="c8-btn-primary">
             <span>Explore Case Study</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
@@ -1120,7 +1144,7 @@
                   <div class="sw-client-title">The Duch Apartments</div>
                   <div class="sw-client-role">Web Design &amp; SEO</div>
                 </div>
-                <a href="the-duch-apartments.html" class="sw-play-btn" title="View Case Study">
+                <a href="Case Studies/the-duch-apartments.html" class="sw-play-btn" title="View Case Study">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
               </div>
@@ -1130,31 +1154,31 @@
       </div>
     </section>
 
-    <!-- ── CASE 3: NATIVUS DASHBOARD PRO (PROPRIETARY SHOWCASE) ── -->
+    <!-- ── CASE 3: WP PUBLISHION AI (AI MVP CASE STUDY) ── -->
     <section class="sw-case-section" id="cs-nativus-dashboard" data-index="2">
       <div class="sw-container">
         <div class="sw-left">
           <div class="c8-eyebrow"><span class="c8-eyebrow-slash">//</span> IN-HOUSE AI MVP PLATFORM</div>
-          <h2 class="sw-h2">Nativus Dashboard Pro — Custom WP Admin Ecosystem.</h2>
+          <h2 class="sw-h2">WP Publishion AI — Automated Publishing Architecture.</h2>
           <p class="sw-sub">
-            We don't just build for clients — we showcase our own proprietary engineering. Nativus Dashboard Pro is our custom WordPress admin dashboard plugin engineered for agency handovers, client onboarding, and streamlined WooCommerce management.
+            We don't just build for clients — we showcase our own proprietary AI engineering. WP Publishion AI is our custom WordPress automation platform engineered for OpenAI API orchestration, vector search RAG pipelines, and automated editorial publishing.
           </p>
 
           <!-- WHAT WE DID CARD -->
           <div class="sw-testimonial-card">
-            <p class="sw-testimonial-quote">Engineered as our in-house flagship plugin: white-label WP admin customization, WooCommerce control panels, custom dashboard widgets, and clean client handover features.</p>
+            <p class="sw-testimonial-quote">Engineered as our in-house flagship AI platform: OpenAI API orchestration, vector embedding indexes, automated content generation pipelines, and multi-site WordPress publishing workflows.</p>
             <div class="sw-testimonial-meta">
               <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(217,119,87,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(217,119,87,0.3);">
                 <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Anthropic Claude" style="width:20px;height:20px;">
               </div>
               <div>
-                <div class="sw-testimonial-role">Claude AI MVP · Proprietary Agency Product</div>
+                <div class="sw-testimonial-role">OpenAI &amp; Claude AI MVP · Proprietary AI Platform</div>
               </div>
             </div>
           </div>
 
-          <a href="nativus-dashboard-pro.html" class="c8-btn-primary">
-            <span>Explore Nativus Pro</span>
+          <a href="Case Studies/wp-publishion-ai.html" class="c8-btn-primary">
+            <span>Explore Case Study</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
         </div>
@@ -1167,8 +1191,27 @@
                   <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress" style="width:18px;height:18px;">
                 </div>
                 <div>
-                  <div class="sw-stat-name" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--c8-blue);">WORDPRESS STACK</div>
-                  <div class="sw-stat-role" style="font-family:var(--font-body);font-size:0.75rem;color:rgba(8,8,8,0.6);">Proprietary Build</div>
+                  <div class="sw-stat-name" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--c8-blue);">AI MVP ENGINE</div>
+                  <div class="sw-stat-role" style="font-family:var(--font-body);font-size:0.75rem;color:rgba(8,8,8,0.6);">Proprietary AI Build</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sw-card-img-wrapper">
+              <img src="assets/case_study_bridgepoint_compliance_1785571461489.jpg" alt="WP Publishion AI" class="sw-card-img">
+
+              <div class="sw-card-bottom">
+                <div>
+                  <div class="sw-client-title">WP Publishion AI</div>
+                  <div class="sw-client-role">AI MVP Platform</div>
+                </div>
+                <a href="Case Studies/wp-publishion-ai.html" class="sw-play-btn" title="View Product">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
                 </div>
               </div>
             </div>
