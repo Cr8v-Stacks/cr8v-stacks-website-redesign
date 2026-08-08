@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions — Cr8v Stacks</title>
+  <meta name="description" content="Clear, honest answers about Cr8v Stacks agency services, pricing models, custom engineering standards, SEO architecture, and project timelines.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared-service-components.css">
+
+  <style>
+    :root {
+      --c8-blue: #0047E1;
+      --c8-ink: #080808;
+      --c8-paper: #FAFAF7;
+      --c8-line: rgba(8, 8, 8, 0.14);
+      --c8-muted: #555555;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #FFFFFF !important; color: var(--c8-ink); font-family: 'DM Sans', sans-serif; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    a, a:hover, a:focus, button { text-decoration: none !important; }
+
+    .faq-page-wrap { max-width: 1200px; margin: 0 auto; padding: 6rem 2rem; }
+
+    .faq-hero-box {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 4rem auto;
+    }
+    .faq-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      margin-bottom: 1rem;
+    }
+    .faq-hero-h1 {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      color: var(--c8-ink);
+      text-transform: uppercase;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    .faq-hero-sub {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--c8-muted);
+      line-height: 1.8;
+    }
+
+    /* Category Filter Tabs */
+    .faq-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 3.5rem;
+    }
+    .faq-tab-btn {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.75rem 1.4rem;
+      border: 1px solid var(--c8-line);
+      background: #FAFAF7;
+      color: var(--c8-ink);
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+    }
+    .faq-tab-btn:hover, .faq-tab-btn.is-active {
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      border-color: var(--c8-blue);
+    }
+
+    /* FAQ Matrix Accordion Box */
+    .faq-matrix-box {
+      border: 1px solid var(--c8-line);
+      background: #FAFAF7;
+      margin-bottom: 4rem;
+    }
+
+    .faq-item-row {
+      border-bottom: 1px solid var(--c8-line);
+    }
+    .faq-item-row:last-child { border-bottom: none; }
+
+    .faq-trigger-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.75rem 2rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      cursor: pointer;
+    }
+    .faq-question-text {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+      font-weight: 700;
+      color: var(--c8-ink);
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+    }
+    .faq-icon-sq {
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      border: 1px solid var(--c8-line);
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+    .faq-item-row.is-open .faq-icon-sq {
+      background: var(--c8-blue);
+      border-color: var(--c8-blue);
+      color: #FFFFFF;
+      transform: rotate(45deg);
+    }
+
+    .faq-answer-pane {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s ease;
+    }
+    .faq-item-row.is-open .faq-answer-pane {
+      grid-template-rows: 1fr;
+    }
+    .faq-answer-inner {
+      overflow: hidden;
+      padding: 0 2rem 1.75rem 2rem;
+      font-size: 0.98rem;
+      color: var(--c8-muted);
+      line-height: 1.8;
+    }
+
+    /* Contact CTA Footer Box */
+    .faq-cta-box {
+      border: 1px solid var(--c8-line);
+      background: #FFFFFF;
+      padding: 3.5rem;
+      text-align: center;
+    }
+    .faq-cta-h2 {
+      font-family: 'Michroma', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .faq-cta-p {
+      font-size: 0.98rem;
+      color: var(--c8-muted);
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+    }
+    .c8-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.2rem;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+    .c8-btn-primary:hover { background: #0037B5; }
+  </style>
+</head>
+<body>
+
+  <div class="faq-page-wrap">
+    <div class="faq-hero-box">
+      <div class="faq-eyebrow">// TRANSPARENT SCOPING</div>
+      <h1 class="faq-hero-h1">Frequently Asked Questions</h1>
+      <p class="faq-hero-sub">Everything you need to know about our engineering standards, project scoping models, client ownership, and post-launch growth retainers.</p>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="faq-tabs">
+      <button class="faq-tab-btn is-active" onclick="filterFaq('all', this)">All Questions</button>
+      <button class="faq-tab-btn" onclick="filterFaq('build', this)">Web &amp; Custom Dev</button>
+      <button class="faq-tab-btn" onclick="filterFaq('strategy', this)">Strategy &amp; SEO</button>
+      <button class="faq-tab-btn" onclick="filterFaq('pricing', this)">Pricing &amp; Retainers</button>
+    </div>
+
+    <!-- FAQ Matrix Accordion Container -->
+    <div class="faq-matrix-box" id="faq-container">
+
+      <!-- Q1 -->
+      <div class="faq-item-row is-open" data-category="build">
+        <button class="faq-trigger-btn" onclick="toggleFaq(this)">
+          <span class="faq-question-text">How does Cr8v Stacks approach custom web design &amp; development?</span>
+          <span class="faq-icon-sq">+</span>
+        </button>
+        <div class="faq-answer-pane" style="grid-template-rows: 1fr;">
+          <div class="faq-answer-inner">
+            We build custom digital platforms tailored around your exact business workflow — using lightweight starter base themes, native Gutenberg block suites, custom PHP schemas, Liquid templates, or headless React/Next.js architectures. Every site is engineered from scratch for sub-1.2s page load speeds and high-converting user journeys.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="faq-item-row" data-category="pricing">
+        <button class="faq-trigger-btn" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Do I own the codebase and assets after project completion?</span>
+          <span class="faq-icon-sq">+</span>
+        </button>
+        <div class="faq-answer-pane">
+          <div class="faq-answer-inner">
+            Yes, 100%. You retain full ownership of all custom source code, repositories, domain registrations, design assets, and database schemas from day one. There are no SaaS lock-ins, hidden licensing fees, or proprietary dependencies required to keep your site online.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="faq-item-row" data-category="strategy">
+        <button class="faq-trigger-btn" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Why invest in Brand Strategy before building or running ads?</span>
+          <span class="faq-icon-sq">+</span>
+        </button>
+        <div class="faq-answer-pane">
+          <div class="faq-answer-inner">
+            Building a website or running paid ad campaigns without strategic positioning is like building a house without a blueprint. Brand Strategy defines your core market positioning, customer personas, and value proposition matrix — ensuring every line of code, visual layout, and ad dollar drives predictable business growth.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="faq-item-row" data-category="build">
+        <button class="faq-trigger-btn" onclick="toggleFaq(this)">
+          <span class="faq-question-text">What is an AI MVP product and how fast can you build one?</span>
+          <span class="faq-icon-sq">+</span>
+        </button>
+        <div class="faq-answer-pane">
+          <div class="faq-answer-inner">
+            An AI MVP (Minimum Viable Product) is a production-ready software application built with vector search indexes (RAG pipelines), OpenAI/Claude API orchestration, and automated workflows designed to validate a core business concept with real paying users. Our AI MVP sprint delivers a functional prototype in 14 business days.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="faq-item-row" data-category="pricing">
+        <button class="faq-trigger-btn" onclick="toggleFaq(this)">
+          <span class="faq-question-text">What is included in your post-launch warranty and growth retainers?</span>
+          <span class="faq-icon-sq">+</span>
+        </button>
+        <div class="faq-answer-pane">
+          <div class="faq-answer-inner">
+            Every fixed project includes a 30-day post-launch code warranty covering bug fixes and technical support. For ongoing scale, our active Growth Retainers ($950/mo) provide dedicated developer hours for continuous speed optimization, security updates, conversion rate testing, and new feature deployments.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="faq-item-row" data-category="strategy">
+        <button class="faq-trigger-btn" onclick="toggleFaq(this)">
+          <span class="faq-question-text">How does your technical SEO architecture work?</span>
+          <span class="faq-icon-sq">+</span>
+        </button>
+        <div class="faq-answer-pane">
+          <div class="faq-answer-inner">
+            We fold technical search engine optimization directly into the code structure from line one — incorporating semantic keyword mapping, entity JSON-LD schema markup, Screaming Frog crawl auditing, automated sitemaps, and Core Web Vitals optimization to command organic search authority across Google.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Contact Footer Box -->
+    <div class="faq-cta-box">
+      <h2 class="faq-cta-h2">Still Have Questions?</h2>
+      <p class="faq-cta-p">Schedule a transparent scoping call with our engineering team to review your project requirements and receive an immediate fixed estimate.</p>
+      <a href="https://cr8vstacks.com/contact/" class="c8-btn-primary">
+        <span>Start a Project →</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function toggleFaq(btn) {
+      var row = btn.closest('.faq-item-row');
+      var isOpen = row.classList.contains('is-open');
+      document.querySelectorAll('.faq-item-row').forEach(function(r) { r.classList.remove('is-open'); });
+      if (!isOpen) row.classList.add('is-open');
+    }
+
+    function filterFaq(cat, btn) {
+      document.querySelectorAll('.faq-tab-btn').forEach(function(b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      document.querySelectorAll('.faq-item-row').forEach(function(row) {
+        if (cat === 'all' || row.getAttribute('data-category') === cat) {
+          row.style.display = 'block';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

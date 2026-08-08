@@ -609,7 +609,7 @@
 
     /* TESTIMONIAL CARD — replaces bullet list */
     .sw-testimonial-card {
-      background: var(--c8-bg);
+      background: #FFFFFF !important;
       border: 1px solid var(--c8-line);
       border-radius: 4px;
       padding: 1.5rem 1.75rem 1.25rem 1.75rem;
@@ -1184,9 +1184,19 @@
         </div>
       </div>
 
-      <!-- ── CASE 2: THE DUCH APARTMENTS ── -->
+      <!-- ── CASE 2: THE DUCH APARTMENTS (IMAGE LEFT, TEXT RIGHT — ZIG ZAG) ── -->
       <div class="sw-matrix-cell" id="cs-duch-apartments">
-        <div class="sw-matrix-left">
+        <div class="sw-matrix-right" style="border-right: 1px solid rgba(8, 8, 8, 0.14);">
+          <div class="sw-matrix-stat-floating">
+            <div class="sw-matrix-stat-val">100% Custom</div>
+            <div class="sw-matrix-stat-lbl">Design &amp; SEO Day 1</div>
+          </div>
+          <div class="sw-matrix-img-box">
+            <img src="assets/case_studies/case_study_duch_apartments.jpg" alt="The Duch Apartments" class="sw-matrix-img">
+          </div>
+        </div>
+
+        <div class="sw-matrix-left" style="border-right: none;">
           <div>
             <div class="sw-matrix-eyebrow">// BUILT-IN SEO ARCHITECTURE</div>
             <h2 class="sw-matrix-h2">Website Design With SEO Folded In From Day One</h2>
@@ -1213,16 +1223,6 @@
               <span>Explore Case Study</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
-          </div>
-        </div>
-
-        <div class="sw-matrix-right">
-          <div class="sw-matrix-stat-floating">
-            <div class="sw-matrix-stat-val">100% Custom</div>
-            <div class="sw-matrix-stat-lbl">Design &amp; SEO Day 1</div>
-          </div>
-          <div class="sw-matrix-img-box">
-            <img src="assets/case_studies/case_study_duch_apartments.jpg" alt="The Duch Apartments" class="sw-matrix-img">
           </div>
         </div>
       </div>
@@ -2618,32 +2618,30 @@
       color: var(--c8-muted); line-height: 1.85;
     }
 
-    /* Bento Grid (Architectural Paper Grid Matrix) */
+    /* Bento Grid */
     .hww-bento {
       display: grid;
       grid-template-columns: 0.88fr 1fr 1.15fr 1.1fr;
       grid-template-rows: 285px 230px;
-      gap: 0;
-      border: 1px solid rgba(8, 8, 8, 0.14);
-      background: #FFFFFF;
+      gap: 1rem;
+      border: none !important;
+      background: transparent !important;
     }
 
     /* Cards base */
     .hww-card {
-      border-radius: 0 !important;
+      border-radius: 4px !important;
       overflow: hidden;
       position: relative;
-      border-right: 1px solid rgba(8, 8, 8, 0.14);
-      border-bottom: 1px solid rgba(8, 8, 8, 0.14);
-      box-shadow: none !important;
-      transition: background 0.3s ease;
+      border: none !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .hww-card:hover { transform: none !important; box-shadow: none !important; }
+    .hww-card:hover { transform: translateY(-4px) !important; box-shadow: 0 20px 60px rgba(0,0,0,0.10) !important; }
 
-    .hww-card-white  { background: #FAFAF7; padding: 1.75rem; }
+    .hww-card-white  { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.07) !important; padding: 1.75rem; }
     .hww-card-blue   { background: var(--c8-blue); padding: 1.75rem; }
     .hww-card-dark   { background: #0A0A0A; padding: 1.75rem; }
-    .hww-card-light  { background: #FAFAF7; padding: 1.75rem; }
+    .hww-card-light  { background: #EAECF5; border: none !important; padding: 1.75rem; }
 
     /* Grid placement */
     .hww-c1 { grid-column: 1; grid-row: 1; }
@@ -3915,22 +3913,26 @@
         </div>
       </div>
   <script>
-    // Live Matrix Text Scramble for Option G Standardized Buttons
-    document.addEventListener('DOMContentLoaded', function() {
-      var matrixButtons = document.querySelectorAll('.c8-btn-primary, .dp-btn-primary, .cta-btn-pill, .tmn-schedule-btn, .faq-cta-link, .btn-secondary, .dp-btn-ghost, .sdv-panel-cta, .c8-text-cta, .stage-link');
+    // Live Matrix Text Scramble Script
+    function initMatrixScramble() {
+      var matrixButtons = document.querySelectorAll('.c8-btn-primary, .c8isv-btn-primary, .c8srv-btn-primary, .c8srv-price-btn, .c8isv-price-btn, .c8srv-explore, .c8isv-explore, .dp-btn-primary, .cta-btn-pill, .tmn-schedule-btn, .faq-cta-link, .btn-secondary, .dp-btn-ghost, .sdv-panel-cta, .c8-text-cta, .stage-link, a.is-primary, .c8srv-vs-priority-btn');
       var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
       matrixButtons.forEach(function(btn) {
-        var textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; }) || btn.querySelector('span') || btn;
-        var originalText = textNode.textContent.trim();
-        var scrambleInterval = null;
+        if (btn._scrambleInitialized) return;
+        btn._scrambleInitialized = true;
 
         btn.addEventListener('mouseenter', function() {
+          var targetObj = btn.querySelector('span') || Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; }) || btn;
+          if (!btn.getAttribute('data-original-text')) {
+            btn.setAttribute('data-original-text', targetObj.textContent.trim());
+          }
+          var originalText = btn.getAttribute('data-original-text');
           var iteration = 0;
-          clearInterval(scrambleInterval);
+          clearInterval(btn._scrambleTimer);
 
-          scrambleInterval = setInterval(function() {
-            textNode.textContent = originalText.split('')
+          btn._scrambleTimer = setInterval(function() {
+            targetObj.textContent = originalText.split('')
               .map(function(char, index) {
                 if (char === ' ' || index < iteration) return originalText[index];
                 return matrixChars[Math.floor(Math.random() * matrixChars.length)];
@@ -3938,18 +3940,29 @@
               .join('');
 
             if (iteration >= originalText.length) {
-              clearInterval(scrambleInterval);
+              clearInterval(btn._scrambleTimer);
+              targetObj.textContent = originalText;
             }
             iteration += 1 / 2;
           }, 25);
         });
 
         btn.addEventListener('mouseleave', function() {
-          clearInterval(scrambleInterval);
-          textNode.textContent = originalText;
+          var targetObj = btn.querySelector('span') || Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; }) || btn;
+          var originalText = btn.getAttribute('data-original-text');
+          clearInterval(btn._scrambleTimer);
+          if (originalText) {
+            targetObj.textContent = originalText;
+          }
         });
       });
-    });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMatrixScramble);
+    } else {
+      initMatrixScramble();
+    }
   </script>
 
 </body>
