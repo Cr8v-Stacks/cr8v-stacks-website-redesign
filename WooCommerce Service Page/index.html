@@ -639,20 +639,20 @@
         <div class="c8srv-est-options">
           <!-- Step 1 -->
           <div>
-            <span class="c8srv-est-group-title">1. Core Scope</span>
+            <span class="c8srv-est-group-title">1. Core WooCommerce Package</span>
             <div class="c8srv-est-choices" data-est-group="platform">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="woocore" data-est-price="1800">Woo Landing ($1,800)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="woofull" data-est-price="2520">Woo Store ($2,520)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="wooenterprise" data-est-price="3600">Woo Enterprise ($3,600)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="woocore" data-est-price="1800">Custom WooCommerce Store ($1,800)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="woofull" data-est-price="2520">Full E-Commerce Engine ($2,520)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="wooenterprise" data-est-price="3600">Enterprise WooCommerce ($3,600)</button>
             </div>
           </div>
 
           <!-- Step 2 -->
           <div>
-            <span class="c8srv-est-group-title">2. Project Scale</span>
+            <span class="c8srv-est-group-title">2. Product Catalog Scale</span>
             <div class="c8srv-est-choices" data-est-group="scale">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="standard" data-est-multiplier="1.0">Standard Catalog (1.0x)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="customcatalog" data-est-multiplier="1.4">Large Catalog (1.4x)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="standard" data-est-multiplier="1.0">Standard Product Catalog</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="customcatalog" data-est-multiplier="1.4">Large Catalog &amp; Multi-Inventory</button>
             </div>
           </div>
 
@@ -661,7 +661,7 @@
             <span class="c8srv-est-group-title">3. Store Add-Ons</span>
             <div class="c8srv-est-choices" data-est-group="growth">
               <button type="button" class="c8srv-est-choice is-active" data-est-val="none" data-est-price="0">No Add-Ons</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="gateway" data-est-price="500">Stripe/PayPal Gateway (+ $500)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="gateway" data-est-price="500">Stripe &amp; PayPal Gateway Wiring (+ $500)</button>
               <button type="button" class="c8srv-est-choice" data-est-val="shipping" data-est-price="400">Custom Shipping Matrix (+ $400)</button>
             </div>
           </div>
@@ -1523,15 +1523,20 @@
       if (!choices.length || !rangeDisplay) return;
 
       var platformBases = {
-        woocore: { price: 1800, name: 'Woo Landing', deliverables: ["Custom WooCommerce Product & Checkout UX", "Zero SaaS Transaction Fees Setup", "Self-Hosted Database Ownership"] },
-        woofull: { price: 2520, name: 'Woo Store', deliverables: ["Multi-Currency & Tax Logic Architecture", "Custom Checkout Flow Optimization", "Stripe & PayPal Native Gateway Setup"] },
-        wooenterprise: { price: 3600, name: 'Woo Enterprise', deliverables: ["High-Volume Server Load & Database Tuning", "Custom ERP / Inventory API Sync Wiring", "Continuous WooCommerce Security Hardening"] }
+        woocore: { price: 1800, name: 'Custom WooCommerce Store', deliverables: ["Custom WooCommerce Product & Checkout UX", "Zero SaaS Transaction Fees Setup", "Self-Hosted Database Ownership"] },
+        woofull: { price: 2520, name: 'Full E-Commerce Engine', deliverables: ["Multi-Currency & Tax Logic Architecture", "Custom Checkout Flow Optimization", "Stripe & PayPal Native Gateway Setup"] },
+        wooenterprise: { price: 3600, name: 'Enterprise WooCommerce', deliverables: ["High-Volume Server Load & Database Tuning", "Custom ERP / Inventory API Sync Wiring", "Continuous WooCommerce Security Hardening"] }
       };
 
       var estimatorAddons = {
         none: { price: 0, deliverables: [] },
-        gateway: { price: 500, deliverables: ['Stripe & PayPal Native Payment Gateway Wiring', 'PCI-DSS Compliant Checkout'] },
-        shipping: { price: 400, deliverables: ['Custom Carrier Rate & Weight Shipping Matrix', 'Order Tracking Setup'] }
+        gateway: { price: 500, deliverables: ['Stripe & PayPal Native Payment Gateway Wiring'] },
+        shipping: { price: 400, deliverables: ['Custom Carrier Rate & Weight Shipping Matrix'] }
+      };
+
+      var scaleDescriptions = {
+        standard: 'Standard catalog layout & single inventory location',
+        customcatalog: 'Large multi-variant product catalog & enterprise inventory sync'
       };
 
       function updateEstimate() {
@@ -1539,9 +1544,10 @@
         var activeScaleBtn = root.querySelector('[data-est-group="scale"] .c8srv-est-choice.is-active');
         var activeGrowthBtn = root.querySelector('[data-est-group="growth"] .c8srv-est-choice.is-active');
 
-        var platformVal = activePlatformBtn ? activePlatformBtn.getAttribute('data-est-val') : 'wordpress';
-        var basePrice = platformBases[platformVal] ? platformBases[platformVal].price : 1200;
+        var platformVal = activePlatformBtn ? activePlatformBtn.getAttribute('data-est-val') : 'woocore';
+        var basePrice = platformBases[platformVal] ? platformBases[platformVal].price : 1800;
         var scaleMult = activeScaleBtn ? parseFloat(activeScaleBtn.getAttribute('data-est-multiplier')) || 1.0 : 1.0;
+        var scaleVal = activeScaleBtn ? activeScaleBtn.getAttribute('data-est-val') || 'standard' : 'standard';
         var growthVal = activeGrowthBtn ? activeGrowthBtn.getAttribute('data-est-val') || 'none' : 'none';
         var growthPrice = estimatorAddons[growthVal] ? estimatorAddons[growthVal].price : 0;
 
@@ -1552,11 +1558,21 @@
 
         if (deliverablesList) {
           deliverablesList.innerHTML = '';
-          platformBases[platformVal].deliverables.forEach(function (d) {
-            var item = document.createElement('div');
-            item.textContent = '• ' + d;
-            deliverablesList.appendChild(item);
-          });
+          if (platformBases[platformVal] && platformBases[platformVal].deliverables) {
+            platformBases[platformVal].deliverables.forEach(function (d) {
+              var item = document.createElement('div');
+              item.textContent = '• ' + d;
+              deliverablesList.appendChild(item);
+            });
+          }
+
+          if (scaleDescriptions[scaleVal]) {
+            var scaleItem = document.createElement('div');
+            scaleItem.style.color = '#0047E1';
+            scaleItem.style.fontWeight = '600';
+            scaleItem.textContent = '• Scope Tier: ' + scaleDescriptions[scaleVal];
+            deliverablesList.appendChild(scaleItem);
+          }
 
           if (estimatorAddons[growthVal] && estimatorAddons[growthVal].deliverables) {
             estimatorAddons[growthVal].deliverables.forEach(function (d) {

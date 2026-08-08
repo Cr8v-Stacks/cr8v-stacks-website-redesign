@@ -635,20 +635,20 @@
         <div class="c8srv-est-options">
           <!-- Step 1 -->
           <div>
-            <span class="c8srv-est-group-title">1. Core Scope</span>
+            <span class="c8srv-est-group-title">1. Core Engineering Package</span>
             <div class="c8srv-est-choices" data-est-group="platform">
               <button type="button" class="c8srv-est-choice is-active" data-est-val="mvpapp" data-est-price="2500">MVP Web App ($2,500)</button>
               <button type="button" class="c8srv-est-choice" data-est-val="fullapp" data-est-price="3500">Full Application ($3,500)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="enterprise" data-est-price="5000">Enterprise Platform ($5,000)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="enterprise" data-est-price="5000">Enterprise SaaS Platform ($5,000)</button>
             </div>
           </div>
 
           <!-- Step 2 -->
           <div>
-            <span class="c8srv-est-group-title">2. Project Scale</span>
+            <span class="c8srv-est-group-title">2. Architecture Complexity</span>
             <div class="c8srv-est-choices" data-est-group="scale">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="core" data-est-multiplier="1.0">Core Features (1.0x)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="multi" data-est-multiplier="1.4">Multi-Tenant (1.4x)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="core" data-est-multiplier="1.0">Single Tenant App</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="multi" data-est-multiplier="1.4">Multi-Tenant Architecture</button>
             </div>
           </div>
 
@@ -657,8 +657,8 @@
             <span class="c8srv-est-group-title">3. Engineering Add-Ons</span>
             <div class="c8srv-est-choices" data-est-group="growth">
               <button type="button" class="c8srv-est-choice is-active" data-est-val="none" data-est-price="0">No Add-Ons</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="api" data-est-price="800">REST/GraphQL API (+ $800)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="dashboard" data-est-price="600">Admin Dashboard (+ $600)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="api" data-est-price="800">Custom REST/GraphQL API (+ $800)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="dashboard" data-est-price="600">Admin Management Panel (+ $600)</button>
             </div>
           </div>
         </div>
@@ -1538,13 +1538,18 @@
       var platformBases = {
         mvpapp: { price: 2500, name: 'MVP Web App', deliverables: ["Bespoke React / Next.js Frontend Architecture", "Custom Database Schema & Relational Tables", "100% Client-Owned Source Code Repo"] },
         fullapp: { price: 3500, name: 'Full Application', deliverables: ["Multi-Role Admin & User Authentication", "Tailored REST/GraphQL API Endpoints", "Whitelabel Admin Management Panel"] },
-        enterprise: { price: 5000, name: 'Enterprise Platform', deliverables: ["High-Volume Multi-Tenant Architecture", "Custom Payment & External API Wiring", "Cloud CI/CD Automated Deployment"] }
+        enterprise: { price: 5000, name: 'Enterprise SaaS Platform', deliverables: ["High-Volume Multi-Tenant Architecture", "Custom Payment & External API Wiring", "Cloud CI/CD Automated Deployment"] }
       };
 
       var estimatorAddons = {
         none: { price: 0, deliverables: [] },
-        api: { price: 800, deliverables: ['Custom REST/GraphQL API Endpoint Suite', 'Third-Party Webhook Wiring'] },
-        dashboard: { price: 600, deliverables: ['Whitelabel Admin Analytics Dashboard', 'User Role Permissions Panel'] }
+        api: { price: 800, deliverables: ['Custom REST/GraphQL API Endpoint Suite & Webhook Wiring'] },
+        dashboard: { price: 600, deliverables: ['Whitelabel Admin Analytics Dashboard & Role Management'] }
+      };
+
+      var scaleDescriptions = {
+        core: 'Single-tenant web app architecture with core user roles',
+        multi: 'High-volume multi-tenant organization architecture'
       };
 
       function updateEstimate() {
@@ -1552,9 +1557,10 @@
         var activeScaleBtn = root.querySelector('[data-est-group="scale"] .c8srv-est-choice.is-active');
         var activeGrowthBtn = root.querySelector('[data-est-group="growth"] .c8srv-est-choice.is-active');
 
-        var platformVal = activePlatformBtn ? activePlatformBtn.getAttribute('data-est-val') : 'custom';
+        var platformVal = activePlatformBtn ? activePlatformBtn.getAttribute('data-est-val') : 'mvpapp';
         var basePrice = platformBases[platformVal] ? platformBases[platformVal].price : 2500;
         var scaleMult = activeScaleBtn ? parseFloat(activeScaleBtn.getAttribute('data-est-multiplier')) || 1.0 : 1.0;
+        var scaleVal = activeScaleBtn ? activeScaleBtn.getAttribute('data-est-val') || 'core' : 'core';
         var growthVal = activeGrowthBtn ? activeGrowthBtn.getAttribute('data-est-val') || 'none' : 'none';
         var growthPrice = estimatorAddons[growthVal] ? estimatorAddons[growthVal].price : 0;
 
@@ -1565,11 +1571,21 @@
 
         if (deliverablesList) {
           deliverablesList.innerHTML = '';
-          platformBases[platformVal].deliverables.forEach(function (d) {
-            var item = document.createElement('div');
-            item.textContent = '• ' + d;
-            deliverablesList.appendChild(item);
-          });
+          if (platformBases[platformVal] && platformBases[platformVal].deliverables) {
+            platformBases[platformVal].deliverables.forEach(function (d) {
+              var item = document.createElement('div');
+              item.textContent = '• ' + d;
+              deliverablesList.appendChild(item);
+            });
+          }
+
+          if (scaleDescriptions[scaleVal]) {
+            var scaleItem = document.createElement('div');
+            scaleItem.style.color = '#0047E1';
+            scaleItem.style.fontWeight = '600';
+            scaleItem.textContent = '• Scope Tier: ' + scaleDescriptions[scaleVal];
+            deliverablesList.appendChild(scaleItem);
+          }
 
           if (estimatorAddons[growthVal] && estimatorAddons[growthVal].deliverables) {
             estimatorAddons[growthVal].deliverables.forEach(function (d) {

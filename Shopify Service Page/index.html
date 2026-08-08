@@ -625,30 +625,30 @@
         <div class="c8srv-est-options">
           <!-- Step 1 -->
           <div>
-            <span class="c8srv-est-group-title">1. Core Scope</span>
+            <span class="c8srv-est-group-title">1. Core Shopify Package</span>
             <div class="c8srv-est-choices" data-est-group="platform">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="shopifycore" data-est-price="1800">Shopify Landing ($1,800)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="shopifyfull" data-est-price="2520">Shopify Store ($2,520)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="shopifyplus" data-est-price="3600">Shopify Plus ($3,600)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="shopifycore" data-est-price="1800">Custom Liquid 2.0 Theme ($1,800)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="shopifyfull" data-est-price="2520">Full Shopify Store ($2,520)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="shopifyplus" data-est-price="3600">Shopify Plus Enterprise ($3,600)</button>
             </div>
           </div>
 
           <!-- Step 2 -->
           <div>
-            <span class="c8srv-est-group-title">2. Project Scale</span>
+            <span class="c8srv-est-group-title">2. Product Catalog Scale</span>
             <div class="c8srv-est-choices" data-est-group="scale">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="standard" data-est-multiplier="1.0">Standard Store (1.0x)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="customcatalog" data-est-multiplier="1.4">Large Catalog (1.4x)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="standard" data-est-multiplier="1.0">Standard Product Catalog</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="customcatalog" data-est-multiplier="1.4">Large Catalog &amp; Multi-Variant</button>
             </div>
           </div>
 
           <!-- Step 3 -->
           <div>
-            <span class="c8srv-est-group-title">3. Store Add-Ons</span>
+            <span class="c8srv-est-group-title">3. Conversion Add-Ons</span>
             <div class="c8srv-est-choices" data-est-group="growth">
               <button type="button" class="c8srv-est-choice is-active" data-est-val="none" data-est-price="0">No Add-Ons</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="cartdrawer" data-est-price="500">Cart Drawer (+ $500)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="klaviyo" data-est-price="600">Klaviyo Setup (+ $600)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="cartdrawer" data-est-price="500">Slide-Out Cart &amp; Upsells (+ $500)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="klaviyo" data-est-price="600">Klaviyo E-Commerce Setup (+ $600)</button>
             </div>
           </div>
         </div>
@@ -1548,15 +1548,20 @@
       if (!choices.length || !rangeDisplay) return;
 
       var platformBases = {
-        shopifycore: { price: 1800, name: 'Shopify Landing', deliverables: ["Custom Liquid 2.0 Theme Engineering", "App-Free Speed Performance Tuning", "Responsive OS 2.0 Section Architecture"] },
-        shopifyfull: { price: 2520, name: 'Shopify Store', deliverables: ["Slide-Out Cart Drawer & Dynamic Upsells", "Custom Product Page (PDP) Layouts", "Payment & Shipping Gateway Configuration"] },
-        shopifyplus: { price: 3600, name: 'Shopify Plus', deliverables: ["Enterprise Checkout Customization", "Headless Hydrogen / Storefront API Architecture", "Multi-Currency & International Tax Setup"] }
+        shopifycore: { price: 1800, name: 'Custom Liquid 2.0 Theme', deliverables: ["Custom Liquid 2.0 Theme Engineering", "App-Free Speed Performance Tuning", "Responsive OS 2.0 Section Architecture"] },
+        shopifyfull: { price: 2520, name: 'Full Shopify Store', deliverables: ["Slide-Out Cart Drawer & Dynamic Upsells", "Custom Product Page (PDP) Layouts", "Payment & Shipping Gateway Configuration"] },
+        shopifyplus: { price: 3600, name: 'Shopify Plus Enterprise', deliverables: ["Enterprise Checkout Customization", "Headless Hydrogen / Storefront API Architecture", "Multi-Currency & International Tax Setup"] }
       };
 
       var estimatorAddons = {
         none: { price: 0, deliverables: [] },
-        cartdrawer: { price: 500, deliverables: ['Slide-Out Cart Drawer & In-Cart Upsells', 'Free Shipping Progress Bar'] },
-        klaviyo: { price: 600, deliverables: ['Klaviyo E-Commerce Email Automation', 'Abandoned Cart & Welcome Flows'] }
+        cartdrawer: { price: 500, deliverables: ['Slide-Out Cart Drawer & Free Shipping Progress Bar'] },
+        klaviyo: { price: 600, deliverables: ['Klaviyo E-Commerce Email Automation & Abandoned Cart Flows'] }
+      };
+
+      var scaleDescriptions = {
+        standard: 'Standard catalog layout & core payment gateway setup',
+        customcatalog: 'Large product catalog with multi-variant options & custom filtering'
       };
 
       function updateEstimate() {
@@ -1564,9 +1569,10 @@
         var activeScaleBtn = root.querySelector('[data-est-group="scale"] .c8srv-est-choice.is-active');
         var activeGrowthBtn = root.querySelector('[data-est-group="growth"] .c8srv-est-choice.is-active');
 
-        var platformVal = activePlatformBtn ? activePlatformBtn.getAttribute('data-est-val') : 'wordpress';
-        var basePrice = platformBases[platformVal] ? platformBases[platformVal].price : 1200;
+        var platformVal = activePlatformBtn ? activePlatformBtn.getAttribute('data-est-val') : 'shopifycore';
+        var basePrice = platformBases[platformVal] ? platformBases[platformVal].price : 1800;
         var scaleMult = activeScaleBtn ? parseFloat(activeScaleBtn.getAttribute('data-est-multiplier')) || 1.0 : 1.0;
+        var scaleVal = activeScaleBtn ? activeScaleBtn.getAttribute('data-est-val') || 'standard' : 'standard';
         var growthVal = activeGrowthBtn ? activeGrowthBtn.getAttribute('data-est-val') || 'none' : 'none';
         var growthPrice = estimatorAddons[growthVal] ? estimatorAddons[growthVal].price : 0;
 
@@ -1577,11 +1583,21 @@
 
         if (deliverablesList) {
           deliverablesList.innerHTML = '';
-          platformBases[platformVal].deliverables.forEach(function (d) {
-            var item = document.createElement('div');
-            item.textContent = '• ' + d;
-            deliverablesList.appendChild(item);
-          });
+          if (platformBases[platformVal] && platformBases[platformVal].deliverables) {
+            platformBases[platformVal].deliverables.forEach(function (d) {
+              var item = document.createElement('div');
+              item.textContent = '• ' + d;
+              deliverablesList.appendChild(item);
+            });
+          }
+
+          if (scaleDescriptions[scaleVal]) {
+            var scaleItem = document.createElement('div');
+            scaleItem.style.color = '#0047E1';
+            scaleItem.style.fontWeight = '600';
+            scaleItem.textContent = '• Scope Tier: ' + scaleDescriptions[scaleVal];
+            deliverablesList.appendChild(scaleItem);
+          }
 
           if (estimatorAddons[growthVal] && estimatorAddons[growthVal].deliverables) {
             estimatorAddons[growthVal].deliverables.forEach(function (d) {

@@ -635,30 +635,30 @@
         <div class="c8srv-est-options">
           <!-- Step 1 -->
           <div>
-            <span class="c8srv-est-group-title">1. Core Scope</span>
+            <span class="c8srv-est-group-title">1. Core Organic SEO Package</span>
             <div class="c8srv-est-choices" data-est-group="platform">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="techclean" data-est-price="600">Technical Clean ($600)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="searchengine" data-est-price="1200">Search Engine ($1,200)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="enterpriseseo" data-est-price="1800">Enterprise SEO ($1,800)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="techclean" data-est-price="600">Technical SEO Audit &amp; Clean ($600)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="searchengine" data-est-price="1200">Organic Growth Search Engine ($1,200)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="enterpriseseo" data-est-price="1800">Enterprise Technical SEO ($1,800)</button>
             </div>
           </div>
 
           <!-- Step 2 -->
           <div>
-            <span class="c8srv-est-group-title">2. Project Scale</span>
+            <span class="c8srv-est-group-title">2. Target Market Reach</span>
             <div class="c8srv-est-choices" data-est-group="scale">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="single" data-est-multiplier="1.0">Single Market (1.0x)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="multi" data-est-multiplier="1.5">Multi-Regional (1.5x)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="single" data-est-multiplier="1.0">Single Regional Market</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="multi" data-est-multiplier="1.5">Multi-Regional &amp; Global Search</button>
             </div>
           </div>
 
           <!-- Step 3 -->
           <div>
-            <span class="c8srv-est-group-title">3. Content Add-Ons</span>
+            <span class="c8srv-est-group-title">3. Content &amp; Speed Add-Ons</span>
             <div class="c8srv-est-choices" data-est-group="growth">
               <button type="button" class="c8srv-est-choice is-active" data-est-val="none" data-est-price="0">No Add-Ons</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="clusters" data-est-price="500">Topic Clusters (+ $500)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="vitals" data-est-price="400">PageSpeed Tuning (+ $400)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="clusters" data-est-price="500">Semantic Keyword Topic Clusters (+ $500)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="vitals" data-est-price="400">Core Web Vitals Speed Tuning (+ $400)</button>
             </div>
           </div>
         </div>
@@ -1536,15 +1536,20 @@
       if (!choices.length || !rangeDisplay) return;
 
       var platformBases = {
-        techclean: { price: 600, name: 'Technical Clean', deliverables: ["Screaming Frog Crawl Audit", "Entity JSON-LD Schema Setup", "Indexation & Robots.txt Hardening"] },
-        searchengine: { price: 1200, name: 'Search Engine', deliverables: ["Semantic Keyword Matrix Mapping", "Topical Cluster Content Architecture", "On-Page Metadata & Header Tuning"] },
-        enterpriseseo: { price: 1800, name: 'Enterprise SEO', deliverables: ["Full Multi-Regional Technical Clean", "Competitor Keyword Moat Analysis", "Continuous Search Rank Monitoring"] }
+        techclean: { price: 600, name: 'Technical SEO Clean', deliverables: ["Screaming Frog Technical Crawl Audit", "Entity JSON-LD Structured Data Schema Setup", "Indexation Optimization & Robots.txt Hardening"] },
+        searchengine: { price: 1200, name: 'Organic Search Engine', deliverables: ["Semantic Keyword & Intent Matrix Mapping", "Topical Cluster Content Architecture Blueprint", "On-Page Metadata & Header Hierarchy Tuning"] },
+        enterpriseseo: { price: 1800, name: 'Enterprise Technical SEO', deliverables: ["Multi-Regional Technical Crawl & Indexation Clean", "Competitor Keyword Moat & Authority Analysis", "Continuous Search Visibility & Rank Tracking"] }
       };
 
       var estimatorAddons = {
         none: { price: 0, deliverables: [] },
-        clusters: { price: 500, deliverables: ['High-Intent Keyword Cluster Package', 'Content Pillar Briefs'] },
-        vitals: { price: 400, deliverables: ['Core Web Vitals Speed Optimization', 'CSS/JS Asset Minification'] }
+        clusters: { price: 500, deliverables: ['High-Intent Keyword Cluster Package & Content Briefs'] },
+        vitals: { price: 400, deliverables: ['Core Web Vitals Speed Tuning & Asset Optimization'] }
+      };
+
+      var scaleDescriptions = {
+        single: 'Single geographic market search coverage',
+        multi: 'Multi-regional & international multi-language search setup'
       };
 
       function updateEstimate() {
@@ -1552,9 +1557,10 @@
         var activeScaleBtn = root.querySelector('[data-est-group="scale"] .c8srv-est-choice.is-active');
         var activeGrowthBtn = root.querySelector('[data-est-group="growth"] .c8srv-est-choice.is-active');
 
-        var platformVal = activePlatformBtn ? activePlatformBtn.getAttribute('data-est-val') : 'seo';
-        var basePrice = platformBases[platformVal] ? platformBases[platformVal].price : 1200;
+        var platformVal = activePlatformBtn ? activePlatformBtn.getAttribute('data-est-val') : 'techclean';
+        var basePrice = platformBases[platformVal] ? platformBases[platformVal].price : 600;
         var scaleMult = activeScaleBtn ? parseFloat(activeScaleBtn.getAttribute('data-est-multiplier')) || 1.0 : 1.0;
+        var scaleVal = activeScaleBtn ? activeScaleBtn.getAttribute('data-est-val') || 'single' : 'single';
         var growthVal = activeGrowthBtn ? activeGrowthBtn.getAttribute('data-est-val') || 'none' : 'none';
         var growthPrice = estimatorAddons[growthVal] ? estimatorAddons[growthVal].price : 0;
 
@@ -1565,11 +1571,21 @@
 
         if (deliverablesList) {
           deliverablesList.innerHTML = '';
-          platformBases[platformVal].deliverables.forEach(function (d) {
-            var item = document.createElement('div');
-            item.textContent = '• ' + d;
-            deliverablesList.appendChild(item);
-          });
+          if (platformBases[platformVal] && platformBases[platformVal].deliverables) {
+            platformBases[platformVal].deliverables.forEach(function (d) {
+              var item = document.createElement('div');
+              item.textContent = '• ' + d;
+              deliverablesList.appendChild(item);
+            });
+          }
+
+          if (scaleDescriptions[scaleVal]) {
+            var scaleItem = document.createElement('div');
+            scaleItem.style.color = '#0047E1';
+            scaleItem.style.fontWeight = '600';
+            scaleItem.textContent = '• Scope Tier: ' + scaleDescriptions[scaleVal];
+            deliverablesList.appendChild(scaleItem);
+          }
 
           if (estimatorAddons[growthVal] && estimatorAddons[growthVal].deliverables) {
             estimatorAddons[growthVal].deliverables.forEach(function (d) {
