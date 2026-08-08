@@ -180,7 +180,7 @@
     /* Showcase Image */
     .c8cs-main-img-box {
       width: 100%;
-      border-radius: 20px;
+      border-radius: 4px;
       overflow: hidden;
       box-shadow: 0 20px 50px rgba(8, 8, 8, 0.06);
       border: 1px solid rgba(8, 8, 8, 0.08);
@@ -313,7 +313,7 @@
     .c8cs-gallery-card {
       background: #FFFFFF;
       border: 1px solid rgba(8, 8, 8, 0.08);
-      border-radius: 20px;
+      border-radius: 4px;
       padding: 2.5rem;
       display: flex;
       flex-direction: column;
@@ -363,7 +363,7 @@
 
     .c8cs-gallery-img-box {
       width: 100%;
-      border-radius: 12px;
+      border-radius: 4px;
       border: 1px solid rgba(8, 8, 8, 0.08);
       overflow: hidden;
       background: #FFFFFF;
@@ -416,7 +416,7 @@
     .c8cs-metric-card {
       background: #FFFFFF;
       border: 1px solid rgba(8, 8, 8, 0.06);
-      border-radius: 16px;
+      border-radius: 4px;
       padding: 2.5rem 2rem;
       box-shadow: 0 10px 30px rgba(8, 8, 8, 0.015);
       display: flex;
@@ -464,7 +464,7 @@
       margin: 0 auto;
       background: #FAFAF9;
       border: 1px solid rgba(8, 8, 8, 0.08);
-      border-radius: 24px;
+      border-radius: 4px;
       padding: 4.5rem 3rem;
       box-shadow: 0 20px 45px rgba(0, 71, 225, 0.02);
       position: relative;
@@ -496,7 +496,7 @@
       background: #0047E1;
       color: #FFFFFF;
       padding: 18px 36px;
-      border-radius: 8px;
+      border-radius: 4px;
       font-weight: 700;
       display: inline-flex;
       align-items: center;
@@ -532,6 +532,50 @@
     .c8cs-back-btn:hover {
       color: #0047E1;
     }
+  
+    /* Next / Prev Case Study Pagination Bar */
+    .c8cs-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 3.5rem auto 0 auto;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(8, 8, 8, 0.08);
+      position: relative;
+      z-index: 2;
+    }
+    .c8cs-nav-item {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      transition: transform 0.25s ease;
+    }
+    .c8cs-nav-item:hover {
+      transform: translateY(-2px);
+    }
+    .c8cs-nav-item.is-right {
+      text-align: right;
+      margin-left: auto;
+    }
+    .c8cs-nav-lbl {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #8A8A8A;
+      margin-bottom: 4px;
+    }
+    .c8cs-nav-title {
+      font-family: 'Michroma', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0047E1;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
   </style>
 </head>
 <body>
@@ -590,6 +634,18 @@
             <span class="c8cs-meta-lbl">Key Channel</span>
             <span class="c8cs-meta-val">Audio Streaming Web Feed</span>
           </div>
+        </div>
+
+        <!-- Next / Prev Case Study Navigation -->
+        <div class="c8cs-nav-bar">
+          <a href="wp-publishion-ai.html" class="c8cs-nav-item">
+            <span class="c8cs-nav-lbl">&larr; Previous Case Study</span>
+            <span class="c8cs-nav-title">WP Publishion AI</span>
+          </a>
+          <a href="blvck-hair-ng.html" class="c8cs-nav-item is-right">
+            <span class="c8cs-nav-lbl">Next Case Study &rarr;</span>
+            <span class="c8cs-nav-title">blvck Hair NG</span>
+          </a>
         </div>
       </div>
     </section>
@@ -668,6 +724,18 @@
             </div>
           </div>
         </div>
+
+        <!-- Next / Prev Case Study Navigation -->
+        <div class="c8cs-nav-bar">
+          <a href="wp-publishion-ai.html" class="c8cs-nav-item">
+            <span class="c8cs-nav-lbl">&larr; Previous Case Study</span>
+            <span class="c8cs-nav-title">WP Publishion AI</span>
+          </a>
+          <a href="blvck-hair-ng.html" class="c8cs-nav-item is-right">
+            <span class="c8cs-nav-lbl">Next Case Study &rarr;</span>
+            <span class="c8cs-nav-title">blvck Hair NG</span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -713,6 +781,18 @@
           </div>
 
         </div>
+
+        <!-- Next / Prev Case Study Navigation -->
+        <div class="c8cs-nav-bar">
+          <a href="wp-publishion-ai.html" class="c8cs-nav-item">
+            <span class="c8cs-nav-lbl">&larr; Previous Case Study</span>
+            <span class="c8cs-nav-title">WP Publishion AI</span>
+          </a>
+          <a href="blvck-hair-ng.html" class="c8cs-nav-item is-right">
+            <span class="c8cs-nav-lbl">Next Case Study &rarr;</span>
+            <span class="c8cs-nav-title">blvck Hair NG</span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -742,6 +822,18 @@
           </div>
 
         </div>
+
+        <!-- Next / Prev Case Study Navigation -->
+        <div class="c8cs-nav-bar">
+          <a href="wp-publishion-ai.html" class="c8cs-nav-item">
+            <span class="c8cs-nav-lbl">&larr; Previous Case Study</span>
+            <span class="c8cs-nav-title">WP Publishion AI</span>
+          </a>
+          <a href="blvck-hair-ng.html" class="c8cs-nav-item is-right">
+            <span class="c8cs-nav-lbl">Next Case Study &rarr;</span>
+            <span class="c8cs-nav-title">blvck Hair NG</span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -754,6 +846,18 @@
             <p class="c8cs-lead" style="margin: 0 auto 2rem auto; font-size: 16px; max-width: 600px;">Whether you're launching a new digital product or mapping search structures, we build brand strategy and organic SEO foundations to capture and convert attention.</p>
             <a href="https://cr8vstacks.com/contact/" class="c8cs-btn-primary">Start a Conversation →</a>
           </div>
+        </div>
+
+        <!-- Next / Prev Case Study Navigation -->
+        <div class="c8cs-nav-bar">
+          <a href="wp-publishion-ai.html" class="c8cs-nav-item">
+            <span class="c8cs-nav-lbl">&larr; Previous Case Study</span>
+            <span class="c8cs-nav-title">WP Publishion AI</span>
+          </a>
+          <a href="blvck-hair-ng.html" class="c8cs-nav-item is-right">
+            <span class="c8cs-nav-lbl">Next Case Study &rarr;</span>
+            <span class="c8cs-nav-title">blvck Hair NG</span>
+          </a>
         </div>
       </div>
     </section>
