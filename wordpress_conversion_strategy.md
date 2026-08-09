@@ -282,3 +282,114 @@ Use `preload="none"` with poster images on `@media (max-width: 768px)`.
 | WordPress Menus? | ✅ Yes | `wp_nav_menu()` with custom walker for mega menu |
 | Custom Theme PHP templates? | ✅ Yes | 100% design fidelity, zero layout compromise |
 | Upload HTML directly? | ✅ Viable short-term | Fastest to go live, but no content editing from admin |
+
+---
+
+## ✅ WYSIWYG & Visual Editing Discussion (2026-08-09)
+
+### The Core Problem with Blind ACF Fields
+The original Phase 2 plan (ACF fields in WP admin) works technically but creates a UX problem: you open the edit page and you're confronted with a wall of disconnected fields — no visual context, no way to know which field maps to which part of the page. For a codebase with this level of design complexity, that's a real constraint.
+
+### What "True Inline Front-End Editing" Actually Means
+Elementor-style "click on text and type directly into it on the front-end" works because Elementor **owns the DOM** — every element is a registered Elementor widget with a React-powered editor attached to it. That relationship doesn't exist with custom HTML/CSS/JS pages. Adding it would require registering every section as a widget — which is a ground-up rebuild, and would destroy the animations.
+
+So: **true inline click-to-edit on existing custom pages = not reliable or feasible.**
+
+### ✅ Option 1: WordPress Customizer API (Best Fit — Recommended)
+
+**What it is:** `WP Admin → Appearance → Customize`
+
+- **Right side**: Live iframe preview of your actual site, exactly as it looks, in real time
+- **Left side**: Organised panels — "Homepage Hero", "Services Sections", "Testimonials", "Footer", etc.
+- Type a new headline → it updates live in the right-side preview as you type
+- Swap an image → it swaps live in the preview
+- Change a video URL → reflected immediately
+- Hit **Publish** → goes live
+
+**This is genuine WYSIWYG.** You see the actual page. You see changes happen in real time before committing. No blind fields. No guessing what "hero_headline_1" refers to.
+
+**The only limitation:** You edit in the left panel — you can't click directly on the live text and type into it. But you are looking at it as you edit. That is a fundamentally different (and far better) experience than ACF fields alone.
+
+**How it integrates with the custom theme:**
+```php
+// functions.php — register Customizer sections and controls
+add_action('customize_register', function($wp_customize) {
+
+  // --- HOMEPAGE HERO ---
+  $wp_customize->add_section('cr8v_hero', [
+    'title'    => 'Homepage — Hero Section',
+    'priority' => 10,
+  ]);
+
+  $wp_customize->add_setting('hero_headline_1', ['default' => 'We Build Businesses']);
+  $wp_customize->add_control('hero_headline_1', [
+    'label'   => 'Hero Headline Line 1',
+    'section' => 'cr8v_hero',
+    'type'    => 'text',
+  ]);
+
+  // Image picker — uses WP Media Library
+  $wp_customize->add_setting('hero_poster_img');
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_poster_img', [
+    'label'   => 'Hero Background Image',
+    'section' => 'cr8v_hero',
+  ]));
+});
+```
+
+In `front-page.php`:
+```php
+<h1><?php echo esc_html(get_theme_mod('hero_headline_1', 'We Build Businesses')); ?></h1>
+```
+
+**Live preview partial refresh** (so the page doesn't fully reload on each change):
+```php
+$wp_customize->selective_refresh->add_partial('hero_headline_1', [
+  'selector'        => '.dp-headline',
+  'render_callback' => function() {
+    echo esc_html(get_theme_mod('hero_headline_1'));
+  },
+]);
+```
+
+### ✅ Option 2: Bricks Builder (If True Click-to-Edit is Required)
+
+Bricks is the modern replacement for Elementor — built for developers, not marketers. Key differences:
+
+| Elementor | Bricks |
+|---|---|
+| Wraps everything in `.elementor-widget-container` | Outputs raw HTML with your own class names |
+| Breaks custom CSS selectors | Your CSS classes survive intact |
+| Heavy JS (400KB+) | Lightweight, ~60KB |
+| Animations break on conversion | Custom scripts can be loaded per-element |
+| Front-end inline editing | Front-end inline editing ✅ |
+
+**The trade-off:** Pages still need to be rebuilt in Bricks format. The complex animations (canvas, Matrix scramble, auto-scroll) would need to be registered as custom Bricks scripts. This is doable but is significant conversion work — estimated 1–2 weeks per complex page.
+
+**Best use case:** New pages built from scratch in Bricks, while existing complex pages stay as custom PHP templates with Customizer controls.
+
+### ✅ Recommended Hybrid Architecture (Final Decision)
+
+| Layer | Approach | Editing Experience |
+|---|---|---|
+| Homepage, About, Contact, Discovery | Custom PHP template + **WP Customizer controls** | Live preview WYSIWYG |
+| All service pages | Custom PHP template + **WP Customizer controls** | Live preview WYSIWYG |
+| Case studies | Custom PHP template + **ACF fields** (structured data) | Admin fields with clear labels |
+| Blog posts | Native **Gutenberg editor** | Full WYSIWYG rich text |
+| Blog archive, categories, tags | Native WP loops in `home.php` / `category.php` | No editing needed — auto-generated |
+| Navigation menus | `wp_nav_menu()` + **WP Appearance → Menus** | Drag-and-drop menu builder |
+| New pages (future) | **Bricks Builder** (optional phase 3) | True inline front-end editing |
+
+### Updated Decision Table
+
+| Question | Decision | Reason |
+|---|---|---|
+| Elementor? | ❌ No | Kills animations, adds DOM bloat |
+| ACF fields only? | ⚠️ Partial | Good for structured data (case studies, FAQs), not for visual page content |
+| WP Customizer? | ✅ Yes — primary editing layer | Live preview, visual context, no page builder needed |
+| Bricks Builder? | ✅ Optional Phase 3 | For new pages only — true inline editing without animation risk |
+| Full Site Editing (FSE)? | ❌ No | Incompatible with custom layout system |
+| WordPress Menus (native)? | ✅ Yes | Drag-and-drop, no code required |
+| Gutenberg (blog only)? | ✅ Yes | Full rich editor for posts |
+| Custom PHP templates? | ✅ Yes | 100% design fidelity, zero layout compromise |
+
