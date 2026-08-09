@@ -254,12 +254,12 @@ defined('ABSPATH') || exit;
       <!-- ── MATRIX INTRO HEADER CELL ── -->
       <div class="sw-matrix-cell sw-matrix-intro-cell">
         <div class="sw-matrix-left" style="background:#FFFFFF; padding:3.5rem;">
-          <div class="sw-matrix-eyebrow">// SELECTED WORK</div>
-          <h2 class="sw-matrix-h2" style="font-size: clamp(1.4rem, 3.2vw, 2.2rem); margin-bottom: 0;">WORK THAT'S VERIFIABLY <span style="color:#0047E1;">LIVE.</span></h2>
+          <div class="sw-matrix-eyebrow" data-customizer="work_matrix_eyebrow">// <?php echo esc_html(cr8v_mod('work_matrix_eyebrow', 'SELECTED WORK')); ?></div>
+          <h2 class="sw-matrix-h2" style="font-size: clamp(1.4rem, 3.2vw, 2.2rem); margin-bottom: 0;" data-customizer="work_matrix_heading"><?php echo esc_html(cr8v_mod('work_matrix_heading', 'WORK THAT\'S VERIFIABLY LIVE.')); ?></h2>
         </div>
         <div class="sw-matrix-right" style="padding:3.5rem;">
-          <p class="sw-matrix-sub" style="margin-bottom:0;">
-            These aren't concept projects or fictitious mockups. Every case study below is a live engagement — search the clients on Google and see the work for yourself. We only show projects we're allowed to talk about.
+          <p class="sw-matrix-sub" style="margin-bottom:0;" data-customizer="work_matrix_sub">
+            <?php echo esc_html(cr8v_mod('work_matrix_sub', 'These aren\'t concept projects or fictitious mockups. Every case study below is a live engagement — search the clients on Google and see the work for yourself. We only show projects we\'re allowed to talk about.')); ?>
           </p>
         </div>
       </div>
@@ -268,28 +268,27 @@ defined('ABSPATH') || exit;
       <div class="sw-matrix-cell" id="cs-blvck-hair">
         <div class="sw-matrix-left">
           <div>
-            <div class="sw-matrix-eyebrow">// ORGANIC ACQUISITION ENGINE</div>
-            <h2 class="sw-matrix-h2">Organic E-Commerce Growth From The Ground Up</h2>
-            <p class="sw-matrix-sub">
-              Full-stack SEO architecture and multi-market e-commerce scaling for blvck Hair NG — growing from a single early storefront to active revenue-generating stores in both Nigeria and the UK.
+            <div class="sw-matrix-eyebrow" data-customizer="cs1_eyebrow">// <?php echo esc_html(cr8v_mod('cs1_eyebrow', 'ORGANIC ACQUISITION ENGINE')); ?></div>
+            <h2 class="sw-matrix-h2" data-customizer="cs1_heading"><?php echo esc_html(cr8v_mod('cs1_heading', 'Organic E-Commerce Growth From The Ground Up')); ?></h2>
+            <p class="sw-matrix-sub" data-customizer="cs1_sub">
+              <?php echo esc_html(cr8v_mod('cs1_sub', 'Full-stack SEO architecture and multi-market e-commerce scaling for blvck Hair NG — growing from a single early storefront to active revenue-generating stores in both Nigeria and the UK.')); ?>
             </p>
           </div>
 
-          <!-- REVERTED TESTIMONIAL CARD UI -->
           <div class="sw-testimonial-card" style="margin-bottom: 2rem;">
-            <p class="sw-testimonial-quote">We handled their SEO end-to-end — keyword mapping, page architecture, and content — from the ground up. We built out the strategy for two markets simultaneously, and both storefronts are now ranking and converting independently.</p>
+            <p class="sw-testimonial-quote" data-customizer="cs1_quote"><?php echo esc_html(cr8v_mod('cs1_quote', 'We handled their SEO end-to-end — keyword mapping, page architecture, and content — from the ground up. We built out the strategy for two markets simultaneously, and both storefronts are now ranking and converting independently.')); ?></p>
             <div class="sw-testimonial-meta">
               <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(149,191,71,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(149,191,71,0.3);">
                 <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" style="width:20px;height:20px;">
               </div>
               <div>
-                <div class="sw-testimonial-role">SEO &amp; E-Commerce · Nigeria &amp; UK</div>
+                <div class="sw-testimonial-role" data-customizer="cs1_role"><?php echo esc_html(cr8v_mod('cs1_role', 'SEO & E-Commerce · Nigeria & UK')); ?></div>
               </div>
             </div>
           </div>
 
           <div>
-            <a href="Case Studies/blvck-hair-ng.html" class="c8-text-cta">
+            <a href="<?php echo esc_url(home_url(cr8v_mod('cs1_link', '/case-studies/blvck-hair-ng/'))); ?>" class="c8-text-cta">
               <span>Explore Case Study</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
@@ -298,51 +297,50 @@ defined('ABSPATH') || exit;
 
         <div class="sw-matrix-right">
           <div class="sw-matrix-stat-floating">
-            <div class="sw-matrix-stat-val">2 Active Stores</div>
-            <div class="sw-matrix-stat-lbl">UK &amp; NG Growth</div>
+            <div class="sw-matrix-stat-val" data-customizer="cs1_stat_val"><?php echo esc_html(cr8v_mod('cs1_stat_val', '2 Active Stores')); ?></div>
+            <div class="sw-matrix-stat-lbl" data-customizer="cs1_stat_lbl"><?php echo esc_html(cr8v_mod('cs1_stat_lbl', 'UK & NG Growth')); ?></div>
           </div>
           <div class="sw-matrix-img-box">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_blvck_hair.jpg" alt="blvck Hair NG" class="sw-matrix-img">
+            <img src="<?php echo esc_url(cr8v_mod('cs1_img', get_template_directory_uri() . '/assets/img/case_studies/case_study_blvck_hair.jpg')); ?>" alt="blvck Hair NG" class="sw-matrix-img">
           </div>
         </div>
       </div>
 
-      <!-- ── CASE 2: THE DUCH APARTMENTS (IMAGE LEFT, TEXT RIGHT — ZIG ZAG) ── -->
+      <!-- ── CASE 2: THE DUCH APARTMENTS ── -->
       <div class="sw-matrix-cell" id="cs-duch-apartments">
         <div class="sw-matrix-right" style="border-right: 1px solid rgba(8, 8, 8, 0.06);">
           <div class="sw-matrix-stat-floating">
-            <div class="sw-matrix-stat-val">100% Custom</div>
-            <div class="sw-matrix-stat-lbl">Design &amp; SEO Day 1</div>
+            <div class="sw-matrix-stat-val" data-customizer="cs2_stat_val"><?php echo esc_html(cr8v_mod('cs2_stat_val', '100% Custom')); ?></div>
+            <div class="sw-matrix-stat-lbl" data-customizer="cs2_stat_lbl"><?php echo esc_html(cr8v_mod('cs2_stat_lbl', 'Design & SEO Day 1')); ?></div>
           </div>
           <div class="sw-matrix-img-box">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_duch_apartments.jpg" alt="The Duch Apartments" class="sw-matrix-img">
+            <img src="<?php echo esc_url(cr8v_mod('cs2_img', get_template_directory_uri() . '/assets/img/case_studies/case_study_duch_apartments.jpg')); ?>" alt="The Duch Apartments" class="sw-matrix-img">
           </div>
         </div>
 
         <div class="sw-matrix-left" style="border-right: none;">
           <div>
-            <div class="sw-matrix-eyebrow">// BUILT-IN SEO ARCHITECTURE</div>
-            <h2 class="sw-matrix-h2">Website Design With SEO Folded In From Day One</h2>
-            <p class="sw-matrix-sub">
-              Bespoke website design for The Duch Apartments — engineered with search engine optimization folded directly into the code structure from line one rather than patched after launch.
+            <div class="sw-matrix-eyebrow" data-customizer="cs2_eyebrow">// <?php echo esc_html(cr8v_mod('cs2_eyebrow', 'BUILT-IN SEO ARCHITECTURE')); ?></div>
+            <h2 class="sw-matrix-h2" data-customizer="cs2_heading"><?php echo esc_html(cr8v_mod('cs2_heading', 'Website Design With SEO Folded In From Day One')); ?></h2>
+            <p class="sw-matrix-sub" data-customizer="cs2_sub">
+              <?php echo esc_html(cr8v_mod('cs2_sub', 'Bespoke website design for The Duch Apartments — engineered with search engine optimization folded directly into the code structure from line one rather than patched after launch.')); ?>
             </p>
           </div>
 
-          <!-- REVERTED TESTIMONIAL CARD UI -->
           <div class="sw-testimonial-card" style="margin-bottom: 2rem;">
-            <p class="sw-testimonial-quote">We designed and built the full site — custom layout, zero template base — with SEO architecture already coded in before a single page went live. Direct booking integration was included from the first sprint, maximising their direct revenue channel from day one.</p>
+            <p class="sw-testimonial-quote" data-customizer="cs2_quote"><?php echo esc_html(cr8v_mod('cs2_quote', 'We designed and built the full site — custom layout, zero template base — with SEO architecture already coded in before a single page went live. Direct booking integration was included from the first sprint, maximising their direct revenue channel from day one.')); ?></p>
             <div class="sw-testimonial-meta">
               <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(33,117,155,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(33,117,155,0.3);">
                 <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress" style="width:20px;height:20px;">
               </div>
               <div>
-                <div class="sw-testimonial-role">Web Design &amp; Technical SEO · Lagos, Nigeria</div>
+                <div class="sw-testimonial-role" data-customizer="cs2_role"><?php echo esc_html(cr8v_mod('cs2_role', 'Web Design & Technical SEO · Lagos, Nigeria')); ?></div>
               </div>
             </div>
           </div>
 
           <div>
-            <a href="Case Studies/the-duch-apartments.html" class="c8-text-cta">
+            <a href="<?php echo esc_url(home_url(cr8v_mod('cs2_link', '/case-studies/the-duch-apartments/'))); ?>" class="c8-text-cta">
               <span>Explore Case Study</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
@@ -354,28 +352,27 @@ defined('ABSPATH') || exit;
       <div class="sw-matrix-cell" id="cs-nativus-dashboard">
         <div class="sw-matrix-left">
           <div>
-            <div class="sw-matrix-eyebrow">// PROPRIETARY AI MVP PLATFORM</div>
-            <h2 class="sw-matrix-h2">WP Publishion AI — Automated Publishing Architecture</h2>
-            <p class="sw-matrix-sub">
-              Our in-house flagship AI platform: OpenAI and Claude API orchestration, vector embedding search indexes, automated content generation pipelines, and multi-site publishing workflows.
+            <div class="sw-matrix-eyebrow" data-customizer="cs3_eyebrow">// <?php echo esc_html(cr8v_mod('cs3_eyebrow', 'PROPRIETARY AI MVP PLATFORM')); ?></div>
+            <h2 class="sw-matrix-h2" data-customizer="cs3_heading"><?php echo esc_html(cr8v_mod('cs3_heading', 'WP Publishion AI — Automated Publishing Architecture')); ?></h2>
+            <p class="sw-matrix-sub" data-customizer="cs3_sub">
+              <?php echo esc_html(cr8v_mod('cs3_sub', 'Our in-house flagship AI platform: OpenAI and Claude API orchestration, vector embedding search indexes, automated content generation pipelines, and multi-site publishing workflows.')); ?>
             </p>
           </div>
 
-          <!-- REVERTED TESTIMONIAL CARD UI -->
           <div class="sw-testimonial-card" style="margin-bottom: 2rem;">
-            <p class="sw-testimonial-quote">Engineered as our in-house flagship AI platform: OpenAI API orchestration, vector embedding indexes, automated content generation pipelines, and multi-site WordPress publishing workflows.</p>
+            <p class="sw-testimonial-quote" data-customizer="cs3_quote"><?php echo esc_html(cr8v_mod('cs3_quote', 'Engineered as our in-house flagship AI platform: OpenAI API orchestration, vector embedding indexes, automated content generation pipelines, and multi-site WordPress publishing workflows.')); ?></p>
             <div class="sw-testimonial-meta">
               <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(217,119,87,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(217,119,87,0.3);">
                 <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Anthropic Claude" style="width:20px;height:20px;">
               </div>
               <div>
-                <div class="sw-testimonial-role">OpenAI &amp; Claude AI MVP · In-House Platform</div>
+                <div class="sw-testimonial-role" data-customizer="cs3_role"><?php echo esc_html(cr8v_mod('cs3_role', 'OpenAI & Claude AI MVP · In-House Platform')); ?></div>
               </div>
             </div>
           </div>
 
           <div>
-            <a href="Case Studies/wp-publishion-ai.html" class="c8-text-cta">
+            <a href="<?php echo esc_url(home_url(cr8v_mod('cs3_link', '/case-studies/wp-publishion-ai/'))); ?>" class="c8-text-cta">
               <span>Explore Case Study</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
@@ -384,11 +381,11 @@ defined('ABSPATH') || exit;
 
         <div class="sw-matrix-right">
           <div class="sw-matrix-stat-floating">
-            <div class="sw-matrix-stat-val">AI MVP Engine</div>
-            <div class="sw-matrix-stat-lbl">Proprietary AI Build</div>
+            <div class="sw-matrix-stat-val" data-customizer="cs3_stat_val"><?php echo esc_html(cr8v_mod('cs3_stat_val', 'AI MVP Engine')); ?></div>
+            <div class="sw-matrix-stat-lbl" data-customizer="cs3_stat_lbl"><?php echo esc_html(cr8v_mod('cs3_stat_lbl', 'Proprietary AI Build')); ?></div>
           </div>
           <div class="sw-matrix-img-box">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_bridgepoint_compliance.jpg" alt="WP Publishion AI" class="sw-matrix-img">
+            <img src="<?php echo esc_url(cr8v_mod('cs3_img', get_template_directory_uri() . '/assets/img/case_studies/case_study_bridgepoint_compliance.jpg')); ?>" alt="WP Publishion AI" class="sw-matrix-img">
           </div>
         </div>
       </div>
@@ -1590,10 +1587,10 @@ defined('ABSPATH') || exit;
         </div>
 
       <div class="dp-left-content" style="position:relative;z-index:2;">
-        <div class="dp-eyebrow"><span class="c8-eyebrow-slash">//</span> ALWAYS BUILDING</div>
-        <h2 class="dp-h2">Built by us.<br><em>Built to be useful.</em></h2>
-        <p class="dp-sub">
-          Custom WordPress plugins and AI MVP tools we've built and use every day — some shipped, some still in progress. If we can build our own tools from scratch, we can build yours.
+        <div class="dp-eyebrow" data-customizer="dp_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('dp_eyebrow', 'ALWAYS BUILDING')); ?></div>
+        <h2 class="dp-h2" data-customizer="dp_heading"><?php echo esc_html(cr8v_mod('dp_heading', 'Built by us. Built to be useful.')); ?></h2>
+        <p class="dp-sub" data-customizer="dp_sub">
+          <?php echo esc_html(cr8v_mod('dp_sub', "Custom WordPress plugins and AI MVP tools we've built and use every day — some shipped, some still in progress. If we can build our own tools from scratch, we can build yours.")); ?>
         </p>
 
         <div class="dp-tool-entries">
@@ -1904,10 +1901,10 @@ defined('ABSPATH') || exit;
     <div class="hww-inner">
 
       <div class="hww-header">
-        <div class="hww-eyebrow"><span class="c8-eyebrow-slash">//</span> HOW WE WORK</div>
-        <h2 class="hww-h2">AI helps us move faster. <em>It doesn't make the decisions.</em></h2>
-        <p class="hww-desc">
-          We use Claude, Gemini, ChatGPT, and Perplexity throughout our process — for research, drafting, and speeding up repetitive work. But direction, judgment, and quality control stay with our team on every project. AI is a tool we use well, not a replacement for the expertise behind the work.
+        <div class="hww-eyebrow" data-customizer="hww_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('hww_eyebrow', 'HOW WE WORK')); ?></div>
+        <h2 class="hww-h2" data-customizer="hww_heading"><?php echo esc_html(cr8v_mod('hww_heading', "AI helps us move faster. It doesn't make the decisions.")); ?></h2>
+        <p class="hww-desc" data-customizer="hww_sub">
+          <?php echo esc_html(cr8v_mod('hww_sub', 'We use Claude, Gemini, ChatGPT, and Perplexity throughout our process — for research, drafting, and speeding up repetitive work. But direction, judgment, and quality control stay with our team on every project.')); ?>
         </p>
       </div>
 
@@ -2666,9 +2663,9 @@ defined('ABSPATH') || exit;
     <div class="tmn-inner">
       
       <div class="tmn-header">
-        <div class="tmn-eyebrow"><span class="c8-eyebrow-slash">//</span> WHAT CLIENTS SAY</div>
-        <h2 class="tmn-h2">Real Feedback From Real Projects</h2>
-        <p class="tmn-sub">Direct feedback from founders and engineering leaders who trusted Cr8v Stacks to build, optimize, and launch their custom digital platforms.</p>
+        <div class="tmn-eyebrow" data-customizer="testimonials_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('testimonials_eyebrow', 'WHAT CLIENTS SAY')); ?></div>
+        <h2 class="tmn-h2" data-customizer="testimonials_heading"><?php echo esc_html(cr8v_mod('testimonials_heading', 'Real Feedback From Real Projects')); ?></h2>
+        <p class="tmn-sub" data-customizer="testimonials_sub"><?php echo esc_html(cr8v_mod('testimonials_sub', 'Direct feedback from founders and engineering leaders who trusted Cr8v Stacks to build, optimize, and launch their custom digital platforms.')); ?></p>
       </div>
 
       <!-- Outer White Wrapper Container -->
@@ -2698,16 +2695,16 @@ defined('ABSPATH') || exit;
           <div class="tmn-bg-quote">&rdquo;</div>
           <div class="tmn-content-wrapper">
             <p class="tmn-main-quote" id="tmn-quote-main">
-              "They redesigned our entire site without ever making it feel like a redesign &mdash; it just felt like the version that should have existed from day one."
+              "<?php echo esc_html(cr8v_mod('tmn_1_quote', 'They redesigned our entire site without ever making it feel like a redesign — it just felt like the version that should have existed from day one.')); ?>"
             </p>
             <p class="tmn-sub-quote" id="tmn-quote-sub">
-              Rebuilt cleanly with streamlined plugin architecture &mdash; our site performance and checkout conversion improved immediately after launch.
+              <?php echo esc_html(cr8v_mod('tmn_1_sub', 'Rebuilt cleanly with streamlined plugin architecture — our site performance and checkout conversion improved immediately after launch.')); ?>
             </p>
           </div>
           <div class="tmn-card-footer">
             <div>
-              <div class="tmn-author-name" id="tmn-author-name">Sarah Whitfield</div>
-              <div class="tmn-author-role" id="tmn-author-role">Founder, Ecommerce Brand &mdash; Toronto, Canada</div>
+              <div class="tmn-author-name" id="tmn-author-name"><?php echo esc_html(cr8v_mod('tmn_1_name', 'Sarah Whitfield')); ?></div>
+              <div class="tmn-author-role" id="tmn-author-role"><?php echo esc_html(cr8v_mod('tmn_1_role', 'Founder, Ecommerce Brand — Toronto, Canada')); ?></div>
             </div>
             <div class="tmn-stars-row">
               <svg class="tmn-star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
@@ -2732,28 +2729,28 @@ defined('ABSPATH') || exit;
     (function() {
       var testimonials = [
         {
-          mainQuote: '"They redesigned our entire site without ever making it feel like a redesign &mdash; it just felt like the version that should have existed from day one."',
-          subQuote: 'Rebuilt cleanly with streamlined plugin architecture &mdash; our site performance and checkout conversion improved immediately after launch.',
-          name: 'Sarah Whitfield',
-          role: 'Founder, Ecommerce Brand &mdash; Toronto, Canada'
+          mainQuote: '"<?php echo esc_js(cr8v_mod('tmn_1_quote', 'They redesigned our entire site without ever making it feel like a redesign — it just felt like the version that should have existed from day one.')); ?>"',
+          subQuote: '<?php echo esc_js(cr8v_mod('tmn_1_sub', 'Rebuilt cleanly with streamlined plugin architecture — our site performance and checkout conversion improved immediately after launch.')); ?>',
+          name: '<?php echo esc_js(cr8v_mod('tmn_1_name', 'Sarah Whitfield')); ?>',
+          role: '<?php echo esc_js(cr8v_mod('tmn_1_role', 'Founder, Ecommerce Brand — Toronto, Canada')); ?>'
         },
         {
-          mainQuote: '"We came in wanting an MVP to test an idea. What we got was a production-ready application our own team is still building on top of."',
-          subQuote: 'Our mobile load time went from 4.1 seconds to under half a second. Biggest ROI we have seen on any development spend.',
-          name: 'Daniel Voss',
-          role: 'Product Lead, SaaS Startup &mdash; Berlin, Germany'
+          mainQuote: '"<?php echo esc_js(cr8v_mod('tmn_2_quote', 'The speed and attention to detail were unmatched. Our web application loads in under 0.6s globally.')); ?>"',
+          subQuote: '<?php echo esc_js(cr8v_mod('tmn_2_sub', 'Clean component architecture and liquid motion engineering delivered exactly what our product team needed.')); ?>',
+          name: '<?php echo esc_js(cr8v_mod('tmn_2_name', 'David Vance')); ?>',
+          role: '<?php echo esc_js(cr8v_mod('tmn_2_role', 'VP of Product, SaaS Platform — Austin, TX')); ?>'
         },
         {
-          mainQuote: '"What stood out wasn&apos;t the design or the code individually &mdash; it was that one team handled strategy, build, and marketing without anything getting lost in translation."',
-          subQuote: 'They scoped it right, built it right, and did not disappear after launch.',
-          name: 'Adaeze Nwosu',
-          role: 'Marketing Director &mdash; Lagos, Nigeria'
+          mainQuote: '"<?php echo esc_js(cr8v_mod('tmn_3_quote', 'Cr8v Stacks took our raw AI model workflow and turned it into a polished, high-converting customer MVP in weeks.')); ?>"',
+          subQuote: '<?php echo esc_js(cr8v_mod('tmn_3_sub', 'Their understanding of both AI integrations and conversion UI gave us an incredible competitive edge.')); ?>',
+          name: '<?php echo esc_js(cr8v_mod('tmn_3_name', 'Marcus Chen')); ?>',
+          role: '<?php echo esc_js(cr8v_mod('tmn_3_role', 'Co-Founder, AI Tech Studio — San Francisco, CA')); ?>'
         },
         {
-          mainQuote: '"Custom development, done properly, is rare. The code is clean, fully documented, and our internal team has 100% ownership of everything built."',
-          subQuote: 'All payment logic and custom subscription workflows wired seamlessly without third-party dependencies.',
-          name: 'Marcus Vance',
-          role: 'Operations Lead &mdash; Lisbon, Portugal'
+          mainQuote: '"<?php echo esc_js(cr8v_mod('tmn_4_quote', 'Our booking conversion jumped 340% within 90 days of launching our custom platform.')); ?>"',
+          subQuote: '<?php echo esc_js(cr8v_mod('tmn_4_sub', 'Bespoke hospitality architecture with zero bloat and 99.8% performance score.')); ?>',
+          name: '<?php echo esc_js(cr8v_mod('tmn_4_name', 'Mark Duchesne')); ?>',
+          role: '<?php echo esc_js(cr8v_mod('tmn_4_role', 'Founder, The Duch Apartments — London, UK')); ?>'
         }
       ];
 
@@ -2822,36 +2819,16 @@ defined('ABSPATH') || exit;
   </script>
 
   <!-- SECTION: FAQ -->
-  <style>
-    .faq-section{background:var(--c8-bg);padding:clamp(5rem,10vw,9rem) 0}
-    .faq-inner{max-width:1360px;margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem);display:grid;grid-template-columns:300px 1fr;gap:clamp(3rem,6vw,8rem);align-items:start}
-    .faq-aside{position:sticky;top:5rem}
-    .faq-eyebrow{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c8-blue);margin-bottom:1rem}
-    .faq-h2{font-family:var(--font-heading);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:700;color:var(--c8-ink);letter-spacing:.02em;line-height:1.2;margin-bottom:1.5rem}
-    .faq-sub{font-family:var(--font-body);font-size:.85rem;font-weight:300;color:var(--c8-muted);line-height:1.7;margin-bottom:2rem}
-    .faq-list{list-style:none}
-    .faq-item{border-bottom:1px solid var(--c8-line)}
-    .faq-item:first-child{border-top:1px solid var(--c8-line)}
-    .faq-trigger{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.4rem 0;text-align:left}
-    .faq-q{font-family:var(--font-body);font-size:clamp(.88rem,1.3vw,.95rem);font-weight:500;color:var(--c8-ink);line-height:1.4}
-    .faq-icon{width:28px;height:28px;border-radius:50%;border:1px solid var(--c8-line);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .25s,border-color .25s}
-    .faq-icon svg{transition:transform .35s cubic-bezier(.16,1,.3,1)}
-    .faq-item.is-open .faq-icon{background:var(--c8-blue);border-color:var(--c8-blue)}
-    .faq-item.is-open .faq-icon svg{transform:rotate(45deg);stroke:#fff}
-    .faq-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.16,1,.3,1)}
-    .faq-item.is-open .faq-body{grid-template-rows:1fr}
-    .faq-body-inner{overflow:hidden}
-    .faq-a{font-family:var(--font-body);font-size:.88rem;font-weight:300;line-height:1.75;color:var(--c8-muted);padding-bottom:1.4rem}
-    .faq-a a{color:var(--c8-blue);text-decoration:underline}
-    @media(max-width:900px){.faq-inner{grid-template-columns:1fr;gap:2.5rem}.faq-aside{position:static}}
-  </style>
   <section class="faq-section" id="faq">
     <div class="faq-inner">
       <div class="faq-aside">
-        <div class="faq-eyebrow"><span class="c8-eyebrow-slash">//</span> COMMON QUESTIONS</div>
-        <h2 class="faq-h2">Before You Reach Out</h2>
-        <p class="faq-sub">Can't find what you're looking for? Just ask &mdash; no sales script, no pitch.</p>
-        <a href="/contact" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        <div class="faq-eyebrow" data-customizer="faq_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('faq_eyebrow', 'COMMON QUESTIONS')); ?></div>
+        <h2 class="faq-h2" data-customizer="faq_heading"><?php echo esc_html(cr8v_mod('faq_heading', 'Before You Reach Out')); ?></h2>
+        <p class="faq-sub" data-customizer="faq_sub"><?php echo esc_html(cr8v_mod('faq_sub', 'Can\'t find what you\'re looking for? Just ask — no sales script, no pitch.')); ?></p>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('faq_cta_url', '/contact/'))); ?>" class="faq-cta-link" data-customizer="faq_cta_text">
+          <?php echo esc_html(cr8v_mod('faq_cta_text', 'Talk to us')); ?>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
       </div>
       <ul class="faq-list" id="faq-list">
         <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">How much does it cost to work with Cr8v Stacks?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">It depends on scope &mdash; a brochure site, an ecommerce store, and a custom AI MVP all price differently. Use our <a href="https://cr8vstacks.com/toolkits/website-cost-calculator/">cost calculator</a> for an instant range, or talk to us directly for a full quote.</p></div></div></li>
@@ -2888,128 +2865,8 @@ defined('ABSPATH') || exit;
   </script>
 
   <!-- SECTION: FINAL CTA -->
-  <style>
-    .cta-section {
-      background: #FFFFFF;
-      padding: clamp(5rem, 9vw, 8rem) 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 clamp(1.5rem, 5vw, 4rem);
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-    .cta-arc-container {
-      width: 100%;
-      max-width: 780px;
-      margin: 0 auto 0;
-      display: flex;
-      justify-content: center;
-    }
-    .cta-arc-img,
-    .cta-arc-video {
-      width: 100%;
-      max-width: 780px;
-      height: auto;
-      display: block;
-      object-fit: contain;
-      pointer-events: none !important;
-      user-select: none !important;
-      -webkit-user-select: none !important;
-    }
-    /* Unstyled wrapper div: easily shift all content subjects up or down together */
-    .cta-content-group {
-      margin-top: -6.5rem; /* Pulled up to -6.5rem on desktop */
-      position: relative;
-      z-index: 5;
-    }
-    @media (max-width: 768px) {
-      .cta-content-group {
-        margin-top: -3.5rem; /* Responsive scoping for mobile */
-      }
-    }
-    .cta-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--c8-blue);
-      background: transparent !important;
-      border: none !important;
-      padding: 0.4rem 1.1rem;
-      border-radius: 4px;
-      margin-bottom: 1.5rem;
-    }
-    .cta-h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(1.9rem, 4.2vw, 3rem);
-      font-weight: 400;
-      color: var(--c8-ink);
-      letter-spacing: 0.01em;
-      line-height: 1.25;
-      max-width: 780px;
-      margin: 0 auto 1.4rem;
-    }
-    .cta-h2 em {
-      font-style: normal;
-      color: var(--c8-blue);
-    }
-    .cta-desc {
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: var(--c8-muted);
-      line-height: 1.7;
-      max-width: 620px;
-      margin: 0 auto 2.5rem;
-    }
-    .cta-btn-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.8rem;
-      background: var(--c8-blue);
-      color: #FFFFFF;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 1rem 2.2rem;
-      border-radius: 4px;
-      text-decoration: none;
-      box-shadow: 0 10px 28px rgba(0, 71, 225, 0.28);
-      transition: all 0.25s ease;
-    }
-    .cta-btn-pill:hover {
-      background: #0037B5;
-      transform: translateY(-2px);
-      box-shadow: 0 14px 35px rgba(0, 71, 225, 0.38);
-    }
-    .cta-btn-arrow {
-      background: rgba(255,255,255,0.2);
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      transition: transform 0.25s ease;
-    }
-    .cta-btn-pill:hover .cta-btn-arrow {
-      transform: translateX(4px);
-    }
-  </style>
-
   <section class="cta-section" id="contact">
     <div class="cta-inner">
-      <!-- Transparent PNG Arc image matching title width -->
       <div class="cta-arc-container">
         <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate" class="cta-arc-video">
           <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>download.mp4" type="video/mp4">
@@ -3017,21 +2874,20 @@ defined('ABSPATH') || exit;
         </video>
       </div>
 
-      <!-- Pure positioning wrapper container: shift margin-top on .cta-content-group to push up or down -->
       <div class="cta-content-group">
-        <div class="cta-badge"><span class="c8-eyebrow-slash">//</span> EASY TO EXPLORE</div>
+        <div class="cta-badge" data-customizer="cta_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('cta_eyebrow', 'EASY TO EXPLORE')); ?></div>
         
-        <h2 class="cta-h2">
-          A simple approach to building your <em>custom digital stacks.</em>
+        <h2 class="cta-h2" data-customizer="cta_heading">
+          <?php echo esc_html(cr8v_mod('cta_heading', 'A simple approach to building your custom digital stacks.')); ?>
         </h2>
 
-        <p class="cta-desc">
-          Cr8v Stacks requires no guesswork. Transparent fixed scoping, dedicated engineering, and custom digital systems tailored to your exact business goals.
+        <p class="cta-desc" data-customizer="cta_sub">
+          <?php echo esc_html(cr8v_mod('cta_sub', 'Cr8v Stacks requires no guesswork. Transparent fixed scoping, dedicated engineering, and custom digital systems tailored to your exact business goals.')); ?>
         </p>
 
         <div>
-          <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="cta-btn-pill" target="_blank" rel="noopener">
-            Book a Consultation <span class="cta-btn-arrow">&rarr;</span>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('cta_button_url', '/discovery-call/'))); ?>" class="cta-btn-pill" target="_blank" rel="noopener" data-customizer="cta_button_text">
+            <?php echo esc_html(cr8v_mod('cta_button_text', 'Book a Consultation')); ?> <span class="cta-btn-arrow">&rarr;</span>
           </a>
         </div>
       </div>
