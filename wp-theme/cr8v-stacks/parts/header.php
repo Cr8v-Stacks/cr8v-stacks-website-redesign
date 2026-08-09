@@ -201,21 +201,23 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
 
         <!-- Dynamic primary menu items (managed from WP Admin → Appearance → Menus) -->
         <?php
-        wp_nav_menu([
-            'theme_location'  => 'primary',
-            'container'       => false,
-            'items_wrap'      => '%3$s',   // no wrapper — outputs raw <li> items into our <ul>
-            'fallback_cb'     => false,
-            'link_before'     => '',
-            'link_after'      => '',
-            'before'          => '',
-            'after'           => '',
-            'depth'           => 1,
-            'add_li_class'    => 'c8-pnav-item',
-            'link_class'      => 'c8-pnav-link',
-            'walker'          => new CR8V_Primary_Nav_Walker(),
-        ]);
+        if (has_nav_menu('primary')) {
+            wp_nav_menu([
+                'theme_location'  => 'primary',
+                'container'       => false,
+                'items_wrap'      => '%3$s',
+                'fallback_cb'     => false,
+                'depth'           => 1,
+                'add_li_class'    => 'c8-pnav-item',
+                'link_class'      => 'c8-pnav-link',
+                'walker'          => new CR8V_Primary_Nav_Walker(),
+            ]);
+        } else {
         ?>
+          <li class="c8-pnav-item"><a href="<?php echo esc_url(home_url('/about/')); ?>" class="c8-pnav-link">About</a></li>
+          <li class="c8-pnav-item"><a href="<?php echo esc_url(home_url('/case-studies/')); ?>" class="c8-pnav-link">Case Studies</a></li>
+          <li class="c8-pnav-item"><a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8-pnav-link">Blog</a></li>
+        <?php } ?>
       </ul>
     </nav>
 
@@ -251,20 +253,47 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
         </a>
       </div>
 
-      <!-- Col 2: Design & Build — driven by WP Services Mega Menu -->
+      <!-- Col 2: Design & Build — driven by WP Services Mega Menu (with fallback) -->
       <div class="c8-mcol-list">
         <div class="c8-mcol-eyebrow">DESIGN &amp; BUILD</div>
         <div class="c8-svc2-list">
           <?php
-          wp_nav_menu([
-              'theme_location' => 'services-mega',
-              'container'      => false,
-              'items_wrap'     => '%3$s',
-              'fallback_cb'    => false,
-              'depth'          => 1,
-              'walker'         => new CR8V_Services_Mega_Walker(),
-          ]);
+          if (has_nav_menu('services-mega')) {
+              wp_nav_menu([
+                  'theme_location' => 'services-mega',
+                  'container'      => false,
+                  'items_wrap'     => '%3$s',
+                  'fallback_cb'    => false,
+                  'depth'          => 1,
+                  'walker'         => new CR8V_Services_Mega_Walker(),
+              ]);
+          } else {
           ?>
+            <a href="<?php echo esc_url(home_url('/services/web-design/')); ?>" class="c8-svc2-row">
+              <div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+              <div><div class="c8-svc2-name">Website Design</div><div class="c8-svc2-desc">Custom UI/UX &amp; Webflow/WP</div></div>
+            </a>
+            <a href="<?php echo esc_url(home_url('/services/custom-dev/')); ?>" class="c8-svc2-row">
+              <div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+              <div><div class="c8-svc2-name">Custom Development</div><div class="c8-svc2-desc">Full-stack web applications</div></div>
+            </a>
+            <a href="<?php echo esc_url(home_url('/services/ecommerce/')); ?>" class="c8-svc2-row">
+              <div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg></div>
+              <div><div class="c8-svc2-name">E-Commerce</div><div class="c8-svc2-desc">High-converting digital stores</div></div>
+            </a>
+            <a href="<?php echo esc_url(home_url('/services/shopify/')); ?>" class="c8-svc2-row">
+              <div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+              <div><div class="c8-svc2-name">Shopify</div><div class="c8-svc2-desc">Liquid &amp; Headless storefronts</div></div>
+            </a>
+            <a href="<?php echo esc_url(home_url('/services/woocommerce/')); ?>" class="c8-svc2-row">
+              <div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+              <div><div class="c8-svc2-name">WooCommerce</div><div class="c8-svc2-desc">Scalable WP shopping systems</div></div>
+            </a>
+            <a href="<?php echo esc_url(home_url('/services/wordpress/')); ?>" class="c8-svc2-row">
+              <div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"/></svg></div>
+              <div><div class="c8-svc2-name">WordPress</div><div class="c8-svc2-desc">High-performance custom themes</div></div>
+            </a>
+          <?php } ?>
         </div>
       </div>
 

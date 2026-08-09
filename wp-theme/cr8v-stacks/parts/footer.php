@@ -106,35 +106,57 @@ $facebook  = cr8v_mod('footer_facebook',  'https://www.facebook.com/cr8vstacks')
 <div class="c8ft-stack-zone">
   <div class="c8ft-stack">
 
-    <!-- Card 1: Sitemap — driven by WP footer menu -->
+    <!-- Card 1: Sitemap — driven by WP footer menu (with fallback) -->
     <div class="c8ft-card">
       <div class="c8ft-card-label">// SITEMAP</div>
       <?php
-      wp_nav_menu([
-          'theme_location' => 'footer-col-1',
-          'container'      => false,
-          'items_wrap'     => '%3$s',
-          'fallback_cb'    => false,
-          'depth'          => 1,
-          'walker'         => new CR8V_Footer_Link_Walker(),
-      ]);
+      if (has_nav_menu('footer-col-1')) {
+          wp_nav_menu([
+              'theme_location' => 'footer-col-1',
+              'container'      => false,
+              'items_wrap'     => '%3$s',
+              'fallback_cb'    => false,
+              'depth'          => 1,
+              'walker'         => new CR8V_Footer_Link_Walker(),
+          ]);
+      } else {
       ?>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="c8ft-site-link">Home <span class="c8ft-site-link-arr">→</span></a>
+        <a href="<?php echo esc_url(home_url('/about/')); ?>" class="c8ft-site-link">About Us <span class="c8ft-site-link-arr">→</span></a>
+        <a href="<?php echo esc_url(home_url('/services/')); ?>" class="c8ft-site-link">Services <span class="c8ft-site-link-arr">→</span></a>
+        <a href="<?php echo esc_url(home_url('/case-studies/')); ?>" class="c8ft-site-link">Case Studies <span class="c8ft-site-link-arr">→</span></a>
+        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8ft-site-link">Blog <span class="c8ft-site-link-arr">→</span></a>
+        <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8ft-site-link">Discovery Call <span class="c8ft-site-link-arr">→</span></a>
+      <?php } ?>
     </div>
 
-    <!-- Card 2: Services chips — driven by WP footer services menu -->
+    <!-- Card 2: Services chips — driven by WP footer services menu (with fallback) -->
     <div class="c8ft-card">
       <div class="c8ft-card-label">// WHAT WE DO</div>
       <div class="c8ft-chip-cluster">
         <?php
-        wp_nav_menu([
-            'theme_location' => 'footer-col-2',
-            'container'      => false,
-            'items_wrap'     => '%3$s',
-            'fallback_cb'    => false,
-            'depth'          => 1,
-            'walker'         => new CR8V_Footer_Chip_Walker(),
-        ]);
+        if (has_nav_menu('footer-col-2')) {
+            wp_nav_menu([
+                'theme_location' => 'footer-col-2',
+                'container'      => false,
+                'items_wrap'     => '%3$s',
+                'fallback_cb'    => false,
+                'depth'          => 1,
+                'walker'         => new CR8V_Footer_Chip_Walker(),
+            ]);
+        } else {
         ?>
+          <a href="<?php echo esc_url(home_url('/services/web-design/')); ?>" class="c8ft-chip">Website Design</a>
+          <a href="<?php echo esc_url(home_url('/services/custom-dev/')); ?>" class="c8ft-chip">Custom Dev</a>
+          <a href="<?php echo esc_url(home_url('/services/ecommerce/')); ?>" class="c8ft-chip">E-Commerce</a>
+          <a href="<?php echo esc_url(home_url('/services/shopify/')); ?>" class="c8ft-chip">Shopify</a>
+          <a href="<?php echo esc_url(home_url('/services/woocommerce/')); ?>" class="c8ft-chip">WooCommerce</a>
+          <a href="<?php echo esc_url(home_url('/services/wordpress/')); ?>" class="c8ft-chip">WordPress</a>
+          <a href="<?php echo esc_url(home_url('/services/ai-mvp/')); ?>" class="c8ft-chip">AI MVP</a>
+          <a href="<?php echo esc_url(home_url('/services/brand-identity/')); ?>" class="c8ft-chip">Brand Identity</a>
+          <a href="<?php echo esc_url(home_url('/services/digital-marketing/')); ?>" class="c8ft-chip">Digital Marketing</a>
+          <a href="<?php echo esc_url(home_url('/services/seo-content/')); ?>" class="c8ft-chip">SEO &amp; Content</a>
+        <?php } ?>
       </div>
       <div class="c8ft-card-note">Need a custom scope? <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>">Calculate instant estimate →</a></div>
     </div>

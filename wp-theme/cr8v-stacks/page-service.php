@@ -38,6 +38,35 @@ $benefits   = function_exists('get_field') ? (get_field('service_benefits', $pid
 $process    = function_exists('get_field') ? (get_field('service_process', $pid)  ?: []) : [];
 $faqs       = function_exists('get_field') ? (get_field('service_faq', $pid)      ?: []) : [];
 $related_id = cr8v_get_meta($pid, 'related_case_study_id', 0);
+
+// Default fallbacks if ACF repeaters have not been populated yet
+if (empty($benefits)) {
+    $benefits = [
+        ['title' => 'High-Performance Engineering', 'desc' => 'Custom architecture engineered for sub-second load times, maximum SEO indexing, and liquid smooth 60fps animations.'],
+        ['title' => 'Conversion-Focused UX', 'desc' => 'Strategic user flows, persuasive micro-copy, and frictionless CTAs designed to turn visitors into qualified leads.'],
+        ['title' => 'Scalable & Future-Proof', 'desc' => 'Modular component architecture built to grow with your business without technical debt or legacy clutter.']
+    ];
+}
+
+if (empty($process)) {
+    $process = [
+        ['num' => '01', 'title' => 'Discovery & Architecture', 'desc' => 'Deep dive into goals, user personas, tech stack, and content hierarchy.'],
+        ['num' => '02', 'title' => 'Design & Prototyping', 'desc' => 'High-fidelity UI design, visual systems, and interactive motion prototypes.'],
+        ['num' => '03', 'title' => 'Engineering & Integration', 'desc' => 'Clean code, responsive layout engineering, custom fields, and CMS integration.'],
+        ['num' => '04', 'title' => 'Launch & Optimization', 'desc' => 'Pre-launch audit, performance testing, SEO verification, and live deployment.']
+    ];
+}
+
+if (empty($faqs)) {
+    $faqs = [
+        ['question' => 'How long does a project typically take?', 'answer' => 'Typically 2 to 6 weeks depending on project scope, custom interactive features, and content readiness.'],
+        ['question' => 'Can I manage and update content myself?', 'answer' => 'Yes! All headlines, text copy, images, case studies, and menus are fully editable via WordPress Admin and Live Customizer.'],
+        ['question' => 'Do you provide ongoing support & maintenance?', 'answer' => 'Yes, we offer ongoing performance optimization, security monitoring, and continuous design and feature updates.']
+    ];
+}
+if (empty($pills)) {
+    $pills = ['Strategy', 'UI/UX Design', 'Engineering', 'Performance', 'SEO'];
+}
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
