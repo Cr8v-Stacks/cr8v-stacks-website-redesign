@@ -53,7 +53,57 @@ defined('ABSPATH') || exit;
         </div>
       </article>
       <?php endwhile; else : ?>
-      <p class="fylla-no-posts">No posts found. Check back soon.</p>
+      <!-- Default fallback blog post cards when no WP posts exist yet -->
+      <article class="fylla-post-card">
+        <a href="#" class="fylla-post-card-img-wrap">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_workflow_visual.jpg'); ?>" class="fylla-post-card-img" alt="Liquid Performance">
+        </a>
+        <div class="fylla-post-card-body">
+          <div class="fylla-post-card-meta">
+            <span class="fylla-post-cat-pill">Engineering</span>
+            <span class="fylla-post-read-time">5 Min Read</span>
+          </div>
+          <h2 class="fylla-post-card-title">
+            <a href="#">What Liquid Performance Means For Modern Web Platforms</a>
+          </h2>
+          <p class="fylla-post-card-excerpt">Why sub-second load times, 60fps animations, and zero third-party plugin bloat are essential for high-converting brands.</p>
+          <a href="#" class="fylla-post-card-link">Read Article →</a>
+        </div>
+      </article>
+
+      <article class="fylla-post-card">
+        <a href="#" class="fylla-post-card-img-wrap">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/ai_wp_tree_workflow.jpg'); ?>" class="fylla-post-card-img" alt="Entity SEO">
+        </a>
+        <div class="fylla-post-card-body">
+          <div class="fylla-post-card-meta">
+            <span class="fylla-post-cat-pill">SEO &amp; Strategy</span>
+            <span class="fylla-post-read-time">7 Min Read</span>
+          </div>
+          <h2 class="fylla-post-card-title">
+            <a href="#">Entity SEO &amp; Content Architecture for High-Growth Brands</a>
+          </h2>
+          <p class="fylla-post-card-excerpt">How semantic keyword mapping and topical authority structures dominate search engine results without black-hat tactics.</p>
+          <a href="#" class="fylla-post-card-link">Read Article →</a>
+        </div>
+      </article>
+
+      <article class="fylla-post-card">
+        <a href="#" class="fylla-post-card-img-wrap">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/c4_tools_bg.jpg'); ?>" class="fylla-post-card-img" alt="Conversion UI/UX">
+        </a>
+        <div class="fylla-post-card-body">
+          <div class="fylla-post-card-meta">
+            <span class="fylla-post-cat-pill">UI/UX Design</span>
+            <span class="fylla-post-read-time">4 Min Read</span>
+          </div>
+          <h2 class="fylla-post-card-title">
+            <a href="#">Designing for Conversion: High-Contrast Visual Systems</a>
+          </h2>
+          <p class="fylla-post-card-excerpt">Strategic micro-interactions, dark mode aesthetics, and clear content hierarchies that turn casual visitors into loyal clients.</p>
+          <a href="#" class="fylla-post-card-link">Read Article →</a>
+        </div>
+      </article>
       <?php endif; ?>
     </div>
 

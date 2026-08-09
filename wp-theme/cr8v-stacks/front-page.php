@@ -1,29 +1,10 @@
-<?php
+﻿<?php
 /**
  * CR8V Stacks — front-page.php
- * Homepage template. All text/images editable via:
- * WP Admin → Appearance → Customize → 🏠 Homepage
+ * Tropos Theme Homepage (100% full design fidelity from home-b.html)
+ * Customizer editable: WP Admin → Appearance → Customize → Homepage
  */
 defined('ABSPATH') || exit;
-
-// Pull all Customizer values with defaults
-$hero_eyebrow   = cr8v_mod('hero_eyebrow',   'Cr8v Stacks — Design & Engineering Studio');
-$hero_h1        = cr8v_mod('hero_headline_1','We Build Businesses');
-$hero_h2        = cr8v_mod('hero_headline_2','That Win Online');
-$hero_sub       = cr8v_mod('hero_sub',       'Strategy, design, and liquid performance engineering for ambitious brands.');
-$hero_cta_text  = cr8v_mod('hero_cta_text',  'Get an Estimate');
-$hero_cta_link  = cr8v_mod('hero_cta_link',  home_url('/discovery-call/'));
-$hero_video     = cr8v_mod('hero_video_url', '');
-$hero_poster    = cr8v_mod('hero_poster_img','');
-
-// Testimonials
-$test_eyebrow  = cr8v_mod('testimonials_eyebrow', '// WHAT CLIENTS SAY');
-$test_heading  = cr8v_mod('testimonials_heading',  'Trusted by ambitious brands');
-
-// Stats / Matrix
-$matrix_eyebrow = cr8v_mod('matrix_eyebrow', '// BY THE NUMBERS');
-$matrix_heading  = cr8v_mod('matrix_heading', 'Delivering measurable results');
-
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -34,134 +15,3269 @@ $matrix_heading  = cr8v_mod('matrix_heading', 'Delivering measurable results');
 </head>
 <body <?php body_class('cr8v-homepage'); ?>>
 <?php wp_body_open(); ?>
-
 <?php get_template_part('parts/header'); ?>
 
 <main id="cr8v-main">
-
-  <!-- ══════════════════════════════════════════════════
-       HERO SECTION
-       Edit: WP Admin → Customize → Homepage → Hero Section
-  ══════════════════════════════════════════════════ -->
-  <section class="dp-hero-section" id="hero">
-
-    <?php if ($hero_video) : ?>
-    <video class="dp-hero-video" autoplay muted loop playsinline
-           preload="none"
-           <?php if ($hero_poster) : ?>poster="<?php echo esc_url($hero_poster); ?>"<?php endif; ?>
-           controlsList="nodownload nofullscreen noremoteplayback"
-           disablePictureInPicture>
-      <source src="<?php echo esc_url($hero_video); ?>" type="video/mp4">
-    </video>
-    <?php elseif ($hero_poster) : ?>
-    <div class="dp-hero-poster" style="background-image:url('<?php echo esc_url($hero_poster); ?>')"></div>
-    <?php endif; ?>
-
-    <div class="dp-hero-inner">
-      <div class="c8-hero-eyebrow" data-customizer="hero_eyebrow"><?php echo esc_html($hero_eyebrow); ?></div>
-      <h1 class="dp-headline">
-        <span class="line-1" data-customizer="hero_headline_1"><?php echo esc_html($hero_h1); ?></span>
-        <em class="line-2" data-customizer="hero_headline_2"><?php echo esc_html($hero_h2); ?></em>
-      </h1>
-      <p class="dp-sub c8-hero-sub" data-customizer="hero_sub"><?php echo esc_html($hero_sub); ?></p>
-      <div class="dp-cta-row">
-        <a href="<?php echo esc_url($hero_cta_link); ?>" class="c8-btn-primary c8-hero-cta-btn" data-customizer="hero_cta_text">
-          <?php echo esc_html($hero_cta_text); ?> →
-        </a>
+<section class="c8-hero-top c8-hero-b-standalone">
+    <div class="c8-hero-in">
+      <div class="c8-eyebrow"><span class="c8-eyebrow-slash">//</span> SCALE WITH AUTHORITY</div>
+      <h1 class="c8-hero-h1" data-customizer="hero_headline_1"><?php echo esc_html(cr8v_mod('hero_headline_1', 'We build what your business actually runs on.')); ?></h1>
+      <p class="c8-hero-sub" data-customizer="hero_sub"><?php echo esc_html(cr8v_mod('hero_sub', 'Strategy, design, and liquid performance engineering — built from scratch by one team for ambitious brands.')); ?></p>
+      
+      <div class="c8-hero-ctas">
+        <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8-btn-primary">Start a Project →</a>
+        <a href="#how-we-think" class="btn-secondary">Explore Philosophy ↓</a>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════════
-       TESTIMONIALS SECTION
-       Edit: WP Admin → Customize → Homepage → Testimonials Section
-  ══════════════════════════════════════════════════ -->
-  <section class="sw-testimonial-section">
-    <div class="sw-testimonial-inner">
-      <div class="sw-mono-tag"><?php echo esc_html($test_eyebrow); ?></div>
-      <h2 class="sw-testimonial-heading"><?php echo esc_html($test_heading); ?></h2>
-      <div class="sw-testimonial-track">
-        <?php for ($i = 1; $i <= 3; $i++) :
-          $quote  = cr8v_mod("testimonial_{$i}_quote",  '');
-          $name   = cr8v_mod("testimonial_{$i}_name",   '');
-          $role   = cr8v_mod("testimonial_{$i}_role",   '');
-          $avatar = cr8v_mod("testimonial_{$i}_avatar", '');
-          if (!$quote) continue;
-        ?>
-        <div class="sw-testimonial-card">
-          <p class="sw-testimonial-quote"><?php echo esc_html($quote); ?></p>
-          <div class="sw-testimonial-meta">
-            <?php if ($avatar) : ?>
-            <div class="sw-testimonial-avatar"><img src="<?php echo esc_url($avatar); ?>" alt="<?php echo esc_attr($name); ?>"></div>
-            <?php endif; ?>
-            <div>
-              <div class="sw-testimonial-name"><?php echo esc_html($name); ?></div>
-              <div class="sw-testimonial-role"><?php echo esc_html($role); ?></div>
+  <!-- POST-HERO ARCHITECTURAL PAPER GRID SECTION -->
+  <section class="c8-puzzle-section" id="how-we-think">
+    <div class="c8-puzzle-header">
+      <div class="c8-eyebrow"><span class="c8-eyebrow-slash">//</span> CREATIVE AGENCY MINDSET</div>
+      <h2 class="c8-hero-h1" style="font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 0.5rem;">How We Think &amp; Create</h2>
+      <p class="c8-hero-sub" style="margin-bottom: 0; max-width: 650px;">Design is our primary focus, supported by AI as a creative partner and built-in growth systems.</p>
+    </div>
+
+    <div class="c8-paper-grid" id="main-desk-grid">
+      
+      <!-- Moving Visual Tile -->
+      <div class="c8-puzzle-tile" id="desk-tile">
+        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>kinetic_grid_showcase.jpg" alt="Design Identity" class="c8-swap-img is-active-img" id="img-row-1">
+        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_'); ?>ai_workflow.png" alt="AI Creative Partner" class="c8-swap-img" id="img-row-2">
+        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_'); ?>stack_seo.png" alt="Growth Systems" class="c8-swap-img" id="img-row-3">
+      </div>
+
+      <!-- ROW 1 -->
+      <div class="c8-pg-cell is-text-card" data-row="0" data-col="0" id="d-r1-text">
+        <span class="c8-drag-grip">DRAG CARD</span>
+        <h3 class="c8-pg-h3">Design-Led Brand &amp; Visual Systems</h3>
+        <p class="c8-pg-p">Design is our primary foundation. We craft distinct visual identities, digital products, and brand systems that make your business instantly memorable.</p>
+      </div>
+      <div class="c8-pg-cell is-empty-slot" data-row="0" data-col="1" data-img-idx="0" id="d-r1-c2">
+        <span class="c8-slot-hint">CLICK / DRAG SLOT ↑</span>
+      </div>
+      <div class="c8-pg-cell is-empty-slot" data-row="0" data-col="2" data-img-idx="0" id="d-r1-c3">
+        <span class="c8-slot-hint">CLICK / DRAG SLOT ↑</span>
+      </div>
+
+      <!-- ROW 2 -->
+      <div class="c8-pg-cell is-empty-slot" data-row="1" data-col="0" data-img-idx="1" id="d-r2-c1">
+        <span class="c8-slot-hint">CLICK / DRAG SLOT ↑</span>
+      </div>
+      <div class="c8-pg-cell is-empty-slot" data-row="1" data-col="1" data-img-idx="1" id="d-r2-c2">
+        <span class="c8-slot-hint">CLICK / DRAG SLOT ↑</span>
+      </div>
+      <div class="c8-pg-cell is-text-card" data-row="1" data-col="2" id="d-r2-text">
+        <span class="c8-drag-grip">DRAG CARD</span>
+        <h3 class="c8-pg-h3">AI as Our Creative Partner</h3>
+        <p class="c8-pg-p">We leverage AI as a high-speed creative partner—accelerating research, rapid prototyping, and workflow iteration so we can ship elevated design faster.</p>
+      </div>
+
+      <!-- ROW 3 -->
+      <div class="c8-pg-cell is-text-card" data-row="2" data-col="0" id="d-r3-text">
+        <span class="c8-drag-grip">DRAG CARD</span>
+        <h3 class="c8-pg-h3">Built-In Growth Engine</h3>
+        <p class="c8-pg-p">Stunning design means nothing if it doesn't scale. Our brand systems are built to convert, capture market share, and drive long-term business momentum.</p>
+      </div>
+      <div class="c8-pg-cell is-empty-slot" data-row="2" data-col="1" data-img-idx="2" id="d-r3-c2">
+        <span class="c8-slot-hint">CLICK / DRAG SLOT ↑</span>
+      </div>
+      <div class="c8-pg-cell is-empty-slot" data-row="2" data-col="2" data-img-idx="2" id="d-r3-c3">
+        <span class="c8-slot-hint">CLICK / DRAG SLOT ↑</span>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    /* Global CTA Underline Reset & Text CTA Standard */
+    a, a:hover, a:focus, .c8-btn-primary, .dp-btn-ghost, .stage-link, .c8srv-explore, .sw-play-btn, .c8-text-cta {
+      text-decoration: none !important;
+    }
+
+    /* Architectural Cell Matrix Container */
+    .sw-matrix-wrapper {
+      max-width: 1360px;
+      margin: 4rem auto 6rem auto;
+      border: 1px solid rgba(8, 8, 8, 0.06);
+      background: #FFFFFF;
+    }
+
+    .sw-matrix-cell {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid rgba(8, 8, 8, 0.06);
+    }
+    .sw-matrix-cell:last-child {
+      border-bottom: none;
+    }
+
+    .sw-matrix-left {
+      padding: 4rem 3.5rem;
+      border-right: 1px solid rgba(8, 8, 8, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #FAFAF7;
+    }
+
+    .sw-matrix-right {
+      padding: 2.5rem;
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .sw-matrix-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #0047E1;
+      margin-bottom: 1rem;
+    }
+
+    .sw-matrix-h2 {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1.1rem, 2.6vw, 1.1rem);
+      font-weight: 700;
+      color: #080808;
+      text-transform: uppercase;
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+    }
+
+    .sw-matrix-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #555555;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .sw-matrix-img-box {
+      width: 100%;
+      aspect-ratio: 16/10;
+      border: 1px solid rgba(8, 8, 8, 0.06);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .sw-matrix-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .sw-matrix-img-box:hover .sw-matrix-img {
+      transform: scale(1.03);
+    }
+
+    .sw-matrix-stat-floating {
+      position: absolute;
+      top: 4.25rem;
+      right: 1.25rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(8, 8, 8, 0.06);
+      padding: 0.6rem 1.2rem;
+      z-index: 3;
+    }
+
+    .sw-matrix-stat-val {
+      font-family: 'Michroma', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #0047E1;
+    }
+
+    .sw-matrix-stat-lbl {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #555555;
+    }
+
+    /* Standardized Text CTA UI (dp-btn-ghost baseline) */
+    .c8-text-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #0047E1;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none !important;
+      border-bottom: 1px solid rgba(0, 71, 225, 0.35);
+      padding-bottom: 3px;
+      transition: color 0.25s ease, border-color 0.25s ease, gap 0.25s ease;
+    }
+
+    .c8-text-cta:hover {
+      color: #0037B5;
+      border-color: #0047E1;
+      gap: 12px;
+      text-decoration: none !important;
+    }
+
+    @media (max-width: 900px) {
+      .sw-matrix-cell {
+        grid-template-columns: 1fr;
+      }
+      .sw-matrix-left {
+        border-right: none;
+        border-bottom: 1px solid rgba(8, 8, 8, 0.06);
+        padding: 2.5rem 1.5rem;
+      }
+      .sw-matrix-right {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+<div class="sw-wrapper" id="selected-work">
+    <div class="sw-matrix-wrapper">
+
+      <!-- ── MATRIX INTRO HEADER CELL ── -->
+      <div class="sw-matrix-cell sw-matrix-intro-cell">
+        <div class="sw-matrix-left" style="background:#FFFFFF; padding:3.5rem;">
+          <div class="sw-matrix-eyebrow">// SELECTED WORK</div>
+          <h2 class="sw-matrix-h2" style="font-size: clamp(1.4rem, 3.2vw, 2.2rem); margin-bottom: 0;">WORK THAT'S VERIFIABLY <span style="color:#0047E1;">LIVE.</span></h2>
+        </div>
+        <div class="sw-matrix-right" style="padding:3.5rem;">
+          <p class="sw-matrix-sub" style="margin-bottom:0;">
+            These aren't concept projects or fictitious mockups. Every case study below is a live engagement — search the clients on Google and see the work for yourself. We only show projects we're allowed to talk about.
+          </p>
+        </div>
+      </div>
+
+      <!-- ── CASE 1: BLVCK HAIR NG ── -->
+      <div class="sw-matrix-cell" id="cs-blvck-hair">
+        <div class="sw-matrix-left">
+          <div>
+            <div class="sw-matrix-eyebrow">// ORGANIC ACQUISITION ENGINE</div>
+            <h2 class="sw-matrix-h2">Organic E-Commerce Growth From The Ground Up</h2>
+            <p class="sw-matrix-sub">
+              Full-stack SEO architecture and multi-market e-commerce scaling for blvck Hair NG — growing from a single early storefront to active revenue-generating stores in both Nigeria and the UK.
+            </p>
+          </div>
+
+          <!-- REVERTED TESTIMONIAL CARD UI -->
+          <div class="sw-testimonial-card" style="margin-bottom: 2rem;">
+            <p class="sw-testimonial-quote">We handled their SEO end-to-end — keyword mapping, page architecture, and content — from the ground up. We built out the strategy for two markets simultaneously, and both storefronts are now ranking and converting independently.</p>
+            <div class="sw-testimonial-meta">
+              <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(149,191,71,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(149,191,71,0.3);">
+                <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" style="width:20px;height:20px;">
+              </div>
+              <div>
+                <div class="sw-testimonial-role">SEO &amp; E-Commerce · Nigeria &amp; UK</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="Case Studies/blvck-hair-ng.html" class="c8-text-cta">
+              <span>Explore Case Study</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="sw-matrix-right">
+          <div class="sw-matrix-stat-floating">
+            <div class="sw-matrix-stat-val">2 Active Stores</div>
+            <div class="sw-matrix-stat-lbl">UK &amp; NG Growth</div>
+          </div>
+          <div class="sw-matrix-img-box">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_blvck_hair.jpg" alt="blvck Hair NG" class="sw-matrix-img">
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CASE 2: THE DUCH APARTMENTS (IMAGE LEFT, TEXT RIGHT — ZIG ZAG) ── -->
+      <div class="sw-matrix-cell" id="cs-duch-apartments">
+        <div class="sw-matrix-right" style="border-right: 1px solid rgba(8, 8, 8, 0.06);">
+          <div class="sw-matrix-stat-floating">
+            <div class="sw-matrix-stat-val">100% Custom</div>
+            <div class="sw-matrix-stat-lbl">Design &amp; SEO Day 1</div>
+          </div>
+          <div class="sw-matrix-img-box">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_duch_apartments.jpg" alt="The Duch Apartments" class="sw-matrix-img">
+          </div>
+        </div>
+
+        <div class="sw-matrix-left" style="border-right: none;">
+          <div>
+            <div class="sw-matrix-eyebrow">// BUILT-IN SEO ARCHITECTURE</div>
+            <h2 class="sw-matrix-h2">Website Design With SEO Folded In From Day One</h2>
+            <p class="sw-matrix-sub">
+              Bespoke website design for The Duch Apartments — engineered with search engine optimization folded directly into the code structure from line one rather than patched after launch.
+            </p>
+          </div>
+
+          <!-- REVERTED TESTIMONIAL CARD UI -->
+          <div class="sw-testimonial-card" style="margin-bottom: 2rem;">
+            <p class="sw-testimonial-quote">We designed and built the full site — custom layout, zero template base — with SEO architecture already coded in before a single page went live. Direct booking integration was included from the first sprint, maximising their direct revenue channel from day one.</p>
+            <div class="sw-testimonial-meta">
+              <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(33,117,155,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(33,117,155,0.3);">
+                <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress" style="width:20px;height:20px;">
+              </div>
+              <div>
+                <div class="sw-testimonial-role">Web Design &amp; Technical SEO · Lagos, Nigeria</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="Case Studies/the-duch-apartments.html" class="c8-text-cta">
+              <span>Explore Case Study</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CASE 3: WP PUBLISHION AI ── -->
+      <div class="sw-matrix-cell" id="cs-nativus-dashboard">
+        <div class="sw-matrix-left">
+          <div>
+            <div class="sw-matrix-eyebrow">// PROPRIETARY AI MVP PLATFORM</div>
+            <h2 class="sw-matrix-h2">WP Publishion AI — Automated Publishing Architecture</h2>
+            <p class="sw-matrix-sub">
+              Our in-house flagship AI platform: OpenAI and Claude API orchestration, vector embedding search indexes, automated content generation pipelines, and multi-site publishing workflows.
+            </p>
+          </div>
+
+          <!-- REVERTED TESTIMONIAL CARD UI -->
+          <div class="sw-testimonial-card" style="margin-bottom: 2rem;">
+            <p class="sw-testimonial-quote">Engineered as our in-house flagship AI platform: OpenAI API orchestration, vector embedding indexes, automated content generation pipelines, and multi-site WordPress publishing workflows.</p>
+            <div class="sw-testimonial-meta">
+              <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(217,119,87,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(217,119,87,0.3);">
+                <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Anthropic Claude" style="width:20px;height:20px;">
+              </div>
+              <div>
+                <div class="sw-testimonial-role">OpenAI &amp; Claude AI MVP · In-House Platform</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="Case Studies/wp-publishion-ai.html" class="c8-text-cta">
+              <span>Explore Case Study</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="sw-matrix-right">
+          <div class="sw-matrix-stat-floating">
+            <div class="sw-matrix-stat-val">AI MVP Engine</div>
+            <div class="sw-matrix-stat-lbl">Proprietary AI Build</div>
+          </div>
+          <div class="sw-matrix-img-box">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_study_bridgepoint_compliance_1785571461489.jpg" alt="WP Publishion AI" class="sw-matrix-img">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<!-- High-Performance 60FPS Continuous Canvas Controller -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('c8-canvas');
+      const ctx = canvas.getContext('2d');
+      const track = document.getElementById('scroll-track');
+      const wrapper = document.getElementById('canvas-wrapper');
+
+      const totalFrames = 449;
+      const images = [];
+
+      canvas.width = 1920;
+      canvas.height = 1080;
+
+      // Preload 449 frames into memory
+      for (let i = 1; i <= totalFrames; i++) {
+        const img = new Image();
+        const num = String(i).padStart(5, '0');
+        img.src = `hero_sequence/${num}.jpg`;
+        images.push(img);
+      }
+
+      // Smooth LERP Variables
+      let targetProgress = 0;
+      let currentProgress = 0;
+      let isExpandedState = false;
+
+      // Stage Box Elements
+      const t1 = document.getElementById('trigger-1-web-design');
+      const t2 = document.getElementById('trigger-2-custom-dev');
+      const t3Left = document.getElementById('trigger-3-ai-mvp-left');
+      const t3Right = document.getElementById('trigger-3-ai-mvp-right');
+
+      // Helper function to safely render frame with 404 fallback
+      function renderFrame(index) {
+        let img = images[index];
+        
+        // 404 Safeguard fallback if specific image is missing or incomplete
+        if (!img || !img.complete || img.naturalWidth === 0) {
+          // Fallback to adjacent valid frame
+          img = images[Math.max(0, index - 1)] || images[Math.min(totalFrames - 1, index + 1)];
+        }
+
+        if (img && img.complete && img.naturalWidth !== 0) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          
+          // FULL WIDTH COVER SCALE DRAWING
+          const hRatio = canvas.width / img.width;
+          const vRatio = canvas.height / img.height;
+          const ratio = Math.max(hRatio, vRatio);
+          const centerShiftX = (canvas.width - img.width * ratio) / 2;
+          const centerShiftY = (canvas.height - img.height * ratio) / 2;
+
+          ctx.drawImage(
+            img, 0, 0, img.width, img.height,
+            centerShiftX, centerShiftY, img.width * ratio, img.height * ratio
+          );
+        }
+      }
+
+      // Scroll Event Listener
+      window.addEventListener('scroll', () => {
+        const trackRect = track.getBoundingClientRect();
+        const maxScroll = trackRect.height - window.innerHeight;
+        const currentScroll = Math.max(0, -trackRect.top);
+        targetProgress = Math.min(1, Math.max(0, currentScroll / maxScroll));
+      });
+
+      // Continuous 60fps Render Loop with LERP
+      function renderLoop() {
+        // LERP interpolation
+        currentProgress += (targetProgress - currentProgress) * 0.08;
+
+        // Calculate continuous frame index (1 to 448) - NO MANUAL FRAME SKIPPING!
+        const frameIndex = Math.min(totalFrames - 1, Math.max(0, Math.floor(currentProgress * totalFrames)));
+
+        // Render target frame cleanly
+        renderFrame(frameIndex);
+
+        // Smooth Hero Card Expansion (Triggered ONCE on state boundary to prevent 60fps repaints)
+        if (currentProgress >= 0.03 && !isExpandedState) {
+          isExpandedState = true;
+          wrapper.className = 'c8-bg-canvas-wrapper is-expanded';
+        } else if (currentProgress < 0.03 && isExpandedState) {
+          isExpandedState = false;
+          wrapper.className = 'c8-bg-canvas-wrapper is-boxed';
+        }
+
+        // ═════════════════════════════════════════════════════════════════════
+        // NEW SCROLL SEQUENCE ORDER:
+        // 1. TRIGGER 1 — WEB DESIGN (30% to 40%)
+        // 2. TRIGGER 2 — AI MVP (60% to 70%)
+        // 3. TRIGGER 3 — CUSTOM DEVELOPMENT (88% to 100% / frame 449)
+        // ═════════════════════════════════════════════════════════════════════
+
+        // Trigger 1: Web Design (30% to 40%)
+        if (currentProgress >= 0.30 && currentProgress <= 0.40) {
+          t1.classList.add('active');
+        } else {
+          t1.classList.remove('active');
+        }
+
+        // Trigger 2: Custom Dev (60% to 70%)
+        if (currentProgress >= 0.60 && currentProgress <= 0.70) {
+          t2.classList.add('active');
+        } else {
+          t2.classList.remove('active');
+        }
+
+        // Trigger 3: AI MVP (88% to 100%)
+        if (currentProgress >= 0.88 && currentProgress <= 1.0) {
+          t3Left.classList.add('active');
+          t3Right.classList.add('active');
+        } else {
+          t3Left.classList.remove('active');
+          t3Right.classList.remove('active');
+        }
+
+        requestAnimationFrame(renderLoop);
+      }
+
+      // Start 60fps Loop
+      requestAnimationFrame(renderLoop);
+
+      // ═════════════════════════════════════════════════════════════════════
+      // MULTI-SECTION SELECTED WORK & STICKY AVATAR DOCK CONTROLLER
+      // 1. 3 Best Primary Case Studies (blvck Hair, The Duch, Mkenny).
+      // 2. Compact 38px Avatar dock starts EMBEDDED inside Card 1.
+      // 3. Smoothly transitions to STICKY AT SCREEN BOTTOM as user scrolls.
+      // 4. Subtle scroll-reveal motion animation for each section.
+      // ═════════════════════════════════════════════════════════════════════
+      const avatarDock = document.getElementById('sw-avatar-dock');
+      const card1 = document.getElementById('sw-card-1');
+      const selectedWorkWrapper = document.getElementById('selected-work');
+      const caseSections = document.querySelectorAll('.sw-case-section');
+      const avatarBtns = document.querySelectorAll('.sw-avatar-btn');
+
+      // Click to smooth-scroll to corresponding case section
+      avatarBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = btn.getAttribute('data-target');
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      });
+
+      // Intersection Observer for Active Avatar Highlighting & Scroll Reveal Motion
+      const sectionObserverOptions = {
+        root: null,
+        rootMargin: '-25% 0px -25% 0px',
+        threshold: 0.15
+      };
+
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Trigger Subtle Motion Reveal
+            entry.target.classList.add('is-in-view');
+
+            // Highlight Active Avatar Button
+            const activeId = entry.target.id;
+            avatarBtns.forEach(btn => {
+              if (btn.getAttribute('data-target') === activeId) {
+                btn.classList.add('active');
+              } else {
+                btn.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, sectionObserverOptions);
+
+      caseSections.forEach(section => sectionObserver.observe(section));
+
+      // Scroll Listener for Smooth Dock Position State Transition (Embedded -> Sticky -> Hidden)
+      let isDockSticky = false;
+
+      window.addEventListener('scroll', () => {
+        if (!card1 || !avatarDock || !selectedWorkWrapper) return;
+
+        const card1Rect = card1.getBoundingClientRect();
+        const wrapperRect = selectedWorkWrapper.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+
+        // When Card 1 bottom is still within view -> Dock sits EMBEDDED inside Card 1
+        if (card1Rect.bottom > viewportHeight - 100) {
+          if (isDockSticky) {
+            isDockSticky = false;
+            avatarDock.classList.remove('is-sticky', 'is-hidden');
+            avatarDock.classList.add('is-embedded');
+            card1.appendChild(avatarDock); // Re-attach inside card 1
+          }
+        } 
+        // When inside Selected Work block (sections 1 to 3) -> STICKY AT SCREEN BOTTOM
+        else if (wrapperRect.bottom > viewportHeight - 80 && wrapperRect.top < viewportHeight - 100) {
+          if (!isDockSticky) {
+            isDockSticky = true;
+            avatarDock.classList.remove('is-embedded', 'is-hidden');
+            avatarDock.classList.add('is-sticky');
+            document.body.appendChild(avatarDock); // Pin to body for fixed positioning
+          }
+        } 
+        // When scrolled past Selected Work block -> HIDE DOCK
+        else {
+          avatarDock.classList.remove('is-embedded', 'is-sticky');
+          avatarDock.classList.add('is-hidden');
+          isDockSticky = false;
+        }
+      });
+
+    });
+  </script>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SECTION 6: SERVICES DEEP DIVE
+       ════════════════════════════════════════════════════════════════ -->
+  <style>
+    /* ──────────────────────────────────────────────────────────────
+       SERVICES DEEP DIVE — ACCORDION EXPANSION LAYOUT
+    ────────────────────────────────────────────────────────────── */
+    .sdv-section {
+      background-color: #080808 !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%) !important;
+      padding: 9rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle backdrop glow blobs */
+    .sdv-bg-blob { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; opacity: 0.05; }
+    .sdv-bg-blob-1 {
+      width: 600px; height: 600px;
+      background: #0047E1;
+      top: -100px; left: -150px;
+    }
+    .sdv-bg-blob-2 {
+      width: 400px; height: 400px;
+      background: #3D6BFF;
+      bottom: 0; right: -100px;
+    }
+
+    .sdv-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .sdv-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 6rem;
+    }
+
+    .sdv-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      margin-bottom: 1.25rem;
+    }
+
+    .sdv-h2 {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      line-height: 1.18;
+      letter-spacing: 0.01em;
+    }
+
+    .sdv-h2 em {
+      font-style: normal;
+      color: var(--c8-blue);
+    }
+
+    .sdv-header-right {
+      padding-bottom: 0.5rem;
+    }
+
+    .sdv-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 500px;
+    }
+
+    /* Architecture Layers Pill Row */
+    .sdv-layer-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-top: 2rem;
+    }
+
+    .sdv-layer-pill {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .sdv-layer-pill.layer-strategy {
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .sdv-layer-pill.layer-build {
+      background: var(--c8-blue);
+      color: #fff;
+      border: 1px solid var(--c8-blue);
+    }
+
+    .sdv-layer-pill.layer-growth {
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .sdv-arrow {
+      color: rgba(255,255,255,0.25);
+      font-size: 0.85rem;
+      margin: 0 8px;
+    }
+
+    /* Accordion Grid */
+    .sdv-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sdv-item {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .sdv-item-trigger {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 56px 1fr auto 160px 80px;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s ease;
+    }
+
+    .sdv-item-trigger:hover .sdv-item-title {
+      color: var(--c8-blue);
+    }
+
+    .sdv-item-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.1em;
+    }
+
+    .sdv-item-title {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1rem, 1.8vw, 1.35rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      transition: color 0.3s ease;
+    }
+
+    .sdv-item-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 4px;
+    }
+
+    .sdv-item-tag.tag-build {
+      background: rgba(0, 71, 225, 0.18);
+      color: var(--c8-blue);
+      border: none !important;
+    }
+
+    .sdv-item-tag.tag-growth {
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.45);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ── Trigger Row Preview Thumbnail ── */
+    .sdv-item-thumb {
+      width: 160px;
+      height: 84px;
+      border-radius: 4px;
+      overflow: hidden;
+      opacity: 0.4;
+      transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      flex-shrink: 0;
+    }
+
+    .sdv-item-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sdv-item-trigger:hover .sdv-item-thumb {
+      opacity: 1;
+      transform: scale(1.22) skewX(-6deg);
+    }
+
+    .sdv-item.is-open .sdv-item-thumb {
+      opacity: 1;
+      transform: scale(1.1) skewX(-3deg);
+    }
+
+    .sdv-item-chevron {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      color: rgba(255,255,255,0.3);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+    }
+
+    .sdv-item.is-open .sdv-item-chevron {
+      transform: rotate(180deg);
+      color: var(--c8-blue);
+    }
+
+    .sdv-item.is-open .sdv-item-title {
+      color: var(--c8-blue);
+    }
+
+    /* Accordion Panel */
+    .sdv-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sdv-item.is-open .sdv-panel {
+      grid-template-rows: 1fr;
+    }
+
+    .sdv-panel-inner {
+      overflow: hidden;
+    }
+
+    .sdv-panel-content {
+      display: grid;
+      grid-template-columns: 56px 1fr 1fr;
+      gap: 2rem;
+      padding: 0 0 3rem 0;
+    }
+
+    .sdv-panel-spacer { /* Column 1 spacer to align with title */ }
+
+    .sdv-panel-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+
+    .sdv-panel-desc strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .sdv-panel-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .sdv-deliverable-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .sdv-deliverable-row::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c8-blue);
+      flex-shrink: 0;
+    }
+
+    .sdv-panel-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--c8-blue);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 1rem;
+      transition: gap 0.3s ease;
+    }
+
+    .sdv-panel-cta:hover {
+      gap: 14px;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 900px) {
+      .sdv-section { padding: 6rem 1.5rem; }
+      .sdv-header { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; }
+      .sdv-item-trigger { grid-template-columns: 40px 1fr 80px; }
+      .sdv-item-tag { display: none; }
+      .sdv-item-thumb { display: none; }
+      .sdv-panel-content { grid-template-columns: 40px 1fr; }
+      .sdv-panel-right { grid-column: 2; }
+    }
+
+    /* ── Accordion panel visual thumbnail ── */
+    .sdv-panel-visual {
+      grid-column: 1 / -1;
+      margin-bottom: 2rem;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 200px;
+      position: relative;
+    }
+
+    .sdv-panel-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.9) brightness(0.95);
+      transition: transform 0.5s ease, filter 0.3s ease;
+    }
+
+    .sdv-panel-visual:hover img {
+      transform: scale(1.03);
+      filter: saturate(1) brightness(1);
+    }
+
+    .sdv-panel-visual-label {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 0.75rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(0,71,225,0.85);
+      border-radius: 4px;
+      padding: 3px 10px;
+    }
+  </style>
+
+  <section class="sdv-section" id="services-deep-dive">
+    <!-- Backdrop Glow Blobs -->
+    <div class="sdv-bg-blob sdv-bg-blob-1"></div>
+    <div class="sdv-bg-blob sdv-bg-blob-2"></div>
+
+    <div class="sdv-inner">
+
+      <!-- Section Header -->
+      <div class="sdv-header">
+        <div class="sdv-header-left">
+          <div class="sdv-eyebrow"><span class="c8-eyebrow-slash">//</span> WHAT WE ACTUALLY DO</div>
+          <h2 class="sdv-h2">Every Layer.<br>One <em>Studio.</em></h2>
+
+          <div class="sdv-layer-row">
+            <span class="sdv-layer-pill layer-strategy">Strategy</span>
+            <span class="sdv-arrow">&rarr;</span>
+            <span class="sdv-layer-pill layer-build">Design &amp; Build</span>
+            <span class="sdv-arrow">&rarr;</span>
+            <span class="sdv-layer-pill layer-growth">Growth</span>
+          </div>
+        </div>
+
+        <div class="sdv-header-right">
+          <p class="sdv-sub">
+            We start with who you're competing against and end with the campaigns that bring people to the site we just built. Whichever platform your business runs on &mdash; the build is only one layer.
+          </p>
+        </div>
+      </div>
+
+      <!-- Accordion: Services -->
+      <div class="sdv-accordion">
+
+        <!-- 01 — Website Design -->
+        <div class="sdv-item is-open" id="sdv-web-design">
+          <button class="sdv-item-trigger" aria-expanded="true" data-sdv-toggle="sdv-web-design">
+            <span class="sdv-item-num">01</span>
+            <span class="sdv-item-title">Website Design</span>
+            <span class="sdv-item-tag tag-build">Build Layer</span>
+            <div class="sdv-item-thumb">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_duch_apartments.jpg" alt="Website Design Preview">
+            </div>
+            <span class="sdv-item-chevron">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </button>
+          <div class="sdv-panel">
+            <div class="sdv-panel-inner">
+              <div class="sdv-panel-content">
+                <div class="sdv-panel-spacer"></div>
+                <div class="sdv-panel-desc">
+                  <strong>High-converting digital experiences</strong> engineered for speed, search authority, and seamless user conversions. We design across every platform your business runs on &mdash; once the Figma design is approved, it gets handed to whichever build stack fits: WordPress, Shopify, WooCommerce, or fully custom code.
+                </div>
+                <div class="sdv-panel-right">
+                  <div class="sdv-deliverable-row">Custom Figma UI Architecture</div>
+                  <div class="sdv-deliverable-row">WordPress Builds &amp; Elementor Systems</div>
+                  <div class="sdv-deliverable-row">Shopify Liquid Storefronts</div>
+                  <div class="sdv-deliverable-row">WooCommerce Custom Stores</div>
+                  <div class="sdv-deliverable-row">Built-in SEO from Line One</div>
+                  <a href="Web Design Service Page/index.html" class="sdv-panel-cta">
+                    Explore Web Design
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Visual thumbnail inside open panel -->
+              <div class="sdv-panel-visual">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_duch_apartments.jpg" alt="Website Design Work">
+                <span class="sdv-panel-visual-label">Live Client Work</span>
+              </div>
             </div>
           </div>
         </div>
-        <?php endfor; ?>
-      </div>
-    </div>
-  </section>
 
-  <!-- ══════════════════════════════════════════════════
-       STATS / MATRIX SECTION
-       Edit: WP Admin → Customize → Homepage → Stats / Matrix Section
-  ══════════════════════════════════════════════════ -->
-  <section class="sw-matrix-section">
-    <div class="sw-matrix-inner">
-      <div class="sw-mono-tag"><?php echo esc_html($matrix_eyebrow); ?></div>
-      <h2 class="sw-matrix-h2"><?php echo esc_html($matrix_heading); ?></h2>
-      <div class="sw-matrix-grid">
-        <?php for ($i = 1; $i <= 4; $i++) :
-          $val   = cr8v_mod("matrix_stat_{$i}_value", '');
-          $label = cr8v_mod("matrix_stat_{$i}_label", '');
-          if (!$val) continue;
-        ?>
-        <div class="sw-matrix-stat">
-          <div class="sw-matrix-stat-floating"><?php echo esc_html($val); ?></div>
-          <div class="sw-matrix-stat-label"><?php echo esc_html($label); ?></div>
-        </div>
-        <?php endfor; ?>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════
-       CASE STUDIES PREVIEW
-       Auto-populated from Case Studies CPT — no editing needed
-  ══════════════════════════════════════════════════ -->
-  <?php
-  $case_studies = new WP_Query([
-      'post_type'      => 'case_study',
-      'posts_per_page' => 3,
-      'orderby'        => 'date',
-      'order'          => 'DESC',
-      'post_status'    => 'publish',
-  ]);
-  if ($case_studies->have_posts()) :
-  ?>
-  <section class="sw-cs-preview-section">
-    <div class="sw-cs-preview-inner">
-      <div class="sw-cs-preview-grid">
-        <?php while ($case_studies->have_posts()) : $case_studies->the_post(); ?>
-        <a href="<?php the_permalink(); ?>" class="sw-cs-card">
-          <?php if (has_post_thumbnail()) : ?>
-          <div class="sw-cs-card-img"><?php the_post_thumbnail('cr8v-card'); ?></div>
-          <?php endif; ?>
-          <div class="sw-cs-card-body">
-            <div class="sw-cs-card-title"><?php the_title(); ?></div>
-            <p class="sw-cs-card-excerpt"><?php echo cr8v_excerpt(get_the_excerpt(), 15); ?></p>
-            <span class="sw-cs-card-link">View Case Study →</span>
+        <!-- 02 — Custom Development -->
+        <div class="sdv-item" id="sdv-custom-dev">
+          <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-custom-dev">
+            <span class="sdv-item-num">02</span>
+            <span class="sdv-item-title">Custom Development</span>
+            <span class="sdv-item-tag tag-build">Build Layer</span>
+            <div class="sdv-item-thumb">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_bridgepoint.jpg" alt="Custom Dev Preview">
+            </div>
+            <span class="sdv-item-chevron">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </button>
+          <div class="sdv-panel">
+            <div class="sdv-panel-inner">
+              <div class="sdv-panel-content">
+                <div class="sdv-panel-spacer"></div>
+                <div class="sdv-panel-desc">
+                  <strong>Tailored software architectures</strong> built from a blank file, engineered around your exact workflow. No templates, no SaaS dependencies, no monthly tool fees eating into your margin. When nothing off-the-shelf fits what you're building &mdash; this is where it starts.
+                </div>
+                <div class="sdv-panel-right">
+                  <div class="sdv-deliverable-row">Bespoke Web Applications</div>
+                  <div class="sdv-deliverable-row">Custom APIs &amp; Third-Party Integrations</div>
+                  <div class="sdv-deliverable-row">Internal Business Tools &amp; Dashboards</div>
+                  <div class="sdv-deliverable-row">100% Client-Owned Codebase</div>
+                  <div class="sdv-deliverable-row">0 Third-Party SaaS Dependencies</div>
+                  <a href="Custom Dev Service Page/index.html" class="sdv-panel-cta">
+                    Explore Custom Dev
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Visual thumbnail inside open panel -->
+              <div class="sdv-panel-visual">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_bridgepoint.jpg" alt="Custom Development Work">
+                <span class="sdv-panel-visual-label">Live Client Work</span>
+              </div>
+            </div>
           </div>
-        </a>
-        <?php endwhile; wp_reset_postdata(); ?>
+        </div>
+
+        <!-- 03 — AI MVP Products -->
+        <div class="sdv-item" id="sdv-ai-mvp">
+          <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-ai-mvp">
+            <span class="sdv-item-num">03</span>
+            <span class="sdv-item-title">AI MVP Products</span>
+            <span class="sdv-item-tag tag-build">Build Layer</span>
+            <div class="sdv-item-thumb">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>dev_mascot.jpg" alt="AI MVP Preview" style="object-position: center top;">
+            </div>
+            <span class="sdv-item-chevron">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </button>
+          <div class="sdv-panel">
+            <div class="sdv-panel-inner">
+              <div class="sdv-panel-content">
+                <div class="sdv-panel-spacer"></div>
+                <div class="sdv-panel-desc">
+                  <strong>Production-ready AI applications</strong> built to validate core business ideas with real users &mdash; not slide decks. We build AI-integrated products fast enough to get genuine market signal before you over-invest. When the idea validates, it hands directly into a full Custom Dev engagement.
+                </div>
+                <div class="sdv-panel-right">
+                  <div class="sdv-deliverable-row">LLM-Integrated Web Applications</div>
+                  <div class="sdv-deliverable-row">AI-Powered Internal Tools</div>
+                  <div class="sdv-deliverable-row">Rapid Prototyping &amp; Market Validation</div>
+                  <div class="sdv-deliverable-row">Custom Model Pipelines</div>
+                  <div class="sdv-deliverable-row">Fully Functional &mdash; Not a Demo</div>
+                  <a href="AI MVP Service Page/index.html" class="sdv-panel-cta">
+                    Explore AI MVP
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Visual thumbnail inside open panel -->
+              <div class="sdv-panel-visual">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>dev_mascot.jpg" alt="AI MVP Build" style="object-position: center top;">
+                <span class="sdv-panel-visual-label">AI-Powered Build</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 — Brand Strategy -->
+        <div class="sdv-item" id="sdv-brand-strategy">
+          <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-brand-strategy">
+            <span class="sdv-item-num">04</span>
+            <span class="sdv-item-title">Brand Strategy</span>
+            <span class="sdv-item-tag tag-growth">Growth Layer</span>
+            <div class="sdv-item-thumb">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_victorias_lane.jpg" alt="Brand Strategy Preview">
+            </div>
+            <span class="sdv-item-chevron">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </button>
+          <div class="sdv-panel">
+            <div class="sdv-panel-inner">
+              <div class="sdv-panel-content">
+                <div class="sdv-panel-spacer"></div>
+                <div class="sdv-panel-desc">
+                  <strong>Competitor analysis, pricing scoping, and messaging frameworks</strong> that give the rest of the build direction before a single pixel is designed. This is also the foundation every ad campaign and piece of content we run for you is built on — get this right first, and everything downstream gets easier and cheaper.
+                </div>
+                <div class="sdv-panel-right">
+                  <div class="sdv-deliverable-row">Market Positioning &amp; Competitor Mapping</div>
+                  <div class="sdv-deliverable-row">Messaging Frameworks &amp; Brand Voice</div>
+                  <div class="sdv-deliverable-row">Pricing Scoping &amp; Value Proposition</div>
+                  <div class="sdv-deliverable-row">Customer Profile Architecture</div>
+                  <div class="sdv-deliverable-row">Brand Identity Design (optional next step)</div>
+                  <a href="Brand Strategy Service Page/index.html" class="sdv-panel-cta">
+                    Explore Brand Strategy
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 — SEO & Content -->
+        <div class="sdv-item" id="sdv-seo">
+          <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-seo">
+            <span class="sdv-item-num">05</span>
+            <span class="sdv-item-title">SEO &amp; Content</span>
+            <span class="sdv-item-tag tag-growth">Growth Layer</span>
+            <div class="sdv-item-thumb">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_blvck_hair.jpg" alt="SEO & Content Preview">
+            </div>
+            <span class="sdv-item-chevron">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </button>
+          <div class="sdv-panel">
+            <div class="sdv-panel-inner">
+              <div class="sdv-panel-content">
+                <div class="sdv-panel-spacer"></div>
+                <div class="sdv-panel-desc">
+                  <strong>Technical search work and content architecture</strong> that gets the site found. We fold SEO into every build from line one — but for sites that already exist, we audit, fix, and build the content layer that compounds over time. Paid acquisition works better once your organic foundation is solid.
+                </div>
+                <div class="sdv-panel-right">
+                  <div class="sdv-deliverable-row">Semantic Keyword Mapping</div>
+                  <div class="sdv-deliverable-row">Entity SEO Optimization</div>
+                  <div class="sdv-deliverable-row">Technical SEO Audits &amp; Core Web Vitals</div>
+                  <div class="sdv-deliverable-row">Content Architecture &amp; Cluster Strategy</div>
+                  <div class="sdv-deliverable-row">E-Commerce Category &amp; Product SEO</div>
+                  <a href="SEO and Content Service Page/index.html" class="sdv-panel-cta">
+                    Explore SEO &amp; Content
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 — Digital Marketing -->
+        <div class="sdv-item" id="sdv-digital-marketing">
+          <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-digital-marketing">
+            <span class="sdv-item-num">06</span>
+            <span class="sdv-item-title">Digital Marketing</span>
+            <span class="sdv-item-tag tag-growth">Growth Layer</span>
+            <div class="sdv-item-thumb">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_mkenny_properties.jpg" alt="Digital Marketing Preview">
+            </div>
+            <span class="sdv-item-chevron">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </button>
+          <div class="sdv-panel">
+            <div class="sdv-panel-inner">
+              <div class="sdv-panel-content">
+                <div class="sdv-panel-spacer"></div>
+                <div class="sdv-panel-desc">
+                  <strong>Multi-channel campaigns and lead acquisition retainers</strong> built on the positioning your Brand Strategy work defined. If you haven't done positioning work with us yet, we fold a lightweight version into campaign setup — but a full Brand Strategy engagement first means faster, cheaper testing.
+                </div>
+                <div class="sdv-panel-right">
+                  <div class="sdv-deliverable-row">Paid Social &amp; Search Campaign Management</div>
+                  <div class="sdv-deliverable-row">Email Autoresponders &amp; Nurture Sequences</div>
+                  <div class="sdv-deliverable-row">Conversion Rate Audits</div>
+                  <div class="sdv-deliverable-row">Target Audience &amp; Funnel Mapping</div>
+                  <div class="sdv-deliverable-row">Monthly Retainer &amp; Performance Reporting</div>
+                  <a href="Digital Marketing Service Page/index.html" class="sdv-panel-cta">
+                    Explore Digital Marketing
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /sdv-accordion -->
+
+    </div><!-- /sdv-inner -->
+  </section>
+
+  <script>
+    // Services Deep Dive — Accordion Controller
+    document.querySelectorAll('[data-sdv-toggle]').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const targetId = trigger.getAttribute('data-sdv-toggle');
+        const item = document.getElementById(targetId);
+        const isOpen = item.classList.contains('is-open');
+
+        // Close all
+        document.querySelectorAll('.sdv-item').forEach(i => {
+          i.classList.remove('is-open');
+          i.querySelector('[data-sdv-toggle]').setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked (toggle)
+        if (!isOpen) {
+          item.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SECTION 7: DEV PLAYGROUND + FREE TOOLS
+       White left / Brand Blue right split · Fox mascot straddles divide
+       ════════════════════════════════════════════════════════════════ -->
+  <style>
+    /* ─────────────────────────────────────────────────────────────────
+       DEV PLAYGROUND — WHITE / BRAND BLUE SPLIT
+    ───────────────────────────────────────────────────────────────── */
+    .dp-section {
+      position: relative;
+      overflow: clip;
+      min-height: 680px;
+      display: flex;
+    }
+
+    /* Left half: white */
+    .dp-half-left {
+      flex: 1;
+      background: #FFFFFF;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 7rem 3.5rem 7rem 3.5rem;
+      overflow: visible;
+    }
+
+    /* Right half: royal blue */
+    .dp-half-right {
+      flex: 1;
+      background: #0047E1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 7rem 3.5rem 7rem 5rem;
+      overflow: visible;
+    }
+
+
+    /* ── Left content ── */
+    .dp-left-content {
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .dp-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .dp-h2 {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+      font-weight: 700;
+      color: var(--c8-ink);
+      text-transform: uppercase;
+      line-height: 1.12;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.25rem;
+    }
+
+    .dp-h2 em {
+      font-style: normal;
+      color: var(--c8-blue);
+    }
+
+    .dp-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--c8-muted);
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    /* Editorial numbered tool listing */
+    .dp-tool-entries {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid rgba(8,8,8,0.1);
+    }
+
+    .dp-tool-entry {
+      display: grid;
+      grid-template-columns: 28px 1fr auto;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(8,8,8,0.08);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .dp-tool-entry:hover { padding-left: 4px; }
+
+    .dp-tool-entry-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      color: rgba(8,8,8,0.25);
+      letter-spacing: 0.06em;
+    }
+
+    .dp-tool-entry-body {
+      flex: 1;
+    }
+
+    .dp-tool-entry-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--c8-ink);
+      margin-bottom: 0.1rem;
+      transition: color 0.25s ease;
+    }
+
+    .dp-tool-entry:hover .dp-tool-entry-name {
+      color: var(--c8-blue);
+    }
+
+    .dp-tool-entry-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--c8-muted);
+    }
+
+    .dp-tool-entry-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      background: rgba(0,71,225,0.07);
+      border: none !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--c8-blue);
+      transition: background 0.25s ease;
+    }
+
+    .dp-tool-entry:hover .dp-tool-entry-icon {
+      background: var(--c8-blue);
+      color: #fff;
+    }
+
+    /* ── Mascot: lives inside dp-half-left, overflows right to straddle split ── */
+    .dp-mascot-wrap {
+      position: absolute;
+      right: -260px;
+      bottom: -50px;
+      width: 520px;
+      z-index: 1; /* Pushed behind content */
+      pointer-events: none;
+    }
+
+    .dp-mascot-wrap img,
+    .dp-mascot-wrap video {
+      width: 100%;
+      height: auto;
+      display: block;
+      animation: dpFloat 4.5s ease-in-out infinite;
+      pointer-events: none !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+    }
+
+    @keyframes dpFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-16px); }
+    }
+
+    /* ── Right content ── */
+    .dp-right-content {
+      width: 100%;
+      max-width: 400px;
+      margin-left: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .dp-right-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dp-right-eyebrow::before {
+      content: '';
+      width: 22px;
+      height: 1.5px;
+      background: rgba(255,255,255,0.35);
+      flex-shrink: 0;
+    }
+
+    .dp-stat-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .dp-stat-item {}
+
+    .dp-stat-num {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(2rem, 4vw, 2rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .dp-stat-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .dp-right-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      border-left: 2px solid rgba(255,255,255,0.2);
+      padding-left: 1.25rem;
+    }
+
+    .dp-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .dp-btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.65);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      padding-bottom: 2px;
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .dp-btn-ghost:hover {
+      color: #FFFFFF;
+      border-color: rgba(255,255,255,0.7);
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 900px) {
+      .dp-section {
+        flex-direction: column;
+        min-height: auto;
+        position: relative;
+      }
+      .dp-half-left {
+        padding: 4rem 1.5rem 4rem 1.5rem;
+      }
+      .dp-half-right {
+        padding: 4rem 1.5rem 4rem 1.5rem;
+        overflow: hidden;
+      }
+      /* Mascot: behind content on mobile via z-index */
+      .dp-mascot-wrap {
+        z-index: 0;
+        width: 260px;
+        right: -30px;
+        bottom: 0;
+        opacity: 0.22;
+      }
+      .dp-right-content {
+        margin-left: 0;
+        max-width: 100%;
+      }
+      .dp-stat-pair {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+
+  <section class="dp-section" id="dev-playground">
+
+    <!-- WHITE LEFT HALF -->
+    <div class="dp-half-left">
+
+      <!-- MASCOT: lives inside white half, overflows right to straddle the split on desktop -->
+      <div class="dp-mascot-wrap">
+          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate">
+            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>cartoon_fox_winks.webm" type="video/webm">
+            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>Cartoon_fox_winks_web.mp4" type="video/mp4">
+            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>download_mascot.mp4" type="video/mp4">
+          </video>
+        </div>
+
+      <div class="dp-left-content" style="position:relative;z-index:2;">
+        <div class="dp-eyebrow"><span class="c8-eyebrow-slash">//</span> ALWAYS BUILDING</div>
+        <h2 class="dp-h2">Built by us.<br><em>Built to be useful.</em></h2>
+        <p class="dp-sub">
+          Custom WordPress plugins and AI MVP tools we've built and use every day — some shipped, some still in progress. If we can build our own tools from scratch, we can build yours.
+        </p>
+
+        <div class="dp-tool-entries">
+          <a href="https://cr8vstacks.com/toolkits/website-cost-calculator/" class="dp-tool-entry">
+            <span class="dp-tool-entry-num">01</span>
+            <div class="dp-tool-entry-body">
+              <div class="dp-tool-entry-name">Cost Calculator</div>
+              <div class="dp-tool-entry-desc">Answer a few questions and get a realistic price range — before you ever book a call</div>
+            </div>
+            <div class="dp-tool-entry-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+          </a>
+
+          <a href="/tools/stack-directory" class="dp-tool-entry">
+            <span class="dp-tool-entry-num">02</span>
+            <div class="dp-tool-entry-body">
+              <div class="dp-tool-entry-name">The Stack Directory</div>
+              <div class="dp-tool-entry-desc">Curated index of the best business tools across AI, design, dev, and ecommerce — all searchable from one place</div>
+            </div>
+            <div class="dp-tool-entry-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </div>
+          </a>
+
+          <a href="https://cr8vstacks.com/dev-playground/" class="dp-tool-entry">
+            <span class="dp-tool-entry-num">03</span>
+            <div class="dp-tool-entry-body">
+              <div class="dp-tool-entry-name">Nativus Dashboard Pro</div>
+              <div class="dp-tool-entry-desc">A custom WordPress admin dashboard plugin built for cleaner client handovers</div>
+            </div>
+            <div class="dp-tool-entry-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="4"></rect><rect x="3" y="10" width="7" height="11"></rect><rect x="13" y="3" width="8" height="11"></rect><rect x="13" y="17" width="8" height="4"></rect></svg>
+            </div>
+          </a>
+
+          <a href="https://cr8vstacks.com/dev-playground/" class="dp-tool-entry">
+            <span class="dp-tool-entry-num">04</span>
+            <div class="dp-tool-entry-body">
+              <div class="dp-tool-entry-name">WP Publishion AI</div>
+              <div class="dp-tool-entry-desc">AI-assisted WordPress publishing — drafts, meta, and scheduling from one panel</div>
+            </div>
+            <div class="dp-tool-entry-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            </div>
+          </a>
+
+          <a href="https://cr8vstacks.com/dev-playground/" class="dp-tool-entry">
+            <span class="dp-tool-entry-num">05</span>
+            <div class="dp-tool-entry-body">
+              <div class="dp-tool-entry-name">LumiCode Syntax Highlighter</div>
+              <div class="dp-tool-entry-desc">Lightweight code display plugin for WordPress — clean, themeable, zero dependencies</div>
+            </div>
+            <div class="dp-tool-entry-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLUE RIGHT HALF -->
+    <div class="dp-half-right">
+      <div class="dp-right-content">
+        <div class="dp-right-eyebrow"><span class="c8-eyebrow-slash">//</span> NO GIMMICKS</div>
+
+        <div class="dp-stat-pair">
+          <div class="dp-stat-item">
+            <div class="dp-stat-num">5</div>
+            <div class="dp-stat-label">Tools Available</div>
+          </div>
+          <div class="dp-stat-item">
+            <div class="dp-stat-num">100%</div>
+            <div class="dp-stat-label">Instant Access</div>
+          </div>
+          <div class="dp-stat-item">
+            <div class="dp-stat-num">60s</div>
+            <div class="dp-stat-label">Avg. Time to Result</div>
+          </div>
+          <div class="dp-stat-item">
+            <div class="dp-stat-num">&infin;</div>
+            <div class="dp-stat-label">No Usage Limit</div>
+          </div>
+        </div>
+
+        <p class="dp-right-desc">
+          These aren't lead magnets in disguise. Every tool runs in your browser. Take the output. No email capture, no follow-up sequence. We add tools regularly whenever something we built internally proves useful enough to open up.
+        </p>
+
+        <div class="dp-cta-row">
+          <a href="https://cr8vstacks.com/dev-playground/" class="dp-btn-primary" target="_blank" rel="noopener">
+            Visit the Dev Playground
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="dp-btn-ghost">
+            Start a Project instead
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SECTION 8: HOW WE WORK — Bento Grid Layout
+       ════════════════════════════════════════════════════════════════ -->
+  <style>
+    /* ── HOW WE WORK ── */
+    .hww-section {
+      background: #F4F5F7;
+      padding: 7rem 3.5rem;
+    }
+    .hww-inner { max-width: 1360px; margin: 0 auto; }
+
+    /* Header */
+    .hww-header { text-align: left; max-width: 780px; margin: 0 0 3.5rem 0; }
+
+    .hww-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--c8-blue);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.35rem;
+}
+
+    .hww-h2 {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+      font-weight: 700; color: var(--c8-ink);
+      text-transform: uppercase; line-height: 1.1;
+      letter-spacing: 0.01em; margin-bottom: 1.5rem;
+    }
+    .hww-h2 em { font-style: normal; color: var(--c8-blue); }
+
+    .hww-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem; font-weight: 300;
+      color: var(--c8-muted); line-height: 1.85;
+    }
+
+    /* Bento Grid */
+    .hww-bento {
+      display: grid;
+      grid-template-columns: 0.88fr 1fr 1.15fr 1.1fr;
+      grid-template-rows: 285px 230px;
+      gap: 1rem;
+      border: none !important;
+      background: transparent !important;
+    }
+
+    /* Cards base */
+    .hww-card {
+      border-radius: 4px !important;
+      overflow: hidden;
+      position: relative;
+      border: none !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hww-card:hover { transform: translateY(-4px) !important; box-shadow: 0 20px 60px rgba(0,0,0,0.10) !important; }
+
+    .hww-card-white  { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.07) !important; padding: 1.75rem; }
+    .hww-card-blue   { background: var(--c8-blue); padding: 1.75rem; }
+    .hww-card-dark   { background: #0A0A0A; padding: 1.75rem; }
+    .hww-card-light  { background: #EAECF5; border: none !important; padding: 1.75rem; }
+
+    /* Grid placement */
+    .hww-c1 { grid-column: 1; grid-row: 1; }
+    .hww-c2 { grid-column: 2; grid-row: 1 / span 2; padding: 0; }
+    .hww-c3 { grid-column: 3; grid-row: 1; }
+    .hww-c4 { grid-column: 4; grid-row: 1; }
+    .hww-c5 { grid-column: 1; grid-row: 2; }
+    .hww-c6 { grid-column: 3 / span 2; grid-row: 2; }
+
+    /* Visual card image */
+    .hww-visual-img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block; transition: transform 0.5s ease;
+    }
+    .hww-c2:hover .hww-visual-img { transform: scale(1.04); }
+
+    /* Card typography */
+    .hww-clabel {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .hww-clabel-blue  { color: var(--c8-blue); }
+    .hww-clabel-dim   { color: rgba(255,255,255,0.4); }
+    .hww-clabel-muted { color: rgba(0,0,0,0.35); }
+
+    .hww-ctitle {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(0.82rem, 1.5vw, 0.95rem);
+      font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.02em; line-height: 1.3; margin-bottom: 0.6rem;
+    }
+    .hww-ctitle-ink   { color: var(--c8-ink); }
+    .hww-ctitle-white { color: #FFFFFF; }
+
+    .hww-cbody { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 300; line-height: 1.6; }
+    .hww-cbody-muted  { color: var(--c8-muted); }
+    .hww-cbody-dim    { color: rgba(255,255,255,0.55); }
+
+    /* Step list */
+    .hww-steps { display: flex; flex-direction: column; gap: 0.65rem; margin-top: 0.85rem; }
+    .hww-step  { display: flex; align-items: center; gap: 0.65rem; }
+    .hww-step-n {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      color: rgba(0,0,0,0.25); letter-spacing: 0.04em; min-width: 18px;
+    }
+    .hww-step-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--c8-blue); flex-shrink: 0;
+    }
+    .hww-step-lbl {
+      font-family: 'DM Sans', sans-serif; font-size: 0.8rem;
+      font-weight: 500; color: var(--c8-ink);
+    }
+
+    /* Big number */
+    .hww-bnum {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      font-weight: 700; line-height: 1; letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .hww-bnum-white { color: #FFFFFF; }
+    .hww-bnum-ink   { color: var(--c8-ink); }
+
+    .hww-stat-sub {
+      font-family: 'DM Sans', sans-serif; font-size: 0.79rem;
+      font-weight: 300; line-height: 1.55;
+    }
+    .hww-stat-sub-white { color: rgba(255,255,255,0.58); }
+    .hww-stat-sub-ink   { color: var(--c8-muted); }
+
+    /* Tech tags */
+    .hww-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.85rem; }
+    .hww-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem; font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 4px; padding: 4px 9px; letter-spacing: 0.02em;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      display: inline-flex; align-items: center; gap: 5px;
+    }
+    .hww-tag img { width: 12px; height: 12px; object-fit: contain; flex-shrink: 0; }
+    .hww-tag:hover { color: rgba(255,255,255,0.95); border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.07); }
+    .hww-tag-framer { border-color: rgba(0,85,255,0.5); color: #7799FF; }
+    .hww-tag-framer:hover { border-color: #0055FF; background: rgba(0,85,255,0.12); color: #99BBFF; }
+
+    /* Timeline row */
+    .hww-timeline { display: flex; align-items: flex-start; gap: 2rem; margin-top: 1.25rem; }
+    .hww-tl-item  { flex: 1; display: flex; flex-direction: column; gap: 0.25rem; }
+    .hww-tl-step  {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      color: var(--c8-blue); letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .hww-tl-label {
+      font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+      font-weight: 600; color: var(--c8-ink);
+    }
+    .hww-tl-desc {
+      font-family: 'DM Sans', sans-serif; font-size: 0.76rem;
+      font-weight: 300; color: var(--c8-muted); line-height: 1.5;
+    }
+    .hww-tl-div {
+      width: 1px; background: rgba(0,71,225,0.18); margin-top: 0.5rem;
+      align-self: stretch; flex-shrink: 0;
+    }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      .hww-section { padding: 5rem 1.5rem; }
+      .hww-bento {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .hww-c1 { grid-column: 1; grid-row: auto; }
+      .hww-c2 { grid-column: 2; grid-row: auto; min-height: 280px; }
+      .hww-c3 { grid-column: 1; grid-row: auto; }
+      .hww-c4 { grid-column: 2; grid-row: auto; }
+      .hww-c5 { grid-column: 1; grid-row: auto; }
+      .hww-c6 { grid-column: 1 / span 2; grid-row: auto; }
+      .hww-timeline { flex-wrap: wrap; gap: 1.5rem; }
+      .hww-tl-div { display: none; }
+    }
+    @media (max-width: 540px) {
+      .hww-bento { grid-template-columns: 1fr; }
+      .hww-c1, .hww-c2, .hww-c3, .hww-c4, .hww-c5, .hww-c6 {
+        grid-column: 1; grid-row: auto;
+      }
+      .hww-c2 { min-height: 300px; }
+    }
+  </style>
+
+  <section class="hww-section" id="how-we-work">
+    <div class="hww-inner">
+
+      <div class="hww-header">
+        <div class="hww-eyebrow"><span class="c8-eyebrow-slash">//</span> HOW WE WORK</div>
+        <h2 class="hww-h2">AI helps us move faster. <em>It doesn't make the decisions.</em></h2>
+        <p class="hww-desc">
+          We use Claude, Gemini, ChatGPT, and Perplexity throughout our process — for research, drafting, and speeding up repetitive work. But direction, judgment, and quality control stay with our team on every project. AI is a tool we use well, not a replacement for the expertise behind the work.
+        </p>
+      </div>
+
+      <div class="hww-bento">
+
+        <!-- C1: Process Steps -->
+        <div class="hww-card hww-card-white hww-c1">
+          <div class="hww-clabel hww-clabel-blue">Sprint Model</div>
+          <div class="hww-ctitle hww-ctitle-ink">Clear Steps.<br>Zero Surprises.</div>
+          <div class="hww-steps">
+            <div class="hww-step">
+              <span class="hww-step-n">01</span>
+              <span class="hww-step-dot"></span>
+              <span class="hww-step-lbl">Discovery &amp; Brief</span>
+            </div>
+            <div class="hww-step">
+              <span class="hww-step-n">02</span>
+              <span class="hww-step-dot" style="opacity:0.65;"></span>
+              <span class="hww-step-lbl">Architecture &amp; Design</span>
+            </div>
+            <div class="hww-step">
+              <span class="hww-step-n">03</span>
+              <span class="hww-step-dot" style="opacity:0.4;"></span>
+              <span class="hww-step-lbl">Build &amp; Iterate</span>
+            </div>
+            <div class="hww-step">
+              <span class="hww-step-n">04</span>
+              <span class="hww-step-dot" style="opacity:0.2;"></span>
+              <span class="hww-step-lbl">Launch &amp; Handover</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- C2: Stacks visual -->
+        <div class="hww-card hww-c2">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>hww_stacks_visual.jpg" alt="Tech stack visualization" class="hww-visual-img">
+        </div>
+
+        <!-- C3: Sprint Stat (blue) -->
+        <div class="hww-card hww-card-blue hww-c3">
+          <div class="hww-clabel hww-clabel-dim">First Build Sprint</div>
+          <div class="hww-bnum hww-bnum-white">14<span style="font-size:0.42em;opacity:0.55;"> days</span></div>
+          <p class="hww-stat-sub hww-stat-sub-white">
+            From an approved brief to a working prototype your team can review, test, and give real feedback on.
+          </p>
+        </div>
+
+        <!-- C4: What Shapes Every Project (dark) -->
+        <div class="hww-card hww-card-dark hww-c4">
+          <div class="hww-clabel hww-clabel-dim">What Shapes Every Project</div>
+          <div class="hww-ctitle hww-ctitle-white">No Black Boxes.<br>Just Craft.</div>
+          <div class="hww-tags">
+            <span class="hww-tag"><img src="https://cdn.simpleicons.org/wordpress/ffffff" alt="">WordPress</span>
+            <span class="hww-tag"><img src="https://cdn.simpleicons.org/shopify/ffffff" alt="">Shopify</span>
+            <span class="hww-tag"><img src="https://cdn.simpleicons.org/nextdotjs/ffffff" alt="">Next.js</span>
+            <span class="hww-tag"><img src="https://cdn.simpleicons.org/figma/F24E1E" alt="">Figma</span>
+            <span class="hww-tag"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="">React</span>
+            <span class="hww-tag"><img src="https://cdn.simpleicons.org/python/ffffff" alt="">Python</span>
+            <span class="hww-tag"><img src="https://cdn.simpleicons.org/elementor/E20025" alt="">Elementor</span>
+            <span class="hww-tag"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/dark.svg" alt="OpenAI">OpenAI</span>
+            <span class="hww-tag"><img src="https://cdn.simpleicons.org/supabase/3ECF8E" alt="">Supabase</span>
+            <span class="hww-tag hww-tag-framer"><img src="https://cdn.simpleicons.org/framer/6699FF" alt="">Framer</span>
+          </div>
+        </div>
+
+
+        <!-- C5: Ownership Stat (white) -->
+        <div class="hww-card hww-card-white hww-c5">
+          <div class="hww-clabel hww-clabel-muted">Ownership</div>
+          <div class="hww-bnum hww-bnum-ink" style="font-size:clamp(1.6rem,3vw,2.4rem);">100%</div>
+          <p class="hww-stat-sub hww-stat-sub-ink">
+            You own the code, domain, and data. No SaaS lock-in, no dependency on us to keep the lights on.
+          </p>
+        </div>
+
+        <!-- C6: What Ships With Every Project (light, spans 2 cols) -->
+        <div class="hww-card hww-card-light hww-c6" style="position:relative;overflow:hidden;">
+          <!-- Faint constellation texture bg -->
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>c4_tools_bg.jpg" alt="" aria-hidden="true"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;opacity:0.08;pointer-events:none;">
+          <div style="position:relative;z-index:1;">
+            <div class="hww-clabel hww-clabel-blue">What Ships With Every Project</div>
+            <div class="hww-timeline">
+              <div class="hww-tl-item">
+                <span class="hww-tl-step">Brief</span>
+                <span class="hww-tl-label">Scoped &amp; Signed</span>
+                <span class="hww-tl-desc">Fixed scope, fixed price. No surprise invoices mid-build or scope creep that costs you extra.</span>
+              </div>
+              <div class="hww-tl-div"></div>
+              <div class="hww-tl-item">
+                <span class="hww-tl-step">Build</span>
+                <span class="hww-tl-label">Fully Documented</span>
+                <span class="hww-tl-desc">Technical handover docs included. Your team can pick it up from day one without needing us.</span>
+              </div>
+              <div class="hww-tl-div"></div>
+              <div class="hww-tl-item">
+                <span class="hww-tl-step">Post-Launch</span>
+                <span class="hww-tl-label">30-Day Support</span>
+                <span class="hww-tl-desc">Every project includes a 30-day post-launch support window. No extra charge, no conditions.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /hww-bento -->
+    </div><!-- /hww-inner -->
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       SECTION 8: WHO WE ARE
+  ══════════════════════════════════════════════════ -->
+  <section class="wwa-section" id="who-we-are">
+    <style>
+      .wwa-section {
+        background-color: #FFFFFF !important;
+        background-image: none !important;
+        padding: clamp(4rem, 7vw, 6rem) 0;
+        position: relative;
+        overflow: hidden;
+        border-top: 1px solid rgba(8, 8, 8, 0.06);
+        border-bottom: 1px solid rgba(8, 8, 8, 0.06);
+      }
+      .wwa-inner {
+        max-width: 1360px;
+        margin: 0 auto;
+        padding: 0 clamp(1.5rem, 5vw, 5rem);
+        position: relative;
+        z-index: 1;
+      }
+      .wwa-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2.5rem;
+        border-bottom: 1px solid rgba(8,8,8,0.06);
+        padding-bottom: 1.25rem;
+      }
+      .wwa-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #0047E1;
+      }
+      .wwa-top-tag {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: #555555;
+      }
+      .wwa-main-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        border: 1px solid rgba(8, 8, 8, 0.06);
+        background: #FFFFFF;
+      }
+      .wwa-left-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 3.5rem;
+        background: #FAFAF7;
+        border-right: 1px solid rgba(8, 8, 8, 0.06);
+      }
+      .wwa-h2 {
+        font-family: 'Michroma', sans-serif;
+        font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+        font-weight: 700;
+        color: #080808;
+        line-height: 1.2;
+        text-transform: uppercase;
+        margin-bottom: 1.25rem;
+      }
+      .wwa-h2 em {
+        font-style: normal;
+        color: #0047E1;
+      }
+      .wwa-desc {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.98rem;
+        font-weight: 300;
+        color: #555555;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+      .wwa-visual-card {
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+        border: 1px solid rgba(8,8,8,0.06);
+        margin-top: 1rem;
+        background: #FFFFFF;
+      }
+      .wwa-visual-img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .wwa-visual-card:hover .wwa-visual-img {
+        transform: scale(1.02);
+      }
+      .wwa-visual-overlay {
+        position: absolute;
+        bottom: 0; inset-x: 0;
+        padding: 1rem 1.25rem;
+        background: rgba(255,255,255,0.92);
+        backdrop-filter: blur(6px);
+        border-top: 1px solid rgba(8,8,8,0.06);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .wwa-visual-caption {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.8rem;
+        color: #080808;
+        font-weight: 500;
+      }
+      .wwa-visual-badge {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: #0047E1;
+        background: rgba(0,71,225,0.1);
+        border: 1px solid rgba(0,71,225,0.2) !important;
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
+      }
+      .wwa-right-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 3.5rem;
+        background: #FFFFFF;
+      }
+      .wwa-features {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        border: 1px solid rgba(8, 8, 8, 0.06);
+        margin-bottom: 2rem;
+      }
+      .wwa-feat {
+        display: flex;
+        gap: 1.2rem;
+        align-items: flex-start;
+        padding: 1.5rem;
+        background: #FAFAF7;
+        border-bottom: 1px solid rgba(8,8,8,0.06);
+        transition: background 0.3s ease;
+      }
+      .wwa-feat:last-child {
+        border-bottom: none;
+      }
+      .wwa-feat:hover {
+        background: #FFFFFF;
+      }
+      .wwa-feat-num {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #0047E1;
+        background: rgba(0,71,225,0.1);
+        width: 32px; height: 32px;
+        border-radius: 4px;
+        border: 1px solid rgba(0,71,225,0.2);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+      }
+      .wwa-feat-title {
+        font-family: 'Michroma', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #080808;
+        text-transform: uppercase;
+        margin-bottom: 0.35rem;
+      }
+      .wwa-feat-body {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.85rem;
+        color: #555555;
+        line-height: 1.6;
+      }
+      .wwa-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        border: 1px solid rgba(8,8,8,0.06);
+        background: #FAFAF7;
+      }
+      .wwa-stat {
+        padding: 1.25rem 1rem;
+        text-align: center;
+        border-right: 1px solid rgba(8,8,8,0.06);
+      }
+      .wwa-stat:last-child {
+        border-right: none;
+      }
+      .wwa-stat-num {
+        font-family: 'Michroma', sans-serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #0047E1;
+      }
+      .wwa-stat-label {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: #555555;
+        text-transform: uppercase;
+        margin-top: 0.2rem;
+      }
+      @media (max-width: 900px) {
+        .wwa-main-grid { grid-template-columns: 1fr; }
+        .wwa-left-col { border-right: none; border-bottom: 1px solid rgba(8, 8, 8, 0.06); padding: 2.5rem 1.5rem; }
+        .wwa-right-col { padding: 2.5rem 1.5rem; }
+      }
+    </style>
+
+    <div class="wwa-inner">
+      <div class="wwa-top">
+        <div class="wwa-eyebrow"><span class="c8-eyebrow-slash">//</span> ABOUT CR8V STACKS</div>
+        <div class="wwa-top-tag">CREATIVE STACKS AGENCY</div>
+      </div>
+
+      <div class="wwa-main-grid">
+        <div class="wwa-left-col">
+          <div>
+            <h2 class="wwa-h2">One team.<br><em>Every layer.</em></h2>
+            <p class="wwa-desc">
+              Strategy, design, and code — handled by the same team from first call to launch, not handed off between departments who have never spoken to each other. Whether we are validating an AI product MVP, rebuilding a property platform from scratch, or running SEO for a growing brand.
+            </p>
+          </div>
+          
+          <div class="wwa-visual-card">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>wwa_studio_visual.jpg" alt="Cr8v Stacks Studio Workspace" class="wwa-visual-img">
+            <div class="wwa-visual-overlay">
+              <span class="wwa-visual-caption">Built for execution, not pitch decks.</span>
+              <span class="wwa-visual-badge">IN-HOUSE STUDIO</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="wwa-right-col">
+          <div class="wwa-features">
+            <div class="wwa-feat">
+              <span class="wwa-feat-num">01</span>
+              <div>
+                <div class="wwa-feat-title">Strategy First</div>
+                <div class="wwa-feat-body">Every project begins with understanding your business goals, not just your brief. We scope transparently, then we build.</div>
+              </div>
+            </div>
+            <div class="wwa-feat">
+              <span class="wwa-feat-num">02</span>
+              <div>
+                <div class="wwa-feat-title">Design &amp; Build, Together</div>
+                <div class="wwa-feat-body">Design and development do not hand off &mdash; they run together. Less revision back-and-forth. More precision in code.</div>
+              </div>
+            </div>
+            <div class="wwa-feat">
+              <span class="wwa-feat-num">03</span>
+              <div>
+                <div class="wwa-feat-title">You Own Everything</div>
+                <div class="wwa-feat-body">Code, domain, asset repos &mdash; yours from day one. No lock-in, no recurring fees just to keep the lights on.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wwa-stats">
+            <div class="wwa-stat">
+              <div class="wwa-stat-num">5+</div>
+              <div class="wwa-stat-label">Years Building</div>
+            </div>
+            <div class="wwa-stat">
+              <div class="wwa-stat-num">3</div>
+              <div class="wwa-stat-label">Continents Served</div>
+            </div>
+            <div class="wwa-stat">
+              <div class="wwa-stat-num">100%</div>
+              <div class="wwa-stat-label">Client Ownership</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  <?php endif; ?>
 
+
+  <!-- ── GLOBAL SCROLL ANIMATIONS ── -->
+  <style>
+    /* Base state: invisible, slightly below */
+    .anim-ready {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity  0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    /* Slide from left */
+    .anim-ready.from-left  { transform: translateX(-36px); }
+    /* Slide from right */
+    .anim-ready.from-right { transform: translateX(36px); }
+    /* Revealed state */
+    .anim-ready.anim-in {
+      opacity: 1;
+      transform: none !important;
+    }
+    /* Ensure elements above the fold don't flash */
+    .no-anim { opacity: 1 !important; transform: none !important; }
+  </style>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          /* Restore stagger delay on entry */
+          var stored = entry.target.dataset.animDelay;
+          if (stored) entry.target.style.transitionDelay = stored;
+          entry.target.classList.add('anim-in');
+        } else {
+          /* Instant reverse — no delay when leaving viewport */
+          entry.target.style.transitionDelay = '0ms';
+          entry.target.classList.remove('anim-in');
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    function register(el, extraClass, delay) {
+      el.classList.add('anim-ready');
+      if (extraClass) el.classList.add(extraClass);
+      if (delay) {
+        el.style.transitionDelay = delay + 'ms';
+        el.dataset.animDelay = delay + 'ms'; /* Store for re-entry */
+      }
+      /* Skip elements already in viewport on load */
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('no-anim');
+        return;
+      }
+      observer.observe(el);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+      /* ── How We Work bento cards — staggered ── */
+      document.querySelectorAll('.hww-card').forEach(function (card, i) {
+        register(card, null, i * 90);
+      });
+
+      /* ── HWW header ── */
+      var hwwHeader = document.querySelector('.hww-header');
+      if (hwwHeader) register(hwwHeader);
+
+      /* ── Portfolio case sections — image slides from its side ── */
+      document.querySelectorAll('.sw-case-section').forEach(function (sec, i) {
+        var imgCol  = sec.querySelector('.sw-img-col');
+        var copyCol = sec.querySelector('.sw-copy-col');
+        var isEven  = i % 2 === 0;
+        if (imgCol)  register(imgCol,  isEven ? 'from-right' : 'from-left', 0);
+        if (copyCol) register(copyCol, isEven ? 'from-left'  : 'from-right', 120);
+      });
+
+      /* ── Services accordion rows ── */
+      document.querySelectorAll('.sdv-item').forEach(function (item, i) {
+        register(item, null, i * 60);
+      });
+
+      /* ── Dev Playground halves ── */
+      var dpLeft  = document.querySelector('.dp-left-content');
+      var dpRight = document.querySelector('.dp-right-content');
+      if (dpLeft)  register(dpLeft,  'from-left');
+      if (dpRight) register(dpRight, 'from-right', 150);
+
+      /* ── Intro / Portfolio header ── */
+      document.querySelectorAll('.sw-intro, .c8-eyebrow').forEach(function (el) {
+        register(el);
+      });
+
+      /* ── Who We Are ── */
+      var wwaCopy   = document.querySelector('.wwa-copy');
+      var wwaVisual = document.querySelector('.wwa-visual');
+      if (wwaCopy)   register(wwaCopy,   'from-left');
+      if (wwaVisual) register(wwaVisual, 'from-right', 150);
+
+    });
+  })();
+  </script>
+
+
+  <!-- SECTION: TESTIMONIALS -->
+  <style>
+    .tmn-section {
+      background: var(--c8-bg);
+      padding: clamp(5rem, 9vw, 8rem) 0;
+      position: relative;
+    }
+    .tmn-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+    }
+    .tmn-header { text-align: left; max-width: 680px; margin: 0 0 3rem 0; }
+    .tmn-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-bottom: 1.1rem;
+      font-weight: 700;
+    }
+    .tmn-eyebrow-slash {
+      color: var(--c8-blue);
+      font-weight: 800;
+      font-size: 0.85rem;
+      margin-right: 2px;
+    }
+    .tmn-h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      color: var(--c8-ink);
+      letter-spacing: 0.02em;
+      line-height: 1.25;
+      margin-bottom: 1.1rem;
+    }
+    .tmn-sub {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--c8-muted);
+      line-height: 1.7;
+    }
+
+    /* Seamless White Outer Wrapper Card */
+    .tmn-wrapper-card {
+      background: #FFFFFF;
+      border: 1px solid var(--c8-line);
+      border-radius: 4px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.04);
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 0;
+      overflow: hidden;
+      max-width: 1040px;
+      margin: 0 auto;
+      min-height: 480px;
+    }
+    .tmn-thumbs {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: #F4F5F8;
+      border-right: 1px solid var(--c8-line);
+    }
+    .tmn-thumb-btn {
+      background: #F4F5F8;
+      border: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 0;
+      padding: 0;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      height: 25%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .tmn-thumb-btn:last-child {
+      border-bottom: none;
+    }
+    .tmn-thumb-btn:hover {
+      background: #EAECEF;
+    }
+    .tmn-thumb-btn.is-active {
+      background: #FFFFFF;
+      box-shadow: inset -3px 0 0 var(--c8-blue);
+    }
+    .tmn-thumb-logo-img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      filter: grayscale(25%);
+    }
+    .tmn-thumb-btn:hover .tmn-thumb-logo-img,
+    .tmn-thumb-btn.is-active .tmn-thumb-logo-img {
+      filter: grayscale(0%);
+      transform: scale(1.12);
+    }
+
+    /* Auto-Scroll Loading Progress Bar */
+    .tmn-progress-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: transparent;
+      overflow: hidden;
+    }
+    .tmn-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--c8-blue);
+    }
+    .tmn-thumb-btn.is-active .tmn-progress-fill {
+      animation: tmnProgress 6s linear infinite;
+    }
+    @keyframes tmnProgress {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+
+    /* Main Card inside outer white wrapper */
+    .tmn-card-main {
+      background: #FFFFFF;
+      border: none;
+      border-radius: 0;
+      padding: clamp(2.2rem, 4vw, 3.5rem);
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tmn-bg-quote {
+      position: absolute;
+      top: -4.5rem;
+      right: 1.5rem;
+      font-size: 40rem;
+      line-height: 1;
+      font-family: Georgia, serif;
+      color: rgba(0, 71, 225, 0.035);
+      pointer-events: none;
+      user-select: none;
+    }
+    .tmn-content-wrapper {
+      position: relative;
+      z-index: 2;
+    }
+    .tmn-main-quote {
+      font-family: var(--font-body);
+      font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+      font-weight: 500;
+      color: var(--c8-ink);
+      line-height: 1.5;
+      margin-bottom: 0.9rem;
+    }
+    .tmn-sub-quote {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--c8-muted);
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+    .tmn-card-footer {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      border-top: 1px dashed var(--c8-line);
+      padding-top: 1.4rem;
+    }
+    .tmn-author-name {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--c8-ink);
+      line-height: 1.3;
+    }
+    .tmn-author-role {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--c8-muted);
+      margin-top: 2px;
+    }
+    .tmn-stars-row {
+      display: flex;
+      gap: 3px;
+      color: var(--c8-blue);
+    }
+    .tmn-star-icon {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    /* Bottom Callout & Button matching Royal Blue Brand Color */
+    .tmn-bottom-callout {
+      text-align: center;
+      margin-top: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .tmn-callout-text {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--c8-ink);
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .tmn-showcase {
+        grid-template-columns: 1fr;
+      }
+      .tmn-thumbs {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: 0.4rem;
+      }
+      .tmn-thumb-btn {
+        width: 78px;
+        height: 75px;
+        padding: 0.3rem;
+      }
+      .tmn-wrapper-card {
+        grid-template-columns: 1fr;
+        border-radius: 4px;
+      }
+      .tmn-tech-icon { font-size: 1.1rem; }
+      .tmn-tech-label { font-size: 0.58rem; }
+      .tmn-tech-tag { font-size: 0.5rem; }
+
+      .hww-section {
+        text-align: left;
+      }
+      .hww-header, .wwa-header {
+        text-align: left;
+      }
+    }
+  </style>
+
+  <section class="tmn-section" id="testimonials">
+    <div class="tmn-inner">
+      
+      <div class="tmn-header">
+        <div class="tmn-eyebrow"><span class="c8-eyebrow-slash">//</span> WHAT CLIENTS SAY</div>
+        <h2 class="tmn-h2">Real Feedback From Real Projects</h2>
+        <p class="tmn-sub">Direct feedback from founders and engineering leaders who trusted Cr8v Stacks to build, optimize, and launch their custom digital platforms.</p>
+      </div>
+
+      <!-- Outer White Wrapper Container -->
+      <div class="tmn-wrapper-card" id="tmn-showcase-container">
+        <!-- Thumbnails Column: Official CDN Logos without text -->
+        <div class="tmn-thumbs" id="tmn-thumbs">
+          <button class="tmn-thumb-btn is-active" data-index="0" aria-label="View Shopify Ecommerce testimony">
+            <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" class="tmn-thumb-logo-img">
+            <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
+          </button>
+          <button class="tmn-thumb-btn" data-index="1" aria-label="View Next.js SaaS testimony">
+            <img src="https://cdn.simpleicons.org/nextdotjs/000000" alt="Next.js" class="tmn-thumb-logo-img">
+            <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
+          </button>
+          <button class="tmn-thumb-btn" data-index="2" aria-label="View OpenAI AI MVP testimony">
+            <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/light.svg" alt="OpenAI" class="tmn-thumb-logo-img">
+            <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
+          </button>
+          <button class="tmn-thumb-btn" data-index="3" aria-label="View WordPress Custom Stack testimony">
+            <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress" class="tmn-thumb-logo-img">
+            <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
+          </button>
+        </div>
+
+        <!-- Main Display Card -->
+        <div class="tmn-card-main" id="tmn-card-main">
+          <div class="tmn-bg-quote">&rdquo;</div>
+          <div class="tmn-content-wrapper">
+            <p class="tmn-main-quote" id="tmn-quote-main">
+              "They redesigned our entire site without ever making it feel like a redesign &mdash; it just felt like the version that should have existed from day one."
+            </p>
+            <p class="tmn-sub-quote" id="tmn-quote-sub">
+              Rebuilt cleanly with streamlined plugin architecture &mdash; our site performance and checkout conversion improved immediately after launch.
+            </p>
+          </div>
+          <div class="tmn-card-footer">
+            <div>
+              <div class="tmn-author-name" id="tmn-author-name">Sarah Whitfield</div>
+              <div class="tmn-author-role" id="tmn-author-role">Founder, Ecommerce Brand &mdash; Toronto, Canada</div>
+            </div>
+            <div class="tmn-stars-row">
+              <svg class="tmn-star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg class="tmn-star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg class="tmn-star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg class="tmn-star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg class="tmn-star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tmn-bottom-callout">
+        <div class="tmn-callout-text">See how impactful custom stacks make a difference?</div>
+        <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="tmn-schedule-btn">Schedule a Consultation</a>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      var testimonials = [
+        {
+          mainQuote: '"They redesigned our entire site without ever making it feel like a redesign &mdash; it just felt like the version that should have existed from day one."',
+          subQuote: 'Rebuilt cleanly with streamlined plugin architecture &mdash; our site performance and checkout conversion improved immediately after launch.',
+          name: 'Sarah Whitfield',
+          role: 'Founder, Ecommerce Brand &mdash; Toronto, Canada'
+        },
+        {
+          mainQuote: '"We came in wanting an MVP to test an idea. What we got was a production-ready application our own team is still building on top of."',
+          subQuote: 'Our mobile load time went from 4.1 seconds to under half a second. Biggest ROI we have seen on any development spend.',
+          name: 'Daniel Voss',
+          role: 'Product Lead, SaaS Startup &mdash; Berlin, Germany'
+        },
+        {
+          mainQuote: '"What stood out wasn&apos;t the design or the code individually &mdash; it was that one team handled strategy, build, and marketing without anything getting lost in translation."',
+          subQuote: 'They scoped it right, built it right, and did not disappear after launch.',
+          name: 'Adaeze Nwosu',
+          role: 'Marketing Director &mdash; Lagos, Nigeria'
+        },
+        {
+          mainQuote: '"Custom development, done properly, is rare. The code is clean, fully documented, and our internal team has 100% ownership of everything built."',
+          subQuote: 'All payment logic and custom subscription workflows wired seamlessly without third-party dependencies.',
+          name: 'Marcus Vance',
+          role: 'Operations Lead &mdash; Lisbon, Portugal'
+        }
+      ];
+
+      var currentIndex = 0;
+      var autoScrollInterval = null;
+
+      var thumbBtns = document.querySelectorAll('#tmn-thumbs .tmn-thumb-btn');
+      var quoteMain = document.getElementById('tmn-quote-main');
+      var quoteSub = document.getElementById('tmn-quote-sub');
+      var authorName = document.getElementById('tmn-author-name');
+      var authorRole = document.getElementById('tmn-author-role');
+      var showcaseContainer = document.getElementById('tmn-showcase-container');
+
+      function activateTestimonial(idx) {
+        if (isNaN(idx) || !testimonials[idx]) return;
+        currentIndex = idx;
+
+        thumbBtns.forEach(function(b) {
+          b.classList.remove('is-active');
+          var fill = b.querySelector('.tmn-progress-fill');
+          if (fill) {
+            fill.style.animation = 'none';
+            void fill.offsetWidth; // Force DOM reflow to restart CSS progress animation cleanly
+            fill.style.animation = '';
+          }
+        });
+        if (thumbBtns[idx]) thumbBtns[idx].classList.add('is-active');
+
+        var data = testimonials[idx];
+        quoteMain.innerHTML = data.mainQuote;
+        quoteSub.innerHTML = data.subQuote;
+        authorName.innerHTML = data.name;
+        authorRole.innerHTML = data.role;
+      }
+
+      function startAutoScroll() {
+        stopAutoScroll();
+        autoScrollInterval = setInterval(function() {
+          var nextIdx = (currentIndex + 1) % testimonials.length;
+          activateTestimonial(nextIdx);
+        }, 6000);
+      }
+
+      function stopAutoScroll() {
+        if (autoScrollInterval) {
+          clearInterval(autoScrollInterval);
+          autoScrollInterval = null;
+        }
+      }
+
+      thumbBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var idx = parseInt(btn.getAttribute('data-index'), 10);
+          activateTestimonial(idx);
+          startAutoScroll(); // Reset timer on manual click
+        });
+      });
+
+      if (showcaseContainer) {
+        showcaseContainer.addEventListener('mouseenter', stopAutoScroll);
+        showcaseContainer.addEventListener('mouseleave', startAutoScroll);
+      }
+
+      startAutoScroll();
+    })();
+  </script>
+
+  <!-- SECTION: FAQ -->
+  <style>
+    .faq-section{background:var(--c8-bg);padding:clamp(5rem,10vw,9rem) 0}
+    .faq-inner{max-width:1360px;margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem);display:grid;grid-template-columns:300px 1fr;gap:clamp(3rem,6vw,8rem);align-items:start}
+    .faq-aside{position:sticky;top:5rem}
+    .faq-eyebrow{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c8-blue);margin-bottom:1rem}
+    .faq-h2{font-family:var(--font-heading);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:700;color:var(--c8-ink);letter-spacing:.02em;line-height:1.2;margin-bottom:1.5rem}
+    .faq-sub{font-family:var(--font-body);font-size:.85rem;font-weight:300;color:var(--c8-muted);line-height:1.7;margin-bottom:2rem}
+    .faq-list{list-style:none}
+    .faq-item{border-bottom:1px solid var(--c8-line)}
+    .faq-item:first-child{border-top:1px solid var(--c8-line)}
+    .faq-trigger{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.4rem 0;text-align:left}
+    .faq-q{font-family:var(--font-body);font-size:clamp(.88rem,1.3vw,.95rem);font-weight:500;color:var(--c8-ink);line-height:1.4}
+    .faq-icon{width:28px;height:28px;border-radius:50%;border:1px solid var(--c8-line);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .25s,border-color .25s}
+    .faq-icon svg{transition:transform .35s cubic-bezier(.16,1,.3,1)}
+    .faq-item.is-open .faq-icon{background:var(--c8-blue);border-color:var(--c8-blue)}
+    .faq-item.is-open .faq-icon svg{transform:rotate(45deg);stroke:#fff}
+    .faq-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.16,1,.3,1)}
+    .faq-item.is-open .faq-body{grid-template-rows:1fr}
+    .faq-body-inner{overflow:hidden}
+    .faq-a{font-family:var(--font-body);font-size:.88rem;font-weight:300;line-height:1.75;color:var(--c8-muted);padding-bottom:1.4rem}
+    .faq-a a{color:var(--c8-blue);text-decoration:underline}
+    @media(max-width:900px){.faq-inner{grid-template-columns:1fr;gap:2.5rem}.faq-aside{position:static}}
+  </style>
+  <section class="faq-section" id="faq">
+    <div class="faq-inner">
+      <div class="faq-aside">
+        <div class="faq-eyebrow"><span class="c8-eyebrow-slash">//</span> COMMON QUESTIONS</div>
+        <h2 class="faq-h2">Before You Reach Out</h2>
+        <p class="faq-sub">Can't find what you're looking for? Just ask &mdash; no sales script, no pitch.</p>
+        <a href="/contact" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+      </div>
+      <ul class="faq-list" id="faq-list">
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">How much does it cost to work with Cr8v Stacks?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">It depends on scope &mdash; a brochure site, an ecommerce store, and a custom AI MVP all price differently. Use our <a href="https://cr8vstacks.com/toolkits/website-cost-calculator/">cost calculator</a> for an instant range, or talk to us directly for a full quote.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">How long does a typical project take?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Most website builds run a few weeks from approved design to launch; custom development and AI MVPs vary based on scope. We will give you a real timeline once we understand what you are building.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">What services do you actually offer?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Web design, AI MVP development, and custom development are our core focus &mdash; alongside brand strategy, brand identity, and digital marketing. See the full breakdown on our <a href="/services">Services page</a>.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Do you build on WordPress, Shopify, or something else?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">All of the above, plus WooCommerce and fully custom builds. We recommend the platform based on what your business needs, not what is easiest for us.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Which payment gateways do you integrate?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">This depends on your platform and region &mdash; we will confirm exact options (Stripe, Paystack, and others) once we know your setup.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Can you redesign or rebuild a site that already exists?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Yes &mdash; a large share of our work is exactly this. We have rebuilt everything from basic landing pages to full property platforms.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Is SEO included in a website build?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">We build with SEO in mind from day one rather than bolting it on afterward, and we also offer SEO as a standalone service if your site already exists.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">What support do you offer after launch?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Support scope varies by project &mdash; we will define exactly what is included before you sign off on anything, so there is no ambiguity post-launch.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Do you work with early-stage startups?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Yes, including AI MVP work specifically built to validate an early idea before a larger investment.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">What is your take on AI?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">We use AI to move faster on research and repetitive work. Direction, judgment, and quality control stay with our team on every project &mdash; AI does not lead the work, we do.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Why hire an agency instead of a freelancer?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">A freelancer is one person covering every discipline. We are a team where design, development, and strategy each get real, dedicated expertise instead of one person doing their best across all of them.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">What does Cr8v Stacks mean?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Creative Stacks. Every project is built from different stacks of expertise &mdash; strategy, design, development, and marketing &mdash; layered together rather than handled by one generalist.</p></div></div></li>
+      </ul>
+    </div>
+  </section>
+  <script>
+  (function(){
+    var list=document.getElementById('faq-list');
+    if(!list)return;
+    list.addEventListener('click',function(e){
+      var trigger=e.target.closest('.faq-trigger');
+      if(!trigger)return;
+      var item=trigger.closest('.faq-item');
+      var isOpen=item.classList.contains('is-open');
+      list.querySelectorAll('.faq-item.is-open').forEach(function(el){
+        el.classList.remove('is-open');
+        el.querySelector('.faq-trigger').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){item.classList.add('is-open');trigger.setAttribute('aria-expanded','true');}
+    });
+  })();
+  </script>
+
+  <!-- SECTION: FINAL CTA -->
+  <style>
+    .cta-section {
+      background: #FFFFFF;
+      padding: clamp(5rem, 9vw, 8rem) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-arc-container {
+      width: 100%;
+      max-width: 780px;
+      margin: 0 auto 0;
+      display: flex;
+      justify-content: center;
+    }
+    .cta-arc-img,
+    .cta-arc-video {
+      width: 100%;
+      max-width: 780px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      pointer-events: none !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+    }
+    /* Unstyled wrapper div: easily shift all content subjects up or down together */
+    .cta-content-group {
+      margin-top: -6.5rem; /* Pulled up to -6.5rem on desktop */
+      position: relative;
+      z-index: 5;
+    }
+    @media (max-width: 768px) {
+      .cta-content-group {
+        margin-top: -3.5rem; /* Responsive scoping for mobile */
+      }
+    }
+    .cta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      background: transparent !important;
+      border: none !important;
+      padding: 0.4rem 1.1rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+    }
+    .cta-h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.9rem, 4.2vw, 3rem);
+      font-weight: 400;
+      color: var(--c8-ink);
+      letter-spacing: 0.01em;
+      line-height: 1.25;
+      max-width: 780px;
+      margin: 0 auto 1.4rem;
+    }
+    .cta-h2 em {
+      font-style: normal;
+      color: var(--c8-blue);
+    }
+    .cta-desc {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--c8-muted);
+      line-height: 1.7;
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+    }
+    .cta-btn-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 1rem 2.2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      box-shadow: 0 10px 28px rgba(0, 71, 225, 0.28);
+      transition: all 0.25s ease;
+    }
+    .cta-btn-pill:hover {
+      background: #0037B5;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 35px rgba(0, 71, 225, 0.38);
+    }
+    .cta-btn-arrow {
+      background: rgba(255,255,255,0.2);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      transition: transform 0.25s ease;
+    }
+    .cta-btn-pill:hover .cta-btn-arrow {
+      transform: translateX(4px);
+    }
+  </style>
+
+  <section class="cta-section" id="contact">
+    <div class="cta-inner">
+      <!-- Transparent PNG Arc image matching title width -->
+      <div class="cta-arc-container">
+        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate" class="cta-arc-video">
+          <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>download.mp4" type="video/mp4">
+          <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>seven_circular_badges.webm" type="video/webm">
+        </video>
+      </div>
+
+      <!-- Pure positioning wrapper container: shift margin-top on .cta-content-group to push up or down -->
+      <div class="cta-content-group">
+        <div class="cta-badge"><span class="c8-eyebrow-slash">//</span> EASY TO EXPLORE</div>
+        
+        <h2 class="cta-h2">
+          A simple approach to building your <em>custom digital stacks.</em>
+        </h2>
+
+        <p class="cta-desc">
+          Cr8v Stacks requires no guesswork. Transparent fixed scoping, dedicated engineering, and custom digital systems tailored to your exact business goals.
+        </p>
+
+        <div>
+          <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="cta-btn-pill" target="_blank" rel="noopener">
+            Book a Consultation <span class="cta-btn-arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+  <script>
+    // Live Matrix Text Scramble Script
+    function initMatrixScramble() {
+      var matrixButtons = document.querySelectorAll('.c8-btn-primary, .c8isv-btn-primary, .c8srv-btn-primary, .c8srv-price-btn, .c8isv-price-btn, .c8srv-explore, .c8isv-explore, .dp-btn-primary, .cta-btn-pill, .tmn-schedule-btn, .faq-cta-link, .btn-secondary, .dp-btn-ghost, .sdv-panel-cta, .c8-text-cta, .stage-link, a.is-primary, .c8srv-vs-priority-btn');
+      var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+      matrixButtons.forEach(function(btn) {
+        if (btn._scrambleInitialized) return;
+        btn._scrambleInitialized = true;
+
+        btn.addEventListener('mouseenter', function() {
+          var targetObj = btn.querySelector('span') || Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; }) || btn;
+          if (!btn.getAttribute('data-original-text')) {
+            btn.setAttribute('data-original-text', targetObj.textContent.trim());
+          }
+          var originalText = btn.getAttribute('data-original-text');
+          var iteration = 0;
+          clearInterval(btn._scrambleTimer);
+
+          btn._scrambleTimer = setInterval(function() {
+            targetObj.textContent = originalText.split('')
+              .map(function(char, index) {
+                if (char === ' ' || index < iteration) return originalText[index];
+                return matrixChars[Math.floor(Math.random() * matrixChars.length)];
+              })
+              .join('');
+
+            if (iteration >= originalText.length) {
+              clearInterval(btn._scrambleTimer);
+              targetObj.textContent = originalText;
+            }
+            iteration += 1 / 2;
+          }, 25);
+        });
+
+        btn.addEventListener('mouseleave', function() {
+          var targetObj = btn.querySelector('span') || Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; }) || btn;
+          var originalText = btn.getAttribute('data-original-text');
+          clearInterval(btn._scrambleTimer);
+          if (originalText) {
+            targetObj.textContent = originalText;
+          }
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMatrixScramble);
+    } else {
+      initMatrixScramble();
+    }
+  </script>
+
+
+  <!-- W3C POINTER EVENT ENGINE & UNIVERSAL ROUTE INVERSION FOR HOMEPAGE B -->
+  <script>
+    (function() {
+      function snapTile(gridEl, tileEl, cellEl, pad) {
+        if (!gridEl || !tileEl || !cellEl) return;
+        var p = pad || 20;
+        var gRect = gridEl.getBoundingClientRect();
+        var cRect = cellEl.getBoundingClientRect();
+
+        var left = cRect.left - gRect.left + p;
+        var top = cRect.top - gRect.top + p;
+        var width = cRect.width - (p * 2);
+        var height = cRect.height - (p * 2);
+
+        tileEl.style.left = left + 'px';
+        tileEl.style.top = top + 'px';
+        tileEl.style.width = width + 'px';
+        tileEl.style.height = height + 'px';
+      }
+
+      function swapImage(imgGroup, activeIdx) {
+        imgGroup.forEach(function(img, i) {
+          if (i === activeIdx) {
+            img.classList.add('is-active-img');
+          } else {
+            img.classList.remove('is-active-img');
+          }
+        });
+      }
+
+      var dGrid = document.getElementById('main-desk-grid');
+      var dTile = document.getElementById('desk-tile');
+      var dImgs = [
+        document.getElementById('img-row-1'),
+        document.getElementById('img-row-2'),
+        document.getElementById('img-row-3')
+      ];
+
+      var currStateD = -1;
+      var isInteractingD = false;
+      var interactionTimerD = null;
+
+      function getUniversalAvailableCell(rowIdx, preferredCol) {
+        if (!dGrid) return null;
+        var rowCells = dGrid.querySelectorAll('.c8-pg-cell[data-row="' + rowIdx + '"]');
+        var pref = null;
+        var inv1 = null;
+        var inv2 = null;
+
+        rowCells.forEach(function(cell) {
+          if (cell.classList.contains('is-empty-slot')) {
+            var col = parseInt(cell.getAttribute('data-col'));
+            if (col === preferredCol) {
+              pref = cell;
+            } else if (!inv1) {
+              inv1 = cell;
+            } else {
+              inv2 = cell;
+            }
+          }
+        });
+
+        return pref || inv1 || inv2 || rowCells[0];
+      }
+
+      function updateUniversalLPath() {
+        if (isInteractingD || !dGrid) return;
+
+        var r1Text = dGrid.querySelector('.c8-pg-cell[data-row="0"].is-text-card') || dGrid.children[0];
+        var r2Text = dGrid.querySelector('.c8-pg-cell[data-row="1"].is-text-card') || dGrid.children[5];
+        var r3Text = dGrid.querySelector('.c8-pg-cell[data-row="2"].is-text-card') || dGrid.children[6];
+
+        if (!r1Text || !r2Text || !r3Text) return;
+
+        var winH = window.innerHeight;
+        var r1 = r1Text.getBoundingClientRect();
+        var r2 = r2Text.getBoundingClientRect();
+        var r3 = r3Text.getBoundingClientRect();
+
+        var trigMid = winH * 0.55;
+        var trigEnd = winH * 0.25;
+
+        var newState = 0;
+        if (r3.top <= trigEnd) newState = 3;
+        else if (r3.top <= trigMid) newState = 2;
+        else if (r2.top <= trigMid) newState = 1;
+        else newState = 0;
+
+        if (newState !== currStateD) {
+          var prevState = currStateD;
+          currStateD = newState;
+
+          if (currStateD === 0) {
+            var targetCell = getUniversalAvailableCell(0, 2);
+            if (prevState === 1) {
+              var cMid = getUniversalAvailableCell(0, 1);
+              snapTile(dGrid, dTile, cMid, 20);
+              setTimeout(function() {
+                if (currStateD === 0) {
+                  snapTile(dGrid, dTile, targetCell, 20);
+                  swapImage(dImgs, 0);
+                }
+              }, 250);
+            } else {
+              snapTile(dGrid, dTile, targetCell, 20);
+              swapImage(dImgs, 0);
+            }
+          } 
+          else if (currStateD === 1) {
+            var targetCell = getUniversalAvailableCell(1, 1);
+            if (prevState === 0) {
+              var cMid = getUniversalAvailableCell(0, 1);
+              snapTile(dGrid, dTile, cMid, 20);
+              setTimeout(function() {
+                if (currStateD === 1) {
+                  snapTile(dGrid, dTile, targetCell, 20);
+                  swapImage(dImgs, 1);
+                }
+              }, 250);
+            } else {
+              snapTile(dGrid, dTile, targetCell, 20);
+              swapImage(dImgs, 1);
+            }
+          } 
+          else if (currStateD === 2) {
+            var targetCell = getUniversalAvailableCell(2, 1);
+            snapTile(dGrid, dTile, targetCell, 20);
+            swapImage(dImgs, 2);
+          } 
+          else if (currStateD === 3) {
+            var targetCell = getUniversalAvailableCell(2, 2);
+            snapTile(dGrid, dTile, targetCell, 20);
+            swapImage(dImgs, 2);
+          }
+        }
+      }
+
+      var activePointerTarget = null;
+
+      if (dGrid) {
+        dGrid.addEventListener('pointerdown', function(e) {
+          var textCard = e.target.closest('.is-text-card');
+          var emptySlot = e.target.closest('.is-empty-slot');
+          var tile = e.target.closest('#desk-tile');
+
+          if (textCard || emptySlot || tile) {
+            isInteractingD = true;
+            activePointerTarget = textCard || emptySlot || tile;
+            clearTimeout(interactionTimerD);
+          }
+        });
+
+        dGrid.addEventListener('pointerup', function(e) {
+          if (!activePointerTarget) return;
+
+          var targetCell = e.target.closest('.c8-pg-cell');
+          if (targetCell) {
+            if (activePointerTarget.id === 'desk-tile' || activePointerTarget.classList.contains('is-empty-slot')) {
+              var imgIdx = parseInt(targetCell.getAttribute('data-img-idx')) || 0;
+              snapTile(dGrid, dTile, targetCell, 20);
+              swapImage(dImgs, imgIdx);
+            } else if (activePointerTarget.classList.contains('is-text-card') && targetCell !== activePointerTarget) {
+              var tempHTML = targetCell.innerHTML;
+              targetCell.innerHTML = activePointerTarget.innerHTML;
+              activePointerTarget.innerHTML = tempHTML;
+
+              var tempClass = targetCell.className;
+              targetCell.className = activePointerTarget.className;
+              activePointerTarget.className = tempClass;
+            }
+          }
+
+          activePointerTarget = null;
+          interactionTimerD = setTimeout(function() {
+            isInteractingD = false;
+            currStateD = -1;
+            updateUniversalLPath();
+          }, 1500);
+        });
+      }
+
+      window.addEventListener('scroll', updateUniversalLPath, { passive: true });
+      window.addEventListener('resize', updateUniversalLPath, { passive: true });
+
+      setTimeout(function() {
+        updateUniversalLPath();
+      }, 100);
+    })();
+  </script>
+
+<!-- MASTER MODERNIZED AGENCY FOOTER -->
+  <!-- MASTER MODERNIZED AGENCY FOOTER -->
+  
 </main>
 
 <?php get_template_part('parts/footer'); ?>

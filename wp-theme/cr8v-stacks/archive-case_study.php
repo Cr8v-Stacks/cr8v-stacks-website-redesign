@@ -94,7 +94,70 @@ defined('ABSPATH') || exit;
     </div>
 
     <?php else : ?>
-    <p style="padding:4rem 0;text-align:center;color:#888;">No case studies found. Add your first one via WP Admin → Case Studies → Add New.</p>
+    <!-- Fallback default showcase cards when no CPT posts exist yet -->
+    <div class="c8cs-index-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2rem;padding-bottom:4rem;">
+      
+      <!-- Card 1: The Duch Apartments -->
+      <a href="<?php echo esc_url(home_url('/case-studies/the-duch-apartments/')); ?>" class="c8cs-index-card" style="display:flex;flex-direction:column;border:1px solid rgba(8,8,8,0.1);border-radius:4px;overflow:hidden;background:#fff;text-decoration:none;color:inherit;">
+        <div style="width:100%;aspect-ratio:16/9;overflow:hidden;">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_stacks_visual.jpg'); ?>" style="width:100%;height:100%;object-fit:cover;display:block;" alt="The Duch Apartments">
+        </div>
+        <div style="padding:1.75rem 1.5rem;flex:1;display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+            <span class="fylla-pill" style="font-size:0.65rem;">Hospitality</span>
+            <span class="fylla-pill" style="font-size:0.65rem;">Web Design</span>
+          </div>
+          <h2 style="font-family:'Michroma',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;color:#080808;line-height:1.25;">The Duch Apartments</h2>
+          <p style="font-family:'DM Sans',sans-serif;font-size:13.5px;color:#555;line-height:1.65;flex:1;">A bespoke hospitality platform with a 100% direct booking engine and automated reservation management.</p>
+          <div style="display:flex;align-items:baseline;gap:6px;margin-top:auto;padding-top:1rem;border-top:1px solid rgba(8,8,8,0.07);">
+            <span style="font-family:'Michroma',sans-serif;font-size:1.5rem;font-weight:700;color:#0047E1;">+340%</span>
+            <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#888;">Direct Bookings</span>
+          </div>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;color:#0047E1;text-transform:uppercase;">View Case Study →</span>
+        </div>
+      </a>
+
+      <!-- Card 2: MKenny Properties -->
+      <a href="<?php echo esc_url(home_url('/case-studies/mkenny-properties/')); ?>" class="c8cs-index-card" style="display:flex;flex-direction:column;border:1px solid rgba(8,8,8,0.1);border-radius:4px;overflow:hidden;background:#fff;text-decoration:none;color:inherit;">
+        <div style="width:100%;aspect-ratio:16/9;overflow:hidden;">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/services_visual_montage.jpg'); ?>" style="width:100%;height:100%;object-fit:cover;display:block;" alt="MKenny Properties">
+        </div>
+        <div style="padding:1.75rem 1.5rem;flex:1;display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+            <span class="fylla-pill" style="font-size:0.65rem;">Real Estate</span>
+            <span class="fylla-pill" style="font-size:0.65rem;">Custom Dev</span>
+          </div>
+          <h2 style="font-family:'Michroma',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;color:#080808;line-height:1.25;">MKenny Properties</h2>
+          <p style="font-family:'DM Sans',sans-serif;font-size:13.5px;color:#555;line-height:1.65;flex:1;">Full-scale real estate platform featuring property filtering, interactive floor plans, and lead capture system.</p>
+          <div style="display:flex;align-items:baseline;gap:6px;margin-top:auto;padding-top:1rem;border-top:1px solid rgba(8,8,8,0.07);">
+            <span style="font-family:'Michroma',sans-serif;font-size:1.5rem;font-weight:700;color:#0047E1;">4.8x</span>
+            <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#888;">Lead Conversion</span>
+          </div>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;color:#0047E1;text-transform:uppercase;">View Case Study →</span>
+        </div>
+      </a>
+
+      <!-- Card 3: Victorias Lane -->
+      <a href="<?php echo esc_url(home_url('/case-studies/victorias-lane/')); ?>" class="c8cs-index-card" style="display:flex;flex-direction:column;border:1px solid rgba(8,8,8,0.1);border-radius:4px;overflow:hidden;background:#fff;text-decoration:none;color:inherit;">
+        <div style="width:100%;aspect-ratio:16/9;overflow:hidden;">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg'); ?>" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Victorias Lane">
+        </div>
+        <div style="padding:1.75rem 1.5rem;flex:1;display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+            <span class="fylla-pill" style="font-size:0.65rem;">Luxury E-Com</span>
+            <span class="fylla-pill" style="font-size:0.65rem;">Brand Identity</span>
+          </div>
+          <h2 style="font-family:'Michroma',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;color:#080808;line-height:1.25;">Victorias Lane</h2>
+          <p style="font-family:'DM Sans',sans-serif;font-size:13.5px;color:#555;line-height:1.65;flex:1;">Luxury e-commerce storefront with liquid performance engineering and bespoke checkout experience.</p>
+          <div style="display:flex;align-items:baseline;gap:6px;margin-top:auto;padding-top:1rem;border-top:1px solid rgba(8,8,8,0.07);">
+            <span style="font-family:'Michroma',sans-serif;font-size:1.5rem;font-weight:700;color:#0047E1;">99.8%</span>
+            <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#888;">Performance Score</span>
+          </div>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;color:#0047E1;text-transform:uppercase;">View Case Study →</span>
+        </div>
+      </a>
+
+    </div>
     <?php endif; ?>
   </div>
 
