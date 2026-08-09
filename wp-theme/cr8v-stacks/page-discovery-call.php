@@ -1,0 +1,153 @@
+<?php
+/**
+ * CR8V Stacks — page-discovery-call.php
+ * Template Name: Discovery Call
+ * Edit: WP Admin → Appearance → Customize → Discovery Call Section
+ */
+defined('ABSPATH') || exit;
+
+$tag   = cr8v_mod('dc_tag',   '↳ DISCOVERY CALL');
+$h1    = cr8v_mod('dc_h1',    'BOOK A DISCOVERY CALL');
+$lede  = cr8v_mod('dc_lede',  'Select an available time slot below to scope your project requirements, architecture, timelines, and execution strategy directly with our core engineering team.');
+$embed = cr8v_mod('dc_booking_embed', ''); // WP shortcode or Calendly iframe src
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Discovery Call — <?php bloginfo('name'); ?></title>
+  <meta name="description" content="Book a Discovery Call with CR8V Stacks to scope your web design, AI MVP, or custom development project.">
+  <style>
+    :root{--ink:#080808;--paper:#F2F1EC;--paper-hi:#FAFAF7;--blue:#0047E1;--blue-mid:#0038C0;--blue-hi:#4A9EFF;--gray:#8A8A8A;--line:rgba(8,8,8,0.14);--radius:4px;--font-heading:'Michroma',sans-serif;--font-mono:'Space Mono',monospace;--font-body:'DM Sans',sans-serif;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    a,a:hover,a:focus,button{text-decoration:none!important;}
+    body{background:var(--ink);color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;line-height:1.6;}
+    .c8dc-wrap{position:relative;background:var(--ink);overflow:hidden;padding:4rem 1.5rem;min-height:100vh;}
+    .c8dc-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 15% 15%,rgba(0,71,225,0.35) 0%,transparent 50%),radial-gradient(circle at 90% 85%,rgba(0,56,192,0.22) 0%,transparent 50%);pointer-events:none;}
+    .c8dc-card{position:relative;z-index:1;max-width:1080px;margin:0 auto;background:var(--paper);padding:clamp(2rem,4vw,3.5rem);border-radius:var(--radius);overflow:visible;}
+    .c8dc-card::before{content:'';position:absolute;bottom:-10px;left:20px;right:20px;background:rgba(255,255,255,0.08);z-index:-1;}
+    .c8dc-card::after{content:'';position:absolute;bottom:-20px;left:32px;right:32px;background:rgba(255,255,255,0.045);z-index:-1;}
+    .c8dc-stamp{position:absolute;top:2.25rem;right:2.25rem;width:82px;height:82px;border:1.5px dashed rgba(8,8,8,0.32);border-radius:50%;display:flex;align-items:center;justify-content:center;transform:rotate(-8deg);text-align:center;}
+    .c8dc-stamp span{display:block;font-family:var(--font-mono);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);line-height:1.35;font-weight:700;}
+    .c8dc-tag{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.26em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px;font-weight:700;}
+    .c8dc-tag::before{content:'';width:16px;height:1px;background:var(--blue);}
+    .c8dc-h1{font-family:var(--font-heading);font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;color:var(--ink);letter-spacing:0.01em;margin-bottom:0.75rem;}
+    .c8dc-lede{font-size:14.5px;line-height:1.6;color:#4a4a4a;font-weight:300;max-width:680px;margin-bottom:2rem;}
+    .c8dc-booking-section{margin-bottom:3rem;}
+    .c8dc-section-h2{font-family:var(--font-heading);font-size:0.52rem!important;font-weight:700;color:var(--gray);letter-spacing:0.16em;margin-bottom:0.85rem;text-transform:uppercase;}
+    .c8dc-booking-card{background:#FFFFFF;border:1px solid var(--line);border-radius:var(--radius);padding:1.75rem;min-height:500px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;}
+    .c8dc-tear{position:relative;margin:2.5rem -3.5rem;border-top:2px dashed rgba(8,8,8,0.28);}
+    .c8dc-tear::before{content:'';position:absolute;top:50%;transform:translateY(-50%);left:-17px;width:34px;height:34px;border-radius:50%;background:var(--ink);}
+    .c8dc-tear::after{content:'';position:absolute;top:50%;transform:translateY(-50%);right:-17px;width:34px;height:34px;border-radius:50%;background:var(--ink);}
+    .c8dc-bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
+    .c8dc-pillars-title{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray);margin-bottom:1rem;}
+    .c8dc-pillars-list{display:flex;flex-direction:column;gap:0.85rem;}
+    .c8dc-pillar-item{display:flex;align-items:flex-start;gap:0.75rem;background:rgba(8,8,8,0.03);border:1px solid var(--line);border-radius:var(--radius);padding:0.9rem 1.1rem;}
+    .c8dc-pillar-num{font-family:var(--font-mono);font-size:10px;color:var(--blue);font-weight:700;}
+    .c8dc-pillar-text strong{display:block;font-size:0.88rem;color:var(--ink);margin-bottom:0.15rem;}
+    .c8dc-pillar-text span{font-size:0.8rem;color:#555555;}
+    .c8dc-testi-card{background:#080808;color:#FFFFFF;border-radius:var(--radius);padding:1.75rem;position:relative;}
+    .c8dc-testi-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,0.1);}
+    .c8dc-testi-heading{font-family:var(--font-heading);font-size:0.52rem!important;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue-hi);display:inline-flex;align-items:center;gap:0.5rem;}
+    .c8dc-testi-stars{color:#FFB800;font-size:12px;letter-spacing:2px;}
+    .c8dc-testi-quote{font-size:0.92rem;line-height:1.6;color:rgba(255,255,255,0.88);font-style:normal;margin-bottom:1.5rem;}
+    @media(max-width:820px){.c8dc-bottom-grid{grid-template-columns:1fr;}.c8dc-tear{margin:2rem -2rem;}.c8dc-stamp{display:none;}}
+  </style>
+  <?php wp_head(); ?>
+</head>
+<body <?php body_class('cr8v-discovery-call'); ?>>
+<?php wp_body_open(); ?>
+<?php get_template_part('parts/header'); ?>
+
+<div class="c8dc-wrap">
+  <div class="c8dc-card">
+    <div class="c8dc-stamp"><span>PROJECT<br>SCOPING</span></div>
+
+    <div class="c8dc-tag" data-customizer="dc_tag"><?php echo esc_html($tag); ?></div>
+    <h1 class="c8dc-h1" data-customizer="dc_h1"><?php echo esc_html($h1); ?></h1>
+    <p class="c8dc-lede" data-customizer="dc_lede"><?php echo esc_html($lede); ?></p>
+
+    <!-- ── Booking Embed ── -->
+    <div class="c8dc-booking-section">
+      <h2 class="c8dc-section-h2">Available Booking Slots</h2>
+      <div class="c8dc-booking-card">
+        <?php if ($embed) :
+          // If it's a URL, render as Calendly iframe; if it's a shortcode, do_shortcode
+          if (filter_var($embed, FILTER_VALIDATE_URL)) : ?>
+            <iframe src="<?php echo esc_url($embed); ?>" width="100%" height="650" frameborder="0" style="border:none;border-radius:4px;"></iframe>
+          <?php else : ?>
+            <?php echo do_shortcode($embed); ?>
+          <?php endif; ?>
+        <?php else : ?>
+          <!-- Placeholder — paste your Calendly URL or booking shortcode in WP Customizer → Discovery Call → Booking Embed -->
+          <p style="font-family:'Space Mono',monospace;font-size:11px;color:#999;text-align:center;">
+            📅 Booking calendar will appear here.<br>
+            <span style="opacity:0.6;">Add your Calendly URL or shortcode in<br><strong>Customize → Discovery Call → Booking Embed</strong></span>
+          </p>
+        <?php endif; ?>
+      </div>
+    </div>
+
+    <div class="c8dc-tear"></div>
+
+    <!-- ── Bottom Grid: Pillars + Testimonial ── -->
+    <div class="c8dc-bottom-grid">
+
+      <div>
+        <h2 class="c8dc-section-h2">What We Scope On The Call</h2>
+        <div class="c8dc-pillars-list">
+          <div class="c8dc-pillar-item">
+            <div class="c8dc-pillar-num">01</div>
+            <div class="c8dc-pillar-text">
+              <strong>Technical Requirements &amp; Brief</strong>
+              <span>Deep-dive into your platform objectives, audience, and functional requirements.</span>
+            </div>
+          </div>
+          <div class="c8dc-pillar-item">
+            <div class="c8dc-pillar-num">02</div>
+            <div class="c8dc-pillar-text">
+              <strong>Stack &amp; Architecture Selection</strong>
+              <span>Determining the optimal stack — WordPress, Shopify, Next.js, AI MVPs, or Supabase.</span>
+            </div>
+          </div>
+          <div class="c8dc-pillar-item">
+            <div class="c8dc-pillar-num">03</div>
+            <div class="c8dc-pillar-text">
+              <strong>Fixed Pricing &amp; Milestone Roadmap</strong>
+              <span>Transparent milestone timelines with fixed pricing and zero mid-build surprises.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c8dc-testi-card">
+        <div class="c8dc-testi-header">
+          <h2 class="c8dc-testi-heading">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#0047E1"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+            VERIFIED CLIENT FEEDBACK
+          </h2>
+          <div class="c8dc-testi-stars">★★★★★</div>
+        </div>
+        <p class="c8dc-testi-quote">"What stood out wasn't just the design or code individually — it was having one agency handle technical architecture, liquid performance, and growth strategy without anything getting lost in translation."</p>
+        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+          <div style="display:flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.06);padding:6px 12px;border-radius:4px;border:1px solid rgba(255,255,255,0.1);">
+            <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress" style="width:16px;height:16px;">
+            <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" style="width:16px;height:16px;">
+            <img src="https://cdn.simpleicons.org/nextdotjs/ffffff" alt="Next.js" style="width:16px;height:16px;">
+          </div>
+          <div style="text-align:right;">
+            <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#4A9EFF;">VERIFIED TECH STACK</div>
+            <div style="font-family:'Michroma',sans-serif;font-size:0.52rem;font-weight:700;color:rgba(255,255,255,0.6);">Enterprise Digital Architecture</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<?php get_template_part('parts/footer'); ?>
+<?php wp_footer(); ?>
+</body>
+</html>

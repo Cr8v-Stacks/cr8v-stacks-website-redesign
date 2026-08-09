@@ -145,9 +145,10 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         'title' => 'Discovery Call Page',
         'panel' => 'cr8v_contact',
     ]);
-    _cr8v_text($wp_customize,    'discovery_headline', 'cr8v_discovery', 'Page Headline', 'Book a Discovery Call');
-    _cr8v_textarea($wp_customize,'discovery_sub',      'cr8v_discovery', 'Subheadline',   'Let\'s talk about your project.');
-    _cr8v_url($wp_customize,     'discovery_cal_url',  'cr8v_discovery', 'Calendly / Booking URL', '');
+    _cr8v_text($wp_customize,    'dc_tag',           'cr8v_discovery', 'Tag Label',            '↳ DISCOVERY CALL');
+    _cr8v_text($wp_customize,    'dc_h1',            'cr8v_discovery', 'Page Headline',        'BOOK A DISCOVERY CALL');
+    _cr8v_textarea($wp_customize,'dc_lede',          'cr8v_discovery', 'Intro Paragraph',      'Select an available time slot below to scope your project requirements, architecture, timelines, and execution strategy directly with our core engineering team.');
+    _cr8v_textarea($wp_customize,'dc_booking_embed', 'cr8v_discovery', 'Booking Embed (Calendly URL or WP shortcode)', '');
 
 
     /* ═══════════════════════════════════════════════════════

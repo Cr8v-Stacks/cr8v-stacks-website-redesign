@@ -62,6 +62,7 @@ add_action('wp_enqueue_scripts', function () {
 require_once get_template_directory() . '/inc/customizer.php';
 require_once get_template_directory() . '/inc/cpt-case-studies.php';
 require_once get_template_directory() . '/inc/helpers.php';
+require_once get_template_directory() . '/inc/acf-fields.php';  // programmatic ACF groups (Tropos)
 
 
 /* ─── 4. DISABLE wpautop ON CUSTOM PAGE TEMPLATES ────────────── */
@@ -72,6 +73,7 @@ add_action('template_redirect', function () {
         'page-about.php',
         'page-contact.php',
         'page-discovery-call.php',
+        'page-service.php',
         'page-services.php',
     ];
     foreach ($templates_no_autop as $t) {
