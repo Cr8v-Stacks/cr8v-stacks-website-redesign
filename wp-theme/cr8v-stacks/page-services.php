@@ -2309,10 +2309,11 @@ body {
 </script>
 </div>
 
-<script src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>shared-folder-stack.js"></script>
+<script src="<?php echo esc_url(get_template_directory_uri() . '/assets/js/shared-folder-stack.js'); ?>"></script>
 </main>
 
 <?php get_template_part('parts/footer'); ?>
 <?php wp_footer(); ?>
 </body>
 </html>
+

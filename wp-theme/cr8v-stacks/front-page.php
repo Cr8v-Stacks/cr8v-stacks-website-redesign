@@ -44,8 +44,8 @@ defined('ABSPATH') || exit;
       <!-- Moving Visual Tile -->
       <div class="c8-puzzle-tile" id="desk-tile">
         <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>kinetic_grid_showcase.jpg" alt="Design Identity" class="c8-swap-img is-active-img" id="img-row-1">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_'); ?>ai_workflow.png" alt="AI Creative Partner" class="c8-swap-img" id="img-row-2">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_'); ?>stack_seo.png" alt="Growth Systems" class="c8-swap-img" id="img-row-3">
+        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/about_ai_workflow.jpg'); ?>" alt="AI Creative Partner" class="c8-swap-img" id="img-row-2">
+        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_stacks_visual.jpg'); ?>" alt="Growth Systems" class="c8-swap-img" id="img-row-3">
       </div>
 
       <!-- ROW 1 -->
@@ -384,7 +384,7 @@ defined('ABSPATH') || exit;
             <div class="sw-matrix-stat-lbl">Proprietary AI Build</div>
           </div>
           <div class="sw-matrix-img-box">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_study_bridgepoint_compliance_1785571461489.jpg" alt="WP Publishion AI" class="sw-matrix-img">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_bridgepoint_compliance.jpg" alt="WP Publishion AI" class="sw-matrix-img">
           </div>
         </div>
       </div>
@@ -3284,3 +3284,4 @@ defined('ABSPATH') || exit;
 <?php wp_footer(); ?>
 </body>
 </html>
+
