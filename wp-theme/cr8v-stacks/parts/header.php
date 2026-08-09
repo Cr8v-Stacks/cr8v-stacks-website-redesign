@@ -199,25 +199,15 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
           </span>
         </li>
 
-        <!-- Dynamic primary menu items (managed from WP Admin → Appearance → Menus) -->
-        <?php
-        if (has_nav_menu('primary')) {
-            wp_nav_menu([
-                'theme_location'  => 'primary',
-                'container'       => false,
-                'items_wrap'      => '%3$s',
-                'fallback_cb'     => false,
-                'depth'           => 1,
-                'add_li_class'    => 'c8-pnav-item',
-                'link_class'      => 'c8-pnav-link',
-                'walker'          => new CR8V_Primary_Nav_Walker(),
-            ]);
-        } else {
-        ?>
-          <li class="c8-pnav-item"><a href="<?php echo esc_url(home_url('/about/')); ?>" class="c8-pnav-link">About</a></li>
-          <li class="c8-pnav-item"><a href="<?php echo esc_url(home_url('/case-studies/')); ?>" class="c8-pnav-link">Case Studies</a></li>
-          <li class="c8-pnav-item"><a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8-pnav-link">Blog</a></li>
-        <?php } ?>
+        <!-- About -->
+        <li class="c8-pnav-item">
+          <a href="<?php echo esc_url(home_url('/about/')); ?>" class="c8-pnav-link">About</a>
+        </li>
+
+        <!-- Blog -->
+        <li class="c8-pnav-item">
+          <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8-pnav-link">Blog</a>
+        </li>
       </ul>
     </nav>
 

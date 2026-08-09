@@ -229,6 +229,9 @@ class CR8V_Footer_Link_Walker extends Walker_Nav_Menu {
         $output .= esc_html($item->title);
         $output .= ' <span class="c8ft-site-link-arr">→</span></a>';
     }
+    public function end_el(&$output, $item, $depth = 0, $args = null) {
+        // Suppress default Walker_Nav_Menu </li> output
+    }
 }
 
 class CR8V_Footer_Chip_Walker extends Walker_Nav_Menu {
@@ -236,5 +239,8 @@ class CR8V_Footer_Chip_Walker extends Walker_Nav_Menu {
         $output .= '<a href="' . esc_url($item->url) . '" class="c8ft-chip">';
         $output .= esc_html($item->title);
         $output .= '</a>';
+    }
+    public function end_el(&$output, $item, $depth = 0, $args = null) {
+        // Suppress default Walker_Nav_Menu </li> output
     }
 }

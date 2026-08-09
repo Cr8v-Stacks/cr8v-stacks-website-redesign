@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * CR8V Stacks — front-page.php
  * Tropos Theme Homepage (100% full design fidelity from home-b.html)
@@ -43,7 +43,7 @@ defined('ABSPATH') || exit;
       
       <!-- Moving Visual Tile -->
       <div class="c8-puzzle-tile" id="desk-tile">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>kinetic_grid_showcase.jpg" alt="Design Identity" class="c8-swap-img is-active-img" id="img-row-1">
+        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/kinetic_grid_showcase.jpg'); ?>" alt="Design Identity" class="c8-swap-img is-active-img" id="img-row-1">
         <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/about_ai_workflow.jpg'); ?>" alt="AI Creative Partner" class="c8-swap-img" id="img-row-2">
         <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_stacks_visual.jpg'); ?>" alt="Growth Systems" class="c8-swap-img" id="img-row-3">
       </div>
@@ -3268,6 +3268,8 @@ defined('ABSPATH') || exit;
 
       window.addEventListener('scroll', updateUniversalLPath, { passive: true });
       window.addEventListener('resize', updateUniversalLPath, { passive: true });
+      document.addEventListener('DOMContentLoaded', updateUniversalLPath);
+      window.addEventListener('load', updateUniversalLPath);
 
       setTimeout(function() {
         updateUniversalLPath();
