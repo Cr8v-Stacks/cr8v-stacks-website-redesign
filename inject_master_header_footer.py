@@ -13,16 +13,19 @@ def get_header_html(rel_prefix):
     .c8hdr-root, .c8hdr-root * {{box-sizing:border-box!important;}}
     .c8hdr-root a {{text-decoration:none!important;color:inherit!important;}}
     .c8hdr-root ul {{list-style:none!important;margin:0!important;padding:0!important;}}
-    .c8hdr-root button {{font-family:'DM Sans',sans-serif!important;}}
+    .c8hdr-root button {{font-family:'Michroma',sans-serif!important;}}
 
-    /* ── Header shell ── */
+    /* ── Header Shell — Default Transparent, Fixed ── */
     .c8hdr-root .c8-header {{
       position:fixed!important;top:0!important;left:0!important;right:0!important;
       z-index:9500!important;height:68px!important;
-      background:#FAFAF7!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;
-      transition:box-shadow .3s!important;
+      background:transparent!important;border-bottom:none!important;
+      transition:background .3s ease,box-shadow .3s ease,border-color .3s ease!important;
     }}
-    .c8hdr-root .c8-header.c8-scrolled {{box-shadow:0 4px 40px rgba(0,0,0,0.07)!important;}}
+    .c8hdr-root .c8-header.c8-scrolled {{
+      background:#FAFAF7!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;
+      box-shadow:0 4px 30px rgba(0,0,0,0.06)!important;
+    }}
 
     body.admin-bar .c8hdr-root .c8-header {{top:32px!important;}}
     body.admin-bar .c8hdr-root .c8-mega, body.admin-bar .c8hdr-root .c8-mega-back {{top:calc(68px + 32px)!important;}}
@@ -39,7 +42,7 @@ def get_header_html(rel_prefix):
     }}
     @media (max-width:1100px){{ .c8hdr-root .c8hdr-inner {{padding:0 1.25rem!important;}} }}
 
-    /* ── Brand Logo (Official Image Logo) ── */
+    /* ── Brand Logo ── */
     .c8hdr-root .c8-logo {{
       display:flex!important;align-items:center!important;gap:10px!important;
       flex-shrink:0!important;text-decoration:none!important;
@@ -48,17 +51,18 @@ def get_header_html(rel_prefix):
       display:block!important;height:44px!important;width:auto!important;max-width:none!important;
     }}
 
-    /* ── Primary nav — capsule pill (desktop) ── */
+    /* ── Primary Navigation (Container Background & 4px Border Radius) ── */
     .c8hdr-root .c8-pnav {{
       display:flex!important;align-items:center!important;gap:2px!important;
-      background:#F3F2EC!important;border-radius:999px!important;padding:4px!important;height:46px!important;
+      background:#F3F2EC!important;padding:4px!important;height:46px!important;
+      border-radius:4px!important;
     }}
     .c8hdr-root .c8-pnav-item {{position:static!important;}}
     .c8hdr-root .c8-pnav-link {{
       display:flex!important;align-items:center!important;gap:4px!important;
-      font-size:13.5px!important;font-weight:500!important;color:#080808!important;
-      padding:0 1.1rem!important;height:38px!important;letter-spacing:.01em!important;
-      cursor:pointer!important;position:relative!important;border-radius:999px!important;
+      font-size:13px!important;font-weight:500!important;color:#080808!important;
+      padding:0 1rem!important;height:38px!important;letter-spacing:.01em!important;
+      cursor:pointer!important;position:relative!important;border-radius:4px!important;
       transition:background .2s ease,color .2s ease,box-shadow .2s ease!important;
       white-space:nowrap!important;user-select:none!important;font-family:'DM Sans',sans-serif!important;
     }}
@@ -69,17 +73,17 @@ def get_header_html(rel_prefix):
     .c8hdr-root .c8-pnav-link.c8-open .c8-chev {{transform:rotate(180deg)!important;opacity:1!important;}}
     @media (max-width:1100px){{ .c8hdr-root .c8-pnav {{display:none!important;}} }}
 
-    /* ── Header Right & Option G CTA ── */
+    /* ── Header Right & Agency CTA Button (Michroma Typography, No Shadow, 4px Radius) ── */
     .c8hdr-root .c8hdr-right {{display:flex!important;align-items:center!important;gap:.9rem!important;flex-shrink:0!important;}}
     .c8hdr-root .c8-btn-cta {{
       position:relative!important;overflow:hidden!important;
       display:inline-flex!important;align-items:center!important;justify-content:center!important;
-      gap:8px!important;font-family:'DM Sans',sans-serif!important;
-      font-size:12.5px!important;font-weight:600!important;color:#FAFAF7!important;
+      gap:8px!important;font-family:'Michroma',sans-serif!important;
+      font-size:10.5px!important;font-weight:700!important;color:#FAFAF7!important;
       background:#0047E1!important;padding:0 1.4rem!important;height:40px!important;
-      border-radius:999px!important;letter-spacing:.03em!important;white-space:nowrap!important;
-      transition:background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease!important;
-      box-shadow: 0 4px 14px rgba(0, 71, 225, 0.28)!important;
+      border-radius:4px!important;letter-spacing:.04em!important;text-transform:uppercase!important;
+      white-space:nowrap!important;transition:background 0.25s ease, transform 0.2s ease!important;
+      box-shadow:none!important;
     }}
     .c8hdr-root .c8-btn-cta::before {{
       content:''!important;position:absolute!important;top:0!important;left:-100%!important;
@@ -90,7 +94,7 @@ def get_header_html(rel_prefix):
     }}
     .c8hdr-root .c8-btn-cta:hover {{
       background:#0038C0!important;transform:translateY(-1px)!important;
-      box-shadow:0 8px 24px rgba(0, 71, 225, 0.38)!important;
+      box-shadow:none!important;
     }}
     .c8hdr-root .c8-btn-cta:hover::before {{ left:180%!important; }}
     @media (max-width:1100px){{ .c8hdr-root .c8-btn-cta {{display:none!important;}} }}
@@ -105,103 +109,148 @@ def get_header_html(rel_prefix):
     /* ── Mega Menu Backdrop ── */
     .c8hdr-root .c8-mega-back {{
       position:fixed!important;top:68px!important;left:0!important;right:0!important;bottom:0!important;
-      background:rgba(8,8,8,0.18)!important;z-index:9400!important;
-      opacity:0!important;pointer-events:none!important;transition:opacity .3s ease!important;
+      background:rgba(8,8,8,0.25)!important;z-index:9400!important;
+      opacity:0!important;visibility:hidden!important;pointer-events:none!important;
+      transition:opacity .25s ease,visibility .25s ease!important;
     }}
-    .c8hdr-root .c8-mega-back.c8-show {{opacity:1!important;pointer-events:auto!important;}}
+    .c8hdr-root .c8-mega-back.c8-show {{opacity:1!important;visibility:visible!important;pointer-events:auto!important;}}
 
-    /* ── Mega Menu Shell — floating, centered, rounded card ── */
+    /* ── Mega Menu Shell (Strict Pointer-Events & Visibility Guard) ── */
     .c8hdr-root .c8-mega {{
       position:fixed!important;top:68px!important;left:0!important;right:0!important;z-index:9450!important;
       display:flex!important;justify-content:center!important;padding-top:14px!important;
       background:transparent!important;pointer-events:none!important;
-      opacity:0!important;transform:translateY(-8px)!important;
-      transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .25s ease!important;
+      visibility:hidden!important;opacity:0!important;transform:translateY(-8px)!important;
+      transition:transform .25s cubic-bezier(.4,0,.2,1),opacity .2s ease,visibility .2s ease!important;
     }}
-    .c8hdr-root .c8-mega.c8-open {{transform:translateY(0)!important;opacity:1!important;pointer-events:auto!important;}}
+    .c8hdr-root .c8-mega.c8-open {{transform:translateY(0)!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;}}
     @media (max-width:1100px){{ .c8hdr-root .c8-mega, .c8hdr-root .c8-mega-back {{display:none!important;}} }}
 
     .c8hdr-root .c8-mega-card {{
       background:#FFFFFF!important;width:min(1280px, calc(100% - 4rem))!important;
-      border-radius:22px!important;border:1px solid rgba(8,8,8,0.07)!important;
-      box-shadow:0 30px 80px rgba(8,8,8,0.16)!important;overflow:hidden!important;pointer-events:auto!important;
+      border-radius:4px!important;border:1px solid rgba(8,8,8,0.08)!important;
+      box-shadow:0 24px 60px rgba(8,8,8,0.14)!important;overflow:hidden!important;pointer-events:auto!important;
     }}
 
     .c8hdr-root .c8-mega-grid {{display:grid!important;}}
-    .c8hdr-root .c8-mega-grid-services {{grid-template-columns:0.95fr 0.85fr 0.85fr 0.55fr!important;}}
-    .c8hdr-root .c8-mega-grid-tools {{grid-template-columns:0.95fr 1.3fr 0.55fr!important;}}
+    .c8hdr-root .c8-mega-grid-services {{grid-template-columns:1fr 1fr 1fr!important;}}
+    .c8hdr-root .c8-mega-grid-tools {{grid-template-columns:1fr 1.4fr!important;}}
 
     .c8hdr-root .c8-mcol-intro, .c8hdr-root .c8-mcol-list, .c8hdr-root .c8-mcol-list-wide {{
-      padding:2.1rem 1.9rem!important;border-right:1px solid rgba(8,8,8,0.06)!important;
+      padding:2.2rem 2.2rem!important;border-right:1px solid rgba(8,8,8,0.06)!important;
     }}
-    .c8hdr-root .c8-mcol-deco {{padding:2.1rem 1.4rem!important;}}
+    .c8hdr-root .c8-mcol-list:last-child, .c8hdr-root .c8-mcol-list-wide {{border-right:none!important;}}
 
+    /* Typography Rules: Eyebrows Space Mono, Headings Michroma, Body DM Sans */
     .c8hdr-root .c8-mcol-eyebrow {{
       font-family:'Space Mono',monospace!important;font-size:9.5px!important;letter-spacing:.28em!important;
       text-transform:uppercase!important;color:#0047E1!important;margin-bottom:1.1rem!important;
-      display:flex!important;align-items:center!important;gap:8px!important;
+      display:flex!important;align-items:center!important;gap:8px!important;font-weight:700!important;
     }}
     .c8hdr-root .c8-mcol-eyebrow::before {{content:''!important;width:14px!important;height:1px!important;background:#0047E1!important;display:inline-block!important;flex-shrink:0!important;}}
 
-    .c8hdr-root .c8-mcol-heading {{font-family:'Michroma',sans-serif!important;font-size:1.5rem!important;line-height:1.25!important;color:#080808!important;margin-bottom:.85rem!important;}}
-    .c8hdr-root .c8-mcol-desc {{font-size:12.5px!important;color:#7A7A75!important;line-height:1.65!important;font-weight:400!important;margin-bottom:1.6rem!important;max-width:260px!important;}}
+    .c8hdr-root .c8-mcol-heading {{
+      font-family:'Michroma',sans-serif!important;font-size:1.35rem!important;line-height:1.3!important;
+      color:#080808!important;margin-bottom:.8rem!important;letter-spacing:.01em!important;font-weight:700!important;
+    }}
+    .c8hdr-root .c8-mcol-desc {{
+      font-family:'DM Sans',sans-serif!important;font-size:12.5px!important;color:#666663!important;
+      line-height:1.65!important;font-weight:400!important;margin-bottom:1.5rem!important;max-width:280px!important;
+    }}
 
+    /* Showcase Card — Header Beside Icon & Royal Blue Atmosphere */
     .c8hdr-root .c8-highlight-card {{
-      display:block!important;background:#F4F3EE!important;border-radius:14px!important;
-      padding:1.1rem 1.2rem!important;transition:background .18s ease,transform .18s ease!important;
+      display:block!important;background:rgba(0, 71, 225, 0.04)!important;
+      border:1px solid rgba(0, 71, 225, 0.12)!important;border-radius:4px!important;
+      padding:1.15rem 1.25rem!important;transition:background .2s ease,border-color .2s ease,transform .2s ease!important;
     }}
-    .c8hdr-root .c8-highlight-card:hover {{background:#EBEAE3!important;transform:translateY(-2px)!important;}}
+    .c8hdr-root .c8-highlight-card:hover {{
+      background:rgba(0, 71, 225, 0.08)!important;border-color:rgba(0, 71, 225, 0.25)!important;transform:translateY(-2px)!important;
+    }}
+    .c8hdr-root .c8-highlight-header-row {{
+      display:flex!important;align-items:center!important;gap:10px!important;margin-bottom:.65rem!important;
+    }}
     .c8hdr-root .c8-highlight-ico {{
-      width:30px!important;height:30px!important;background:#FFFFFF!important;border-radius:999px!important;
-      display:flex!important;align-items:center!important;justify-content:center!important;margin-bottom:.75rem!important;
-      box-shadow:0 1px 3px rgba(8,8,8,0.08)!important;
+      width:28px!important;height:28px!important;background:#0047E1!important;border-radius:4px!important;
+      display:flex!important;align-items:center!important;justify-content:center!important;flex-shrink:0!important;
+      box-shadow:0 2px 8px rgba(0, 71, 225, 0.25)!important;
     }}
-    .c8hdr-root .c8-highlight-ico svg {{width:14px!important;height:14px!important;stroke:#0047E1!important;stroke-width:1.8!important;fill:none!important;}}
-    .c8hdr-root .c8-highlight-title {{font-size:13px!important;font-weight:600!important;color:#080808!important;margin-bottom:4px!important;}}
-    .c8hdr-root .c8-highlight-desc {{font-size:11.5px!important;color:#7A7A75!important;line-height:1.55!important;font-weight:400!important;margin-bottom:.7rem!important;}}
-    .c8hdr-root .c8-highlight-link {{font-size:11.5px!important;font-weight:600!important;color:#0047E1!important;}}
+    .c8hdr-root .c8-highlight-ico svg {{width:14px!important;height:14px!important;stroke:#FFFFFF!important;stroke-width:1.8!important;fill:none!important;}}
+    .c8hdr-root .c8-highlight-title {{
+      font-family:'Michroma',sans-serif!important;font-size:11px!important;font-weight:700!important;
+      color:#080808!important;letter-spacing:.02em!important;text-transform:uppercase!important;margin:0!important;
+    }}
+    .c8hdr-root .c8-highlight-desc {{
+      font-family:'DM Sans',sans-serif!important;font-size:11.5px!important;color:#666663!important;
+      line-height:1.55!important;font-weight:400!important;margin-bottom:.75rem!important;
+    }}
+    .c8hdr-root .c8-highlight-link {{
+      font-family:'DM Sans',sans-serif!important;font-size:11.5px!important;font-weight:600!important;color:#0047E1!important;
+    }}
 
-    .c8hdr-root .c8-svc2-list {{margin-top:1.5rem!important;display:flex!important;flex-direction:column!important;gap:1.35rem!important;}}
-    .c8hdr-root .c8-svc2-row {{display:flex!important;align-items:flex-start!important;gap:11px!important;}}
+    /* Service & Tool Rows — Hover Effects & Michroma Titles */
+    .c8hdr-root .c8-svc2-list {{margin-top:1.2rem!important;display:flex!important;flex-direction:column!important;gap:.85rem!important;}}
+    .c8hdr-root .c8-svc2-row {{
+      display:flex!important;align-items:flex-start!important;gap:11px!important;
+      padding:6px 8px!important;margin:-2px -8px!important;border-radius:4px!important;
+      transition:background .18s ease!important;
+    }}
+    .c8hdr-root .c8-svc2-row:hover {{background:rgba(0, 71, 225, 0.05)!important;}}
     .c8hdr-root .c8-svc2-ico {{
-      width:26px!important;height:26px!important;background:#EEF3FF!important;border-radius:8px!important;
+      width:28px!important;height:28px!important;background:#EEF3FF!important;border-radius:4px!important;
       display:flex!important;align-items:center!important;justify-content:center!important;flex-shrink:0!important;
       margin-top:1px!important;transition:background .18s!important;
     }}
     .c8hdr-root .c8-svc2-row:hover .c8-svc2-ico {{background:#0047E1!important;}}
-    .c8hdr-root .c8-svc2-ico svg {{width:12.5px!important;height:12.5px!important;stroke:#0047E1!important;stroke-width:1.75!important;fill:none!important;transition:stroke .18s!important;}}
+    .c8hdr-root .c8-svc2-ico svg {{width:13px!important;height:13px!important;stroke:#0047E1!important;stroke-width:1.75!important;fill:none!important;transition:stroke .18s!important;}}
     .c8hdr-root .c8-svc2-row:hover .c8-svc2-ico svg {{stroke:#FFFFFF!important;}}
-    .c8hdr-root .c8-svc2-name {{font-size:13.5px!important;font-weight:600!important;color:#080808!important;margin-bottom:2px!important;transition:color .18s!important;}}
-    .c8hdr-root .c8-svc2-row:hover .c8-svc2-name {{color:#0047E1!important;}}
-    .c8hdr-root .c8-svc2-desc {{font-size:11.5px!important;color:#8A8A85!important;line-height:1.4!important;font-weight:400!important;}}
 
-    .c8hdr-root .c8-tool2-list {{margin-top:1.5rem!important;display:flex!important;flex-direction:column!important;gap:1.6rem!important;}}
-    .c8hdr-root .c8-tool2-row {{display:flex!important;align-items:flex-start!important;gap:14px!important;}}
+    .c8hdr-root .c8-svc2-name {{
+      font-family:'Michroma',sans-serif!important;font-size:11px!important;font-weight:700!important;
+      color:#080808!important;margin-bottom:3px!important;letter-spacing:.02em!important;text-transform:uppercase!important;
+      transition:color .18s!important;
+    }}
+    .c8hdr-root .c8-svc2-row:hover .c8-svc2-name {{color:#0047E1!important;}}
+    .c8hdr-root .c8-svc2-desc {{
+      font-family:'DM Sans',sans-serif!important;font-size:11.5px!important;color:#7A7A75!important;
+      line-height:1.45!important;font-weight:400!important;
+    }}
+
+    .c8hdr-root .c8-tool2-list {{margin-top:1.2rem!important;display:flex!important;flex-direction:column!important;gap:1.1rem!important;}}
+    .c8hdr-root .c8-tool2-row {{
+      display:flex!important;align-items:flex-start!important;gap:14px!important;
+      padding:8px 10px!important;margin:-4px -10px!important;border-radius:4px!important;
+      transition:background .18s ease!important;
+    }}
+    .c8hdr-root .c8-tool2-row:hover {{background:rgba(0, 71, 225, 0.05)!important;}}
     .c8hdr-root .c8-tool2-ico {{
-      width:32px!important;height:32px!important;background:#EEF3FF!important;border-radius:10px!important;
+      width:32px!important;height:32px!important;background:#EEF3FF!important;border-radius:4px!important;
       display:flex!important;align-items:center!important;justify-content:center!important;flex-shrink:0!important;
       transition:background .18s!important;
     }}
     .c8hdr-root .c8-tool2-row:hover .c8-tool2-ico {{background:#0047E1!important;}}
     .c8hdr-root .c8-tool2-ico svg {{width:15px!important;height:15px!important;stroke:#0047E1!important;stroke-width:1.75!important;fill:none!important;transition:stroke .18s!important;}}
     .c8hdr-root .c8-tool2-row:hover .c8-tool2-ico svg {{stroke:#FFFFFF!important;}}
-    .c8hdr-root .c8-tool2-name {{font-size:14px!important;font-weight:600!important;color:#080808!important;margin-bottom:3px!important;transition:color .18s!important;}}
+
+    .c8hdr-root .c8-tool2-name {{
+      font-family:'Michroma',sans-serif!important;font-size:11.5px!important;font-weight:700!important;
+      color:#080808!important;margin-bottom:4px!important;letter-spacing:.02em!important;text-transform:uppercase!important;
+      transition:color .18s!important;
+    }}
     .c8hdr-root .c8-tool2-row:hover .c8-tool2-name {{color:#0047E1!important;}}
-    .c8hdr-root .c8-tool2-desc {{font-size:12px!important;color:#8A8A85!important;line-height:1.55!important;font-weight:400!important;margin-bottom:5px!important;}}
-    .c8hdr-root .c8-tool2-link {{font-size:11.5px!important;font-weight:600!important;color:#0047E1!important;opacity:0!important;transform:translateY(-2px)!important;transition:all .18s!important;}}
+    .c8hdr-root .c8-tool2-desc {{
+      font-family:'DM Sans',sans-serif!important;font-size:12px!important;color:#7A7A75!important;
+      line-height:1.55!important;font-weight:400!important;margin-bottom:4px!important;
+    }}
+    .c8hdr-root .c8-tool2-link {{
+      font-family:'DM Sans',sans-serif!important;font-size:11.5px!important;font-weight:600!important;
+      color:#0047E1!important;opacity:0!important;transform:translateY(-2px)!important;transition:all .18s!important;
+    }}
     .c8hdr-root .c8-tool2-row:hover .c8-tool2-link {{opacity:1!important;transform:translateY(0)!important;}}
 
-    .c8hdr-root .c8-deco-grid {{
-      display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:10px 8px!important;margin-top:.2rem!important;
-      font-family:'Space Mono',monospace!important;
-    }}
-    .c8hdr-root .c8-deco-tok {{font-size:9.5px!important;color:rgba(8,8,8,0.18)!important;white-space:nowrap!important;}}
-    .c8hdr-root .c8-deco-tok.c8-deco-hi {{color:#0047E1!important;font-weight:700!important;}}
-    .c8hdr-root .c8-deco-tok.c8-deco-hi2 {{color:#080808!important;font-weight:700!important;}}
-
-    /* ── Established Mobile & Tablet Drawer UI (2-Column Icon Grid) ── */
-    .c8hdr-root .c8-md-overlay {{position:fixed!important;inset:0!important;background:rgba(8,8,8,0.5)!important;z-index:9600!important;opacity:0!important;pointer-events:none!important;transition:opacity .3s!important;}}
-    .c8hdr-root .c8-md-overlay.c8-show {{opacity:1!important;pointer-events:auto!important;}}
+    /* ── Refined Mobile Drawer UI — Dark Radial Glow Atmosphere on Top Hero & Footer ── */
+    .c8hdr-root .c8-md-overlay {{position:fixed!important;inset:0!important;background:rgba(8,8,8,0.5)!important;z-index:9600!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .3s,visibility .3s!important;}}
+    .c8hdr-root .c8-md-overlay.c8-show {{opacity:1!important;visibility:visible!important;pointer-events:auto!important;}}
     .c8hdr-root .c8-md-drawer {{
       position:fixed!important;inset:0!important;z-index:9700!important;
       background:#FAFAF7!important;transform:translateX(100%)!important;
@@ -214,6 +263,7 @@ def get_header_html(rel_prefix):
     .c8hdr-root .c8-md-hero::before {{
       content:''!important;position:absolute!important;inset:0!important;
       background:radial-gradient(circle at 85% 15%,rgba(0,71,225,0.45) 0%,transparent 55%),radial-gradient(circle at 10% 90%,rgba(0,56,192,0.2) 0%,transparent 50%)!important;
+      pointer-events:none!important;z-index:0!important;
     }}
     .c8hdr-root .c8-md-hero-bar {{
       height:60px!important;padding:0 1.25rem!important;display:flex!important;align-items:center!important;justify-content:space-between!important;
@@ -223,17 +273,19 @@ def get_header_html(rel_prefix):
     .c8hdr-root .c8-md-close {{
       width:34px!important;height:34px!important;display:flex!important;align-items:center!important;justify-content:center!important;
       background:rgba(255,255,255,0.08)!important;border:1px solid rgba(255,255,255,0.15)!important;cursor:pointer!important;
-      flex-shrink:0!important;padding:0!important;line-height:0!important;border-radius:999px!important;
+      flex-shrink:0!important;padding:0!important;line-height:0!important;border-radius:4px!important;
+      transition:background .2s,border-color .2s!important;
     }}
+    .c8hdr-root .c8-md-close:hover {{background:#0047E1!important;border-color:#0047E1!important;}}
     .c8hdr-root .c8-md-hero-label {{
       font-family:'Space Mono',monospace!important;font-size:9px!important;letter-spacing:.3em!important;text-transform:uppercase!important;
-      color:rgba(255,255,255,0.45)!important;padding:1.1rem 1.25rem 0!important;position:relative!important;z-index:1!important;
+      color:rgba(255,255,255,0.55)!important;padding:1.1rem 1.25rem 0!important;position:relative!important;z-index:1!important;
     }}
 
     .c8hdr-root .c8-md-body {{flex:1!important;overflow-y:auto!important;background:#FAFAF7!important;}}
     .c8hdr-root .c8-md-section-label {{
       font-family:'Space Mono',monospace!important;font-size:9px!important;letter-spacing:.32em!important;text-transform:uppercase!important;
-      color:#0047E1!important;padding:1.1rem 1.25rem .5rem!important;display:flex!important;align-items:center!important;gap:8px!important;
+      color:#0047E1!important;padding:1.1rem 1.25rem .5rem!important;display:flex!important;align-items:center!important;gap:8px!important;font-weight:700!important;
     }}
     .c8hdr-root .c8-md-section-label::before {{content:''!important;width:14px!important;height:1px!important;background:#0047E1!important;display:block!important;flex-shrink:0!important;}}
 
@@ -243,32 +295,44 @@ def get_header_html(rel_prefix):
       background:#F4F3EE!important;border:1px solid rgba(8,8,8,0.06)!important;border-radius:4px!important;position:relative!important;overflow:hidden!important;
       transition:background .2s,border-color .2s,transform .2s!important;
     }}
-    .c8hdr-root .c8-md-card:hover {{background:rgba(0, 71, 225, 0.04)!important;border-color:rgba(0, 71, 225, 0.2)!important;transform:translateX(3px)!important;}}
-    .c8hdr-root .c8-md-card-ico {{width:26px!important;height:26px!important;background:#D6E2FF!important;display:flex!important;align-items:center!important;justify-content:center!important;border-radius:3px!important;}}
-    .c8hdr-root .c8-md-card-ico svg {{width:12px!important;height:12px!important;stroke:#0047E1!important;stroke-width:1.75!important;fill:none!important;}}
-    .c8hdr-root .c8-md-card-name {{font-size:12px!important;font-weight:500!important;color:#080808!important;}}
+    .c8hdr-root .c8-md-card:hover {{background:rgba(0, 71, 225, 0.05)!important;border-color:rgba(0, 71, 225, 0.25)!important;transform:translateX(3px)!important;}}
+    .c8hdr-root .c8-md-card-ico {{width:26px!important;height:26px!important;background:#EEF3FF!important;display:flex!important;align-items:center!important;justify-content:center!important;border-radius:4px!important;transition:background .2s!important;}}
+    .c8hdr-root .c8-md-card:hover .c8-md-card-ico {{background:#0047E1!important;}}
+    .c8hdr-root .c8-md-card-ico svg {{width:12px!important;height:12px!important;stroke:#0047E1!important;stroke-width:1.75!important;fill:none!important;transition:stroke .2s!important;}}
+    .c8hdr-root .c8-md-card:hover .c8-md-card-ico svg {{stroke:#FFFFFF!important;}}
+    .c8hdr-root .c8-md-card-name {{font-family:'Michroma',sans-serif!important;font-size:10.5px!important;font-weight:700!important;color:#080808!important;text-transform:uppercase!important;letter-spacing:.01em!important;transition:color .2s!important;}}
+    .c8hdr-root .c8-md-card:hover .c8-md-card-name {{color:#0047E1!important;}}
 
     .c8hdr-root .c8-md-plain-links {{padding:4px 1.25rem 8px!important;}}
     .c8hdr-root .c8-md-plain-link {{
       display:flex!important;align-items:center!important;justify-content:space-between!important;
       padding:12px 0!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;
-      font-size:14px!important;font-weight:500!important;color:#080808!important;
+      font-family:'DM Sans',sans-serif!important;font-size:13.5px!important;font-weight:500!important;color:#080808!important;
       transition:color .15s,padding-left .15s!important;
     }}
     .c8hdr-root .c8-md-plain-link:hover {{color:#0047E1!important;padding-left:5px!important;}}
 
-    .c8hdr-root .c8-md-foot {{padding:1rem 1.25rem 1.5rem!important;border-top:1px solid rgba(8,8,8,0.06)!important;background:#FAFAF7!important;flex-shrink:0!important;}}
-    .c8hdr-root .c8-md-cta {{
-      display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;width:100%!important;height:48px!important;
-      background:#0047E1!important;color:#FAFAF7!important;font-size:13.5px!important;font-weight:600!important;
-      border-radius:999px!important;box-shadow: 0 4px 14px rgba(0,71,225,0.28)!important;
+    /* Mobile Drawer Footer with Royal Blue Radial Atmosphere Glow */
+    .c8hdr-root .c8-md-foot {{
+      padding:1.1rem 1.25rem 1.5rem!important;border-top:1px solid rgba(255,255,255,0.1)!important;
+      background:#080808!important;flex-shrink:0!important;position:relative!important;overflow:hidden!important;
     }}
+    .c8hdr-root .c8-md-foot::before {{
+      content:''!important;position:absolute!important;inset:0!important;
+      background:radial-gradient(circle at 85% 15%,rgba(0,71,225,0.45) 0%,transparent 55%),radial-gradient(circle at 10% 90%,rgba(0,56,192,0.2) 0%,transparent 50%)!important;
+      pointer-events:none!important;z-index:0!important;
+    }}
+    .c8hdr-root .c8-md-cta {{
+      position:relative!important;z-index:1!important;
+      display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;width:100%!important;height:48px!important;
+      background:#0047E1!important;color:#FAFAF7!important;font-family:'Michroma',sans-serif!important;font-size:11px!important;font-weight:700!important;letter-spacing:.04em!important;text-transform:uppercase!important;
+      border-radius:4px!important;box-shadow:none!important;transition:background .2s!important;
+    }}
+    .c8hdr-root .c8-md-cta:hover {{background:#0038C0!important;}}
 
     @media (max-width:1200px){{
-      .c8hdr-root .c8-mcol-deco {{display:none!important;}}
-      .c8hdr-root .c8-mega-grid-services {{grid-template-columns:0.95fr 0.85fr 0.85fr!important;}}
-      .c8hdr-root .c8-mega-grid-tools {{grid-template-columns:0.95fr 1.3fr!important;}}
-      .c8hdr-root .c8-mcol-list:last-child, .c8hdr-root .c8-mcol-list-wide {{border-right:none!important;}}
+      .c8hdr-root .c8-mega-grid-services {{grid-template-columns:1fr 1fr 1fr!important;}}
+      .c8hdr-root .c8-mega-grid-tools {{grid-template-columns:1fr 1.2fr!important;}}
     }}
     </style>
 
@@ -321,20 +385,22 @@ def get_header_html(rel_prefix):
       <div class="c8-mega-card">
         <div class="c8-mega-grid c8-mega-grid-services">
 
-          <!-- INTRO + FEATURED HIGHLIGHT -->
+          <!-- COLUMN 1: INTRO + ROYAL BLUE SHOWCASE CARD -->
           <div class="c8-mcol-intro">
             <div class="c8-mcol-eyebrow">// SERVICES</div>
             <div class="c8-mcol-heading">Full-Stack Builds</div>
             <p class="c8-mcol-desc">Design, development and growth systems — customizable enough to run any kind of business online.</p>
             <a href="{rel_prefix}Case Studies/the-duch-apartments.html" class="c8-highlight-card">
-              <div class="c8-highlight-ico"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg></div>
-              <div class="c8-highlight-title">The Duch Apartments</div>
+              <div class="c8-highlight-header-row">
+                <div class="c8-highlight-ico"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg></div>
+                <div class="c8-highlight-title">The Duch Apartments</div>
+              </div>
               <div class="c8-highlight-desc">A bespoke hospitality build with a 100% direct booking engine.</div>
               <span class="c8-highlight-link">Explore case study →</span>
             </a>
           </div>
 
-          <!-- LIST: DESIGN & BUILD -->
+          <!-- COLUMN 2: DESIGN & BUILD -->
           <div class="c8-mcol-list">
             <div class="c8-mcol-eyebrow">DESIGN &amp; BUILD</div>
             <div class="c8-svc2-list">
@@ -365,7 +431,7 @@ def get_header_html(rel_prefix):
             </div>
           </div>
 
-          <!-- LIST: STRATEGY & GROWTH -->
+          <!-- COLUMN 3: STRATEGY & GROWTH -->
           <div class="c8-mcol-list">
             <div class="c8-mcol-eyebrow">STRATEGY &amp; GROWTH</div>
             <div class="c8-svc2-list">
@@ -392,21 +458,6 @@ def get_header_html(rel_prefix):
             </div>
           </div>
 
-          <!-- DECORATIVE CODE-GRID FLOURISH -->
-          <div class="c8-mcol-deco">
-            <div class="c8-mcol-eyebrow">// STACK</div>
-            <div class="c8-deco-grid">
-              <span class="c8-deco-tok">&lt;div&gt;</span><span class="c8-deco-tok c8-deco-hi">flex</span><span class="c8-deco-tok">01</span>
-              <span class="c8-deco-tok">#0047</span><span class="c8-deco-tok">grid</span><span class="c8-deco-tok c8-deco-hi2">{{ }}</span>
-              <span class="c8-deco-tok">svg</span><span class="c8-deco-tok">0x4A</span><span class="c8-deco-tok">cta</span>
-              <span class="c8-deco-tok c8-deco-hi">git</span><span class="c8-deco-tok">z-9</span><span class="c8-deco-tok">rem</span>
-              <span class="c8-deco-tok">api</span><span class="c8-deco-tok">02</span><span class="c8-deco-tok c8-deco-hi2">&lt;/&gt;</span>
-              <span class="c8-deco-tok">json</span><span class="c8-deco-tok">wp_</span><span class="c8-deco-tok">gap</span>
-              <span class="c8-deco-tok c8-deco-hi">seo</span><span class="c8-deco-tok">img</span><span class="c8-deco-tok">03</span>
-              <span class="c8-deco-tok">#FAF</span><span class="c8-deco-tok c8-deco-hi2">px</span><span class="c8-deco-tok">dev</span>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
@@ -421,8 +472,10 @@ def get_header_html(rel_prefix):
             <div class="c8-mcol-heading">Build Smarter</div>
             <p class="c8-mcol-desc">Free interactive tools that price your project and show our work before you ever book a call.</p>
             <a href="{rel_prefix}discovery-call.html" class="c8-highlight-card">
-              <div class="c8-highlight-ico"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></div>
-              <div class="c8-highlight-title">Instant Scope Estimate</div>
+              <div class="c8-highlight-header-row">
+                <div class="c8-highlight-ico"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></div>
+                <div class="c8-highlight-title">Instant Scope Estimate</div>
+              </div>
               <div class="c8-highlight-desc">Get a formulaic price and stack recommendation in minutes.</div>
               <span class="c8-highlight-link">Calculate your scope →</span>
             </a>
@@ -455,16 +508,6 @@ def get_header_html(rel_prefix):
                   <span class="c8-tool2-link">View case studies →</span>
                 </div>
               </a>
-            </div>
-          </div>
-
-          <div class="c8-mcol-deco">
-            <div class="c8-mcol-eyebrow">// TOOLS</div>
-            <div class="c8-deco-grid">
-              <span class="c8-deco-tok">est</span><span class="c8-deco-tok c8-deco-hi">v2.4</span><span class="c8-deco-tok">01</span>
-              <span class="c8-deco-tok">js</span><span class="c8-deco-tok">php</span><span class="c8-deco-tok c8-deco-hi2">{{ }}</span>
-              <span class="c8-deco-tok">api</span><span class="c8-deco-tok">0x1F</span><span class="c8-deco-tok">02</span>
-              <span class="c8-deco-tok c8-deco-hi">poc</span><span class="c8-deco-tok">rc1</span><span class="c8-deco-tok">gtb</span>
             </div>
           </div>
 
@@ -668,8 +711,9 @@ def get_footer_html(rel_prefix):
       position: relative; overflow: hidden;
       display: inline-flex; align-items: center; gap: 10px;
       height: 52px; padding: 0 2rem; background: var(--c8ft-blue);
-      color: #fff; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
-      border-radius: 999px; box-shadow: 0 4px 14px rgba(0, 71, 225, 0.3);
+      color: #fff; font-family: 'Michroma', sans-serif; font-size: 11.5px; font-weight: 700;
+      letter-spacing: .04em; text-transform: uppercase;
+      border-radius: 4px; box-shadow: none;
       transition: background .25s ease, transform .2s ease;
     }}
     .c8ft-hero-cta::before {{
@@ -712,7 +756,7 @@ def get_footer_html(rel_prefix):
       display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px;
       background: var(--c8ft-white); border: 1px solid rgba(8,8,8,.1);
       font-size: 12px; font-weight: 500; color: var(--c8ft-black);
-      border-radius: 3px; transition: background .18s, border-color .18s, color .18s, transform .18s;
+      border-radius: 4px; transition: background .18s, border-color .18s, color .18s, transform .18s;
     }}
     .c8ft-chip:hover {{ background: var(--c8ft-blue); border-color: var(--c8ft-blue); color: #fff; transform: translateY(-1px); }}
     .c8ft-card-note {{ font-size: 12px; color: var(--c8ft-gray); font-weight: 300; line-height: 1.6; }}
@@ -722,13 +766,13 @@ def get_footer_html(rel_prefix):
     .c8ft-touch-row {{ display: flex; flex-direction: column; gap: .9rem; margin-bottom: 1.5rem; }}
     .c8ft-touch-item {{ display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--c8ft-black); }}
     .c8ft-touch-item strong {{ display: block; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--c8ft-gray); font-weight: 500; margin-bottom: 2px; }}
-    .c8ft-touch-icon {{ width: 28px; height: 28px; background: var(--c8ft-white); border: 1px solid rgba(8,8,8,.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; border-radius: 3px; }}
+    .c8ft-touch-icon {{ width: 28px; height: 28px; background: var(--c8ft-white); border: 1px solid rgba(8,8,8,.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; border-radius: 4px; }}
     .c8ft-touch-icon svg {{ width: 12px; height: 12px; stroke: var(--c8ft-blue); stroke-width: 1.8; fill: none; }}
 
     .c8ft-social-row {{ display: flex; gap: .6rem; }}
     .c8ft-social {{
       width: 36px; height: 36px; background: var(--c8ft-black);
-      display: flex; align-items: center; justify-content: center; border-radius: 3px;
+      display: flex; align-items: center; justify-content: center; border-radius: 4px;
       transition: background .18s, transform .18s;
     }}
     .c8ft-social:hover {{ background: var(--c8ft-blue); transform: translateY(-2px); }}
@@ -740,7 +784,7 @@ def get_footer_html(rel_prefix):
     .c8ft-cap-copy span {{ color: var(--c8ft-blue-hi); }}
     .c8ft-totop {{ display: flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.5); transition: color .18s; cursor: pointer; }}
     .c8ft-totop:hover {{ color: #fff; }}
-    .c8ft-totop-icon {{ width: 26px; height: 26px; border: 1px solid rgba(255,255,255,.18); display: flex; align-items: center; justify-content: center; transition: border-color .18s, transform .18s; border-radius: 2px; }}
+    .c8ft-totop-icon {{ width: 26px; height: 26px; border: 1px solid rgba(255,255,255,.18); display: flex; align-items: center; justify-content: center; transition: border-color .18s, transform .18s; border-radius: 4px; }}
     .c8ft-totop:hover .c8ft-totop-icon {{ border-color: #fff; transform: translateY(-2px); }}
     .c8ft-totop-icon svg {{ width: 11px; height: 11px; stroke: #fff; stroke-width: 2; fill: none; }}
 
