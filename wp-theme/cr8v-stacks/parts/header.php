@@ -163,62 +163,60 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
 <div class="c8-mega-back" id="c8-mega-back"></div>
 
 <!-- ── Main Site Header ── -->
-<header class="c8-nav-header c8hdr-root" id="c8hdr-root">
-  <div class="c8hdr-in">
-    <!-- Left: Brand Logo -->
-    <a href="<?php echo esc_url(home_url('/')); ?>" class="c8-logo">
-      <?php echo cr8v_logo_img('c8-logo-img'); ?>
+<header class="c8-nav-header" id="c8hdr-root">
+  <!-- Left: Brand Logo -->
+  <a href="<?php echo esc_url(home_url('/')); ?>" class="c8-logo">
+    <?php echo cr8v_logo_img('c8-logo-img'); ?>
+  </a>
+
+  <!-- Primary Navigation -->
+  <nav>
+    <ul class="c8-pnav" id="c8-pnav">
+
+      <!-- Home -->
+      <li class="c8-pnav-item">
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="c8-pnav-link">Home</a>
+      </li>
+
+      <!-- Services (mega menu trigger) -->
+      <li class="c8-pnav-item" data-mega="c8-mega-services">
+        <span class="c8-pnav-link" tabindex="0">Services
+          <svg class="c8-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+        </span>
+      </li>
+
+      <!-- Case Studies -->
+      <li class="c8-pnav-item">
+        <a href="<?php echo esc_url(home_url('/case-studies/')); ?>" class="c8-pnav-link">Case Studies</a>
+      </li>
+
+      <!-- Toolkits (mega menu trigger) -->
+      <li class="c8-pnav-item" data-mega="c8-mega-toolkits">
+        <span class="c8-pnav-link" tabindex="0">Toolkits
+          <svg class="c8-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+        </span>
+      </li>
+
+      <!-- About -->
+      <li class="c8-pnav-item">
+        <a href="<?php echo esc_url(home_url('/about/')); ?>" class="c8-pnav-link">About</a>
+      </li>
+
+      <!-- Blog -->
+      <li class="c8-pnav-item">
+        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8-pnav-link">Blog</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Right: CTA + Hamburger -->
+  <div class="c8hdr-right">
+    <a href="<?php echo esc_url($cta_link); ?>" class="c8-btn-cta">
+      <?php echo esc_html($cta_text); ?> →
     </a>
-
-    <!-- Primary Navigation -->
-    <nav>
-      <ul class="c8-pnav" id="c8-pnav">
-
-        <!-- Home -->
-        <li class="c8-pnav-item">
-          <a href="<?php echo esc_url(home_url('/')); ?>" class="c8-pnav-link">Home</a>
-        </li>
-
-        <!-- Services (mega menu trigger) -->
-        <li class="c8-pnav-item" data-mega="c8-mega-services">
-          <span class="c8-pnav-link" tabindex="0">Services
-            <svg class="c8-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
-          </span>
-        </li>
-
-        <!-- Case Studies -->
-        <li class="c8-pnav-item">
-          <a href="<?php echo esc_url(home_url('/case-studies/')); ?>" class="c8-pnav-link">Case Studies</a>
-        </li>
-
-        <!-- Toolkits (mega menu trigger) -->
-        <li class="c8-pnav-item" data-mega="c8-mega-toolkits">
-          <span class="c8-pnav-link" tabindex="0">Toolkits
-            <svg class="c8-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
-          </span>
-        </li>
-
-        <!-- About -->
-        <li class="c8-pnav-item">
-          <a href="<?php echo esc_url(home_url('/about/')); ?>" class="c8-pnav-link">About</a>
-        </li>
-
-        <!-- Blog -->
-        <li class="c8-pnav-item">
-          <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8-pnav-link">Blog</a>
-        </li>
-      </ul>
-    </nav>
-
-    <!-- Right: CTA + Hamburger -->
-    <div class="c8hdr-right">
-      <a href="<?php echo esc_url($cta_link); ?>" class="c8-btn-cta">
-        <?php echo esc_html($cta_text); ?> →
-      </a>
-      <button class="c8-hbg" id="c8-hbg" type="button" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <button class="c8-hbg" id="c8-hbg" type="button" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 

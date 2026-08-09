@@ -18,15 +18,19 @@ defined('ABSPATH') || exit;
 <?php get_template_part('parts/header'); ?>
 
 <main id="cr8v-main">
-<section class="c8-hero-top c8-hero-b-standalone">
+  <section class="c8-hero-top c8-hero-b-standalone">
     <div class="c8-hero-in">
-      <div class="c8-eyebrow"><span class="c8-eyebrow-slash">//</span> SCALE WITH AUTHORITY</div>
+      <div class="c8-eyebrow" data-customizer="hero_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('hero_eyebrow', 'SCALE WITH AUTHORITY')); ?></div>
       <h1 class="c8-hero-h1" data-customizer="hero_headline_1"><?php echo esc_html(cr8v_mod('hero_headline_1', 'We build what your business actually runs on.')); ?></h1>
       <p class="c8-hero-sub" data-customizer="hero_sub"><?php echo esc_html(cr8v_mod('hero_sub', 'Strategy, design, and liquid performance engineering — built from scratch by one team for ambitious brands.')); ?></p>
       
       <div class="c8-hero-ctas">
-        <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8-btn-primary">Start a Project →</a>
-        <a href="#how-we-think" class="btn-secondary">Explore Philosophy ↓</a>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('hero_cta_primary_url', '/discovery-call/'))); ?>" class="c8-btn-primary" data-customizer="hero_cta_primary_text">
+          <?php echo esc_html(cr8v_mod('hero_cta_primary_text', 'Start a Project →')); ?>
+        </a>
+        <a href="<?php echo esc_url(cr8v_mod('hero_cta_secondary_url', '#how-we-think')); ?>" class="btn-secondary" data-customizer="hero_cta_secondary_text">
+          <?php echo esc_html(cr8v_mod('hero_cta_secondary_text', 'Explore Philosophy ↓')); ?>
+        </a>
       </div>
     </div>
   </section>
@@ -34,25 +38,25 @@ defined('ABSPATH') || exit;
   <!-- POST-HERO ARCHITECTURAL PAPER GRID SECTION -->
   <section class="c8-puzzle-section" id="how-we-think">
     <div class="c8-puzzle-header">
-      <div class="c8-eyebrow"><span class="c8-eyebrow-slash">//</span> CREATIVE AGENCY MINDSET</div>
-      <h2 class="c8-hero-h1" style="font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 0.5rem;">How We Think &amp; Create</h2>
-      <p class="c8-hero-sub" style="margin-bottom: 0; max-width: 650px;">Design is our primary focus, supported by AI as a creative partner and built-in growth systems.</p>
+      <div class="c8-eyebrow" data-customizer="paper_grid_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('paper_grid_eyebrow', 'CREATIVE AGENCY MINDSET')); ?></div>
+      <h2 class="c8-hero-h1" style="font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 0.5rem;" data-customizer="paper_grid_heading"><?php echo esc_html(cr8v_mod('paper_grid_heading', 'How We Think & Create')); ?></h2>
+      <p class="c8-hero-sub" style="margin-bottom: 0; max-width: 650px;" data-customizer="paper_grid_sub"><?php echo esc_html(cr8v_mod('paper_grid_sub', 'Design is our primary focus, supported by AI as a creative partner and built-in growth systems.')); ?></p>
     </div>
 
     <div class="c8-paper-grid" id="main-desk-grid">
       
       <!-- Moving Visual Tile -->
       <div class="c8-puzzle-tile" id="desk-tile">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/kinetic_grid_showcase.jpg'); ?>" alt="Design Identity" class="c8-swap-img is-active-img" id="img-row-1">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/about_ai_workflow.jpg'); ?>" alt="AI Creative Partner" class="c8-swap-img" id="img-row-2">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_stacks_visual.jpg'); ?>" alt="Growth Systems" class="c8-swap-img" id="img-row-3">
+        <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_1', get_template_directory_uri() . '/assets/img/kinetic_grid_showcase.jpg')); ?>" alt="Design Identity" class="c8-swap-img is-active-img" id="img-row-1">
+        <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_2', get_template_directory_uri() . '/assets/img/about_ai_workflow.jpg')); ?>" alt="AI Creative Partner" class="c8-swap-img" id="img-row-2">
+        <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_3', get_template_directory_uri() . '/assets/img/hww_stacks_visual.jpg')); ?>" alt="Growth Systems" class="c8-swap-img" id="img-row-3">
       </div>
 
       <!-- ROW 1 -->
       <div class="c8-pg-cell is-text-card" data-row="0" data-col="0" id="d-r1-text">
         <span class="c8-drag-grip">DRAG CARD</span>
-        <h3 class="c8-pg-h3">Design-Led Brand &amp; Visual Systems</h3>
-        <p class="c8-pg-p">Design is our primary foundation. We craft distinct visual identities, digital products, and brand systems that make your business instantly memorable.</p>
+        <h3 class="c8-pg-h3" data-customizer="pg_card_1_title"><?php echo esc_html(cr8v_mod('pg_card_1_title', 'Design-Led Brand & Visual Systems')); ?></h3>
+        <p class="c8-pg-p" data-customizer="pg_card_1_desc"><?php echo esc_html(cr8v_mod('pg_card_1_desc', 'Design is our primary foundation. We craft distinct visual identities, digital products, and brand systems that make your business instantly memorable.')); ?></p>
       </div>
       <div class="c8-pg-cell is-empty-slot" data-row="0" data-col="1" data-img-idx="0" id="d-r1-c2">
         <span class="c8-slot-hint">CLICK / DRAG SLOT ↑</span>
@@ -70,15 +74,15 @@ defined('ABSPATH') || exit;
       </div>
       <div class="c8-pg-cell is-text-card" data-row="1" data-col="2" id="d-r2-text">
         <span class="c8-drag-grip">DRAG CARD</span>
-        <h3 class="c8-pg-h3">AI as Our Creative Partner</h3>
-        <p class="c8-pg-p">We leverage AI as a high-speed creative partner—accelerating research, rapid prototyping, and workflow iteration so we can ship elevated design faster.</p>
+        <h3 class="c8-pg-h3" data-customizer="pg_card_2_title"><?php echo esc_html(cr8v_mod('pg_card_2_title', 'AI as Our Creative Partner')); ?></h3>
+        <p class="c8-pg-p" data-customizer="pg_card_2_desc"><?php echo esc_html(cr8v_mod('pg_card_2_desc', 'We leverage AI as a high-speed creative partner—accelerating research, rapid prototyping, and workflow iteration so we can ship elevated design faster.')); ?></p>
       </div>
 
       <!-- ROW 3 -->
       <div class="c8-pg-cell is-text-card" data-row="2" data-col="0" id="d-r3-text">
         <span class="c8-drag-grip">DRAG CARD</span>
-        <h3 class="c8-pg-h3">Built-In Growth Engine</h3>
-        <p class="c8-pg-p">Stunning design means nothing if it doesn't scale. Our brand systems are built to convert, capture market share, and drive long-term business momentum.</p>
+        <h3 class="c8-pg-h3" data-customizer="pg_card_3_title"><?php echo esc_html(cr8v_mod('pg_card_3_title', 'Built-In Growth Engine')); ?></h3>
+        <p class="c8-pg-p" data-customizer="pg_card_3_desc"><?php echo esc_html(cr8v_mod('pg_card_3_desc', 'Stunning design means nothing if it doesn\'t scale. Our brand systems are built to convert, capture market share, and drive long-term business momentum.')); ?></p>
       </div>
       <div class="c8-pg-cell is-empty-slot" data-row="2" data-col="1" data-img-idx="2" id="d-r3-c2">
         <span class="c8-slot-hint">CLICK / DRAG SLOT ↑</span>

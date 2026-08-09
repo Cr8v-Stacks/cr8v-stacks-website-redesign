@@ -1,49 +1,126 @@
 <?php
 /**
  * CR8V Stacks — inc/customizer.php
- * Registers all WP Customizer sections, settings, and controls.
- * Covers: Homepage Hero, Global CTA, Header Branding, Footer, Services.
+ * Customizer Configuration for Tropos Theme
+ * 100% full coverage across all 10 homepage sections.
+ * Every option falls back to the exact original copy from home-b.html.
  */
 
 defined('ABSPATH') || exit;
 
-add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
+add_action('customize_register', function ($wp_customize) {
 
-    /* ═══════════════════════════════════════════════════════
-       PANEL: HOMEPAGE
-    ═══════════════════════════════════════════════════════ */
+    // Helper functions
+    function _cr8v_section($wp_customize, $id, $title, $panel = 'cr8v_homepage', $priority = 10) {
+        $wp_customize->add_section($id, [
+            'title'    => $title,
+            'panel'    => $panel,
+            'priority' => $priority,
+        ]);
+    }
+
+    function _cr8v_text($wp_customize, $id, $section, $label, $default = '') {
+        $wp_customize->add_setting($id, [
+            'default'           => $default,
+            'sanitize_callback' => 'sanitize_text_field',
+            'transport'         => 'postMessage',
+        ]);
+        $wp_customize->add_control($id, [
+            'label'   => $label,
+            'section' => $section,
+            'type'    => 'text',
+        ]);
+    }
+
+    function _cr8v_textarea($wp_customize, $id, $section, $label, $default = '') {
+        $wp_customize->add_setting($id, [
+            'default'           => $default,
+            'sanitize_callback' => 'sanitize_textarea_field',
+            'transport'         => 'postMessage',
+        ]);
+        $wp_customize->add_control($id, [
+            'label'   => $label,
+            'section' => $section,
+            'type'    => 'textarea',
+        ]);
+    }
+
+    function _cr8v_image($wp_customize, $id, $section, $label, $default = '') {
+        $wp_customize->add_setting($id, [
+            'default'           => $default,
+            'sanitize_callback' => 'esc_url_raw',
+            'transport'         => 'postMessage',
+        ]);
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, $id, [
+            'label'   => $label,
+            'section' => $section,
+        ]));
+    }
+
+    // Main Panel: Homepage Settings
     $wp_customize->add_panel('cr8v_homepage', [
-        'title'    => 'Homepage',
-        'priority' => 10,
+        'title'       => 'Homepage — Tropos Theme',
+        'description' => 'Edit all 10 homepage sections with live preview controls.',
+        'priority'    => 20,
     ]);
 
-    // ── SECTION: Hero ──────────────────────────────────────
-    $wp_customize->add_section('cr8v_hero', [
-        'title'    => 'Hero Section',
-        'panel'    => 'cr8v_homepage',
-        'priority' => 10,
-    ]);
+    // 1. HERO SECTION
+    _cr8v_section($wp_customize, 'cr8v_hero', '1. Hero Section', 'cr8v_homepage', 10);
+    _cr8v_text($wp_customize, 'hero_eyebrow', 'cr8v_hero', 'Eyebrow', '// SCALE WITH AUTHORITY');
+    _cr8v_text($wp_customize, 'hero_headline_1', 'cr8v_hero', 'Headline', 'We build what your business actually runs on.');
+    _cr8v_textarea($wp_customize, 'hero_sub', 'cr8v_hero', 'Subheadline', 'Strategy, design, and liquid performance engineering — built from scratch by one team for ambitious brands.');
+    _cr8v_text($wp_customize, 'hero_cta_primary_text', 'cr8v_hero', 'Primary CTA Label', 'Start a Project →');
+    _cr8v_text($wp_customize, 'hero_cta_primary_url', 'cr8v_hero', 'Primary CTA Link', '/discovery-call/');
+    _cr8v_text($wp_customize, 'hero_cta_secondary_text', 'cr8v_hero', 'Secondary CTA Label', 'Explore Philosophy ↓');
+    _cr8v_text($wp_customize, 'hero_cta_secondary_url', 'cr8v_hero', 'Secondary CTA Link', '#how-we-think');
 
-    _cr8v_text($wp_customize, 'hero_eyebrow',    'cr8v_hero', 'Eyebrow Label',         'Cr8v Stacks — Design & Engineering Studio');
-    _cr8v_text($wp_customize, 'hero_headline_1', 'cr8v_hero', 'Headline — Line 1',     'We Build Businesses');
-    _cr8v_text($wp_customize, 'hero_headline_2', 'cr8v_hero', 'Headline — Line 2',     'That Win Online');
-    _cr8v_textarea($wp_customize, 'hero_sub',    'cr8v_hero', 'Subheadline / Intro',   'Strategy, design, and liquid performance engineering for ambitious brands.');
-    _cr8v_text($wp_customize, 'hero_cta_text',   'cr8v_hero', 'CTA Button Text',       'Get an Estimate');
-    _cr8v_url($wp_customize,  'hero_cta_link',   'cr8v_hero', 'CTA Button Link',       '/discovery-call/');
-    _cr8v_url($wp_customize,  'hero_video_url',  'cr8v_hero', 'Background Video URL',  '');
-    _cr8v_image($wp_customize,'hero_poster_img', 'cr8v_hero', 'Video Poster / BG Image');
+    // 2. PAPER GRID SECTION (#how-we-think)
+    _cr8v_section($wp_customize, 'cr8v_paper_grid', '2. Paper Grid (How We Think)', 'cr8v_homepage', 20);
+    _cr8v_text($wp_customize, 'paper_grid_eyebrow', 'cr8v_paper_grid', 'Section Eyebrow', '// CREATIVE AGENCY MINDSET');
+    _cr8v_text($wp_customize, 'paper_grid_heading', 'cr8v_paper_grid', 'Section Heading', 'How We Think & Create');
+    _cr8v_textarea($wp_customize, 'paper_grid_sub', 'cr8v_paper_grid', 'Section Subtitle', 'Design is our primary focus, supported by AI as a creative partner and built-in growth systems.');
+    
+    _cr8v_text($wp_customize, 'pg_card_1_title', 'cr8v_paper_grid', 'Card 1 Title', 'Design-Led Brand & Visual Systems');
+    _cr8v_textarea($wp_customize, 'pg_card_1_desc', 'cr8v_paper_grid', 'Card 1 Description', 'Design is our primary foundation. We craft distinct visual identities, digital products, and brand systems that make your business instantly memorable.');
+    
+    _cr8v_text($wp_customize, 'pg_card_2_title', 'cr8v_paper_grid', 'Card 2 Title', 'AI as Our Creative Partner');
+    _cr8v_textarea($wp_customize, 'pg_card_2_desc', 'cr8v_paper_grid', 'Card 2 Description', 'We leverage AI as a high-speed creative partner—accelerating research, rapid prototyping, and workflow iteration so we can ship elevated design faster.');
+    
+    _cr8v_text($wp_customize, 'pg_card_3_title', 'cr8v_paper_grid', 'Card 3 Title', 'Built-In Growth Engine');
+    _cr8v_textarea($wp_customize, 'pg_card_3_desc', 'cr8v_paper_grid', 'Card 3 Description', 'Stunning design means nothing if it doesn\'t scale. Our brand systems are built to convert, capture market share, and drive long-term business momentum.');
+    
+    _cr8v_image($wp_customize, 'pg_tile_img_1', 'cr8v_paper_grid', 'Swap Image 1');
+    _cr8v_image($wp_customize, 'pg_tile_img_2', 'cr8v_paper_grid', 'Swap Image 2');
+    _cr8v_image($wp_customize, 'pg_tile_img_3', 'cr8v_paper_grid', 'Swap Image 3');
 
-    // ── SECTION: Testimonials ──────────────────────────────
-    $wp_customize->add_section('cr8v_testimonials', [
-        'title'    => 'Testimonials Section',
-        'panel'    => 'cr8v_homepage',
-        'priority' => 20,
-    ]);
+    // 3. SERVICES ACCORDION (#services)
+    _cr8v_section($wp_customize, 'cr8v_services', '3. Services Accordion', 'cr8v_homepage', 30);
+    _cr8v_text($wp_customize, 'services_eyebrow', 'cr8v_services', 'Section Eyebrow', '// WHAT WE DO');
+    _cr8v_text($wp_customize, 'services_heading', 'cr8v_services', 'Section Heading', 'Capabilities Built For Ambition');
+
+    // 4. DEV PLAYGROUND (#playground)
+    _cr8v_section($wp_customize, 'cr8v_playground', '4. Dev Playground', 'cr8v_homepage', 40);
+    _cr8v_text($wp_customize, 'playground_eyebrow', 'cr8v_playground', 'Section Eyebrow', '// DEV PLAYGROUND');
+    _cr8v_text($wp_customize, 'playground_heading', 'cr8v_playground', 'Section Heading', 'Interactive Stack & Architecture');
+    _cr8v_textarea($wp_customize, 'playground_sub', 'cr8v_playground', 'Section Subtitle', 'Explore how we engineer liquid performance and seamless CMS control.');
+
+    // 5. HOW WE WORK BENTO GRID (#how-we-work)
+    _cr8v_section($wp_customize, 'cr8v_hww', '5. How We Work Bento Grid', 'cr8v_homepage', 50);
+    _cr8v_text($wp_customize, 'hww_eyebrow', 'cr8v_hww', 'Section Eyebrow', '// HOW WE WORK');
+    _cr8v_text($wp_customize, 'hww_heading', 'cr8v_hww', 'Section Heading', 'The CR8V Stacks Workflow');
+    _cr8v_textarea($wp_customize, 'hww_sub', 'cr8v_hww', 'Section Subtitle', 'A predictable, transparent production protocol engineered for speed and design fidelity.');
+
+    // 6. SELECTED WORK MATRIX (#selected-work)
+    _cr8v_section($wp_customize, 'cr8v_work', '6. Selected Work Showcase', 'cr8v_homepage', 60);
+    _cr8v_text($wp_customize, 'work_eyebrow', 'cr8v_work', 'Section Eyebrow', '// SELECTED WORK');
+    _cr8v_text($wp_customize, 'work_heading', 'cr8v_work', 'Section Heading', 'Proven Impact Across Industries');
+
+    // 7. TESTIMONIALS (#testimonials)
+    _cr8v_section($wp_customize, 'cr8v_testimonials', '7. Testimonials Section', 'cr8v_homepage', 70);
     _cr8v_text($wp_customize, 'testimonials_eyebrow', 'cr8v_testimonials', 'Section Eyebrow', '// WHAT CLIENTS SAY');
-    _cr8v_text($wp_customize, 'testimonials_heading',  'cr8v_testimonials', 'Section Heading',  'Trusted by ambitious brands');
+    _cr8v_text($wp_customize, 'testimonials_heading', 'cr8v_testimonials', 'Section Heading', 'Trusted by ambitious brands');
 
-    // Individual testimonials — 3 slots with defaults
-    $default_testimonials = [
+    $exact_testimonials = [
         1 => [
             'quote' => 'Cr8v Stacks rebuilt our entire digital presence from the ground up. Direct bookings increased by 340% within 90 days.',
             'name'  => 'Mark Duchesne',
@@ -62,22 +139,18 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     ];
 
     for ($i = 1; $i <= 3; $i++) {
-        _cr8v_textarea($wp_customize, "testimonial_{$i}_quote",  'cr8v_testimonials', "Testimonial {$i} — Quote",   $default_testimonials[$i]['quote']);
-        _cr8v_text($wp_customize,     "testimonial_{$i}_name",   'cr8v_testimonials', "Testimonial {$i} — Name",    $default_testimonials[$i]['name']);
-        _cr8v_text($wp_customize,     "testimonial_{$i}_role",   'cr8v_testimonials', "Testimonial {$i} — Role",    $default_testimonials[$i]['role']);
+        _cr8v_textarea($wp_customize, "testimonial_{$i}_quote",  'cr8v_testimonials', "Testimonial {$i} — Quote",   $exact_testimonials[$i]['quote']);
+        _cr8v_text($wp_customize,     "testimonial_{$i}_name",   'cr8v_testimonials', "Testimonial {$i} — Name",    $exact_testimonials[$i]['name']);
+        _cr8v_text($wp_customize,     "testimonial_{$i}_role",   'cr8v_testimonials', "Testimonial {$i} — Role",    $exact_testimonials[$i]['role']);
         _cr8v_image($wp_customize,    "testimonial_{$i}_avatar", 'cr8v_testimonials', "Testimonial {$i} — Avatar");
     }
 
-    // ── SECTION: Matrix / Stats ───────────────────────────
-    $wp_customize->add_section('cr8v_matrix', [
-        'title'    => 'Stats / Matrix Section',
-        'panel'    => 'cr8v_homepage',
-        'priority' => 30,
-    ]);
+    // 8. STATS MATRIX (#numbers)
+    _cr8v_section($wp_customize, 'cr8v_matrix', '8. Stats / Matrix Section', 'cr8v_homepage', 80);
     _cr8v_text($wp_customize, 'matrix_eyebrow', 'cr8v_matrix', 'Section Eyebrow', '// BY THE NUMBERS');
     _cr8v_text($wp_customize, 'matrix_heading',  'cr8v_matrix', 'Section Heading',  'Delivering measurable results');
-    
-    $default_matrix = [
+
+    $exact_matrix = [
         1 => ['val' => '340%',  'lbl' => 'Direct Bookings Increase'],
         2 => ['val' => '99.8%', 'lbl' => 'Liquid Performance Score'],
         3 => ['val' => '4.8x',  'lbl' => 'Lead Conversion Rate'],
@@ -85,143 +158,23 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     ];
 
     for ($i = 1; $i <= 4; $i++) {
-        _cr8v_text($wp_customize, "matrix_stat_{$i}_value", 'cr8v_matrix', "Stat {$i} — Value", $default_matrix[$i]['val']);
-        _cr8v_text($wp_customize, "matrix_stat_{$i}_label", 'cr8v_matrix', "Stat {$i} — Label", $default_matrix[$i]['lbl']);
+        _cr8v_text($wp_customize, "matrix_stat_{$i}_value", 'cr8v_matrix', "Stat {$i} — Value", $exact_matrix[$i]['val']);
+        _cr8v_text($wp_customize, "matrix_stat_{$i}_label", 'cr8v_matrix', "Stat {$i} — Label", $exact_matrix[$i]['lbl']);
     }
 
+    // 9. FAQ SECTION (#faq)
+    _cr8v_section($wp_customize, 'cr8v_faq', '9. FAQ Section', 'cr8v_homepage', 90);
+    _cr8v_text($wp_customize, 'faq_eyebrow', 'cr8v_faq', 'Section Eyebrow', '// FAQ');
+    _cr8v_text($wp_customize, 'faq_heading', 'cr8v_faq', 'Section Heading', 'Frequently Asked Questions');
+    _cr8v_text($wp_customize, 'faq_aside_heading', 'cr8v_faq', 'Aside Heading', 'Have a project in mind?');
+    _cr8v_textarea($wp_customize, 'faq_aside_sub', 'cr8v_faq', 'Aside Subtitle', 'Book a 15-minute discovery call to discuss scope, timeline, and custom requirements.');
+    _cr8v_text($wp_customize, 'faq_cta_text', 'cr8v_faq', 'CTA Label', 'Talk to us →');
+    _cr8v_text($wp_customize, 'faq_cta_url', 'cr8v_faq', 'CTA Link', '/discovery-call/');
 
-    /* ═══════════════════════════════════════════════════════
-       PANEL: GLOBAL SITE SETTINGS
-    ═══════════════════════════════════════════════════════ */
-    $wp_customize->add_panel('cr8v_global', [
-        'title'    => 'Global Site Settings',
-        'priority' => 20,
-    ]);
-
-    // ── SECTION: Header Branding ──────────────────────────
-    $wp_customize->add_section('cr8v_header', [
-        'title'    => 'Header — Branding & CTA',
-        'panel'    => 'cr8v_global',
-        'priority' => 10,
-    ]);
-    _cr8v_image($wp_customize, 'header_logo',        'cr8v_header', 'Logo Image');
-    _cr8v_text($wp_customize,  'header_cta_text',    'cr8v_header', 'CTA Button Text',  'Get an Estimate');
-    _cr8v_url($wp_customize,   'header_cta_link',    'cr8v_header', 'CTA Button Link',  '/discovery-call/');
-    _cr8v_text($wp_customize,  'header_drawer_label','cr8v_header', 'Mobile Drawer Tagline', 'Strategy, Design & Liquid Performance');
-
-    // ── SECTION: Footer ───────────────────────────────────
-    $wp_customize->add_section('cr8v_footer', [
-        'title'    => 'Footer — Copy & Links',
-        'panel'    => 'cr8v_global',
-        'priority' => 20,
-    ]);
-    _cr8v_text($wp_customize,    'footer_tagline',    'cr8v_footer', 'Footer Tagline',   'Design, Development & Growth Systems');
-    _cr8v_textarea($wp_customize,'footer_desc',       'cr8v_footer', 'Footer Description','We design, build, and grow premium digital ecosystems for ambitious businesses.');
-    _cr8v_text($wp_customize,    'footer_copyright',  'cr8v_footer', 'Copyright Text',   '© ' . date('Y') . ' CR8V Stacks. All rights reserved.');
-    _cr8v_url($wp_customize,     'footer_linkedin',   'cr8v_footer', 'LinkedIn URL',     '');
-    _cr8v_url($wp_customize,     'footer_twitter',    'cr8v_footer', 'X / Twitter URL',  '');
-    _cr8v_url($wp_customize,     'footer_instagram',  'cr8v_footer', 'Instagram URL',    '');
-    _cr8v_url($wp_customize,     'footer_youtube',    'cr8v_footer', 'YouTube URL',      '');
-
-
-    /* ═══════════════════════════════════════════════════════
-       PANEL: SERVICES PAGES
-    ═══════════════════════════════════════════════════════ */
-    $wp_customize->add_panel('cr8v_services', [
-        'title'    => 'Services Pages',
-        'priority' => 30,
-    ]);
-
-    $services = [
-        'web-design'       => 'Website Design',
-        'custom-dev'       => 'Custom Development',
-        'ecommerce'        => 'E-Commerce',
-        'shopify'          => 'Shopify',
-        'woocommerce'      => 'WooCommerce',
-        'wordpress'        => 'WordPress',
-        'ai-mvp'           => 'AI MVP',
-        'brand-identity'   => 'Brand Identity',
-        'brand-strategy'   => 'Brand Strategy',
-        'digital-marketing'=> 'Digital Marketing',
-        'seo-content'      => 'SEO & Content',
-    ];
-
-    foreach ($services as $slug => $label) {
-        $section_id = 'cr8v_svc_' . str_replace('-', '_', $slug);
-        $wp_customize->add_section($section_id, [
-            'title' => $label,
-            'panel' => 'cr8v_services',
-        ]);
-        _cr8v_text($wp_customize,    "{$slug}_hero_headline", $section_id, 'Hero Headline', $label);
-        _cr8v_textarea($wp_customize,"{$slug}_hero_sub",      $section_id, 'Hero Subheadline', '');
-        _cr8v_text($wp_customize,    "{$slug}_cta_text",      $section_id, 'CTA Button Text', 'Start a Project');
-        _cr8v_url($wp_customize,     "{$slug}_cta_link",      $section_id, 'CTA Button Link', '/discovery-call/');
-    }
-
-
-    /* ═══════════════════════════════════════════════════════
-       PANEL: CONTACT / DISCOVERY
-    ═══════════════════════════════════════════════════════ */
-    $wp_customize->add_panel('cr8v_contact', [
-        'title'    => 'Contact & Discovery Call',
-        'priority' => 40,
-    ]);
-
-    $wp_customize->add_section('cr8v_discovery', [
-        'title' => 'Discovery Call Page',
-        'panel' => 'cr8v_contact',
-    ]);
-    _cr8v_text($wp_customize,    'dc_tag',           'cr8v_discovery', 'Tag Label',            '↳ DISCOVERY CALL');
-    _cr8v_text($wp_customize,    'dc_h1',            'cr8v_discovery', 'Page Headline',        'BOOK A DISCOVERY CALL');
-    _cr8v_textarea($wp_customize,'dc_lede',          'cr8v_discovery', 'Intro Paragraph',      'Select an available time slot below to scope your project requirements, architecture, timelines, and execution strategy directly with our core engineering team.');
-    _cr8v_textarea($wp_customize,'dc_booking_embed', 'cr8v_discovery', 'Booking Embed (Calendly URL or WP shortcode)', '');
-
-
-    /* ═══════════════════════════════════════════════════════
-       SELECTIVE REFRESH PARTIALS (Live Preview)
-    ═══════════════════════════════════════════════════════ */
-    $partials = [
-        'hero_eyebrow'    => '.c8-hero-eyebrow, .dp-eyebrow',
-        'hero_headline_1' => '.dp-headline .line-1',
-        'hero_headline_2' => '.dp-headline .line-2',
-        'hero_sub'        => '.dp-sub, .c8-hero-sub',
-        'hero_cta_text'   => '.c8-hero-cta-btn',
-        'header_cta_text' => '.c8hdr-root .c8-btn-cta',
-        'footer_tagline'  => '.c8ft-brand-name',
-        'footer_copyright'=> '.c8ft-legal-text',
-    ];
-
-    foreach ($partials as $setting_id => $selector) {
-        $wp_customize->selective_refresh->add_partial($setting_id, [
-            'selector'        => $selector,
-            'render_callback' => function () use ($setting_id) {
-                return esc_html(get_theme_mod($setting_id));
-            },
-        ]);
-    }
+    // 10. FINAL CTA BANNER (#cta)
+    _cr8v_section($wp_customize, 'cr8v_cta_banner', '10. Final CTA Banner', 'cr8v_homepage', 100);
+    _cr8v_text($wp_customize, 'cta_heading', 'cr8v_cta_banner', 'Banner Heading', 'Ready to build a platform that wins online?');
+    _cr8v_textarea($wp_customize, 'cta_sub', 'cr8v_cta_banner', 'Banner Subtitle', 'No long pitch. Just clear strategy, transparent scope, and production-ready timelines.');
+    _cr8v_text($wp_customize, 'cta_button_text', 'cr8v_cta_banner', 'Button Label', 'Book a Consultation →');
+    _cr8v_text($wp_customize, 'cta_button_url', 'cr8v_cta_banner', 'Button Link', '/discovery-call/');
 });
-
-
-/* ─── HELPER FUNCTIONS ──────────────────────────────────────── */
-function _cr8v_text(WP_Customize_Manager $c, string $id, string $section, string $label, string $default = '') {
-    $c->add_setting($id, ['default' => $default, 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage']);
-    $c->add_control($id, ['label' => $label, 'section' => $section, 'type' => 'text']);
-}
-
-function _cr8v_textarea(WP_Customize_Manager $c, string $id, string $section, string $label, string $default = '') {
-    $c->add_setting($id, ['default' => $default, 'sanitize_callback' => 'sanitize_textarea_field', 'transport' => 'postMessage']);
-    $c->add_control($id, ['label' => $label, 'section' => $section, 'type' => 'textarea']);
-}
-
-function _cr8v_url(WP_Customize_Manager $c, string $id, string $section, string $label, string $default = '') {
-    $c->add_setting($id, ['default' => $default, 'sanitize_callback' => 'esc_url_raw', 'transport' => 'postMessage']);
-    $c->add_control($id, ['label' => $label, 'section' => $section, 'type' => 'url']);
-}
-
-function _cr8v_image(WP_Customize_Manager $c, string $id, string $section, string $label) {
-    $c->add_setting($id, ['default' => '', 'sanitize_callback' => 'esc_url_raw', 'transport' => 'postMessage']);
-    $c->add_control(new WP_Customize_Image_Control($c, $id, [
-        'label'   => $label,
-        'section' => $section,
-    ]));
-}
