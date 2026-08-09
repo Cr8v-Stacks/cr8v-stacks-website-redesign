@@ -13145,7 +13145,7 @@ Tags:        custom-menu, custom-logo, featured-images, threaded-comments
 
 /* --- primary-service-showcase-previous.html --- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #FFFFFF; color: #080808; font-family: 'DM Sans', sans-serif; padding: 4rem 2rem; line-height: 1.65; }
+    body { background: #FFFFFF; color: #080808; font-family: 'DM Sans', sans-serif; padding: 0; line-height: 1.65; }
     
     .c8srv-wrap { max-width: 1440px; margin: 0 auto; }
     .c8srv-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: #0047E1; display: flex; align-items: center; gap: 10px; margin-bottom: 1.75rem; }

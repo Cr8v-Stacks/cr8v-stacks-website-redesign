@@ -1012,7 +1012,7 @@ defined('ABSPATH') || exit;
         <div class="sdv-item is-open" id="sdv-web-design">
           <button class="sdv-item-trigger" aria-expanded="true" data-sdv-toggle="sdv-web-design">
             <span class="sdv-item-num">01</span>
-            <span class="sdv-item-title">Website Design</span>
+            <?php echo esc_html(cr8v_mod("sdv_1_title", "Website Design")); ?>
             <span class="sdv-item-tag tag-build">Build Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_duch_apartments.jpg" alt="Website Design Preview">
@@ -1025,17 +1025,14 @@ defined('ABSPATH') || exit;
             <div class="sdv-panel-inner">
               <div class="sdv-panel-content">
                 <div class="sdv-panel-spacer"></div>
-                <div class="sdv-panel-desc">
-                  <strong>High-converting digital experiences</strong> engineered for speed, search authority, and seamless user conversions. We design across every platform your business runs on &mdash; once the Figma design is approved, it gets handed to whichever build stack fits: WordPress, Shopify, WooCommerce, or fully custom code.
-                </div>
+                <div class="sdv-panel-desc" data-customizer="sdv_1_"><?php echo esc_html(cr8v_mod("sdv_1_desc", "High-converting digital experiences engineered for speed, search authority, and seamless user conversions. We design across every platform your business runs on — once the Figma design is approved, it gets handed to whichever build stack fits: WordPress, Shopify, WooCommerce, or fully custom code.")); ?></div>
                 <div class="sdv-panel-right">
                   <div class="sdv-deliverable-row">Custom Figma UI Architecture</div>
                   <div class="sdv-deliverable-row">WordPress Builds &amp; Elementor Systems</div>
                   <div class="sdv-deliverable-row">Shopify Liquid Storefronts</div>
                   <div class="sdv-deliverable-row">WooCommerce Custom Stores</div>
                   <div class="sdv-deliverable-row">Built-in SEO from Line One</div>
-                  <a href="Web Design Service Page/index.html" class="sdv-panel-cta">
-                    Explore Web Design
+                  <a href="<?php echo esc_url(home_url(cr8v_mod("sdv_1_cta_url", "/services/web-design/"))); ?>" class="sdv-panel-cta" data-customizer="sdv_1_cta_text"><?php echo esc_html(cr8v_mod("sdv_1_cta_text", "Explore Web Design")); ?>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
                 </div>
@@ -1053,7 +1050,7 @@ defined('ABSPATH') || exit;
         <div class="sdv-item" id="sdv-custom-dev">
           <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-custom-dev">
             <span class="sdv-item-num">02</span>
-            <span class="sdv-item-title">Custom Development</span>
+            <?php echo esc_html(cr8v_mod("sdv_2_title", "Custom Development")); ?>
             <span class="sdv-item-tag tag-build">Build Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_bridgepoint.jpg" alt="Custom Dev Preview">
@@ -1066,17 +1063,14 @@ defined('ABSPATH') || exit;
             <div class="sdv-panel-inner">
               <div class="sdv-panel-content">
                 <div class="sdv-panel-spacer"></div>
-                <div class="sdv-panel-desc">
-                  <strong>Tailored software architectures</strong> built from a blank file, engineered around your exact workflow. No templates, no SaaS dependencies, no monthly tool fees eating into your margin. When nothing off-the-shelf fits what you're building &mdash; this is where it starts.
-                </div>
+                <div class="sdv-panel-desc"><?php echo esc_html(cr8v_mod("sdv_2_desc", "Tailored software architectures built from a blank file, engineered around your exact workflow. No templates, no SaaS dependencies, no monthly tool fees eating into your margin. When nothing off-the-shelf fits what you're building — this is where it starts.")); ?></div>
                 <div class="sdv-panel-right">
                   <div class="sdv-deliverable-row">Bespoke Web Applications</div>
                   <div class="sdv-deliverable-row">Custom APIs &amp; Third-Party Integrations</div>
                   <div class="sdv-deliverable-row">Internal Business Tools &amp; Dashboards</div>
                   <div class="sdv-deliverable-row">100% Client-Owned Codebase</div>
                   <div class="sdv-deliverable-row">0 Third-Party SaaS Dependencies</div>
-                  <a href="Custom Dev Service Page/index.html" class="sdv-panel-cta">
-                    Explore Custom Dev
+                  <a href="<?php echo esc_url(home_url(cr8v_mod("sdv_2_cta_url", "/services/custom-dev/"))); ?>" class="sdv-panel-cta"><?php echo esc_html(cr8v_mod("sdv_2_cta_text", "Explore Custom Dev")); ?>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
                 </div>
@@ -1094,7 +1088,7 @@ defined('ABSPATH') || exit;
         <div class="sdv-item" id="sdv-ai-mvp">
           <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-ai-mvp">
             <span class="sdv-item-num">03</span>
-            <span class="sdv-item-title">AI MVP Products</span>
+            <?php echo esc_html(cr8v_mod("sdv_3_title", "AI MVP Products")); ?>
             <span class="sdv-item-tag tag-build">Build Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>dev_mascot.jpg" alt="AI MVP Preview" style="object-position: center top;">
@@ -1107,17 +1101,14 @@ defined('ABSPATH') || exit;
             <div class="sdv-panel-inner">
               <div class="sdv-panel-content">
                 <div class="sdv-panel-spacer"></div>
-                <div class="sdv-panel-desc">
-                  <strong>Production-ready AI applications</strong> built to validate core business ideas with real users &mdash; not slide decks. We build AI-integrated products fast enough to get genuine market signal before you over-invest. When the idea validates, it hands directly into a full Custom Dev engagement.
-                </div>
+                <div class="sdv-panel-desc"><?php echo esc_html(cr8v_mod("sdv_3_desc", "Production-ready AI applications built to validate core business ideas with real users — not slide decks. We build AI-integrated products fast enough to get genuine market signal before you over-invest. When the idea validates, it hands directly into a full Custom Dev engagement.")); ?></div>
                 <div class="sdv-panel-right">
                   <div class="sdv-deliverable-row">LLM-Integrated Web Applications</div>
                   <div class="sdv-deliverable-row">AI-Powered Internal Tools</div>
                   <div class="sdv-deliverable-row">Rapid Prototyping &amp; Market Validation</div>
                   <div class="sdv-deliverable-row">Custom Model Pipelines</div>
                   <div class="sdv-deliverable-row">Fully Functional &mdash; Not a Demo</div>
-                  <a href="AI MVP Service Page/index.html" class="sdv-panel-cta">
-                    Explore AI MVP
+                  <a href="<?php echo esc_url(home_url(cr8v_mod("sdv_3_cta_url", "/services/ai-mvp/"))); ?>" class="sdv-panel-cta"><?php echo esc_html(cr8v_mod("sdv_3_cta_text", "Explore AI MVP")); ?>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
                 </div>
@@ -1135,7 +1126,7 @@ defined('ABSPATH') || exit;
         <div class="sdv-item" id="sdv-brand-strategy">
           <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-brand-strategy">
             <span class="sdv-item-num">04</span>
-            <span class="sdv-item-title">Brand Strategy</span>
+            <?php echo esc_html(cr8v_mod("sdv_4_title", "Brand Strategy")); ?>
             <span class="sdv-item-tag tag-growth">Growth Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_victorias_lane.jpg" alt="Brand Strategy Preview">
@@ -1157,8 +1148,7 @@ defined('ABSPATH') || exit;
                   <div class="sdv-deliverable-row">Pricing Scoping &amp; Value Proposition</div>
                   <div class="sdv-deliverable-row">Customer Profile Architecture</div>
                   <div class="sdv-deliverable-row">Brand Identity Design (optional next step)</div>
-                  <a href="Brand Strategy Service Page/index.html" class="sdv-panel-cta">
-                    Explore Brand Strategy
+                  <a href="<?php echo esc_url(home_url(cr8v_mod("sdv_4_cta_url", "/services/brand-strategy/"))); ?>" class="sdv-panel-cta"><?php echo esc_html(cr8v_mod("sdv_4_cta_text", "Explore Brand Strategy")); ?>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
                 </div>
@@ -1171,7 +1161,7 @@ defined('ABSPATH') || exit;
         <div class="sdv-item" id="sdv-seo">
           <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-seo">
             <span class="sdv-item-num">05</span>
-            <span class="sdv-item-title">SEO &amp; Content</span>
+            <?php echo esc_html(cr8v_mod("sdv_5_title", "SEO & Content")); ?>
             <span class="sdv-item-tag tag-growth">Growth Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_blvck_hair.jpg" alt="SEO & Content Preview">
@@ -1193,8 +1183,7 @@ defined('ABSPATH') || exit;
                   <div class="sdv-deliverable-row">Technical SEO Audits &amp; Core Web Vitals</div>
                   <div class="sdv-deliverable-row">Content Architecture &amp; Cluster Strategy</div>
                   <div class="sdv-deliverable-row">E-Commerce Category &amp; Product SEO</div>
-                  <a href="SEO and Content Service Page/index.html" class="sdv-panel-cta">
-                    Explore SEO &amp; Content
+                  <a href="<?php echo esc_url(home_url(cr8v_mod("sdv_5_cta_url", "/services/seo-content/"))); ?>" class="sdv-panel-cta"><?php echo esc_html(cr8v_mod("sdv_5_cta_text", "Explore SEO & Content")); ?>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
                 </div>
@@ -1207,7 +1196,7 @@ defined('ABSPATH') || exit;
         <div class="sdv-item" id="sdv-digital-marketing">
           <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-digital-marketing">
             <span class="sdv-item-num">06</span>
-            <span class="sdv-item-title">Digital Marketing</span>
+            <?php echo esc_html(cr8v_mod("sdv_6_title", "Digital Marketing")); ?>
             <span class="sdv-item-tag tag-growth">Growth Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_mkenny_properties.jpg" alt="Digital Marketing Preview">
@@ -1229,8 +1218,7 @@ defined('ABSPATH') || exit;
                   <div class="sdv-deliverable-row">Conversion Rate Audits</div>
                   <div class="sdv-deliverable-row">Target Audience &amp; Funnel Mapping</div>
                   <div class="sdv-deliverable-row">Monthly Retainer &amp; Performance Reporting</div>
-                  <a href="Digital Marketing Service Page/index.html" class="sdv-panel-cta">
-                    Explore Digital Marketing
+                  <a href="<?php echo esc_url(home_url(cr8v_mod("sdv_6_cta_url", "/services/digital-marketing/"))); ?>" class="sdv-panel-cta"><?php echo esc_html(cr8v_mod("sdv_6_cta_text", "Explore Digital Marketing")); ?>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
                 </div>
@@ -1619,8 +1607,8 @@ defined('ABSPATH') || exit;
           <a href="https://cr8vstacks.com/dev-playground/" class="dp-tool-entry">
             <span class="dp-tool-entry-num">03</span>
             <div class="dp-tool-entry-body">
-              <div class="dp-tool-entry-name">Nativus Dashboard Pro</div>
-              <div class="dp-tool-entry-desc">A custom WordPress admin dashboard plugin built for cleaner client handovers</div>
+              <div class="dp-tool-entry-name"><?php echo esc_html(cr8v_mod("dp_t3_name", "Nativus Dashboard Pro")); ?></div>
+              <div class="dp-tool-entry-desc"><?php echo esc_html(cr8v_mod("dp_t3_desc", "A custom WordPress admin dashboard plugin built for cleaner client handovers")); ?></div>
             </div>
             <div class="dp-tool-entry-icon">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="4"></rect><rect x="3" y="10" width="7" height="11"></rect><rect x="13" y="3" width="8" height="11"></rect><rect x="13" y="17" width="8" height="4"></rect></svg>
@@ -1655,7 +1643,7 @@ defined('ABSPATH') || exit;
     <!-- BLUE RIGHT HALF -->
     <div class="dp-half-right">
       <div class="dp-right-content">
-        <div class="dp-right-eyebrow"><span class="c8-eyebrow-slash">//</span> NO GIMMICKS</div>
+        <div class="dp-right-eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod("dp_right_eyebrow", "NO GIMMICKS")); ?></div>
 
         <div class="dp-stat-pair">
           <div class="dp-stat-item">
@@ -1676,13 +1664,10 @@ defined('ABSPATH') || exit;
           </div>
         </div>
 
-        <p class="dp-right-desc">
-          These aren't lead magnets in disguise. Every tool runs in your browser. Take the output. No email capture, no follow-up sequence. We add tools regularly whenever something we built internally proves useful enough to open up.
-        </p>
+        <p class="dp-right-desc"><?php echo esc_html(cr8v_mod("dp_right_desc", "These aren't lead magnets in disguise. Every tool runs in your browser. Take the output. No email capture, no follow-up sequence. We add tools regularly whenever something we built internally proves useful enough to open up.")); ?></p>
 
         <div class="dp-cta-row">
-          <a href="https://cr8vstacks.com/dev-playground/" class="dp-btn-primary" target="_blank" rel="noopener">
-            Visit the Dev Playground
+          <a href="<?php echo esc_url(cr8v_mod("dp_btn_primary_url", "https://cr8vstacks.com/dev-playground/")); ?>" class="dp-btn-primary" target="_blank" rel="noopener"><?php echo esc_html(cr8v_mod("dp_btn_primary_text", "Visit the Dev Playground")); ?>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
           <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="dp-btn-ghost">
@@ -2718,8 +2703,8 @@ defined('ABSPATH') || exit;
       </div>
 
       <div class="tmn-bottom-callout">
-        <div class="tmn-callout-text">See how impactful custom stacks make a difference?</div>
-        <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="tmn-schedule-btn">Schedule a Consultation</a>
+        <div class="tmn-callout-text" data-customizer="tmn_callout_text"><?php echo esc_html(cr8v_mod("tmn_callout_text", "See how impactful custom stacks make a difference?")); ?></div>
+        <a href="<?php echo esc_url(home_url(cr8v_mod("tmn_callout_btn_url", "/discovery-call/"))); ?>" class="tmn-schedule-btn" data-customizer="tmn_callout_btn_text"><?php echo esc_html(cr8v_mod("tmn_callout_btn_text", "Schedule a Consultation")); ?></a>
       </div>
 
     </div>
@@ -2831,18 +2816,18 @@ defined('ABSPATH') || exit;
         </a>
       </div>
       <ul class="faq-list" id="faq-list">
-        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">How much does it cost to work with Cr8v Stacks?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">It depends on scope &mdash; a brochure site, an ecommerce store, and a custom AI MVP all price differently. Use our <a href="https://cr8vstacks.com/toolkits/website-cost-calculator/">cost calculator</a> for an instant range, or talk to us directly for a full quote.</p></div></div></li>
-        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">How long does a typical project take?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Most website builds run a few weeks from approved design to launch; custom development and AI MVPs vary based on scope. We will give you a real timeline once we understand what you are building.</p></div></div></li>
-        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">What services do you actually offer?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Web design, AI MVP development, and custom development are our core focus &mdash; alongside brand strategy, brand identity, and digital marketing. See the full breakdown on our <a href="/services">Services page</a>.</p></div></div></li>
-        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Do you build on WordPress, Shopify, or something else?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">All of the above, plus WooCommerce and fully custom builds. We recommend the platform based on what your business needs, not what is easiest for us.</p></div></div></li>
-        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Which payment gateways do you integrate?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">This depends on your platform and region &mdash; we will confirm exact options (Stripe, Paystack, and others) once we know your setup.</p></div></div></li>
-        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Can you redesign or rebuild a site that already exists?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Yes &mdash; a large share of our work is exactly this. We have rebuilt everything from basic landing pages to full property platforms.</p></div></div></li>
-        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Is SEO included in a website build?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">We build with SEO in mind from day one rather than bolting it on afterward, and we also offer SEO as a standalone service if your site already exists.</p></div></div></li>
-        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">What support do you offer after launch?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Support scope varies by project &mdash; we will define exactly what is included before you sign off on anything, so there is no ambiguity post-launch.</p></div></div></li>
-        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Do you work with early-stage startups?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Yes, including AI MVP work specifically built to validate an early idea before a larger investment.</p></div></div></li>
-        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">What is your take on AI?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">We use AI to move faster on research and repetitive work. Direction, judgment, and quality control stay with our team on every project &mdash; AI does not lead the work, we do.</p></div></div></li>
-        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">Why hire an agency instead of a freelancer?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">A freelancer is one person covering every discipline. We are a team where design, development, and strategy each get real, dedicated expertise instead of one person doing their best across all of them.</p></div></div></li>
-        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q">What does Cr8v Stacks mean?</span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a">Creative Stacks. Every project is built from different stacks of expertise &mdash; strategy, design, development, and marketing &mdash; layered together rather than handled by one generalist.</p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q"><?php echo esc_html(cr8v_mod("faq_1_q", "How much does it cost to work with Cr8v Stacks?")); ?></span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a"><?php echo wp_kses_post(cr8v_mod("faq_1_a", "It depends on scope — a brochure site, an ecommerce store, and a custom AI MVP all price differently. Use our <a href="https://cr8vstacks.com/toolkits/website-cost-calculator/">cost calculator</a> for an instant range, or talk to us directly for a full quote.")); ?></p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q"><?php echo esc_html(cr8v_mod("faq_2_q", "How long does a typical project take?")); ?></span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a"><?php echo wp_kses_post(cr8v_mod("faq_2_a", "Most website builds run a few weeks from approved design to launch; custom development and AI MVPs vary based on scope. We will give you a real timeline once we understand what you are building.")); ?></p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q"><?php echo esc_html(cr8v_mod("faq_3_q", "What services do you actually offer?")); ?></span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a"><?php echo wp_kses_post(cr8v_mod("faq_3_a", "Web design, AI MVP development, and custom development are our core focus — alongside brand strategy, brand identity, and digital marketing. See the full breakdown on our <a href="/services">Services page</a>.")); ?></p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q"><?php echo esc_html(cr8v_mod("faq_4_q", "Do you build on WordPress, Shopify, or something else?")); ?></span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a"><?php echo wp_kses_post(cr8v_mod("faq_4_a", "All of the above, plus WooCommerce and fully custom builds. We recommend the platform based on what your business needs, not what is easiest for us.")); ?></p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q"><?php echo esc_html(cr8v_mod("faq_5_q", "Which payment gateways do you integrate?")); ?></span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a"><?php echo wp_kses_post(cr8v_mod("faq_5_a", "This depends on your platform and region — we will confirm exact options (Stripe, Paystack, and others) once we know your setup.")); ?></p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q"><?php echo esc_html(cr8v_mod("faq_6_q", "Can you redesign or rebuild a site that already exists?")); ?></span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a"><?php echo wp_kses_post(cr8v_mod("faq_6_a", "Yes — a large share of our work is exactly this. We have rebuilt everything from basic landing pages to full property platforms.")); ?></p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q"><?php echo esc_html(cr8v_mod("faq_7_q", "Is SEO included in a website build?")); ?></span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a"><?php echo wp_kses_post(cr8v_mod("faq_7_a", "We build with SEO in mind from day one rather than bolting it on afterward, and we also offer SEO as a standalone service if your site already exists.")); ?></p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q"><?php echo esc_html(cr8v_mod("faq_8_q", "What support do you offer after launch?")); ?></span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a"><?php echo wp_kses_post(cr8v_mod("faq_8_a", "Support scope varies by project — we will define exactly what is included before you sign off on anything, so there is no ambiguity post-launch.")); ?></p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q"><?php echo esc_html(cr8v_mod("faq_9_q", "Do you work with early-stage startups?")); ?></span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a"><?php echo wp_kses_post(cr8v_mod("faq_9_a", "Yes, including AI MVP work specifically built to validate an early idea before a larger investment.")); ?></p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q"><?php echo esc_html(cr8v_mod("faq_10_q", "What is your take on AI?")); ?></span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a"><?php echo wp_kses_post(cr8v_mod("faq_10_a", "We use AI to move faster on research and repetitive work. Direction, judgment, and quality control stay with our team on every project — AI does not lead the work, we do.")); ?></p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q"><?php echo esc_html(cr8v_mod("faq_11_q", "Why hire an agency instead of a freelancer?")); ?></span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a"><?php echo wp_kses_post(cr8v_mod("faq_11_a", "A freelancer is one person covering every discipline. We are a team where design, development, and strategy each get real, dedicated expertise instead of one person doing their best across all of them.")); ?></p></div></div></li>
+        <li class="faq-item"><button class="faq-trigger" aria-expanded="false"><span class="faq-q"><?php echo esc_html(cr8v_mod("faq_12_q", "What does Cr8v Stacks mean?")); ?></span><span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></button><div class="faq-body"><div class="faq-body-inner"><p class="faq-a"><?php echo wp_kses_post(cr8v_mod("faq_12_a", "Creative Stacks. Every project is built from different stacks of expertise — strategy, design, development, and marketing — layered together rather than handled by one generalist.")); ?></p></div></div></li>
       </ul>
     </div>
   </section>
