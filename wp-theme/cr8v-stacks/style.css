@@ -14351,3 +14351,38 @@ body {
 }
 
 
+
+/* Option 3: Full-Width Mega Menu Bottom Navigation Bar */
+.c8-mega-bar {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--c8-line);
+  text-align: center;
+}
+.c8-mega-bar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0047E1 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.65rem 1.75rem;
+  background: rgba(0, 71, 225, 0.05);
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  text-decoration: none !important;
+}
+.c8-mega-bar-link:hover {
+  background: #0047E1 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+.c8-mega-bar-arr {
+  transition: transform 0.2s ease;
+}
+.c8-mega-bar-link:hover .c8-mega-bar-arr {
+  transform: translateX(4px);
+}

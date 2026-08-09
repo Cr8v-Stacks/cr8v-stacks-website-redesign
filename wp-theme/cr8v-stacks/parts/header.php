@@ -163,10 +163,9 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
 <div class="c8-mega-back" id="c8-mega-back"></div>
 
 <!-- ── Main Site Header ── -->
-<header class="c8-header" id="c8-header">
-  <div class="c8hdr-inner">
-
-    <!-- Logo -->
+<header class="c8-nav-header c8hdr-root" id="c8hdr-root">
+  <div class="c8hdr-in">
+    <!-- Left: Brand Logo -->
     <a href="<?php echo esc_url(home_url('/')); ?>" class="c8-logo">
       <?php echo cr8v_logo_img('c8-logo-img'); ?>
     </a>
@@ -228,17 +227,12 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
   <div class="c8-mega-card">
     <div class="c8-mega-grid c8-mega-grid-services">
 
-      <!-- Col 1: Intro + Services Portal + Featured Case Study -->
+      <!-- Col 1: Intro + Featured Case Study -->
       <div class="c8-mcol-intro">
-        <div class="c8-mcol-eyebrow">// SERVICES DIRECTORY</div>
+        <div class="c8-mcol-eyebrow">// SERVICES</div>
         <div class="c8-mcol-heading">Full-Stack Builds</div>
         <p class="c8-mcol-desc">Design, development and growth systems — customizable enough to run any kind of business online.</p>
         
-        <!-- Direct Link to Main Services Page -->
-        <a href="<?php echo esc_url(home_url('/services/')); ?>" class="c8-btn-primary" style="display:inline-flex;margin-bottom:1.25rem;font-size:0.78rem;padding:0.6rem 1.2rem;width:100%;justify-content:center;">
-          Explore All Capabilities &amp; Services →
-        </a>
-
         <!-- Showcase Proof of Work -->
         <a href="<?php echo esc_url(home_url('/case-studies/the-duch-apartments/')); ?>" class="c8-highlight-card">
           <div class="c8-highlight-header-row">
@@ -321,6 +315,12 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
         </div>
       </div>
 
+    </div>
+    <!-- Option 3: Full-Width Mega Menu Bottom Navigation Bar -->
+    <div class="c8-mega-bar">
+      <a href="<?php echo esc_url(home_url('/services/')); ?>" class="c8-mega-bar-link">
+        Explore Our Full Services Directory &amp; Pricing Packages <span class="c8-mega-bar-arr">→</span>
+      </a>
     </div>
   </div>
 </div>
