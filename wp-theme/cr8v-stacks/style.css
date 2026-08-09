@@ -1,4 +1,4 @@
-﻿/*
+/*
 Theme Name:  Tropos â€” CR8V Stacks
 Theme URI:   https://cr8vstacks.com
 Description: Tropos (Ï„ÏÏŒÏ€Î¿Ï‚) â€” Greek for "a turn, a change of direction." The design system for CR8V Stacks. Built for zero plugin dependencies, full design fidelity, and direct content editing via the WordPress Customizer. Spans the full redesign and new design language.
@@ -14269,31 +14269,6 @@ body {
   transition: transform 0.45s cubic-bezier(.16,.8,.24,1), opacity 0.4s ease !important;
 }
 .c8srv-root .c8srv-fan-left {
-  background: #0047E1 !important;
-  border: 1px solid rgba(255,255,255,0.12) !important;
-  z-index: 10 !important;
-  transform: translateX(-105px) translateY(-18px) rotate(-10deg) !important;
-}
-.c8srv-root .c8srv-fan-center {
-  background: #F5F0E8 !important;
-  border: 1px solid rgba(8,8,8,0.1) !important;
-  z-index: 20 !important;
-  transform: translateX(0px) rotate(0deg) !important;
-}
-.c8srv-root .c8srv-fan-right {
-  background: #080808 !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
-  z-index: 15 !important;
-  transform: translateX(105px) translateY(-18px) rotate(10deg) !important;
-}
-.c8srv-root .c8srv-fan-word {
-  font-family: 'Bebas Neue', sans-serif !important;
-  font-size: 36px !important;
-  line-height: 1 !important;
-  letter-spacing: 0.04em !important;
-  text-align: center !important;
-  white-space: normal !important;
-  word-break: break-word !important;
   overflow: hidden !important;
   width: 100% !important;
   display: block !important;
@@ -14346,3 +14321,30 @@ body {
         .faq-aside { position: static !important; }
       }
 
+
+/* FAQ CTA Button High-Contrast Styling Override */
+.faq-cta-link {
+  background: #0047E1 !important;
+  color: #FFFFFF !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  padding: 0.85rem 1.8rem !important;
+  border-radius: 4px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(0, 71, 225, 0.25) !important;
+}
+.faq-cta-link:hover {
+  background: #0038C0 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0, 71, 225, 0.35) !important;
+}
+.faq-cta-link svg {
+  stroke: #FFFFFF !important;
+}

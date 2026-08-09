@@ -42,11 +42,29 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     _cr8v_text($wp_customize, 'testimonials_eyebrow', 'cr8v_testimonials', 'Section Eyebrow', '// WHAT CLIENTS SAY');
     _cr8v_text($wp_customize, 'testimonials_heading',  'cr8v_testimonials', 'Section Heading',  'Trusted by ambitious brands');
 
-    // Individual testimonials — 3 slots
+    // Individual testimonials — 3 slots with defaults
+    $default_testimonials = [
+        1 => [
+            'quote' => 'Cr8v Stacks rebuilt our entire digital presence from the ground up. Direct bookings increased by 340% within 90 days.',
+            'name'  => 'Mark Duchesne',
+            'role'  => 'Founder, The Duch Apartments'
+        ],
+        2 => [
+            'quote' => 'The speed, design fidelity, and attention to liquid performance engineering were unlike any agency we have worked with.',
+            'name'  => 'Sarah Jenkins',
+            'role'  => 'VP Marketing, BridgePoint'
+        ],
+        3 => [
+            'quote' => 'Their custom architecture delivered a 99.8% performance score while giving our internal team full CMS control.',
+            'name'  => 'Victoria Lane',
+            'role'  => 'Creative Director, Victorias Lane'
+        ]
+    ];
+
     for ($i = 1; $i <= 3; $i++) {
-        _cr8v_textarea($wp_customize, "testimonial_{$i}_quote",  'cr8v_testimonials', "Testimonial {$i} — Quote",   '');
-        _cr8v_text($wp_customize,     "testimonial_{$i}_name",   'cr8v_testimonials', "Testimonial {$i} — Name",    '');
-        _cr8v_text($wp_customize,     "testimonial_{$i}_role",   'cr8v_testimonials', "Testimonial {$i} — Role",    '');
+        _cr8v_textarea($wp_customize, "testimonial_{$i}_quote",  'cr8v_testimonials', "Testimonial {$i} — Quote",   $default_testimonials[$i]['quote']);
+        _cr8v_text($wp_customize,     "testimonial_{$i}_name",   'cr8v_testimonials', "Testimonial {$i} — Name",    $default_testimonials[$i]['name']);
+        _cr8v_text($wp_customize,     "testimonial_{$i}_role",   'cr8v_testimonials', "Testimonial {$i} — Role",    $default_testimonials[$i]['role']);
         _cr8v_image($wp_customize,    "testimonial_{$i}_avatar", 'cr8v_testimonials', "Testimonial {$i} — Avatar");
     }
 
@@ -58,9 +76,17 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     ]);
     _cr8v_text($wp_customize, 'matrix_eyebrow', 'cr8v_matrix', 'Section Eyebrow', '// BY THE NUMBERS');
     _cr8v_text($wp_customize, 'matrix_heading',  'cr8v_matrix', 'Section Heading',  'Delivering measurable results');
+    
+    $default_matrix = [
+        1 => ['val' => '340%',  'lbl' => 'Direct Bookings Increase'],
+        2 => ['val' => '99.8%', 'lbl' => 'Liquid Performance Score'],
+        3 => ['val' => '4.8x',  'lbl' => 'Lead Conversion Rate'],
+        4 => ['val' => '60fps', 'lbl' => 'Smooth UI Motion']
+    ];
+
     for ($i = 1; $i <= 4; $i++) {
-        _cr8v_text($wp_customize, "matrix_stat_{$i}_value", 'cr8v_matrix', "Stat {$i} — Value", '');
-        _cr8v_text($wp_customize, "matrix_stat_{$i}_label", 'cr8v_matrix', "Stat {$i} — Label", '');
+        _cr8v_text($wp_customize, "matrix_stat_{$i}_value", 'cr8v_matrix', "Stat {$i} — Value", $default_matrix[$i]['val']);
+        _cr8v_text($wp_customize, "matrix_stat_{$i}_label", 'cr8v_matrix', "Stat {$i} — Label", $default_matrix[$i]['lbl']);
     }
 
 

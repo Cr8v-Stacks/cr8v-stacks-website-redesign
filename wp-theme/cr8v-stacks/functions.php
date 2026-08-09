@@ -172,3 +172,43 @@ add_action('wp_enqueue_scripts', function () {
         'nonce' => wp_create_nonce('cr8v_search_nonce'),
     ]);
 });
+
+
+/* ─── 9. AUTOMATIC PAGE TEMPLATE ROUTER ───────────────────────── */
+// Automatically maps page slugs to their dedicated Tropos templates
+add_filter('template_include', function ($template) {
+    if (is_page()) {
+        $slug = get_post_field('post_name', get_queried_object_id());
+        
+        // About Us
+        if (in_array($slug, ['about', 'about-us', 'studio'], true)) {
+            $t = locate_template('page-about.php');
+            if ($t) return $t;
+        }
+        
+        // Discovery Call / Contact
+        if (in_array($slug, ['discovery-call', 'contact', 'book-a-call', 'book'], true)) {
+            $t = locate_template('page-discovery-call.php');
+            if ($t) return $t;
+        }
+
+        // Services Overview / Directory
+        if (in_array($slug, ['services', 'our-services', 'all-services'], true)) {
+            $t = locate_template('page-services.php');
+            if ($t) return $t;
+        }
+
+        // Service Pages (all 11 service slugs)
+        $service_slugs = [
+            'web-design', 'custom-dev', 'ecommerce', 'e-commerce',
+            'shopify', 'woocommerce', 'wordpress', 'ai-mvp',
+            'brand-identity', 'brand-strategy', 'digital-marketing', 'seo-content'
+        ];
+        if (in_array($slug, $service_slugs, true) || is_page_template('page-service.php')) {
+            $t = locate_template('page-service.php');
+            if ($t) return $t;
+        }
+    }
+    return $template;
+});
+
