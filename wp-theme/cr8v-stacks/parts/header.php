@@ -228,11 +228,18 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
   <div class="c8-mega-card">
     <div class="c8-mega-grid c8-mega-grid-services">
 
-      <!-- Col 1: Intro + Featured Case Study -->
+      <!-- Col 1: Intro + Services Portal + Featured Case Study -->
       <div class="c8-mcol-intro">
-        <div class="c8-mcol-eyebrow">// SERVICES</div>
+        <div class="c8-mcol-eyebrow">// SERVICES DIRECTORY</div>
         <div class="c8-mcol-heading">Full-Stack Builds</div>
         <p class="c8-mcol-desc">Design, development and growth systems — customizable enough to run any kind of business online.</p>
+        
+        <!-- Direct Link to Main Services Page -->
+        <a href="<?php echo esc_url(home_url('/services/')); ?>" class="c8-btn-primary" style="display:inline-flex;margin-bottom:1.25rem;font-size:0.78rem;padding:0.6rem 1.2rem;width:100%;justify-content:center;">
+          Explore All Capabilities &amp; Services →
+        </a>
+
+        <!-- Showcase Proof of Work -->
         <a href="<?php echo esc_url(home_url('/case-studies/the-duch-apartments/')); ?>" class="c8-highlight-card">
           <div class="c8-highlight-header-row">
             <div class="c8-highlight-ico"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg></div>
@@ -481,15 +488,36 @@ class CR8V_Primary_Nav_Walker extends Walker_Nav_Menu {
  */
 class CR8V_Services_Mega_Walker extends Walker_Nav_Menu {
     public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
-        $desc   = $item->description ?: '';   // short desc entered in WP menu item
+        $desc = $item->description ?: '';
+        $slug = sanitize_title($item->title);
+        
+        $icons = [
+            'website-design'     => '<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+            'custom-development' => '<svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
+            'e-commerce'         => '<svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>',
+            'shopify'            => '<svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>',
+            'woocommerce'        => '<svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>',
+            'wordpress'          => '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"/></svg>',
+            'ai-mvp'             => '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm0 18a8 8 0 118-8 8 8 0 01-8 8z"/><circle cx="12" cy="12" r="3"/></svg>',
+            'brand-identity'     => '<svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>',
+            'brand-strategy'    => '<svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>',
+            'digital-marketing'  => '<svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+            'seo-content'        => '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>',
+        ];
+
+        $icon = $icons[$slug] ?? '<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>';
+
         $output .= '<a href="' . esc_url($item->url) . '" class="c8-svc2-row">';
-        $output .= '<div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>';
+        $output .= '<div class="c8-svc2-ico">' . $icon . '</div>';
         $output .= '<div>';
         $output .= '<div class="c8-svc2-name">' . esc_html($item->title) . '</div>';
         if ($desc) {
             $output .= '<div class="c8-svc2-desc">' . esc_html($desc) . '</div>';
         }
         $output .= '</div></a>';
+    }
+    public function end_el(&$output, $item, $depth = 0, $args = null) {
+        // Suppress </li>
     }
 }
 

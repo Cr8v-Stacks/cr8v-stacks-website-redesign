@@ -892,6 +892,7 @@ Tags:        custom-menu, custom-logo, featured-images, threaded-comments
         grid-area: auto !important;
         order: 2 !important; /* Image always bottom */
       }
+    }
 
     @media (max-width: 768px) {
       .tmn-wrapper-card {
@@ -14348,4 +14349,5 @@ body {
 .faq-cta-link svg {
   stroke: #FFFFFF !important;
 }
+
 
