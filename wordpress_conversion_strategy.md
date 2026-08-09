@@ -393,3 +393,168 @@ Bricks is the modern replacement for Elementor — built for developers, not mar
 | Gutenberg (blog only)? | ✅ Yes | Full rich editor for posts |
 | Custom PHP templates? | ✅ Yes | 100% design fidelity, zero layout compromise |
 
+---
+
+## ✅ Phase 1 Execution Log — Tropos Theme Build (2026-08-09)
+
+### Theme Name Decision: Tropos (τρόπος)
+
+We named the WordPress theme **"Tropos"** — a Greek word meaning *"a turn, a change of direction."*
+
+Selected from a shortlist of Greek vocabulary around change and evolution:
+
+| Word | Greek | Meaning | Notes |
+|---|---|---|---|
+| **Tropos** ✅ | τρόπος | A turn / change of direction | Selected — 2 syllables, clean, no negative connotations |
+| Metabole | μεταβολή | Transformation, revolution | Strong alternative — broader scope |
+| Kainos | καινός | New, fresh, novel | Root of Cenozoic, Kaizen |
+| Kinima | κίνημα | Movement, motion | Implies momentum |
+| Ekdysis | ἔκδυσις | Shedding (chrysalis→butterfly) | Beautiful concept, hard to pronounce |
+
+**Why Tropos:** Spans the design system pivot and the new design direction — a turn in trajectory. Short, memorable, professional. Full theme name: `Tropos — CR8V Stacks`.
+
+---
+
+### Backup Taken Before Build
+Full project state backed up to: `_backups/backup_2026-08-09_09-18` (3,320 files)
+
+---
+
+### Files Built — Complete Theme Scaffold
+
+All files live in `wp-theme/cr8v-stacks/` (deployable as WordPress theme).
+
+#### Core Files
+| File | Purpose |
+|---|---|
+| `style.css` | Theme identity header — WP reads this; named **Tropos — CR8V Stacks** |
+| `index.php` | Required WP fallback template |
+| `functions.php` | Theme setup, 7 menu locations, ajax search, admin bar offsets, selective refresh |
+| `screenshot.jpg` | Theme selector preview image |
+
+#### Template Files
+| File | Source Page | Editing Method |
+|---|---|---|
+| `front-page.php` | Homepage | **WP Customizer** — live preview |
+| `home.php` | Blog archive | Auto-generated from WP posts |
+| `single.php` | Blog post | Gutenberg `the_content()` |
+| `category.php` | Blog categories | Auto-generated WP loop |
+| `tag.php` | Blog tags | Auto-generated WP loop |
+| `single-case_study.php` | Case study pages | **ACF fields** — metrics, scroll-grow image, gallery grid, results |
+| `archive-case_study.php` | Case studies index | Auto from CPT — industry filter pills |
+| `page-about.php` | About Us | ACF + Gutenberg body |
+| `page-service.php` | All 11 service pages (1 universal template) | ACF fields |
+| `page-discovery-call.php` | Discovery Call | **WP Customizer** — Calendly URL or shortcode |
+
+#### Partials
+| File | Notes |
+|---|---|
+| `parts/header.php` | Full conversion of `header.html`. Includes 3 custom `Walker_Nav_Menu` classes: primary nav, services mega, mobile drawer |
+| `parts/footer.php` | Full conversion of `footer.html`. Cards 1 & 2 are WP menu-driven. Social links from Customizer |
+
+#### Includes (`inc/`)
+| File | Purpose |
+|---|---|
+| `inc/customizer.php` | All panels, sections, settings, selective refresh partials for live preview |
+| `inc/helpers.php` | `cr8v_mod()`, `cr8v_get_meta()`, `cr8v_logo_img()`, `cr8v_reading_time()`, `cr8v_excerpt()` |
+| `inc/cpt-case-studies.php` | Case Studies CPT + Industry (hierarchical) + Service Type (flat) taxonomies |
+| `inc/acf-fields.php` | **Programmatic ACF groups** — no UI import needed. 3 groups: Case Study, Service Page, About Page |
+
+#### Assets
+| File | Notes |
+|---|---|
+| `assets/css/shared-service-components.css` | Copied from project root |
+| `assets/js/customizer-preview.js` | New — `wp.customize` postMessage DOM bindings for live preview |
+| `assets/js/ecommerce-hero-canvas.js` | Copied from project |
+| `assets/js/shared-folder-stack.js` | Copied from project |
+
+---
+
+### WordPress Menu Locations (7 registered)
+| Key | Purpose |
+|---|---|
+| `primary` | Desktop nav top-bar |
+| `services-mega` | Services mega menu — Design & Build column |
+| `toolkits-mega` | Toolkit mega menu |
+| `mobile-drawer` | Mobile drawer plain links |
+| `footer-col-1` | Footer — Sitemap links |
+| `footer-col-2` | Footer — Service chip links |
+| `footer-col-3` | Footer — reserved |
+
+---
+
+### Customizer Panels & Editable Fields
+| Panel | Section | Key Fields |
+|---|---|---|
+| 🏠 Homepage | Hero | Eyebrow, Headline 1+2, Sub, CTA text+link, Video URL, Poster Image |
+| 🏠 Homepage | Testimonials | 3× (Quote, Name, Role, Avatar) |
+| 🏠 Homepage | Stats / Matrix | 4× (Value, Label) |
+| ⚙️ Global | Header | Logo, CTA text+link, Drawer label |
+| ⚙️ Global | Footer | Tagline, Copyright, 4× Social Links |
+| 📞 Contact | Discovery Call | Tag, Headline, Intro, Booking Embed (Calendly URL or WP shortcode) |
+| 🛠 Services | (×11) | Eyebrow, headline, sub per service |
+
+---
+
+### ACF Field Groups (Programmatic)
+
+**Case Study Fields** — triggers on `post_type == case_study`
+- Tabs: Identity, Metrics (×4), Overview, Scope (repeater), Gallery (horizontal ×2 + tall ×1), Results
+
+**Service Page Fields** — triggers on `page_template == page-service.php`
+- Hero fields, Tech pill repeater, Benefits repeater, Process repeater, Related Case Study picker, FAQ repeater
+
+**About Page Fields** — triggers on `page_template == page-about.php`
+- about_eyebrow, about_headline, about_sub
+
+---
+
+### Git Commits (this build session)
+| Commit | Description |
+|---|---|
+| `94470a2` | Initial theme scaffold — style.css, functions.php, customizer, CPT, helpers, header.php, front-page.php, home.php, single.php |
+| `0c2d2bf` | footer.php, single-case_study.php, archive-case_study.php, customizer-preview.js, CSS/JS assets, renamed to Tropos |
+| `68b7ec8` | page-about.php, page-service.php, page-discovery-call.php, acf-fields.php, category.php, tag.php, screenshot.jpg |
+
+---
+
+### Deployment Fix: WordPress ZIP Error ("missing style.css")
+
+**Root cause:** WordPress requires `style.css` at the zip root. The initial zip wrapped everything inside `wp-theme/cr8v-stacks/`, so WP couldn't find `style.css`.
+
+**Wrong structure (failed):**
+```
+wp-theme.zip/
+└── cr8v-stacks/
+    └── style.css   ← WP can't find this
+```
+
+**Correct structure (fixed):**
+```
+wp-theme-upload.zip/
+├── style.css       ← WP finds this ✅
+├── functions.php
+└── ...all other theme files
+```
+
+**PowerShell command (correct way to zip):**
+```powershell
+Compress-Archive -Path "wp-theme\cr8v-stacks\*" -DestinationPath "wp-theme-upload.zip" -Force
+```
+
+**File to upload:** `wp-theme-upload.zip` (551 KB)
+Path: `C:\Users\HP\Downloads\Mega Menu\wp-theme-upload.zip`
+
+> **Rule:** Always zip the *contents* of the theme folder (`cr8v-stacks/*`), not the folder itself.
+
+---
+
+### WordPress First-Run Checklist (After Theme Activation)
+
+1. **Install ACF Free** → [wordpress.org/plugins/advanced-custom-fields](https://wordpress.org/plugins/advanced-custom-fields/) — field groups auto-load, no JSON import needed
+2. **Flush Permalinks** → WP Admin → Settings → Permalinks → Save (auto-runs on theme activation)
+3. **Appearance → Menus** → Create 7 menus, assign to 7 registered locations
+4. **Appearance → Customize** → Fill in Hero, Testimonials, Stats, Social links, Footer copyright
+5. **Settings → Reading** → "A static page" → Homepage = Homepage page, Blog = Blog page
+6. **Case Studies → Add New** → Fill ACF fields (client, metrics, gallery images, scope items)
+7. **Pages → Service pages** → Set Template = "Service Page" in Page Attributes sidebar
