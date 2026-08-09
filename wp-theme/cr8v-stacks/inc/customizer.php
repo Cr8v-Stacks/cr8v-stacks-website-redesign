@@ -13,7 +13,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
        PANEL: HOMEPAGE
     ═══════════════════════════════════════════════════════ */
     $wp_customize->add_panel('cr8v_homepage', [
-        'title'    => '🏠 Homepage',
+        'title'    => 'Homepage',
         'priority' => 10,
     ]);
 
@@ -68,7 +68,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
        PANEL: GLOBAL SITE SETTINGS
     ═══════════════════════════════════════════════════════ */
     $wp_customize->add_panel('cr8v_global', [
-        'title'    => '⚙️ Global Site Settings',
+        'title'    => 'Global Site Settings',
         'priority' => 20,
     ]);
 
@@ -102,7 +102,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
        PANEL: SERVICES PAGES
     ═══════════════════════════════════════════════════════ */
     $wp_customize->add_panel('cr8v_services', [
-        'title'    => '🛠 Services Pages',
+        'title'    => 'Services Pages',
         'priority' => 30,
     ]);
 
@@ -137,7 +137,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
        PANEL: CONTACT / DISCOVERY
     ═══════════════════════════════════════════════════════ */
     $wp_customize->add_panel('cr8v_contact', [
-        'title'    => '📞 Contact & Discovery Call',
+        'title'    => 'Contact & Discovery Call',
         'priority' => 40,
     ]);
 

@@ -50,11 +50,29 @@ add_action('wp_enqueue_scripts', function () {
         null
     );
 
-    // Core shared service component styles (direct port of shared-service-components.css)
+    // Shared service component CSS (covers all page & section styles)
     wp_enqueue_style('cr8v-shared', $uri . '/assets/css/shared-service-components.css', ['cr8v-fonts'], $v);
 
-    // Main theme stylesheet (design tokens + global resets)
-    wp_enqueue_style('cr8v-main', $uri . '/assets/css/main.css', ['cr8v-shared'], $v);
+    // Theme stylesheet — design tokens, global resets, typography
+    // WordPress automatically enqueues style.css for the active theme;
+    // we add it here explicitly so child-theme overrides work cleanly.
+    wp_enqueue_style('cr8v-theme', get_stylesheet_uri(), ['cr8v-shared'], $v);
+
+    // Page-specific canvas / interaction scripts (loaded in footer)
+    wp_enqueue_script(
+        'cr8v-canvas',
+        $uri . '/assets/js/ecommerce-hero-canvas.js',
+        [],
+        $v,
+        true  // load in footer
+    );
+    wp_enqueue_script(
+        'cr8v-stack',
+        $uri . '/assets/js/shared-folder-stack.js',
+        [],
+        $v,
+        true
+    );
 });
 
 
@@ -147,9 +165,9 @@ function cr8v_ajax_search() {
     wp_send_json_success(['results' => $out]);
 }
 
-// Localise AJAX URL + nonce for blog header search
+// Localise AJAX URL + nonce for search — attach to cr8v-canvas (a real JS handle)
 add_action('wp_enqueue_scripts', function () {
-    wp_localize_script('cr8v-main', 'cr8vAjax', [
+    wp_localize_script('cr8v-canvas', 'cr8vAjax', [
         'url'   => admin_url('admin-ajax.php'),
         'nonce' => wp_create_nonce('cr8v_search_nonce'),
     ]);
