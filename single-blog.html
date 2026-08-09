@@ -25,14 +25,48 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 0; margin: 0; }
 
-    /* ── FULL-WIDTH OUTER PAPER FRAME (MARGIN 2.5REM 1REM 0REM 1REM) ── */
     .art-outer-frame {
-      margin: 2.5rem 1rem 0rem 1rem;
       background: var(--c8-paper-card);
       border: 1px solid var(--c8-grid-line);
       padding-top: 3.5rem;
       min-height: 100vh;
     }
+
+    /* ── CATEGORY PILL ── */
+    .art-cat-pill {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c8-ink);
+      border: 1px solid rgba(8, 8, 8, 0.3);
+      border-radius: 4px;
+      padding: 4px 12px;
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .art-cat-pill:hover { border-color: var(--c8-blue); color: var(--c8-blue); }
+
+    /* ── BACK TO BLOG BUTTON ── */
+    .art-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c8-sub);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      margin-bottom: 1.25rem;
+    }
+    .art-back-btn:hover { color: var(--c8-blue); }
 
     /* HERO BANNER TOP */
     .art-hero-banner {
@@ -281,7 +315,12 @@
     
     <!-- TOP HERO BANNER -->
     <header class="art-hero-banner">
+      <a href="blog.html" class="art-back-btn">
+        <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Back to Blog
+      </a>
       <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; position: relative;">
+
         <span class="art-cat-pill">Liquid Performance Engineering</span>
         
         <!-- Interactive Animated Category Popover Pill (+3 with Animated SVG Arrow) -->

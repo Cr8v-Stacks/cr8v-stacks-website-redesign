@@ -2126,7 +2126,7 @@ button.c8isv-est-choice.is-active,
   color: #6B6B6B !important;
 }
 
-.c8srv-root, .c8isv-root .c8srv-related-grid, .c8isv-related-grid {
+.c8isv-root .c8srv-related-grid, .c8isv-related-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
   border: 1px solid rgba(8, 8, 8, 0.12) !important;
@@ -2135,7 +2135,7 @@ button.c8isv-est-choice.is-active,
 }
 
 @media (max-width: 900px) {
-  .c8srv-root, .c8isv-root .c8srv-related-grid, .c8isv-related-grid {
+  .c8isv-root .c8srv-related-grid, .c8isv-related-grid {
     grid-template-columns: 1fr !important;
   }
 }
