@@ -481,9 +481,12 @@ body {
 
 /* Flanking Cards (Why It Works) */
 .c8srv-root .c8srv-flank-section {
-  width: 100vw !important;
-  margin-left: 50% !important;
-  transform: translateX(-50%) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  transform: none !important;
+  left: 0 !important;
+  right: 0 !important;
   background: #F4F6FB !important;
   padding: 6rem 0 !important;
   overflow: hidden !important;
@@ -673,22 +676,29 @@ body {
 }
 .c8srv-root .c8srv-price-amount {
   font-family: 'DM Sans', sans-serif !important;
+  margin-bottom: 1.5rem !important;
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 4px !important;
+}
+.c8srv-root .c8srv-price-amount .c8srv-price-num {
+  font-family: 'DM Sans', sans-serif !important;
   font-size: clamp(2rem, 4vw, 2.8rem) !important;
   font-weight: 700 !important;
   letter-spacing: -0.02em !important;
   color: #0047E1 !important;
-  margin-bottom: 1.5rem !important;
+  line-height: 1 !important;
 }
-.c8srv-root .c8srv-price-box.is-highlight .c8srv-price-amount {
+.c8srv-root .c8srv-price-box.is-highlight .c8srv-price-amount .c8srv-price-num {
   color: #FAFAF7 !important;
 }
-.c8srv-root .c8srv-price-amount span {
+.c8srv-root .c8srv-price-amount .c8srv-price-period {
   font-size: 14px !important;
   font-weight: 400 !important;
   font-family: 'DM Sans', sans-serif !important;
   color: #6B6B6B !important;
 }
-.c8srv-root .c8srv-price-box.is-highlight .c8srv-price-amount span {
+.c8srv-root .c8srv-price-box.is-highlight .c8srv-price-amount .c8srv-price-period {
   color: rgba(250, 250, 247, 0.6) !important;
 }
 .c8srv-root .c8srv-price-desc {
@@ -1185,11 +1195,12 @@ body {
       </div>
     </div>
   </div>
+</div>
 
   <!-- ════════════════════════════════════════════════════════════════ -->
   <!-- PRIMARY SERVICE SHOWCASE — 6-CARD FULL-WIDTH ABOUT US GRID       -->
   <!-- ════════════════════════════════════════════════════════════════ -->
-  <section class="c8-about-section" id="primary-service-6cards" style="width: 100vw !important; position: relative !important; left: 50% !important; right: 50% !important; margin-left: -50vw !important; margin-right: -50vw !important; background-color: #080808 !important; background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%) !important; padding: 6rem 5vw !important; box-sizing: border-box !important; color: #FFFFFF !important; border-radius: 0 !important; margin-top: 3rem !important; margin-bottom: 5rem !important;">
+  <section class="c8-about-section" id="primary-service-6cards" style="width: 100% !important; max-width: 100% !important; margin-left: 0 !important; margin-right: 0 !important; left: 0 !important; right: 0 !important; background-color: #080808 !important; background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%) !important; padding: 6rem 5vw !important; box-sizing: border-box !important; color: #FFFFFF !important; border-radius: 0 !important; margin-top: 3rem !important; margin-bottom: 5rem !important;">
     <div class="c8-about-inner" style="max-width: 1400px; margin: 0 auto; position: relative; z-index: 1;">
       
       <div class="c8-about-header" style="margin-bottom: 4rem; text-align: left;">
@@ -1477,7 +1488,7 @@ body {
         <div class="c8srv-price-header">
           <span class="c8srv-price-type" data-customizer="srv_plan1_type"><?php echo esc_html(cr8v_mod('srv_plan1_type', 'Ongoing Support')); ?></span>
           <h3 class="c8srv-price-title" data-customizer="srv_plan1_title"><?php echo esc_html(cr8v_mod('srv_plan1_title', 'Growth Retainer')); ?></h3>
-          <div class="c8srv-price-amount"><span data-customizer="srv_plan1_price"><?php echo esc_html(cr8v_mod('srv_plan1_price', '$950')); ?></span><span data-customizer="srv_plan1_period"><?php echo esc_html(cr8v_mod('srv_plan1_period', '/mo')); ?></span></div>
+          <div class="c8srv-price-amount"><span class="c8srv-price-num" data-customizer="srv_plan1_price"><?php echo esc_html(cr8v_mod('srv_plan1_price', '$950')); ?></span><span class="c8srv-price-period" data-customizer="srv_plan1_period"><?php echo esc_html(cr8v_mod('srv_plan1_period', '/mo')); ?></span></div>
         </div>
         <p class="c8srv-price-desc" data-customizer="srv_plan1_desc"><?php echo wp_kses_post(cr8v_mod('srv_plan1_desc', 'A monthly block of dedicated design and development hours to keep your website fast, updated, and growing. Perfect for active search marketing, technical SEO, speed tuning, and site edits.')); ?></p>
         <div class="c8srv-price-features">
@@ -1502,7 +1513,7 @@ body {
         <div class="c8srv-price-header">
           <span class="c8srv-price-type" data-customizer="srv_plan2_type"><?php echo esc_html(cr8v_mod('srv_plan2_type', 'Fixed Scope')); ?></span>
           <h3 class="c8srv-price-title" data-customizer="srv_plan2_title"><?php echo esc_html(cr8v_mod('srv_plan2_title', 'Fixed Projects')); ?></h3>
-          <div class="c8srv-price-amount" style="color: #FAFAF7 !important;"><span data-customizer="srv_plan2_price"><?php echo esc_html(cr8v_mod('srv_plan2_price', '$1,200')); ?></span><span data-customizer="srv_plan2_period"><?php echo esc_html(cr8v_mod('srv_plan2_period', ' start')); ?></span></div>
+          <div class="c8srv-price-amount"><span class="c8srv-price-num" style="color: #FAFAF7 !important;" data-customizer="srv_plan2_price"><?php echo esc_html(cr8v_mod('srv_plan2_price', '$1,200')); ?></span><span class="c8srv-price-period" style="color: rgba(250, 250, 247, 0.6) !important;" data-customizer="srv_plan2_period"><?php echo esc_html(cr8v_mod('srv_plan2_period', ' start')); ?></span></div>
         </div>
         <p class="c8srv-price-desc" data-customizer="srv_plan2_desc"><?php echo wp_kses_post(cr8v_mod('srv_plan2_desc', 'A deep, focused design & code engagement with transparent scoping, clear milestones, and guaranteed delivery. Best for building a new custom site, e-commerce storefront, or AI MVP prototype.')); ?></p>
         <div class="c8srv-price-features">
