@@ -661,7 +661,7 @@ get_header();
       </div>
     </section>
 
-        <!-- ── 3. DEV PLAYGROUND SHOWCASE ── -->
+            <!-- ── 3. DEV PLAYGROUND SHOWCASE ── -->
     <section class="dp-section" id="dev-playground">
       <!-- GREY LEFT HALF -->
       <div class="dp-half-left">
@@ -727,13 +727,13 @@ get_header();
             </a>
           </div>
         </div>
-      </div>
 
-      <!-- MASCOT VIDEO STRADDLE -->
-      <div class="dp-mascot-wrap" data-customizer="abt_dp_mascot">
-        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate">
-          <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/download_mascot.mp4'); ?>" type="video/mp4">
-        </video>
+        <!-- MASCOT VIDEO STRADDLE (CENTERED OVER SPLIT SEAM VIA ABSOLUTE RIGHT -260PX ON DP-HALF-LEFT) -->
+        <div class="dp-mascot-wrap" data-customizer="abt_dp_mascot">
+          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate">
+            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/download_mascot.mp4'); ?>" type="video/mp4">
+          </video>
+        </div>
       </div>
 
       <!-- BLUE RIGHT HALF -->
