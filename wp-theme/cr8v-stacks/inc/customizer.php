@@ -2,14 +2,14 @@
 /**
  * CR8V Stacks — inc/customizer.php
  * Master Customizer Configuration for Tropos Theme
- * 100% full coverage across all 11 homepage sections including every card, item, button, testimonial, and FAQ.
+ * 100% full coverage across all 11 homepage sections with Selective Refresh shortcut icons (blue pencil icons) enabled for every setting.
  */
 
 defined('ABSPATH') || exit;
 
 add_action('customize_register', function ($wp_customize) {
 
-    // Helper functions
+    // Helper functions with selective refresh built-in
     function _cr8v_section($wp_customize, $id, $title, $panel = 'cr8v_homepage', $priority = 10) {
         $wp_customize->add_section($id, [
             'title'    => $title,
@@ -18,7 +18,7 @@ add_action('customize_register', function ($wp_customize) {
         ]);
     }
 
-    function _cr8v_text($wp_customize, $id, $section, $label, $default = '') {
+    function _cr8v_text($wp_customize, $id, $section, $label, $default = '', $selector = '') {
         $wp_customize->add_setting($id, [
             'default'           => $default,
             'sanitize_callback' => 'sanitize_text_field',
@@ -29,9 +29,19 @@ add_action('customize_register', function ($wp_customize) {
             'section'  => $section,
             'type'     => 'text',
         ]);
+        if (isset($wp_customize->selective_refresh)) {
+            $sel = $selector ? $selector : "[data-customizer='{$id}']";
+            $wp_customize->selective_refresh->add_partial($id, [
+                'selector'            => $sel,
+                'render_callback'     => function() use ($id, $default) {
+                    return esc_html(cr8v_mod($id, $default));
+                },
+                'container_inclusive' => false,
+            ]);
+        }
     }
 
-    function _cr8v_textarea($wp_customize, $id, $section, $label, $default = '') {
+    function _cr8v_textarea($wp_customize, $id, $section, $label, $default = '', $selector = '') {
         $wp_customize->add_setting($id, [
             'default'           => $default,
             'sanitize_callback' => 'sanitize_textarea_field',
@@ -42,9 +52,19 @@ add_action('customize_register', function ($wp_customize) {
             'section' => $section,
             'type'    => 'textarea',
         ]);
+        if (isset($wp_customize->selective_refresh)) {
+            $sel = $selector ? $selector : "[data-customizer='{$id}']";
+            $wp_customize->selective_refresh->add_partial($id, [
+                'selector'            => $sel,
+                'render_callback'     => function() use ($id, $default) {
+                    return wp_kses_post(cr8v_mod($id, $default));
+                },
+                'container_inclusive' => false,
+            ]);
+        }
     }
 
-    function _cr8v_image($wp_customize, $id, $section, $label, $default = '') {
+    function _cr8v_image($wp_customize, $id, $section, $label, $default = '', $selector = '') {
         $wp_customize->add_setting($id, [
             'default'           => $default,
             'sanitize_callback' => 'esc_url_raw',
@@ -54,12 +74,22 @@ add_action('customize_register', function ($wp_customize) {
             'label'   => $label,
             'section' => $section,
         ]));
+        if (isset($wp_customize->selective_refresh)) {
+            $sel = $selector ? $selector : "[data-customizer='{$id}']";
+            $wp_customize->selective_refresh->add_partial($id, [
+                'selector'            => $sel,
+                'render_callback'     => function() use ($id, $default) {
+                    return esc_url(cr8v_mod($id, $default));
+                },
+                'container_inclusive' => false,
+            ]);
+        }
     }
 
     // Main Panel: Homepage Settings
     $wp_customize->add_panel('cr8v_homepage', [
         'title'       => 'Homepage — Tropos Theme',
-        'description' => 'Edit all 11 homepage sections with live preview controls.',
+        'description' => 'Edit all 11 homepage sections with live preview controls and shortcut pencil icons.',
         'priority'    => 20,
     ]);
 

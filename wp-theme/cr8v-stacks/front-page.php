@@ -986,8 +986,8 @@ defined('ABSPATH') || exit;
       <!-- Section Header -->
       <div class="sdv-header">
         <div class="sdv-header-left">
-          <div class="sdv-eyebrow"><span class="c8-eyebrow-slash">//</span> WHAT WE ACTUALLY DO</div>
-          <h2 class="sdv-h2">Every Layer.<br>One <em>Studio.</em></h2>
+          <div class="sdv-eyebrow" data-customizer="sdv_eyebrow"><span class="c8-eyebrow-slash">//</span> WHAT WE ACTUALLY DO</div>
+          <h2 class="sdv-h2" data-customizer="sdv_heading">Every Layer.<br>One <em>Studio.</em></h2>
 
           <div class="sdv-layer-row">
             <span class="sdv-layer-pill layer-strategy">Strategy</span>
@@ -2216,14 +2216,14 @@ defined('ABSPATH') || exit;
 
     <div class="wwa-inner">
       <div class="wwa-top">
-        <div class="wwa-eyebrow"><span class="c8-eyebrow-slash">//</span> ABOUT CR8V STACKS</div>
+        <div class="wwa-eyebrow" data-customizer="wwa_eyebrow"><span class="c8-eyebrow-slash">//</span> ABOUT CR8V STACKS</div>
         <div class="wwa-top-tag">CREATIVE STACKS AGENCY</div>
       </div>
 
       <div class="wwa-main-grid">
         <div class="wwa-left-col">
           <div>
-            <h2 class="wwa-h2">One team.<br><em>Every layer.</em></h2>
+            <h2 class="wwa-h2" data-customizer="wwa_heading">One team.<br><em>Every layer.</em></h2>
             <p class="wwa-desc">
               Strategy, design, and code — handled by the same team from first call to launch, not handed off between departments who have never spoken to each other. Whether we are validating an AI product MVP, rebuilding a property platform from scratch, or running SEO for a growing brand.
             </p>
