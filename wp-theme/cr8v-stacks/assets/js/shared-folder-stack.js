@@ -18,12 +18,14 @@
         return;
       }
       var mobile = window.innerWidth < 900;
-      var limit = mobile ? 101 : 131;
+      var adminBar = document.getElementById('wpadminbar');
+      var adminBarOffset = adminBar ? adminBar.offsetHeight : 0;
+      var limit = (mobile ? 101 : 131) + adminBarOffset;
 
       cards.forEach(function (card, i) {
         var rect = card.getBoundingClientRect();
 
-        if (rect.top <= limit + 4) {
+        if (rect.top <= limit + 10) {
           var stackedAfter = 0;
           for (var j = i + 1; j < cards.length; j++) {
             var nextRect = cards[j].getBoundingClientRect();

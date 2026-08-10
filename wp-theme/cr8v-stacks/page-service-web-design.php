@@ -965,30 +965,6 @@ get_header();
     var testiLeft = root.querySelector('[data-c8isv-testi-left]');
     var testiRight = root.querySelector('[data-c8isv-testi-right]');
 
-    // 0. What You Get Folder Deck Stack Animation
-    var folderCards = root.querySelectorAll('.c8srv-folder-card, .c8isv-folder-card');
-    if (folderCards.length) {
-      var mobile = window.innerWidth < 900;
-      var limit = mobile ? 110 : 140;
-      folderCards.forEach(function (card, i) {
-        var rect = card.getBoundingClientRect();
-        var stackedAfter = 0;
-        for (var j = i + 1; j < folderCards.length; j++) {
-          var nextRect = folderCards[j].getBoundingClientRect();
-          if (nextRect.top <= limit + 35) stackedAfter++;
-        }
-        if (stackedAfter > 0) {
-          var scale = 1 - (stackedAfter * 0.035);
-          var lift = stackedAfter * -10;
-          card.style.transform = 'scale(' + scale + ') translate3d(0,' + lift + 'px,0)';
-          card.style.filter = 'brightness(' + (1 - (stackedAfter * 0.06)) + ')';
-        } else {
-          card.style.transform = 'none';
-          card.style.filter = 'none';
-        }
-      });
-    }
-
     // 1. Flank Cards Stack Lay-Down
     if (flankContainer && flankCards.length) {
       var rect = flankContainer.getBoundingClientRect();
