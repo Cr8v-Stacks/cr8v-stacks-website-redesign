@@ -957,18 +957,29 @@ get_header();
 
   /* ── Scroll handling scroll-linked animations ── */
   function handleScrollAnimations() {
-    if (reduceMotion) return;
-
-    var flankContainer = root.querySelector('[data-c8isv-flank-trigger]');
-    var flankCards = root.querySelectorAll('[data-c8isv-flank-card]');
-
-    var portfolioCard = root.querySelector('[data-c8isv-portfolio-card]');
-
-    var approachCards = root.querySelectorAll('[data-c8isv-approach-card]');
-
-    var testiGrid = root.querySelector('[data-c8isv-testi-trigger]');
-    var testiLeft = root.querySelector('[data-c8isv-testi-left]');
-    var testiRight = root.querySelector('[data-c8isv-testi-right]');
+    // 0. What You Get Folder Deck Stack Animation
+    var folderCards = root.querySelectorAll('.c8srv-folder-card, .c8isv-folder-card');
+    if (folderCards.length) {
+      var mobile = window.innerWidth < 900;
+      var limit = mobile ? 120 : 165;
+      folderCards.forEach(function (card, i) {
+        var rect = card.getBoundingClientRect();
+        if (rect.top <= limit + 35) {
+          var stackedAfter = 0;
+          for (var j = i + 1; j < folderCards.length; j++) {
+            var nextRect = folderCards[j].getBoundingClientRect();
+            if (nextRect.top <= limit + 35) stackedAfter++;
+          }
+          var scale = 1 - (stackedAfter * 0.03);
+          var lift = stackedAfter * -8;
+          card.style.transform = 'scale(' + scale + ') translate3d(0,' + lift + 'px,0)';
+          card.style.filter = 'brightness(' + (1 - (stackedAfter * 0.05)) + ')';
+        } else {
+          card.style.transform = 'none';
+          card.style.filter = 'none';
+        }
+      });
+    }
 
     // 1. Flank Cards Stack Lay-Down
     if (flankContainer && flankCards.length) {

@@ -1442,27 +1442,35 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
 
 .c8isv-price-amount, .c8srv-price-amount {
   font-family: 'DM Sans', sans-serif !important;
+  margin-bottom: 1.5rem !important;
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 0.35rem !important;
+}
+
+.c8isv-price-num, .c8srv-price-num {
+  font-family: 'DM Sans', sans-serif !important;
   font-size: clamp(2rem, 4vw, 2.8rem) !important;
   font-weight: 700 !important;
   color: #0047E1 !important;
   letter-spacing: -0.02em !important;
-  margin-bottom: 1.5rem !important;
+  line-height: 1.1 !important;
 }
 
-.c8isv-price-box.is-highlight .c8isv-price-amount,
-.c8srv-price-box.is-highlight .c8srv-price-amount {
+.c8isv-price-box.is-highlight .c8isv-price-num,
+.c8srv-price-box.is-highlight .c8srv-price-num {
   color: #FAFAF7 !important;
 }
 
-.c8isv-price-amount span, .c8srv-price-amount span {
+.c8isv-price-period, .c8srv-price-period {
   font-size: 14px !important;
   color: #6B6B6B !important;
   font-weight: 400 !important;
   font-family: 'DM Sans', sans-serif !important;
 }
 
-.c8isv-price-box.is-highlight .c8isv-price-amount span,
-.c8srv-price-box.is-highlight .c8srv-price-amount span {
+.c8isv-price-box.is-highlight .c8isv-price-period,
+.c8srv-price-box.is-highlight .c8srv-price-period {
   color: rgba(250,250,247,0.6) !important;
 }
 

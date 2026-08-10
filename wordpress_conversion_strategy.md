@@ -635,15 +635,61 @@ All 11 homepage sections were audited and mapped into `inc/customizer.php` and `
 
 
 
+## 8. Master Individual Service Page Conversion Protocol (Web Design Gold Standard)
 
+When porting any individual service page (e.g. `web-design`, `shopify`, `woocommerce`, `custom-dev`, `ai-mvp`, `brand-identity`, `brand-strategy`, `seo`, `marketing`), follow this exact protocol to guarantee 100% visual, functional, and Customizer parity.
 
+### 1. Template File Naming & Dual Alias Standard
+- **Primary Template**: `page-service-{slug}.php` (e.g., `page-service-web-design.php`, `page-service-shopify.php`).
+- **WP Slug Alias Wrapper**: `page-{slug}.php` (e.g., `page-web-design.php`, `page-shopify.php`) containing:
+  ```php
+  <?php
+  /**
+   * Template Name: Service — [Page Title]
+   */
+  include get_template_directory() . '/page-service-[slug].php';
+  ```
+- **Fallback Router Update**: Register the slug in `page-service.php` router so WP never falls back to placeholder templates.
+- **WPAutoP Disable**: Add both `page-service-{slug}.php` and `page-{slug}.php` to `$templates_no_autop` in `functions.php`.
 
+### 2. Required CSS & Element Styling Guardrails
+- **Pricing Amount Digit vs Period**:
+  ```html
+  <div class="c8srv-price-amount">
+    <span class="c8srv-price-num">$950</span>
+    <span class="c8srv-price-period">/mo</span>
+  </div>
+  ```
+  *CSS Rule*: `c8srv-price-num` must be `font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; color: #0047E1;` and `c8srv-price-period` must be `font-size: 14px; font-weight: 400; color: #6B6B6B;`. Never target generic `span` inside `.c8srv-price-amount`.
 
+- **Sticky Folder Deck Stacking (`.c8srv-folder-card`)**:
+  - Parent `.c8isv-root` MUST use `overflow: visible !important; width: 100% !important;` (NEVER `overflow-x: hidden !important;`, which breaks CSS sticky positioning).
+  - Cards use `position: sticky !important; top: 130px !important;`.
+  - JS threshold check uses `limit = mobile ? 120 : 165` to account for fixed top navigation headers.
+
+### 3. Interactive JavaScript Module Bundle
+Every service page script block must self-initialize cleanly without external script errors:
+- **Hero Cursor Glow Tracker**: Mousemove tracking inside `[data-c8isv-hero]`
+- **IntersectionObserver Reveal**: Reveal elements with `.c8isv-reveal, .c8srv-reveal`
+- **Sticky Folder Stack**: Scale `1 - (stackedAfter * 0.03)` and lift `stackedAfter * -8px`
+- **Flank Cards Stack Lay-Down**: Scroll-linked translate & rotate transforms
+- **Portfolio Zoom Card**: Scroll progress scaling `0.75` to `1.0`
+- **Slanted Process Deck**: Scroll-linked rotatable cards
+- **Client Feedback Fan Out**: 3-card testimonials spreading outwards on scroll
+- **Project Catalog Hover Preview**: 2-card fan preview stack (`.c8isv-fan-left` and `.c8isv-fan-right`) following cursor with SimpleIcons SVG logos
+- **Scope Estimator Live Calculator**: Interactive choice button selection with live price ranges & deliverables list
+- **FAQ Accordion**: 2-column layout with 45° rotating SVG toggle icons
+- **Live Matrix Text Scramble**: Random character scramble on button mouseenter
+
+### 4. Customizer Panel Standard
+- Panel ID: `cr8v_[slug]_panel` (Priority 30-40 in WP Customizer).
+- Minimum 10 Sections matching all 11 HTML sections.
+- Binding: Every text node uses `data-customizer="setting_id"` and `cr8v_mod('setting_id', 'Default Text')`.
 
 ---
 
 ### 4. About Us Page (`page-about.php`) Conversion Summary & Fixes
-- **Root Cause of Missing Header/Footer**: The theme folder was missing root [`header.php`](file:///c:/Users/HP/Downloads/Mega%20Menu/wp-theme/cr8v-stacks/header.php) and [`footer.php`](file:///c:/Users/HP/Downloads/Mega%20Menu/wp-theme/cr8v-stacks/footer.php) files (they were inside `parts/`). Calling `get_header()` in WP templates returned blank. Created root `header.php` and `footer.php` that bridge `get_template_part('parts/header')` and `get_template_part('parts/footer')`.
+- **Root Cause of Missing Header/Footer**: The theme folder was missing root `header.php` and `footer.php` files (they were inside `parts/`). Calling `get_header()` in WP templates returned blank. Created root `header.php` and `footer.php` that bridge `get_template_part('parts/header')` and `get_template_part('parts/footer')`.
 - **CSS Restoration**: Extracted 38.6KB of dedicated `about-us.html` styles into `assets/css/about-us.css` and merged into `style.css`. Restored `.fylla-leadership-grid`, `.fylla-founder-sidebar`, and `.fylla-founder-bio`.
 - **HTML Parity**: 100% exact design parity from `about-us.html` preserved with all 286 `div` tags and 10 `section` tags 100% balanced.
 - **Customizer Panel Added**: `cr8v_about_panel` (7 sections: Hero, Philosophy, Performance Tech Stack, Fit Matrix, Founder Bio & Leadership, Technical Standards, Final CTA Banner).

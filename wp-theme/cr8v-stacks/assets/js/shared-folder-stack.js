@@ -18,12 +18,12 @@
         return;
       }
       var mobile = window.innerWidth < 900;
-      var limit = mobile ? 101 : 131;
+      var limit = mobile ? 120 : 165;
 
       cards.forEach(function (card, i) {
         var rect = card.getBoundingClientRect();
 
-        if (rect.top <= limit + 4) {
+        if (rect.top <= limit + 35) {
           var stackedAfter = 0;
           for (var j = i + 1; j < cards.length; j++) {
             var nextRect = cards[j].getBoundingClientRect();
