@@ -623,6 +623,8 @@ All 11 homepage sections were audited and mapped into `inc/customizer.php` and `
 | `d74a351` | Fix relative asset image paths to dynamic `get_template_directory_uri()` URLs in `page-about.php` |
 | `0e91eb5` | Restore complete interactive 4.8KB JavaScript block (Services Accordions, Tech Stack Auto-Tab Controller, Matrix Scramble) in `page-about.php` |
 | `0a3f30b` | Embed self-contained 38.6KB design `<style>` block directly into `page-about.php` to guarantee 100% style isolation and prevent external CSS specificity overrides |
+| `fd9813b` | Fix root `header.php` and `footer.php` to output `wp_head()`, `wp_body_open()`, and `wp_footer()`, fix Open Source Education fallback image path, and add top header offset |
+
 
 
 
