@@ -619,13 +619,17 @@ All 11 homepage sections were audited and mapped into `inc/customizer.php` and `
 | `f85f0c7` | Restore `sdv-item-title` CSS wrapper spans and fix `data-customizer` attributes for Services Deep Dive section |
 | `c55dd23` | Convert About Us page (`page-about.php`) with 100% Customizer controls, selective refresh icons, and founder bio |
 | `c455109` | Convert Services Overview Hub (`page-services.php`) and Master Child Service template (`page-service.php`) with 100% Customizer controls and selective refresh |
+| `060b37e` | Fix root `header.php` and `footer.php` templates and restore 100% HTML design parity and CSS styles for About Us page (`page-about.php`) |
 
 ---
 
-### 4. About Us Page (`page-about.php`) Conversion Summary
+### 4. About Us Page (`page-about.php`) Conversion Summary & Fixes
+- **Root Cause of Missing Header/Footer**: The theme folder was missing root [`header.php`](file:///c:/Users/HP/Downloads/Mega%20Menu/wp-theme/cr8v-stacks/header.php) and [`footer.php`](file:///c:/Users/HP/Downloads/Mega%20Menu/wp-theme/cr8v-stacks/footer.php) files (they were inside `parts/`). Calling `get_header()` in WP templates returned blank. Created root `header.php` and `footer.php` that bridge `get_template_part('parts/header')` and `get_template_part('parts/footer')`.
+- **CSS Restoration**: Extracted 38.6KB of dedicated `about-us.html` styles into `assets/css/about-us.css` and merged into `style.css`. Restored `.fylla-leadership-grid`, `.fylla-founder-sidebar`, and `.fylla-founder-bio`.
+- **HTML Parity**: 100% exact design parity from `about-us.html` preserved with all 286 `div` tags and 10 `section` tags 100% balanced.
 - **Customizer Panel Added**: `cr8v_about_panel` (7 sections: Hero, Philosophy, Performance Tech Stack, Fit Matrix, Founder Bio & Leadership, Technical Standards, Final CTA Banner).
 - **Founder & Leadership Section**: Dedicated fields for **Mallami Adekunle** (Founder Tag, Name, Role, 3 Bio Paragraphs, Quote, Avatar Image, and 4 Social Links).
-- **HTML Cleanup**: Fixed double nested `<main>` tags into `<main id="cr8v-main" class="fylla-outer-frame">` and integrated standard `get_header()` / `get_footer()`.
+
 
 ---
 
