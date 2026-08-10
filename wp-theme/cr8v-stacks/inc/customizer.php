@@ -384,93 +384,75 @@ add_action('customize_register', function ($wp_customize) {
     // ==========================================
     // ABOUT US PAGE PANEL
     // ==========================================
+    
+    // ==========================================
+    // ABOUT US PAGE PANEL
+    // ==========================================
     $wp_customize->add_panel('cr8v_about_panel', [
         'title'       => 'About Us Page — Tropos Theme',
-        'description' => 'Edit all sections of the About Us page including Hero, Philosophy, Tech Stack, Founder Bio, and Fit Matrix.',
+        'description' => 'Edit all 10 sections of the About Us page including Hero, Philosophy, Tech Stack, Fit Matrix, Founder Bio (Mallami Adekunle), Open Source Education, and CTA.',
         'priority'    => 25,
     ]);
 
     // 1. About Hero
     _cr8v_section($wp_customize, 'cr8v_abt_hero', '1. Hero Section', 'cr8v_about_panel', 10);
     _cr8v_text($wp_customize, 'abt_hero_tag', 'cr8v_abt_hero', 'Meta Tag', 'AGENCY PROFILE');
-    _cr8v_text($wp_customize, 'abt_hero_headline', 'cr8v_abt_hero', 'Headline', 'WE DEFY templates. WE CODE CONVERSIONS.');
-    _cr8v_textarea($wp_customize, 'abt_hero_p', 'cr8v_abt_hero', 'Subheadline', 'We are an engineering-first digital agency built for ambitious brands. We don\'t just assemble websites; we architect custom digital environments, brand systems, and organic search acquisition models designed to turn attention into measurable revenue.');
-    _cr8v_image($wp_customize, 'abt_hero_img', 'cr8v_abt_hero', 'Studio Workspace Image');
-    _cr8v_text($wp_customize, 'abt_hero_hud', 'cr8v_abt_hero', 'HUD Badge Tag', '// SYSTEM_ACTIVE');
+    _cr8v_textarea($wp_customize, 'abt_hero_headline', 'cr8v_abt_hero', 'Headline (HTML allowed)', 'WE DEFY <span class=\'c8abt-serif-italic\'>templates.</span><br>WE CODE <span class=\'c8abt-highlight-text\'>CONVERSIONS.</span>');
+    _cr8v_textarea($wp_customize, 'abt_hero_p', 'cr8v_abt_hero', 'Subheadline / Paragraph', 'We are an engineering-first digital agency built for ambitious brands. We don\'t just assemble websites; we architect custom digital environments, brand systems, and organic search acquisition models designed to turn attention into measurable revenue.');
+    _cr8v_img($wp_customize, 'abt_hero_img', 'cr8v_abt_hero', 'Studio Hero Image', get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg');
+    _cr8v_text($wp_customize, 'abt_hero_hud', 'cr8v_abt_hero', 'HUD Tag Text', '// SYSTEM_ACTIVE');
 
     // 2. Philosophy & Values
     _cr8v_section($wp_customize, 'cr8v_abt_philosophy', '2. Philosophy & Values', 'cr8v_about_panel', 20);
-    _cr8v_text($wp_customize, 'abt_val_eyebrow', 'cr8v_abt_philosophy', 'Section Eyebrow', 'WHAT YOU SHOULD KNOW');
-    _cr8v_text($wp_customize, 'abt_val_heading', 'cr8v_abt_philosophy', 'Section Heading', 'OUR PHILOSOPHY');
-    _cr8v_textarea($wp_customize, 'abt_val_p1', 'cr8v_abt_philosophy', 'Paragraph 1', 'We bridge the gap between creative visual branding and lightweight, custom-coded web architectures.');
-    _cr8v_textarea($wp_customize, 'abt_val_p2', 'cr8v_abt_philosophy', 'Paragraph 2', 'At CR8V Stacks, founded by Mallami Adekunle, we approach web development and branding from a performance-first perspective. We don\'t believe in generic page builders and bloated themes that drag down loading speed and make businesses look identical.');
-    _cr8v_textarea($wp_customize, 'abt_val_p3', 'cr8v_abt_philosophy', 'Paragraph 3', 'By keeping our technology stack lightweight and prioritizing custom layouts, we eliminate design bloat and give our clients the technical edge in speed, search ranking, and user experience.');
-    _cr8v_text($wp_customize, 'abt_val_cta_text', 'cr8v_abt_philosophy', 'CTA Button Text', 'Inspect Case Studies');
-    _cr8v_text($wp_customize, 'abt_val_cta_url', 'cr8v_abt_philosophy', 'CTA Button Link', '/case-studies/');
-
-    _cr8v_text($wp_customize, 'abt_val_v1_title', 'cr8v_abt_philosophy', 'Value 1 Title', 'CODE ARCHITECTURE — ZERO BLOAT');
-    _cr8v_textarea($wp_customize, 'abt_val_v1_desc', 'cr8v_abt_philosophy', 'Value 1 Description', 'Bespoke custom themes built from scratch with semantic HTML, CSS, and vanilla JS. No page builders, no unneeded plugins.');
-    _cr8v_text($wp_customize, 'abt_val_v2_title', 'cr8v_abt_philosophy', 'Value 2 Title', 'LIQUID ENGINEERING — SUB-1.2S SPEED');
-    _cr8v_textarea($wp_customize, 'abt_val_v2_desc', 'cr8v_abt_philosophy', 'Value 2 Description', 'Tuned for instant page loads and green Core Web Vitals across every single device, browser, and network condition.');
-    _cr8v_text($wp_customize, 'abt_val_v3_title', 'cr8v_abt_philosophy', 'Value 3 Title', 'ENTITY SEO — ORGANIC DOMINANCE');
-    _cr8v_textarea($wp_customize, 'abt_val_v3_desc', 'cr8v_abt_philosophy', 'Value 3 Description', 'Structured Schema JSON-LD markup and semantic HTML hierarchy ensuring total search engine clarity and ranking authority.');
+    _cr8v_text($wp_customize, 'abt_phi_tag', 'cr8v_abt_philosophy', 'Meta Tag', 'WHAT YOU SHOULD KNOW');
+    _cr8v_text($wp_customize, 'abt_phi_heading', 'cr8v_abt_philosophy', 'Heading', 'OUR PHILOSOPHY');
+    _cr8v_textarea($wp_customize, 'abt_phi_p1', 'cr8v_abt_philosophy', 'Paragraph 1', 'We bridge the gap between creative visual branding and lightweight, custom-coded web architectures.');
+    _cr8v_textarea($wp_customize, 'abt_phi_p2', 'cr8v_abt_philosophy', 'Paragraph 2', 'Templates, generic page builders, and bloat-heavy plugins create technical debt that kills conversions and destroys organic search rankings. We build engineered platforms designed for speed, scale, and long-term search dominance.');
+    _cr8v_textarea($wp_customize, 'abt_phi_p3', 'cr8v_abt_philosophy', 'Paragraph 3', 'Every line of code we write, every Figma layout we design, and every SEO entity map we execute serves a single purpose: to give your business an unfair advantage in the market.');
 
     // 3. Performance Tech Stack
-    _cr8v_section($wp_customize, 'cr8v_abt_tech_stack', '3. Performance Tech Stack', 'cr8v_about_panel', 30);
-    _cr8v_text($wp_customize, 'abt_ts_eyebrow', 'cr8v_abt_tech_stack', 'Section Eyebrow', 'BUILT FOR SPEED. ENGINEERED TO DOMINATE.');
-    _cr8v_text($wp_customize, 'abt_ts_c1_title', 'cr8v_abt_tech_stack', 'Stack 1 Title', 'WORDPRESS CUSTOM ENGINE');
-    _cr8v_textarea($wp_customize, 'abt_ts_c1_desc', 'cr8v_abt_tech_stack', 'Stack 1 Description', 'Custom WordPress theme builds with zero heavy plugin overhead. Designed for clean client handovers and effortless content publishing.');
-    _cr8v_text($wp_customize, 'abt_ts_c2_title', 'cr8v_abt_tech_stack', 'Stack 2 Title', 'SHOPIFY LIQUID STOREFRONTS');
-    _cr8v_textarea($wp_customize, 'abt_ts_c2_desc', 'cr8v_abt_tech_stack', 'Stack 2 Description', 'Custom Liquid themes engineered for high-converting e-commerce brands wanting custom design without app bloated slowdowns.');
-    _cr8v_text($wp_customize, 'abt_ts_c3_title', 'cr8v_abt_tech_stack', 'Stack 3 Title', 'BESPOKE SOFTWARE & WEB APPLICATIONS');
-    _cr8v_textarea($wp_customize, 'abt_ts_c3_desc', 'cr8v_abt_tech_stack', 'Stack 3 Description', 'Custom web applications built with modern frontend frameworks and clean API backends for tools, calculators, and SaaS MVPs.');
+    _cr8v_section($wp_customize, 'cr8v_abt_tech', '3. Performance Tech Stack', 'cr8v_about_panel', 30);
+    _cr8v_text($wp_customize, 'abt_tch_tag', 'cr8v_abt_tech', 'Meta Tag', 'ARCHITECTURE');
+    _cr8v_text($wp_customize, 'abt_tch_heading', 'cr8v_abt_tech', 'Heading', 'PERFORMANCE TECH STACK');
 
-    // 4. Fit Matrix (Right Fit / Wrong Fit)
-    _cr8v_section($wp_customize, 'cr8v_abt_fit', '4. Fit Matrix (Who We Build For)', 'cr8v_about_panel', 40);
-    _cr8v_text($wp_customize, 'abt_fit_eyebrow', 'cr8v_abt_fit', 'Section Eyebrow', 'RIGHT FIT / WRONG FIT');
-    _cr8v_text($wp_customize, 'abt_fit_c1_title', 'cr8v_abt_fit', 'Right Fit Card Title', 'WHO WE BUILD FOR');
-    _cr8v_textarea($wp_customize, 'abt_fit_c1_desc', 'cr8v_abt_fit', 'Right Fit Description', 'Ambitious founders, growing e-commerce brands, and scaling teams who need custom web architecture, speed authority, and organic acquisition.');
-    _cr8v_text($wp_customize, 'abt_fit_c2_title', 'cr8v_abt_fit', 'Wrong Fit Card Title', 'WHO WE ARE NOT FOR');
-    _cr8v_textarea($wp_customize, 'abt_fit_c2_desc', 'cr8v_abt_fit', 'Wrong Fit Description', 'Projects looking for cheap $200 template setups, un-curated page builder clutter, or teams wanting quick hacks over engineered long-term digital foundations.');
+    // 4. Fit Matrix
+    _cr8v_section($wp_customize, 'cr8v_abt_fit', '4. Right Fit / Wrong Fit Matrix', 'cr8v_about_panel', 40);
+    _cr8v_text($wp_customize, 'abt_fit_tag', 'cr8v_abt_fit', 'Meta Tag', 'COMPATIBILITY');
+    _cr8v_text($wp_customize, 'abt_fit_heading', 'cr8v_abt_fit', 'Heading', 'ARE WE A FIT?');
 
-    // 5. Founder Bio & Leadership Section
+    // 5. Founder Bio & Leadership (Mallami Adekunle)
     _cr8v_section($wp_customize, 'cr8v_abt_leadership', '5. Founder Bio & Leadership', 'cr8v_about_panel', 50);
-    _cr8v_text($wp_customize, 'abt_fnd_tag', 'cr8v_abt_leadership', 'Founder Badge Tag', 'FOUNDER & ARCHITECT');
+    _cr8v_text($wp_customize, 'abt_fnd_tag', 'cr8v_abt_leadership', 'Tag Text', 'LEADERSHIP & ARCHITECTURE');
     _cr8v_text($wp_customize, 'abt_fnd_name', 'cr8v_abt_leadership', 'Founder Name', 'Mallami Adekunle');
     _cr8v_text($wp_customize, 'abt_fnd_role', 'cr8v_abt_leadership', 'Founder Role', 'Lead Engineer & Brand Strategist');
-    _cr8v_textarea($wp_customize, 'abt_fnd_bio1', 'cr8v_abt_leadership', 'Bio Paragraph 1', 'Mallami Adekunle is the founder and lead architect behind Cr8v Stacks. With deep technical experience across custom WordPress engineering, Liquid storefront architecture, and technical SEO, Mallami leads every engagement with a strict performance-first discipline.');
-    _cr8v_textarea($wp_customize, 'abt_fnd_bio2', 'cr8v_abt_leadership', 'Bio Paragraph 2', 'Having built custom platforms for scaling e-commerce brands and real estate platforms in both Nigeria and the UK, Mallami advocates for clean code, zero SaaS dependency, and client ownership over all digital assets.');
-    _cr8v_textarea($wp_customize, 'abt_fnd_bio3', 'cr8v_abt_leadership', 'Bio Paragraph 3', 'Under his direction, Cr8v Stacks operates as a concentrated engineering studio where strategy, design, and code run together seamlessly without multi-agency handoff friction.');
-    _cr8v_textarea($wp_customize, 'abt_fnd_quote', 'cr8v_abt_leadership', 'Founder Quote', 'We don\'t sell websites. We build custom business infrastructure that compounds in value year after year.');
-    _cr8v_image($wp_customize, 'abt_fnd_avatar', 'cr8v_abt_leadership', 'Founder Avatar Image');
-    _cr8v_text($wp_customize, 'abt_fnd_linkedin', 'cr8v_abt_leadership', 'LinkedIn Profile URL', 'https://linkedin.com/in/mallami-adekunle');
-    _cr8v_text($wp_customize, 'abt_fnd_twitter', 'cr8v_abt_leadership', 'X/Twitter Profile URL', 'https://twitter.com/mallamiadekunle');
-    _cr8v_text($wp_customize, 'abt_fnd_github', 'cr8v_abt_leadership', 'GitHub Profile URL', 'https://github.com/mallamiadekunle');
-    _cr8v_text($wp_customize, 'abt_fnd_email', 'cr8v_abt_leadership', 'Direct Email', 'hello@cr8vstacks.com');
+    _cr8v_textarea($wp_customize, 'abt_fnd_bio1', 'cr8v_abt_leadership', 'Bio Paragraph 1', 'Mallami Adekunle is the founder and principal software architect at CR8V Stacks. With over a decade of hands-on engineering across WordPress custom engines, Shopify Liquid architecture, and full-stack web applications, Mallami leads our strategic and technical direction.');
+    _cr8v_textarea($wp_customize, 'abt_fnd_bio2', 'cr8v_abt_leadership', 'Bio Paragraph 2', 'Believing that true digital performance stems from combining custom code precision with high-impact conversion UX, Mallami oversees every client architecture build to ensure 100% compliance with Core Web Vitals and zero template reliance.');
+    _cr8v_textarea($wp_customize, 'abt_fnd_quote', 'cr8v_abt_leadership', 'Founder Quote', 'Great websites aren\'t just pretty layouts. They are high-speed revenue engines that communicate authority, load in sub-seconds, and capture market share effortlessly.');
+    _cr8v_img($wp_customize, 'abt_fnd_avatar', 'cr8v_abt_leadership', 'Founder Photo', get_template_directory_uri() . '/assets/img/dev_mascot.jpg');
+    _cr8v_text($wp_customize, 'abt_fnd_linkedin', 'cr8v_abt_leadership', 'LinkedIn URL', 'https://www.linkedin.com/in/adekunlemallami/');
+    _cr8v_text($wp_customize, 'abt_fnd_youtube', 'cr8v_abt_leadership', 'YouTube URL', 'https://www.youtube.com/@cr8vstacks');
 
-    // 6. Education & Certifications
-    _cr8v_section($wp_customize, 'cr8v_abt_edu', '6. Technical Discipline & Standards', 'cr8v_about_panel', 60);
-    _cr8v_text($wp_customize, 'abt_edu_tag', 'cr8v_abt_edu', 'Section Tag', 'TECHNICAL RIGOR');
-    _cr8v_text($wp_customize, 'abt_edu_heading', 'cr8v_abt_edu', 'Section Heading', 'Engineering Discipline & Standards');
-    _cr8v_text($wp_customize, 'abt_edu_c1_title', 'cr8v_abt_edu', 'Credential 1 Title', 'Full-Stack Web Engineering');
-    _cr8v_textarea($wp_customize, 'abt_edu_c1_desc', 'cr8v_abt_edu', 'Credential 1 Description', 'Specialized in PHP, MySQL, Vanilla JavaScript ES6+, HTML5 Semantic Architecture, and Custom WordPress Theme API.');
-    _cr8v_text($wp_customize, 'abt_edu_c2_title', 'cr8v_abt_edu', 'Credential 2 Title', 'Technical SEO & Schema Entity Mapping');
-    _cr8v_textarea($wp_customize, 'abt_edu_c2_desc', 'cr8v_abt_edu', 'Credential 2 Description', 'Advanced JSON-LD Schema implementation, Core Web Vitals optimization, and semantic crawl architecture.');
-    _cr8v_text($wp_customize, 'abt_edu_c3_title', 'cr8v_abt_edu', 'Credential 3 Title', 'Liquid & E-Commerce Performance Architecture');
-    _cr8v_textarea($wp_customize, 'abt_edu_c3_desc', 'cr8v_abt_edu', 'Credential 3 Description', 'Bespoke Shopify Liquid storefront customization and WooCommerce database queries optimization.');
+    // 6. Open Source & Education
+    _cr8v_section($wp_customize, 'cr8v_abt_edu', '6. Open Source & Education', 'cr8v_about_panel', 60);
+    _cr8v_text($wp_customize, 'abt_edu_tag1', 'cr8v_abt_edu', 'Col 1 Tag', 'OPEN SOURCE & EDUCATION');
+    _cr8v_text($wp_customize, 'abt_edu_title1', 'cr8v_abt_edu', 'Col 1 Title', 'ADVANCED ELEMENTOR TUTORIALS');
+    _cr8v_textarea($wp_customize, 'abt_edu_desc1', 'cr8v_abt_edu', 'Col 1 Description', 'We run a dedicated learning channel under the handle @cr8vstacks, helping web developers write native CSS and JavaScript directly inside Elementor without compromising Google PageSpeed scores.');
+    _cr8v_img($wp_customize, 'abt_edu_img1', 'cr8v_abt_edu', 'Col 1 Tutorial Image', get_template_directory_uri() . '/assets/img/about_yt_tutorial.jpg');
 
-    // 7. About Final CTA
-    _cr8v_section($wp_customize, 'cr8v_abt_cta', '7. About Final CTA Banner', 'cr8v_about_panel', 70);
-    _cr8v_text($wp_customize, 'abt_cta_heading', 'cr8v_abt_cta', 'CTA Heading', 'Ready to build digital infrastructure that actually scales?');
-    _cr8v_textarea($wp_customize, 'abt_cta_sub', 'cr8v_abt_cta', 'CTA Subtitle', 'Let\'s discuss your project, evaluate your technical requirements, and build a custom stack tailored to your revenue goals.');
-    _cr8v_text($wp_customize, 'abt_cta_btn_text', 'cr8v_abt_cta', 'CTA Button Label', 'Start a Conversation');
-    _cr8v_text($wp_customize, 'abt_cta_btn_url', 'cr8v_abt_cta', 'CTA Button Link', '/discovery-call/');
+    _cr8v_text($wp_customize, 'abt_edu_tag2', 'cr8v_abt_edu', 'Col 2 Tag', 'WORKFLOW AUTOMATION');
+    _cr8v_text($wp_customize, 'abt_edu_title2', 'cr8v_abt_edu', 'Col 2 Title', 'AI-TO-WORDPRESS WORKFLOWS');
+    _cr8v_textarea($wp_customize, 'abt_edu_desc2', 'cr8v_abt_edu', 'Col 2 Description', 'We teach developers how to leverage advanced AI models (like Claude, Gemini, and ChatGPT) to generate custom code structures and automatically translate those mockups into live, pixel-perfect Elementor sections.');
+    _cr8v_img($wp_customize, 'abt_edu_img2', 'cr8v_abt_edu', 'Col 2 AI Workflow Image', get_template_directory_uri() . '/assets/img/about_ai_workflow.jpg');
+
+    // 7. About Final CTA Banner
+    _cr8v_section($wp_customize, 'cr8v_abt_cta', '7. Final CTA Banner', 'cr8v_about_panel', 70);
+    _cr8v_text($wp_customize, 'abt_cta_heading', 'cr8v_abt_cta', 'Banner Heading', 'LET\'S BRING YOUR BRAND TO THE NEXT LEVEL');
+    _cr8v_textarea($wp_customize, 'abt_cta_sub', 'cr8v_abt_cta', 'Banner Subtitle', 'Together, let\'s elevate your brand to new heights by unleashing its full potential and captivating your target audience with custom zero-plugin architecture.');
+    _cr8v_text($wp_customize, 'abt_cta_btn_text', 'cr8v_abt_cta', 'Button Text', 'Book A Discovery Call');
+    _cr8v_text($wp_customize, 'abt_cta_btn_url', 'cr8v_abt_cta', 'Button Link', '/discovery-call/');
 
 
-    // ==========================================
-    // SERVICES OVERVIEW PAGE PANEL
-    // ==========================================
-    $wp_customize->add_panel('cr8v_services_panel', [
+$wp_customize->add_panel('cr8v_services_panel', [
         'title'       => 'Services Overview Page — Tropos Theme',
         'description' => 'Edit all sections of the Main Services Hub page (/services/) including Hero, Folder Cards, Pricing, and Estimator.',
         'priority'    => 30,
