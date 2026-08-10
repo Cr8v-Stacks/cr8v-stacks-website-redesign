@@ -617,3 +617,26 @@ All 11 homepage sections were audited and mapped into `inc/customizer.php` and `
 | `5118450` | Complete 100% exhaustive Customizer mapping for all bulletpoints, stats cards, videos, CDN logos, step labels, and deliverable lists across all 11 homepage sections |
 | `41a52e1` | Fix unclosed section and div tag in final CTA banner in `front-page.php` to resolve layout CSS cascade issues |
 | `f85f0c7` | Restore `sdv-item-title` CSS wrapper spans and fix `data-customizer` attributes for Services Deep Dive section |
+| `c55dd23` | Convert About Us page (`page-about.php`) with 100% Customizer controls, selective refresh icons, and founder bio |
+| `c455109` | Convert Services Overview Hub (`page-services.php`) and Master Child Service template (`page-service.php`) with 100% Customizer controls and selective refresh |
+
+---
+
+### 4. About Us Page (`page-about.php`) Conversion Summary
+- **Customizer Panel Added**: `cr8v_about_panel` (7 sections: Hero, Philosophy, Performance Tech Stack, Fit Matrix, Founder Bio & Leadership, Technical Standards, Final CTA Banner).
+- **Founder & Leadership Section**: Dedicated fields for **Mallami Adekunle** (Founder Tag, Name, Role, 3 Bio Paragraphs, Quote, Avatar Image, and 4 Social Links).
+- **HTML Cleanup**: Fixed double nested `<main>` tags into `<main id="cr8v-main" class="fylla-outer-frame">` and integrated standard `get_header()` / `get_footer()`.
+
+---
+
+### 5. Services Overview (`page-services.php`) & Child Service Pages (`page-service.php`) Conversion Summary
+- **Main Services Directory (`page-services.php`)**:
+  - Customizer Panel Added: `cr8v_services_panel` (Hero, 5 Core Delivery Folder Stack Cards, Transparent Pricing Matrix, and Services Final CTA Banner).
+  - All 5 Core Folders wired (`Web Design`, `Custom Dev`, `AI MVP`, `Brand Strategy`, `SEO & Entity Search`).
+  - Standardized with `get_header()` and `get_footer()`.
+- **Master Child Service Template (`page-service.php`)**:
+  - Standardized with `get_header()` and `get_footer()`.
+  - Powers all 11 child service pages (`/services/web-design/`, `/services/custom-dev/`, `/services/ai-mvp/`, `/services/brand-strategy/`, `/services/seo-content/`, `/services/digital-marketing/`, etc.).
+  - Configured with post meta fallbacks, tech stack pills, benefits flank cards, 4-step process cards, featured portfolio case study card, FAQ accordion, and bottom discovery CTA.
+
+
