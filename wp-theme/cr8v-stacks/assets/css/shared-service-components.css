@@ -730,7 +730,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   box-shadow: none !important;
   position: sticky !important;
   top: 130px !important;
-  margin-bottom: 0px !important;
+  margin-bottom: 4rem !important;
   min-height: 440px !important;
 }
 

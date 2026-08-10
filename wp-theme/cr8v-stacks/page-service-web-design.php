@@ -883,7 +883,7 @@ get_header();
   /* ── Hero cursor glow ── */
   var heroWrap = root.querySelector('[data-c8isv-hero]');
   var glow = root.querySelector('[data-c8isv-glow]');
-  if (heroWrap && glow && canHover && !reduceMotion) {
+  if (heroWrap && glow && !reduceMotion) {
     heroWrap.addEventListener('mousemove', function (e) {
       var r = heroWrap.getBoundingClientRect();
       glow.style.left = (e.clientX - r.left) + 'px';
@@ -957,23 +957,31 @@ get_header();
 
   /* ── Scroll handling scroll-linked animations ── */
   function handleScrollAnimations() {
+    var flankContainer = root.querySelector('[data-c8isv-flank-trigger]');
+    var flankCards = root.querySelectorAll('[data-c8isv-flank-card]');
+    var portfolioCard = root.querySelector('[data-c8isv-portfolio-card]');
+    var approachCards = root.querySelectorAll('[data-c8isv-approach-card]');
+    var testiGrid = root.querySelector('[data-c8isv-testi-trigger]');
+    var testiLeft = root.querySelector('[data-c8isv-testi-left]');
+    var testiRight = root.querySelector('[data-c8isv-testi-right]');
+
     // 0. What You Get Folder Deck Stack Animation
     var folderCards = root.querySelectorAll('.c8srv-folder-card, .c8isv-folder-card');
     if (folderCards.length) {
       var mobile = window.innerWidth < 900;
-      var limit = mobile ? 120 : 165;
+      var limit = mobile ? 110 : 140;
       folderCards.forEach(function (card, i) {
         var rect = card.getBoundingClientRect();
-        if (rect.top <= limit + 35) {
-          var stackedAfter = 0;
-          for (var j = i + 1; j < folderCards.length; j++) {
-            var nextRect = folderCards[j].getBoundingClientRect();
-            if (nextRect.top <= limit + 35) stackedAfter++;
-          }
-          var scale = 1 - (stackedAfter * 0.03);
-          var lift = stackedAfter * -8;
+        var stackedAfter = 0;
+        for (var j = i + 1; j < folderCards.length; j++) {
+          var nextRect = folderCards[j].getBoundingClientRect();
+          if (nextRect.top <= limit + 35) stackedAfter++;
+        }
+        if (stackedAfter > 0) {
+          var scale = 1 - (stackedAfter * 0.035);
+          var lift = stackedAfter * -10;
           card.style.transform = 'scale(' + scale + ') translate3d(0,' + lift + 'px,0)';
-          card.style.filter = 'brightness(' + (1 - (stackedAfter * 0.05)) + ')';
+          card.style.filter = 'brightness(' + (1 - (stackedAfter * 0.06)) + ')';
         } else {
           card.style.transform = 'none';
           card.style.filter = 'none';
@@ -985,8 +993,8 @@ get_header();
     if (flankContainer && flankCards.length) {
       var rect = flankContainer.getBoundingClientRect();
       var viewportH = window.innerHeight;
-      var start = viewportH;
-      var end = viewportH * 0.15;
+      var start = viewportH * 1.1;
+      var end = viewportH * 0.25;
       
       var p = 0;
       if (rect.top < start) {
@@ -996,23 +1004,22 @@ get_header();
       }
 
       flankCards.forEach(function (card, i) {
-        var localT = Math.min(1, Math.max(0, p * 1.5 - i * 0.16));
+        var localT = Math.min(1, Math.max(0, p * 1.4 - i * 0.1));
         var isMobile = window.innerWidth < 901;
         if (isMobile) {
-          var ty = 55 * (1 - localT);
-          var spread = (i === 0 ? -35 : i === 1 ? 0 : 35) * (1 - localT);
-          var rotM = (i === 0 ? -4 : i === 2 ? 4 : 0) * (1 - localT);
-          var scale = 0.94 + 0.06 * localT;
+          var ty = 35 * (1 - localT);
+          var spread = (i === 0 ? -20 : i === 1 ? 0 : 20) * (1 - localT);
+          var rotM = (i === 0 ? -3 : i === 2 ? 3 : 0) * (1 - localT);
+          var scale = 0.96 + 0.04 * localT;
           card.style.transform = 'translate3d(' + spread + 'px, ' + ty + 'px, 0) scale(' + scale + ') rotate(' + rotM + 'deg)';
         } else {
-          var startX = -100 * i;
-          var startRotate = i === 0 ? 0 : (i % 2 === 0 ? -7 : 7);
-          var x = startX * (1 - localT);
+          var startRotate = i === 0 ? 0 : (i % 2 === 0 ? -4 : 4);
           var rot = startRotate * (1 - localT);
-          var scale = 0.92 + 0.08 * localT;
-          card.style.transform = 'translateX(' + x + '%) rotate(' + rot + 'deg) scale(' + scale + ')';
+          var ty = 20 * (1 - localT);
+          var scale = 0.95 + 0.05 * localT;
+          card.style.transform = 'translate3d(0, ' + ty + 'px, 0) rotate(' + rot + 'deg) scale(' + scale + ')';
         }
-        card.style.opacity = String(0.35 + 0.65 * localT);
+        card.style.opacity = String(0.7 + 0.3 * localT);
       });
     }
 
@@ -1089,7 +1096,7 @@ get_header();
   /* ── Hoverlist 2-card fan preview stack ── */
   var hoverlist = root.querySelector('[data-c8isv-hoverlist]');
   var preview = root.querySelector('[data-c8isv-preview]');
-  if (hoverlist && preview && canHover && !reduceMotion) {
+  if (hoverlist && preview && !reduceMotion) {
     var hoverItems = hoverlist.querySelectorAll('.c8isv-hoverlist-item');
     hoverlist.addEventListener('mousemove', function (e) {
       var rect = hoverlist.getBoundingClientRect();
