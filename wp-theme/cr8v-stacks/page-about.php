@@ -2,18 +2,21 @@
 /**
  * CR8V Stacks — page-about.php
  * Template Name: About Us
- * Tropos Theme About Page (100% exact design fidelity from about-us.html)
+ * Tropos Theme About Page (100% exact design fidelity & interactive scripts from about-us.html)
  */
 defined('ABSPATH') || exit;
 
 get_header();
 ?>
 
-<main class="fylla-outer-frame">
+
+
+  <!-- FYLLA STUDIO OUTER FRAME -->
+  <main class="fylla-outer-frame">
     
     <!-- ── 1. FYLLA STUDIO HERO SECTION ── -->
     <header class="fylla-hero-section">
-      <span class="fylla-meta-tag">AGENCY PROFILE</span>
+      <span class="fylla-meta-tag" data-customizer="abt_hero_tag"><?php echo esc_html(cr8v_mod("abt_hero_tag", "AGENCY PROFILE")); ?></span>
       <h1 class="fylla-hero-h1">
         <?php echo wp_kses_post(cr8v_mod("abt_hero_headline", "WE DEFY <span class='c8abt-serif-italic'>templates.</span><br>WE CODE <span class='c8abt-highlight-text'>CONVERSIONS.</span>")); ?>
       </h1>
@@ -900,6 +903,136 @@ get_header();
 
   </main>
 
+  <!-- SCRIPTS CONTROLLER -->
+  <script>
+  (function () {
+    // Services Accordion Script
+    document.querySelectorAll('[data-sdv-toggle]').forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        var targetId = trigger.getAttribute('data-sdv-toggle');
+        var item = document.getElementById(targetId);
+        var isOpen = item.classList.contains('is-open');
+
+        document.querySelectorAll('.sdv-item').forEach(function (i) {
+          i.classList.remove('is-open');
+          var tr = i.querySelector('[data-sdv-toggle]');
+          if (tr) tr.setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          item.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Performance & Tech Stack Auto-Proceed Tab Controller
+    var techTabs = Array.from(document.querySelectorAll('[data-tmn-tab]'));
+    var techPanes = document.querySelectorAll('.tmn-pane');
+    var techCurrentIndex = 0;
+    var techTimer = null;
+
+    function activateTechTab(idx) {
+      if (!techTabs[idx]) return;
+      techCurrentIndex = idx;
+      techTabs.forEach(function (t) {
+        t.classList.remove('is-active');
+        var fill = t.querySelector('.tmn-progress-fill');
+        if (fill) {
+          fill.style.animation = 'none';
+          void fill.offsetWidth;
+          fill.style.animation = '';
+        }
+      });
+      techPanes.forEach(function (p) { p.classList.remove('is-active'); });
+
+      techTabs[idx].classList.add('is-active');
+      var targetPaneId = techTabs[idx].getAttribute('data-tmn-tab');
+      var targetPane = document.getElementById(targetPaneId);
+      if (targetPane) targetPane.classList.add('is-active');
+    }
+
+    function startTechAutoProceed() {
+      stopTechAutoProceed();
+      techTimer = setInterval(function () {
+        var nextIdx = (techCurrentIndex + 1) % techTabs.length;
+        activateTechTab(nextIdx);
+      }, 6000);
+    }
+
+    function stopTechAutoProceed() {
+      if (techTimer) { clearInterval(techTimer); techTimer = null; }
+    }
+
+    techTabs.forEach(function (btn, index) {
+      btn.addEventListener('click', function () {
+        activateTechTab(index);
+        startTechAutoProceed();
+      });
+    });
+
+    var techWrapper = document.querySelector('.tmn-wrapper-card');
+    if (techWrapper) {
+      techWrapper.addEventListener('mouseenter', stopTechAutoProceed);
+      techWrapper.addEventListener('mouseleave', startTechAutoProceed);
+    }
+
+    startTechAutoProceed();
+
+    // Live Matrix Text Scramble Script
+    function initMatrixScramble() {
+      var matrixButtons = document.querySelectorAll('.c8-btn-primary, .fylla-btn, .dp-btn-primary, .cta-btn, .dp-btn-ghost, .sdv-panel-cta, .c8-text-cta, .stage-link, .ab-btn-primary, .c8srv-explore, .c8isv-explore, .c8srv-price-btn, .c8isv-btn-primary, .faq-cta-link');
+      var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+      matrixButtons.forEach(function(btn) {
+        if (btn._scrambleInitialized) return;
+        btn._scrambleInitialized = true;
+
+        btn.addEventListener('mouseenter', function() {
+          var targetObj = btn.querySelector('span') || Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; }) || btn;
+          if (!btn.getAttribute('data-original-text')) {
+            btn.setAttribute('data-original-text', targetObj.textContent.trim());
+          }
+          var originalText = btn.getAttribute('data-original-text');
+          var iteration = 0;
+          clearInterval(btn._scrambleTimer);
+
+          btn._scrambleTimer = setInterval(function() {
+            targetObj.textContent = originalText.split('')
+              .map(function(char, index) {
+                if (char === ' ' || index < iteration) return originalText[index];
+                return matrixChars[Math.floor(Math.random() * matrixChars.length)];
+              })
+              .join('');
+
+            if (iteration >= originalText.length) {
+              clearInterval(btn._scrambleTimer);
+              targetObj.textContent = originalText;
+            }
+            iteration += 1 / 2;
+          }, 25);
+        });
+
+        btn.addEventListener('mouseleave', function() {
+          var targetObj = btn.querySelector('span') || Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; }) || btn;
+          var originalText = btn.getAttribute('data-original-text');
+          clearInterval(btn._scrambleTimer);
+          if (originalText) {
+            targetObj.textContent = originalText;
+          }
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMatrixScramble);
+    } else {
+      initMatrixScramble();
+    }
+  })();
+  </script>
+
+
+
 <?php
 get_footer();
-?>
