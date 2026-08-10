@@ -661,17 +661,16 @@ get_header();
       </div>
     </section>
 
-    <!-- ── 3. DEV PLAYGROUND — ALWAYS BUILDING SPLIT SCREEN (CORRECT ABOUT US COPY & MASCOT FIX) ── -->
         <!-- ── 3. DEV PLAYGROUND SHOWCASE ── -->
     <section class="dp-section" id="dev-playground">
       <!-- GREY LEFT HALF -->
       <div class="dp-half-left">
         <div class="dp-left-content">
-          <div class="dp-left-eyebrow" data-customizer="abt_dp_eyebrow"><?php echo esc_html(cr8v_mod('abt_dp_eyebrow', 'OPEN SOURCE & INTERNAL TOOLS')); ?></div>
-          <h2 class="dp-left-heading" data-customizer="abt_dp_heading"><?php echo esc_html(cr8v_mod('abt_dp_heading', 'DEV PLAYGROUND')); ?></h2>
-          <p class="dp-left-sub" data-customizer="abt_dp_sub"><?php echo esc_html(cr8v_mod('abt_dp_sub', 'We build and publish free internal utilities, CSS generators, and AI tools for the web development community.')); ?></p>
+          <div class="dp-eyebrow" data-customizer="abt_dp_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('abt_dp_eyebrow', 'OPEN SOURCE & INTERNAL TOOLS')); ?></div>
+          <h2 class="dp-h2" data-customizer="abt_dp_heading"><?php echo wp_kses_post(cr8v_mod('abt_dp_heading', 'DEV PLAYGROUND <em>SHOWCASE</em>')); ?></h2>
+          <p class="dp-sub" data-customizer="abt_dp_sub"><?php echo esc_html(cr8v_mod('abt_dp_sub', 'We build and publish free internal utilities, CSS generators, and AI tools for the web development community.')); ?></p>
 
-          <div class="dp-tools-stack">
+          <div class="dp-tool-entries">
             <a href="https://cr8vstacks.com/dev-playground/" class="dp-tool-entry">
               <span class="dp-tool-entry-num">01</span>
               <div class="dp-tool-entry-body">
@@ -723,15 +722,18 @@ get_header();
                 <div class="dp-tool-entry-desc" data-customizer="abt_dp_tool5_desc"><?php echo esc_html(cr8v_mod('abt_dp_tool5_desc', 'Instant interactive web project estimator delivering itemized scope breakdowns in under 60 seconds.')); ?></div>
               </div>
               <div class="dp-tool-entry-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg>
               </div>
             </a>
           </div>
-
-          <div style="margin-top: 2rem;">
-            <a href="<?php echo esc_url(cr8v_mod('abt_dp_btn1_url', 'https://cr8vstacks.com/dev-playground/')); ?>" class="c8-btn-primary" data-customizer="abt_dp_btn1_text" data-customizer-url="abt_dp_btn1_url"><?php echo esc_html(cr8v_mod('abt_dp_btn1_text', 'Visit Dev Playground →')); ?></a>
-          </div>
         </div>
+      </div>
+
+      <!-- MASCOT VIDEO STRADDLE -->
+      <div class="dp-mascot-wrap" data-customizer="abt_dp_mascot">
+        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate">
+          <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/download_mascot.mp4'); ?>" type="video/mp4">
+        </video>
       </div>
 
       <!-- BLUE RIGHT HALF -->
@@ -758,19 +760,11 @@ get_header();
             </div>
           </div>
 
-          <p class="dp-right-desc" data-customizer="abt_dp_r_desc">
-            <?php echo esc_html(cr8v_mod('abt_dp_r_desc', 'Every tool in our playground is built out of necessity for real client builds. No corporate fluff, no bloated codebases — just lightweight, high-performance utilities designed to keep your WordPress and Shopify sites running lightning fast.')); ?>
-          </p>
+          <p class="dp-right-desc" data-customizer="abt_dp_r_desc"><?php echo esc_html(cr8v_mod('abt_dp_r_desc', 'Every tool in our playground is built out of necessity for real client builds. No corporate fluff, no bloated codebases — just lightweight, high-performance utilities designed to keep your WordPress and Shopify sites running lightning fast.')); ?></p>
 
           <div class="dp-cta-row">
-            <a href="<?php echo esc_url(cr8v_mod('abt_dp_btn1_url', 'https://cr8vstacks.com/dev-playground/')); ?>" class="dp-btn-primary" data-customizer="abt_dp_btn1_text" data-customizer-url="abt_dp_btn1_url">
-              <?php echo esc_html(cr8v_mod('abt_dp_btn1_text', 'Inspect Tool Blueprints')); ?>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </a>
-            <a href="<?php echo esc_url(home_url(cr8v_mod('abt_dp_btn2_url', '/discovery-call/'))); ?>" class="dp-btn-ghost" data-customizer="abt_dp_btn2_text" data-customizer-url="abt_dp_btn2_url">
-              <?php echo esc_html(cr8v_mod('abt_dp_btn2_text', 'Book A Discovery Call')); ?>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </a>
+            <a href="<?php echo esc_url(cr8v_mod('abt_dp_btn1_url', 'https://cr8vstacks.com/dev-playground/')); ?>" class="dp-btn-primary" data-customizer="abt_dp_btn1_text" data-customizer-url="abt_dp_btn1_url"><?php echo esc_html(cr8v_mod('abt_dp_btn1_text', 'Inspect Tool Blueprints')); ?></a>
+            <a href="<?php echo esc_url(cr8v_mod('abt_dp_btn2_url', '/discovery-call/')); ?>" class="dp-btn-ghost" data-customizer="abt_dp_btn2_text" data-customizer-url="abt_dp_btn2_url"><?php echo esc_html(cr8v_mod('abt_dp_btn2_text', 'Book A Discovery Call')); ?></a>
           </div>
         </div>
       </div>
@@ -1029,11 +1023,11 @@ get_header();
             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_stacks_visual.jpg'); ?>" alt="CR8V Stacks Visual Architecture" class="hww-visual-img">
           </div>
 
-          <!-- C3: Sprint Stat (blue card) -->
+                    <!-- C3: Conversion Velocity (blue card) -->
           <div class="hww-card hww-card-blue hww-c3">
-            <div class="hww-clabel hww-clabel-dim" data-customizer="abt_plr_c3_label"><?php echo esc_html(cr8v_mod("abt_plr_c3_label", "Speed Benchmark")); ?></div>
-            <div class="hww-bnum hww-bnum-white" data-customizer="abt_plr_c3_num"><?php echo wp_kses_post(cr8v_mod("abt_plr_c3_num", "95+ PageSpeed")); ?></div>
-            <p class="hww-stat-sub hww-stat-sub-white" data-customizer="abt_plr_c3_sub"><?php echo esc_html(cr8v_mod("abt_plr_c3_sub", "Sub-1.2 second instantaneous loading speeds across mobile and desktop devices.")); ?></p>
+            <div class="hww-clabel hww-clabel-dim" data-customizer="abt_plr_c3_label"><?php echo esc_html(cr8v_mod("abt_plr_c3_label", "Conversion Velocity")); ?></div>
+            <div class="hww-bnum hww-bnum-white" style="font-family: var(--font-heading, 'Michroma', sans-serif); font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 700; color: #FFFFFF; line-height: 1; margin: 0.8rem 0 0.4rem 0;" data-customizer="abt_plr_c3_num"><?php echo wp_kses_post(cr8v_mod("abt_plr_c3_num", "+184% <span style='font-size:0.42em; font-weight:400; opacity:0.85; display:block; margin-top:0.2rem;'>Conversion Lift</span>")); ?></div>
+            <p class="hww-stat-sub hww-stat-sub-white" style="font-size: 0.88rem; color: rgba(255,255,255,0.9); line-height: 1.6;" data-customizer="abt_plr_c3_sub"><?php echo esc_html(cr8v_mod("abt_plr_c3_sub", "Engineered user paths and friction-free UI architectures that turn passive visitors into active high-ticket client inquiries.")); ?></p>
           </div>
 
           <!-- C4: Tech Stack Tags (dark card) -->

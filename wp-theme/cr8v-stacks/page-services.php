@@ -1168,20 +1168,20 @@ body {
 
   <!-- Hero -->
   <div class="c8srv-hero">
-    <div class="c8srv-label">Services</div>
+    <div class="c8srv-label" data-customizer="srv_hero_eyebrow"><?php echo esc_html(cr8v_mod('srv_hero_eyebrow', 'Services')); ?></div>
     <div class="c8srv-hero-content">
-      <h1 class="c8srv-headline">Every <span class="c8srv-serif-text">layer</span> of your presence, <span class="c8srv-gradient-text">engineered by Cr8v Stacks.</span></h1>
-      <div class="c8srv-hero-intro c8srv-reveal c8srv-reveal-d1">Cr8v Stacks handles every layer of your presence — brand positioning, design, the build itself, and the growth work after launch. Whichever platform your business runs on (WordPress, Shopify, WooCommerce, or a fully custom stack) the build is only one layer. We start with who you're competing against and end with the campaigns that bring people to the site we just built.</div>
+      <h1 class="c8srv-headline"><span data-customizer="srv_hero_h1_part1"><?php echo esc_html(cr8v_mod('srv_hero_h1_part1', 'Every ')); ?></span><span class="c8srv-serif-text" data-customizer="srv_hero_h1_serif"><?php echo esc_html(cr8v_mod('srv_hero_h1_serif', 'layer')); ?></span><span data-customizer="srv_hero_h1_part2"><?php echo esc_html(cr8v_mod('srv_hero_h1_part2', ' of your presence, ')); ?></span><span class="c8srv-gradient-text" data-customizer="srv_hero_h1_gradient"><?php echo esc_html(cr8v_mod('srv_hero_h1_gradient', 'engineered by Cr8v Stacks.')); ?></span></h1>
+      <div class="c8srv-hero-intro c8srv-reveal c8srv-reveal-d1" data-customizer="srv_hero_intro"><?php echo wp_kses_post(cr8v_mod('srv_hero_intro', 'Cr8v Stacks handles every layer of your presence — brand positioning, design, the build itself, and the growth work after launch. Whichever platform your business runs on (WordPress, Shopify, WooCommerce, or a fully custom stack) the build is only one layer. We start with who you\'re competing against and end with the campaigns that bring people to the site we just built.')); ?></div>
       <div class="c8srv-hero-ctas">
-        <a href="#primary-service-6cards" class="c8-btn-primary">See What We Build &rarr;</a>
-        <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8srv-btn-ghost">Get a Quote &rarr;</a>
+        <a href="<?php echo esc_url(cr8v_mod('srv_hero_cta1_url', '#primary-service-6cards')); ?>" class="c8-btn-primary" data-customizer="srv_hero_cta1_text"><?php echo esc_html(cr8v_mod('srv_hero_cta1_text', 'See What We Build →')); ?></a>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('srv_hero_cta2_url', '/discovery-call/'))); ?>" class="c8srv-btn-ghost" data-customizer="srv_hero_cta2_text"><?php echo esc_html(cr8v_mod('srv_hero_cta2_text', 'Get a Quote →')); ?></a>
       </div>
       <div class="c8srv-pill-row">
-        <span class="c8srv-pill">WordPress</span>
-        <span class="c8srv-pill">Shopify</span>
-        <span class="c8srv-pill">WooCommerce</span>
-        <span class="c8srv-pill">Custom Code</span>
-        <span class="c8srv-pill">AI MVP</span>
+        <span class="c8srv-pill" data-customizer="srv_hero_pill1"><?php echo esc_html(cr8v_mod('srv_hero_pill1', 'WordPress')); ?></span>
+        <span class="c8srv-pill" data-customizer="srv_hero_pill2"><?php echo esc_html(cr8v_mod('srv_hero_pill2', 'Shopify')); ?></span>
+        <span class="c8srv-pill" data-customizer="srv_hero_pill3"><?php echo esc_html(cr8v_mod('srv_hero_pill3', 'WooCommerce')); ?></span>
+        <span class="c8srv-pill" data-customizer="srv_hero_pill4"><?php echo esc_html(cr8v_mod('srv_hero_pill4', 'Custom Code')); ?></span>
+        <span class="c8srv-pill" data-customizer="srv_hero_pill5"><?php echo esc_html(cr8v_mod('srv_hero_pill5', 'AI MVP')); ?></span>
       </div>
     </div>
   </div>
@@ -1193,10 +1193,10 @@ body {
     <div class="c8-about-inner" style="max-width: 1400px; margin: 0 auto; position: relative; z-index: 1;">
       
       <div class="c8-about-header" style="margin-bottom: 4rem; text-align: left;">
-        <span class="c8srv-label" style="color: #7C93FF !important;">PRIMARY SERVICE // 01</span>
-        <h2 class="c8-about-h2" style="font-family: 'Michroma', sans-serif; font-size: clamp(2.0rem, 4vw, 3.2rem); font-weight: 700; color: #FFFFFF; line-height: 1.15; text-transform: uppercase; margin-bottom: 1.25rem;">Web Design &amp;<br><em style="font-style: normal; color: #0047E1;">Development Stacks</em></h2>
-        <p class="c8-about-desc" style="font-family: 'DM Sans', sans-serif; font-size: 1.08rem; font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.85; max-width: 850px;">
-          One senior engineering team, every modern web stack. Whichever foundation your business runs on — WordPress, Shopify, WooCommerce, or custom PHP/JS — we engineer lightweight, high-speed digital platforms tuned for sub-1.2s speeds and direct revenue conversion.
+        <span class="c8srv-label" style="color: #7C93FF !important;" data-customizer="srv_primary_label"><?php echo esc_html(cr8v_mod('srv_primary_label', 'PRIMARY SERVICE // 01')); ?></span>
+        <h2 class="c8-about-h2" style="font-family: 'Michroma', sans-serif; font-size: clamp(2.0rem, 4vw, 3.2rem); font-weight: 700; color: #FFFFFF; line-height: 1.15; text-transform: uppercase; margin-bottom: 1.25rem;"><span data-customizer="srv_primary_h2_part1"><?php echo esc_html(cr8v_mod('srv_primary_h2_part1', 'Web Design &')); ?></span><br><em style="font-style: normal; color: #0047E1;" data-customizer="srv_primary_h2_part2"><?php echo esc_html(cr8v_mod('srv_primary_h2_part2', 'Development Stacks')); ?></em></h2>
+        <p class="c8-about-desc" style="font-family: 'DM Sans', sans-serif; font-size: 1.08rem; font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.85; max-width: 850px;" data-customizer="srv_primary_desc">
+          <?php echo wp_kses_post(cr8v_mod('srv_primary_desc', 'One senior engineering team, every modern web stack. Whichever foundation your business runs on — WordPress, Shopify, WooCommerce, or custom PHP/JS — we engineer lightweight, high-speed digital platforms tuned for sub-1.2s speeds and direct revenue conversion.')); ?>
         </p>
       </div>
 
@@ -1206,61 +1206,61 @@ body {
         <!-- Card 1: WordPress -->
         <div class="c8-about-card" style="border: 1px solid rgba(255,255,255,0.14); background: #FAFAF7; color: #080808; padding: 3.5rem 2.5rem !important; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px !important; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
           <div>
-            <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;">01 / WORDPRESS</span>
-            <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;">WORDPRESS, NO-CODE</h3>
+            <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;" data-customizer="srv_card1_num"><?php echo esc_html(cr8v_mod('srv_card1_num', '01 / WORDPRESS')); ?></span>
+            <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card1_title"><?php echo esc_html(cr8v_mod('srv_card1_title', 'WORDPRESS, NO-CODE')); ?></h3>
           </div>
-          <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;">Fully custom themes built on Elementor and native block engines. Hand-written PHP templates ensure 95+ PageSpeed scores while remaining 100% editable by your non-technical team without touching line one of code.</p>
-          <a href="../WordPress Service Page/index.html" class="c8-btn-primary" style="align-self: flex-start;">Explore WordPress &rarr;</a>
+          <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;" data-customizer="srv_card1_desc"><?php echo wp_kses_post(cr8v_mod('srv_card1_desc', 'Fully custom themes built on Elementor and native block engines. Hand-written PHP templates ensure 95+ PageSpeed scores while remaining 100% editable by your non-technical team without touching line one of code.')); ?></p>
+          <a href="<?php echo esc_url(cr8v_mod('srv_card1_btn_url', '../WordPress Service Page/index.html')); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card1_btn_text"><?php echo esc_html(cr8v_mod('srv_card1_btn_text', 'Explore WordPress →')); ?></a>
         </div>
 
         <!-- Card 2: Shopify (Blue Highlight) -->
         <div class="c8-about-card is-blue-outline" style="border: 2px solid #0047E1 !important; background: #FFFFFF; color: #080808; padding: 3.5rem 2.5rem !important; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px !important; box-shadow: 0 14px 44px rgba(0, 71, 225, 0.22);">
           <div>
-            <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;">02 / SHOPIFY</span>
-            <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;">SHOPIFY STOREFRONTS</h3>
+            <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;" data-customizer="srv_card2_num"><?php echo esc_html(cr8v_mod('srv_card2_num', '02 / SHOPIFY')); ?></span>
+            <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card2_title"><?php echo esc_html(cr8v_mod('srv_card2_title', 'SHOPIFY STOREFRONTS')); ?></h3>
           </div>
-          <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;">Conversion-focused Liquid storefronts engineered from a blank file. We streamline third-party apps, optimize checkout velocity, and maximize product discovery across all desktop and mobile devices.</p>
-          <a href="../Shopify Service Page/index.html" class="c8-btn-primary" style="align-self: flex-start;">Explore Shopify &rarr;</a>
+          <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;" data-customizer="srv_card2_desc"><?php echo wp_kses_post(cr8v_mod('srv_card2_desc', 'Conversion-focused Liquid storefronts engineered from a blank file. We streamline third-party apps, optimize checkout velocity, and maximize product discovery across all desktop and mobile devices.')); ?></p>
+          <a href="<?php echo esc_url(cr8v_mod('srv_card2_btn_url', '../Shopify Service Page/index.html')); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card2_btn_text"><?php echo esc_html(cr8v_mod('srv_card2_btn_text', 'Explore Shopify →')); ?></a>
         </div>
 
         <!-- Card 3: WooCommerce -->
         <div class="c8-about-card" style="border: 1px solid rgba(255,255,255,0.14); background: #FAFAF7; color: #080808; padding: 3.5rem 2.5rem !important; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px !important; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
           <div>
-            <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;">03 / WOOCOMMERCE</span>
-            <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;">WOOCOMMERCE CONTROL</h3>
+            <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;" data-customizer="srv_card3_num"><?php echo esc_html(cr8v_mod('srv_card3_num', '03 / WOOCOMMERCE')); ?></span>
+            <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card3_title"><?php echo esc_html(cr8v_mod('srv_card3_title', 'WOOCOMMERCE CONTROL')); ?></h3>
           </div>
-          <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;">Total e-commerce freedom on your own WordPress hosting. Custom multi-step checkout flows, automated tax logic, multi-currency support, and zero third-party SaaS transaction fees.</p>
-          <a href="../WooCommerce Service Page/index.html" class="c8-btn-primary" style="align-self: flex-start;">Explore WooCommerce &rarr;</a>
+          <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;" data-customizer="srv_card3_desc"><?php echo wp_kses_post(cr8v_mod('srv_card3_desc', 'Total e-commerce freedom on your own WordPress hosting. Custom multi-step checkout flows, automated tax logic, multi-currency support, and zero third-party SaaS transaction fees.')); ?></p>
+          <a href="<?php echo esc_url(cr8v_mod('srv_card3_btn_url', '../WooCommerce Service Page/index.html')); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card3_btn_text"><?php echo esc_html(cr8v_mod('srv_card3_btn_text', 'Explore WooCommerce →')); ?></a>
         </div>
 
         <!-- Card 4: Custom Dev -->
         <div class="c8-about-card" style="border: 1px solid rgba(255,255,255,0.14); background: #FAFAF7; color: #080808; padding: 3.5rem 2.5rem !important; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px !important; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
           <div>
-            <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;">04 / CUSTOM DEV</span>
-            <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;">BESPOKE SOFTWARE</h3>
+            <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;" data-customizer="srv_card4_num"><?php echo esc_html(cr8v_mod('srv_card4_num', '04 / CUSTOM DEV')); ?></span>
+            <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card4_title"><?php echo esc_html(cr8v_mod('srv_card4_title', 'BESPOKE SOFTWARE')); ?></h3>
           </div>
-          <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;">Tailored web applications, internal dashboards, and custom APIs built from line one without SaaS dependencies — engineered around your business operations with 100% client code ownership.</p>
-          <a href="../Custom Dev Service Page/index.html" class="c8-btn-primary" style="align-self: flex-start;">Explore Custom Dev &rarr;</a>
+          <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;" data-customizer="srv_card4_desc"><?php echo wp_kses_post(cr8v_mod('srv_card4_desc', 'Tailored web applications, internal dashboards, and custom APIs built from line one without SaaS dependencies — engineered around your business operations with 100% client code ownership.')); ?></p>
+          <a href="<?php echo esc_url(cr8v_mod('srv_card4_btn_url', '../Custom Dev Service Page/index.html')); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card4_btn_text"><?php echo esc_html(cr8v_mod('srv_card4_btn_text', 'Explore Custom Dev →')); ?></a>
         </div>
 
         <!-- Card 5: AI MVP (Blue Highlight) -->
         <div class="c8-about-card is-blue-outline" style="border: 2px solid #0047E1 !important; background: #FFFFFF; color: #080808; padding: 3.5rem 2.5rem !important; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px !important; box-shadow: 0 14px 44px rgba(0, 71, 225, 0.22);">
           <div>
-            <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;">05 / AI MVP</span>
-            <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;">AI PRODUCT MVPS</h3>
+            <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;" data-customizer="srv_card5_num"><?php echo esc_html(cr8v_mod('srv_card5_num', '05 / AI MVP')); ?></span>
+            <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card5_title"><?php echo esc_html(cr8v_mod('srv_card5_title', 'AI PRODUCT MVPS')); ?></h3>
           </div>
-          <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;">Production-grade AI applications built to validate early business concepts with real working software — integrating OpenAI, Claude, and custom model pipelines in weeks, not quarters.</p>
-          <a href="../AI MVP Service Page/index.html" class="c8-btn-primary" style="align-self: flex-start;">Explore AI MVP &rarr;</a>
+          <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;" data-customizer="srv_card5_desc"><?php echo wp_kses_post(cr8v_mod('srv_card5_desc', 'Production-grade AI applications built to validate early business concepts with real working software — integrating OpenAI, Claude, and custom model pipelines in weeks, not quarters.')); ?></p>
+          <a href="<?php echo esc_url(cr8v_mod('srv_card5_btn_url', '../AI MVP Service Page/index.html')); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card5_btn_text"><?php echo esc_html(cr8v_mod('srv_card5_btn_text', 'Explore AI MVP →')); ?></a>
         </div>
 
         <!-- Card 6: Redesigns -->
         <div class="c8-about-card" style="border: 1px solid rgba(255,255,255,0.14); background: #FAFAF7; color: #080808; padding: 3.5rem 2.5rem !important; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px !important; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
           <div>
-            <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;">06 / REDESIGNS</span>
-            <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;">PLATFORM REDESIGNS</h3>
+            <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;" data-customizer="srv_card6_num"><?php echo esc_html(cr8v_mod('srv_card6_num', '06 / REDESIGNS')); ?></span>
+            <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card6_title"><?php echo esc_html(cr8v_mod('srv_card6_title', 'PLATFORM REDESIGNS')); ?></h3>
           </div>
-          <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;">Frontend modernization and core code refactoring for slow WordPress sites, proprietary web portals, and template-locked e-commerce storefronts seeking instant speed and conversion boosts.</p>
-          <a href="../Web Design Service Page/index.html" class="c8-btn-primary" style="align-self: flex-start;">Explore Redesigns &rarr;</a>
+          <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;" data-customizer="srv_card6_desc"><?php echo wp_kses_post(cr8v_mod('srv_card6_desc', 'Frontend modernization and core code refactoring for slow WordPress sites, proprietary web portals, and template-locked e-commerce storefronts seeking instant speed and conversion boosts.')); ?></p>
+          <a href="<?php echo esc_url(cr8v_mod('srv_card6_btn_url', '../Web Design Service Page/index.html')); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card6_btn_text"><?php echo esc_html(cr8v_mod('srv_card6_btn_text', 'Explore Redesigns →')); ?></a>
         </div>
 
       </div>
