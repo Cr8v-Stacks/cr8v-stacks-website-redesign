@@ -420,8 +420,8 @@ add_action('customize_register', function ($wp_customize) {
     _cr8v_textarea($wp_customize, 'abt_val1_desc', 'cr8v_abt_philosophy', 'Value Card 1 Description', 'Bespoke custom themes built from scratch with semantic HTML, CSS, and vanilla JS. No page builders, no unneeded plugins.');
     _cr8v_text($wp_customize, 'abt_val2_title', 'cr8v_abt_philosophy', 'Value Card 2 Title', 'LIQUID ENGINEERING — SUB-1.2S SPEED');
     _cr8v_textarea($wp_customize, 'abt_val2_desc', 'cr8v_abt_philosophy', 'Value Card 2 Description', 'Tuned for instant page loads and green Core Web Vitals across every single device, browser, and network condition.');
-    _cr8v_text($wp_customize, 'abt_val3_title', 'cr8v_abt_philosophy', 'Value Card 3 Title', 'ENTITY SEARCH — INTENT MAPPING');
-    _cr8v_textarea($wp_customize, 'abt_val3_desc', 'cr8v_abt_philosophy', 'Value Card 3 Description', 'Structured JSON-LD schema hierarchy and search entity clustering that make Google understand your domain authority.');
+    _cr8v_text($wp_customize, 'abt_val3_title', 'cr8v_abt_philosophy', 'Value Card 3 Title', 'ENTITY SEO — ORGANIC DOMINANCE');
+    _cr8v_textarea($wp_customize, 'abt_val3_desc', 'cr8v_abt_philosophy', 'Value Card 3 Description', 'Structured Schema JSON-LD markup and semantic HTML hierarchy ensuring total search engine clarity and ranking authority.');
 
     // ── 3. DEV PLAYGROUND SHOWCASE ──
     _cr8v_section($wp_customize, 'cr8v_abt_dp', '3. Dev Playground Showcase', 'cr8v_about_panel', 30);
@@ -566,25 +566,30 @@ add_action('customize_register', function ($wp_customize) {
     _cr8v_text($wp_customize, 'abt_ag_card3_h3', 'cr8v_abt_agency', 'Card 3 Title', 'COMPLETE CLIENT OWNERSHIP');
     _cr8v_textarea($wp_customize, 'abt_ag_card3_p', 'cr8v_abt_agency', 'Card 3 Desc', 'Codebase, domain, and data repositories are 100% yours from day one. No lock-in fees or dependencies to keep your site running.');
 
-    // ── 8. WHO WE BUILD FOR (FIT MATRIX) ──
+        // ── 8. WHO WE BUILD FOR (FIT MATRIX) ──
     _cr8v_section($wp_customize, 'cr8v_abt_fit', '8. Who We Build For (Fit Matrix)', 'cr8v_about_panel', 80);
     _cr8v_text($wp_customize, 'abt_fit_tag', 'cr8v_abt_fit', 'Meta Tag', 'WHO WE BUILD FOR');
     _cr8v_text($wp_customize, 'abt_fit_heading', 'cr8v_abt_fit', 'Heading', 'WE&#39;RE NOT A FIT FOR EVERYONE');
     _cr8v_textarea($wp_customize, 'abt_fit_sub', 'cr8v_abt_fit', 'Subtitle', 'That&#39;s on purpose. Here&#39;s how to tell if your brand is ready for custom engineering.');
-    _cr8v_text($wp_customize, 'abt_fit_yes_title', 'cr8v_abt_fit', 'Right Fit Title', 'RIGHT FIT');
-    _cr8v_text($wp_customize, 'abt_fit_no_title',  'cr8v_abt_fit', 'Wrong Fit Title', 'WRONG FIT');
-    _cr8v_textarea($wp_customize, 'abt_fit_yes_1', 'cr8v_abt_fit', 'Right Fit Bullet 1', 'You want bespoke, custom-coded web architecture built from scratch.');
-    _cr8v_textarea($wp_customize, 'abt_fit_yes_2', 'cr8v_abt_fit', 'Right Fit Bullet 2', 'You prioritize sub-second page speed, Core Web Vitals, and organic SEO authority.');
-    _cr8v_textarea($wp_customize, 'abt_fit_yes_3', 'cr8v_abt_fit', 'Right Fit Bullet 3', 'You need a long-term engineering partner, not a quick template assembly store.');
-    _cr8v_textarea($wp_customize, 'abt_fit_yes_4', 'cr8v_abt_fit', 'Right Fit Bullet 4', 'You value strategic clarity, transparent milestone pricing, and clean code.');
-    _cr8v_textarea($wp_customize, 'abt_fit_no_1', 'cr8v_abt_fit', 'Wrong Fit Bullet 1', 'You want a cheap $300 off-the-shelf ThemeForest template website.');
-    _cr8v_textarea($wp_customize, 'abt_fit_no_2', 'cr8v_abt_fit', 'Wrong Fit Bullet 2', 'You prefer installing 40+ bloat-heavy plugins instead of custom PHP code.');
-    _cr8v_textarea($wp_customize, 'abt_fit_no_3', 'cr8v_abt_fit', 'Wrong Fit Bullet 3', 'You need emergency 24-hour turnaround on massive un-scoped projects.');
-    _cr8v_textarea($wp_customize, 'abt_fit_no_4', 'cr8v_abt_fit', 'Wrong Fit Bullet 4', 'You view your website as a static brochure rather than a revenue engine.');
+    _cr8v_text($wp_customize, 'abt_fit_yes_pill', 'cr8v_abt_fit', 'Ideal Partner Pill', 'IDEAL PARTNER PROFILE');
+    _cr8v_text($wp_customize, 'abt_fit_yes_title', 'cr8v_abt_fit', 'Right Fit Title', 'You&#39;re in the right place if');
+    _cr8v_text($wp_customize, 'abt_fit_no_pill', 'cr8v_abt_fit', 'Disqualifiers Pill', 'DISQUALIFIERS');
+    _cr8v_text($wp_customize, 'abt_fit_no_title', 'cr8v_abt_fit', 'Wrong Fit Title', 'We&#39;re probably not your agency if');
+
+    _cr8v_textarea($wp_customize, 'abt_fit_yes_1', 'cr8v_abt_fit', 'Right Fit Bullet 1', '<strong>No More Plugin Dependency:</strong> You&#39;re tired of being told to "just install another plugin" every time you need a new feature.');
+    _cr8v_textarea($wp_customize, 'abt_fit_yes_2', 'cr8v_abt_fit', 'Right Fit Bullet 2', '<strong>Integrated Developer Workflow:</strong> You want a designer and a developer thinking about your site architecture at the same time, not in sequence.');
+    _cr8v_textarea($wp_customize, 'abt_fit_yes_3', 'cr8v_abt_fit', 'Right Fit Bullet 3', '<strong>Speed & Performance Priority:</strong> You care about your PageSpeed score and Core Web Vitals as much as your visual branding.');
+    _cr8v_textarea($wp_customize, 'abt_fit_yes_4', 'cr8v_abt_fit', 'Right Fit Bullet 4', '<strong>Long-Term Brand Value:</strong> You&#39;re building a digital asset you intend to scale for years, not a temporary page you&#39;ll discard next quarter.');
+
+    _cr8v_textarea($wp_customize, 'abt_fit_no_1', 'cr8v_abt_fit', 'Wrong Fit Bullet 1', '<strong>Quick Theme Installs:</strong> You want the cheapest pre-made template installed by Friday with zero custom code or optimization.');
+    _cr8v_textarea($wp_customize, 'abt_fit_no_2', 'cr8v_abt_fit', 'Wrong Fit Bullet 2', '<strong>Passive Site Maintenance:</strong> You&#39;re looking for someone to quietly "manage" an existing bloated site without auditing or fixing it.');
+    _cr8v_textarea($wp_customize, 'abt_fit_no_3', 'cr8v_abt_fit', 'Wrong Fit Bullet 3', '<strong>Gimmicks Over Metrics:</strong> Design trends matter more to your organization than page load times, search ranking, and conversion data.');
+    _cr8v_textarea($wp_customize, 'abt_fit_no_4', 'cr8v_abt_fit', 'Wrong Fit Bullet 4', '<strong>Transactional Vendors:</strong> You want a set-and-forget outsourced vendor rather than an active technical engineering partner.');
 
     // ── 9. LEADERSHIP & FOUNDER PASS ──
     _cr8v_section($wp_customize, 'cr8v_abt_leadership', '9. Leadership & Founder Pass', 'cr8v_about_panel', 90);
     _cr8v_text($wp_customize, 'abt_fnd_tag', 'cr8v_abt_leadership', 'Meta Tag', 'LEADERSHIP');
+    _cr8v_img($wp_customize, 'abt_fnd_media', 'cr8v_abt_leadership', 'Founder Media / Photo', get_template_directory_uri() . '/assets/img/dev_mascot.jpg');
     _cr8v_text($wp_customize, 'abt_fnd_heading', 'cr8v_abt_leadership', 'Heading', 'FOUNDER & DEV-LED CULTURE');
     _cr8v_textarea($wp_customize, 'abt_fnd_sub', 'cr8v_abt_leadership', 'Subheadline', 'Bridging the gap between creative visual architecture and clean, lightweight code.');
     _cr8v_textarea($wp_customize, 'abt_fnd_bio1', 'cr8v_abt_leadership', 'Bio Paragraph 1', 'Founded by Mallami Adekunle, a digital architect and strategist, CR8V Stacks was established to combat the slow, template-stuffed sites typical of corporate digital agencies. Observing how heavy WordPress configurations and generic page templates cost companies traffic and conversions, Mallami assembled a team of developer-first designers.');

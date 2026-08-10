@@ -10,6 +10,10 @@ get_header();
 ?>
 
 <style>
+      .fylla-status-pill { font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; letter-spacing: 0.14em !important; text-transform: uppercase !important; display: inline-block !important; padding: 0.4rem 0.85rem !important; border-radius: 3px !important; margin-bottom: 1rem !important; }
+      .fylla-status-pill.is-yes { background: rgba(0, 71, 225, 0.08) !important; color: #0047E1 !important; border: 1px solid rgba(0, 71, 225, 0.2) !important; }
+      .fylla-status-pill.is-no { background: rgba(8, 8, 8, 0.05) !important; color: #555555 !important; border: 1px solid rgba(8, 8, 8, 0.12) !important; }
+
     :root {
       --c8-paper-bg: #F9F9F8;
       --c8-paper-card: #FFFFFF;
@@ -1258,49 +1262,49 @@ get_header();
       <h2 class="fylla-values-h2" data-customizer="abt_fit_heading"><?php echo esc_html(cr8v_mod("abt_fit_heading", "WE'RE NOT A FIT FOR EVERYONE")); ?></h2>
       <p class="fylla-values-p" style="max-width: 680px" data-customizer="abt_fit_sub"><?php echo esc_html(cr8v_mod("abt_fit_sub", "That's on purpose. Here's how to tell if your brand is ready for custom engineering.")); ?></p>
 
-      <div class="fylla-fit-grid">
+            <div class="fylla-fit-grid">
         <div class="fylla-fit-card is-yes">
-          <div class="fylla-status-pill is-yes" style="margin-bottom: 1rem;">IDEAL PARTNER PROFILE</div>
-          <h3 class="fylla-fit-card-h3" style="color: var(--c8-blue);">You're in the right place if</h3>
+          <div class="fylla-status-pill is-yes" style="margin-bottom: 1rem;" data-customizer="abt_fit_yes_pill"><?php echo esc_html(cr8v_mod("abt_fit_yes_pill", "IDEAL PARTNER PROFILE")); ?></div>
+          <h3 class="fylla-fit-card-h3" style="color: var(--c8-blue);" data-customizer="abt_fit_yes_title"><?php echo esc_html(cr8v_mod("abt_fit_yes_title", "You're in the right place if")); ?></h3>
           <div class="fylla-fit-list">
             <div class="fylla-fit-item">
               <span class="fylla-icon-sq is-yes">✓</span>
-              <span><strong>No More Plugin Dependency:</strong> You're tired of being told to "just install another plugin" every time you need a new feature.</span>
+              <span data-customizer="abt_fit_yes_1"><?php echo wp_kses_post(cr8v_mod("abt_fit_yes_1", '<strong>No More Plugin Dependency:</strong> You\'re tired of being told to "just install another plugin" every time you need a new feature.')); ?></span>
             </div>
             <div class="fylla-fit-item">
               <span class="fylla-icon-sq is-yes">✓</span>
-              <span><strong>Integrated Developer Workflow:</strong> You want a designer and a developer thinking about your site architecture at the same time, not in sequence.</span>
+              <span data-customizer="abt_fit_yes_2"><?php echo wp_kses_post(cr8v_mod("abt_fit_yes_2", '<strong>Integrated Developer Workflow:</strong> You want a designer and a developer thinking about your site architecture at the same time, not in sequence.')); ?></span>
             </div>
             <div class="fylla-fit-item">
               <span class="fylla-icon-sq is-yes">✓</span>
-              <span><strong>Speed &amp; Performance Priority:</strong> You care about your PageSpeed score and Core Web Vitals as much as your visual branding.</span>
+              <span data-customizer="abt_fit_yes_3"><?php echo wp_kses_post(cr8v_mod("abt_fit_yes_3", '<strong>Speed & Performance Priority:</strong> You care about your PageSpeed score and Core Web Vitals as much as your visual branding.')); ?></span>
             </div>
             <div class="fylla-fit-item">
               <span class="fylla-icon-sq is-yes">✓</span>
-              <span><strong>Long-Term Brand Value:</strong> You're building a digital asset you intend to scale for years, not a temporary page you'll discard next quarter.</span>
+              <span data-customizer="abt_fit_yes_4"><?php echo wp_kses_post(cr8v_mod("abt_fit_yes_4", '<strong>Long-Term Brand Value:</strong> You\'re building a digital asset you intend to scale for years, not a temporary page you\'ll discard next quarter.')); ?></span>
             </div>
           </div>
         </div>
 
         <div class="fylla-fit-card is-no">
-          <div class="fylla-status-pill is-no" style="margin-bottom: 1rem;">DISQUALIFIERS</div>
-          <h3 class="fylla-fit-card-h3" style="color: var(--c8-ink);">We're probably not your agency if</h3>
+          <div class="fylla-status-pill is-no" style="margin-bottom: 1rem;" data-customizer="abt_fit_no_pill"><?php echo esc_html(cr8v_mod("abt_fit_no_pill", "DISQUALIFIERS")); ?></div>
+          <h3 class="fylla-fit-card-h3" style="color: var(--c8-ink);" data-customizer="abt_fit_no_title"><?php echo esc_html(cr8v_mod("abt_fit_no_title", "We\'re probably not your agency if")); ?></h3>
           <div class="fylla-fit-list">
             <div class="fylla-fit-item">
               <span class="fylla-icon-sq is-no">✕</span>
-              <span><strong>Quick Theme Installs:</strong> You want the cheapest pre-made template installed by Friday with zero custom code or optimization.</span>
+              <span data-customizer="abt_fit_no_1"><?php echo wp_kses_post(cr8v_mod("abt_fit_no_1", '<strong>Quick Theme Installs:</strong> You want the cheapest pre-made template installed by Friday with zero custom code or optimization.')); ?></span>
             </div>
             <div class="fylla-fit-item">
               <span class="fylla-icon-sq is-no">✕</span>
-              <span><strong>Passive Site Maintenance:</strong> You're looking for someone to quietly "manage" an existing bloated site without auditing or fixing it.</span>
+              <span data-customizer="abt_fit_no_2"><?php echo wp_kses_post(cr8v_mod("abt_fit_no_2", '<strong>Passive Site Maintenance:</strong> You\'re looking for someone to quietly "manage" an existing bloated site without auditing or fixing it.')); ?></span>
             </div>
             <div class="fylla-fit-item">
               <span class="fylla-icon-sq is-no">✕</span>
-              <span><strong>Gimmicks Over Metrics:</strong> Design trends matter more to your organization than page load times, search ranking, and conversion data.</span>
+              <span data-customizer="abt_fit_no_3"><?php echo wp_kses_post(cr8v_mod("abt_fit_no_3", '<strong>Gimmicks Over Metrics:</strong> Design trends matter more to your organization than page load times, search ranking, and conversion data.')); ?></span>
             </div>
             <div class="fylla-fit-item">
               <span class="fylla-icon-sq is-no">✕</span>
-              <span><strong>Transactional Vendors:</strong> You want a set-and-forget outsourced vendor rather than an active technical engineering partner.</span>
+              <span data-customizer="abt_fit_no_4"><?php echo wp_kses_post(cr8v_mod("abt_fit_no_4", '<strong>Transactional Vendors:</strong> You want a set-and-forget outsourced vendor rather than an active technical engineering partner.')); ?></span>
             </div>
           </div>
         </div>
@@ -1310,7 +1314,7 @@ get_header();
     <!-- ── 9. LEADERSHIP & FOUNDER PASS ── -->
     <section class="fylla-leadership-section">
       <div class="fylla-lead-left">
-        <div class="c8-lead-mascot-box">
+        <div class="c8-lead-mascot-box" data-customizer="abt_fnd_media">
           <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate">
             <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/download_mascot.mp4'); ?>" type="video/mp4">
           </video>
