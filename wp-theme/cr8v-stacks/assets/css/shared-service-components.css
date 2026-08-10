@@ -761,12 +761,6 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   z-index: 5 !important;
 }
 
-.c8srv-folder-card:nth-child(1), .c8isv-folder-card:nth-child(1) { top: 130px !important; z-index: 10 !important; position: sticky !important; }
-.c8srv-folder-card:nth-child(2), .c8isv-folder-card:nth-child(2) { top: 130px !important; z-index: 20 !important; position: sticky !important; }
-.c8srv-folder-card:nth-child(3), .c8isv-folder-card:nth-child(3) { top: 130px !important; z-index: 30 !important; position: sticky !important; }
-.c8srv-folder-card:nth-child(4), .c8isv-folder-card:nth-child(4) { top: 130px !important; z-index: 40 !important; position: sticky !important; }
-.c8srv-folder-card:nth-child(5), .c8isv-folder-card:nth-child(5) { top: 130px !important; z-index: 50 !important; position: sticky !important; }
-
 .c8srv-folder-card:nth-child(1) .c8srv-folder-tab, .c8isv-folder-card:nth-child(1) .c8isv-folder-tab { left: 2.5rem !important; }
 .c8srv-folder-card:nth-child(2) .c8srv-folder-tab, .c8isv-folder-card:nth-child(2) .c8isv-folder-tab { left: 14.9rem !important; }
 .c8srv-folder-card:nth-child(3) .c8srv-folder-tab, .c8isv-folder-card:nth-child(3) .c8isv-folder-tab { left: 26.9rem !important; }

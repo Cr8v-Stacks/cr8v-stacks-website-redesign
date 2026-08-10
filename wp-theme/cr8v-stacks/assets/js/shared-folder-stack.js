@@ -18,15 +18,12 @@
         return;
       }
       var mobile = window.innerWidth < 900;
-      var adminBar = document.getElementById('wpadminbar');
-      var header = document.querySelector('.c8-header');
-      var topOffset = (adminBar ? adminBar.offsetHeight : 0) + (header ? 30 : 0);
-      var limit = (mobile ? 101 : 131) + topOffset;
+      var limit = mobile ? 101 : 131;
 
       cards.forEach(function (card, i) {
         var rect = card.getBoundingClientRect();
 
-        if (rect.top <= limit + 50) {
+        if (rect.top <= limit + 4) {
           var stackedAfter = 0;
           for (var j = i + 1; j < cards.length; j++) {
             var nextRect = cards[j].getBoundingClientRect();
