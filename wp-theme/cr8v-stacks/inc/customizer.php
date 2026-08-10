@@ -64,6 +64,11 @@ add_action('customize_register', function ($wp_customize) {
         }
     }
 
+    
+    function _cr8v_img($wp_customize, $id, $section, $label, $default = '', $selector = '') {
+        _cr8v_image($wp_customize, $id, $section, $label, $default, $selector);
+    }
+
     function _cr8v_image($wp_customize, $id, $section, $label, $default = '', $selector = '') {
         $wp_customize->add_setting($id, [
             'default'           => $default,

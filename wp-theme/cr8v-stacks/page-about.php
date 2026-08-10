@@ -1429,7 +1429,7 @@ get_header();
       </div>
     </section>
 
-    <!-- ── 10. OPEN SOURCE & EDUCATIONAL TUTORIALS ── -->
+        <!-- ── 10. OPEN SOURCE & EDUCATIONAL TUTORIALS ── -->
     <section class="fylla-edu-section">
       <div class="fylla-edu-col">
         <span class="fylla-meta-tag" data-customizer="abt_edu_tag1"><?php echo esc_html(cr8v_mod('abt_edu_tag1', 'OPEN SOURCE & EDUCATION')); ?></span>
@@ -1438,7 +1438,7 @@ get_header();
         
         <div class="fylla-img-frame">
           <a href="https://www.youtube.com/@cr8vstacks" target="_blank" style="display: block; width: 100%; height: 100%;">
-            <img src="<?php echo esc_url(cr8v_mod('abt_edu_img1', get_template_directory_uri() . '/assets/img/about_yt_tutorial.jpg')); ?>" alt="CR8V Stacks Elementor Tutorial Video Mockup" data-customizer="abt_edu_img1">
+            <img src="<?php echo esc_url(cr8v_mod('abt_edu_img1', get_template_directory_uri() . '/assets/img/hww_process_layers.jpg')); ?>" alt="CR8V Stacks Elementor Tutorial Video Mockup" data-customizer="abt_edu_img1">
             <div class="fylla-play-overlay">
               <div class="fylla-play-btn">
                 <svg viewBox="0 0 24 24" fill="#FFFFFF" style="width: 24px; height: 24px; margin-left: 3px;"><path d="M8 5v14l11-7z"/></svg>
@@ -1454,7 +1454,7 @@ get_header();
         <p class="fylla-values-p" data-customizer="abt_edu_desc2"><?php echo esc_html(cr8v_mod('abt_edu_desc2', 'We teach developers how to leverage advanced AI models (like Claude, Gemini, and ChatGPT) to generate custom code structures and automatically translate those mockups into live, pixel-perfect Elementor sections.')); ?></p>
         
         <div class="fylla-img-frame">
-          <img src="<?php echo esc_url(cr8v_mod('abt_edu_img2', get_template_directory_uri() . '/assets/img/about_ai_workflow.jpg')); ?>" alt="CR8V Stacks AI-to-WordPress Structural Tree Workflow" data-customizer="abt_edu_img2">
+          <img src="<?php echo esc_url(cr8v_mod('abt_edu_img2', get_template_directory_uri() . '/assets/img/ai_wp_tree_workflow.jpg')); ?>" alt="CR8V Stacks AI-to-WordPress Structural Tree Workflow" data-customizer="abt_edu_img2">
         </div>
       </div>
     </section>
