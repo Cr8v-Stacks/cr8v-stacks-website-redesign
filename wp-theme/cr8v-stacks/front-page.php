@@ -2876,6 +2876,8 @@ defined('ABSPATH') || exit;
           </a>
         </div>
       </div>
+    </div>
+  </section>
   <script>
     // Live Matrix Text Scramble Script
     function initMatrixScramble() {
