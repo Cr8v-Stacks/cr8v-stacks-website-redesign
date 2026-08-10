@@ -594,13 +594,13 @@ get_header();
       
       <p class="fylla-hero-p" data-customizer="abt_hero_p">We are an engineering-first digital agency built for ambitious brands. We don't just assemble websites; we architect custom digital environments, brand systems, and organic search acquisition models designed to turn attention into measurable revenue.</p>
 
-      <div class="fylla-pill-row">
-        <span class="fylla-pill">Custom PHP</span>
-        <span class="fylla-pill">Elementor-Safe Code</span>
-        <span class="fylla-pill">WordPress</span>
-        <span class="fylla-pill">Shopify</span>
-        <span class="fylla-pill">Conversion UX</span>
-        <span class="fylla-pill">Organic SEO</span>
+            <div class="fylla-pill-row">
+        <span class="fylla-pill" data-customizer="abt_hero_pill_1"><?php echo esc_html(cr8v_mod('abt_hero_pill_1', 'Custom PHP')); ?></span>
+        <span class="fylla-pill" data-customizer="abt_hero_pill_2"><?php echo esc_html(cr8v_mod('abt_hero_pill_2', 'Elementor-Safe Code')); ?></span>
+        <span class="fylla-pill" data-customizer="abt_hero_pill_3"><?php echo esc_html(cr8v_mod('abt_hero_pill_3', 'WordPress')); ?></span>
+        <span class="fylla-pill" data-customizer="abt_hero_pill_4"><?php echo esc_html(cr8v_mod('abt_hero_pill_4', 'Shopify')); ?></span>
+        <span class="fylla-pill" data-customizer="abt_hero_pill_5"><?php echo esc_html(cr8v_mod('abt_hero_pill_5', 'Conversion UX')); ?></span>
+        <span class="fylla-pill" data-customizer="abt_hero_pill_6"><?php echo esc_html(cr8v_mod('abt_hero_pill_6', 'Organic SEO')); ?></span>
       </div>
 
       <div class="fylla-hero-img-box">
@@ -617,8 +617,8 @@ get_header();
           <h2 class="fylla-values-h2" data-customizer="abt_phi_heading">OUR PHILOSOPHY</h2>
           
           <p class="fylla-values-p" data-customizer="abt_phi_p1"><?php echo esc_html(cr8v_mod("abt_phi_p1", "We bridge the gap between creative visual branding and lightweight, custom-coded web architectures.")); ?></p>
-          <p class="fylla-values-p">At <strong>CR8V Stacks</strong>, founded by <strong>Mallami Adekunle</strong>, we approach web development and branding from a performance-first perspective. We don't believe in generic page builders and bloated themes that drag down loading speed and make businesses look identical.</p>
-          <p class="fylla-values-p">By keeping our technology stack lightweight and prioritizing custom layouts, we eliminate design bloat and give our clients the technical edge in speed, search ranking, and user experience.</p>
+          <p class="fylla-values-p" data-customizer="abt_phi_p2"><?php echo esc_html(cr8v_mod("abt_phi_p2", "At CR8V Stacks, founded by Mallami Adekunle, we approach web development and branding from a performance-first perspective. We don't believe in generic page builders and bloated themes.")); ?></p>
+          <p class="fylla-values-p" data-customizer="abt_phi_p3"><?php echo esc_html(cr8v_mod("abt_phi_p3", "By keeping our technology stack lightweight and prioritizing custom layouts, we eliminate design bloat and give our clients the technical edge in speed, search ranking, and user experience.")); ?></p>
         </div>
 
         <a href="homepage_hero_section.html#case-studies" class="c8-btn-primary">Inspect Case Studies</a>
@@ -630,8 +630,8 @@ get_header();
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
           </div>
           <div>
-            <h3 class="fylla-value-h3">CODE ARCHITECTURE — ZERO BLOAT</h3>
-            <p class="fylla-value-desc">Bespoke custom themes built from scratch with semantic HTML, CSS, and vanilla JS. No page builders, no unneeded plugins.</p>
+            <h3 class="fylla-value-h3" data-customizer="abt_val1_title"><?php echo esc_html(cr8v_mod("abt_val1_title", "CODE ARCHITECTURE — ZERO BLOAT")); ?></h3>
+            <p class="fylla-value-desc" data-customizer="abt_val1_desc"><?php echo esc_html(cr8v_mod("abt_val1_desc", "Bespoke custom themes built from scratch with semantic HTML, CSS, and vanilla JS. No page builders, no unneeded plugins.")); ?></p>
           </div>
         </div>
 
@@ -640,8 +640,8 @@ get_header();
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
           </div>
           <div>
-            <h3 class="fylla-value-h3">LIQUID ENGINEERING — SUB-1.2S SPEED</h3>
-            <p class="fylla-value-desc">Tuned for instant page loads and green Core Web Vitals across every single device, browser, and network condition.</p>
+            <h3 class="fylla-value-h3" data-customizer="abt_val2_title"><?php echo esc_html(cr8v_mod("abt_val2_title", "LIQUID ENGINEERING — SUB-1.2S SPEED")); ?></h3>
+            <p class="fylla-value-desc" data-customizer="abt_val2_desc"><?php echo esc_html(cr8v_mod("abt_val2_desc", "Tuned for instant page loads and green Core Web Vitals across every single device, browser, and network condition.")); ?></p>
           </div>
         </div>
 
@@ -658,53 +658,43 @@ get_header();
     </section>
 
     <!-- ── 3. DEV PLAYGROUND — ALWAYS BUILDING SPLIT SCREEN (CORRECT ABOUT US COPY & MASCOT FIX) ── -->
+        <!-- ── 3. DEV PLAYGROUND SHOWCASE ── -->
     <section class="dp-section" id="dev-playground">
-
-      <!-- WHITE LEFT HALF -->
+      <!-- GREY LEFT HALF -->
       <div class="dp-half-left">
-
-        <!-- MASCOT: lives inside white half, straddles split safely behind right content -->
-        <div class="dp-mascot-wrap">
-          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate">
-            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/download_mascot.mp4'); ?>" type="video/mp4">
-          </video>
-        </div>
-
         <div class="dp-left-content">
-          <div class="dp-eyebrow">// ALWAYS BUILDING</div>
-          <h2 class="dp-h2">BUILT BY US.<br><em>BUILT TO BE USEFUL.</em></h2>
-          <p class="dp-sub">
-            Internal agency software utilities built out of real client necessity to eliminate slow loading speeds, bloated dependencies, and notice banners on WordPress and Shopify.
-          </p>
+          <div class="dp-left-eyebrow" data-customizer="abt_dp_eyebrow"><?php echo esc_html(cr8v_mod('abt_dp_eyebrow', 'OPEN SOURCE & INTERNAL TOOLS')); ?></div>
+          <h2 class="dp-left-heading" data-customizer="abt_dp_heading"><?php echo esc_html(cr8v_mod('abt_dp_heading', 'DEV PLAYGROUND')); ?></h2>
+          <p class="dp-left-sub" data-customizer="abt_dp_sub"><?php echo esc_html(cr8v_mod('abt_dp_sub', 'We build and publish free internal utilities, CSS generators, and AI tools for the web development community.')); ?></p>
 
-          <div class="dp-tool-entries">
-            <a href="https://cr8vstacks.com/dev-playground/wp-publishion-ai/" class="dp-tool-entry">
+          <div class="dp-tools-stack">
+            <a href="https://cr8vstacks.com/dev-playground/" class="dp-tool-entry">
               <span class="dp-tool-entry-num">01</span>
               <div class="dp-tool-entry-body">
-                <div class="dp-tool-entry-name">WP Publishion AI</div>
-                <div class="dp-tool-entry-desc">Draft fact-checked, SEO-rich articles directly inside your block editor. Integrates Claude, Gemini &amp; OpenAI.</div>
+                <div class="dp-tool-entry-name" data-customizer="abt_dp_tool1_name"><?php echo esc_html(cr8v_mod('abt_dp_tool1_name', 'Mega Menu Generator')); ?></div>
+                <div class="dp-tool-entry-desc" data-customizer="abt_dp_tool1_desc"><?php echo esc_html(cr8v_mod('abt_dp_tool1_desc', 'Generate lightweight responsive navigation CSS structures without third-party plugins.')); ?></div>
               </div>
               <div class="dp-tool-entry-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </div>
             </a>
 
-            <a href="https://cr8vstacks.com/dev-playground/nativus-dashboard-pro/" class="dp-tool-entry">
+            <a href="https://cr8vstacks.com/dev-playground/" class="dp-tool-entry">
               <span class="dp-tool-entry-num">02</span>
               <div class="dp-tool-entry-body">
-                <div class="dp-tool-entry-name">Nativus Dashboard Pro</div>
-                <div class="dp-tool-entry-desc">A clean, custom whitelabeled WordPress admin interface built to hide plugin notice banners safely.</div>
+                <div class="dp-tool-entry-name" data-customizer="abt_dp_tool2_name"><?php echo esc_html(cr8v_mod('abt_dp_tool2_name', 'Schema Builder')); ?></div>
+                <div class="dp-tool-entry-desc" data-customizer="abt_dp_tool2_desc"><?php echo esc_html(cr8v_mod('abt_dp_tool2_desc', 'Visual JSON-LD entity generator for LocalBusiness, Product, Organization, and FAQ Schema.')); ?></div>
               </div>
               <div class="dp-tool-entry-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
               </div>
             </a>
 
             <a href="https://cr8vstacks.com/dev-playground/alttext-buddy/" class="dp-tool-entry">
               <span class="dp-tool-entry-num">03</span>
               <div class="dp-tool-entry-body">
-                <div class="dp-tool-entry-name">AltText Buddy</div>
-                <div class="dp-tool-entry-desc">Automatically generate descriptive image alt text for your media library using 5 AI vision models.</div>
+                <div class="dp-tool-entry-name" data-customizer="abt_dp_tool3_name"><?php echo esc_html(cr8v_mod('abt_dp_tool3_name', 'AltText Buddy')); ?></div>
+                <div class="dp-tool-entry-desc" data-customizer="abt_dp_tool3_desc"><?php echo esc_html(cr8v_mod('abt_dp_tool3_desc', 'Automatically generate descriptive image alt text for your media library using 5 AI vision models.')); ?></div>
               </div>
               <div class="dp-tool-entry-icon">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -714,8 +704,8 @@ get_header();
             <a href="https://cr8vstacks.com/dev-playground/lumicode-syntax-highlighter/" class="dp-tool-entry">
               <span class="dp-tool-entry-num">04</span>
               <div class="dp-tool-entry-body">
-                <div class="dp-tool-entry-name">LumiCode</div>
-                <div class="dp-tool-entry-desc">VS Code-style syntax-highlighted code blocks on WordPress with line numbers and copy utility.</div>
+                <div class="dp-tool-entry-name" data-customizer="abt_dp_tool4_name"><?php echo esc_html(cr8v_mod('abt_dp_tool4_name', 'LumiCode')); ?></div>
+                <div class="dp-tool-entry-desc" data-customizer="abt_dp_tool4_desc"><?php echo esc_html(cr8v_mod('abt_dp_tool4_desc', 'VS Code-style syntax-highlighted code blocks on WordPress with line numbers and copy utility.')); ?></div>
               </div>
               <div class="dp-tool-entry-icon">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
@@ -725,8 +715,8 @@ get_header();
             <a href="https://cr8vstacks.com/dev-playground/" class="dp-tool-entry">
               <span class="dp-tool-entry-num">05</span>
               <div class="dp-tool-entry-body">
-                <div class="dp-tool-entry-name">Cost Calculator Pro</div>
-                <div class="dp-tool-entry-desc">Instant interactive web project estimator delivering itemized scope breakdowns in under 60 seconds.</div>
+                <div class="dp-tool-entry-name" data-customizer="abt_dp_tool5_name"><?php echo esc_html(cr8v_mod('abt_dp_tool5_name', 'Cost Calculator Pro')); ?></div>
+                <div class="dp-tool-entry-desc" data-customizer="abt_dp_tool5_desc"><?php echo esc_html(cr8v_mod('abt_dp_tool5_desc', 'Instant interactive web project estimator delivering itemized scope breakdowns in under 60 seconds.')); ?></div>
               </div>
               <div class="dp-tool-entry-icon">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg>
@@ -735,7 +725,7 @@ get_header();
           </div>
 
           <div style="margin-top: 2rem;">
-            <a href="https://cr8vstacks.com/dev-playground/" class="c8-btn-primary">Visit Dev Playground →</a>
+            <a href="<?php echo esc_url(cr8v_mod('abt_dp_btn1_url', 'https://cr8vstacks.com/dev-playground/')); ?>" class="c8-btn-primary" data-customizer="abt_dp_btn1_text" data-customizer-url="abt_dp_btn1_url"><?php echo esc_html(cr8v_mod('abt_dp_btn1_text', 'Visit Dev Playground →')); ?></a>
           </div>
         </div>
       </div>
@@ -743,59 +733,58 @@ get_header();
       <!-- BLUE RIGHT HALF -->
       <div class="dp-half-right">
         <div class="dp-right-content">
-          <div class="dp-right-eyebrow">NO GIMMICKS // OPEN ACCESS</div>
+          <div class="dp-right-eyebrow" data-customizer="abt_dp_r_eyebrow"><?php echo esc_html(cr8v_mod('abt_dp_r_eyebrow', 'NO GIMMICKS // OPEN ACCESS')); ?></div>
 
           <div class="dp-stat-pair">
             <div class="dp-stat-item">
-              <div class="dp-stat-num">5</div>
-              <div class="dp-stat-label">Tools Available</div>
+              <div class="dp-stat-num" data-customizer="abt_dp_stat1_num"><?php echo esc_html(cr8v_mod('abt_dp_stat1_num', '5')); ?></div>
+              <div class="dp-stat-label" data-customizer="abt_dp_stat1_lbl"><?php echo esc_html(cr8v_mod('abt_dp_stat1_lbl', 'Tools Available')); ?></div>
             </div>
             <div class="dp-stat-item">
-              <div class="dp-stat-num">100%</div>
-              <div class="dp-stat-label">Instant Access</div>
+              <div class="dp-stat-num" data-customizer="abt_dp_stat2_num"><?php echo esc_html(cr8v_mod('abt_dp_stat2_num', '100%')); ?></div>
+              <div class="dp-stat-label" data-customizer="abt_dp_stat2_lbl"><?php echo esc_html(cr8v_mod('abt_dp_stat2_lbl', 'Instant Access')); ?></div>
             </div>
             <div class="dp-stat-item">
-              <div class="dp-stat-num">60s</div>
-              <div class="dp-stat-label">Avg Setup Time</div>
+              <div class="dp-stat-num" data-customizer="abt_dp_stat3_num"><?php echo esc_html(cr8v_mod('abt_dp_stat3_num', '60s')); ?></div>
+              <div class="dp-stat-label" data-customizer="abt_dp_stat3_lbl"><?php echo esc_html(cr8v_mod('abt_dp_stat3_lbl', 'Avg Setup Time')); ?></div>
             </div>
             <div class="dp-stat-item">
-              <div class="dp-stat-num">∞</div>
-              <div class="dp-stat-label">No Builder Bloat</div>
+              <div class="dp-stat-num" data-customizer="abt_dp_stat4_num"><?php echo esc_html(cr8v_mod('abt_dp_stat4_num', '∞')); ?></div>
+              <div class="dp-stat-label" data-customizer="abt_dp_stat4_lbl"><?php echo esc_html(cr8v_mod('abt_dp_stat4_lbl', 'No Builder Bloat')); ?></div>
             </div>
           </div>
 
-          <p class="dp-right-desc">
-            Every tool in our playground is built out of necessity for real client builds. No corporate fluff, no bloated codebases — just lightweight, high-performance utilities designed to keep your WordPress and Shopify sites running lightning fast.
+          <p class="dp-right-desc" data-customizer="abt_dp_r_desc">
+            <?php echo esc_html(cr8v_mod('abt_dp_r_desc', 'Every tool in our playground is built out of necessity for real client builds. No corporate fluff, no bloated codebases — just lightweight, high-performance utilities designed to keep your WordPress and Shopify sites running lightning fast.')); ?>
           </p>
 
           <div class="dp-cta-row">
-            <a href="https://cr8vstacks.com/dev-playground/" class="dp-btn-primary">
-              Inspect Tool Blueprints
+            <a href="<?php echo esc_url(cr8v_mod('abt_dp_btn1_url', 'https://cr8vstacks.com/dev-playground/')); ?>" class="dp-btn-primary" data-customizer="abt_dp_btn1_text" data-customizer-url="abt_dp_btn1_url">
+              <?php echo esc_html(cr8v_mod('abt_dp_btn1_text', 'Inspect Tool Blueprints')); ?>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
-            <a href="discovery-call.html" class="dp-btn-ghost">
-              Book A Discovery Call
+            <a href="<?php echo esc_url(home_url(cr8v_mod('abt_dp_btn2_url', '/discovery-call/'))); ?>" class="dp-btn-ghost" data-customizer="abt_dp_btn2_text" data-customizer-url="abt_dp_btn2_url">
+              <?php echo esc_html(cr8v_mod('abt_dp_btn2_text', 'Book A Discovery Call')); ?>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
         </div>
       </div>
-
     </section>
 
     <!-- ── 4. WHAT WE ACTUALLY DO (SERVICES ACCORDION FROM HOMEPAGE VERBATIM) ── -->
+        <!-- ── 4. WHAT WE ACTUALLY DO ── -->
     <section class="sdv-section" id="services-deep-dive">
       <!-- Backdrop Glow Blobs -->
       <div class="sdv-bg-blob sdv-bg-blob-1"></div>
       <div class="sdv-bg-blob sdv-bg-blob-2"></div>
 
       <div class="sdv-inner">
-
         <!-- Section Header -->
         <div class="sdv-header">
           <div class="sdv-header-left">
-            <div class="sdv-eyebrow"><span class="c8-eyebrow-slash">//</span> WHAT WE ACTUALLY DO</div>
-            <h2 class="sdv-h2">Every Layer.<br>One <em>Studio.</em></h2>
+            <div class="sdv-eyebrow" data-customizer="abt_srv_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('abt_srv_eyebrow', 'WHAT WE ACTUALLY DO')); ?></div>
+            <h2 class="sdv-h2" data-customizer="abt_srv_heading"><?php echo wp_kses_post(cr8v_mod('abt_srv_heading', 'Every Layer.<br>One <em>Studio.</em>')); ?></h2>
 
             <div class="sdv-layer-row">
               <span class="sdv-layer-pill layer-strategy">Strategy</span>
@@ -807,21 +796,20 @@ get_header();
           </div>
 
           <div class="sdv-header-right">
-            <p class="sdv-sub">
-              We start with who you're competing against and end with the campaigns that bring people to the site we just built. Whichever platform your business runs on &mdash; the build is only one layer.
+            <p class="sdv-sub" data-customizer="abt_srv_sub">
+              <?php echo esc_html(cr8v_mod('abt_srv_sub', 'We start with who you\'re competing against and end with the campaigns that bring people to the site we just built. Whichever platform your business runs on — the build is only one layer.')); ?>
             </p>
           </div>
         </div>
 
         <!-- Accordion: Services -->
         <div class="sdv-accordion">
-
           <!-- 01 — Website Design -->
           <div class="sdv-item is-open" id="sdv-web-design">
             <button class="sdv-item-trigger" aria-expanded="true" data-sdv-toggle="sdv-web-design">
               <span class="sdv-item-num">01</span>
-              <span class="sdv-item-title">Website Design</span>
-              <span class="sdv-item-tag tag-build">Build Layer</span>
+              <span class="sdv-item-title" data-customizer="abt_srv1_title" data-customizer-url="abt_srv1_link"><?php echo esc_html(cr8v_mod('abt_srv1_title', 'Website Design')); ?></span>
+              <span class="sdv-item-tag tag-build" data-customizer="abt_srv1_tag"><?php echo esc_html(cr8v_mod('abt_srv1_tag', 'Build Layer')); ?></span>
               <div class="sdv-item-thumb">
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_duch_apartments.jpg'); ?>" alt="Website Design Preview">
               </div>
@@ -833,8 +821,8 @@ get_header();
               <div class="sdv-panel-inner">
                 <div class="sdv-panel-content">
                   <div class="sdv-panel-spacer"></div>
-                  <div class="sdv-panel-desc">
-                    <strong>High-converting digital experiences</strong> engineered for speed, search authority, and seamless user conversions. We design across every platform your business runs on &mdash; once the Figma design is approved, it gets handed to whichever build stack fits: WordPress, Shopify, WooCommerce, or fully custom code.
+                  <div class="sdv-panel-desc" data-customizer="abt_srv1_desc">
+                    <?php echo wp_kses_post(cr8v_mod('abt_srv1_desc', '<strong>High-converting digital experiences</strong> engineered for speed, search authority, and seamless user conversions. We design across every platform your business runs on — once the Figma design is approved, it gets handed to whichever build stack fits: WordPress, Shopify, WooCommerce, or fully custom code.')); ?>
                   </div>
                   <div class="sdv-panel-right">
                     <div class="sdv-deliverable-row">Custom Figma UI Architecture</div>
@@ -842,28 +830,24 @@ get_header();
                     <div class="sdv-deliverable-row">Shopify Liquid Storefronts</div>
                     <div class="sdv-deliverable-row">WooCommerce Custom Stores</div>
                     <div class="sdv-deliverable-row">Built-in SEO from Line One</div>
-                    <a href="web-design.html" class="sdv-panel-cta">
+                    <a href="<?php echo esc_url(home_url(cr8v_mod('abt_srv1_link', '/services/web-design/'))); ?>" class="sdv-panel-cta">
                       Explore Web Design
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
                   </div>
                 </div>
-                <div class="sdv-panel-visual">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_duch_apartments.jpg'); ?>" alt="Website Design Work">
-                  <span class="sdv-panel-visual-label">Live Client Work</span>
-                </div>
               </div>
             </div>
           </div>
 
-          <!-- 02 — Custom Development -->
+          <!-- 02 — Custom Software & APIs -->
           <div class="sdv-item" id="sdv-custom-dev">
             <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-custom-dev">
               <span class="sdv-item-num">02</span>
-              <span class="sdv-item-title">Custom Development</span>
-              <span class="sdv-item-tag tag-build">Build Layer</span>
+              <span class="sdv-item-title" data-customizer="abt_srv2_title" data-customizer-url="abt_srv2_link"><?php echo esc_html(cr8v_mod('abt_srv2_title', 'Custom Software & APIs')); ?></span>
+              <span class="sdv-item-tag tag-build" data-customizer="abt_srv2_tag"><?php echo esc_html(cr8v_mod('abt_srv2_tag', 'Build Layer')); ?></span>
               <div class="sdv-item-thumb">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_bridgepoint.jpg'); ?>" alt="Custom Dev Preview">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_mkenny.jpg'); ?>" alt="Custom Software Preview">
               </div>
               <span class="sdv-item-chevron">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -873,37 +857,31 @@ get_header();
               <div class="sdv-panel-inner">
                 <div class="sdv-panel-content">
                   <div class="sdv-panel-spacer"></div>
-                  <div class="sdv-panel-desc">
-                    <strong>Tailored software architectures</strong> built from a blank file, engineered around your exact workflow. No templates, no SaaS dependencies, no monthly tool fees eating into your margin. When nothing off-the-shelf fits what you're building &mdash; this is where it starts.
+                  <div class="sdv-panel-desc" data-customizer="abt_srv2_desc">
+                    <?php echo esc_html(cr8v_mod('abt_srv2_desc', 'Bespoke web applications, internal tools, custom API integrations, and scalable PHP/JS architectures built for complex operational workflows.')); ?>
                   </div>
                   <div class="sdv-panel-right">
                     <div class="sdv-deliverable-row">Bespoke Web Applications</div>
-                    <div class="sdv-deliverable-row">Custom APIs &amp; Third-Party Integrations</div>
-                    <div class="sdv-deliverable-row">Internal Business Tools &amp; Dashboards</div>
-                    <div class="sdv-deliverable-row">100% Client-Owned Codebase</div>
-                    <div class="sdv-deliverable-row">0 Third-Party SaaS Dependencies</div>
-                    <a href="custom-dev.html" class="sdv-panel-cta">
+                    <div class="sdv-deliverable-row">REST &amp; GraphQL API Systems</div>
+                    <div class="sdv-deliverable-row">Internal Operational Dashboards</div>
+                    <a href="<?php echo esc_url(home_url(cr8v_mod('abt_srv2_link', '/services/custom-dev/'))); ?>" class="sdv-panel-cta">
                       Explore Custom Dev
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
                   </div>
                 </div>
-                <div class="sdv-panel-visual">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_bridgepoint.jpg'); ?>" alt="Custom Development Work">
-                  <span class="sdv-panel-visual-label">Live Client Work</span>
-                </div>
               </div>
             </div>
           </div>
 
-          <!-- 03 — AI MVP Products -->
+          <!-- 03 — AI Product MVPs -->
           <div class="sdv-item" id="sdv-ai-mvp">
             <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-ai-mvp">
               <span class="sdv-item-num">03</span>
-              <span class="sdv-item-title">AI MVP Products</span>
-              <span class="sdv-item-tag tag-build">Build Layer</span>
+              <span class="sdv-item-title" data-customizer="abt_srv3_title" data-customizer-url="abt_srv3_link"><?php echo esc_html(cr8v_mod('abt_srv3_title', 'AI Product MVPs')); ?></span>
+              <span class="sdv-item-tag tag-build" data-customizer="abt_srv3_tag"><?php echo esc_html(cr8v_mod('abt_srv3_tag', 'Build Layer')); ?></span>
               <div class="sdv-item-thumb">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot.jpg'); ?>" alt="AI MVP Preview" style="object-position: center top;">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/ai_wp_tree_workflow.jpg'); ?>" alt="AI MVP Preview">
               </div>
               <span class="sdv-item-chevron">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -913,37 +891,31 @@ get_header();
               <div class="sdv-panel-inner">
                 <div class="sdv-panel-content">
                   <div class="sdv-panel-spacer"></div>
-                  <div class="sdv-panel-desc">
-                    <strong>Production-ready AI applications</strong> built to validate core business ideas with real users &mdash; not slide decks. We build AI-integrated products fast enough to get genuine market signal before you over-invest. When the idea validates, it hands directly into a full Custom Dev engagement.
+                  <div class="sdv-panel-desc" data-customizer="abt_srv3_desc">
+                    <?php echo esc_html(cr8v_mod('abt_srv3_desc', 'Production-grade AI applications, LLM workflow integrations, and rapid prototype platforms built to test and validate market demand fast.')); ?>
                   </div>
                   <div class="sdv-panel-right">
-                    <div class="sdv-deliverable-row">LLM-Integrated Web Applications</div>
-                    <div class="sdv-deliverable-row">AI-Powered Internal Tools</div>
-                    <div class="sdv-deliverable-row">Rapid Prototyping &amp; Market Validation</div>
-                    <div class="sdv-deliverable-row">Custom Model Pipelines</div>
-                    <div class="sdv-deliverable-row">Fully Functional &mdash; Not a Demo</div>
-                    <a href="ai-mvp.html" class="sdv-panel-cta">
-                      Explore AI MVP
+                    <div class="sdv-deliverable-row">LLM Integration &amp; Prompt Pipelines</div>
+                    <div class="sdv-deliverable-row">AI Vision &amp; Image Classification</div>
+                    <div class="sdv-deliverable-row">Rapid MVP Launch Frameworks</div>
+                    <a href="<?php echo esc_url(home_url(cr8v_mod('abt_srv3_link', '/services/ai-mvp/'))); ?>" class="sdv-panel-cta">
+                      Explore AI MVPs
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
                   </div>
                 </div>
-                <div class="sdv-panel-visual">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot.jpg'); ?>" alt="AI MVP Build" style="object-position: center top;">
-                  <span class="sdv-panel-visual-label">AI-Powered Build</span>
-                </div>
               </div>
             </div>
           </div>
 
-          <!-- 04 — Brand Strategy -->
+          <!-- 04 — Brand Strategy & Voice -->
           <div class="sdv-item" id="sdv-brand-strategy">
             <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-brand-strategy">
               <span class="sdv-item-num">04</span>
-              <span class="sdv-item-title">Brand Strategy</span>
-              <span class="sdv-item-tag tag-growth">Growth Layer</span>
+              <span class="sdv-item-title" data-customizer="abt_srv4_title" data-customizer-url="abt_srv4_link"><?php echo esc_html(cr8v_mod('abt_srv4_title', 'Brand Strategy & Voice')); ?></span>
+              <span class="sdv-item-tag tag-growth" data-customizer="abt_srv4_tag"><?php echo esc_html(cr8v_mod('abt_srv4_tag', 'Growth Layer')); ?></span>
               <div class="sdv-item-thumb">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_victorias_lane.jpg'); ?>" alt="Brand Strategy Preview">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg'); ?>" alt="Brand Strategy Preview">
               </div>
               <span class="sdv-item-chevron">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -953,16 +925,14 @@ get_header();
               <div class="sdv-panel-inner">
                 <div class="sdv-panel-content">
                   <div class="sdv-panel-spacer"></div>
-                  <div class="sdv-panel-desc">
-                    <strong>Competitor analysis, pricing scoping, and messaging frameworks</strong> that give the rest of the build direction before a single pixel is designed. This is also the foundation every ad campaign and piece of content we run for you is built on &mdash; get this right first, and everything downstream gets easier and cheaper.
+                  <div class="sdv-panel-desc" data-customizer="abt_srv4_desc">
+                    <?php echo esc_html(cr8v_mod('abt_srv4_desc', 'Market positioning, competitor teardowns, value proposition frameworks, and pricing scoping that give every digital build strategic clarity.')); ?>
                   </div>
                   <div class="sdv-panel-right">
-                    <div class="sdv-deliverable-row">Market Positioning &amp; Competitor Mapping</div>
-                    <div class="sdv-deliverable-row">Messaging Frameworks &amp; Brand Voice</div>
-                    <div class="sdv-deliverable-row">Pricing Scoping &amp; Value Proposition</div>
-                    <div class="sdv-deliverable-row">Customer Profile Architecture</div>
-                    <div class="sdv-deliverable-row">Brand Identity Design (optional next step)</div>
-                    <a href="brand-strategy.html" class="sdv-panel-cta">
+                    <div class="sdv-deliverable-row">Competitor Market Teardowns</div>
+                    <div class="sdv-deliverable-row">Value Proposition Positioning</div>
+                    <div class="sdv-deliverable-row">Brand Messaging Systems</div>
+                    <a href="<?php echo esc_url(home_url(cr8v_mod('abt_srv4_link', '/services/brand-strategy/'))); ?>" class="sdv-panel-cta">
                       Explore Brand Strategy
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
@@ -972,14 +942,14 @@ get_header();
             </div>
           </div>
 
-          <!-- 05 — SEO & Content -->
-          <div class="sdv-item" id="sdv-seo">
-            <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-seo">
+          <!-- 05 — SEO & Entity Search -->
+          <div class="sdv-item" id="sdv-seo-content">
+            <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-seo-content">
               <span class="sdv-item-num">05</span>
-              <span class="sdv-item-title">SEO &amp; Content</span>
-              <span class="sdv-item-tag tag-growth">Growth Layer</span>
+              <span class="sdv-item-title" data-customizer="abt_srv5_title" data-customizer-url="abt_srv5_link"><?php echo esc_html(cr8v_mod('abt_srv5_title', 'SEO & Entity Search')); ?></span>
+              <span class="sdv-item-tag tag-growth" data-customizer="abt_srv5_tag"><?php echo esc_html(cr8v_mod('abt_srv5_tag', 'Growth Layer')); ?></span>
               <div class="sdv-item-thumb">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_blvck_hair.jpg'); ?>" alt="SEO & Content Preview">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_process_layers.jpg'); ?>" alt="SEO Preview">
               </div>
               <span class="sdv-item-chevron">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -989,16 +959,14 @@ get_header();
               <div class="sdv-panel-inner">
                 <div class="sdv-panel-content">
                   <div class="sdv-panel-spacer"></div>
-                  <div class="sdv-panel-desc">
-                    <strong>Technical search work and content architecture</strong> that gets the site found. We fold SEO into every build from line one &mdash; but for sites that already exist, we audit, fix, and build the content layer that compounds over time. Paid acquisition works better once your organic foundation is solid.
+                  <div class="sdv-panel-desc" data-customizer="abt_srv5_desc">
+                    <?php echo esc_html(cr8v_mod('abt_srv5_desc', 'Technical search architecture, Schema JSON-LD entity mapping, Core Web Vitals optimization, and keyword cluster content systems.')); ?>
                   </div>
                   <div class="sdv-panel-right">
-                    <div class="sdv-deliverable-row">Semantic Keyword Mapping</div>
-                    <div class="sdv-deliverable-row">Entity SEO Optimization</div>
-                    <div class="sdv-deliverable-row">Technical SEO Audits &amp; Core Web Vitals</div>
-                    <div class="sdv-deliverable-row">Content Architecture &amp; Cluster Strategy</div>
-                    <div class="sdv-deliverable-row">E-Commerce Category &amp; Product SEO</div>
-                    <a href="seo.html" class="sdv-panel-cta">
+                    <div class="sdv-deliverable-row">Schema JSON-LD Entity Mapping</div>
+                    <div class="sdv-deliverable-row">Technical Core Web Vitals Audits</div>
+                    <div class="sdv-deliverable-row">Keyword Cluster Mapping</div>
+                    <a href="<?php echo esc_url(home_url(cr8v_mod('abt_srv5_link', '/services/seo-content/'))); ?>" class="sdv-panel-cta">
                       Explore SEO &amp; Content
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
@@ -1008,45 +976,8 @@ get_header();
             </div>
           </div>
 
-          <!-- 06 — Digital Marketing -->
-          <div class="sdv-item" id="sdv-digital-marketing">
-            <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-digital-marketing">
-              <span class="sdv-item-num">06</span>
-              <span class="sdv-item-title">Digital Marketing</span>
-              <span class="sdv-item-tag tag-growth">Growth Layer</span>
-              <div class="sdv-item-thumb">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_mkenny_properties.jpg'); ?>" alt="Digital Marketing Preview">
-              </div>
-              <span class="sdv-item-chevron">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </span>
-            </button>
-            <div class="sdv-panel">
-              <div class="sdv-panel-inner">
-                <div class="sdv-panel-content">
-                  <div class="sdv-panel-spacer"></div>
-                  <div class="sdv-panel-desc">
-                    <strong>Multi-channel campaigns and lead acquisition retainers</strong> built on the positioning your Brand Strategy work defined. If you haven't done positioning work with us yet, we fold a lightweight version into campaign setup &mdash; but a full Brand Strategy engagement first means faster, cheaper testing.
-                  </div>
-                  <div class="sdv-panel-right">
-                    <div class="sdv-deliverable-row">Paid Social &amp; Search Campaign Management</div>
-                    <div class="sdv-deliverable-row">Email Autoresponders &amp; Nurture Sequences</div>
-                    <div class="sdv-deliverable-row">Conversion Rate Audits</div>
-                    <div class="sdv-deliverable-row">Target Audience &amp; Funnel Mapping</div>
-                    <div class="sdv-deliverable-row">Monthly Retainer &amp; Performance Reporting</div>
-                    <a href="digital-marketing.html" class="sdv-panel-cta">
-                      Explore Digital Marketing
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /sdv-accordion -->
-
-      </div><!-- /sdv-inner -->
+        </div>
+      </div>
     </section>
 
     <!-- ── 5. PILLARS OF GROWTH (HOMEPAGE 6-CARD BENTO GRID & FULL MOBILE RESPONSIVENESS) ── -->
@@ -1054,11 +985,9 @@ get_header();
       <div class="hww-inner">
 
         <div class="hww-header">
-          <div class="hww-eyebrow"><span class="c8-eyebrow-slash">//</span> OUR PILLARS OF GROWTH</div>
-          <h2 class="hww-h2">ENGINEERED FOR SCALABILITY. <em>BUILT FOR PERFORMANCE.</em></h2>
-          <p class="hww-desc">
-            A full-spectrum digital framework designed to scale ambitious brands sustainably — from brand positioning and lightweight custom web engineering to entity search dominance.
-          </p>
+          <div class="hww-eyebrow" data-customizer="abt_plr_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod("abt_plr_eyebrow", "OUR PILLARS OF GROWTH")); ?></div>
+          <h2 class="hww-h2" data-customizer="abt_plr_heading"><?php echo wp_kses_post(cr8v_mod("abt_plr_heading", "ENGINEERED FOR SCALABILITY. <em>BUILT FOR PERFORMANCE.</em>")); ?></h2>
+          <p class="hww-desc" data-customizer="abt_plr_desc"><?php echo esc_html(cr8v_mod("abt_plr_desc", "A full-spectrum digital framework designed to scale ambitious brands sustainably — from brand positioning and lightweight custom web engineering to entity search dominance.")); ?></p>
         </div>
 
         <div class="hww-bento">
@@ -1165,8 +1094,8 @@ get_header();
     <section class="tmn-section" id="performance-tech-stack">
       <div class="tmn-inner">
         <div class="tmn-header">
-          <div class="tmn-eyebrow"><span class="tmn-eyebrow-slash">//</span> PERFORMANCE &amp; TECH STACK</div>
-          <h2 class="tmn-h2">BUILT FOR SPEED. <em>ENGINEERED TO DOMINATE.</em></h2>
+          <div class="tmn-eyebrow" data-customizer="abt_tch_tag"><span class="tmn-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod("abt_tch_tag", "PERFORMANCE & TECH STACK")); ?></div>
+          <h2 class="tmn-h2" data-customizer="abt_tch_heading"><?php echo wp_kses_post(cr8v_mod("abt_tch_heading", "BUILT FOR SPEED. <em>ENGINEERED TO DOMINATE.</em>")); ?></h2>
           <p class="tmn-sub">Explore our core technology stacks and performance benchmarks across WordPress, Shopify, custom software, and AI-accelerated workflows.</p>
         </div>
 
@@ -1414,11 +1343,11 @@ get_header();
             </div>
             <div class="c8abt-pass-row">
               <span class="c8abt-pass-label">Designation</span>
-              <span class="c8abt-pass-value">Founder &amp; Principal Architect</span>
+              <span class="c8abt-pass-value" data-customizer="abt_fnd_pass_desig"><?php echo esc_html(cr8v_mod("abt_fnd_pass_desig", "Founder & Principal Architect")); ?></span>
             </div>
             <div class="c8abt-pass-row">
               <span class="c8abt-pass-label">Core Stacks</span>
-              <span class="c8abt-pass-value">WordPress, Shopify, Figma, HTML5, CSS3, JS, PHP</span>
+              <span class="c8abt-pass-value" data-customizer="abt_fnd_pass_stacks"><?php echo esc_html(cr8v_mod("abt_fnd_pass_stacks", "WordPress, Shopify, Figma, HTML5, CSS3, JS, PHP")); ?></span>
             </div>
           </div>
           <div class="c8abt-pass-barcode-wrap">
@@ -1468,7 +1397,7 @@ get_header();
 
       <div class="cta-col-right">
         <p class="cta-p" data-customizer="abt_cta_sub">Together, let's elevate your brand to new heights by unleashing its full potential and captivating your target audience with custom zero-plugin architecture.</p>
-        <a href="<?php echo esc_url(home_url(cr8v_mod('abt_cta_btn_url', '/discovery-call/'))); ?>" class="c8-btn-primary is-dark" data-customizer="abt_cta_btn_text"><?php echo esc_html(cr8v_mod('abt_cta_btn_text', 'Book A Discovery Call')); ?></a>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('abt_cta_btn_url', '/discovery-call/'))); ?>" class="c8-btn-primary is-dark" data-customizer="abt_cta_btn_text" data-customizer-url="abt_cta_btn_url"><?php echo esc_html(cr8v_mod('abt_cta_btn_text', 'Book A Discovery Call')); ?></a>
       </div>
     </section>
 
