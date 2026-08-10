@@ -30,7 +30,7 @@ get_header();
       </div>
 
       <div class="fylla-hero-img-box">
-        <img src="assets/wwa_studio_visual.jpg" alt="Cr8v Stacks Studio Workspace" class="fylla-hero-img">
+        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg'); ?>" alt="Cr8v Stacks Studio Workspace" class="fylla-hero-img">
         <div class="fylla-hud-tag">// SYSTEM_ACTIVE</div>
       </div>
     </header>
@@ -92,7 +92,7 @@ get_header();
         <!-- MASCOT: lives inside white half, straddles split safely behind right content -->
         <div class="dp-mascot-wrap">
           <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate">
-            <source src="assets/download_mascot.mp4" type="video/mp4">
+            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/download_mascot.mp4'); ?>" type="video/mp4">
           </video>
         </div>
 
@@ -249,7 +249,7 @@ get_header();
               <span class="sdv-item-title">Website Design</span>
               <span class="sdv-item-tag tag-build">Build Layer</span>
               <div class="sdv-item-thumb">
-                <img src="assets/case_studies/case_study_duch_apartments.jpg" alt="Website Design Preview">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_duch_apartments.jpg'); ?>" alt="Website Design Preview">
               </div>
               <span class="sdv-item-chevron">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -275,7 +275,7 @@ get_header();
                   </div>
                 </div>
                 <div class="sdv-panel-visual">
-                  <img src="assets/case_studies/case_study_duch_apartments.jpg" alt="Website Design Work">
+                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_duch_apartments.jpg'); ?>" alt="Website Design Work">
                   <span class="sdv-panel-visual-label">Live Client Work</span>
                 </div>
               </div>
@@ -289,7 +289,7 @@ get_header();
               <span class="sdv-item-title">Custom Development</span>
               <span class="sdv-item-tag tag-build">Build Layer</span>
               <div class="sdv-item-thumb">
-                <img src="assets/case_studies/case_study_bridgepoint.jpg" alt="Custom Dev Preview">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_bridgepoint.jpg'); ?>" alt="Custom Dev Preview">
               </div>
               <span class="sdv-item-chevron">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -315,7 +315,7 @@ get_header();
                   </div>
                 </div>
                 <div class="sdv-panel-visual">
-                  <img src="assets/case_studies/case_study_bridgepoint.jpg" alt="Custom Development Work">
+                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_bridgepoint.jpg'); ?>" alt="Custom Development Work">
                   <span class="sdv-panel-visual-label">Live Client Work</span>
                 </div>
               </div>
@@ -329,7 +329,7 @@ get_header();
               <span class="sdv-item-title">AI MVP Products</span>
               <span class="sdv-item-tag tag-build">Build Layer</span>
               <div class="sdv-item-thumb">
-                <img src="assets/dev_mascot.jpg" alt="AI MVP Preview" style="object-position: center top;">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot.jpg'); ?>" alt="AI MVP Preview" style="object-position: center top;">
               </div>
               <span class="sdv-item-chevron">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -355,7 +355,7 @@ get_header();
                   </div>
                 </div>
                 <div class="sdv-panel-visual">
-                  <img src="assets/dev_mascot.jpg" alt="AI MVP Build" style="object-position: center top;">
+                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot.jpg'); ?>" alt="AI MVP Build" style="object-position: center top;">
                   <span class="sdv-panel-visual-label">AI-Powered Build</span>
                 </div>
               </div>
@@ -369,7 +369,7 @@ get_header();
               <span class="sdv-item-title">Brand Strategy</span>
               <span class="sdv-item-tag tag-growth">Growth Layer</span>
               <div class="sdv-item-thumb">
-                <img src="assets/case_studies/case_study_victorias_lane.jpg" alt="Brand Strategy Preview">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_victorias_lane.jpg'); ?>" alt="Brand Strategy Preview">
               </div>
               <span class="sdv-item-chevron">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -405,7 +405,7 @@ get_header();
               <span class="sdv-item-title">SEO &amp; Content</span>
               <span class="sdv-item-tag tag-growth">Growth Layer</span>
               <div class="sdv-item-thumb">
-                <img src="assets/case_studies/case_study_blvck_hair.jpg" alt="SEO & Content Preview">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_blvck_hair.jpg'); ?>" alt="SEO & Content Preview">
               </div>
               <span class="sdv-item-chevron">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -441,7 +441,7 @@ get_header();
               <span class="sdv-item-title">Digital Marketing</span>
               <span class="sdv-item-tag tag-growth">Growth Layer</span>
               <div class="sdv-item-thumb">
-                <img src="assets/case_studies/case_study_mkenny_properties.jpg" alt="Digital Marketing Preview">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_mkenny_properties.jpg'); ?>" alt="Digital Marketing Preview">
               </div>
               <span class="sdv-item-chevron">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -519,7 +519,7 @@ get_header();
 
           <!-- C2: Stacks visual (tall image card) -->
           <div class="hww-card hww-c2">
-            <img src="assets/hww_stacks_visual.jpg" alt="CR8V Stacks Visual Architecture" class="hww-visual-img">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_stacks_visual.jpg'); ?>" alt="CR8V Stacks Visual Architecture" class="hww-visual-img">
           </div>
 
           <!-- C3: Sprint Stat (blue card) -->
@@ -558,7 +558,7 @@ get_header();
 
           <!-- C6: What Ships With Every Project (light card spanning 2 cols) -->
           <div class="hww-card hww-card-light hww-c6" style="position:relative;overflow:hidden;">
-            <img src="assets/c4_tools_bg.jpg" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;opacity:0.08;pointer-events:none;">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/c4_tools_bg.jpg'); ?>" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;opacity:0.08;pointer-events:none;">
             <div style="position:relative;z-index:1;">
               <div class="hww-clabel hww-clabel-blue">What Ships With Every Project</div>
               <div class="hww-timeline">
@@ -815,7 +815,7 @@ get_header();
       <div class="fylla-lead-left">
         <div class="c8-lead-mascot-box">
           <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate">
-            <source src="assets/download_mascot.mp4" type="video/mp4">
+            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/download_mascot.mp4'); ?>" type="video/mp4">
           </video>
         </div>
       </div>
@@ -864,7 +864,7 @@ get_header();
         
         <div class="fylla-img-frame">
           <a href="https://www.youtube.com/@cr8vstacks" target="_blank" style="display: block; width: 100%; height: 100%;">
-            <img src="https://cr8vstacks.com/wp-content/uploads/2026/07/cr8v_youtube_mockup.jpg" alt="CR8V Stacks Elementor Tutorial Video Mockup" onerror="this.src='assets/hww_process_layers.jpg'">
+            <img src="https://cr8vstacks.com/wp-content/uploads/2026/07/cr8v_youtube_mockup.jpg" alt="CR8V Stacks Elementor Tutorial Video Mockup" onerror="this.src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_process_layers.jpg'); ?>"">
             <div class="fylla-play-overlay">
               <div class="fylla-play-btn">
                 <svg viewBox="0 0 24 24" fill="#FFFFFF" style="width: 24px; height: 24px; margin-left: 3px;"><path d="M8 5v14l11-7z"/></svg>
@@ -880,7 +880,7 @@ get_header();
         <p class="fylla-values-p">We teach developers how to leverage advanced AI models (like Claude, Gemini, and ChatGPT) to generate custom code structures and automatically translate those mockups into live, pixel-perfect Elementor sections.</p>
         
         <div class="fylla-img-frame">
-          <img src="assets/ai_wp_tree_workflow.jpg" alt="CR8V Stacks AI-to-WordPress Structural Tree Workflow">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/ai_wp_tree_workflow.jpg'); ?>" alt="CR8V Stacks AI-to-WordPress Structural Tree Workflow">
         </div>
       </div>
     </section>
