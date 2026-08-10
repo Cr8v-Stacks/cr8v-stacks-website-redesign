@@ -872,37 +872,238 @@ get_header();
 </main>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // FAQ Accordion Toggle Logic
-  var faqTriggers = document.querySelectorAll('.faq-trigger');
-  faqTriggers.forEach(function(trigger) {
-    trigger.addEventListener('click', function() {
-      var item = this.closest('.faq-item');
-      var isOpen = item.classList.contains('is-open');
-      
-      // Close all items
-      document.querySelectorAll('.faq-item').forEach(function(el) {
-        el.classList.remove('is-open');
-        el.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
-        var body = el.querySelector('.faq-body');
-        if (body) body.style.gridTemplateRows = '0fr';
-      });
+(function () {
+  var root = document.querySelector('.c8isv-root') || document.body;
+  if (!root || root.getAttribute('data-c8isv-init') === '1') return;
+  root.setAttribute('data-c8isv-init', '1');
 
-      // Toggle clicked item
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+
+  /* ── Hero cursor glow ── */
+  var heroWrap = root.querySelector('[data-c8isv-hero]');
+  var glow = root.querySelector('[data-c8isv-glow]');
+  if (heroWrap && glow && canHover && !reduceMotion) {
+    heroWrap.addEventListener('mousemove', function (e) {
+      var r = heroWrap.getBoundingClientRect();
+      glow.style.left = (e.clientX - r.left) + 'px';
+      glow.style.top = (e.clientY - r.top) + 'px';
+    });
+    heroWrap.addEventListener('mouseenter', function () { heroWrap.classList.add('is-active'); });
+    heroWrap.addEventListener('mouseleave', function () { heroWrap.classList.remove('is-active'); });
+  }
+
+  /* ── Reveal on scroll ── */
+  var revealEls = root.querySelectorAll('.c8isv-reveal, .c8srv-reveal');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); el.classList.add('is-visible'); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* ── FAQ Accordion Toggle ── */
+  var faqTriggers = root.querySelectorAll('.faq-trigger');
+  faqTriggers.forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      var item = trigger.closest('.faq-item');
+      if (!item) return;
+      var isOpen = item.classList.contains('is-open');
+      var list = trigger.closest('.faq-list');
+      if (list) {
+        list.querySelectorAll('.faq-item').forEach(function (other) {
+          other.classList.remove('is-open');
+          var btn = other.querySelector('.faq-trigger');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+          var body = other.querySelector('.faq-body');
+          if (body) body.style.gridTemplateRows = '0fr';
+        });
+      }
       if (!isOpen) {
         item.classList.add('is-open');
-        this.setAttribute('aria-expanded', 'true');
+        trigger.setAttribute('aria-expanded', 'true');
         var body = item.querySelector('.faq-body');
         if (body) body.style.gridTemplateRows = '1fr';
       }
     });
   });
 
-  // Scope Estimator Interactive Logic
-  var estButtons = document.querySelectorAll('.c8srv-est-choice');
-  var estRangeDisplay = document.getElementById('est-range-display');
-  var estDeliverablesList = document.getElementById('est-deliverables-list');
-  var estCtaLink = document.getElementById('est-cta-link');
+  /* Helpers for scroll progress */
+  function getElementProgress(el, startOffsetRatio, endOffsetRatio) {
+    if (!el) return 0;
+    var rect = el.getBoundingClientRect();
+    var viewportH = window.innerHeight;
+    var start = viewportH * (startOffsetRatio || 0.95);
+    var end = viewportH * (endOffsetRatio || 0.2);
+    if (rect.top >= start) return 0;
+    if (rect.top <= end) return 1;
+    return (start - rect.top) / (start - end);
+  }
+
+  function getCardProgress(card, startOffsetRatio, endOffsetRatio) {
+    if (!card) return 0;
+    var rect = card.getBoundingClientRect();
+    var viewportH = window.innerHeight;
+    var start = viewportH * (startOffsetRatio || 0.95);
+    var end = viewportH * (endOffsetRatio || 0.45);
+    if (rect.top >= start) return 0;
+    if (rect.top <= end) return 1;
+    return (start - rect.top) / (start - end);
+  }
+
+  /* ── Scroll handling scroll-linked animations ── */
+  function handleScrollAnimations() {
+    if (reduceMotion) return;
+
+    var flankContainer = root.querySelector('[data-c8isv-flank-trigger]');
+    var flankCards = root.querySelectorAll('[data-c8isv-flank-card]');
+
+    var portfolioCard = root.querySelector('[data-c8isv-portfolio-card]');
+
+    var approachCards = root.querySelectorAll('[data-c8isv-approach-card]');
+
+    var testiGrid = root.querySelector('[data-c8isv-testi-trigger]');
+    var testiLeft = root.querySelector('[data-c8isv-testi-left]');
+    var testiRight = root.querySelector('[data-c8isv-testi-right]');
+
+    // 1. Flank Cards Stack Lay-Down
+    if (flankContainer && flankCards.length) {
+      var rect = flankContainer.getBoundingClientRect();
+      var viewportH = window.innerHeight;
+      var start = viewportH;
+      var end = viewportH * 0.15;
+      
+      var p = 0;
+      if (rect.top < start) {
+        p = (start - rect.top) / (start - end);
+        if (p > 1) p = 1;
+        if (p < 0) p = 0;
+      }
+
+      flankCards.forEach(function (card, i) {
+        var localT = Math.min(1, Math.max(0, p * 1.5 - i * 0.16));
+        var isMobile = window.innerWidth < 901;
+        if (isMobile) {
+          var ty = 55 * (1 - localT);
+          var spread = (i === 0 ? -35 : i === 1 ? 0 : 35) * (1 - localT);
+          var rotM = (i === 0 ? -4 : i === 2 ? 4 : 0) * (1 - localT);
+          var scale = 0.94 + 0.06 * localT;
+          card.style.transform = 'translate3d(' + spread + 'px, ' + ty + 'px, 0) scale(' + scale + ') rotate(' + rotM + 'deg)';
+        } else {
+          var startX = -100 * i;
+          var startRotate = i === 0 ? 0 : (i % 2 === 0 ? -7 : 7);
+          var x = startX * (1 - localT);
+          var rot = startRotate * (1 - localT);
+          var scale = 0.92 + 0.08 * localT;
+          card.style.transform = 'translateX(' + x + '%) rotate(' + rot + 'deg) scale(' + scale + ')';
+        }
+        card.style.opacity = String(0.35 + 0.65 * localT);
+      });
+    }
+
+    // 2. Our Work Zoom Card
+    if (portfolioCard) {
+      var p = getElementProgress(portfolioCard, 0.95, 0.3);
+      var scale = 0.75 + 0.25 * p;
+      portfolioCard.style.transform = 'scale(' + scale + ')';
+      portfolioCard.style.opacity = 0.5 + 0.5 * p;
+    }
+
+    // 3. How We Approach It Slanted cards
+    if (approachCards.length) {
+      approachCards.forEach(function (card, i) {
+        if (i === 0) {
+          card.style.transform = 'none';
+          card.style.boxShadow = '0 5px 15px rgba(8, 8, 8, 0.02)';
+          return;
+        }
+        var p = getCardProgress(card.parentElement, 0.95, 0.5);
+        var isMobile = window.innerWidth < 901;
+        var maxSlant = (6 + (i - 1) * 3) * (isMobile ? 0.65 : 1.0);
+        var rot = maxSlant * (1 - p);
+        var ty = (isMobile ? -55 : -80) * (1 - p);
+        
+        card.style.transform = 'translate3d(0, ' + ty + 'px, 0) rotate(' + rot + 'deg)';
+        card.style.opacity = '1';
+        
+        var shadowY = 15 - 10 * p;
+        var shadowBlur = 30 - 15 * p;
+        var shadowAlpha = 0.08 - 0.06 * p;
+        card.style.boxShadow = '0 ' + shadowY + 'px ' + shadowBlur + 'px rgba(8, 8, 8, ' + shadowAlpha + ')';
+      });
+    }
+
+    // 4. Client Feedback Testimonials Fan Out
+    if (testiGrid && testiLeft && testiRight) {
+      var isMobile = window.innerWidth < 901;
+      if (isMobile) {
+        var pL = getElementProgress(testiLeft, 0.95, 0.3);
+        var pR = getElementProgress(testiRight, 0.95, 0.3);
+        var txL = -90 * (1 - pL);
+        var tyL = 20 * (1 - pL);
+        var rotL = -6 * (1 - pL);
+        testiLeft.style.transform = 'translate3d(' + txL + 'px, ' + tyL + 'px, 0) rotate(' + rotL + 'deg)';
+        testiLeft.style.opacity = pL;
+        testiLeft.style.pointerEvents = pL > 0.1 ? 'auto' : 'none';
+        var txR = 90 * (1 - pR);
+        var tyR = 20 * (1 - pR);
+        var rotR = 6 * (1 - pR);
+        testiRight.style.transform = 'translate3d(' + txR + 'px, ' + tyR + 'px, 0) rotate(' + rotR + 'deg)';
+        testiRight.style.opacity = pR;
+        testiRight.style.pointerEvents = pR > 0.1 ? 'auto' : 'none';
+      } else {
+        var p = getElementProgress(testiGrid, 0.85, 0.3);
+        var tx = p * 340;
+        var ty = 15 * (1 - p);
+        var rot = p * 8;
+        testiLeft.style.transform = 'translate3d(' + (-tx) + 'px, ' + ty + 'px, 0) scale(' + (0.9 + 0.1 * p) + ') rotate(' + (-rot) + 'deg)';
+        testiLeft.style.opacity = p;
+        testiLeft.style.pointerEvents = p > 0.1 ? 'auto' : 'none';
+
+        testiRight.style.transform = 'translate3d(' + tx + 'px, ' + ty + 'px, 0) scale(' + (0.9 + 0.1 * p) + ') rotate(' + rot + 'deg)';
+        testiRight.style.opacity = p;
+        testiRight.style.pointerEvents = p > 0.1 ? 'auto' : 'none';
+      }
+    }
+  }
+
+  window.addEventListener('scroll', handleScrollAnimations, { passive: true });
+  window.addEventListener('resize', handleScrollAnimations);
+  handleScrollAnimations();
+
+  /* ── Hoverlist 2-card fan preview stack ── */
+  var hoverlist = root.querySelector('[data-c8isv-hoverlist]');
+  var preview = root.querySelector('[data-c8isv-preview]');
+  if (hoverlist && preview && canHover && !reduceMotion) {
+    var hoverItems = hoverlist.querySelectorAll('.c8isv-hoverlist-item');
+    hoverlist.addEventListener('mousemove', function (e) {
+      var rect = hoverlist.getBoundingClientRect();
+      preview.style.left = (e.clientX - rect.left) + 'px';
+      preview.style.top = (e.clientY - rect.top) + 'px';
+    });
+    hoverlist.addEventListener('mouseenter', function () { preview.classList.add('is-active'); });
+    hoverlist.addEventListener('mouseleave', function () { preview.classList.remove('is-active'); });
+    hoverItems.forEach(function (item) {
+      item.addEventListener('mouseenter', function () {
+        var imgL = preview.querySelector('[data-c8isv-fan-logo="left"]');
+        var imgR = preview.querySelector('[data-c8isv-fan-logo="right"]');
+        var l1 = item.getAttribute('data-logo-1');
+        var l2 = item.getAttribute('data-logo-2');
+        if (imgL && l1) imgL.src = l1;
+        if (imgR && l2) imgR.src = l2;
+      });
+    });
+  }
+
+  /* ── Scope Estimator Interactive Calculator ── */
+  var estButtons = root.querySelectorAll('.c8srv-est-choice');
+  var estRangeDisplay = root.querySelector('#est-range-display');
+  var estDeliverablesList = root.querySelector('#est-deliverables-list');
+  var estCtaLink = root.querySelector('#est-cta-link');
 
   if (estButtons.length > 0 && estRangeDisplay) {
     function recalculateEstimate() {
@@ -911,7 +1112,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var addonPrice = 0;
       var deliverables = [];
 
-      var activePlatform = document.querySelector('[data-est-group="platform"] .is-active');
+      var activePlatform = root.querySelector('[data-est-group="platform"] .is-active');
       if (activePlatform) {
         basePrice = parseInt(activePlatform.getAttribute('data-est-price') || '1200', 10);
         var val = activePlatform.getAttribute('data-est-val');
@@ -927,12 +1128,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
 
-      var activeScale = document.querySelector('[data-est-group="scale"] .is-active');
+      var activeScale = root.querySelector('[data-est-group="scale"] .is-active');
       if (activeScale) {
         multiplier = parseFloat(activeScale.getAttribute('data-est-multiplier') || '1.0');
       }
 
-      var activeAddon = document.querySelector('[data-est-group="growth"] .is-active');
+      var activeAddon = root.querySelector('[data-est-group="growth"] .is-active');
       if (activeAddon) {
         addonPrice = parseInt(activeAddon.getAttribute('data-est-price') || '0', 10);
         var addonVal = activeAddon.getAttribute('data-est-val');
@@ -958,7 +1159,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     estButtons.forEach(function(btn) {
-      btn.addEventListener('click', function() {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
         var group = this.closest('.c8srv-est-choices');
         if (group) {
           group.querySelectorAll('.c8srv-est-choice').forEach(function(b) { b.classList.remove('is-active'); });
@@ -967,8 +1169,45 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     });
+
+    recalculateEstimate();
   }
-});
+
+  /* ── Live Matrix Text Scramble Effect ── */
+  var srvMatrixButtons = root.querySelectorAll('.c8-btn-primary, .c8isv-btn-primary, .c8srv-btn-primary, .c8srv-price-btn, .c8isv-price-btn, .c8srv-explore, .c8isv-explore, .c8isv-btn-ghost, .c8srv-btn-ghost, .faq-cta-link, .c8srv-vs-priority-btn, .c8isv-related-card-link, .c8srv-related-card-link');
+  var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  srvMatrixButtons.forEach(function(btn) {
+    var textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; });
+    var targetObj = textNode ? textNode : btn;
+    var originalText = targetObj.textContent.trim();
+    var scrambleInterval = null;
+
+    btn.addEventListener('mouseenter', function() {
+      var iteration = 0;
+      clearInterval(scrambleInterval);
+
+      scrambleInterval = setInterval(function() {
+        targetObj.textContent = originalText.split('')
+          .map(function(char, index) {
+            if (char === ' ' || index < iteration) return originalText[index];
+            return srvMatrixChars[Math.floor(Math.random() * srvMatrixChars.length)];
+          })
+          .join('');
+
+        if (iteration >= originalText.length) {
+          clearInterval(scrambleInterval);
+        }
+        iteration += 1 / 2;
+      }, 25);
+    });
+
+    btn.addEventListener('mouseleave', function() {
+      clearInterval(scrambleInterval);
+      targetObj.textContent = originalText;
+    });
+  });
+})();
 </script>
 
 <?php get_footer(); ?>

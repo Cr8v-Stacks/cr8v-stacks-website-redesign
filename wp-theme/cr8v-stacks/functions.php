@@ -94,6 +94,10 @@ add_action('template_redirect', function () {
         'page-discovery-call.php',
         'page-service.php',
         'page-services.php',
+        'page-service-web-design.php',
+        'page-web-design.php',
+        'page-service-shopify.php',
+        'page-shopify.php',
     ];
     foreach ($templates_no_autop as $t) {
         if (is_page_template($t)) {

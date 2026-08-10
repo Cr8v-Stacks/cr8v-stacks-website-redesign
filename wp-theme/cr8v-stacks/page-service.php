@@ -2,6 +2,17 @@
 defined('ABSPATH') || exit;
 
 $pid = get_the_ID();
+$post_slug = get_post_field('post_name', $pid);
+$post_title = get_the_title($pid);
+
+if (strpos($post_slug, 'web-design') !== false || stripos($post_title, 'web design') !== false) {
+    include get_template_directory() . '/page-service-web-design.php';
+    return;
+}
+if (strpos($post_slug, 'shopify') !== false || stripos($post_title, 'shopify') !== false) {
+    include get_template_directory() . '/page-service-shopify.php';
+    return;
+}
 
 // ── ACF / meta fields ─────────────────────────────────────────
 $eyebrow     = cr8v_get_meta($pid, 'service_eyebrow',     get_the_title());
