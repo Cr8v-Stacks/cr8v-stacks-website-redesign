@@ -466,4 +466,57 @@ add_action('customize_register', function ($wp_customize) {
     _cr8v_text($wp_customize, 'abt_cta_btn_text', 'cr8v_abt_cta', 'CTA Button Label', 'Start a Conversation');
     _cr8v_text($wp_customize, 'abt_cta_btn_url', 'cr8v_abt_cta', 'CTA Button Link', '/discovery-call/');
 
+
+    // ==========================================
+    // SERVICES OVERVIEW PAGE PANEL
+    // ==========================================
+    $wp_customize->add_panel('cr8v_services_panel', [
+        'title'       => 'Services Overview Page — Tropos Theme',
+        'description' => 'Edit all sections of the Main Services Hub page (/services/) including Hero, Folder Cards, Pricing, and Estimator.',
+        'priority'    => 30,
+    ]);
+
+    // 1. Services Hero
+    _cr8v_section($wp_customize, 'cr8v_srv_hero', '1. Hero Section', 'cr8v_services_panel', 10);
+    _cr8v_text($wp_customize, 'srv_hero_tag', 'cr8v_srv_hero', 'Meta Tag', 'CAPABILITIES & DELIVERY ARCHITECTURE');
+    _cr8v_text($wp_customize, 'srv_hero_headline', 'cr8v_srv_hero', 'Headline', 'Every Layer. Built From Scratch.');
+    _cr8v_textarea($wp_customize, 'srv_hero_intro', 'cr8v_srv_hero', 'Subheadline', 'Strategy, design, custom code, and growth engineering — handled by one dedicated team. We don\'t outsource, we don\'t use off-the-shelf templates, and we don\'t hand off your project to junior freelancers.');
+    _cr8v_text($wp_customize, 'srv_hero_btn_pri_text', 'cr8v_srv_hero', 'Primary CTA Text', 'Start a Project →');
+    _cr8v_text($wp_customize, 'srv_hero_btn_pri_url', 'cr8v_srv_hero', 'Primary CTA Link', '/discovery-call/');
+    _cr8v_text($wp_customize, 'srv_hero_btn_ghs_text', 'cr8v_srv_hero', 'Secondary CTA Text', 'Calculate Cost ↓');
+    _cr8v_text($wp_customize, 'srv_hero_btn_ghs_url', 'cr8v_srv_hero', 'Secondary CTA Link', '#cost-calculator');
+
+    // 2. Folder Stack Showcase (5 Primary Core Services)
+    _cr8v_section($wp_customize, 'cr8v_srv_folder_stack', '2. Folder Stack Showcase', 'cr8v_services_panel', 20);
+    _cr8v_text($wp_customize, 'srv_fs_eyebrow', 'cr8v_srv_folder_stack', 'Section Eyebrow', 'PRIMARY CAPABILITIES');
+    _cr8v_text($wp_customize, 'srv_fs_heading', 'cr8v_srv_folder_stack', 'Section Heading', 'Core Delivery Layers');
+
+    $core_folders = [
+        1 => ['title' => 'Web Design & Systems', 'tag' => 'BUILD LAYER', 'desc' => 'Bespoke website design, custom Figma design systems, and responsive interface architecture. Built from scratch with zero template reliance.', 'link' => '/services/web-design/'],
+        2 => ['title' => 'Custom Software & APIs', 'tag' => 'BUILD LAYER', 'desc' => 'Bespoke web applications, internal tools, custom API integrations, and scalable PHP/JS architectures built for complex operational workflows.', 'link' => '/services/custom-dev/'],
+        3 => ['title' => 'AI Product MVPs', 'tag' => 'BUILD LAYER', 'desc' => 'Production-grade AI applications, LLM workflow integrations, and rapid prototype platforms built to test and validate market demand fast.', 'link' => '/services/ai-mvp/'],
+        4 => ['title' => 'Brand Strategy & Voice', 'tag' => 'GROWTH LAYER', 'desc' => 'Market positioning, competitor teardowns, value proposition frameworks, and pricing scoping that give every digital build strategic clarity.', 'link' => '/services/brand-strategy/'],
+        5 => ['title' => 'SEO & Entity Search', 'tag' => 'GROWTH LAYER', 'desc' => 'Technical search architecture, Schema JSON-LD entity mapping, Core Web Vitals optimization, and keyword cluster content systems.', 'link' => '/services/seo-content/']
+    ];
+
+    for ($i = 1; $i <= 5; $i++) {
+        _cr8v_text($wp_customize, "srv_f{$i}_title", 'cr8v_srv_folder_stack', "Folder {$i} Title", $core_folders[$i]['title']);
+        _cr8v_text($wp_customize, "srv_f{$i}_tag",   'cr8v_srv_folder_stack', "Folder {$i} Tag", $core_folders[$i]['tag']);
+        _cr8v_textarea($wp_customize, "srv_f{$i}_desc", 'cr8v_srv_folder_stack', "Folder {$i} Description", $core_folders[$i]['desc']);
+        _cr8v_text($wp_customize, "srv_f{$i}_link", 'cr8v_srv_folder_stack', "Folder {$i} Link", $core_folders[$i]['link']);
+    }
+
+    // 3. Pricing Matrix Section
+    _cr8v_section($wp_customize, 'cr8v_srv_pricing', '3. Transparent Pricing Matrix', 'cr8v_services_panel', 30);
+    _cr8v_text($wp_customize, 'srv_prc_eyebrow', 'cr8v_srv_pricing', 'Section Eyebrow', 'TRANSPARENT SCOPING');
+    _cr8v_text($wp_customize, 'srv_prc_heading', 'cr8v_srv_pricing', 'Section Heading', 'Investment Architecture');
+    _cr8v_textarea($wp_customize, 'srv_prc_sub', 'cr8v_srv_pricing', 'Section Subtitle', 'Fixed-scope pricing with clear deliverable milestones. No hidden hourly rates or unexpected monthly surprises.');
+
+    // 4. Services CTA Banner
+    _cr8v_section($wp_customize, 'cr8v_srv_cta', '4. Services Final CTA Banner', 'cr8v_services_panel', 40);
+    _cr8v_text($wp_customize, 'srv_cta_heading', 'cr8v_srv_pricing', 'Banner Heading', 'Have a specific custom project in mind?');
+    _cr8v_textarea($wp_customize, 'srv_cta_sub', 'cr8v_srv_pricing', 'Banner Subtitle', 'Book a 1-on-1 strategy call with our engineering lead to scope your build requirements and get a fixed project quote.');
+    _cr8v_text($wp_customize, 'srv_cta_btn_text', 'cr8v_srv_pricing', 'Button Label', 'Book Discovery Call →');
+    _cr8v_text($wp_customize, 'srv_cta_btn_url', 'cr8v_srv_pricing', 'Button Link', '/discovery-call/');
+
 });

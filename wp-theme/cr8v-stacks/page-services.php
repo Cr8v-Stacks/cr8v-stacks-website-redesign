@@ -1,21 +1,12 @@
-﻿<?php
+<?php
 /**
  * CR8V Stacks — page-services.php
  * Template Name: Services Overview
- * Main Services Directory Page (100% full design fidelity from services (2).html)
  */
 defined('ABSPATH') || exit;
-?><!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-  <meta charset="<?php bloginfo('charset'); ?>">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services | <?php bloginfo('name'); ?></title>
-  <?php wp_head(); ?>
-</head>
-<body <?php body_class('cr8v-services-overview'); ?>>
-<?php wp_body_open(); ?>
-<?php get_template_part('parts/header'); ?>
+
+get_header();
+?>
 
 <main id="cr8v-main">
 <div class="c8srv-root">
@@ -2312,8 +2303,4 @@ body {
 <script src="<?php echo esc_url(get_template_directory_uri() . '/assets/js/shared-folder-stack.js'); ?>"></script>
 </main>
 
-<?php get_template_part('parts/footer'); ?>
-<?php wp_footer(); ?>
-</body>
-</html>
-
+<?php get_footer(); ?>

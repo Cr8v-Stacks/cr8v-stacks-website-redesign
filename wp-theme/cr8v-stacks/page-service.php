@@ -1,26 +1,4 @@
 <?php
-/**
- * CR8V Stacks — page-service.php
- * Template Name: Service Page
- *
- * A single flexible template for ALL 11 service pages.
- * Content driven by ACF fields (or native post meta as fallback).
- * Assign this template to a page via: Edit Page → Page Attributes → Template → Service Page
- *
- * Required ACF group: "Service Page Fields"
- * Keys:
- *   service_eyebrow       — e.g. "Strategic Interface & User Experience Engineering"
- *   service_headline      — e.g. "Conversion-Driven Web Design & UX"
- *   service_headline_em   — italic emphasis part of headline (optional)
- *   service_intro         — hero paragraph
- *   service_cta_text      — primary CTA label
- *   service_cta_link      — primary CTA URL
- *   service_pills[]       — tech stack pills (repeater: label)
- *   service_benefits[]    — why-us cards (repeater: title, desc)
- *   service_process[]     — how we work steps (repeater: num, title, desc)
- *   service_faq[]         — FAQs (repeater: question, answer)
- *   related_case_study_id — post ID of a related case study to showcase
- */
 defined('ABSPATH') || exit;
 
 $pid = get_the_ID();
@@ -39,7 +17,6 @@ $process    = function_exists('get_field') ? (get_field('service_process', $pid)
 $faqs       = function_exists('get_field') ? (get_field('service_faq', $pid)      ?: []) : [];
 $related_id = cr8v_get_meta($pid, 'related_case_study_id', 0);
 
-// Default fallbacks if ACF repeaters have not been populated yet
 if (empty($benefits)) {
     $benefits = [
         ['title' => 'High-Performance Engineering', 'desc' => 'Custom architecture engineered for sub-second load times, maximum SEO indexing, and liquid smooth 60fps animations.'],
@@ -67,20 +44,9 @@ if (empty($faqs)) {
 if (empty($pills)) {
     $pills = ['Strategy', 'UI/UX Design', 'Engineering', 'Performance', 'SEO'];
 }
+
+get_header();
 ?>
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-  <meta charset="<?php bloginfo('charset'); ?>">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php echo esc_html($headline); ?> | <?php bloginfo('name'); ?></title>
-  <meta name="description" content="<?php echo esc_attr(wp_trim_words($intro, 25)); ?>">
-  <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri() . '/assets/css/shared-service-components.css'); ?>">
-  <?php wp_head(); ?>
-</head>
-<body <?php body_class('cr8v-service-page'); ?>>
-<?php wp_body_open(); ?>
-<?php get_template_part('parts/header'); ?>
 
 <div class="c8isv-root">
 
@@ -279,7 +245,4 @@ if (empty($pills)) {
 
 </div><!-- /.c8isv-root -->
 
-<?php get_template_part('parts/footer'); ?>
-<?php wp_footer(); ?>
-</body>
-</html>
+<?php get_footer(); ?>
