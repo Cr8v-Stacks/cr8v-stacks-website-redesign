@@ -622,6 +622,8 @@ All 11 homepage sections were audited and mapped into `inc/customizer.php` and `
 | `060b37e` | Fix root `header.php` and `footer.php` templates and restore 100% HTML design parity and CSS styles for About Us page (`page-about.php`) |
 | `d74a351` | Fix relative asset image paths to dynamic `get_template_directory_uri()` URLs in `page-about.php` |
 | `0e91eb5` | Restore complete interactive 4.8KB JavaScript block (Services Accordions, Tech Stack Auto-Tab Controller, Matrix Scramble) in `page-about.php` |
+| `0a3f30b` | Embed self-contained 38.6KB design `<style>` block directly into `page-about.php` to guarantee 100% style isolation and prevent external CSS specificity overrides |
+
 
 
 
