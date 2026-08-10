@@ -27,6 +27,15 @@ get_header();
     body { background: var(--c8-paper-bg); color: var(--c8-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 0; margin: 0; line-height: 1.65; }
     a, a:hover, a:focus, button { text-decoration: none !important; }
 
+    
+    /* Header Offset Fix for About Page */
+    .fylla-outer-frame {
+      margin-top: 68px !important;
+    }
+    body.admin-bar .fylla-outer-frame {
+      margin-top: 32px !important;
+    }
+
     /* ── FYLLA STUDIO OUTER FRAME ── */
     .fylla-outer-frame {
       background: var(--c8-paper-card);
@@ -1429,7 +1438,7 @@ get_header();
         
         <div class="fylla-img-frame">
           <a href="https://www.youtube.com/@cr8vstacks" target="_blank" style="display: block; width: 100%; height: 100%;">
-            <img src="https://cr8vstacks.com/wp-content/uploads/2026/07/cr8v_youtube_mockup.jpg" alt="CR8V Stacks Elementor Tutorial Video Mockup" onerror="this.src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_process_layers.jpg'); ?>"">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_process_layers.jpg'); ?>" alt="CR8V Stacks Elementor Tutorial Video Mockup">
             <div class="fylla-play-overlay">
               <div class="fylla-play-btn">
                 <svg viewBox="0 0 24 24" fill="#FFFFFF" style="width: 24px; height: 24px; margin-left: 3px;"><path d="M8 5v14l11-7z"/></svg>
