@@ -787,11 +787,11 @@ get_header();
             <h2 class="sdv-h2" data-customizer="abt_srv_heading"><?php echo wp_kses_post(cr8v_mod('abt_srv_heading', 'Every Layer.<br>One <em>Studio.</em>')); ?></h2>
 
             <div class="sdv-layer-row">
-              <span class="sdv-layer-pill layer-strategy">Strategy</span>
+              <span class="sdv-layer-pill layer-strategy" data-customizer="abt_srv_pill_1"><?php echo esc_html(cr8v_mod("abt_srv_pill_1", "Strategy")); ?></span>
               <span class="sdv-arrow">&rarr;</span>
-              <span class="sdv-layer-pill layer-build">Design &amp; Build</span>
+              <span class="sdv-layer-pill layer-build" data-customizer="abt_srv_pill_2"><?php echo esc_html(cr8v_mod("abt_srv_pill_2", "Design & Build")); ?></span>
               <span class="sdv-arrow">&rarr;</span>
-              <span class="sdv-layer-pill layer-growth">Growth</span>
+              <span class="sdv-layer-pill layer-growth" data-customizer="abt_srv_pill_3"><?php echo esc_html(cr8v_mod("abt_srv_pill_3", "Growth")); ?></span>
             </div>
           </div>
 
@@ -994,28 +994,28 @@ get_header();
 
           <!-- C1: Process Steps (white card) -->
           <div class="hww-card hww-card-white hww-c1">
-            <div class="hww-clabel hww-clabel-blue">Growth Architecture</div>
-            <div class="hww-ctitle hww-ctitle-ink">Core Pillars.<br>Zero Bloat.</div>
+            <div class="hww-clabel hww-clabel-blue" data-customizer="abt_plr_c1_label"><?php echo esc_html(cr8v_mod("abt_plr_c1_label", "Growth Architecture")); ?></div>
+            <div class="hww-ctitle hww-ctitle-ink" data-customizer="abt_plr_c1_title"><?php echo wp_kses_post(cr8v_mod("abt_plr_c1_title", "Core Pillars.<br>Zero Bloat.")); ?></div>
             <div class="hww-steps">
               <div class="hww-step">
                 <span class="hww-step-n">01</span>
                 <span class="hww-step-dot"></span>
-                <span class="hww-step-lbl">Brand Positioning</span>
+                <span class="hww-step-lbl" data-customizer="abt_plr_c1_p1"><?php echo esc_html(cr8v_mod("abt_plr_c1_p1", "Brand Positioning")); ?></span>
               </div>
               <div class="hww-step">
                 <span class="hww-step-n">02</span>
                 <span class="hww-step-dot" style="opacity:0.65;"></span>
-                <span class="hww-step-lbl">Web Architecture</span>
+                <span class="hww-step-lbl" data-customizer="abt_plr_c1_p2"><?php echo esc_html(cr8v_mod("abt_plr_c1_p2", "Web Architecture")); ?></span>
               </div>
               <div class="hww-step">
                 <span class="hww-step-n">03</span>
                 <span class="hww-step-dot" style="opacity:0.4;"></span>
-                <span class="hww-step-lbl">Digital Marketing</span>
+                <span class="hww-step-lbl" data-customizer="abt_plr_c1_p3"><?php echo esc_html(cr8v_mod("abt_plr_c1_p3", "Digital Marketing")); ?></span>
               </div>
               <div class="hww-step">
                 <span class="hww-step-n">04</span>
                 <span class="hww-step-dot" style="opacity:0.2;"></span>
-                <span class="hww-step-lbl">Entity SEO Dominance</span>
+                <span class="hww-step-lbl" data-customizer="abt_plr_c1_p4"><?php echo esc_html(cr8v_mod("abt_plr_c1_p4", "Entity SEO Dominance")); ?></span>
               </div>
             </div>
           </div>
@@ -1027,17 +1027,15 @@ get_header();
 
           <!-- C3: Sprint Stat (blue card) -->
           <div class="hww-card hww-card-blue hww-c3">
-            <div class="hww-clabel hww-clabel-dim">Speed Benchmark</div>
-            <div class="hww-bnum hww-bnum-white">95+<span style="font-size:0.42em;opacity:0.6;"> PageSpeed</span></div>
-            <p class="hww-stat-sub hww-stat-sub-white">
-              Sub-1.2 second instantaneous loading speeds across mobile and desktop devices.
-            </p>
+            <div class="hww-clabel hww-clabel-dim" data-customizer="abt_plr_c3_label"><?php echo esc_html(cr8v_mod("abt_plr_c3_label", "Speed Benchmark")); ?></div>
+            <div class="hww-bnum hww-bnum-white" data-customizer="abt_plr_c3_num"><?php echo wp_kses_post(cr8v_mod("abt_plr_c3_num", "95+ PageSpeed")); ?></div>
+            <p class="hww-stat-sub hww-stat-sub-white" data-customizer="abt_plr_c3_sub"><?php echo esc_html(cr8v_mod("abt_plr_c3_sub", "Sub-1.2 second instantaneous loading speeds across mobile and desktop devices.")); ?></p>
           </div>
 
           <!-- C4: Tech Stack Tags (dark card) -->
           <div class="hww-card hww-card-dark hww-c4">
-            <div class="hww-clabel hww-clabel-dim">Technology Stack</div>
-            <div class="hww-ctitle hww-ctitle-white">Clean Engineering.<br>Zero Fluff.</div>
+            <div class="hww-clabel hww-clabel-dim" data-customizer="abt_plr_c4_label"><?php echo esc_html(cr8v_mod("abt_plr_c4_label", "Technology Stack")); ?></div>
+            <div class="hww-ctitle hww-ctitle-white" data-customizer="abt_plr_c4_title"><?php echo wp_kses_post(cr8v_mod("abt_plr_c4_title", "Clean Engineering.<br>Zero Fluff.")); ?></div>
             <div class="hww-tags">
               <span class="hww-tag"><img src="https://cdn.simpleicons.org/wordpress/ffffff" alt="">WordPress</span>
               <span class="hww-tag"><img src="https://cdn.simpleicons.org/shopify/ffffff" alt="">Shopify</span>
@@ -1052,35 +1050,33 @@ get_header();
 
           <!-- C5: Ownership Stat (white card) -->
           <div class="hww-card hww-card-white hww-c5">
-            <div class="hww-clabel hww-clabel-muted">Client Ownership</div>
-            <div class="hww-bnum hww-bnum-ink" style="font-size:clamp(1.6rem,3vw,2.4rem);">100%</div>
-            <p class="hww-stat-sub hww-stat-sub-ink">
-              You own all code, repositories, and data. Zero vendor lock-in or recurring monthly code fees.
-            </p>
+            <div class="hww-clabel hww-clabel-muted" data-customizer="abt_plr_c5_label"><?php echo esc_html(cr8v_mod("abt_plr_c5_label", "Client Ownership")); ?></div>
+            <div class="hww-bnum hww-bnum-ink" style="font-size:clamp(1.6rem,3vw,2.4rem);" data-customizer="abt_plr_c5_num"><?php echo esc_html(cr8v_mod("abt_plr_c5_num", "100%")); ?></div>
+            <p class="hww-stat-sub hww-stat-sub-ink" data-customizer="abt_plr_c5_sub"><?php echo esc_html(cr8v_mod("abt_plr_c5_sub", "You own all code, repositories, and data. Zero vendor lock-in or recurring monthly code fees.")); ?></p>
           </div>
 
           <!-- C6: What Ships With Every Project (light card spanning 2 cols) -->
           <div class="hww-card hww-card-light hww-c6" style="position:relative;overflow:hidden;">
             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/c4_tools_bg.jpg'); ?>" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;opacity:0.08;pointer-events:none;">
             <div style="position:relative;z-index:1;">
-              <div class="hww-clabel hww-clabel-blue">What Ships With Every Project</div>
+              <div class="hww-clabel hww-clabel-blue" data-customizer="abt_plr_c6_label"><?php echo esc_html(cr8v_mod("abt_plr_c6_label", "What Ships With Every Project")); ?></div>
               <div class="hww-timeline">
                 <div class="hww-tl-item">
-                  <span class="hww-tl-step">Brand Strategy</span>
-                  <span class="hww-tl-label">Positioning &amp; UX</span>
-                  <span class="hww-tl-desc">High-intent keyword mapping and bespoke wireframes to command immediate trust.</span>
+                  <span class="hww-tl-step" data-customizer="abt_plr_c6_item1_step"><?php echo esc_html(cr8v_mod("abt_plr_c6_item1_step", "Brand Strategy")); ?></span>
+                  <span class="hww-tl-label" data-customizer="abt_plr_c6_item1_lbl"><?php echo esc_html(cr8v_mod("abt_plr_c6_item1_lbl", "Positioning & UX")); ?></span>
+                  <span class="hww-tl-desc" data-customizer="abt_plr_c6_item1_desc"><?php echo esc_html(cr8v_mod("abt_plr_c6_item1_desc", "High-intent keyword mapping and bespoke wireframes to command immediate trust.")); ?></span>
                 </div>
                 <div class="hww-tl-div"></div>
                 <div class="hww-tl-item">
-                  <span class="hww-tl-step">Web Design</span>
-                  <span class="hww-tl-label">Lightweight Code</span>
-                  <span class="hww-tl-desc">Sub-1.2s loading speeds with custom PHP, HTML5, and scoped vanilla CSS.</span>
+                  <span class="hww-tl-step" data-customizer="abt_plr_c6_item2_step"><?php echo esc_html(cr8v_mod("abt_plr_c6_item2_step", "Web Design")); ?></span>
+                  <span class="hww-tl-label" data-customizer="abt_plr_c6_item2_lbl"><?php echo esc_html(cr8v_mod("abt_plr_c6_item2_lbl", "Lightweight Code")); ?></span>
+                  <span class="hww-tl-desc" data-customizer="abt_plr_c6_item2_desc"><?php echo esc_html(cr8v_mod("abt_plr_c6_item2_desc", "Sub-1.2s loading speeds with custom PHP, HTML5, and scoped vanilla CSS.")); ?></span>
                 </div>
                 <div class="hww-tl-div"></div>
                 <div class="hww-tl-item">
-                  <span class="hww-tl-step">Organic SEO</span>
-                  <span class="hww-tl-label">Entity Dominance</span>
-                  <span class="hww-tl-desc">JSON-LD schema hierarchy ensuring total search engine clarity and rank authority.</span>
+                  <span class="hww-tl-step" data-customizer="abt_plr_c6_item3_step"><?php echo esc_html(cr8v_mod("abt_plr_c6_item3_step", "Organic SEO")); ?></span>
+                  <span class="hww-tl-label" data-customizer="abt_plr_c6_item3_lbl"><?php echo esc_html(cr8v_mod("abt_plr_c6_item3_lbl", "Entity Dominance")); ?></span>
+                  <span class="hww-tl-desc" data-customizer="abt_plr_c6_item3_desc"><?php echo esc_html(cr8v_mod("abt_plr_c6_item3_desc", "JSON-LD schema hierarchy ensuring total search engine clarity and rank authority.")); ?></span>
                 </div>
               </div>
             </div>
@@ -1096,7 +1092,7 @@ get_header();
         <div class="tmn-header">
           <div class="tmn-eyebrow" data-customizer="abt_tch_tag"><span class="tmn-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod("abt_tch_tag", "PERFORMANCE & TECH STACK")); ?></div>
           <h2 class="tmn-h2" data-customizer="abt_tch_heading"><?php echo wp_kses_post(cr8v_mod("abt_tch_heading", "BUILT FOR SPEED. <em>ENGINEERED TO DOMINATE.</em>")); ?></h2>
-          <p class="tmn-sub">Explore our core technology stacks and performance benchmarks across WordPress, Shopify, custom software, and AI-accelerated workflows.</p>
+          <p class="tmn-sub" data-customizer="abt_tch_sub"><?php echo esc_html(cr8v_mod("abt_tch_sub", "Explore our core technology stacks and performance benchmarks across WordPress, Shopify, custom software, and AI-accelerated workflows.")); ?></p>
         </div>
 
         <div class="tmn-wrapper-card">
@@ -1129,7 +1125,7 @@ get_header();
             <!-- Pane 1: WordPress -->
             <div class="tmn-pane is-active" id="tmn-pane-1">
               <div>
-                <h3 class="tmn-pane-h3">WORDPRESS CUSTOM ENGINE</h3>
+                <h3 class="tmn-pane-h3" data-customizer="abt_tch1_title"><?php echo esc_html(cr8v_mod("abt_tch1_title", "WORDPRESS CUSTOM ENGINE")); ?></h3>
                 <p class="tmn-pane-p">We architect custom WordPress themes and Elementor-safe code systems that bypass typical builder bloat. Hand-written PHP templates, optimized asset loading, and clean database queries ensure sub-1.2s page loads.</p>
               </div>
               <div class="tmn-metrics-row">
@@ -1151,7 +1147,7 @@ get_header();
             <!-- Pane 2: Shopify -->
             <div class="tmn-pane" id="tmn-pane-2">
               <div>
-                <h3 class="tmn-pane-h3">SHOPIFY LIQUID STOREFRONTS</h3>
+                <h3 class="tmn-pane-h3" data-customizer="abt_tch2_title"><?php echo esc_html(cr8v_mod("abt_tch2_title", "SHOPIFY LIQUID STOREFRONTS")); ?></h3>
                 <p class="tmn-pane-p">Bespoke Liquid storefronts designed to maximize mobile checkout speed, product discovery, and store conversion velocity — giving your e-commerce brand a distinct competitive edge.</p>
               </div>
               <div class="tmn-metrics-row">
@@ -1173,7 +1169,7 @@ get_header();
             <!-- Pane 3: Custom Dev -->
             <div class="tmn-pane" id="tmn-pane-3">
               <div>
-                <h3 class="tmn-pane-h3">BESPOKE SOFTWARE &amp; WEB APPLICATIONS</h3>
+                <h3 class="tmn-pane-h3" data-customizer="abt_tch3_title"><?php echo esc_html(cr8v_mod("abt_tch3_title", "BESPOKE SOFTWARE & WEB APPLICATIONS")); ?></h3>
                 <p class="tmn-pane-p">Tailored software engineering beyond conventional websites — including web applications, custom APIs, internal dashboards, and complex business logic built specifically around your operating workflow.</p>
               </div>
               <div class="tmn-metrics-row">
@@ -1195,7 +1191,7 @@ get_header();
             <!-- Pane 4: AI Workflows -->
             <div class="tmn-pane" id="tmn-pane-4">
               <div>
-                <h3 class="tmn-pane-h3">HUMAN-LED, AI-ACCELERATED WORKFLOWS</h3>
+                <h3 class="tmn-pane-h3" data-customizer="abt_tch4_title"><?php echo esc_html(cr8v_mod("abt_tch4_title", "HUMAN-LED, AI-ACCELERATED WORKFLOWS")); ?></h3>
                 <p class="tmn-pane-p">AI makes us faster, but human engineering and strategy drive every decision. We leverage AI pipelines to accelerate research, prototyping, and development while keeping software quality uncompromisingly high.</p>
               </div>
               <div class="tmn-metrics-row">
@@ -1223,36 +1219,34 @@ get_header();
     <section class="c8-about-section" id="about-cr8v-stacks">
       <div class="c8-about-inner">
         <div class="c8-about-header">
-          <span class="fylla-meta-tag" style="color: #7C93FF;">ABOUT CR8V STACKS</span>
-          <h2 class="c8-about-h2">One team.<br><em>Every layer.</em></h2>
-          <p class="c8-about-desc">
-            Strategy, design, and code — handled by the same developer-led team from first discovery call to launch. We don't hand off project briefs to isolated departments who have never spoken to each other.
-          </p>
+          <span class="fylla-meta-tag" style="color: #7C93FF;" data-customizer="abt_ag_tag"><?php echo esc_html(cr8v_mod("abt_ag_tag", "ABOUT CR8V STACKS")); ?></span>
+          <h2 class="c8-about-h2" data-customizer="abt_ag_heading"><?php echo wp_kses_post(cr8v_mod("abt_ag_heading", "One team.<br><em>Every layer.</em>")); ?></h2>
+          <p class="c8-about-desc" data-customizer="abt_ag_desc"><?php echo esc_html(cr8v_mod("abt_ag_desc", "Strategy, design, and code — handled by the same developer-led team from first discovery call to launch. We don't hand off project briefs to isolated departments who have never spoken to each other.")); ?></p>
         </div>
 
         <div class="c8-about-mockup-grid">
           <div class="c8-about-card">
             <div>
-              <span class="c8-about-card-num">01 / STRATEGY</span>
-              <h3 class="c8-about-card-h3">DEVELOPER-LED STRATEGY</h3>
+              <span class="c8-about-card-num" data-customizer="abt_ag_card1_num"><?php echo esc_html(cr8v_mod("abt_ag_card1_num", "01 / STRATEGY")); ?></span>
+              <h3 class="c8-about-card-h3" data-customizer="abt_ag_card1_h3"><?php echo esc_html(cr8v_mod("abt_ag_card1_h3", "DEVELOPER-LED STRATEGY")); ?></h3>
             </div>
-            <p class="c8-about-card-p">Every engagement begins with real technical and positioning analysis. We scope transparently with fixed pricing, then we execute.</p>
+            <p class="c8-about-card-p" data-customizer="abt_ag_card1_p"><?php echo esc_html(cr8v_mod("abt_ag_card1_p", "Every engagement begins with real technical and positioning analysis. We scope transparently with fixed pricing, then we execute.")); ?></p>
           </div>
 
           <div class="c8-about-card is-blue-outline">
             <div>
-              <span class="c8-about-card-num">02 / WORKFLOW</span>
-              <h3 class="c8-about-card-h3">DESIGN &amp; BUILD TOGETHER</h3>
+              <span class="c8-about-card-num" data-customizer="abt_ag_card2_num"><?php echo esc_html(cr8v_mod("abt_ag_card2_num", "02 / WORKFLOW")); ?></span>
+              <h3 class="c8-about-card-h3" data-customizer="abt_ag_card2_h3"><?php echo esc_html(cr8v_mod("abt_ag_card2_h3", "DESIGN & BUILD TOGETHER")); ?></h3>
             </div>
-            <p class="c8-about-card-p">Visual UI design and frontend code performance run simultaneously. Less revision back-and-forth, maximum precision in code.</p>
+            <p class="c8-about-card-p" data-customizer="abt_ag_card2_p"><?php echo esc_html(cr8v_mod("abt_ag_card2_p", "Visual UI design and frontend code performance run simultaneously. Less revision back-and-forth, maximum precision in code.")); ?></p>
           </div>
 
           <div class="c8-about-card">
             <div>
-              <span class="c8-about-card-num">03 / FREEDOM</span>
-              <h3 class="c8-about-card-h3">COMPLETE CLIENT OWNERSHIP</h3>
+              <span class="c8-about-card-num" data-customizer="abt_ag_card3_num"><?php echo esc_html(cr8v_mod("abt_ag_card3_num", "03 / FREEDOM")); ?></span>
+              <h3 class="c8-about-card-h3" data-customizer="abt_ag_card3_h3"><?php echo esc_html(cr8v_mod("abt_ag_card3_h3", "COMPLETE CLIENT OWNERSHIP")); ?></h3>
             </div>
-            <p class="c8-about-card-p">Codebase, domain, and data repositories are 100% yours from day one. No lock-in fees or dependencies to keep your site running.</p>
+            <p class="c8-about-card-p" data-customizer="abt_ag_card3_p"><?php echo esc_html(cr8v_mod("abt_ag_card3_p", "Codebase, domain, and data repositories are 100% yours from day one. No lock-in fees or dependencies to keep your site running.")); ?></p>
           </div>
         </div>
       </div>
@@ -1260,9 +1254,9 @@ get_header();
 
     <!-- ── 8. WHO WE BUILD FOR (PREMIUM FIT / NOT FIT MATRIX) ── -->
     <section class="fylla-fit-section" id="who-we-build-for">
-      <span class="fylla-meta-tag">WHO WE BUILD FOR</span>
-      <h2 class="fylla-values-h2">WE'RE NOT A FIT FOR EVERYONE</h2>
-      <p class="fylla-values-p" style="max-width: 680px">That's on purpose. Here's how to tell if your brand is ready for custom engineering.</p>
+      <span class="fylla-meta-tag" data-customizer="abt_fit_tag"><?php echo esc_html(cr8v_mod("abt_fit_tag", "WHO WE BUILD FOR")); ?></span>
+      <h2 class="fylla-values-h2" data-customizer="abt_fit_heading"><?php echo esc_html(cr8v_mod("abt_fit_heading", "WE'RE NOT A FIT FOR EVERYONE")); ?></h2>
+      <p class="fylla-values-p" style="max-width: 680px" data-customizer="abt_fit_sub"><?php echo esc_html(cr8v_mod("abt_fit_sub", "That's on purpose. Here's how to tell if your brand is ready for custom engineering.")); ?></p>
 
       <div class="fylla-fit-grid">
         <div class="fylla-fit-card is-yes">
@@ -1325,16 +1319,16 @@ get_header();
 
       <div class="fylla-lead-right">
         <span class="fylla-meta-tag">LEADERSHIP</span>
-        <h2 class="fylla-values-h2">FOUNDER &amp; DEV-LED CULTURE</h2>
-        <p class="fylla-values-p" style="font-weight: 500; color: var(--c8-ink);">Bridging the gap between creative visual architecture and clean, lightweight code.</p>
+        <h2 class="fylla-values-h2" data-customizer="abt_fnd_heading"><?php echo esc_html(cr8v_mod("abt_fnd_heading", "FOUNDER & DEV-LED CULTURE")); ?></h2>
+        <p class="fylla-values-p" style="font-weight: 500; color: var(--c8-ink);" data-customizer="abt_fnd_sub"><?php echo esc_html(cr8v_mod("abt_fnd_sub", "Bridging the gap between creative visual architecture and clean, lightweight code.")); ?></p>
         <p class="fylla-values-p">Founded by <strong>Mallami Adekunle</strong>, a digital architect and strategist, CR8V Stacks was established to combat the slow, template-stuffed sites typical of corporate digital agencies. Observing how heavy WordPress configurations and generic page templates cost companies traffic and conversions, Mallami assembled a team of developer-first designers.</p>
         <p class="fylla-values-p">At CR8V Stacks, our designers are trained in performance optimization, and our developers are trained in conversion-focused UI/UX — so we never sacrifice speed for looks.</p>
 
         <!-- SECURE PASS CARD UI -->
         <div class="c8abt-founder-pass c8abt-reveal is-visible">
           <div class="c8abt-pass-header">
-            <span class="c8abt-pass-title">CR8V STACKS // SECURE PASS</span>
-            <span class="c8abt-pass-meta">ID: 080-MA</span>
+            <span class="c8abt-pass-title" data-customizer="abt_fnd_pass_header"><?php echo esc_html(cr8v_mod("abt_fnd_pass_header", "CR8V STACKS // SECURE PASS")); ?></span>
+            <span class="c8abt-pass-meta" data-customizer="abt_fnd_pass_meta"><?php echo esc_html(cr8v_mod("abt_fnd_pass_meta", "ID: 080-MA")); ?></span>
           </div>
           <div class="c8abt-pass-body">
             <div class="c8abt-pass-row">
@@ -1352,7 +1346,7 @@ get_header();
           </div>
           <div class="c8abt-pass-barcode-wrap">
             <div class="c8abt-pass-barcode"></div>
-            <div class="c8abt-pass-stamp">M.A.</div>
+            <div class="c8abt-pass-stamp" data-customizer="abt_fnd_pass_stamp"><?php echo esc_html(cr8v_mod("abt_fnd_pass_stamp", "M.A.")); ?></div>
           </div>
         </div>
       </div>
