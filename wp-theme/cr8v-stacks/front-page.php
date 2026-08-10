@@ -1012,7 +1012,7 @@ defined('ABSPATH') || exit;
         <div class="sdv-item is-open" id="sdv-web-design">
           <button class="sdv-item-trigger" aria-expanded="true" data-sdv-toggle="sdv-web-design">
             <span class="sdv-item-num">01</span>
-            <?php echo esc_html(cr8v_mod("sdv_1_title", "Website Design")); ?>
+            <span class="sdv-item-title" data-customizer="sdv_1_title"><?php echo esc_html(cr8v_mod("sdv_1_title", "Website Design")); ?></span>
             <span class="sdv-item-tag tag-build">Build Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_duch_apartments.jpg" alt="Website Design Preview">
@@ -1025,7 +1025,7 @@ defined('ABSPATH') || exit;
             <div class="sdv-panel-inner">
               <div class="sdv-panel-content">
                 <div class="sdv-panel-spacer"></div>
-                <div class="sdv-panel-desc" data-customizer="sdv_1_"><?php echo esc_html(cr8v_mod("sdv_1_desc", "High-converting digital experiences engineered for speed, search authority, and seamless user conversions. We design across every platform your business runs on — once the Figma design is approved, it gets handed to whichever build stack fits: WordPress, Shopify, WooCommerce, or fully custom code.")); ?></div>
+                <div class="sdv-panel-desc" data-customizer="sdv_1_desc"><?php echo esc_html(cr8v_mod("sdv_1_desc", "High-converting digital experiences engineered for speed, search authority, and seamless user conversions. We design across every platform your business runs on — once the Figma design is approved, it gets handed to whichever build stack fits: WordPress, Shopify, WooCommerce, or fully custom code.")); ?></div>
                 <div class="sdv-panel-right">
                   <div class="sdv-deliverable-row" data-customizer="sdv_1_deliv_1"><?php echo esc_html(cr8v_mod("sdv_1_deliv_1", "Custom Figma UI Architecture")); ?></div>
                   <div class="sdv-deliverable-row">WordPress Builds &amp; Elementor Systems</div>
@@ -1050,7 +1050,7 @@ defined('ABSPATH') || exit;
         <div class="sdv-item" id="sdv-custom-dev">
           <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-custom-dev">
             <span class="sdv-item-num">02</span>
-            <?php echo esc_html(cr8v_mod("sdv_2_title", "Custom Development")); ?>
+            <span class="sdv-item-title" data-customizer="sdv_2_title"><?php echo esc_html(cr8v_mod("sdv_2_title", "Custom Development")); ?></span>
             <span class="sdv-item-tag tag-build">Build Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_bridgepoint.jpg" alt="Custom Dev Preview">
@@ -1063,7 +1063,7 @@ defined('ABSPATH') || exit;
             <div class="sdv-panel-inner">
               <div class="sdv-panel-content">
                 <div class="sdv-panel-spacer"></div>
-                <div class="sdv-panel-desc"><?php echo esc_html(cr8v_mod("sdv_2_desc", "Tailored software architectures built from a blank file, engineered around your exact workflow. No templates, no SaaS dependencies, no monthly tool fees eating into your margin. When nothing off-the-shelf fits what you're building — this is where it starts.")); ?></div>
+                <div class="sdv-panel-desc" data-customizer="sdv_2_desc"><?php echo esc_html(cr8v_mod("sdv_2_desc", "Tailored software architectures built from a blank file, engineered around your exact workflow. No templates, no SaaS dependencies, no monthly tool fees eating into your margin. When nothing off-the-shelf fits what you're building — this is where it starts.")); ?></div>
                 <div class="sdv-panel-right">
                   <div class="sdv-deliverable-row" data-customizer="sdv_2_deliv_1"><?php echo esc_html(cr8v_mod("sdv_2_deliv_1", "Bespoke Web Applications")); ?></div>
                   <div class="sdv-deliverable-row">Custom APIs &amp; Third-Party Integrations</div>
@@ -1088,7 +1088,7 @@ defined('ABSPATH') || exit;
         <div class="sdv-item" id="sdv-ai-mvp">
           <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-ai-mvp">
             <span class="sdv-item-num">03</span>
-            <?php echo esc_html(cr8v_mod("sdv_3_title", "AI MVP Products")); ?>
+            <span class="sdv-item-title" data-customizer="sdv_3_title"><?php echo esc_html(cr8v_mod("sdv_3_title", "AI MVP Products")); ?></span>
             <span class="sdv-item-tag tag-build">Build Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>dev_mascot.jpg" alt="AI MVP Preview" style="object-position: center top;">
@@ -1101,7 +1101,7 @@ defined('ABSPATH') || exit;
             <div class="sdv-panel-inner">
               <div class="sdv-panel-content">
                 <div class="sdv-panel-spacer"></div>
-                <div class="sdv-panel-desc"><?php echo esc_html(cr8v_mod("sdv_3_desc", "Production-ready AI applications built to validate core business ideas with real users — not slide decks. We build AI-integrated products fast enough to get genuine market signal before you over-invest. When the idea validates, it hands directly into a full Custom Dev engagement.")); ?></div>
+                <div class="sdv-panel-desc" data-customizer="sdv_3_desc"><?php echo esc_html(cr8v_mod("sdv_3_desc", "Production-ready AI applications built to validate core business ideas with real users — not slide decks. We build AI-integrated products fast enough to get genuine market signal before you over-invest. When the idea validates, it hands directly into a full Custom Dev engagement.")); ?></div>
                 <div class="sdv-panel-right">
                   <div class="sdv-deliverable-row" data-customizer="sdv_3_deliv_1"><?php echo esc_html(cr8v_mod("sdv_3_deliv_1", "LLM-Integrated Web Applications")); ?></div>
                   <div class="sdv-deliverable-row" data-customizer="sdv_3_deliv_2"><?php echo esc_html(cr8v_mod("sdv_3_deliv_2", "AI-Powered Internal Tools")); ?></div>
@@ -1126,7 +1126,7 @@ defined('ABSPATH') || exit;
         <div class="sdv-item" id="sdv-brand-strategy">
           <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-brand-strategy">
             <span class="sdv-item-num">04</span>
-            <?php echo esc_html(cr8v_mod("sdv_4_title", "Brand Strategy")); ?>
+            <span class="sdv-item-title" data-customizer="sdv_4_title"><?php echo esc_html(cr8v_mod("sdv_4_title", "Brand Strategy")); ?></span>
             <span class="sdv-item-tag tag-growth">Growth Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_victorias_lane.jpg" alt="Brand Strategy Preview">
@@ -1161,7 +1161,7 @@ defined('ABSPATH') || exit;
         <div class="sdv-item" id="sdv-seo">
           <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-seo">
             <span class="sdv-item-num">05</span>
-            <?php echo esc_html(cr8v_mod("sdv_5_title", "SEO & Content")); ?>
+            <span class="sdv-item-title" data-customizer="sdv_5_title"><?php echo esc_html(cr8v_mod("sdv_5_title", "SEO & Content")); ?></span>
             <span class="sdv-item-tag tag-growth">Growth Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_blvck_hair.jpg" alt="SEO & Content Preview">
@@ -1196,7 +1196,7 @@ defined('ABSPATH') || exit;
         <div class="sdv-item" id="sdv-digital-marketing">
           <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-digital-marketing">
             <span class="sdv-item-num">06</span>
-            <?php echo esc_html(cr8v_mod("sdv_6_title", "Digital Marketing")); ?>
+            <span class="sdv-item-title" data-customizer="sdv_6_title"><?php echo esc_html(cr8v_mod("sdv_6_title", "Digital Marketing")); ?></span>
             <span class="sdv-item-tag tag-growth">Growth Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_mkenny_properties.jpg" alt="Digital Marketing Preview">
