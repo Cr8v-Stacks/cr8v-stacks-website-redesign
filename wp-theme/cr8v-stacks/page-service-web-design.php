@@ -993,8 +993,8 @@ get_header();
     if (flankContainer && flankCards.length) {
       var rect = flankContainer.getBoundingClientRect();
       var viewportH = window.innerHeight;
-      var start = viewportH * 1.1;
-      var end = viewportH * 0.25;
+      var start = viewportH;
+      var end = viewportH * 0.15;
       
       var p = 0;
       if (rect.top < start) {
@@ -1004,22 +1004,23 @@ get_header();
       }
 
       flankCards.forEach(function (card, i) {
-        var localT = Math.min(1, Math.max(0, p * 1.4 - i * 0.1));
+        var localT = Math.min(1, Math.max(0, p * 1.5 - i * 0.16));
         var isMobile = window.innerWidth < 901;
         if (isMobile) {
-          var ty = 35 * (1 - localT);
-          var spread = (i === 0 ? -20 : i === 1 ? 0 : 20) * (1 - localT);
-          var rotM = (i === 0 ? -3 : i === 2 ? 3 : 0) * (1 - localT);
-          var scale = 0.96 + 0.04 * localT;
+          var ty = 55 * (1 - localT);
+          var spread = (i === 0 ? -35 : i === 1 ? 0 : 35) * (1 - localT);
+          var rotM = (i === 0 ? -4 : i === 2 ? 4 : 0) * (1 - localT);
+          var scale = 0.94 + 0.06 * localT;
           card.style.transform = 'translate3d(' + spread + 'px, ' + ty + 'px, 0) scale(' + scale + ') rotate(' + rotM + 'deg)';
         } else {
-          var startRotate = i === 0 ? 0 : (i % 2 === 0 ? -4 : 4);
+          var startX = -100 * i;
+          var startRotate = i === 0 ? 0 : (i % 2 === 0 ? -7 : 7);
+          var x = startX * (1 - localT);
           var rot = startRotate * (1 - localT);
-          var ty = 20 * (1 - localT);
-          var scale = 0.95 + 0.05 * localT;
-          card.style.transform = 'translate3d(0, ' + ty + 'px, 0) rotate(' + rot + 'deg) scale(' + scale + ')';
+          var scale = 0.92 + 0.08 * localT;
+          card.style.transform = 'translateX(' + x + '%) rotate(' + rot + 'deg) scale(' + scale + ')';
         }
-        card.style.opacity = String(0.7 + 0.3 * localT);
+        card.style.opacity = String(0.35 + 0.65 * localT);
       });
     }
 
@@ -1227,5 +1228,6 @@ get_header();
   });
 })();
 </script>
+<script src="<?php echo esc_url(get_template_directory_uri() . '/assets/js/shared-folder-stack.js'); ?>"></script>
 
 <?php get_footer(); ?>
