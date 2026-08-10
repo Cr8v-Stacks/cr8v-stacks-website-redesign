@@ -588,11 +588,11 @@ get_header();
     <!-- ── 1. FYLLA STUDIO HERO SECTION ── -->
     <header class="fylla-hero-section">
       <span class="fylla-meta-tag" data-customizer="abt_hero_tag"><?php echo esc_html(cr8v_mod("abt_hero_tag", "AGENCY PROFILE")); ?></span>
-      <h1 class="fylla-hero-h1">
+      <h1 class="fylla-hero-h1" data-customizer="abt_hero_headline">
         <?php echo wp_kses_post(cr8v_mod("abt_hero_headline", "WE DEFY <span class='c8abt-serif-italic'>templates.</span><br>WE CODE <span class='c8abt-highlight-text'>CONVERSIONS.</span>")); ?>
       </h1>
       
-      <p class="fylla-hero-p">We are an engineering-first digital agency built for ambitious brands. We don't just assemble websites; we architect custom digital environments, brand systems, and organic search acquisition models designed to turn attention into measurable revenue.</p>
+      <p class="fylla-hero-p" data-customizer="abt_hero_p">We are an engineering-first digital agency built for ambitious brands. We don't just assemble websites; we architect custom digital environments, brand systems, and organic search acquisition models designed to turn attention into measurable revenue.</p>
 
       <div class="fylla-pill-row">
         <span class="fylla-pill">Custom PHP</span>
@@ -604,8 +604,8 @@ get_header();
       </div>
 
       <div class="fylla-hero-img-box">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg'); ?>" alt="Cr8v Stacks Studio Workspace" class="fylla-hero-img">
-        <div class="fylla-hud-tag">// SYSTEM_ACTIVE</div>
+        <img src="<?php echo esc_url(cr8v_mod('abt_hero_img', get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg')); ?>" alt="Cr8v Stacks Studio Workspace" class="fylla-hero-img" data-customizer="abt_hero_img">
+        <div class="fylla-hud-tag" data-customizer="abt_hero_hud">// SYSTEM_ACTIVE</div>
       </div>
     </header>
 
@@ -613,10 +613,10 @@ get_header();
     <section class="fylla-values-section">
       <div class="fylla-values-left">
         <div>
-          <span class="fylla-meta-tag">WHAT YOU SHOULD KNOW</span>
-          <h2 class="fylla-values-h2">OUR PHILOSOPHY</h2>
+          <span class="fylla-meta-tag" data-customizer="abt_phi_tag">WHAT YOU SHOULD KNOW</span>
+          <h2 class="fylla-values-h2" data-customizer="abt_phi_heading">OUR PHILOSOPHY</h2>
           
-          <p class="fylla-values-p">We bridge the gap between creative visual branding and lightweight, custom-coded web architectures.</p>
+          <p class="fylla-values-p" data-customizer="abt_phi_p1"><?php echo esc_html(cr8v_mod("abt_phi_p1", "We bridge the gap between creative visual branding and lightweight, custom-coded web architectures.")); ?></p>
           <p class="fylla-values-p">At <strong>CR8V Stacks</strong>, founded by <strong>Mallami Adekunle</strong>, we approach web development and branding from a performance-first perspective. We don't believe in generic page builders and bloated themes that drag down loading speed and make businesses look identical.</p>
           <p class="fylla-values-p">By keeping our technology stack lightweight and prioritizing custom layouts, we eliminate design bloat and give our clients the technical edge in speed, search ranking, and user experience.</p>
         </div>
@@ -1409,7 +1409,7 @@ get_header();
           </div>
           <div class="c8abt-pass-body">
             <div class="c8abt-pass-row">
-              <span class="c8abt-pass-label">Holder Name</span>
+              <span class="c8abt-pass-label" data-customizer="abt_fnd_tag">Holder Name</span>
               <span class="c8abt-pass-value">Mallami Adekunle</span>
             </div>
             <div class="c8abt-pass-row">
@@ -1438,7 +1438,7 @@ get_header();
         
         <div class="fylla-img-frame">
           <a href="https://www.youtube.com/@cr8vstacks" target="_blank" style="display: block; width: 100%; height: 100%;">
-            <img src="<?php echo esc_url(cr8v_mod('abt_edu_img1', get_template_directory_uri() . '/assets/img/hww_process_layers.jpg')); ?>" alt="CR8V Stacks Elementor Tutorial Video Mockup" data-customizer="abt_edu_img1">
+            <img src="<?php echo esc_url(cr8v_mod('abt_edu_img1', get_template_directory_uri() . '/assets/img/cr8v_youtube_mockup.png')); ?>" alt="CR8V Stacks Elementor Tutorial Video Mockup" data-customizer="abt_edu_img1">
             <div class="fylla-play-overlay">
               <div class="fylla-play-btn">
                 <svg viewBox="0 0 24 24" fill="#FFFFFF" style="width: 24px; height: 24px; margin-left: 3px;"><path d="M8 5v14l11-7z"/></svg>
@@ -1463,12 +1463,12 @@ get_header();
     <section class="fylla-cta-section">
       <div class="cta-col-left">
         <span class="fylla-meta-tag">CONTACT</span>
-        <h2 class="cta-h2">LET'S BRING YOUR BRAND TO THE NEXT LEVEL</h2>
+        <h2 class="cta-h2" data-customizer="abt_cta_heading">LET'S BRING YOUR BRAND TO THE NEXT LEVEL</h2>
       </div>
 
       <div class="cta-col-right">
-        <p class="cta-p">Together, let's elevate your brand to new heights by unleashing its full potential and captivating your target audience with custom zero-plugin architecture.</p>
-        <a href="discovery-call.html" class="c8-btn-primary is-dark">Book A Discovery Call</a>
+        <p class="cta-p" data-customizer="abt_cta_sub">Together, let's elevate your brand to new heights by unleashing its full potential and captivating your target audience with custom zero-plugin architecture.</p>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('abt_cta_btn_url', '/discovery-call/'))); ?>" class="c8-btn-primary is-dark" data-customizer="abt_cta_btn_text"><?php echo esc_html(cr8v_mod('abt_cta_btn_text', 'Book A Discovery Call')); ?></a>
       </div>
     </section>
 
