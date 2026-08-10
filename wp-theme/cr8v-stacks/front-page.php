@@ -279,7 +279,7 @@ defined('ABSPATH') || exit;
             <p class="sw-testimonial-quote" data-customizer="cs1_quote"><?php echo esc_html(cr8v_mod('cs1_quote', 'We handled their SEO end-to-end — keyword mapping, page architecture, and content — from the ground up. We built out the strategy for two markets simultaneously, and both storefronts are now ranking and converting independently.')); ?></p>
             <div class="sw-testimonial-meta">
               <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(149,191,71,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(149,191,71,0.3);">
-                <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" style="width:20px;height:20px;">
+                <img src="<?php echo esc_url(cr8v_mod("tmn_1_logo", "https://cdn.simpleicons.org/shopify/95BF47")); ?>" alt="Shopify" style="width:20px;height:20px;">
               </div>
               <div>
                 <div class="sw-testimonial-role" data-customizer="cs1_role"><?php echo esc_html(cr8v_mod('cs1_role', 'SEO & E-Commerce · Nigeria & UK')); ?></div>
@@ -331,7 +331,7 @@ defined('ABSPATH') || exit;
             <p class="sw-testimonial-quote" data-customizer="cs2_quote"><?php echo esc_html(cr8v_mod('cs2_quote', 'We designed and built the full site — custom layout, zero template base — with SEO architecture already coded in before a single page went live. Direct booking integration was included from the first sprint, maximising their direct revenue channel from day one.')); ?></p>
             <div class="sw-testimonial-meta">
               <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(33,117,155,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(33,117,155,0.3);">
-                <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress" style="width:20px;height:20px;">
+                <img src="<?php echo esc_url(cr8v_mod("tmn_4_logo", "https://cdn.simpleicons.org/wordpress/21759B")); ?>" alt="WordPress" style="width:20px;height:20px;">
               </div>
               <div>
                 <div class="sw-testimonial-role" data-customizer="cs2_role"><?php echo esc_html(cr8v_mod('cs2_role', 'Web Design & Technical SEO · Lagos, Nigeria')); ?></div>
@@ -1027,11 +1027,11 @@ defined('ABSPATH') || exit;
                 <div class="sdv-panel-spacer"></div>
                 <div class="sdv-panel-desc" data-customizer="sdv_1_"><?php echo esc_html(cr8v_mod("sdv_1_desc", "High-converting digital experiences engineered for speed, search authority, and seamless user conversions. We design across every platform your business runs on — once the Figma design is approved, it gets handed to whichever build stack fits: WordPress, Shopify, WooCommerce, or fully custom code.")); ?></div>
                 <div class="sdv-panel-right">
-                  <div class="sdv-deliverable-row">Custom Figma UI Architecture</div>
+                  <div class="sdv-deliverable-row" data-customizer="sdv_1_deliv_1"><?php echo esc_html(cr8v_mod("sdv_1_deliv_1", "Custom Figma UI Architecture")); ?></div>
                   <div class="sdv-deliverable-row">WordPress Builds &amp; Elementor Systems</div>
-                  <div class="sdv-deliverable-row">Shopify Liquid Storefronts</div>
-                  <div class="sdv-deliverable-row">WooCommerce Custom Stores</div>
-                  <div class="sdv-deliverable-row">Built-in SEO from Line One</div>
+                  <div class="sdv-deliverable-row" data-customizer="sdv_1_deliv_3"><?php echo esc_html(cr8v_mod("sdv_1_deliv_3", "Shopify Liquid Storefronts")); ?></div>
+                  <div class="sdv-deliverable-row" data-customizer="sdv_1_deliv_4"><?php echo esc_html(cr8v_mod("sdv_1_deliv_4", "WooCommerce Custom Stores")); ?></div>
+                  <div class="sdv-deliverable-row" data-customizer="sdv_1_deliv_5"><?php echo esc_html(cr8v_mod("sdv_1_deliv_5", "Built-in SEO from Line One")); ?></div>
                   <a href="<?php echo esc_url(home_url(cr8v_mod("sdv_1_cta_url", "/services/web-design/"))); ?>" class="sdv-panel-cta" data-customizer="sdv_1_cta_text"><?php echo esc_html(cr8v_mod("sdv_1_cta_text", "Explore Web Design")); ?>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
@@ -1065,11 +1065,11 @@ defined('ABSPATH') || exit;
                 <div class="sdv-panel-spacer"></div>
                 <div class="sdv-panel-desc"><?php echo esc_html(cr8v_mod("sdv_2_desc", "Tailored software architectures built from a blank file, engineered around your exact workflow. No templates, no SaaS dependencies, no monthly tool fees eating into your margin. When nothing off-the-shelf fits what you're building — this is where it starts.")); ?></div>
                 <div class="sdv-panel-right">
-                  <div class="sdv-deliverable-row">Bespoke Web Applications</div>
+                  <div class="sdv-deliverable-row" data-customizer="sdv_2_deliv_1"><?php echo esc_html(cr8v_mod("sdv_2_deliv_1", "Bespoke Web Applications")); ?></div>
                   <div class="sdv-deliverable-row">Custom APIs &amp; Third-Party Integrations</div>
                   <div class="sdv-deliverable-row">Internal Business Tools &amp; Dashboards</div>
-                  <div class="sdv-deliverable-row">100% Client-Owned Codebase</div>
-                  <div class="sdv-deliverable-row">0 Third-Party SaaS Dependencies</div>
+                  <div class="sdv-deliverable-row" data-customizer="sdv_2_deliv_4"><?php echo esc_html(cr8v_mod("sdv_2_deliv_4", "100% Client-Owned Codebase")); ?></div>
+                  <div class="sdv-deliverable-row" data-customizer="sdv_2_deliv_5"><?php echo esc_html(cr8v_mod("sdv_2_deliv_5", "0 Third-Party SaaS Dependencies")); ?></div>
                   <a href="<?php echo esc_url(home_url(cr8v_mod("sdv_2_cta_url", "/services/custom-dev/"))); ?>" class="sdv-panel-cta"><?php echo esc_html(cr8v_mod("sdv_2_cta_text", "Explore Custom Dev")); ?>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
@@ -1103,10 +1103,10 @@ defined('ABSPATH') || exit;
                 <div class="sdv-panel-spacer"></div>
                 <div class="sdv-panel-desc"><?php echo esc_html(cr8v_mod("sdv_3_desc", "Production-ready AI applications built to validate core business ideas with real users — not slide decks. We build AI-integrated products fast enough to get genuine market signal before you over-invest. When the idea validates, it hands directly into a full Custom Dev engagement.")); ?></div>
                 <div class="sdv-panel-right">
-                  <div class="sdv-deliverable-row">LLM-Integrated Web Applications</div>
-                  <div class="sdv-deliverable-row">AI-Powered Internal Tools</div>
+                  <div class="sdv-deliverable-row" data-customizer="sdv_3_deliv_1"><?php echo esc_html(cr8v_mod("sdv_3_deliv_1", "LLM-Integrated Web Applications")); ?></div>
+                  <div class="sdv-deliverable-row" data-customizer="sdv_3_deliv_2"><?php echo esc_html(cr8v_mod("sdv_3_deliv_2", "AI-Powered Internal Tools")); ?></div>
                   <div class="sdv-deliverable-row">Rapid Prototyping &amp; Market Validation</div>
-                  <div class="sdv-deliverable-row">Custom Model Pipelines</div>
+                  <div class="sdv-deliverable-row" data-customizer="sdv_3_deliv_4"><?php echo esc_html(cr8v_mod("sdv_3_deliv_4", "Custom Model Pipelines")); ?></div>
                   <div class="sdv-deliverable-row">Fully Functional &mdash; Not a Demo</div>
                   <a href="<?php echo esc_url(home_url(cr8v_mod("sdv_3_cta_url", "/services/ai-mvp/"))); ?>" class="sdv-panel-cta"><?php echo esc_html(cr8v_mod("sdv_3_cta_text", "Explore AI MVP")); ?>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -1146,8 +1146,8 @@ defined('ABSPATH') || exit;
                   <div class="sdv-deliverable-row">Market Positioning &amp; Competitor Mapping</div>
                   <div class="sdv-deliverable-row">Messaging Frameworks &amp; Brand Voice</div>
                   <div class="sdv-deliverable-row">Pricing Scoping &amp; Value Proposition</div>
-                  <div class="sdv-deliverable-row">Customer Profile Architecture</div>
-                  <div class="sdv-deliverable-row">Brand Identity Design (optional next step)</div>
+                  <div class="sdv-deliverable-row" data-customizer="sdv_4_deliv_4"><?php echo esc_html(cr8v_mod("sdv_4_deliv_4", "Customer Profile Architecture")); ?></div>
+                  <div class="sdv-deliverable-row" data-customizer="sdv_4_deliv_5"><?php echo esc_html(cr8v_mod("sdv_4_deliv_5", "Brand Identity Design (optional next step)")); ?></div>
                   <a href="<?php echo esc_url(home_url(cr8v_mod("sdv_4_cta_url", "/services/brand-strategy/"))); ?>" class="sdv-panel-cta"><?php echo esc_html(cr8v_mod("sdv_4_cta_text", "Explore Brand Strategy")); ?>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
@@ -1178,8 +1178,8 @@ defined('ABSPATH') || exit;
                   <strong>Technical search work and content architecture</strong> that gets the site found. We fold SEO into every build from line one — but for sites that already exist, we audit, fix, and build the content layer that compounds over time. Paid acquisition works better once your organic foundation is solid.
                 </div>
                 <div class="sdv-panel-right">
-                  <div class="sdv-deliverable-row">Semantic Keyword Mapping</div>
-                  <div class="sdv-deliverable-row">Entity SEO Optimization</div>
+                  <div class="sdv-deliverable-row" data-customizer="sdv_5_deliv_1"><?php echo esc_html(cr8v_mod("sdv_5_deliv_1", "Semantic Keyword Mapping")); ?></div>
+                  <div class="sdv-deliverable-row" data-customizer="sdv_5_deliv_2"><?php echo esc_html(cr8v_mod("sdv_5_deliv_2", "Entity SEO Optimization")); ?></div>
                   <div class="sdv-deliverable-row">Technical SEO Audits &amp; Core Web Vitals</div>
                   <div class="sdv-deliverable-row">Content Architecture &amp; Cluster Strategy</div>
                   <div class="sdv-deliverable-row">E-Commerce Category &amp; Product SEO</div>
@@ -1215,7 +1215,7 @@ defined('ABSPATH') || exit;
                 <div class="sdv-panel-right">
                   <div class="sdv-deliverable-row">Paid Social &amp; Search Campaign Management</div>
                   <div class="sdv-deliverable-row">Email Autoresponders &amp; Nurture Sequences</div>
-                  <div class="sdv-deliverable-row">Conversion Rate Audits</div>
+                  <div class="sdv-deliverable-row" data-customizer="sdv_6_deliv_3"><?php echo esc_html(cr8v_mod("sdv_6_deliv_3", "Conversion Rate Audits")); ?></div>
                   <div class="sdv-deliverable-row">Target Audience &amp; Funnel Mapping</div>
                   <div class="sdv-deliverable-row">Monthly Retainer &amp; Performance Reporting</div>
                   <a href="<?php echo esc_url(home_url(cr8v_mod("sdv_6_cta_url", "/services/digital-marketing/"))); ?>" class="sdv-panel-cta"><?php echo esc_html(cr8v_mod("sdv_6_cta_text", "Explore Digital Marketing")); ?>
@@ -1568,7 +1568,7 @@ defined('ABSPATH') || exit;
       <!-- MASCOT: lives inside white half, overflows right to straddle the split on desktop -->
       <div class="dp-mascot-wrap">
           <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate">
-            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>cartoon_fox_winks.webm" type="video/webm">
+            <source src="<?php echo esc_url(cr8v_mod("dp_mascot_video", get_template_directory_uri() . "/assets/img/cartoon_fox_winks.webm")); ?>" type="video/webm">
             <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>Cartoon_fox_winks_web.mp4" type="video/mp4">
             <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>download_mascot.mp4" type="video/mp4">
           </video>
@@ -1647,16 +1647,16 @@ defined('ABSPATH') || exit;
 
         <div class="dp-stat-pair">
           <div class="dp-stat-item">
-            <div class="dp-stat-num">5</div>
-            <div class="dp-stat-label">Tools Available</div>
+            <div class="dp-stat-num" data-customizer="dp_stat_1_val"><?php echo esc_html(cr8v_mod("dp_stat_1_val", "5")); ?></div>
+            <div class="dp-stat-label" data-customizer="dp_stat_1_lbl"><?php echo esc_html(cr8v_mod("dp_stat_1_lbl", "Tools Available")); ?></div>
           </div>
           <div class="dp-stat-item">
-            <div class="dp-stat-num">100%</div>
-            <div class="dp-stat-label">Instant Access</div>
+            <div class="dp-stat-num" data-customizer="dp_stat_2_val"><?php echo esc_html(cr8v_mod("dp_stat_2_val", "100%")); ?></div>
+            <div class="dp-stat-label" data-customizer="dp_stat_2_lbl"><?php echo esc_html(cr8v_mod("dp_stat_2_lbl", "Instant Access")); ?></div>
           </div>
           <div class="dp-stat-item">
-            <div class="dp-stat-num">60s</div>
-            <div class="dp-stat-label">Avg. Time to Result</div>
+            <div class="dp-stat-num" data-customizer="dp_stat_3_val"><?php echo esc_html(cr8v_mod("dp_stat_3_val", "60s")); ?></div>
+            <div class="dp-stat-label" data-customizer="dp_stat_3_lbl"><?php echo esc_html(cr8v_mod("dp_stat_3_lbl", "Avg. Time to Result")); ?></div>
           </div>
           <div class="dp-stat-item">
             <div class="dp-stat-num">&infin;</div>
@@ -1925,15 +1925,15 @@ defined('ABSPATH') || exit;
 
         <!-- C2: Stacks visual -->
         <div class="hww-card hww-c2">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>hww_stacks_visual.jpg" alt="Tech stack visualization" class="hww-visual-img">
+          <img src="<?php echo esc_url(cr8v_mod("hww_c2_img", get_template_directory_uri() . "/assets/img/hww_stacks_visual.jpg")); ?>" alt="Tech stack visualization" class="hww-visual-img" data-customizer="hww_c2_img">
         </div>
 
         <!-- C3: Sprint Stat (blue) -->
         <div class="hww-card hww-card-blue hww-c3">
           <div class="hww-clabel hww-clabel-dim">First Build Sprint</div>
-          <div class="hww-bnum hww-bnum-white">14<span style="font-size:0.42em;opacity:0.55;"> days</span></div>
+          <div class="hww-bnum hww-bnum-white" data-customizer="hww_c3_stat"><?php echo esc_html(cr8v_mod("hww_c3_stat", "14 days")); ?></div>
           <p class="hww-stat-sub hww-stat-sub-white">
-            From an approved brief to a working prototype your team can review, test, and give real feedback on.
+            <?php echo esc_html(cr8v_mod("hww_c3_sub", "From an approved brief to a working prototype your team can review, test, and give real feedback on.")); ?>
           </p>
         </div>
 
@@ -1961,7 +1961,7 @@ defined('ABSPATH') || exit;
           <div class="hww-clabel hww-clabel-muted">Ownership</div>
           <div class="hww-bnum hww-bnum-ink" style="font-size:clamp(1.6rem,3vw,2.4rem);">100%</div>
           <p class="hww-stat-sub hww-stat-sub-ink">
-            You own the code, domain, and data. No SaaS lock-in, no dependency on us to keep the lights on.
+            <?php echo esc_html(cr8v_mod("hww_c5_sub", "You own the code, domain, and data. No SaaS lock-in, no dependency on us to keep the lights on.")); ?>
           </p>
         </div>
 
@@ -1974,21 +1974,21 @@ defined('ABSPATH') || exit;
             <div class="hww-clabel hww-clabel-blue">What Ships With Every Project</div>
             <div class="hww-timeline">
               <div class="hww-tl-item">
-                <span class="hww-tl-step">Brief</span>
+                <span class="hww-tl-step" data-customizer="hww_c6_i1_step"><?php echo esc_html(cr8v_mod("hww_c6_i1_step", "Brief")); ?></span>
                 <span class="hww-tl-label">Scoped &amp; Signed</span>
-                <span class="hww-tl-desc">Fixed scope, fixed price. No surprise invoices mid-build or scope creep that costs you extra.</span>
+                <span class="hww-tl-desc" data-customizer="hww_c6_i1_desc"><?php echo esc_html(cr8v_mod("hww_c6_i1_desc", "Fixed scope, fixed price. No surprise invoices mid-build or scope creep that costs you extra.")); ?></span>
               </div>
               <div class="hww-tl-div"></div>
               <div class="hww-tl-item">
-                <span class="hww-tl-step">Build</span>
-                <span class="hww-tl-label">Fully Documented</span>
-                <span class="hww-tl-desc">Technical handover docs included. Your team can pick it up from day one without needing us.</span>
+                <span class="hww-tl-step" data-customizer="hww_c6_i2_step"><?php echo esc_html(cr8v_mod("hww_c6_i2_step", "Build")); ?></span>
+                <span class="hww-tl-label" data-customizer="hww_c6_i2_lbl"><?php echo esc_html(cr8v_mod("hww_c6_i2_lbl", "Fully Documented")); ?></span>
+                <span class="hww-tl-desc" data-customizer="hww_c6_i2_desc"><?php echo esc_html(cr8v_mod("hww_c6_i2_desc", "Technical handover docs included. Your team can pick it up from day one without needing us.")); ?></span>
               </div>
               <div class="hww-tl-div"></div>
               <div class="hww-tl-item">
-                <span class="hww-tl-step">Post-Launch</span>
-                <span class="hww-tl-label">30-Day Support</span>
-                <span class="hww-tl-desc">Every project includes a 30-day post-launch support window. No extra charge, no conditions.</span>
+                <span class="hww-tl-step" data-customizer="hww_c6_i3_step"><?php echo esc_html(cr8v_mod("hww_c6_i3_step", "Post-Launch")); ?></span>
+                <span class="hww-tl-label" data-customizer="hww_c6_i3_lbl"><?php echo esc_html(cr8v_mod("hww_c6_i3_lbl", "30-Day Support")); ?></span>
+                <span class="hww-tl-desc" data-customizer="hww_c6_i3_desc"><?php echo esc_html(cr8v_mod("hww_c6_i3_desc", "Every project includes a 30-day post-launch support window. No extra charge, no conditions.")); ?></span>
               </div>
             </div>
           </div>
@@ -2232,8 +2232,8 @@ defined('ABSPATH') || exit;
           <div class="wwa-visual-card">
             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>wwa_studio_visual.jpg" alt="Cr8v Stacks Studio Workspace" class="wwa-visual-img">
             <div class="wwa-visual-overlay">
-              <span class="wwa-visual-caption">Built for execution, not pitch decks.</span>
-              <span class="wwa-visual-badge">IN-HOUSE STUDIO</span>
+              <span class="wwa-visual-caption" data-customizer="wwa_caption"><?php echo esc_html(cr8v_mod("wwa_caption", "Built for execution, not pitch decks.")); ?></span>
+              <span class="wwa-visual-badge" data-customizer="wwa_badge"><?php echo esc_html(cr8v_mod("wwa_badge", "IN-HOUSE STUDIO")); ?></span>
             </div>
           </div>
         </div>
@@ -2243,21 +2243,21 @@ defined('ABSPATH') || exit;
             <div class="wwa-feat">
               <span class="wwa-feat-num">01</span>
               <div>
-                <div class="wwa-feat-title">Strategy First</div>
+                <div class="wwa-feat-title" data-customizer="wwa_f1_title"><?php echo esc_html(cr8v_mod("wwa_f1_title", "Strategy First")); ?></div>
                 <div class="wwa-feat-body">Every project begins with understanding your business goals, not just your brief. We scope transparently, then we build.</div>
               </div>
             </div>
             <div class="wwa-feat">
               <span class="wwa-feat-num">02</span>
               <div>
-                <div class="wwa-feat-title">Design &amp; Build, Together</div>
+                <div class="wwa-feat-title" data-customizer="wwa_f2_title"><?php echo esc_html(cr8v_mod("wwa_f2_title", "Design & Build, Together")); ?></div>
                 <div class="wwa-feat-body">Design and development do not hand off &mdash; they run together. Less revision back-and-forth. More precision in code.</div>
               </div>
             </div>
             <div class="wwa-feat">
               <span class="wwa-feat-num">03</span>
               <div>
-                <div class="wwa-feat-title">You Own Everything</div>
+                <div class="wwa-feat-title" data-customizer="wwa_f3_title"><?php echo esc_html(cr8v_mod("wwa_f3_title", "You Own Everything")); ?></div>
                 <div class="wwa-feat-body">Code, domain, asset repos &mdash; yours from day one. No lock-in, no recurring fees just to keep the lights on.</div>
               </div>
             </div>
@@ -2658,19 +2658,19 @@ defined('ABSPATH') || exit;
         <!-- Thumbnails Column: Official CDN Logos without text -->
         <div class="tmn-thumbs" id="tmn-thumbs">
           <button class="tmn-thumb-btn is-active" data-index="0" aria-label="View Shopify Ecommerce testimony">
-            <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" class="tmn-thumb-logo-img">
+            <img src="<?php echo esc_url(cr8v_mod("tmn_1_logo", "https://cdn.simpleicons.org/shopify/95BF47")); ?>" alt="Shopify" class="tmn-thumb-logo-img">
             <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
           </button>
           <button class="tmn-thumb-btn" data-index="1" aria-label="View Next.js SaaS testimony">
-            <img src="https://cdn.simpleicons.org/nextdotjs/000000" alt="Next.js" class="tmn-thumb-logo-img">
+            <img src="<?php echo esc_url(cr8v_mod("tmn_2_logo", "https://cdn.simpleicons.org/nextdotjs/000000")); ?>" alt="Next.js" class="tmn-thumb-logo-img">
             <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
           </button>
           <button class="tmn-thumb-btn" data-index="2" aria-label="View OpenAI AI MVP testimony">
-            <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/light.svg" alt="OpenAI" class="tmn-thumb-logo-img">
+            <img src="<?php echo esc_url(cr8v_mod("tmn_3_logo", "https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/light.svg")); ?>" alt="OpenAI" class="tmn-thumb-logo-img">
             <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
           </button>
           <button class="tmn-thumb-btn" data-index="3" aria-label="View WordPress Custom Stack testimony">
-            <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress" class="tmn-thumb-logo-img">
+            <img src="<?php echo esc_url(cr8v_mod("tmn_4_logo", "https://cdn.simpleicons.org/wordpress/21759B")); ?>" alt="WordPress" class="tmn-thumb-logo-img">
             <div class="tmn-progress-bar"><div class="tmn-progress-fill"></div></div>
           </button>
         </div>
@@ -2854,8 +2854,8 @@ defined('ABSPATH') || exit;
     <div class="cta-inner">
       <div class="cta-arc-container">
         <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate" class="cta-arc-video">
-          <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>download.mp4" type="video/mp4">
-          <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>seven_circular_badges.webm" type="video/webm">
+          <source src="<?php echo esc_url(cr8v_mod("cta_video_mp4", get_template_directory_uri() . "/assets/img/download.mp4")); ?>" type="video/mp4">
+          <source src="<?php echo esc_url(cr8v_mod("cta_video_webm", get_template_directory_uri() . "/assets/img/seven_circular_badges.webm")); ?>" type="video/webm">
         </video>
       </div>
 
