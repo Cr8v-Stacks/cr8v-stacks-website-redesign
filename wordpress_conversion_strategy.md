@@ -621,6 +621,8 @@ All 11 homepage sections were audited and mapped into `inc/customizer.php` and `
 | `c455109` | Convert Services Overview Hub (`page-services.php`) and Master Child Service template (`page-service.php`) with 100% Customizer controls and selective refresh |
 | `060b37e` | Fix root `header.php` and `footer.php` templates and restore 100% HTML design parity and CSS styles for About Us page (`page-about.php`) |
 | `d74a351` | Fix relative asset image paths to dynamic `get_template_directory_uri()` URLs in `page-about.php` |
+| `0e91eb5` | Restore complete interactive 4.8KB JavaScript block (Services Accordions, Tech Stack Auto-Tab Controller, Matrix Scramble) in `page-about.php` |
+
 
 
 ---
