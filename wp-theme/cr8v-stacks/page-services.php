@@ -1269,43 +1269,43 @@ body {
 
 <!-- ── Growth & Strategy Layer: cursor-following preview list ── -->
 <div class="c8srv-hoverlist-section" style="position: relative !important; width: 100% !important;">
-  <div class="c8srv-wrap" style="padding-bottom: 0 !important;">    <div class="c8srv-label c8srv-reveal">Growth &amp; Strategy</div>
-    <h2 class="c8srv-section-title c8srv-reveal">The Growth &amp; Strategy Layer</h2>
-    <p class="c8srv-lead c8srv-reveal" style="margin-bottom: 3.5rem !important;">Positioning, visual identity, technical search, and acquisition funnels — the strategic capabilities that fuel your build.</p>
+  <div class="c8srv-wrap" style="padding-bottom: 0 !important;">    <div class="c8srv-label c8srv-reveal" data-customizer="srv_growth_label"><?php echo esc_html(cr8v_mod('srv_growth_label', 'Growth & Strategy')); ?></div>
+    <h2 class="c8srv-section-title c8srv-reveal" data-customizer="srv_growth_h2"><?php echo esc_html(cr8v_mod('srv_growth_h2', 'The Growth & Strategy Layer')); ?></h2>
+    <p class="c8srv-lead c8srv-reveal" style="margin-bottom: 3.5rem !important;" data-customizer="srv_growth_desc"><?php echo wp_kses_post(cr8v_mod('srv_growth_desc', 'Positioning, visual identity, technical search, and acquisition funnels — the strategic capabilities that fuel your build.')); ?></p>
   </div>
   <div class="c8srv-wrap" style="padding-top: 0 !important; position: relative !important;">
     <div class="c8srv-hoverlist" data-c8srv-hoverlist style="position: relative !important;">
-      <div class="c8srv-hoverlist-item c8srv-reveal" data-c8srv-service-id="1" data-s1="Figma" data-s2="Colors" data-s3="Fonts" onclick="window.location.href='../Brand Identity Design Service Page/index.html'" style="cursor: pointer !important;">
+      <div class="c8srv-hoverlist-item c8srv-reveal" data-c8srv-service-id="1" data-s1="Figma" data-s2="Colors" data-s3="Fonts" onclick="window.location.href='<?php echo esc_url(cr8v_mod('srv_growth1_url', '../Brand Identity Design Service Page/index.html')); ?>'" style="cursor: pointer !important;">
         <div class="c8srv-hoverlist-left">
-          <span class="c8srv-hoverlist-num">01</span>
-          <h3 class="c8srv-hoverlist-title">Brand Identity</h3>
-          <span class="c8srv-hoverlist-tagline">Bespoke vector logo systems, curated typography hierarchies, and color guidelines built for scale</span>
+          <span class="c8srv-hoverlist-num" data-customizer="srv_growth1_num"><?php echo esc_html(cr8v_mod('srv_growth1_num', '01')); ?></span>
+          <h3 class="c8srv-hoverlist-title" data-customizer="srv_growth1_title"><?php echo esc_html(cr8v_mod('srv_growth1_title', 'Brand Identity')); ?></h3>
+          <span class="c8srv-hoverlist-tagline" data-customizer="srv_growth1_tagline"><?php echo wp_kses_post(cr8v_mod('srv_growth1_tagline', 'Bespoke vector logo systems, curated typography hierarchies, and color guidelines built for scale')); ?></span>
         </div>
-        <div class="c8srv-hoverlist-right"><a href="../Brand Identity Design Service Page/index.html" class="c8srv-explore" onclick="event.stopPropagation();">Explore <span>→</span></a></div>
+        <div class="c8srv-hoverlist-right"><a href="<?php echo esc_url(cr8v_mod('srv_growth1_url', '../Brand Identity Design Service Page/index.html')); ?>" class="c8srv-explore" onclick="event.stopPropagation();" data-customizer="srv_growth1_btn_text"><?php echo esc_html(cr8v_mod('srv_growth1_btn_text', 'Explore →')); ?></a></div>
       </div>
-      <div class="c8srv-hoverlist-item c8srv-reveal c8srv-reveal-d1" data-c8srv-service-id="2" data-s1="Audits" data-s2="Message" data-s3="Avatars" onclick="window.location.href='../Brand Strategy Service Page/index.html'" style="cursor: pointer !important;">
+      <div class="c8srv-hoverlist-item c8srv-reveal c8srv-reveal-d1" data-c8srv-service-id="2" data-s1="Audits" data-s2="Message" data-s3="Avatars" onclick="window.location.href='<?php echo esc_url(cr8v_mod('srv_growth2_url', '../Brand Strategy Service Page/index.html')); ?>'" style="cursor: pointer !important;">
         <div class="c8srv-hoverlist-left">
-          <span class="c8srv-hoverlist-num">02</span>
-          <h3 class="c8srv-hoverlist-title">Brand Strategy</h3>
-          <span class="c8srv-hoverlist-tagline">Market positioning matrices, competitive moat analysis, and messaging frameworks that guide your build</span>
+          <span class="c8srv-hoverlist-num" data-customizer="srv_growth2_num"><?php echo esc_html(cr8v_mod('srv_growth2_num', '02')); ?></span>
+          <h3 class="c8srv-hoverlist-title" data-customizer="srv_growth2_title"><?php echo esc_html(cr8v_mod('srv_growth2_title', 'Brand Strategy')); ?></h3>
+          <span class="c8srv-hoverlist-tagline" data-customizer="srv_growth2_tagline"><?php echo wp_kses_post(cr8v_mod('srv_growth2_tagline', 'Market positioning matrices, competitive moat analysis, and messaging frameworks that guide your build')); ?></span>
         </div>
-        <div class="c8srv-hoverlist-right"><a href="../Brand Strategy Service Page/index.html" class="c8srv-explore" onclick="event.stopPropagation();">Explore <span>→</span></a></div>
+        <div class="c8srv-hoverlist-right"><a href="<?php echo esc_url(cr8v_mod('srv_growth2_url', '../Brand Strategy Service Page/index.html')); ?>" class="c8srv-explore" onclick="event.stopPropagation();" data-customizer="srv_growth2_btn_text"><?php echo esc_html(cr8v_mod('srv_growth2_btn_text', 'Explore →')); ?></a></div>
       </div>
-      <div class="c8srv-hoverlist-item c8srv-reveal c8srv-reveal-d2" data-c8srv-service-id="3" data-s1="SEO" data-s2="Schema" data-s3="Crawl" onclick="window.location.href='../SEO and Content Service Page/index.html'" style="cursor: pointer !important;">
+      <div class="c8srv-hoverlist-item c8srv-reveal c8srv-reveal-d2" data-c8srv-service-id="3" data-s1="SEO" data-s2="Schema" data-s3="Crawl" onclick="window.location.href='<?php echo esc_url(cr8v_mod('srv_growth3_url', '../SEO and Content Service Page/index.html')); ?>'" style="cursor: pointer !important;">
         <div class="c8srv-hoverlist-left">
-          <span class="c8srv-hoverlist-num">03</span>
-          <h3 class="c8srv-hoverlist-title">SEO &amp; Content</h3>
-          <span class="c8srv-hoverlist-tagline">Technical schema markup, Screaming Frog audits, entity SEO, and semantic keyword architecture</span>
+          <span class="c8srv-hoverlist-num" data-customizer="srv_growth3_num"><?php echo esc_html(cr8v_mod('srv_growth3_num', '03')); ?></span>
+          <h3 class="c8srv-hoverlist-title" data-customizer="srv_growth3_title"><?php echo esc_html(cr8v_mod('srv_growth3_title', 'SEO & Content')); ?></h3>
+          <span class="c8srv-hoverlist-tagline" data-customizer="srv_growth3_tagline"><?php echo wp_kses_post(cr8v_mod('srv_growth3_tagline', 'Technical schema markup, Screaming Frog audits, entity SEO, and semantic keyword architecture')); ?></span>
         </div>
-        <div class="c8srv-hoverlist-right"><a href="../SEO and Content Service Page/index.html" class="c8srv-explore" onclick="event.stopPropagation();">Explore <span>→</span></a></div>
+        <div class="c8srv-hoverlist-right"><a href="<?php echo esc_url(cr8v_mod('srv_growth3_url', '../SEO and Content Service Page/index.html')); ?>" class="c8srv-explore" onclick="event.stopPropagation();" data-customizer="srv_growth3_btn_text"><?php echo esc_html(cr8v_mod('srv_growth3_btn_text', 'Explore →')); ?></a></div>
       </div>
-      <div class="c8srv-hoverlist-item c8srv-reveal c8srv-reveal-d3" data-c8srv-service-id="4" data-s1="PPC" data-s2="Funnels" data-s3="ROAS" onclick="window.location.href='../Digital Marketing Service Page/index.html'" style="cursor: pointer !important;">
+      <div class="c8srv-hoverlist-item c8srv-reveal c8srv-reveal-d3" data-c8srv-service-id="4" data-s1="PPC" data-s2="Funnels" data-s3="ROAS" onclick="window.location.href='<?php echo esc_url(cr8v_mod('srv_growth4_url', '../Digital Marketing Service Page/index.html')); ?>'" style="cursor: pointer !important;">
         <div class="c8srv-hoverlist-left">
-          <span class="c8srv-hoverlist-num">04</span>
-          <h3 class="c8srv-hoverlist-title">Digital Marketing</h3>
-          <span class="c8srv-hoverlist-tagline">Meta Ads funnels, Google Ads acquisition, Klaviyo email flows, and conversion tracking infrastructure</span>
+          <span class="c8srv-hoverlist-num" data-customizer="srv_growth4_num"><?php echo esc_html(cr8v_mod('srv_growth4_num', '04')); ?></span>
+          <h3 class="c8srv-hoverlist-title" data-customizer="srv_growth4_title"><?php echo esc_html(cr8v_mod('srv_growth4_title', 'Digital Marketing')); ?></h3>
+          <span class="c8srv-hoverlist-tagline" data-customizer="srv_growth4_tagline"><?php echo wp_kses_post(cr8v_mod('srv_growth4_tagline', 'Meta Ads funnels, Google Ads acquisition, Klaviyo email flows, and conversion tracking infrastructure')); ?></span>
         </div>
-        <div class="c8srv-hoverlist-right"><a href="../Digital Marketing Service Page/index.html" class="c8srv-explore" onclick="event.stopPropagation();">Explore <span>→</span></a></div>
+        <div class="c8srv-hoverlist-right"><a href="<?php echo esc_url(cr8v_mod('srv_growth4_url', '../Digital Marketing Service Page/index.html')); ?>" class="c8srv-explore" onclick="event.stopPropagation();" data-customizer="srv_growth4_btn_text"><?php echo esc_html(cr8v_mod('srv_growth4_btn_text', 'Explore →')); ?></a></div>
       </div>
     </div>
     
@@ -1313,15 +1313,15 @@ body {
     <div class="c8srv-hoverlist-preview" data-c8srv-preview>
       <!-- Card 1: Left (navy) -->
       <div class="c8srv-fan-card c8srv-fan-left">
-        <span class="c8srv-fan-word" data-c8srv-fan-pos="left">Position</span>
+        <span class="c8srv-fan-word" data-c8srv-fan-pos="left" data-customizer="srv_fan_left"><?php echo esc_html(cr8v_mod('srv_fan_left', 'Position')); ?></span>
       </div>
       <!-- Card 2: Center (cream) -->
       <div class="c8srv-fan-card c8srv-fan-center">
-        <span class="c8srv-fan-word" data-c8srv-fan-pos="center">Schema</span>
+        <span class="c8srv-fan-word" data-c8srv-fan-pos="center" data-customizer="srv_fan_center"><?php echo esc_html(cr8v_mod('srv_fan_center', 'Schema')); ?></span>
       </div>
       <!-- Card 3: Right (charcoal) -->
       <div class="c8srv-fan-card c8srv-fan-right">
-        <span class="c8srv-fan-word" data-c8srv-fan-pos="right">ROAS</span>
+        <span class="c8srv-fan-word" data-c8srv-fan-pos="right" data-customizer="srv_fan_right"><?php echo esc_html(cr8v_mod('srv_fan_right', 'ROAS')); ?></span>
       </div>
     </div>
   </div>
@@ -1333,82 +1333,82 @@ body {
        ══════════════════════════════════════════ -->
   <div class="c8srv-folder-section" id="c8srv-services-folder-deck">
     <div class="c8srv-wrap">
-      <div class="c8srv-label c8srv-reveal">Agency Deliverables</div>
-      <h2 class="c8srv-section-title c8srv-reveal">What You <span class="c8srv-serif-text">Get</span></h2>
-      <p class="c8srv-lead c8srv-reveal" style="margin-bottom:2rem">Concrete, high-end agency deliverables engineered for your digital ecosystem — built from scratch by one unified studio.</p>
+      <div class="c8srv-label c8srv-reveal" data-customizer="srv_deck_label"><?php echo esc_html(cr8v_mod('srv_deck_label', 'Agency Deliverables')); ?></div>
+      <h2 class="c8srv-section-title c8srv-reveal"><span data-customizer="srv_deck_h2_part1"><?php echo esc_html(cr8v_mod('srv_deck_h2_part1', 'What You ')); ?></span><span class="c8srv-serif-text" data-customizer="srv_deck_h2_serif"><?php echo esc_html(cr8v_mod('srv_deck_h2_serif', 'Get')); ?></span></h2>
+      <p class="c8srv-lead c8srv-reveal" style="margin-bottom:2rem" data-customizer="srv_deck_desc"><?php echo wp_kses_post(cr8v_mod('srv_deck_desc', 'Concrete, high-end agency deliverables engineered for your digital ecosystem — built from scratch by one unified studio.')); ?></p>
 
       <div class="c8srv-folder-deck" data-c8srv-folder-deck>
         <!-- Card 1 -->
         <div class="c8srv-folder-card">
-          <div class="c8srv-folder-tab">01 // Strategy</div>
+          <div class="c8srv-folder-tab" data-customizer="srv_deck1_tab"><?php echo esc_html(cr8v_mod('srv_deck1_tab', '01 // Strategy')); ?></div>
           <div class="c8srv-folder-card-left">
-            <h3 class="c8srv-folder-card-title">Full-Funnel Strategic Positioning &amp; Architecture</h3>
-            <p class="c8srv-folder-card-desc">Competitor matrix mapping, pricing scoping, customer persona profiling, and messaging frameworks that give your visual identity, codebase, and paid campaigns clear direction before line one of code.</p>
-            <a href="../Brand Strategy Service Page/index.html" class="c8srv-explore" style="margin-top: 1.5rem !important;">Explore Strategy Deliverables &rarr;</a>
+            <h3 class="c8srv-folder-card-title" data-customizer="srv_deck1_title"><?php echo esc_html(cr8v_mod('srv_deck1_title', 'Full-Funnel Strategic Positioning & Architecture')); ?></h3>
+            <p class="c8srv-folder-card-desc" data-customizer="srv_deck1_desc"><?php echo wp_kses_post(cr8v_mod('srv_deck1_desc', 'Competitor matrix mapping, pricing scoping, customer persona profiling, and messaging frameworks that give your visual identity, codebase, and paid campaigns clear direction before line one of code.')); ?></p>
+            <a href="<?php echo esc_url(cr8v_mod('srv_deck1_url', '../Brand Strategy Service Page/index.html')); ?>" class="c8srv-explore" style="margin-top: 1.5rem !important;" data-customizer="srv_deck1_link_text"><?php echo esc_html(cr8v_mod('srv_deck1_link_text', 'Explore Strategy Deliverables →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop" alt="Strategy Deliverables">
+              <img src="<?php echo esc_url(cr8v_mod('srv_deck1_img', 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop')); ?>" alt="Strategy Deliverables" data-customizer="srv_deck1_img">
             </div>
           </div>
         </div>
 
         <!-- Card 2 -->
         <div class="c8srv-folder-card">
-          <div class="c8srv-folder-tab">02 // Engineering</div>
+          <div class="c8srv-folder-tab" data-customizer="srv_deck2_tab"><?php echo esc_html(cr8v_mod('srv_deck2_tab', '02 // Engineering')); ?></div>
           <div class="c8srv-folder-card-left">
-            <h3 class="c8srv-folder-card-title">High-Converting Liquid &amp; PHP Codebase</h3>
-            <p class="c8srv-folder-card-desc">Lightweight starter base themes, custom Gutenberg block suites, bespoke Liquid sections, and zero-SaaS custom application code tuned for sub-1.2s load speeds and friction-free user conversions.</p>
-            <a href="../Web Design Service Page/index.html" class="c8srv-explore" style="margin-top: 1.5rem !important;">Explore Code Deliverables &rarr;</a>
+            <h3 class="c8srv-folder-card-title" data-customizer="srv_deck2_title"><?php echo esc_html(cr8v_mod('srv_deck2_title', 'High-Converting Liquid & PHP Codebase')); ?></h3>
+            <p class="c8srv-folder-card-desc" data-customizer="srv_deck2_desc"><?php echo wp_kses_post(cr8v_mod('srv_deck2_desc', 'Lightweight starter base themes, custom Gutenberg block suites, bespoke Liquid sections, and zero-SaaS custom application code tuned for sub-1.2s load speeds and friction-free user conversions.')); ?></p>
+            <a href="<?php echo esc_url(cr8v_mod('srv_deck2_url', '../Web Design Service Page/index.html')); ?>" class="c8srv-explore" style="margin-top: 1.5rem !important;" data-customizer="srv_deck2_link_text"><?php echo esc_html(cr8v_mod('srv_deck2_link_text', 'Explore Code Deliverables →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" alt="Code Deliverables">
+              <img src="<?php echo esc_url(cr8v_mod('srv_deck2_img', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop')); ?>" alt="Code Deliverables" data-customizer="srv_deck2_img">
             </div>
           </div>
         </div>
 
         <!-- Card 3 -->
         <div class="c8srv-folder-card">
-          <div class="c8srv-folder-tab">03 // Plugins</div>
+          <div class="c8srv-folder-tab" data-customizer="srv_deck3_tab"><?php echo esc_html(cr8v_mod('srv_deck3_tab', '03 // Plugins')); ?></div>
           <div class="c8srv-folder-card-left">
-            <h3 class="c8srv-folder-card-title">Proprietary Agency Plugins &amp; API Wiring</h3>
-            <p class="c8srv-folder-card-desc">Custom-coded WordPress and WooCommerce extension plugins built in-house for specialized features, native payment gateway wiring (Stripe, Paystack), and vector AI integrations without third-party plugin overhead.</p>
-            <a href="../Custom Dev Service Page/index.html" class="c8srv-explore" style="margin-top: 1.5rem !important;">Explore Plugin Engineering &rarr;</a>
+            <h3 class="c8srv-folder-card-title" data-customizer="srv_deck3_title"><?php echo esc_html(cr8v_mod('srv_deck3_title', 'Proprietary Agency Plugins & API Wiring')); ?></h3>
+            <p class="c8srv-folder-card-desc" data-customizer="srv_deck3_desc"><?php echo wp_kses_post(cr8v_mod('srv_deck3_desc', 'Custom-coded WordPress and WooCommerce extension plugins built in-house for specialized features, native payment gateway wiring (Stripe, Paystack), and vector AI integrations without third-party plugin overhead.')); ?></p>
+            <a href="<?php echo esc_url(cr8v_mod('srv_deck3_url', '../Custom Dev Service Page/index.html')); ?>" class="c8srv-explore" style="margin-top: 1.5rem !important;" data-customizer="srv_deck3_link_text"><?php echo esc_html(cr8v_mod('srv_deck3_link_text', 'Explore Plugin Engineering →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=800&auto=format&fit=crop" alt="Plugin Deliverables">
+              <img src="<?php echo esc_url(cr8v_mod('srv_deck3_img', 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=800&auto=format&fit=crop')); ?>" alt="Plugin Deliverables" data-customizer="srv_deck3_img">
             </div>
           </div>
         </div>
 
         <!-- Card 4 -->
         <div class="c8srv-folder-card">
-          <div class="c8srv-folder-tab">04 // Organic</div>
+          <div class="c8srv-folder-tab" data-customizer="srv_deck4_tab"><?php echo esc_html(cr8v_mod('srv_deck4_tab', '04 // Organic')); ?></div>
           <div class="c8srv-folder-card-left">
-            <h3 class="c8srv-folder-card-title">Technical Schema &amp; Semantic Keyword Infrastructure</h3>
-            <p class="c8srv-folder-card-desc">Screaming Frog crawl auditing, entity SEO optimization, automated XML sitemaps, canonical redirect mapping, and Core Web Vitals tuning for long-term search dominance across Google.</p>
-            <a href="../SEO and Content Service Page/index.html" class="c8srv-explore" style="margin-top: 1.5rem !important;">Explore Search Infrastructure &rarr;</a>
+            <h3 class="c8srv-folder-card-title" data-customizer="srv_deck4_title"><?php echo esc_html(cr8v_mod('srv_deck4_title', 'Technical Schema & Semantic Keyword Infrastructure')); ?></h3>
+            <p class="c8srv-folder-card-desc" data-customizer="srv_deck4_desc"><?php echo wp_kses_post(cr8v_mod('srv_deck4_desc', 'Screaming Frog crawl auditing, entity SEO optimization, automated XML sitemaps, canonical redirect mapping, and Core Web Vitals tuning for long-term search dominance across Google.')); ?></p>
+            <a href="<?php echo esc_url(cr8v_mod('srv_deck4_url', '../SEO and Content Service Page/index.html')); ?>" class="c8srv-explore" style="margin-top: 1.5rem !important;" data-customizer="srv_deck4_link_text"><?php echo esc_html(cr8v_mod('srv_deck4_link_text', 'Explore Search Infrastructure →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800&auto=format&fit=crop" alt="SEO Infrastructure">
+              <img src="<?php echo esc_url(cr8v_mod('srv_deck4_img', 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800&auto=format&fit=crop')); ?>" alt="SEO Infrastructure" data-customizer="srv_deck4_img">
             </div>
           </div>
         </div>
 
         <!-- Card 5 -->
         <div class="c8srv-folder-card">
-          <div class="c8srv-folder-tab">05 // Retainer</div>
+          <div class="c8srv-folder-tab" data-customizer="srv_deck5_tab"><?php echo esc_html(cr8v_mod('srv_deck5_tab', '05 // Retainer')); ?></div>
           <div class="c8srv-folder-card-left">
-            <h3 class="c8srv-folder-card-title">Post-Launch Warranty &amp; Active Growth Retainer</h3>
-            <p class="c8srv-folder-card-desc">30-day post-launch code warranty, dedicated monthly developer support hours, continuous speed auditing, security patches, and active ad campaign optimization to keep your platform scaling.</p>
-            <a href="https://cr8vstacks.com/contact/?model=retainer" class="c8srv-explore" style="margin-top: 1.5rem !important;">Explore Growth Retainers &rarr;</a>
+            <h3 class="c8srv-folder-card-title" data-customizer="srv_deck5_title"><?php echo esc_html(cr8v_mod('srv_deck5_title', 'Post-Launch Warranty & Active Growth Retainer')); ?></h3>
+            <p class="c8srv-folder-card-desc" data-customizer="srv_deck5_desc"><?php echo wp_kses_post(cr8v_mod('srv_deck5_desc', '30-day post-launch code warranty, dedicated monthly developer support hours, continuous speed auditing, security patches, and active ad campaign optimization to keep your platform scaling.')); ?></p>
+            <a href="<?php echo esc_url(cr8v_mod('srv_deck5_url', 'https://cr8vstacks.com/contact/?model=retainer')); ?>" class="c8srv-explore" style="margin-top: 1.5rem !important;" data-customizer="srv_deck5_link_text"><?php echo esc_html(cr8v_mod('srv_deck5_link_text', 'Explore Growth Retainers →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop" alt="Retainer Deliverables">
+              <img src="<?php echo esc_url(cr8v_mod('srv_deck5_img', 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop')); ?>" alt="Retainer Deliverables" data-customizer="srv_deck5_img">
             </div>
           </div>
         </div>
@@ -1419,17 +1419,17 @@ body {
   <!-- Navy capability breakout: Flanking Cards (Why It Works) -->
 <div class="c8srv-flank-section">
   <div class="c8srv-flank-inner">
-    <div class="c8srv-label c8srv-reveal" style="justify-content: center !important;">Why It Works</div>
-    <h2 class="c8srv-section-title c8srv-reveal" style="color: #080808 !important; text-align: center !important;">Built around your business, not a template</h2>
+    <div class="c8srv-label c8srv-reveal" style="justify-content: center !important;" data-customizer="srv_flank_label"><?php echo esc_html(cr8v_mod('srv_flank_label', 'Why It Works')); ?></div>
+    <h2 class="c8srv-section-title c8srv-reveal" style="color: #080808 !important; text-align: center !important;" data-customizer="srv_flank_h2"><?php echo esc_html(cr8v_mod('srv_flank_h2', 'Built around your business, not a template')); ?></h2>
     
     <div class="c8srv-flank-container" data-c8srv-flank-trigger>
       <!-- Left Flanking Card (One Standard) -->
       <div class="c8srv-flank-card is-left" data-c8srv-flank-left>
         <div class="c8srv-flank-card-quote">“</div>
-        <span class="c8srv-flank-card-step">Any Stack // Standard</span>
+        <span class="c8srv-flank-card-step" data-customizer="srv_flank1_step"><?php echo esc_html(cr8v_mod('srv_flank1_step', 'Any Stack // Standard')); ?></span>
         <div class="c8srv-flank-card-divider"></div>
-        <h3 class="c8srv-flank-card-title">One Standard</h3>
-        <p class="c8srv-flank-card-desc">WordPress, Shopify, WooCommerce, or custom — the same high-performance engineering standard applies no matter what it's built on.</p>
+        <h3 class="c8srv-flank-card-title" data-customizer="srv_flank1_title"><?php echo esc_html(cr8v_mod('srv_flank1_title', 'One Standard')); ?></h3>
+        <p class="c8srv-flank-card-desc" data-customizer="srv_flank1_desc"><?php echo wp_kses_post(cr8v_mod('srv_flank1_desc', 'WordPress, Shopify, WooCommerce, or custom — the same high-performance engineering standard applies no matter what it\'s built on.')); ?></p>
         <div class="c8srv-flank-card-icon">
           <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         </div>
@@ -1438,10 +1438,10 @@ body {
       <!-- Center Card (Performance-First) -->
       <div class="c8srv-flank-card is-center">
         <div class="c8srv-flank-card-quote">“</div>
-        <span class="c8srv-flank-card-step">Every Build // Speed</span>
+        <span class="c8srv-flank-card-step" data-customizer="srv_flank2_step"><?php echo esc_html(cr8v_mod('srv_flank2_step', 'Every Build // Speed')); ?></span>
         <div class="c8srv-flank-card-divider"></div>
-        <h3 class="c8srv-flank-card-title">Performance</h3>
-        <p class="c8srv-flank-card-desc">Engineered for load speed and search ranking from the first line of code, not optimized after the fact.</p>
+        <h3 class="c8srv-flank-card-title" data-customizer="srv_flank2_title"><?php echo esc_html(cr8v_mod('srv_flank2_title', 'Performance')); ?></h3>
+        <p class="c8srv-flank-card-desc" data-customizer="srv_flank2_desc"><?php echo wp_kses_post(cr8v_mod('srv_flank2_desc', 'Engineered for load speed and search ranking from the first line of code, not optimized after the fact.')); ?></p>
         <div class="c8srv-flank-card-icon">
           <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
@@ -1450,10 +1450,10 @@ body {
       <!-- Right Flanking Card (Full Ownership) -->
       <div class="c8srv-flank-card is-right" data-c8srv-flank-right>
         <div class="c8srv-flank-card-quote">“</div>
-        <span class="c8srv-flank-card-step">What You Get // Control</span>
+        <span class="c8srv-flank-card-step" data-customizer="srv_flank3_step"><?php echo esc_html(cr8v_mod('srv_flank3_step', 'What You Get // Control')); ?></span>
         <div class="c8srv-flank-card-divider"></div>
-        <h3 class="c8srv-flank-card-title">Full Ownership</h3>
-        <p class="c8srv-flank-card-desc">Your code, your hosting, your data. No proprietary lock-in that leaves you stuck if you ever want to move on.</p>
+        <h3 class="c8srv-flank-card-title" data-customizer="srv_flank3_title"><?php echo esc_html(cr8v_mod('srv_flank3_title', 'Full Ownership')); ?></h3>
+        <p class="c8srv-flank-card-desc" data-customizer="srv_flank3_desc"><?php echo wp_kses_post(cr8v_mod('srv_flank3_desc', 'Your code, your hosting, your data. No proprietary lock-in that leaves you stuck if you ever want to move on.')); ?></p>
         <div class="c8srv-flank-card-icon">
           <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         </div>
@@ -1466,69 +1466,69 @@ body {
 
   <!-- Section: Pricing & Estimator -->
   <div class="c8srv-pricing-section">
-    <div class="c8srv-label c8srv-reveal">Pricing Models</div>
-    <h2 class="c8srv-section-title c8srv-reveal">How We <span class="c8srv-serif-text">Work</span> Together</h2>
-    <p class="c8srv-lead c8srv-reveal">Whether you need a dedicated extension of your team or a custom design &amp; code project with guaranteed delivery, we have a model to fit.</p>
+    <div class="c8srv-label c8srv-reveal" data-customizer="srv_pricing_label"><?php echo esc_html(cr8v_mod('srv_pricing_label', 'Pricing Models')); ?></div>
+    <h2 class="c8srv-section-title c8srv-reveal"><span data-customizer="srv_pricing_h2_part1"><?php echo esc_html(cr8v_mod('srv_pricing_h2_part1', 'How We ')); ?></span><span class="c8srv-serif-text" data-customizer="srv_pricing_h2_serif"><?php echo esc_html(cr8v_mod('srv_pricing_h2_serif', 'Work')); ?></span><span data-customizer="srv_pricing_h2_part2"><?php echo esc_html(cr8v_mod('srv_pricing_h2_part2', ' Together')); ?></span></h2>
+    <p class="c8srv-lead c8srv-reveal" data-customizer="srv_pricing_desc"><?php echo wp_kses_post(cr8v_mod('srv_pricing_desc', 'Whether you need a dedicated extension of your team or a custom design & code project with guaranteed delivery, we have a model to fit.')); ?></p>
 
     <!-- Pricing Split Cards -->
     <div class="c8srv-pricing-split">
       <!-- Monthly Growth Partner Model -->
       <div class="c8srv-price-box c8srv-reveal">
         <div class="c8srv-price-header">
-          <span class="c8srv-price-type">Ongoing Support</span>
-          <h3 class="c8srv-price-title">Growth Retainer</h3>
-          <div class="c8srv-price-amount">$950<span>/mo</span></div>
+          <span class="c8srv-price-type" data-customizer="srv_plan1_type"><?php echo esc_html(cr8v_mod('srv_plan1_type', 'Ongoing Support')); ?></span>
+          <h3 class="c8srv-price-title" data-customizer="srv_plan1_title"><?php echo esc_html(cr8v_mod('srv_plan1_title', 'Growth Retainer')); ?></h3>
+          <div class="c8srv-price-amount"><span data-customizer="srv_plan1_price"><?php echo esc_html(cr8v_mod('srv_plan1_price', '$950')); ?></span><span data-customizer="srv_plan1_period"><?php echo esc_html(cr8v_mod('srv_plan1_period', '/mo')); ?></span></div>
         </div>
-        <p class="c8srv-price-desc">A monthly block of dedicated design and development hours to keep your website fast, updated, and growing. Perfect for active search marketing, technical SEO, speed tuning, and site edits.</p>
+        <p class="c8srv-price-desc" data-customizer="srv_plan1_desc"><?php echo wp_kses_post(cr8v_mod('srv_plan1_desc', 'A monthly block of dedicated design and development hours to keep your website fast, updated, and growing. Perfect for active search marketing, technical SEO, speed tuning, and site edits.')); ?></p>
         <div class="c8srv-price-features">
           <div class="c8srv-price-feature">
             <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Dedicated monthly support hours block</span>
+            <span data-customizer="srv_plan1_feat1"><?php echo esc_html(cr8v_mod('srv_plan1_feat1', 'Dedicated monthly support hours block')); ?></span>
           </div>
           <div class="c8srv-price-feature">
             <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Monthly speed audits &amp; code optimizations</span>
+            <span data-customizer="srv_plan1_feat2"><?php echo esc_html(cr8v_mod('srv_plan1_feat2', 'Monthly speed audits & code optimizations')); ?></span>
           </div>
           <div class="c8srv-price-feature">
             <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Design tweaks, copy updates &amp; SEO execution</span>
+            <span data-customizer="srv_plan1_feat3"><?php echo esc_html(cr8v_mod('srv_plan1_feat3', 'Design tweaks, copy updates & SEO execution')); ?></span>
           </div>
         </div>
-        <a href="https://cr8vstacks.com/contact/?model=retainer" class="c8srv-price-btn is-light" style="border-color:#080808 !important; color:#080808 !important;">Secure Retainer Slot</a>
+        <a href="<?php echo esc_url(cr8v_mod('srv_plan1_btn_url', 'https://cr8vstacks.com/contact/?model=retainer')); ?>" class="c8srv-price-btn is-light" style="border-color:#080808 !important; color:#080808 !important;" data-customizer="srv_plan1_btn_text"><?php echo esc_html(cr8v_mod('srv_plan1_btn_text', 'Secure Retainer Slot')); ?></a>
       </div>
 
       <!-- Fixed Scope Projects -->
       <div class="c8srv-price-box is-highlight c8srv-reveal c8srv-reveal-d2">
         <div class="c8srv-price-header">
-          <span class="c8srv-price-type">Fixed Scope</span>
-          <h3 class="c8srv-price-title">Fixed Projects</h3>
-          <div class="c8srv-price-amount" style="color: #FAFAF7 !important;">$1,200<span> start</span></div>
+          <span class="c8srv-price-type" data-customizer="srv_plan2_type"><?php echo esc_html(cr8v_mod('srv_plan2_type', 'Fixed Scope')); ?></span>
+          <h3 class="c8srv-price-title" data-customizer="srv_plan2_title"><?php echo esc_html(cr8v_mod('srv_plan2_title', 'Fixed Projects')); ?></h3>
+          <div class="c8srv-price-amount" style="color: #FAFAF7 !important;"><span data-customizer="srv_plan2_price"><?php echo esc_html(cr8v_mod('srv_plan2_price', '$1,200')); ?></span><span data-customizer="srv_plan2_period"><?php echo esc_html(cr8v_mod('srv_plan2_period', ' start')); ?></span></div>
         </div>
-        <p class="c8srv-price-desc">A deep, focused design &amp; code engagement with transparent scoping, clear milestones, and guaranteed delivery. Best for building a new custom site, e-commerce storefront, or AI MVP prototype.</p>
+        <p class="c8srv-price-desc" data-customizer="srv_plan2_desc"><?php echo wp_kses_post(cr8v_mod('srv_plan2_desc', 'A deep, focused design & code engagement with transparent scoping, clear milestones, and guaranteed delivery. Best for building a new custom site, e-commerce storefront, or AI MVP prototype.')); ?></p>
         <div class="c8srv-price-features">
           <div class="c8srv-price-feature">
             <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Pre-project positioning &amp; speed audit</span>
+            <span data-customizer="srv_plan2_feat1"><?php echo esc_html(cr8v_mod('srv_plan2_feat1', 'Pre-project positioning & speed audit')); ?></span>
           </div>
           <div class="c8srv-price-feature">
             <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Guaranteed milestones &amp; delivery timeline</span>
+            <span data-customizer="srv_plan2_feat2"><?php echo esc_html(cr8v_mod('srv_plan2_feat2', 'Guaranteed milestones & delivery timeline')); ?></span>
           </div>
           <div class="c8srv-price-feature">
             <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>95+ PageSpeed &amp; SEO launch configuration</span>
+            <span data-customizer="srv_plan2_feat3"><?php echo esc_html(cr8v_mod('srv_plan2_feat3', '95+ PageSpeed & SEO launch configuration')); ?></span>
           </div>
         </div>
-        <a href="https://cr8vstacks.com/contact/?model=project" class="c8srv-price-btn is-primary">Start A Project</a>
+        <a href="<?php echo esc_url(cr8v_mod('srv_plan2_btn_url', 'https://cr8vstacks.com/contact/?model=project')); ?>" class="c8srv-price-btn is-primary" data-customizer="srv_plan2_btn_text"><?php echo esc_html(cr8v_mod('srv_plan2_btn_text', 'Start A Project')); ?></a>
       </div>
     </div>
 
     <!-- Interactive Scope Estimator -->
     <div class="c8srv-estimator c8srv-reveal">
       <div style="margin-bottom: 2.5rem !important;">
-        <span class="c8srv-price-type">Project Scope Estimator</span>
-        <h3 class="c8srv-price-title" style="font-size: 1.8rem !important; margin-bottom: 0.5rem !important;">Build Your Stack Estimate</h3>
-        <p class="c8srv-price-desc" style="margin-bottom: 0 !important;">Select your desired setup below to calculate an immediate starting price range estimate for your project.</p>
+        <span class="c8srv-price-type" data-customizer="srv_est_badge"><?php echo esc_html(cr8v_mod('srv_est_badge', 'Project Scope Estimator')); ?></span>
+        <h3 class="c8srv-price-title" style="font-size: 1.8rem !important; margin-bottom: 0.5rem !important;" data-customizer="srv_est_title"><?php echo esc_html(cr8v_mod('srv_est_title', 'Build Your Stack Estimate')); ?></h3>
+        <p class="c8srv-price-desc" style="margin-bottom: 0 !important;" data-customizer="srv_est_desc"><?php echo wp_kses_post(cr8v_mod('srv_est_desc', 'Select your desired setup below to calculate an immediate starting price range estimate for your project.')); ?></p>
       </div>
 
       <div class="c8srv-estimator-grid">
@@ -1574,8 +1574,8 @@ body {
             <!-- Dynamic elements will be inserted here -->
           </div>
 
-          <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" id="est-cta-link" class="c8srv-price-btn is-primary" style="margin-top: 1rem !important; margin-bottom: 1rem !important;">Submit Scope Request</a>
-          <a href="https://cr8vstacks.com/toolkits/website-cost-calculator/" class="c8srv-explore" style="justify-content: center !important; font-size: 11px !important; margin-top: 0.5rem !important; display: flex !important; font-family: 'Space Mono', monospace !important; color: #0047E1 !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important; align-items: center !important; gap: 8px !important;">Or build a custom stack with our Calculator &rarr;</a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('srv_est_cta_url', '/discovery-call/'))); ?>" id="est-cta-link" class="c8srv-price-btn is-primary" style="margin-top: 1rem !important; margin-bottom: 1rem !important;" data-customizer="srv_est_cta_text"><?php echo esc_html(cr8v_mod('srv_est_cta_text', 'Submit Scope Request')); ?></a>
+          <a href="<?php echo esc_url(cr8v_mod('srv_est_calc_url', 'https://cr8vstacks.com/toolkits/website-cost-calculator/')); ?>" class="c8srv-explore" style="justify-content: center !important; font-size: 11px !important; margin-top: 0.5rem !important; display: flex !important; font-family: 'Space Mono', monospace !important; color: #0047E1 !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important; align-items: center !important; gap: 8px !important;" data-customizer="srv_est_calc_text"><?php echo esc_html(cr8v_mod('srv_est_calc_text', 'Or build a custom stack with our Calculator →')); ?></a>
         </div>
       </div>
     </div>
@@ -1590,8 +1590,8 @@ body {
       .faq-eyebrow { font-family: 'Space Mono', monospace !important; font-size: 0.65rem !important; letter-spacing: 0.14em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 1rem !important; font-weight: 700 !important; }
       .faq-h2 { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.6rem, 2.8vw, 2.2rem) !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.2 !important; margin-bottom: 1.5rem !important; }
       .faq-sub { font-family: 'DM Sans', sans-serif !important; font-size: 0.85rem !important; font-weight: 300 !important; color: #555555 !important; line-height: 1.7 !important; margin-bottom: 2rem !important; }
-      .faq-cta-link, .faq-cta-link * { font-family: 'Space Mono', monospace !important; font-size: 0.75rem !important; font-weight: 700 !important; color: #0047E1 !important; text-transform: uppercase !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; letter-spacing: 0.08em !important; transition: color 0.2s ease !important; stroke: #0047E1 !important; }
-      .faq-cta-link:hover, .faq-cta-link:hover * { color: #002DB3 !important; stroke: #002DB3 !important; }
+      .faq-cta-link, .faq-cta-link * { font-family: 'Space Mono', monospace !important; font-size: 0.75rem !important; font-weight: 700 !important; color: #FFFFFF !important; background: #0047E1 !important; padding: 0.75rem 1.5rem !important; border-radius: 4px !important; text-transform: uppercase !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; letter-spacing: 0.08em !important; transition: all 0.2s ease !important; stroke: #FFFFFF !important; }
+      .faq-cta-link:hover, .faq-cta-link:hover * { color: #FFFFFF !important; background: #002DB3 !important; stroke: #FFFFFF !important; }
       .faq-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
       .faq-item { border-bottom: 1px solid rgba(8,8,8,0.1) !important; }
       .faq-item:first-child { border-top: 1px solid rgba(8,8,8,0.1) !important; }
@@ -1614,177 +1614,177 @@ body {
 
     <div class="faq-inner">
       <div class="faq-aside">
-        <div class="faq-eyebrow"><span style="color:#0047E1;font-weight:800;font-size:0.85rem;margin-right:2px;">//</span> COMMON QUESTIONS</div>
-        <h2 class="faq-h2">Questions, Answered Honestly</h2>
-        <p class="faq-sub">Clear answers to common questions about our design, development, and marketing processes.</p>
-        <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        <div class="faq-eyebrow" data-customizer="srv_faq_eyebrow"><span style="color:#0047E1;font-weight:800;font-size:0.85rem;margin-right:2px;">//</span> <?php echo esc_html(cr8v_mod('srv_faq_eyebrow', 'COMMON QUESTIONS')); ?></div>
+        <h2 class="faq-h2" data-customizer="srv_faq_h2"><?php echo esc_html(cr8v_mod('srv_faq_h2', 'Questions, Answered Honestly')); ?></h2>
+        <p class="faq-sub" data-customizer="srv_faq_sub"><?php echo wp_kses_post(cr8v_mod('srv_faq_sub', 'Clear answers to common questions about our design, development, and marketing processes.')); ?></p>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('srv_faq_cta_url', '/discovery-call/'))); ?>" class="faq-cta-link" data-customizer="srv_faq_cta_text"><?php echo esc_html(cr8v_mod('srv_faq_cta_text', 'Talk to us')); ?> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
       </div>
 
       <ul class="faq-list" id="srv-faq-list">
         <li class="faq-item is-open">
           <button class="faq-trigger" aria-expanded="true">
-            <span class="faq-q">How much does it cost to build a professional website?</span>
+            <span class="faq-q" data-customizer="srv_faq1_q"><?php echo esc_html(cr8v_mod('srv_faq1_q', 'How much does it cost to build a professional website?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body" style="grid-template-rows: 1fr;">
             <div class="faq-body-inner">
-              <p class="faq-a">Our custom builds start from $1,200 for single-page setups and scale depending on the platform, page count, and feature complexity. We evaluate your scope beforehand to give a firm starting price estimate that matches exactly what you need without hidden fees.</p>
+              <p class="faq-a" data-customizer="srv_faq1_a"><?php echo wp_kses_post(cr8v_mod('srv_faq1_a', 'Our custom builds start from $1,200 for single-page setups and scale depending on the platform, page count, and feature complexity. We evaluate your scope beforehand to give a firm starting price estimate that matches exactly what you need without hidden fees.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">How long does it take to design and build a website?</span>
+            <span class="faq-q" data-customizer="srv_faq2_q"><?php echo esc_html(cr8v_mod('srv_faq2_q', 'How long does it take to design and build a website?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">A standard landing page or simple build takes 2 to 3 weeks. Custom portals, high-end e-commerce configurations, or AI MVP builds typically span 4 to 8 weeks. We define clear milestones and release live progress links during each stage so you always know the exact status.</p>
+              <p class="faq-a" data-customizer="srv_faq2_a"><?php echo wp_kses_post(cr8v_mod('srv_faq2_a', 'A standard landing page or simple build takes 2 to 3 weeks. Custom portals, high-end e-commerce configurations, or AI MVP builds typically span 4 to 8 weeks. We define clear milestones and release live progress links during each stage so you always know the exact status.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">What web design and development services do you offer?</span>
+            <span class="faq-q" data-customizer="srv_faq3_q"><?php echo esc_html(cr8v_mod('srv_faq3_q', 'What web design and development services do you offer?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">We build custom WordPress sites (no-code Gutenberg or custom code blocks), custom Shopify themes, WooCommerce stores, custom PHP/JS applications, and AI MVP prototypes. We also provide brand identity guidelines, technical SEO Audits, and digital marketing retainer setups.</p>
+              <p class="faq-a" data-customizer="srv_faq3_a"><?php echo wp_kses_post(cr8v_mod('srv_faq3_a', 'We build custom WordPress sites (no-code Gutenberg or custom code blocks), custom Shopify themes, WooCommerce stores, custom PHP/JS applications, and AI MVP prototypes. We also provide brand identity guidelines, technical SEO Audits, and digital marketing retainer setups.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">Do you build websites on WordPress, Shopify, or both?</span>
+            <span class="faq-q" data-customizer="srv_faq4_q"><?php echo esc_html(cr8v_mod('srv_faq4_q', 'Do you build websites on WordPress, Shopify, or both?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">We build on both depending on your operational goals. If you need complete design control, hosting ownership, and low long-term software overhead, we build on WordPress (or WooCommerce). If you want hands-off hosted infrastructure, speed of deployment, and a simpler backend out of the box, we build on Shopify using custom Liquid templates.</p>
+              <p class="faq-a" data-customizer="srv_faq4_a"><?php echo wp_kses_post(cr8v_mod('srv_faq4_a', 'We build on both depending on your operational goals. If you need complete design control, hosting ownership, and low long-term software overhead, we build on WordPress (or WooCommerce). If you want hands-off hosted infrastructure, speed of deployment, and a simpler backend out of the box, we build on Shopify using custom Liquid templates.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">Which payment gateways do you integrate into websites?</span>
+            <span class="faq-q" data-customizer="srv_faq5_q"><?php echo esc_html(cr8v_mod('srv_faq5_q', 'Which payment gateways do you integrate into websites?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">We support and integrate all major international and regional payment processors, including Stripe, PayPal, Lemon Squeezy, Paystack, and Flutterwave. The integrations are wired natively at the code level to guarantee clean, secure user experiences.</p>
+              <p class="faq-a" data-customizer="srv_faq5_a"><?php echo wp_kses_post(cr8v_mod('srv_faq5_a', 'We support and integrate all major international and regional payment processors, including Stripe, PayPal, Lemon Squeezy, Paystack, and Flutterwave. The integrations are wired natively at the code level to guarantee clean, secure user experiences.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">Can you redesign or rebuild an existing website?</span>
+            <span class="faq-q" data-customizer="srv_faq6_q"><?php echo esc_html(cr8v_mod('srv_faq6_q', 'Can you redesign or rebuild an existing website?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">Yes. We handle structural migrations and design revamps. We preserve your existing content, customer data, and SEO indexing structures through mapping and redirects so your traffic does not drop upon rebuilding.</p>
+              <p class="faq-a" data-customizer="srv_faq6_a"><?php echo wp_kses_post(cr8v_mod('srv_faq6_a', 'Yes. We handle structural migrations and design revamps. We preserve your existing content, customer data, and SEO indexing structures through mapping and redirects so your traffic does not drop upon rebuilding.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">Do you offer SEO as part of the website build?</span>
+            <span class="faq-q" data-customizer="srv_faq7_q"><?php echo esc_html(cr8v_mod('srv_faq7_q', 'Do you offer SEO as part of the website build?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">Yes. Every project includes basic technical SEO setup: schema mapping, canonical URL structures, semantic coding, sitemap submission, and fast loading performance. We also offer advanced SEO strategy packages covering content strategy and keyword alignment.</p>
+              <p class="faq-a" data-customizer="srv_faq7_a"><?php echo wp_kses_post(cr8v_mod('srv_faq7_a', 'Yes. Every project includes basic technical SEO setup: schema mapping, canonical URL structures, semantic coding, sitemap submission, and fast loading performance. We also offer advanced SEO strategy packages covering content strategy and keyword alignment.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">What ongoing support do you offer after a website goes live?</span>
+            <span class="faq-q" data-customizer="srv_faq8_q"><?php echo esc_html(cr8v_mod('srv_faq8_q', 'What ongoing support do you offer after a website goes live?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">Every build includes a 30-day post-launch warranty cover window to fix unexpected code issues. Afterward, you can sign up for our monthly Growth Retainer ($950/mo) for dedicated developer hours, technical maintenance, updates, SEO execution, and active copy support.</p>
+              <p class="faq-a" data-customizer="srv_faq8_a"><?php echo wp_kses_post(cr8v_mod('srv_faq8_a', 'Every build includes a 30-day post-launch warranty cover window to fix unexpected code issues. Afterward, you can sign up for our monthly Growth Retainer ($950/mo) for dedicated developer hours, technical maintenance, updates, SEO execution, and active copy support.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">Do you work with early-stage startups and new businesses?</span>
+            <span class="faq-q" data-customizer="srv_faq9_q"><?php echo esc_html(cr8v_mod('srv_faq9_q', 'Do you work with early-stage startups and new businesses?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">Some of our best work has been with fresh startups that need help articulating what they're building before they go to market. If you've got a business or product and need to explain it clearly to customers, investors, or partners, we can help.</p>
+              <p class="faq-a" data-customizer="srv_faq9_a"><?php echo wp_kses_post(cr8v_mod('srv_faq9_a', 'Some of our best work has been with fresh startups that need help articulating what they\'re building before they go to market. If you\'ve got a business or product and need to explain it clearly to customers, investors, or partners, we can help.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">How much does it cost to work with Cr8v Stacks?</span>
+            <span class="faq-q" data-customizer="srv_faq10_q"><?php echo esc_html(cr8v_mod('srv_faq10_q', 'How much does it cost to work with Cr8v Stacks?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">We scope projects individually after learning about your specific requirements and goals, with fixed-scope engagements starting from $1,200. Alternatively, you can engage with us on a Growth Retainer basis starting at $950/month for dedicated design, development, and active growth support.</p>
+              <p class="faq-a" data-customizer="srv_faq10_a"><?php echo wp_kses_post(cr8v_mod('srv_faq10_a', 'We scope projects individually after learning about your specific requirements and goals, with fixed-scope engagements starting from $1,200. Alternatively, you can engage with us on a Growth Retainer basis starting at $950/month for dedicated design, development, and active growth support.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">What makes our approach different?</span>
+            <span class="faq-q" data-customizer="srv_faq11_q"><?php echo esc_html(cr8v_mod('srv_faq11_q', 'What makes our approach different?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">Everything we do comes back to one thing: clarity of communication. We distill complex products and brands down to their essence — what they do, why it matters, and how they help. No jargon, no fluff, just clean, impactful execution.</p>
+              <p class="faq-a" data-customizer="srv_faq11_a"><?php echo wp_kses_post(cr8v_mod('srv_faq11_a', 'Everything we do comes back to one thing: clarity of communication. We distill complex products and brands down to their essence — what they do, why it matters, and how they help. No jargon, no fluff, just clean, impactful execution.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">What do we think about AI?</span>
+            <span class="faq-q" data-customizer="srv_faq12_q"><?php echo esc_html(cr8v_mod('srv_faq12_q', 'What do we think about AI?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">It's cool (environmental and ethical issues nonwithstanding). However, it is not a replacement for raw human craftsmanship — it's not better than us, but in some instances it helps us work more efficiently and do better work. And if one day it is better than us, we'll close up shop.</p>
+              <p class="faq-a" data-customizer="srv_faq12_a"><?php echo wp_kses_post(cr8v_mod('srv_faq12_a', 'It\'s cool (environmental and ethical issues nonwithstanding). However, it is not a replacement for raw human craftsmanship — it\'s not better than us, but in some instances it helps us work more efficiently and do better work. And if one day it is better than us, we\'ll close up shop.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">Why should I hire Cr8v Stacks over freelancers?</span>
+            <span class="faq-q" data-customizer="srv_faq13_q"><?php echo esc_html(cr8v_mod('srv_faq13_q', 'Why should I hire Cr8v Stacks over freelancers?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">Freelancers can obviously be great, especially for specific tasks. However, an agency like Cr8v Stacks gives you a full team with diverse expertise — strategy, design, development, and project management — all collaborating under one system. You get consistent availability, quality control, and the capacity to scale quickly. With freelancers, you're often coordinating multiple people yourself, which can slow things down and create gaps in accountability.</p>
+              <p class="faq-a" data-customizer="srv_faq13_a"><?php echo wp_kses_post(cr8v_mod('srv_faq13_a', 'Freelancers can obviously be great, especially for specific tasks. However, an agency like Cr8v Stacks gives you a full team with diverse expertise — strategy, design, development, and project management — all collaborating under one system. You get consistent availability, quality control, and the capacity to scale quickly. With freelancers, you\'re often coordinating multiple people yourself, which can slow things down and create gaps in accountability.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">What does "Cr8v Stacks" mean?</span>
+            <span class="faq-q" data-customizer="srv_faq14_q"><?php echo esc_html(cr8v_mod('srv_faq14_q', 'What does "Cr8v Stacks" mean?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">We believe design and engineering should never be separated. "Cr8v" represents our focus on high-fidelity user experience and clear storytelling, while "Stacks" represents our deep technical expertise in full-stack architecture and clean code. Together, it means we build digital products that look stunning and perform flawlessly.</p>
+              <p class="faq-a" data-customizer="srv_faq14_a"><?php echo wp_kses_post(cr8v_mod('srv_faq14_a', 'We believe design and engineering should never be separated. "Cr8v" represents our focus on high-fidelity user experience and clear storytelling, while "Stacks" represents our deep technical expertise in full-stack architecture and clean code. Together, it means we build digital products that look stunning and perform flawlessly.')); ?></p>
             </div>
           </div>
         </li>
@@ -1814,59 +1814,63 @@ body {
   })();
   </script>
 
-  <!-- WooCommerce vs Shopify (unchanged) -->
+  <!-- WooCommerce vs Shopify (matrix) -->
   <div class="c8srv-vs">
-    <div class="c8srv-label c8srv-reveal">Choosing Your Platform</div>
-    <h2 class="c8srv-section-title c8srv-reveal">WooCommerce or Shopify?</h2>
-    <p class="c8srv-lead c8srv-reveal">Both are excellent platforms. The right one depends on what you're optimizing for — pick a priority and we'll highlight what matters most.</p>
+    <div class="c8srv-label c8srv-reveal" data-customizer="srv_vs_label"><?php echo esc_html(cr8v_mod('srv_vs_label', 'Choosing Your Platform')); ?></div>
+    <h2 class="c8srv-section-title c8srv-reveal" data-customizer="srv_vs_h2"><?php echo esc_html(cr8v_mod('srv_vs_h2', 'WooCommerce or Shopify?')); ?></h2>
+    <p class="c8srv-lead c8srv-reveal" data-customizer="srv_vs_desc"><?php echo wp_kses_post(cr8v_mod('srv_vs_desc', 'Both are excellent platforms. The right one depends on what you\'re optimizing for — pick a priority and we\'ll highlight what matters most.')); ?></p>
 
     <div class="c8srv-vs-priority-row" data-c8srv-priority-row>
-      <button type="button" class="c8srv-vs-priority-btn" data-c8srv-priority="speed">Speed to Launch</button>
-      <button type="button" class="c8srv-vs-priority-btn" data-c8srv-priority="customization">Full Customization</button>
-      <button type="button" class="c8srv-vs-priority-btn" data-c8srv-priority="cost">Lower Ongoing Cost</button>
-      <button type="button" class="c8srv-vs-priority-btn" data-c8srv-priority="scale">Enterprise Scale</button>
+      <button type="button" class="c8srv-vs-priority-btn" data-c8srv-priority="speed" data-customizer="srv_vs_btn1"><?php echo esc_html(cr8v_mod('srv_vs_btn1', 'Speed to Launch')); ?></button>
+      <button type="button" class="c8srv-vs-priority-btn" data-c8srv-priority="customization" data-customizer="srv_vs_btn2"><?php echo esc_html(cr8v_mod('srv_vs_btn2', 'Full Customization')); ?></button>
+      <button type="button" class="c8srv-vs-priority-btn" data-c8srv-priority="cost" data-customizer="srv_vs_btn3"><?php echo esc_html(cr8v_mod('srv_vs_btn3', 'Lower Ongoing Cost')); ?></button>
+      <button type="button" class="c8srv-vs-priority-btn" data-c8srv-priority="scale" data-customizer="srv_vs_btn4"><?php echo esc_html(cr8v_mod('srv_vs_btn4', 'Enterprise Scale')); ?></button>
     </div>
 
     <div class="c8srv-vs-table-wrap">
       <table class="c8srv-vs-table">
         <thead>
-          <tr><th>Criteria</th><th>Shopify</th><th>WooCommerce</th></tr>
+          <tr>
+            <th data-customizer="srv_vs_th1"><?php echo esc_html(cr8v_mod('srv_vs_th1', 'Criteria')); ?></th>
+            <th data-customizer="srv_vs_th2"><?php echo esc_html(cr8v_mod('srv_vs_th2', 'Shopify')); ?></th>
+            <th data-customizer="srv_vs_th3"><?php echo esc_html(cr8v_mod('srv_vs_th3', 'WooCommerce')); ?></th>
+          </tr>
         </thead>
         <tbody>
           <tr data-c8srv-row data-c8srv-tags="speed">
-            <td>Setup Speed</td>
-            <td>Hosted infrastructure means fewer moving parts to configure before launch.<span class="c8srv-vs-winner">Faster to launch</span></td>
-            <td>Requires hosting, security, and plugin setup before you're live.</td>
+            <td data-customizer="srv_vs_r1_c1"><?php echo esc_html(cr8v_mod('srv_vs_r1_c1', 'Setup Speed')); ?></td>
+            <td data-customizer="srv_vs_r1_c2"><?php echo wp_kses_post(cr8v_mod('srv_vs_r1_c2', 'Hosted infrastructure means fewer moving parts to configure before launch.<span class="c8srv-vs-winner">Faster to launch</span>')); ?></td>
+            <td data-customizer="srv_vs_r1_c3"><?php echo wp_kses_post(cr8v_mod('srv_vs_r1_c3', 'Requires hosting, security, and plugin setup before you\'re live.')); ?></td>
           </tr>
           <tr data-c8srv-row data-c8srv-tags="customization">
-            <td>Customization Depth</td>
-            <td>Theme and app-level customization within Shopify's platform rules.</td>
-            <td>Full code access — no ceiling on how deep you can customize.<span class="c8srv-vs-winner">Deepest control</span></td>
+            <td data-customizer="srv_vs_r2_c1"><?php echo esc_html(cr8v_mod('srv_vs_r2_c1', 'Customization Depth')); ?></td>
+            <td data-customizer="srv_vs_r2_c2"><?php echo wp_kses_post(cr8v_mod('srv_vs_r2_c2', 'Theme and app-level customization within Shopify\'s platform rules.')); ?></td>
+            <td data-customizer="srv_vs_r2_c3"><?php echo wp_kses_post(cr8v_mod('srv_vs_r2_c3', 'Full code access — no ceiling on how deep you can customize.<span class="c8srv-vs-winner">Deepest control</span>')); ?></td>
           </tr>
           <tr data-c8srv-row data-c8srv-tags="customization cost">
-            <td>Hosting &amp; Data Control</td>
-            <td>Hosted by Shopify — simple, but your store lives on their infrastructure.</td>
-            <td>Self-hosted on infrastructure you choose and fully own.<span class="c8srv-vs-winner">Full ownership</span></td>
+            <td data-customizer="srv_vs_r3_c1"><?php echo esc_html(cr8v_mod('srv_vs_r3_c1', 'Hosting & Data Control')); ?></td>
+            <td data-customizer="srv_vs_r3_c2"><?php echo wp_kses_post(cr8v_mod('srv_vs_r3_c2', 'Hosted by Shopify — simple, but your store lives on their infrastructure.')); ?></td>
+            <td data-customizer="srv_vs_r3_c3"><?php echo wp_kses_post(cr8v_mod('srv_vs_r3_c3', 'Self-hosted on infrastructure you choose and fully own.<span class="c8srv-vs-winner">Full ownership</span>')); ?></td>
           </tr>
           <tr data-c8srv-row data-c8srv-tags="cost">
-            <td>Ongoing Platform Cost</td>
-            <td>Predictable monthly plan; costs scale with add-on apps.</td>
-            <td>No platform fee — costs come from hosting and plugins instead.</td>
+            <td data-customizer="srv_vs_r4_c1"><?php echo esc_html(cr8v_mod('srv_vs_r4_c1', 'Ongoing Platform Cost')); ?></td>
+            <td data-customizer="srv_vs_r4_c2"><?php echo wp_kses_post(cr8v_mod('srv_vs_r4_c2', 'Predictable monthly plan; costs scale with add-on apps.')); ?></td>
+            <td data-customizer="srv_vs_r4_c3"><?php echo wp_kses_post(cr8v_mod('srv_vs_r4_c3', 'No platform fee — costs come from hosting and plugins instead.')); ?></td>
           </tr>
           <tr data-c8srv-row data-c8srv-tags="speed scale">
-            <td>App &amp; Plugin Ecosystem</td>
-            <td>Large, polished app store with consistent quality standards.<span class="c8srv-vs-winner">Most mature</span></td>
-            <td>Massive plugin library, with more variance in code quality.</td>
+            <td data-customizer="srv_vs_r5_c1"><?php echo esc_html(cr8v_mod('srv_vs_r5_c1', 'App & Plugin Ecosystem')); ?></td>
+            <td data-customizer="srv_vs_r5_c2"><?php echo wp_kses_post(cr8v_mod('srv_vs_r5_c2', 'Large, polished app store with consistent quality standards.<span class="c8srv-vs-winner">Most mature</span>')); ?></td>
+            <td data-customizer="srv_vs_r5_c3"><?php echo wp_kses_post(cr8v_mod('srv_vs_r5_c3', 'Massive plugin library, with more variance in code quality.')); ?></td>
           </tr>
           <tr data-c8srv-row data-c8srv-tags="scale">
-            <td>Enterprise Scalability</td>
-            <td>Shopify Plus supports high-volume, multi-storefront operations.</td>
-            <td>Scales fully custom — the ceiling is whatever we build to.</td>
+            <td data-customizer="srv_vs_r6_c1"><?php echo esc_html(cr8v_mod('srv_vs_r6_c1', 'Enterprise Scalability')); ?></td>
+            <td data-customizer="srv_vs_r6_c2"><?php echo wp_kses_post(cr8v_mod('srv_vs_r6_c2', 'Shopify Plus supports high-volume, multi-storefront operations.')); ?></td>
+            <td data-customizer="srv_vs_r6_c3"><?php echo wp_kses_post(cr8v_mod('srv_vs_r6_c3', 'Scales fully custom — the ceiling is whatever we build to.')); ?></td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="c8srv-vs-note">Both platforms are genuinely solid choices — the table above highlights trade-offs, not a verdict. We'll help you land on the right one during a positioning audit.</div>
+    <div class="c8srv-vs-note" data-customizer="srv_vs_note"><?php echo wp_kses_post(cr8v_mod('srv_vs_note', 'Both platforms are genuinely solid choices — the table above highlights trade-offs, not a verdict. We\'ll help you land on the right one during a positioning audit.')); ?></div>
   </div>
 
 </div>
