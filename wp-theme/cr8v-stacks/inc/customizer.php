@@ -19,4 +19,5 @@ add_action('customize_register', function ($wp_customize) {
     require_once get_template_directory() . '/inc/customizer/panel-shopify.php';
     require_once get_template_directory() . '/inc/customizer/panel-seo-content.php';
     require_once get_template_directory() . '/inc/customizer/panel-woocommerce.php';
+    require_once get_template_directory() . '/inc/customizer/panel-wordpress.php';
 });
