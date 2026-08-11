@@ -1,11 +1,11 @@
 <?php
 /**
  * CR8V Stacks — parts/header-blog.php
- * Master Blog Header template — from blog header.html
+ * Master Blog Header template — matching blog header.html 100%
  * Features:
- * - Modern Transparent Header & Floating Card Mega Menu
+ * - Desktop Header & Floating Card Mega Panels (Brand Strategy, Business Tips, Content Creation, Digital Marketing, Web Design)
  * - Live WP REST API AJAX Search Popover Engine
- * - Live WP Category Counters
+ * - Dynamic Category Counters (Real-time REST API + Fallback)
  * - Brand-Colored Category Accordion Drawer Layout for Mobile
  */
 defined('ABSPATH') || exit;
@@ -356,20 +356,46 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
 
     <nav>
       <ul class="c8bm-pnav" id="c8bmPnav">
-        <li class="c8bm-pnav-item">
-          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/')); ?>">Home</a>
+        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-brand">
+          <span class="c8bm-pnav-link" tabindex="0">Brand Strategy
+            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
         </li>
+
         <li class="c8bm-pnav-item">
-          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/services/')); ?>">Services</a>
+          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/category/business-productivity/')); ?>">Productivity</a>
         </li>
-        <li class="c8bm-pnav-item">
-          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/case-studies/')); ?>">Case Studies</a>
+
+        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-biztips">
+          <span class="c8bm-pnav-link" tabindex="0">Business Tips
+            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
         </li>
+
         <li class="c8bm-pnav-item">
-          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/blog/')); ?>">Blog</a>
+          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/category/career-planning/')); ?>">Career Planning</a>
         </li>
+
+        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-content">
+          <span class="c8bm-pnav-link" tabindex="0">Content Creation
+            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
+        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-digimkt">
+          <span class="c8bm-pnav-link" tabindex="0">Digital Marketing
+            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
+        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-webdesign">
+          <span class="c8bm-pnav-link" tabindex="0">Web Design
+            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
         <li class="c8bm-pnav-item">
-          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/about/')); ?>">About</a>
+          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/category/tutorials/')); ?>">Tutorials</a>
         </li>
       </ul>
     </nav>
@@ -388,6 +414,199 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
   </div>
 </header>
 
+<!-- ── MEGA PANEL: Brand Strategy ── -->
+<div class="c8bm-mega" id="c8bm-mega-brand">
+  <div class="c8bm-mega-card">
+    <div class="c8bm-mega-grid">
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// CATEGORY</div>
+        <div class="c8bm-mcol-heading">Brand Strategy</div>
+        <p class="c8bm-mcol-desc">Positioning your business for long-term recognition and trust.</p>
+        <a href="<?php echo esc_url(home_url('/category/business-marketing/')); ?>" class="c8bm-sublink">
+          Business Marketing <span class="c8bm-count" data-cat-slug="business-marketing">9</span>
+        </a>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-upsell">
+          <div class="c8bm-upsell-header-row">
+            <div class="c8bm-upsell-ico"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+            <div class="c8bm-upsell-title">Brand Strategy</div>
+          </div>
+          <p class="c8bm-upsell-desc">We build identities that make your business memorable, credible, and easy to trust at first glance.</p>
+          <a href="<?php echo esc_url(home_url('/services/brand-strategy/')); ?>" class="c8bm-upsell-link">View Service →</a>
+        </div>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// RECENT READS</div>
+        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
+          <div class="c8bm-post-num">01</div>
+          <div><div class="c8bm-post-tag">Strategy</div><div class="c8bm-post-title">Elevate Brand Status With In-Depth Positioning Research</div></div>
+        </a>
+        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
+          <div class="c8bm-post-num">02</div>
+          <div><div class="c8bm-post-tag">Marketing</div><div class="c8bm-post-title">5 Reasons Your Company Should Utilize A HubSpot Agency</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MEGA PANEL: Business Tips ── -->
+<div class="c8bm-mega" id="c8bm-mega-biztips">
+  <div class="c8bm-mega-card">
+    <div class="c8bm-mega-grid">
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// CATEGORY</div>
+        <div class="c8bm-mcol-heading">Business Tips</div>
+        <p class="c8bm-mcol-desc">Practical, tested advice for running a growing business.</p>
+        <a href="<?php echo esc_url(home_url('/category/ecommerce-hub/')); ?>" class="c8bm-sublink">Ecommerce Hub <span class="c8bm-count" data-cat-slug="ecommerce-hub">14</span></a>
+        <a href="<?php echo esc_url(home_url('/category/small-business-hub/')); ?>" class="c8bm-sublink">Small Business Hub <span class="c8bm-count" data-cat-slug="small-business-hub">11</span></a>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-upsell">
+          <div class="c8bm-upsell-header-row">
+            <div class="c8bm-upsell-ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg></div>
+            <div class="c8bm-upsell-title">Ecommerce Websites</div>
+          </div>
+          <p class="c8bm-upsell-desc">From Shopify builds to full custom stores — we design and develop ecommerce sites that convert.</p>
+          <a href="<?php echo esc_url(home_url('/services/ecommerce/')); ?>" class="c8bm-upsell-link">View Service →</a>
+        </div>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// RECENT READS</div>
+        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
+          <div class="c8bm-post-num">01</div>
+          <div><div class="c8bm-post-tag">Ecommerce</div><div class="c8bm-post-title">Key Advantages of Hiring a Professional Web Design Company</div></div>
+        </a>
+        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
+          <div class="c8bm-post-num">02</div>
+          <div><div class="c8bm-post-tag">Ecommerce</div><div class="c8bm-post-title">Things You Should Know About Temu Shopping App</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MEGA PANEL: Content Creation ── -->
+<div class="c8bm-mega" id="c8bm-mega-content">
+  <div class="c8bm-mega-card">
+    <div class="c8bm-mega-grid">
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// CATEGORY</div>
+        <div class="c8bm-mcol-heading">Content Creation</div>
+        <p class="c8bm-mcol-desc">Writing and formats that keep an audience coming back.</p>
+        <a href="<?php echo esc_url(home_url('/category/blogging/')); ?>" class="c8bm-sublink">Blogging <span class="c8bm-count" data-cat-slug="blogging">7</span></a>
+        <a href="<?php echo esc_url(home_url('/category/content-writing/')); ?>" class="c8bm-sublink">Content Writing <span class="c8bm-count" data-cat-slug="content-writing">10</span></a>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-upsell">
+          <div class="c8bm-upsell-header-row">
+            <div class="c8bm-upsell-ico"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+            <div class="c8bm-upsell-title">Content Writing</div>
+          </div>
+          <p class="c8bm-upsell-desc">Blog posts, web copy, and long-form content written to rank and convert readers into clients.</p>
+          <a href="<?php echo esc_url(home_url('/services/seo-content/')); ?>" class="c8bm-upsell-link">View Service →</a>
+        </div>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// RECENT READS</div>
+        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
+          <div class="c8bm-post-num">01</div>
+          <div><div class="c8bm-post-tag">SEO</div><div class="c8bm-post-title">DIY SEO for Small Businesses: Ultimate Ranking Guide</div></div>
+        </a>
+        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
+          <div class="c8bm-post-num">02</div>
+          <div><div class="c8bm-post-tag">Writing</div><div class="c8bm-post-title">The Psychological Effects of Propaganda in Advertising</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MEGA PANEL: Digital Marketing ── -->
+<div class="c8bm-mega" id="c8bm-mega-digimkt">
+  <div class="c8bm-mega-card">
+    <div class="c8bm-mega-grid">
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// CATEGORY</div>
+        <div class="c8bm-mcol-heading">Digital Marketing</div>
+        <p class="c8bm-mcol-desc">Strategies to grow reach, traffic, and qualified leads.</p>
+        <a href="<?php echo esc_url(home_url('/category/email-marketing/')); ?>" class="c8bm-sublink">Email Marketing <span class="c8bm-count" data-cat-slug="email-marketing">8</span></a>
+        <a href="<?php echo esc_url(home_url('/category/sem/')); ?>" class="c8bm-sublink">SEM <span class="c8bm-count" data-cat-slug="sem">6</span></a>
+        <a href="<?php echo esc_url(home_url('/category/seo/')); ?>" class="c8bm-sublink">SEO <span class="c8bm-count" data-cat-slug="seo">15</span></a>
+        <a href="<?php echo esc_url(home_url('/category/social-media-management/')); ?>" class="c8bm-sublink">Social Media <span class="c8bm-count" data-cat-slug="social-media-management">12</span></a>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-upsell">
+          <div class="c8bm-upsell-header-row">
+            <div class="c8bm-upsell-ico"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="c8bm-upsell-title">Digital Marketing</div>
+          </div>
+          <p class="c8bm-upsell-desc">SEO, email, and social strategy handled end-to-end so traffic turns into real customers.</p>
+          <a href="<?php echo esc_url(home_url('/services/digital-marketing/')); ?>" class="c8bm-upsell-link">View Service →</a>
+        </div>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// RECENT READS</div>
+        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
+          <div class="c8bm-post-num">01</div>
+          <div><div class="c8bm-post-tag">SEO</div><div class="c8bm-post-title">What Is SEO – All You Need To Know</div></div>
+        </a>
+        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
+          <div class="c8bm-post-num">02</div>
+          <div><div class="c8bm-post-tag">Strategy</div><div class="c8bm-post-title">Temu Marketing Strategy and Business Model</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MEGA PANEL: Web Design ── -->
+<div class="c8bm-mega" id="c8bm-mega-webdesign">
+  <div class="c8bm-mega-card">
+    <div class="c8bm-mega-grid">
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// CATEGORY</div>
+        <div class="c8bm-mcol-heading">Web Design</div>
+        <p class="c8bm-mcol-desc">Building fast, functional sites that look as good as they perform.</p>
+        <a href="<?php echo esc_url(home_url('/category/ecommerce-website/')); ?>" class="c8bm-sublink">Ecommerce Website <span class="c8bm-count" data-cat-slug="ecommerce-website">10</span></a>
+        <a href="<?php echo esc_url(home_url('/category/website-design/')); ?>" class="c8bm-sublink">Website Design <span class="c8bm-count" data-cat-slug="website-design">13</span></a>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-upsell">
+          <div class="c8bm-upsell-header-row">
+            <div class="c8bm-upsell-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <div class="c8bm-upsell-title">Website Design</div>
+          </div>
+          <p class="c8bm-upsell-desc">High-conversion custom websites designed in Figma and hand-coded in native WordPress code.</p>
+          <a href="<?php echo esc_url(home_url('/services/web-design/')); ?>" class="c8bm-upsell-link">View Service →</a>
+        </div>
+      </div>
+
+      <div class="c8bm-mcol">
+        <div class="c8bm-mcol-eyebrow">// RECENT READS</div>
+        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
+          <div class="c8bm-post-num">01</div>
+          <div><div class="c8bm-post-tag">Web Design</div><div class="c8bm-post-title">Key Advantages of Hiring a Professional Web Design Company</div></div>
+        </a>
+        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
+          <div class="c8bm-post-num">02</div>
+          <div><div class="c8bm-post-tag">Web Design</div><div class="c8bm-post-title">Sub-Second Page Performance Guide</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ── MOBILE DRAWER ── -->
 <div class="c8bm-drawer-overlay" id="c8bmDrawerOverlay"></div>
 <div class="c8bm-drawer" id="c8bmDrawer">
@@ -405,44 +624,100 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
   </div>
 
   <div class="c8bm-bd-body">
-    <div class="c8bm-bd-section-label">Navigation</div>
+    <div class="c8bm-bd-section-label">Categories</div>
     <div class="c8bm-bd-cat-list">
-      <a href="<?php echo esc_url(home_url('/')); ?>" class="c8bm-bd-cat-item">
+      <div class="c8bm-bd-cat-item" onclick="c8bmToggleCat(this)">
         <div class="c8bm-bdc-inner">
-          <div class="c8bm-bdc-left"><span class="c8bm-bdc-name">Home</span></div>
-          <div class="c8bm-bdc-right"><span class="c8bm-bdc-count">→</span></div>
+          <div class="c8bm-bdc-left">
+            <span class="c8bm-bdc-name">Brand Strategy</span>
+            <span class="c8bm-bdc-subs">Business Marketing</span>
+          </div>
+          <div class="c8bm-bdc-right">
+            <span class="c8bm-bdc-count" data-cat-slug="business-brand-strategy">9</span>
+            <svg class="c8bm-bdc-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="c8bm-bdc-sub">
+        <a href="<?php echo esc_url(home_url('/category/business-marketing/')); ?>" class="c8bm-bdc-sub-link">Business Marketing</a>
+      </div>
+
+      <a href="<?php echo esc_url(home_url('/category/business-productivity/')); ?>" class="c8bm-bd-cat-item">
+        <div class="c8bm-bdc-inner">
+          <div class="c8bm-bdc-left">
+            <span class="c8bm-bdc-name">Business Productivity</span>
+            <span class="c8bm-bdc-subs">Systems, tools, and workflows</span>
+          </div>
+          <div class="c8bm-bdc-right">
+            <span class="c8bm-bdc-count" data-cat-slug="business-productivity">6</span>
+          </div>
         </div>
       </a>
-      <a href="<?php echo esc_url(home_url('/services/')); ?>" class="c8bm-bd-cat-item">
+
+      <div class="c8bm-bd-cat-item" onclick="c8bmToggleCat(this)">
         <div class="c8bm-bdc-inner">
-          <div class="c8bm-bdc-left"><span class="c8bm-bdc-name">Services</span></div>
-          <div class="c8bm-bdc-right"><span class="c8bm-bdc-count">→</span></div>
+          <div class="c8bm-bdc-left">
+            <span class="c8bm-bdc-name">Business Tips</span>
+            <span class="c8bm-bdc-subs">Ecommerce · Small Business</span>
+          </div>
+          <div class="c8bm-bdc-right">
+            <span class="c8bm-bdc-count" data-cat-slug="business-tips">25</span>
+            <svg class="c8bm-bdc-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="c8bm-bdc-sub">
+        <a href="<?php echo esc_url(home_url('/category/ecommerce-hub/')); ?>" class="c8bm-bdc-sub-link">Ecommerce Hub</a>
+        <a href="<?php echo esc_url(home_url('/category/small-business-hub/')); ?>" class="c8bm-bdc-sub-link">Small Business Hub</a>
+      </div>
+
+      <a href="<?php echo esc_url(home_url('/category/career-planning/')); ?>" class="c8bm-bd-cat-item">
+        <div class="c8bm-bdc-inner">
+          <div class="c8bm-bdc-left">
+            <span class="c8bm-bdc-name">Career Planning</span>
+            <span class="c8bm-bdc-subs">Grow your professional life</span>
+          </div>
+          <div class="c8bm-bdc-right">
+            <span class="c8bm-bdc-count" data-cat-slug="career-planning">5</span>
+          </div>
         </div>
       </a>
-      <a href="<?php echo esc_url(home_url('/case-studies/')); ?>" class="c8bm-bd-cat-item">
+
+      <div class="c8bm-bd-cat-item" onclick="c8bmToggleCat(this)">
         <div class="c8bm-bdc-inner">
-          <div class="c8bm-bdc-left"><span class="c8bm-bdc-name">Case Studies</span></div>
-          <div class="c8bm-bdc-right"><span class="c8bm-bdc-count">→</span></div>
+          <div class="c8bm-bdc-left">
+            <span class="c8bm-bdc-name">Content Creation</span>
+            <span class="c8bm-bdc-subs">Blogging · Content Writing</span>
+          </div>
+          <div class="c8bm-bdc-right">
+            <span class="c8bm-bdc-count" data-cat-slug="content-creation">17</span>
+            <svg class="c8bm-bdc-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </div>
         </div>
-      </a>
-      <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8bm-bd-cat-item">
+      </div>
+      <div class="c8bm-bdc-sub">
+        <a href="<?php echo esc_url(home_url('/category/blogging/')); ?>" class="c8bm-bdc-sub-link">Blogging</a>
+        <a href="<?php echo esc_url(home_url('/category/content-writing/')); ?>" class="c8bm-bdc-sub-link">Content Writing</a>
+      </div>
+
+      <div class="c8bm-bd-cat-item" onclick="c8bmToggleCat(this)">
         <div class="c8bm-bdc-inner">
-          <div class="c8bm-bdc-left"><span class="c8bm-bdc-name">Scope Estimator</span></div>
-          <div class="c8bm-bdc-right"><span class="c8bm-bdc-count">→</span></div>
+          <div class="c8bm-bdc-left">
+            <span class="c8bm-bdc-name">Digital Marketing</span>
+            <span class="c8bm-bdc-subs">Email · SEM · SEO · Social</span>
+          </div>
+          <div class="c8bm-bdc-right">
+            <span class="c8bm-bdc-count" data-cat-slug="digital-marketing-news">41</span>
+            <svg class="c8bm-bdc-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </div>
         </div>
-      </a>
-      <a href="<?php echo esc_url(home_url('/about/')); ?>" class="c8bm-bd-cat-item">
-        <div class="c8bm-bdc-inner">
-          <div class="c8bm-bdc-left"><span class="c8bm-bdc-name">About</span></div>
-          <div class="c8bm-bdc-right"><span class="c8bm-bdc-count">→</span></div>
-        </div>
-      </a>
-      <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-bd-cat-item">
-        <div class="c8bm-bdc-inner">
-          <div class="c8bm-bdc-left"><span class="c8bm-bdc-name">Blog Archive</span></div>
-          <div class="c8bm-bdc-right"><span class="c8bm-bdc-count">→</span></div>
-        </div>
-      </a>
+      </div>
+      <div class="c8bm-bdc-sub">
+        <a href="<?php echo esc_url(home_url('/category/email-marketing/')); ?>" class="c8bm-bdc-sub-link">Email Marketing</a>
+        <a href="<?php echo esc_url(home_url('/category/sem/')); ?>" class="c8bm-bdc-sub-link">SEM</a>
+        <a href="<?php echo esc_url(home_url('/category/seo/')); ?>" class="c8bm-bdc-sub-link">SEO</a>
+        <a href="<?php echo esc_url(home_url('/category/social-media-management/')); ?>" class="c8bm-bdc-sub-link">Social Media Management</a>
+      </div>
     </div>
   </div>
 
@@ -452,6 +727,14 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
 </div>
 
 <script>
+function c8bmToggleCat(item) {
+  var sub = item.nextElementSibling;
+  if (sub && sub.classList.contains('c8bm-bdc-sub')) {
+    sub.classList.toggle('c8bm-bdc-sub-open');
+    item.classList.toggle('c8bm-bdc-active');
+  }
+}
+
 (function(){
   // Mobile drawer toggle
   var hbg = document.getElementById('c8bmHbg');
@@ -477,6 +760,50 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
       header.classList.toggle('c8bm-scrolled', window.scrollY > 8);
     });
   }
+
+  // Desktop Hover Mega Panel Engine
+  var active = null, timer = null;
+  var back = document.getElementById('c8bmMegaBack');
+
+  function open(id){
+    clearTimeout(timer);
+    var panel = document.getElementById(id);
+    if (!panel) return;
+    if (active && active !== panel){
+      active.classList.remove('c8bm-open');
+      document.querySelectorAll('#c8bmPnav .c8bm-pnav-link').forEach(function(l){ l.classList.remove('c8bm-open'); });
+    }
+    panel.classList.add('c8bm-open');
+    if (back) back.classList.add('c8bm-show');
+    active = panel;
+    document.querySelectorAll('[data-c8bm-mega="'+id+'"] .c8bm-pnav-link').forEach(function(l){ l.classList.add('c8bm-open'); });
+  }
+  function close(immediate){
+    clearTimeout(timer);
+    var fn = function(){
+      if (active){ active.classList.remove('c8bm-open'); active = null; }
+      if (back) back.classList.remove('c8bm-show');
+      document.querySelectorAll('#c8bmPnav .c8bm-pnav-link').forEach(function(l){ l.classList.remove('c8bm-open'); });
+    };
+    if (immediate) fn(); else timer = setTimeout(fn, 180);
+  }
+
+  document.querySelectorAll('#c8bmPnav .c8bm-pnav-item[data-c8bm-mega]').forEach(function(item){
+    var link = item.querySelector('.c8bm-pnav-link');
+    var id = item.getAttribute('data-c8bm-mega');
+    link.addEventListener('mouseenter', function(){ open(id); });
+    link.addEventListener('click', function(e){
+      if (active && active.id === id) close(true); else open(id);
+    });
+    item.addEventListener('mouseleave', function(){ close(false); });
+  });
+
+  document.querySelectorAll('.c8bm-mega').forEach(function(p){
+    p.addEventListener('mouseenter', function(){ clearTimeout(timer); });
+    p.addEventListener('mouseleave', function(){ close(false); });
+  });
+  if (back) back.addEventListener('click', function(){ close(true); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(true); });
 
   // Live WP AJAX Search Engine
   var searchTrigger = document.getElementById('c8bmSearchTrigger');

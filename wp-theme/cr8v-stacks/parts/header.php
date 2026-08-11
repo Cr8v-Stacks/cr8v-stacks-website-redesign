@@ -429,25 +429,15 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
 
     <div class="c8-md-plain-links">
       <?php
-      if (has_nav_menu('mobile-drawer')) {
-          wp_nav_menu([
-              'theme_location' => 'mobile-drawer',
-              'container'      => false,
-              'items_wrap'     => '%3$s',
-              'fallback_cb'    => false,
-              'depth'          => 1,
-              'walker'         => new CR8V_Mobile_Plain_Links_Walker(),
-          ]);
-      } else {
+      wp_nav_menu([
+          'theme_location' => 'mobile-drawer',
+          'container'      => false,
+          'items_wrap'     => '%3$s',
+          'fallback_cb'    => false,
+          'depth'          => 1,
+          'walker'         => new CR8V_Mobile_Plain_Links_Walker(),
+      ]);
       ?>
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="c8-md-plain-link">Home <span>→</span></a>
-        <a href="<?php echo esc_url(home_url('/services/')); ?>" class="c8-md-plain-link">Services <span>→</span></a>
-        <a href="<?php echo esc_url(home_url('/case-studies/')); ?>" class="c8-md-plain-link">Case Studies <span>→</span></a>
-        <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8-md-plain-link">Scope Estimator <span>→</span></a>
-        <a href="<?php echo esc_url(home_url('/#dev-playground')); ?>" class="c8-md-plain-link">Dev Playground <span>→</span></a>
-        <a href="<?php echo esc_url(home_url('/about/')); ?>" class="c8-md-plain-link">About <span>→</span></a>
-        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8-md-plain-link">Blog <span>→</span></a>
-      <?php } ?>
     </div>
   </div>
 

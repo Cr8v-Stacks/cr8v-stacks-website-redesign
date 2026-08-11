@@ -30,6 +30,33 @@ add_action('after_setup_theme', function () {
         'footer-col-3'   => __('Footer — Resources Links', 'cr8v-stacks'),
     ]);
 
+    // Backend: Automatically populate & assign Mobile Drawer menu if unassigned
+    $locations = get_theme_mod('nav_menu_locations');
+    if (empty($locations['mobile-drawer'])) {
+        $menu_name = 'Mobile Drawer Navigation';
+        $menu_exists = wp_get_nav_menu_object($menu_name);
+
+        if (!$menu_exists) {
+            $menu_id = wp_create_nav_menu($menu_name);
+            if (!is_wp_error($menu_id)) {
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Home', 'menu-item-url' => home_url('/'), 'menu-item-status' => 'publish']);
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Services', 'menu-item-url' => home_url('/services/'), 'menu-item-status' => 'publish']);
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Case Studies', 'menu-item-url' => home_url('/case-studies/'), 'menu-item-status' => 'publish']);
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Scope Estimator', 'menu-item-url' => home_url('/discovery-call/'), 'menu-item-status' => 'publish']);
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Dev Playground', 'menu-item-url' => home_url('/#dev-playground'), 'menu-item-status' => 'publish']);
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'About', 'menu-item-url' => home_url('/about/'), 'menu-item-status' => 'publish']);
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Blog', 'menu-item-url' => home_url('/blog/'), 'menu-item-status' => 'publish']);
+            }
+        } else {
+            $menu_id = $menu_exists->term_id;
+        }
+
+        if (isset($menu_id) && !is_wp_error($menu_id)) {
+            $locations['mobile-drawer'] = $menu_id;
+            set_theme_mod('nav_menu_locations', $locations);
+        }
+    }
+
     // Image sizes
     add_image_size('cr8v-hero',       1920, 1080, true);
     add_image_size('cr8v-card',        800,  500, true);

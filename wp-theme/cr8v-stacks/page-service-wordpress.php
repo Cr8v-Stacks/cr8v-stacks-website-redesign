@@ -27,9 +27,40 @@ defined('ABSPATH') || exit;
     font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
+    text-decoration: none !important;
   }
   .faq-cta-link svg {
     stroke: #FFFFFF !important;
+  }
+  /* Scope Estimator Choice Buttons */
+  .c8srv-est-choices {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .c8srv-est-choice {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(8, 8, 8, 0.15) !important;
+    color: #080808 !important;
+    padding: 0.6rem 1rem !important;
+    border-radius: 4px !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+  }
+  .c8srv-est-choice:hover {
+    border-color: #0047E1 !important;
+    color: #0047E1 !important;
+  }
+  .c8srv-est-choice.is-active {
+    background: #0047E1 !important;
+    border-color: #0047E1 !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
   }
   </style>
 </head>
@@ -187,148 +218,149 @@ defined('ABSPATH') || exit;
           <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
         </div>
       </div>
+      <!-- Card 4 -->
+      <div class="c8isv-flank-card" data-c8isv-flank-card="3">
+        <div class="c8isv-flank-card-quote">"</div>
+        <span class="c8isv-flank-card-step" data-customizer="wpdev_flank4_step"><?php echo esc_html(cr8v_mod('wpdev_flank4_step', 'Security // Protection')); ?></span>
+        <div class="c8isv-flank-card-divider"></div>
+        <h3 class="c8isv-flank-card-title" data-customizer="wpdev_flank4_title"><?php echo esc_html(cr8v_mod('wpdev_flank4_title', 'Plugin Security & Hardening')); ?></h3>
+        <p class="c8isv-flank-card-desc" data-customizer="wpdev_flank4_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_flank4_desc', 'Essential audited security plugins like Wordfence and Sucuri, SSL configuration, and 2FA login protection.')); ?></p>
+        <div class="c8isv-flank-card-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════
-     SECTION 3: PORTFOLIO SPOTLIGHT ZOOM CARD
-     Dark #080808
+     SECTION 3: OUR WORK (Portfolio Showcase)
+     White Background — Mkenny Properties Showcase
      ══════════════════════════════════════════ -->
-<div class="c8isv-portfolio-section">
-  <div class="c8isv-wrap">
-    <div class="c8isv-label c8isv-reveal is-light" data-customizer="wpdev_work_label"><?php echo esc_html(cr8v_mod('wpdev_work_label', 'FEATURED WORK Spotlight')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal is-light"><span data-customizer="wpdev_work_h2_part1"><?php echo esc_html(cr8v_mod('wpdev_work_h2_part1', 'Engineering The ')); ?></span><span class="c8isv-serif" data-customizer="wpdev_work_h2_serif"><?php echo esc_html(cr8v_mod('wpdev_work_h2_serif', 'Publishion Platform')); ?></span></h2>
-
+<div class="c8isv-portfolio-outer">
+  <div class="c8isv-portfolio-inner">
+    <div class="c8isv-portfolio-head">
+      <div class="c8isv-label c8isv-reveal is-center" data-customizer="wpdev_port_label"><?php echo esc_html(cr8v_mod('wpdev_port_label', 'Our Work')); ?></div>
+      <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="wpdev_port_h2_part1"><?php echo esc_html(cr8v_mod('wpdev_port_h2_part1', 'Built for Real Outcomes, ')); ?></span><br><span class="c8isv-serif" data-customizer="wpdev_port_h2_serif"><?php echo esc_html(cr8v_mod('wpdev_port_h2_serif', 'Not Just Concepts')); ?></span></h2>
+    </div>
     <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
-      <div class="c8isv-portfolio-media">
-        <img src="<?php echo esc_url(cr8v_mod('wpdev_work_cs_img', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop')); ?>" alt="WP Publishion AI Platform" data-customizer="wpdev_work_cs_img">
+      <div class="c8isv-portfolio-img">
+        <img src="<?php echo esc_url(cr8v_mod('wpdev_port_img', 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop')); ?>" alt="Mkenny Properties — built by Cr8v Stacks" data-customizer="wpdev_port_img">
       </div>
-      <div class="c8isv-portfolio-content">
-        <span class="c8isv-portfolio-tag" data-customizer="wpdev_work_cs_tag"><?php echo esc_html(cr8v_mod('wpdev_work_cs_tag', 'WP PUBLISHION AI // CUSTOM THEME & PLUGIN ENGINE')); ?></span>
-        <h3 class="c8isv-portfolio-title" data-customizer="wpdev_work_cs_title"><?php echo esc_html(cr8v_mod('wpdev_work_cs_title', 'WP Publishion AI Platform')); ?></h3>
-        <p class="c8isv-portfolio-desc" data-customizer="wpdev_work_cs_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_work_cs_desc', 'A custom WordPress media platform with automated AI content publishing, custom Gutenberg block suites, and a 98/100 PageSpeed score across desktop and mobile.')); ?></p>
-        <a href="<?php echo esc_url(home_url(cr8v_mod('wpdev_work_cs_btn_url', '/case-studies/'))); ?>" class="c8isv-portfolio-btn" data-customizer="wpdev_work_cs_btn_text"><?php echo esc_html(cr8v_mod('wpdev_work_cs_btn_text', 'Explore Case Study →')); ?></a>
+      <div class="c8isv-portfolio-info">
+        <span class="c8isv-portfolio-client" data-customizer="wpdev_port_client"><?php echo esc_html(cr8v_mod('wpdev_port_client', 'Case Study — Mkenny Properties')); ?></span>
+        <h3 class="c8isv-portfolio-title" data-customizer="wpdev_port_title"><?php echo esc_html(cr8v_mod('wpdev_port_title', 'Property Platform & Custom Widgets')); ?></h3>
+        <p class="c8isv-portfolio-desc" data-customizer="wpdev_port_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_port_desc', 'Rebuilt Mkenny Properties from a basic landing page into a full property platform: property listing pages, individual property detail pages, blog, and archive pages — all built using custom Elementor widgets developed specifically for this project.')); ?></p>
+        <div class="c8isv-portfolio-stats">
+          <div>
+            <span class="c8isv-portfolio-stat-val" data-customizer="wpdev_port_stat1_val"><?php echo esc_html(cr8v_mod('wpdev_port_stat1_val', '4')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="wpdev_port_stat1_lbl"><?php echo esc_html(cr8v_mod('wpdev_port_stat1_lbl', 'New Page Types')); ?></span>
+          </div>
+          <div>
+            <span class="c8isv-portfolio-stat-val" data-customizer="wpdev_port_stat2_val"><?php echo esc_html(cr8v_mod('wpdev_port_stat2_val', '1')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="wpdev_port_stat2_lbl"><?php echo esc_html(cr8v_mod('wpdev_port_stat2_lbl', 'Custom Widget System')); ?></span>
+          </div>
+        </div>
+        <div class="c8isv-portfolio-deliverables">
+          <span class="c8isv-portfolio-stat-lbl">Key Deliverables</span>
+          <div class="c8isv-portfolio-pills">
+            <span class="c8isv-portfolio-pill">WordPress CMS</span>
+            <span class="c8isv-portfolio-pill">Custom Elementor Widgets</span>
+            <span class="c8isv-portfolio-pill">Property Listing Engine</span>
+            <span class="c8isv-portfolio-pill">Technical SEO Architecture</span>
+          </div>
+        </div>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('wpdev_port_btn_url', '/case-studies/mkenny-properties/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="wpdev_port_btn_text"><?php echo esc_html(cr8v_mod('wpdev_port_btn_text', 'View Case Study →')); ?></a>
       </div>
+    </div>
+    <div class="c8isv-portfolio-footer">
+      <a href="<?php echo esc_url(home_url('/portfolio/')); ?>" class="c8isv-explore">See All Projects →</a>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════
-     SECTION 4: CORE CAPABILITIES (Accordion)
-     Light #FAFAF7
+     SECTION 4: WHAT YOU GET (Folder Deck)
+     Cream #FAFAF9
      ══════════════════════════════════════════ -->
-<div class="c8isv-capabilities-section" id="c8isv-services">
+<div class="c8srv-folder-section" id="c8isv-services">
   <div class="c8isv-wrap">
-    <div class="c8isv-label c8isv-reveal" data-customizer="wpdev_cap_label"><?php echo esc_html(cr8v_mod('wpdev_cap_label', 'Capabilities')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="wpdev_cap_h2_part1"><?php echo esc_html(cr8v_mod('wpdev_cap_h2_part1', 'WordPress Engineering ')); ?></span><span class="c8isv-serif" data-customizer="wpdev_cap_h2_serif"><?php echo esc_html(cr8v_mod('wpdev_cap_h2_serif', 'Capabilities')); ?></span></h2>
+    <div class="c8isv-label c8isv-reveal" data-customizer="wpdev_folder_label"><?php echo esc_html(cr8v_mod('wpdev_folder_label', 'What You Get')); ?></div>
+    <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="wpdev_folder_h2_part1"><?php echo esc_html(cr8v_mod('wpdev_folder_h2_part1', 'Every layer of your build, ')); ?></span><span class="c8isv-serif" data-customizer="wpdev_folder_h2_serif"><?php echo esc_html(cr8v_mod('wpdev_folder_h2_serif', 'engineered by Cr8v Stacks.')); ?></span></h2>
+    <p class="c8isv-lead c8isv-reveal" style="margin-bottom:2rem" data-customizer="wpdev_folder_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_folder_desc', 'Custom WordPress theme builds, intuitive page builders, structured taxonomies, and hardened security engineered for growth.')); ?></p>
 
-    <div class="c8isv-accordion" data-c8isv-accordion>
-      <div class="c8isv-accordion-item is-active">
-        <button class="c8isv-accordion-trigger" aria-expanded="true">
-          <span class="c8isv-accordion-title" data-customizer="wpdev_cap1_title"><?php echo esc_html(cr8v_mod('wpdev_cap1_title', 'Custom Gutenberg Block Development')); ?></span>
-          <span class="c8isv-accordion-icon">+</span>
-        </button>
-        <div class="c8isv-accordion-panel" style="max-height: 200px;">
-          <p class="c8isv-accordion-text" data-customizer="wpdev_cap1_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_cap1_desc', 'Hand-coded React & PHP Gutenberg blocks tailored to your design system so content teams build pixel-perfect pages without third-party page builder overhead.')); ?></p>
+    <div class="c8srv-folder-deck" data-c8srv-folder-deck>
+      <!-- Card 1 -->
+      <div class="c8srv-folder-card">
+        <div class="c8srv-folder-tab" data-customizer="wpdev_folder1_tab"><?php echo esc_html(cr8v_mod('wpdev_folder1_tab', '01 // Theme')); ?></div>
+        <div class="c8srv-folder-card-left">
+          <h3 class="c8srv-folder-card-title" data-customizer="wpdev_folder1_title"><?php echo esc_html(cr8v_mod('wpdev_folder1_title', 'Tailored WordPress Theme Build')); ?></h3>
+          <p class="c8srv-folder-card-desc" data-customizer="wpdev_folder1_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_folder1_desc', 'Custom WordPress theme development using Elementor Pro or Gutenberg on lightweight starter base themes tailored for your brand.')); ?></p>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss wordpress theme →</a>
         </div>
-      </div>
-
-      <div class="c8isv-accordion-item">
-        <button class="c8isv-accordion-trigger" aria-expanded="false">
-          <span class="c8isv-accordion-title" data-customizer="wpdev_cap2_title"><?php echo esc_html(cr8v_mod('wpdev_cap2_title', 'Speed & Core Web Vitals Optimization')); ?></span>
-          <span class="c8isv-accordion-icon">+</span>
-        </button>
-        <div class="c8isv-accordion-panel">
-          <p class="c8isv-accordion-text" data-customizer="wpdev_cap2_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_cap2_desc', 'Eliminating database queries, asset minification, critical CSS extraction, and server-level caching to guarantee sub-1.2s page load speed scores.')); ?></p>
-        </div>
-      </div>
-
-      <div class="c8isv-accordion-item">
-        <button class="c8isv-accordion-trigger" aria-expanded="false">
-          <span class="c8isv-accordion-title" data-customizer="wpdev_cap3_title"><?php echo esc_html(cr8v_mod('wpdev_cap3_title', 'ACF Pro & Custom Post Type Architecture')); ?></span>
-          <span class="c8isv-accordion-icon">+</span>
-        </button>
-        <div class="c8isv-accordion-panel">
-          <p class="c8isv-accordion-text" data-customizer="wpdev_cap3_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_cap3_desc', 'Bespoke Advanced Custom Fields data models structured around your exact business data — projects, team profiles, pricing tiers, and locations.')); ?></p>
-        </div>
-      </div>
-
-      <div class="c8isv-accordion-item">
-        <button class="c8isv-accordion-trigger" aria-expanded="false">
-          <span class="c8isv-accordion-title" data-customizer="wpdev_cap4_title"><?php echo esc_html(cr8v_mod('wpdev_cap4_title', 'Enterprise Migration & Elementor Refactoring')); ?></span>
-          <span class="c8isv-accordion-icon">+</span>
-        </button>
-        <div class="c8isv-accordion-panel">
-          <p class="c8isv-accordion-text" data-customizer="wpdev_cap4_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_cap4_desc', 'Migrating legacy WordPress builds, bloated Elementor setups, or external CMS platforms (Webflow, Squarespace) to clean hand-written theme code.')); ?></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════
-     SECTION 5: PROCESS & APPROACH (Slanted Cards)
-     Dark #080808
-     ══════════════════════════════════════════ -->
-<div class="c8isv-approach-section">
-  <div class="c8isv-wrap">
-    <div class="c8isv-label c8isv-reveal is-light" data-customizer="wpdev_app_label"><?php echo esc_html(cr8v_mod('wpdev_app_label', 'How We Work')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal is-light"><span data-customizer="wpdev_app_h2_part1"><?php echo esc_html(cr8v_mod('wpdev_app_h2_part1', 'Our 4-Stage ')); ?></span><span class="c8isv-serif" data-customizer="wpdev_app_h2_serif"><?php echo esc_html(cr8v_mod('wpdev_app_h2_serif', 'Development Process')); ?></span></h2>
-
-    <div class="c8isv-approach-stack">
-      <!-- Stage 1 -->
-      <div class="c8isv-approach-wrapper">
-        <div class="c8isv-approach-card" data-c8isv-approach-card>
-          <div class="c8isv-approach-info">
-            <span class="c8isv-approach-num" data-customizer="wpdev_stage1_num"><?php echo esc_html(cr8v_mod('wpdev_stage1_num', '01')); ?></span>
-            <h3 class="c8isv-approach-title" data-customizer="wpdev_stage1_title"><?php echo esc_html(cr8v_mod('wpdev_stage1_title', 'Architecture & Schema Scoping')); ?></h3>
-            <p class="c8isv-approach-desc" data-customizer="wpdev_stage1_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_stage1_desc', 'Mapping custom post types, taxonomy structures, plugin requirements, and URL redirects before writing line one of code.')); ?></p>
-          </div>
-          <div class="c8isv-approach-media">
-            <img src="<?php echo esc_url(cr8v_mod('wpdev_stage1_img', 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop')); ?>" alt="Stage 1" data-customizer="wpdev_stage1_img">
+        <div class="c8srv-folder-card-right">
+          <div class="c8srv-folder-card-img">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Tailored WordPress Theme Build">
           </div>
         </div>
       </div>
 
-      <!-- Stage 2 -->
-      <div class="c8isv-approach-wrapper">
-        <div class="c8isv-approach-card" data-c8isv-approach-card>
-          <div class="c8isv-approach-info">
-            <span class="c8isv-approach-num" data-customizer="wpdev_stage2_num"><?php echo esc_html(cr8v_mod('wpdev_stage2_num', '02')); ?></span>
-            <h3 class="c8isv-approach-title" data-customizer="wpdev_stage2_title"><?php echo esc_html(cr8v_mod('wpdev_stage2_title', 'Figma To PHP Theme Build')); ?></h3>
-            <p class="c8isv-approach-desc" data-customizer="wpdev_stage2_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_stage2_desc', 'Hand-coding responsive HTML5/CSS3 templates, custom PHP theme files, and ACF field groups with 100% fidelity to your Figma designs.')); ?></p>
-          </div>
-          <div class="c8isv-approach-media">
-            <img src="<?php echo esc_url(cr8v_mod('wpdev_stage2_img', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop')); ?>" alt="Stage 2" data-customizer="wpdev_stage2_img">
+      <!-- Card 2 -->
+      <div class="c8srv-folder-card">
+        <div class="c8srv-folder-tab" data-customizer="wpdev_folder2_tab"><?php echo esc_html(cr8v_mod('wpdev_folder2_tab', '02 // Builders')); ?></div>
+        <div class="c8srv-folder-card-left">
+          <h3 class="c8srv-folder-card-title" data-customizer="wpdev_folder2_title"><?php echo esc_html(cr8v_mod('wpdev_folder2_title', 'Custom Page Builders & Block Suites')); ?></h3>
+          <p class="c8srv-folder-card-desc" data-customizer="wpdev_folder2_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_folder2_desc', 'Tailored Elementor Pro or native Gutenberg block layouts empowering your team to create and edit pages visually without breaking layout structures.')); ?></p>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss builders & blocks →</a>
+        </div>
+        <div class="c8srv-folder-card-right">
+          <div class="c8srv-folder-card-img">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Custom Page Builders & Block Suites">
           </div>
         </div>
       </div>
 
-      <!-- Stage 3 -->
-      <div class="c8isv-approach-wrapper">
-        <div class="c8isv-approach-card" data-c8isv-approach-card>
-          <div class="c8isv-approach-info">
-            <span class="c8isv-approach-num" data-customizer="wpdev_stage3_num"><?php echo esc_html(cr8v_mod('wpdev_stage3_num', '03')); ?></span>
-            <h3 class="c8isv-approach-title" data-customizer="wpdev_stage3_title"><?php echo esc_html(cr8v_mod('wpdev_stage3_title', 'Performance & SEO Hardening')); ?></h3>
-            <p class="c8isv-approach-desc" data-customizer="wpdev_stage3_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_stage3_desc', 'Benchmarking Core Web Vitals, configuring RankMath/Yoast schema markup, image webp compression, and security hardening.')); ?></p>
-          </div>
-          <div class="c8isv-approach-media">
-            <img src="<?php echo esc_url(cr8v_mod('wpdev_stage3_img', 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop')); ?>" alt="Stage 3" data-customizer="wpdev_stage3_img">
+      <!-- Card 3 -->
+      <div class="c8srv-folder-card">
+        <div class="c8srv-folder-tab" data-customizer="wpdev_folder3_tab"><?php echo esc_html(cr8v_mod('wpdev_folder3_tab', '03 // Plugins')); ?></div>
+        <div class="c8srv-folder-card-left">
+          <h3 class="c8srv-folder-card-title" data-customizer="wpdev_folder3_title"><?php echo esc_html(cr8v_mod('wpdev_folder3_title', 'Custom Fields & Workflow Plugins')); ?></h3>
+          <p class="c8srv-folder-card-desc" data-customizer="wpdev_folder3_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_folder3_desc', 'Essential vetted plugins and custom PHP hooks for specialized business logic, custom post types, and ACF Pro fields.')); ?></p>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss custom plugins →</a>
+        </div>
+        <div class="c8srv-folder-card-right">
+          <div class="c8srv-folder-card-img">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Custom Fields & Workflow Plugins">
           </div>
         </div>
       </div>
 
-      <!-- Stage 4 -->
-      <div class="c8isv-approach-wrapper">
-        <div class="c8isv-approach-card" data-c8isv-approach-card>
-          <div class="c8isv-approach-info">
-            <span class="c8isv-approach-num" data-customizer="wpdev_stage4_num"><?php echo esc_html(cr8v_mod('wpdev_stage4_num', '04')); ?></span>
-            <h3 class="c8isv-approach-title" data-customizer="wpdev_stage4_title"><?php echo esc_html(cr8v_mod('wpdev_stage4_title', 'Client Hand-Off & Training')); ?></h3>
-            <p class="c8isv-approach-desc" data-customizer="wpdev_stage4_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_stage4_desc', 'Delivering custom video walkthrough guides so your non-technical marketing team can edit 100% of pages effortlessly.')); ?></p>
+      <!-- Card 4 -->
+      <div class="c8srv-folder-card">
+        <div class="c8srv-folder-tab" data-customizer="wpdev_folder4_tab"><?php echo esc_html(cr8v_mod('wpdev_folder4_tab', '04 // Speed')); ?></div>
+        <div class="c8srv-folder-card-left">
+          <h3 class="c8srv-folder-card-title" data-customizer="wpdev_folder4_title"><?php echo esc_html(cr8v_mod('wpdev_folder4_title', 'Core Web Vitals & Speed Tuning')); ?></h3>
+          <p class="c8srv-folder-card-desc" data-customizer="wpdev_folder4_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_folder4_desc', 'Optimized MySQL database queries, WebP image pipelines, transient cleanup, and caching for fast mobile rendering.')); ?></p>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss performance →</a>
+        </div>
+        <div class="c8srv-folder-card-right">
+          <div class="c8srv-folder-card-img">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Core Web Vitals & Speed Tuning">
           </div>
-          <div class="c8isv-approach-media">
-            <img src="<?php echo esc_url(cr8v_mod('wpdev_stage4_img', 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop')); ?>" alt="Stage 4" data-customizer="wpdev_stage4_img">
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="c8srv-folder-card">
+        <div class="c8srv-folder-tab" data-customizer="wpdev_folder5_tab"><?php echo esc_html(cr8v_mod('wpdev_folder5_tab', '05 // Security')); ?></div>
+        <div class="c8srv-folder-card-left">
+          <h3 class="c8srv-folder-card-title" data-customizer="wpdev_folder5_title"><?php echo esc_html(cr8v_mod('wpdev_folder5_title', 'Security Hardening & Retainer Support')); ?></h3>
+          <p class="c8srv-folder-card-desc" data-customizer="wpdev_folder5_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_folder5_desc', 'Wordfence and Sucuri security configuration, SSL setup, admin walkthrough training, and dedicated post-launch support.')); ?></p>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss security & support →</a>
+        </div>
+        <div class="c8srv-folder-card-right">
+          <div class="c8srv-folder-card-img">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Security Hardening & Retainer Support">
           </div>
         </div>
       </div>
@@ -337,120 +369,271 @@ defined('ABSPATH') || exit;
 </div>
 
 <!-- ══════════════════════════════════════════
-     SECTION 6: BUILD PLATFORM OPTIONS
-     Light #FAFAF7
+     SECTION 5: HOW WE APPROACH IT (Process Deck)
+     White Background — Slanted Overlapping Cards
      ══════════════════════════════════════════ -->
-<div class="c8isv-options-section">
-  <div class="c8isv-wrap">
-    <div class="c8isv-label c8isv-reveal" data-customizer="wpdev_opt_label"><?php echo esc_html(cr8v_mod('wpdev_opt_label', 'Development Engines')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="wpdev_opt_h2_part1"><?php echo esc_html(cr8v_mod('wpdev_opt_h2_part1', 'Choose Your Preferred ')); ?></span><span class="c8isv-serif" data-customizer="wpdev_opt_h2_serif"><?php echo esc_html(cr8v_mod('wpdev_opt_h2_serif', 'WordPress Setup')); ?></span></h2>
+<div class="c8isv-approach-outer">
+  <div class="c8isv-wrap" style="padding-bottom:0">
+    <div class="c8isv-label c8isv-reveal" data-customizer="wpdev_app_label"><?php echo esc_html(cr8v_mod('wpdev_app_label', 'How We Approach It')); ?></div>
+    <h2 class="c8isv-section-title c8isv-reveal" data-customizer="wpdev_app_h2"><?php echo esc_html(cr8v_mod('wpdev_app_h2', 'How We Approach Custom WordPress Development')); ?></h2>
+    <p class="c8isv-lead c8isv-reveal" data-customizer="wpdev_app_sub"><?php echo wp_kses_post(cr8v_mod('wpdev_app_sub', 'A structured 4-step engineering roadmap designed for custom theme precision, Gutenberg/Elementor autonomy, and sub-second page performance.')); ?></p>
+  </div>
+  
+  <div class="c8isv-approach-deck" data-c8isv-approach-deck>
+    <!-- Stage 1 -->
+    <div class="c8isv-approach-wrap">
+      <div class="c8isv-approach-card" data-c8isv-approach-card>
+        <div class="c8isv-approach-col-num" data-customizer="wpdev_app1_num"><?php echo esc_html(cr8v_mod('wpdev_app1_num', '01')); ?></div>
+        <div class="c8isv-approach-col-name" data-customizer="wpdev_app1_name"><?php echo esc_html(cr8v_mod('wpdev_app1_name', 'Discover')); ?></div>
+        <div class="c8isv-approach-col-tags" data-customizer="wpdev_app1_tags"><?php echo wp_kses_post(cr8v_mod('wpdev_app1_tags', 'Brand &middot; Competitive &middot;<br>Goals')); ?></div>
+        <div class="c8isv-approach-col-desc" data-customizer="wpdev_app1_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_app1_desc', 'We analyze your brand identity, audit existing assets, map competitive landscapes, and outline conversion targets before wireframing. We understand your users before creating visuals.')); ?></div>
+        <div class="c8isv-approach-col-img">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" alt="WordPress Discovery and brand audit stage">
+        </div>
+      </div>
+    </div>
 
-    <div class="c8isv-options-grid">
-      <div class="c8isv-option-card">
-        <div class="c8isv-option-num">01</div>
-        <h3 class="c8isv-option-name" data-customizer="wpdev_opt1_name"><?php echo esc_html(cr8v_mod('wpdev_opt1_name', 'Custom Theme (ACF + Gutenberg)')); ?></h3>
-        <p class="c8isv-option-desc" data-customizer="wpdev_opt1_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_opt1_desc', 'Zero page builders. Pure hand-written PHP code, ACF Pro data structures, and lightweight native block layouts for maximum speed.')); ?></p>
+    <!-- Stage 2 -->
+    <div class="c8isv-approach-wrap">
+      <div class="c8isv-approach-card" data-c8isv-approach-card>
+        <div class="c8isv-approach-col-num" data-customizer="wpdev_app2_num"><?php echo esc_html(cr8v_mod('wpdev_app2_num', '02')); ?></div>
+        <div class="c8isv-approach-col-name" data-customizer="wpdev_app2_name"><?php echo esc_html(cr8v_mod('wpdev_app2_name', 'Design')); ?></div>
+        <div class="c8isv-approach-col-tags" data-customizer="wpdev_app2_tags"><?php echo wp_kses_post(cr8v_mod('wpdev_app2_tags', 'UX &middot; Figma &middot;<br>Styling')); ?></div>
+        <div class="c8isv-approach-col-desc" data-customizer="wpdev_app2_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_app2_desc', 'We draft custom layout wireframes and craft high-fidelity interface mockups in Figma, selecting typography and brand colors designed to maximize visual credibility.')); ?></div>
+        <div class="c8isv-approach-col-img">
+          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop" alt="WordPress Figma visual design stage">
+        </div>
       </div>
-      <div class="c8isv-option-card">
-        <div class="c8isv-option-num">02</div>
-        <h3 class="c8isv-option-name" data-customizer="wpdev_opt2_name"><?php echo esc_html(cr8v_mod('wpdev_opt2_name', 'Elementor Pro Custom Theme')); ?></h3>
-        <p class="c8isv-option-desc" data-customizer="wpdev_opt2_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_opt2_desc', 'Bespoke Elementor Pro widget suites engineered around your design system for drag-and-drop flexibility without template clutter.')); ?></p>
+    </div>
+
+    <!-- Stage 3 -->
+    <div class="c8isv-approach-wrap">
+      <div class="c8isv-approach-card" data-c8isv-approach-card>
+        <div class="c8isv-approach-col-num" data-customizer="wpdev_app3_num"><?php echo esc_html(cr8v_mod('wpdev_app3_num', '03')); ?></div>
+        <div class="c8isv-approach-col-name" data-customizer="wpdev_app3_name"><?php echo esc_html(cr8v_mod('wpdev_app3_name', 'Engineering')); ?></div>
+        <div class="c8isv-approach-col-tags" data-customizer="wpdev_app3_tags"><?php echo wp_kses_post(cr8v_mod('wpdev_app3_tags', 'Grids &middot; Assets &middot;<br>Systems')); ?></div>
+        <div class="c8isv-approach-col-desc" data-customizer="wpdev_app3_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_app3_desc', 'We package design style systems, establish grid guidelines, configure reusable UI component assets, and define responsive layouts for developer delivery.')); ?></div>
+        <div class="c8isv-approach-col-img">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="WordPress component system setup stage">
+        </div>
       </div>
-      <div class="c8isv-option-card">
-        <div class="c8isv-option-num">03</div>
-        <h3 class="c8isv-option-name" data-customizer="wpdev_opt3_name"><?php echo esc_html(cr8v_mod('wpdev_opt3_name', 'Headless WordPress (REST API)')); ?></h3>
-        <p class="c8isv-option-desc" data-customizer="wpdev_opt3_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_opt3_desc', 'WordPress back-end as a headless CMS feeding Next.js or Vue front-ends for lightning fast enterprise digital experiences.')); ?></p>
+    </div>
+
+    <!-- Stage 4 -->
+    <div class="c8isv-approach-wrap">
+      <div class="c8isv-approach-card" data-c8isv-approach-card>
+        <div class="c8isv-approach-col-num" data-customizer="wpdev_app4_num"><?php echo esc_html(cr8v_mod('wpdev_app4_num', '04')); ?></div>
+        <div class="c8isv-approach-col-name" data-customizer="wpdev_app4_name"><?php echo esc_html(cr8v_mod('wpdev_app4_name', 'Safe Launch')); ?></div>
+        <div class="c8isv-approach-col-tags" data-customizer="wpdev_app4_tags"><?php echo wp_kses_post(cr8v_mod('wpdev_app4_tags', 'Handover &middot; QA &middot;<br>Signoff')); ?></div>
+        <div class="c8isv-approach-col-desc" data-customizer="wpdev_app4_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_app4_desc', 'We audit responsive layouts, test prototype link interactions, and deliver a clean developer-ready handoff package to ensure pixel-perfect deployment.')); ?></div>
+        <div class="c8isv-approach-col-img">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="WordPress visual signoff stage">
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════
-     SECTION 7: PROJECT CATALOG
-     Light #F4F6FB
+     SECTION 5.5: WORDPRESS STACK OPTIONS
+     White Background — 4 Platform Cards Deck
      ══════════════════════════════════════════ -->
-<div class="c8isv-catalog-section" id="c8isv-catalog">
+<div class="c8isv-fits-outer" style="background: #FFFFFF !important; padding: 6rem 0 !important; border-top: 1px solid rgba(8,8,8,0.08) !important;">
   <div class="c8isv-wrap">
-    <div class="c8isv-label c8isv-reveal" data-customizer="wpdev_cat_label"><?php echo esc_html(cr8v_mod('wpdev_cat_label', 'WordPress Solutions')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="wpdev_cat_h2_part1"><?php echo esc_html(cr8v_mod('wpdev_cat_h2_part1', 'Types Of WordPress Sites We ')); ?></span><span class="c8isv-serif" data-customizer="wpdev_cat_h2_serif"><?php echo esc_html(cr8v_mod('wpdev_cat_h2_serif', 'Engineer')); ?></span></h2>
+    <div class="c8isv-label c8isv-reveal" data-customizer="wpdev_plat_label"><?php echo esc_html(cr8v_mod('wpdev_plat_label', 'WordPress Stack Options')); ?></div>
+    <h2 class="c8isv-section-title c8isv-reveal" style="margin-bottom: 1.5rem !important;"><span data-customizer="wpdev_plat_h2_part1"><?php echo esc_html(cr8v_mod('wpdev_plat_h2_part1', 'Choosing The Right ')); ?></span><span class="c8isv-serif" data-customizer="wpdev_plat_h2_serif"><?php echo esc_html(cr8v_mod('wpdev_plat_h2_serif', 'WordPress Architecture')); ?></span></h2>
+    <p class="c8isv-lead c8isv-reveal" style="max-width: 720px !important; margin-bottom: 3rem !important;">Whether you need visual builder editing, native Gutenberg blocks, custom PHP schemas, or headless React — we engineer the right setup for your business:</p>
+    
+    <div class="c8isv-platform-deck" data-c8isv-platform-trigger>
+      <!-- Option 1 -->
+      <div class="c8isv-platform-card c8isv-reveal">
+        <span class="c8isv-platform-badge" data-customizer="wpdev_plat1_badge"><?php echo esc_html(cr8v_mod('wpdev_plat1_badge', 'Base // Theme')); ?></span>
+        <div class="c8isv-platform-divider"></div>
+        <h3 class="c8isv-platform-title" data-customizer="wpdev_plat1_title"><?php echo esc_html(cr8v_mod('wpdev_plat1_title', 'Tailored Elementor Stack')); ?></h3>
+        <p class="c8isv-platform-desc" data-customizer="wpdev_plat1_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_plat1_desc', 'If your team prefers Elementor visual editing, built on a lightweight starter base theme with performance-tuned components.')); ?></p>
+        <div class="c8isv-platform-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></svg>
+        </div>
+      </div>
 
+      <!-- Option 2 -->
+      <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d1">
+        <span class="c8isv-platform-badge" data-customizer="wpdev_plat2_badge"><?php echo esc_html(cr8v_mod('wpdev_plat2_badge', 'Editor // Native')); ?></span>
+        <div class="c8isv-platform-divider"></div>
+        <h3 class="c8isv-platform-title" data-customizer="wpdev_plat2_title"><?php echo esc_html(cr8v_mod('wpdev_plat2_title', 'Native Gutenberg Block Suite')); ?></h3>
+        <p class="c8isv-platform-desc" data-customizer="wpdev_plat2_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_plat2_desc', 'If you want native WordPress block editor editing with structured custom blocks.')); ?></p>
+        <div class="c8isv-platform-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+        </div>
+      </div>
+
+      <!-- Option 3 -->
+      <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d2">
+        <span class="c8isv-platform-badge" data-customizer="wpdev_plat3_badge"><?php echo esc_html(cr8v_mod('wpdev_plat3_badge', 'Data // Schemas')); ?></span>
+        <div class="c8isv-platform-divider"></div>
+        <h3 class="c8isv-platform-title" data-customizer="wpdev_plat3_title"><?php echo esc_html(cr8v_mod('wpdev_plat3_title', 'Custom PHP & ACF Pro')); ?></h3>
+        <p class="c8isv-platform-desc" data-customizer="wpdev_plat3_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_plat3_desc', 'If you require bespoke database schemas, custom post types, and structured data fields.')); ?></p>
+        <div class="c8isv-platform-icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+      </div>
+
+      <!-- Option 4 -->
+      <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d3">
+        <span class="c8isv-platform-badge" data-customizer="wpdev_plat4_badge"><?php echo esc_html(cr8v_mod('wpdev_plat4_badge', 'API // Headless')); ?></span>
+        <div class="c8isv-platform-divider"></div>
+        <h3 class="c8isv-platform-title" data-customizer="wpdev_plat4_title"><?php echo esc_html(cr8v_mod('wpdev_plat4_title', 'Headless WordPress CMS')); ?></h3>
+        <p class="c8isv-platform-desc" data-customizer="wpdev_plat4_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_plat4_desc', 'If you want WordPress as a headless content API powering a fast React/Next.js frontend.')); ?></p>
+        <div class="c8isv-platform-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <p class="c8isv-reveal" style="font-size: 0.95rem !important; color: #6B6B6B !important; max-width: 800px !important; margin: 2rem 0 !important; line-height: 1.7 !important;">
+      <strong>Not sure which one?</strong> That's a normal question at this stage — tell us what you're building and we'll recommend the right platform as part of the design engagement.
+    </p>
+
+    <div class="c8isv-reveal" style="display: flex !important; margin-top: 2rem !important;">
+      <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8isv-btn-primary">Start a Design Scoping Call →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 6: FULL CATALOG HOVERLIST (Project Types)
+     White Background — 6 Items Capability Index
+     ══════════════════════════════════════════ -->
+<div class="c8isv-hl-section" id="c8isv-catalog">
+  <div class="c8isv-wrap" style="padding-bottom:0">
+    <div class="c8isv-label c8isv-reveal" data-customizer="wpdev_hl_label"><?php echo esc_html(cr8v_mod('wpdev_hl_label', 'Project Catalog')); ?></div>
+    <h2 class="c8isv-section-title c8isv-reveal" data-customizer="wpdev_hl_h2"><?php echo esc_html(cr8v_mod('wpdev_hl_h2', 'Every Kind of WordPress Website We Engineer')); ?></h2>
+    <p class="c8isv-lead c8isv-reveal" style="margin-bottom:2rem" data-customizer="wpdev_hl_sub"><?php echo wp_kses_post(cr8v_mod('wpdev_hl_sub', 'From SaaS marketing portals to high-frequency publishing hubs — hover to inspect the project stack.')); ?></p>
+  </div>
+  <div class="c8isv-wrap" style="padding-top:0 !important; position:relative">
     <div class="c8isv-hoverlist" data-c8isv-hoverlist>
-      <div class="c8isv-hoverlist-item c8isv-reveal" data-logo-1="<?php echo esc_url(cr8v_mod('wpdev_tech1_logo', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg')); ?>" data-logo-2="<?php echo esc_url(cr8v_mod('wpdev_tech2_logo', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/elementor.svg')); ?>">
+      <!-- Item 1 -->
+      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="WordPress" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg" data-tech-2="Elementor" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/elementor.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">01</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="wpdev_cat1_title"><?php echo esc_html(cr8v_mod('wpdev_cat1_title', 'Corporate & B2B Websites')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="wpdev_cat1_tagline"><?php echo wp_kses_post(cr8v_mod('wpdev_cat1_tagline', 'High-converting agency, SaaS, and corporate websites built to turn visitors into sales calls.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="wpdev_hl1_title"><?php echo esc_html(cr8v_mod('wpdev_hl1_title', 'Corporate & Enterprise Web Portals')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="wpdev_hl1_tagline"><?php echo wp_kses_post(cr8v_mod('wpdev_hl1_tagline', 'High-credibility corporate sites, executive team profiles, investor relations portals, and multi-branch company hubs.')); ?></span>
         </div>
-        <div class="c8isv-hoverlist-right"><span class="c8isv-hoverlist-arrow">→</span></div>
+        <div class="c8isv-hoverlist-right">
+          <span class="c8isv-hoverlist-tech">Corporate</span>
+          <span class="c8isv-hoverlist-arrow">→</span>
+        </div>
       </div>
 
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-logo-1="<?php echo esc_url(cr8v_mod('wpdev_tech1_logo', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg')); ?>" data-logo-2="<?php echo esc_url(cr8v_mod('wpdev_tech3_logo', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/php.svg')); ?>">
+      <!-- Item 2 -->
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="WordPress" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg" data-tech-2="PHP" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/php.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">02</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="wpdev_cat2_title"><?php echo esc_html(cr8v_mod('wpdev_cat2_title', 'Digital Publications & News')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="wpdev_cat2_tagline"><?php echo wp_kses_post(cr8v_mod('wpdev_cat2_tagline', 'High-traffic editorial portals with automated category structures, ad slot management, and newsletter funnels.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="wpdev_hl2_title"><?php echo esc_html(cr8v_mod('wpdev_hl2_title', 'SaaS & Tech Platform Marketing Sites')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="wpdev_hl2_tagline"><?php echo wp_kses_post(cr8v_mod('wpdev_hl2_tagline', 'Product feature showcases, interactive pricing calculators, API documentation hubs, and high-converting lead funnels.')); ?></span>
         </div>
-        <div class="c8isv-hoverlist-right"><span class="c8isv-hoverlist-arrow">→</span></div>
+        <div class="c8isv-hoverlist-right">
+          <span class="c8isv-hoverlist-tech">SaaS / Tech</span>
+          <span class="c8isv-hoverlist-arrow">→</span>
+        </div>
       </div>
 
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d2" data-logo-1="<?php echo esc_url(cr8v_mod('wpdev_tech2_logo', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/elementor.svg')); ?>" data-logo-2="<?php echo esc_url(cr8v_mod('wpdev_tech3_logo', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/php.svg')); ?>">
+      <!-- Item 3 -->
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d2" data-tech-1="PHP" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/php.svg" data-tech-2="MySQL" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/mysql.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">03</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="wpdev_cat3_title"><?php echo esc_html(cr8v_mod('wpdev_cat3_title', 'WooCommerce E-Commerce Sites')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="wpdev_cat3_tagline"><?php echo wp_kses_post(cr8v_mod('wpdev_cat3_tagline', 'Full custom shopping experiences with custom product filters, multi-currency checkout, and ERP syncing.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="wpdev_hl3_title"><?php echo esc_html(cr8v_mod('wpdev_hl3_title', 'Shopify / Wix to WordPress Migrations')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="wpdev_hl3_tagline"><?php echo wp_kses_post(cr8v_mod('wpdev_hl3_tagline', 'Migrating content, custom post types, customer accounts, and 301 redirects to self-hosted WordPress.')); ?></span>
         </div>
-        <div class="c8isv-hoverlist-right"><span class="c8isv-hoverlist-arrow">→</span></div>
+        <div class="c8isv-hoverlist-right">
+          <span class="c8isv-hoverlist-tech">Migrations</span>
+          <span class="c8isv-hoverlist-arrow">→</span>
+        </div>
       </div>
 
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d3" data-logo-1="<?php echo esc_url(cr8v_mod('wpdev_tech1_logo', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg')); ?>" data-logo-2="<?php echo esc_url(cr8v_mod('wpdev_tech2_logo', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/elementor.svg')); ?>">
+      <!-- Item 4 -->
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d3" data-tech-1="HTML5" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg" data-tech-2="WordPress" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">04</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="wpdev_cat4_title"><?php echo esc_html(cr8v_mod('wpdev_cat4_title', 'Membership & Portal Platforms')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="wpdev_cat4_tagline"><?php echo wp_kses_post(cr8v_mod('wpdev_cat4_tagline', 'Private client dashboards, gated content subscriptions, and course portals built on clean custom code.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="wpdev_hl4_title"><?php echo esc_html(cr8v_mod('wpdev_hl4_title', 'Professional Services & Legal Practice Sites')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="wpdev_hl4_tagline"><?php echo wp_kses_post(cr8v_mod('wpdev_hl4_tagline', 'Law firm case studies, consultancy service matrices, client intake forms, and partner directories.')); ?></span>
         </div>
-        <div class="c8isv-hoverlist-right"><span class="c8isv-hoverlist-arrow">→</span></div>
+        <div class="c8isv-hoverlist-right">
+          <span class="c8isv-hoverlist-tech">Services & Legal</span>
+          <span class="c8isv-hoverlist-arrow">→</span>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="WordPress" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg" data-tech-2="CSS3" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/css3.svg">
+        <div class="c8isv-hoverlist-left">
+          <span class="c8isv-hoverlist-num">05</span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="wpdev_hl5_title"><?php echo esc_html(cr8v_mod('wpdev_hl5_title', 'Media, News & Editorial Publishing Hubs')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="wpdev_hl5_tagline"><?php echo wp_kses_post(cr8v_mod('wpdev_hl5_tagline', 'High-frequency article archives, paywall integrations, author attribution modules, and ad-monetized layouts.')); ?></span>
+        </div>
+        <div class="c8isv-hoverlist-right">
+          <span class="c8isv-hoverlist-tech">Media / News</span>
+          <span class="c8isv-hoverlist-arrow">→</span>
+        </div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="WordPress" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg" data-tech-2="JavaScript" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/javascript.svg">
+        <div class="c8isv-hoverlist-left">
+          <span class="c8isv-hoverlist-num">06</span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="wpdev_hl6_title"><?php echo esc_html(cr8v_mod('wpdev_hl6_title', 'Legacy Site Redesigns & System Upgrades')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="wpdev_hl6_tagline"><?php echo wp_kses_post(cr8v_mod('wpdev_hl6_tagline', 'Rebuilding old websites into clean, responsive custom WordPress themes without losing search rankings.')); ?></span>
+        </div>
+        <div class="c8isv-hoverlist-right">
+          <span class="c8isv-hoverlist-tech">Redesign & Upgrade</span>
+          <span class="c8isv-hoverlist-arrow">→</span>
+        </div>
       </div>
     </div>
-
+    <!-- 2-Card Fan Stack Preview with SVG CDN Logos -->
     <div class="c8isv-hoverlist-preview" data-c8isv-preview>
-      <div class="c8isv-fan-card c8isv-fan-left"><img class="c8isv-fan-logo" data-c8isv-fan-logo="left" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg" alt="WordPress"></div>
-      <div class="c8isv-fan-card c8isv-fan-right"><img class="c8isv-fan-logo" data-c8isv-fan-logo="right" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/elementor.svg" alt="Elementor"></div>
+      <div class="c8isv-fan-card c8isv-fan-left"><img class="c8isv-fan-logo" data-c8isv-fan-logo="left" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/php.svg" alt="PHP"></div>
+      <div class="c8isv-fan-card c8isv-fan-right"><img class="c8isv-fan-logo" data-c8isv-fan-logo="right" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg" alt="WordPress"></div>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════
      SECTION 8: CLIENT FEEDBACK (Testimonials)
+     Light #F4F6FB — Fanning Stack Animation
      ══════════════════════════════════════════ -->
 <div class="c8isv-testi-outer">
   <div class="c8isv-testi-inner">
     <div class="c8isv-label c8isv-reveal is-center" data-customizer="wpdev_testi_label"><?php echo esc_html(cr8v_mod('wpdev_testi_label', 'Client Feedback')); ?></div>
     <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="wpdev_testi_h2_part1"><?php echo esc_html(cr8v_mod('wpdev_testi_h2_part1', 'What clients say after ')); ?></span><span class="c8isv-serif" data-customizer="wpdev_testi_h2_serif"><?php echo esc_html(cr8v_mod('wpdev_testi_h2_serif', 'launch')); ?></span></h2>
     <div class="c8isv-testi-grid" data-c8isv-testi-trigger>
+      <!-- Left Card -->
       <div class="c8isv-testi-card is-left" data-c8isv-testi-left>
         <div class="c8isv-testi-quote">"</div>
         <div class="c8isv-testi-divider"></div>
-        <p class="c8isv-testi-text" data-customizer="wpdev_testi1_text"><?php echo wp_kses_post(cr8v_mod('wpdev_testi1_text', 'Our previous theme was plagued by slow page loads and broken plugin updates. Cr8v Stacks rebuilt our WordPress site from scratch in native code — loading times dropped from 6s to 0.9s!')); ?></p>
-        <div class="c8isv-testi-author" data-customizer="wpdev_testi1_author"><?php echo esc_html(cr8v_mod('wpdev_testi1_author', 'Marcus Vance — Managing Editor')); ?></div>
+        <p class="c8isv-testi-text" data-customizer="wpdev_testi1_text"><?php echo wp_kses_post(cr8v_mod('wpdev_testi1_text', 'We needed a property listing platform that didn\'t rely on unoptimized starter layouts. The custom Gutenberg blocks let our content editors publish new listings effortlessly while maintaining fast page speeds.')); ?></p>
+        <div class="c8isv-testi-author" data-customizer="wpdev_testi1_author"><?php echo esc_html(cr8v_mod('wpdev_testi1_author', 'David Sterling — Principal Real Estate Architect')); ?></div>
       </div>
+      <!-- Center Card -->
       <div class="c8isv-testi-card is-center">
         <div class="c8isv-testi-quote">"</div>
         <div class="c8isv-testi-divider"></div>
-        <p class="c8isv-testi-text" data-customizer="wpdev_testi2_text"><?php echo wp_kses_post(cr8v_mod('wpdev_testi2_text', 'The custom Gutenberg blocks give our marketing team total freedom to build landing pages without calling a developer every single week. Highly recommend!')); ?></p>
-        <div class="c8isv-testi-author" data-customizer="wpdev_testi2_author"><?php echo esc_html(cr8v_mod('wpdev_testi2_author', 'Sarah Jenkins — Head of Growth')); ?></div>
+        <p class="c8isv-testi-text" data-customizer="wpdev_testi2_text"><?php echo wp_kses_post(cr8v_mod('wpdev_testi2_text', 'Refactoring our WordPress architecture dropped our LCP to 450ms while giving our marketing team total freedom to edit pages in Elementor. Organic search traffic doubled within three months.')); ?></p>
+        <div class="c8isv-testi-author" data-customizer="wpdev_testi2_author"><?php echo esc_html(cr8v_mod('wpdev_testi2_author', 'Amina Bello — Digital Marketing Lead')); ?></div>
       </div>
+      <!-- Right Card -->
       <div class="c8isv-testi-card is-right" data-c8isv-testi-right>
         <div class="c8isv-testi-quote">"</div>
         <div class="c8isv-testi-divider"></div>
-        <p class="c8isv-testi-text" data-customizer="wpdev_testi3_text"><?php echo wp_kses_post(cr8v_mod('wpdev_testi3_text', 'Migrating our Webflow site to custom WordPress was seamless. Ranking for our core keywords jumped within 30 days of launch thanks to their technical schema setup.')); ?></p>
-        <div class="c8isv-testi-author" data-customizer="wpdev_testi3_author"><?php echo esc_html(cr8v_mod('wpdev_testi3_author', 'Tunde Adebayo — Operations Director')); ?></div>
+        <p class="c8isv-testi-text" data-customizer="wpdev_testi3_text"><?php echo wp_kses_post(cr8v_mod('wpdev_testi3_text', 'The custom ACF field system and database security hardening gave us complete peace of mind. Zero update breaks or security vulnerabilities.')); ?></p>
+        <div class="c8isv-testi-author" data-customizer="wpdev_testi3_author"><?php echo esc_html(cr8v_mod('wpdev_testi3_author', 'Richard Coleman — Technical Operations Director')); ?></div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════
-     SECTION 9: PRICING MODELS & ESTIMATOR
+     SECTION 9: PRICING MODELS & PROJECT ESTIMATOR
      ══════════════════════════════════════════ -->
 <div class="c8srv-pricing-section" id="pricing-scope" style="padding: 6rem 0 !important; position: relative !important; z-index: 5 !important; background: #FFFFFF !important; display: block !important;">
   <div class="c8isv-wrap" style="text-align: left !important;">
@@ -459,73 +642,108 @@ defined('ABSPATH') || exit;
     <p class="c8isv-lead c8srv-reveal" style="text-align: left !important; margin-left: 0 !important;" data-customizer="wpdev_pricing_desc"><?php echo wp_kses_post(cr8v_mod('wpdev_pricing_desc', 'Whether you need a dedicated extension of your team or a custom design & code project with guaranteed delivery, we have a model to fit.')); ?></p>
 
     <div class="c8srv-pricing-split">
+      <!-- Retainer Card -->
       <div class="c8srv-price-box c8srv-reveal">
         <div class="c8srv-price-header">
           <span class="c8srv-price-type">Ongoing Support</span>
           <h3 class="c8srv-price-title">Growth Retainer</h3>
-          <div class="c8srv-price-amount"><span class="c8srv-price-num">$950</span><span class="c8srv-price-period">/mo</span></div>
+          <div class="c8srv-price-amount">$950<span>/mo</span></div>
         </div>
-        <p class="c8srv-price-desc">A monthly block of dedicated design and development hours to keep your website fast, updated, and growing.</p>
+        <p class="c8srv-price-desc">A monthly block of dedicated design and development hours to keep your website fast, updated, and growing. Perfect for active search marketing, technical SEO, speed tuning, and site edits.</p>
         <div class="c8srv-price-features">
-          <div class="c8srv-price-feature"><span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span>Dedicated monthly support hours block</span></div>
-          <div class="c8srv-price-feature"><span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span>Monthly speed audits &amp; code optimizations</span></div>
-          <div class="c8srv-price-feature"><span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span>Design tweaks, copy updates &amp; SEO execution</span></div>
+          <div class="c8srv-price-feature">
+            <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Dedicated monthly support hours block</span>
+          </div>
+          <div class="c8srv-price-feature">
+            <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Monthly speed audits &amp; code optimizations</span>
+          </div>
+          <div class="c8srv-price-feature">
+            <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Design tweaks, copy updates &amp; SEO execution</span>
+          </div>
         </div>
-        <a href="https://cr8vstacks.com/contact/?model=retainer" class="c8srv-price-btn is-light" style="border-color:#080808 !important; color:#080808 !important;">Secure Retainer Slot</a>
+        <a href="<?php echo esc_url(home_url('/contact/?model=retainer')); ?>" class="c8srv-price-btn is-light" style="border-color:#080808 !important; color:#080808 !important;">Secure Retainer Slot</a>
       </div>
 
+      <!-- Fixed Project Card -->
       <div class="c8srv-price-box is-featured c8srv-reveal">
         <div class="c8srv-price-badge">Most Popular</div>
         <div class="c8srv-price-header">
-          <span class="c8srv-price-type" style="color: rgba(255,255,255,0.7) !important;">Fixed-Scope Project</span>
-          <h3 class="c8srv-price-title" style="color: #FFFFFF !important;">Custom Website Build</h3>
-          <div class="c8srv-price-amount" style="color: #FFFFFF !important;"><span class="c8srv-price-period" style="color: rgba(255,255,255,0.7) !important;">From </span><span class="c8srv-price-num" style="color: #FFFFFF !important;">$1,800</span></div>
+          <span class="c8srv-price-type" style="color: rgba(255,255,255,0.7) !important;">Fixed Scope</span>
+          <h3 class="c8srv-price-title" style="color: #FFFFFF !important;">Fixed Projects</h3>
+          <div class="c8srv-price-amount" style="color: #FFFFFF !important;"><span class="c8srv-price-period" style="color: rgba(255,255,255,0.7) !important;">From </span><span class="c8srv-price-num" style="color: #FFFFFF !important;">$1,200</span><span class="c8srv-price-period" style="color: rgba(255,255,255,0.7) !important;"> entry</span></div>
         </div>
-        <p class="c8srv-price-desc" style="color: rgba(255,255,255,0.8) !important;">End-to-end design, custom theme development, and launch strategy for ambitious brands seeking a high-converting digital platform.</p>
+        <p class="c8srv-price-desc" style="color: rgba(255,255,255,0.8) !important;">Custom WordPress theme build engineered on bloat-stripped base themes and Gutenberg blocks.</p>
         <div class="c8srv-price-features">
-          <div class="c8srv-price-feature" style="color: #FFFFFF !important;"><span class="c8srv-icon-sq" style="background:#FFFFFF !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#0047E1" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span>Custom UI/UX design in Figma</span></div>
-          <div class="c8srv-price-feature" style="color: #FFFFFF !important;"><span class="c8srv-icon-sq" style="background:#FFFFFF !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#0047E1" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span>Custom PHP / Liquid codebase</span></div>
-          <div class="c8srv-price-feature" style="color: #FFFFFF !important;"><span class="c8srv-icon-sq" style="background:#FFFFFF !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#0047E1" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span>Full speed, SEO &amp; analytics setup</span></div>
+          <div class="c8srv-price-feature" style="color: #FFFFFF !important;">
+            <span class="c8srv-icon-sq" style="background:#FFFFFF !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#0047E1" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Custom Gutenberg block suite &amp; ACF Pro schemas</span>
+          </div>
+          <div class="c8srv-price-feature" style="color: #FFFFFF !important;">
+            <span class="c8srv-icon-sq" style="background:#FFFFFF !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#0047E1" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Bloat-stripped base theme &amp; proprietary plugin code</span>
+          </div>
+          <div class="c8srv-price-feature" style="color: #FFFFFF !important;">
+            <span class="c8srv-icon-sq" style="background:#FFFFFF !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#0047E1" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Sub-1.2s page load speed &amp; security hardening</span>
+          </div>
         </div>
-        <a href="https://cr8vstacks.com/contact/?model=project" class="c8srv-price-btn is-primary">Start A Project</a>
+        <a href="<?php echo esc_url(home_url('/contact/?model=project')); ?>" class="c8srv-price-btn is-primary">Start A Project</a>
       </div>
     </div>
 
     <!-- Scope Estimator Widget -->
-    <div class="c8srv-calc-box c8srv-reveal" style="margin-top: 3.5rem !important;">
-      <div style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #0047E1; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem;">Interactive Scope Estimator</div>
-      <h3 style="font-family: 'Michroma', sans-serif; font-size: 1.35rem; color: #080808; margin-bottom: 1.5rem; font-weight: 700;">Calculate Your Custom Build Budget</h3>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-        <div>
-          <label style="display:block; font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:600; color:#080808; margin-bottom:0.5rem;">Project Scope</label>
-          <select id="est-scope-type" style="width:100%; padding:0.75rem; border:1px solid rgba(8,8,8,0.15); border-radius:4px; font-family:'DM Sans',sans-serif; background:#FFFFFF;">
-            <option value="1800">Custom Theme Redesign ($1,800)</option>
-            <option value="2800">Full Custom Theme + Gutenberg Blocks ($2,800)</option>
-            <option value="4200">Enterprise WordPress + Headless API ($4,200)</option>
-          </select>
-        </div>
-        <div>
-          <label style="display:block; font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:600; color:#080808; margin-bottom:0.5rem;">Total Page Templates</label>
-          <select id="est-page-count" style="width:100%; padding:0.75rem; border:1px solid rgba(8,8,8,0.15); border-radius:4px; font-family:'DM Sans',sans-serif; background:#FFFFFF;">
-            <option value="0">1–5 Custom Pages (Base Included)</option>
-            <option value="400">6–12 Custom Pages (+$400)</option>
-            <option value="900">13–25 Custom Pages (+$900)</option>
-          </select>
-        </div>
-        <div>
-          <label style="display:block; font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:600; color:#080808; margin-bottom:0.5rem;">Speed &amp; SEO Hardening</label>
-          <select id="est-seo-opt" style="width:100%; padding:0.75rem; border:1px solid rgba(8,8,8,0.15); border-radius:4px; font-family:'DM Sans',sans-serif; background:#FFFFFF;">
-            <option value="0">Standard Speed Audit (Included)</option>
-            <option value="500">Advanced RankMath Schema + 95+ PageSpeed (+$500)</option>
-          </select>
-        </div>
+    <div class="c8srv-estimator c8srv-reveal" style="margin-top: 3.5rem !important;">
+      <div style="margin-bottom: 2.5rem !important;">
+        <span class="c8srv-price-type" style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #0047E1; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">Project Scope Estimator</span>
+        <h3 class="c8srv-price-title" style="font-family: 'Michroma', sans-serif; font-size: 1.8rem; color: #080808; margin-top: 0.25rem; margin-bottom: 0.5rem; font-weight: 700;">Build Your Stack Estimate</h3>
+        <p class="c8srv-price-desc" style="margin-bottom: 0 !important;">Select your desired setup below to calculate an immediate starting price range estimate for your project.</p>
       </div>
-      <div style="background:#FAFAF7; padding:1.5rem; border-radius:4px; border:1px solid rgba(8,8,8,0.08); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
-        <div>
-          <span style="font-family:'Space Mono',monospace; font-size:0.75rem; color:#6B6B6B; text-transform:uppercase; display:block;">Estimated Total Range</span>
-          <span id="est-total-price" style="font-family:'Michroma',sans-serif; font-size:1.6rem; color:#0047E1; font-weight:700;">$1,800 – $2,300</span>
+
+      <div class="c8srv-estimator-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; align-items: start;">
+        <div class="c8srv-est-options">
+          <!-- Step 1 -->
+          <div>
+            <span class="c8srv-est-group-title" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9rem; color:#080808; display:block; margin-bottom:0.4rem;">1. Core WordPress Package</span>
+            <div class="c8srv-est-choices" data-est-group="platform">
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="wptheme" data-est-price="1200">Custom WP Landing ($1,200)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="wpcoresite" data-est-price="1680">Multi-Page WP Business Site ($1,680)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="wpportal" data-est-price="2400">Enterprise Headless WP Portal ($2,400)</button>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div>
+            <span class="c8srv-est-group-title" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9rem; color:#080808; display:block; margin-bottom:0.4rem;">2. Content &amp; Data Structure</span>
+            <div class="c8srv-est-choices" data-est-group="scale">
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="standard" data-est-multiplier="1.0">Standard Page Templates</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="cpt" data-est-multiplier="1.4">Custom Post Types &amp; ACF Pro Schemas</button>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div>
+            <span class="c8srv-est-group-title" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9rem; color:#080808; display:block; margin-bottom:0.4rem;">3. Engineering Add-Ons</span>
+            <div class="c8srv-est-choices" data-est-group="growth">
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="none" data-est-price="0">No Add-Ons</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="acf" data-est-price="400">ACF Pro Dynamic Fields (+ $400)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="sec" data-est-price="500">Security &amp; Firewall Hardening (+ $500)</button>
+            </div>
+          </div>
         </div>
-        <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" id="est-cta-link" class="c8srv-price-btn is-primary" style="margin-top:0!important; margin-bottom:0!important;">Submit Scope Request</a>
+
+        <div class="c8srv-est-result" style="background:#FAFAF7; padding:2rem; border-radius:4px; border:1px solid rgba(8,8,8,0.08);">
+          <span class="c8srv-est-range-label" style="font-family:'Space Mono',monospace; font-size:0.75rem; color:#6B6B6B; text-transform:uppercase; display:block; margin-bottom:0.3rem;">Estimated Starting Investment</span>
+          <div class="c8srv-est-range" id="est-range-display" style="font-family:'Michroma',sans-serif; font-size:1.8rem; color:#0047E1; font-weight:700; margin-bottom:1.5rem;">$1,200 - $1,500</div>
+          
+          <span class="c8srv-est-deliverables-title" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.85rem; color:#080808; display:block; margin-bottom:0.5rem;">Included Deliverables:</span>
+          <div class="c8srv-est-deliverables" id="est-deliverables-list" style="font-family:'DM Sans',sans-serif; font-size:0.85rem; color:#555555; line-height:1.6; margin-bottom:1.5rem;"><div>• Custom theme build &amp; setup</div><div>• Zero-bloat optimized speed architecture</div><div>• Up to 5 editable layout pages</div></div>
+
+          <a href="<?php echo esc_url(home_url('/contact/?platform=wordpress&est=1200-1500')); ?>" id="est-cta-link" class="c8srv-price-btn is-primary" style="margin-top: 1rem !important; margin-bottom: 1rem !important; display:block; text-align:center;">Submit Scope Request</a>
+          <a href="<?php echo esc_url(home_url('/toolkits/website-cost-calculator/')); ?>" class="c8srv-explore" style="justify-content: center !important; font-size: 11px !important; margin-top: 0.5rem !important; display: flex !important; font-family: 'Space Mono', monospace !important; color: #0047E1 !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important; align-items: center !important; gap: 8px !important;">Or build a custom stack with our Calculator →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -535,49 +753,86 @@ defined('ABSPATH') || exit;
      SECTION 10: FREQUENTLY ASKED QUESTIONS
      Light #FAFAF7
      ══════════════════════════════════════════ -->
-<div class="c8srv-faq-section" style="padding: 6rem 0 !important; background: #FAFAF7 !important; border-top: 1px solid rgba(8,8,8,0.06) !important;">
+<section class="faq-section" id="faq" style="background: #FAFAF7 !important; padding: 6rem 0 !important; border-top: 1px solid rgba(8,8,8,0.06) !important;">
   <div class="c8isv-wrap">
     <div class="c8srv-faq-grid">
       <div class="c8srv-faq-left">
-        <div class="c8isv-label c8srv-reveal" data-customizer="wpdev_faq_label"><?php echo esc_html(cr8v_mod('wpdev_faq_label', 'FAQ')); ?></div>
-        <h2 class="c8isv-section-title c8srv-reveal"><span data-customizer="wpdev_faq_h2_part1"><?php echo esc_html(cr8v_mod('wpdev_faq_h2_part1', 'Questions About ')); ?></span><span class="c8isv-serif" data-customizer="wpdev_faq_h2_serif"><?php echo esc_html(cr8v_mod('wpdev_faq_h2_serif', 'WordPress Builds')); ?></span></h2>
-        <a href="<?php echo esc_url(home_url(cr8v_mod('wpdev_faq_cta_url', '/discovery-call/'))); ?>" class="faq-cta-link" data-customizer="wpdev_faq_cta_text"><?php echo esc_html(cr8v_mod('wpdev_faq_cta_text', 'Talk to us')); ?> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        <div class="c8isv-label c8srv-reveal" data-customizer="wpdev_faq_eyebrow"><?php echo esc_html(cr8v_mod('wpdev_faq_eyebrow', '// COMMON QUESTIONS')); ?></div>
+        <h2 class="c8isv-section-title c8srv-reveal" data-customizer="wpdev_faq_h2"><?php echo esc_html(cr8v_mod('wpdev_faq_h2', 'WordPress Questions, Answered Honestly')); ?></h2>
+        <p class="c8isv-lead c8srv-reveal" style="margin-bottom: 2rem !important;" data-customizer="wpdev_faq_sub"><?php echo wp_kses_post(cr8v_mod('wpdev_faq_sub', 'Clear answers to common questions about our custom WordPress design, Gutenberg block engineering, and site security processes.')); ?></p>
+        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
       </div>
 
       <div class="c8srv-faq-right">
         <ul class="faq-list">
-          <li class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-q" data-customizer="wpdev_faq1_q"><?php echo esc_html(cr8v_mod('wpdev_faq1_q', 'Will our non-technical marketing team be able to edit the website?')); ?></span>
+          <li class="faq-item is-open">
+            <button class="faq-trigger" aria-expanded="true">
+              <span class="faq-q" data-customizer="wpdev_faq1_q"><?php echo esc_html(cr8v_mod('wpdev_faq1_q', 'Why build on WordPress instead of Webflow, Framer, or Wix?')); ?></span>
               <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
             </button>
-            <div class="faq-body">
+            <div class="faq-body" style="grid-template-rows: 1fr;">
               <div class="faq-body-inner">
-                <p class="faq-a" data-customizer="wpdev_faq1_a"><?php echo wp_kses_post(cr8v_mod('wpdev_faq1_a', 'Yes, 100%. We build custom visual Gutenberg blocks or Elementor Pro field structures so your team can edit all text, images, and pages without writing code or breaking design layouts.')); ?></p>
+                <p class="faq-a" data-customizer="wpdev_faq1_a"><?php echo wp_kses_post(cr8v_mod('wpdev_faq1_a', 'Webflow, Framer, and Wix lock you into proprietary SaaS platforms with limited database functionality, recurring subscription taxes, and zero data portability. WordPress gives you 100% data ownership, self-hosted control, unlimited custom plugins, and total editorial freedom without SaaS platform lock-in.')); ?></p>
               </div>
             </div>
           </li>
 
           <li class="faq-item">
             <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-q" data-customizer="wpdev_faq2_q"><?php echo esc_html(cr8v_mod('wpdev_faq2_q', 'How do you ensure 95+ PageSpeed scores on WordPress?')); ?></span>
+              <span class="faq-q" data-customizer="wpdev_faq2_q"><?php echo esc_html(cr8v_mod('wpdev_faq2_q', 'How much does a custom WordPress website cost?')); ?></span>
               <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
             </button>
             <div class="faq-body">
               <div class="faq-body-inner">
-                <p class="faq-a" data-customizer="wpdev_faq2_a"><?php echo wp_kses_post(cr8v_mod('wpdev_faq2_a', 'We avoid heavy pre-built templates. We hand-write clean PHP templates, minimize third-party plugins, optimize database queries, implement WEBP image conversion, and configure critical CSS.')); ?></p>
+                <p class="faq-a" data-customizer="wpdev_faq2_a"><?php echo wp_kses_post(cr8v_mod('wpdev_faq2_a', 'Our fixed-scope WordPress projects start from $1,200 for a custom theme build, responsive layouts, and speed optimization. The final investment scales with the number of page layouts, custom post types, and specialized plugin integrations. We scope every project individually and provide a clear milestone quote.')); ?></p>
               </div>
             </div>
           </li>
 
           <li class="faq-item">
             <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-q" data-customizer="wpdev_faq3_q"><?php echo esc_html(cr8v_mod('wpdev_faq3_q', 'Can you migrate our existing site without losing SEO rankings?')); ?></span>
+              <span class="faq-q" data-customizer="wpdev_faq3_q"><?php echo esc_html(cr8v_mod('wpdev_faq3_q', 'Why hire an agency like Cr8v Stacks instead of a solo freelancer?')); ?></span>
               <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
             </button>
             <div class="faq-body">
               <div class="faq-body-inner">
-                <p class="faq-a" data-customizer="wpdev_faq3_a"><?php echo wp_kses_post(cr8v_mod('wpdev_faq3_a', 'Absolutely. We perform complete Screaming Frog crawl audits to map all existing URLs, set up 301 redirect matrices, and preserve your metadata, schema, and Google indexing.')); ?></p>
+                <p class="faq-a" data-customizer="wpdev_faq3_a"><?php echo wp_kses_post(cr8v_mod('wpdev_faq3_a', 'Solo freelancers often handle design, code, and security as a single person, leading to missed deadlines or incomplete documentation. Cr8v Stacks provides a dedicated multi-disciplinary team — combining brand strategy, Figma UI/UX, senior PHP engineering, and technical SEO — backed by formal contracts and SLA support.')); ?></p>
+              </div>
+            </div>
+          </li>
+
+          <li class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-q" data-customizer="wpdev_faq4_q"><?php echo esc_html(cr8v_mod('wpdev_faq4_q', 'Do you handle platform migrations from Wix, Webflow, or Shopify to WordPress?')); ?></span>
+              <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p class="faq-a" data-customizer="wpdev_faq4_a"><?php echo wp_kses_post(cr8v_mod('wpdev_faq4_a', 'Yes. We execute seamless migrations from proprietary platforms like Wix, Webflow, and Shopify over to self-hosted WordPress — transferring all blog posts, pages, media libraries, and setting up precise 301 URL redirect maps to protect your organic search rankings.')); ?></p>
+              </div>
+            </div>
+          </li>
+
+          <li class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-q" data-customizer="wpdev_faq5_q"><?php echo esc_html(cr8v_mod('wpdev_faq5_q', 'How long does a custom WordPress website project take?')); ?></span>
+              <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p class="faq-a" data-customizer="wpdev_faq5_a"><?php echo wp_kses_post(cr8v_mod('wpdev_faq5_a', 'A standard custom WordPress theme project with 3-5 bespoke page layouts takes approximately 3 to 4 weeks from initial wireframe sign-off to live launch. Complex e-commerce integrations or enterprise portals take 4 to 6 weeks.')); ?></p>
+              </div>
+            </div>
+          </li>
+
+          <li class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-q" data-customizer="wpdev_faq6_q"><?php echo esc_html(cr8v_mod('wpdev_faq6_q', 'Will I be able to edit page content myself without writing code?')); ?></span>
+              <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p class="faq-a" data-customizer="wpdev_faq6_a"><?php echo wp_kses_post(cr8v_mod('wpdev_faq6_a', 'Yes. We configure Elementor or native WordPress Block Editor (Gutenberg) custom blocks and custom fields (ACF Pro) so your team can easily update headings, text, media, and portfolio showcases through an intuitive dashboard without touching code.')); ?></p>
               </div>
             </div>
           </li>
@@ -585,7 +840,7 @@ defined('ABSPATH') || exit;
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ══════════════════════════════════════════
      SECTION 11: FOOTER CTA BAR
@@ -752,34 +1007,6 @@ defined('ABSPATH') || exit;
   window.addEventListener('resize', handleScrollAnimations, { passive: true });
   handleScrollAnimations();
 
-  // Accordion Logic
-  var accordion = root.querySelector('[data-c8isv-accordion]');
-  if (accordion) {
-    var accItems = accordion.querySelectorAll('.c8isv-accordion-item');
-    accItems.forEach(function(item) {
-      var trigger = item.querySelector('.c8isv-accordion-trigger');
-      var panel = item.querySelector('.c8isv-accordion-panel');
-      if (!trigger || !panel) return;
-
-      trigger.addEventListener('click', function() {
-        var isOpen = item.classList.contains('is-active');
-        accItems.forEach(function(other) {
-          other.classList.remove('is-active');
-          var ot = other.querySelector('.c8isv-accordion-trigger');
-          var op = other.querySelector('.c8isv-accordion-panel');
-          if (ot) ot.setAttribute('aria-expanded', 'false');
-          if (op) op.style.maxHeight = null;
-        });
-
-        if (!isOpen) {
-          item.classList.add('is-active');
-          trigger.setAttribute('aria-expanded', 'true');
-          panel.style.maxHeight = panel.scrollHeight + 'px';
-        }
-      });
-    });
-  }
-
   // Hoverlist 2-Card Fan Cursor Preview
   var hoverlist = root.querySelector('[data-c8isv-hoverlist]');
   var preview = root.querySelector('[data-c8isv-preview]');
@@ -820,44 +1047,80 @@ defined('ABSPATH') || exit;
   faqTriggers.forEach(function(trigger) {
     trigger.addEventListener('click', function() {
       var item = trigger.closest('.faq-item');
-      var isOpen = item.classList.contains('is-active');
+      var isOpen = item.classList.contains('is-open');
       var allItems = root.querySelectorAll('.faq-item');
       allItems.forEach(function(i) {
-        i.classList.remove('is-active');
+        i.classList.remove('is-open');
         var t = i.querySelector('.faq-trigger');
+        var b = i.querySelector('.faq-body');
         if (t) t.setAttribute('aria-expanded', 'false');
+        if (b) b.style.gridTemplateRows = '0fr';
       });
       if (!isOpen) {
-        item.classList.add('is-active');
+        item.classList.add('is-open');
         trigger.setAttribute('aria-expanded', 'true');
+        var body = item.querySelector('.faq-body');
+        if (body) body.style.gridTemplateRows = '1fr';
       }
     });
   });
 
-  // Scope Estimator Calculator JS
-  var scopeSelect = document.getElementById('est-scope-type');
-  var pageSelect = document.getElementById('est-page-count');
-  var seoSelect = document.getElementById('est-seo-opt');
-  var priceDisplay = document.getElementById('est-total-price');
+  // Scope Estimator Choices Calculation JS
+  var estChoices = root.querySelectorAll('.c8srv-est-choice');
+  var estRange = document.getElementById('est-range-display');
+  var estDeliv = document.getElementById('est-deliverables-list');
+  var estLink = document.getElementById('est-cta-link');
 
-  function calculateEstimate() {
-    if (!scopeSelect || !pageSelect || !seoSelect || !priceDisplay) return;
-    var base = parseInt(scopeSelect.value, 10) || 1800;
-    var pages = parseInt(pageSelect.value, 10) || 0;
-    var seo = parseInt(seoSelect.value, 10) || 0;
+  var currentBasePrice = 1200;
+  var currentMultiplier = 1.0;
+  var currentAddonPrice = 0;
+  var currentPlatformCode = 'wptheme';
 
-    var low = base + pages + seo;
+  function updateEstimator() {
+    var low = Math.round((currentBasePrice * currentMultiplier) + currentAddonPrice);
     var high = Math.round(low * 1.25);
 
-    priceDisplay.textContent = '$' + low.toLocaleString() + ' – $' + high.toLocaleString();
+    if (estRange) estRange.textContent = '$' + low.toLocaleString() + ' - $' + high.toLocaleString();
+
+    if (estDeliv) {
+      if (currentPlatformCode === 'wpportal') {
+        estDeliv.innerHTML = '<div>• Headless WordPress REST / GraphQL API</div><div>• Custom React / Next.js frontend integration</div><div>• Enterprise security &amp; global CDN caching</div>';
+      } else if (currentPlatformCode === 'wpcoresite') {
+        estDeliv.innerHTML = '<div>• Up to 10 custom page templates</div><div>• Custom Gutenberg block suite &amp; ACF Pro</div><div>• Speed &amp; Core Web Vitals optimization</div>';
+      } else {
+        estDeliv.innerHTML = '<div>• Custom theme build &amp; setup</div><div>• Zero-bloat optimized speed architecture</div><div>• Up to 5 editable layout pages</div>';
+      }
+    }
+
+    if (estLink) {
+      estLink.href = '<?php echo esc_url(home_url('/contact/')); ?>?platform=' + currentPlatformCode + '&est=' + low + '-' + high;
+    }
   }
 
-  if (scopeSelect && pageSelect && seoSelect) {
-    scopeSelect.addEventListener('change', calculateEstimate);
-    pageSelect.addEventListener('change', calculateEstimate);
-    seoSelect.addEventListener('change', calculateEstimate);
-    calculateEstimate();
-  }
+  estChoices.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var group = btn.closest('.c8srv-est-choices');
+      if (group) {
+        group.querySelectorAll('.c8srv-est-choice').forEach(function(b) { b.classList.remove('is-active'); });
+      }
+      btn.classList.add('is-active');
+
+      if (btn.hasAttribute('data-est-price')) {
+        var p = parseInt(btn.getAttribute('data-est-price'), 10);
+        if (group && group.getAttribute('data-est-group') === 'platform') {
+          currentBasePrice = p;
+          currentPlatformCode = btn.getAttribute('data-est-val');
+        } else if (group && group.getAttribute('data-est-group') === 'growth') {
+          currentAddonPrice = p;
+        }
+      }
+      if (btn.hasAttribute('data-est-multiplier')) {
+        currentMultiplier = parseFloat(btn.getAttribute('data-est-multiplier'));
+      }
+
+      updateEstimator();
+    });
+  });
 })();
 </script>
 
