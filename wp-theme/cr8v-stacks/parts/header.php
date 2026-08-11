@@ -393,11 +393,11 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
   <div class="c8-md-body">
     <div class="c8-md-section-label">Core Services</div>
     <div class="c8-md-grid">
-      <a href="<?php echo esc_url(home_url('/services/website-design/')); ?>" class="c8-md-card">
+      <a href="<?php echo esc_url(home_url('/services/web-design/')); ?>" class="c8-md-card">
         <div class="c8-md-card-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
         <div class="c8-md-card-name">Website Design</div>
       </a>
-      <a href="<?php echo esc_url(home_url('/services/custom-development/')); ?>" class="c8-md-card">
+      <a href="<?php echo esc_url(home_url('/services/custom-dev/')); ?>" class="c8-md-card">
         <div class="c8-md-card-ico"><svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
         <div class="c8-md-card-name">Custom Dev</div>
       </a>
@@ -416,6 +416,14 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
       <a href="<?php echo esc_url(home_url('/services/wordpress/')); ?>" class="c8-md-card">
         <div class="c8-md-card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 00-7.07 17.07l4.07-11.07h6l4.07 11.07A10 10 0 0012 2z"/></svg></div>
         <div class="c8-md-card-name">WordPress</div>
+      </a>
+      <a href="<?php echo esc_url(home_url('/services/seo-content/')); ?>" class="c8-md-card">
+        <div class="c8-md-card-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <div class="c8-md-card-name">SEO & Content</div>
+      </a>
+      <a href="<?php echo esc_url(home_url('/services/digital-marketing/')); ?>" class="c8-md-card">
+        <div class="c8-md-card-ico"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div class="c8-md-card-name">Marketing</div>
       </a>
     </div>
 

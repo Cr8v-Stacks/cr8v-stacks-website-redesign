@@ -1221,7 +1221,7 @@ body {
             <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card1_title"><?php echo esc_html(cr8v_mod('srv_card1_title', 'WORDPRESS, NO-CODE')); ?></h3>
           </div>
           <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;" data-customizer="srv_card1_desc"><?php echo wp_kses_post(cr8v_mod('srv_card1_desc', 'Fully custom themes built on Elementor and native block engines. Hand-written PHP templates ensure 95+ PageSpeed scores while remaining 100% editable by your non-technical team without touching line one of code.')); ?></p>
-          <a href="<?php echo esc_url(cr8v_mod('srv_card1_btn_url', '../WordPress Service Page/index.html')); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card1_btn_text"><?php echo esc_html(cr8v_mod('srv_card1_btn_text', 'Explore WordPress →')); ?></a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('srv_card1_btn_url', '/services/wordpress/'))); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card1_btn_text"><?php echo esc_html(cr8v_mod('srv_card1_btn_text', 'Explore WordPress →')); ?></a>
         </div>
 
         <!-- Card 2: Shopify (Blue Highlight) -->
@@ -1231,7 +1231,7 @@ body {
             <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card2_title"><?php echo esc_html(cr8v_mod('srv_card2_title', 'SHOPIFY STOREFRONTS')); ?></h3>
           </div>
           <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;" data-customizer="srv_card2_desc"><?php echo wp_kses_post(cr8v_mod('srv_card2_desc', 'Conversion-focused Liquid storefronts engineered from a blank file. We streamline third-party apps, optimize checkout velocity, and maximize product discovery across all desktop and mobile devices.')); ?></p>
-          <a href="<?php echo esc_url(cr8v_mod('srv_card2_btn_url', '../Shopify Service Page/index.html')); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card2_btn_text"><?php echo esc_html(cr8v_mod('srv_card2_btn_text', 'Explore Shopify →')); ?></a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('srv_card2_btn_url', '/services/shopify/'))); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card2_btn_text"><?php echo esc_html(cr8v_mod('srv_card2_btn_text', 'Explore Shopify →')); ?></a>
         </div>
 
         <!-- Card 3: WooCommerce -->
@@ -1241,7 +1241,7 @@ body {
             <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card3_title"><?php echo esc_html(cr8v_mod('srv_card3_title', 'WOOCOMMERCE CONTROL')); ?></h3>
           </div>
           <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;" data-customizer="srv_card3_desc"><?php echo wp_kses_post(cr8v_mod('srv_card3_desc', 'Total e-commerce freedom on your own WordPress hosting. Custom multi-step checkout flows, automated tax logic, multi-currency support, and zero third-party SaaS transaction fees.')); ?></p>
-          <a href="<?php echo esc_url(cr8v_mod('srv_card3_btn_url', '../WooCommerce Service Page/index.html')); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card3_btn_text"><?php echo esc_html(cr8v_mod('srv_card3_btn_text', 'Explore WooCommerce →')); ?></a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('srv_card3_btn_url', '/services/woocommerce/'))); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card3_btn_text"><?php echo esc_html(cr8v_mod('srv_card3_btn_text', 'Explore WooCommerce →')); ?></a>
         </div>
 
         <!-- Card 4: Custom Dev -->
@@ -1251,7 +1251,7 @@ body {
             <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card4_title"><?php echo esc_html(cr8v_mod('srv_card4_title', 'BESPOKE SOFTWARE')); ?></h3>
           </div>
           <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;" data-customizer="srv_card4_desc"><?php echo wp_kses_post(cr8v_mod('srv_card4_desc', 'Tailored web applications, internal dashboards, and custom APIs built from line one without SaaS dependencies — engineered around your business operations with 100% client code ownership.')); ?></p>
-          <a href="<?php echo esc_url(cr8v_mod('srv_card4_btn_url', '../Custom Dev Service Page/index.html')); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card4_btn_text"><?php echo esc_html(cr8v_mod('srv_card4_btn_text', 'Explore Custom Dev →')); ?></a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('srv_card4_btn_url', '/services/custom-dev/'))); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card4_btn_text"><?php echo esc_html(cr8v_mod('srv_card4_btn_text', 'Explore Custom Dev →')); ?></a>
         </div>
 
         <!-- Card 5: AI MVP (Blue Highlight) -->
@@ -1261,7 +1261,7 @@ body {
             <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card5_title"><?php echo esc_html(cr8v_mod('srv_card5_title', 'AI PRODUCT MVPS')); ?></h3>
           </div>
           <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;" data-customizer="srv_card5_desc"><?php echo wp_kses_post(cr8v_mod('srv_card5_desc', 'Production-grade AI applications built to validate early business concepts with real working software — integrating OpenAI, Claude, and custom model pipelines in weeks, not quarters.')); ?></p>
-          <a href="<?php echo esc_url(cr8v_mod('srv_card5_btn_url', '../AI MVP Service Page/index.html')); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card5_btn_text"><?php echo esc_html(cr8v_mod('srv_card5_btn_text', 'Explore AI MVP →')); ?></a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('srv_card5_btn_url', '/services/ai-mvp/'))); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card5_btn_text"><?php echo esc_html(cr8v_mod('srv_card5_btn_text', 'Explore AI MVP →')); ?></a>
         </div>
 
         <!-- Card 6: Redesigns -->
@@ -1271,7 +1271,7 @@ body {
             <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card6_title"><?php echo esc_html(cr8v_mod('srv_card6_title', 'PLATFORM REDESIGNS')); ?></h3>
           </div>
           <p style="font-family: 'DM Sans', sans-serif !important; font-size: 0.92rem !important; color: #555555 !important; line-height: 1.65 !important; margin-top: auto !important; margin-bottom: 1.5rem !important;" data-customizer="srv_card6_desc"><?php echo wp_kses_post(cr8v_mod('srv_card6_desc', 'Frontend modernization and core code refactoring for slow WordPress sites, proprietary web portals, and template-locked e-commerce storefronts seeking instant speed and conversion boosts.')); ?></p>
-          <a href="<?php echo esc_url(cr8v_mod('srv_card6_btn_url', '../Web Design Service Page/index.html')); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card6_btn_text"><?php echo esc_html(cr8v_mod('srv_card6_btn_text', 'Explore Redesigns →')); ?></a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('srv_card6_btn_url', '/services/web-design/'))); ?>" class="c8-btn-primary" style="align-self: flex-start;" data-customizer="srv_card6_btn_text"><?php echo esc_html(cr8v_mod('srv_card6_btn_text', 'Explore Redesigns →')); ?></a>
         </div>
 
       </div>
@@ -1286,37 +1286,37 @@ body {
   </div>
   <div class="c8srv-wrap" style="padding-top: 0 !important; position: relative !important;">
     <div class="c8srv-hoverlist" data-c8srv-hoverlist style="position: relative !important;">
-      <div class="c8srv-hoverlist-item c8srv-reveal" data-c8srv-service-id="1" data-s1="Figma" data-s2="Colors" data-s3="Fonts" onclick="window.location.href='<?php echo esc_url(cr8v_mod('srv_growth1_url', '../Brand Identity Design Service Page/index.html')); ?>'" style="cursor: pointer !important;">
+      <div class="c8srv-hoverlist-item c8srv-reveal" data-c8srv-service-id="1" data-s1="Figma" data-s2="Colors" data-s3="Fonts" onclick="window.location.href='<?php echo esc_url(home_url(cr8v_mod('srv_growth1_url', '/services/brand-identity/'))); ?>'" style="cursor: pointer !important;">
         <div class="c8srv-hoverlist-left">
           <span class="c8srv-hoverlist-num" data-customizer="srv_growth1_num"><?php echo esc_html(cr8v_mod('srv_growth1_num', '01')); ?></span>
           <h3 class="c8srv-hoverlist-title" data-customizer="srv_growth1_title"><?php echo esc_html(cr8v_mod('srv_growth1_title', 'Brand Identity')); ?></h3>
           <span class="c8srv-hoverlist-tagline" data-customizer="srv_growth1_tagline"><?php echo wp_kses_post(cr8v_mod('srv_growth1_tagline', 'Bespoke vector logo systems, curated typography hierarchies, and color guidelines built for scale')); ?></span>
         </div>
-        <div class="c8srv-hoverlist-right"><a href="<?php echo esc_url(cr8v_mod('srv_growth1_url', '../Brand Identity Design Service Page/index.html')); ?>" class="c8srv-explore" onclick="event.stopPropagation();" data-customizer="srv_growth1_btn_text"><?php echo esc_html(cr8v_mod('srv_growth1_btn_text', 'Explore →')); ?></a></div>
+        <div class="c8srv-hoverlist-right"><a href="<?php echo esc_url(home_url(cr8v_mod('srv_growth1_url', '/services/brand-identity/'))); ?>" class="c8srv-explore" onclick="event.stopPropagation();" data-customizer="srv_growth1_btn_text"><?php echo esc_html(cr8v_mod('srv_growth1_btn_text', 'Explore →')); ?></a></div>
       </div>
-      <div class="c8srv-hoverlist-item c8srv-reveal c8srv-reveal-d1" data-c8srv-service-id="2" data-s1="Audits" data-s2="Message" data-s3="Avatars" onclick="window.location.href='<?php echo esc_url(cr8v_mod('srv_growth2_url', '../Brand Strategy Service Page/index.html')); ?>'" style="cursor: pointer !important;">
+      <div class="c8srv-hoverlist-item c8srv-reveal c8srv-reveal-d1" data-c8srv-service-id="2" data-s1="Audits" data-s2="Message" data-s3="Avatars" onclick="window.location.href='<?php echo esc_url(home_url(cr8v_mod('srv_growth2_url', '/services/brand-strategy/'))); ?>'" style="cursor: pointer !important;">
         <div class="c8srv-hoverlist-left">
           <span class="c8srv-hoverlist-num" data-customizer="srv_growth2_num"><?php echo esc_html(cr8v_mod('srv_growth2_num', '02')); ?></span>
           <h3 class="c8srv-hoverlist-title" data-customizer="srv_growth2_title"><?php echo esc_html(cr8v_mod('srv_growth2_title', 'Brand Strategy')); ?></h3>
           <span class="c8srv-hoverlist-tagline" data-customizer="srv_growth2_tagline"><?php echo wp_kses_post(cr8v_mod('srv_growth2_tagline', 'Market positioning matrices, competitive moat analysis, and messaging frameworks that guide your build')); ?></span>
         </div>
-        <div class="c8srv-hoverlist-right"><a href="<?php echo esc_url(cr8v_mod('srv_growth2_url', '../Brand Strategy Service Page/index.html')); ?>" class="c8srv-explore" onclick="event.stopPropagation();" data-customizer="srv_growth2_btn_text"><?php echo esc_html(cr8v_mod('srv_growth2_btn_text', 'Explore →')); ?></a></div>
+        <div class="c8srv-hoverlist-right"><a href="<?php echo esc_url(home_url(cr8v_mod('srv_growth2_url', '/services/brand-strategy/'))); ?>" class="c8srv-explore" onclick="event.stopPropagation();" data-customizer="srv_growth2_btn_text"><?php echo esc_html(cr8v_mod('srv_growth2_btn_text', 'Explore →')); ?></a></div>
       </div>
-      <div class="c8srv-hoverlist-item c8srv-reveal c8srv-reveal-d2" data-c8srv-service-id="3" data-s1="SEO" data-s2="Schema" data-s3="Crawl" onclick="window.location.href='<?php echo esc_url(cr8v_mod('srv_growth3_url', '../SEO and Content Service Page/index.html')); ?>'" style="cursor: pointer !important;">
+      <div class="c8srv-hoverlist-item c8srv-reveal c8srv-reveal-d2" data-c8srv-service-id="3" data-s1="SEO" data-s2="Schema" data-s3="Crawl" onclick="window.location.href='<?php echo esc_url(home_url(cr8v_mod('srv_growth3_url', '/services/seo-content/'))); ?>'" style="cursor: pointer !important;">
         <div class="c8srv-hoverlist-left">
           <span class="c8srv-hoverlist-num" data-customizer="srv_growth3_num"><?php echo esc_html(cr8v_mod('srv_growth3_num', '03')); ?></span>
           <h3 class="c8srv-hoverlist-title" data-customizer="srv_growth3_title"><?php echo esc_html(cr8v_mod('srv_growth3_title', 'SEO & Content')); ?></h3>
           <span class="c8srv-hoverlist-tagline" data-customizer="srv_growth3_tagline"><?php echo wp_kses_post(cr8v_mod('srv_growth3_tagline', 'Technical schema markup, Screaming Frog audits, entity SEO, and semantic keyword architecture')); ?></span>
         </div>
-        <div class="c8srv-hoverlist-right"><a href="<?php echo esc_url(cr8v_mod('srv_growth3_url', '../SEO and Content Service Page/index.html')); ?>" class="c8srv-explore" onclick="event.stopPropagation();" data-customizer="srv_growth3_btn_text"><?php echo esc_html(cr8v_mod('srv_growth3_btn_text', 'Explore →')); ?></a></div>
+        <div class="c8srv-hoverlist-right"><a href="<?php echo esc_url(home_url(cr8v_mod('srv_growth3_url', '/services/seo-content/'))); ?>" class="c8srv-explore" onclick="event.stopPropagation();" data-customizer="srv_growth3_btn_text"><?php echo esc_html(cr8v_mod('srv_growth3_btn_text', 'Explore →')); ?></a></div>
       </div>
-      <div class="c8srv-hoverlist-item c8srv-reveal c8srv-reveal-d3" data-c8srv-service-id="4" data-s1="PPC" data-s2="Funnels" data-s3="ROAS" onclick="window.location.href='<?php echo esc_url(cr8v_mod('srv_growth4_url', '../Digital Marketing Service Page/index.html')); ?>'" style="cursor: pointer !important;">
+      <div class="c8srv-hoverlist-item c8srv-reveal c8srv-reveal-d3" data-c8srv-service-id="4" data-s1="PPC" data-s2="Funnels" data-s3="ROAS" onclick="window.location.href='<?php echo esc_url(home_url(cr8v_mod('srv_growth4_url', '/services/digital-marketing/'))); ?>'" style="cursor: pointer !important;">
         <div class="c8srv-hoverlist-left">
           <span class="c8srv-hoverlist-num" data-customizer="srv_growth4_num"><?php echo esc_html(cr8v_mod('srv_growth4_num', '04')); ?></span>
           <h3 class="c8srv-hoverlist-title" data-customizer="srv_growth4_title"><?php echo esc_html(cr8v_mod('srv_growth4_title', 'Digital Marketing')); ?></h3>
           <span class="c8srv-hoverlist-tagline" data-customizer="srv_growth4_tagline"><?php echo wp_kses_post(cr8v_mod('srv_growth4_tagline', 'Meta Ads funnels, Google Ads acquisition, Klaviyo email flows, and conversion tracking infrastructure')); ?></span>
         </div>
-        <div class="c8srv-hoverlist-right"><a href="<?php echo esc_url(cr8v_mod('srv_growth4_url', '../Digital Marketing Service Page/index.html')); ?>" class="c8srv-explore" onclick="event.stopPropagation();" data-customizer="srv_growth4_btn_text"><?php echo esc_html(cr8v_mod('srv_growth4_btn_text', 'Explore →')); ?></a></div>
+        <div class="c8srv-hoverlist-right"><a href="<?php echo esc_url(home_url(cr8v_mod('srv_growth4_url', '/services/digital-marketing/'))); ?>" class="c8srv-explore" onclick="event.stopPropagation();" data-customizer="srv_growth4_btn_text"><?php echo esc_html(cr8v_mod('srv_growth4_btn_text', 'Explore →')); ?></a></div>
       </div>
     </div>
     
@@ -1355,7 +1355,7 @@ body {
           <div class="c8srv-folder-card-left">
             <h3 class="c8srv-folder-card-title" data-customizer="srv_deck1_title"><?php echo esc_html(cr8v_mod('srv_deck1_title', 'Full-Funnel Strategic Positioning & Architecture')); ?></h3>
             <p class="c8srv-folder-card-desc" data-customizer="srv_deck1_desc"><?php echo wp_kses_post(cr8v_mod('srv_deck1_desc', 'Competitor matrix mapping, pricing scoping, customer persona profiling, and messaging frameworks that give your visual identity, codebase, and paid campaigns clear direction before line one of code.')); ?></p>
-            <a href="<?php echo esc_url(cr8v_mod('srv_deck1_url', '../Brand Strategy Service Page/index.html')); ?>" class="c8srv-explore" style="margin-top: 1.5rem !important;" data-customizer="srv_deck1_link_text"><?php echo esc_html(cr8v_mod('srv_deck1_link_text', 'Explore Strategy Deliverables →')); ?></a>
+            <a href="<?php echo esc_url(home_url(cr8v_mod('srv_deck1_url', '/services/brand-strategy/'))); ?>" class="c8srv-explore" style="margin-top: 1.5rem !important;" data-customizer="srv_deck1_link_text"><?php echo esc_html(cr8v_mod('srv_deck1_link_text', 'Explore Strategy Deliverables →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
@@ -1370,7 +1370,7 @@ body {
           <div class="c8srv-folder-card-left">
             <h3 class="c8srv-folder-card-title" data-customizer="srv_deck2_title"><?php echo esc_html(cr8v_mod('srv_deck2_title', 'High-Converting Liquid & PHP Codebase')); ?></h3>
             <p class="c8srv-folder-card-desc" data-customizer="srv_deck2_desc"><?php echo wp_kses_post(cr8v_mod('srv_deck2_desc', 'Lightweight starter base themes, custom Gutenberg block suites, bespoke Liquid sections, and zero-SaaS custom application code tuned for sub-1.2s load speeds and friction-free user conversions.')); ?></p>
-            <a href="<?php echo esc_url(cr8v_mod('srv_deck2_url', '../Web Design Service Page/index.html')); ?>" class="c8srv-explore" style="margin-top: 1.5rem !important;" data-customizer="srv_deck2_link_text"><?php echo esc_html(cr8v_mod('srv_deck2_link_text', 'Explore Code Deliverables →')); ?></a>
+            <a href="<?php echo esc_url(home_url(cr8v_mod('srv_deck2_url', '/services/web-design/'))); ?>" class="c8srv-explore" style="margin-top: 1.5rem !important;" data-customizer="srv_deck2_link_text"><?php echo esc_html(cr8v_mod('srv_deck2_link_text', 'Explore Code Deliverables →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
@@ -1385,7 +1385,7 @@ body {
           <div class="c8srv-folder-card-left">
             <h3 class="c8srv-folder-card-title" data-customizer="srv_deck3_title"><?php echo esc_html(cr8v_mod('srv_deck3_title', 'Proprietary Agency Plugins & API Wiring')); ?></h3>
             <p class="c8srv-folder-card-desc" data-customizer="srv_deck3_desc"><?php echo wp_kses_post(cr8v_mod('srv_deck3_desc', 'Custom-coded WordPress and WooCommerce extension plugins built in-house for specialized features, native payment gateway wiring (Stripe, Paystack), and vector AI integrations without third-party plugin overhead.')); ?></p>
-            <a href="<?php echo esc_url(cr8v_mod('srv_deck3_url', '../Custom Dev Service Page/index.html')); ?>" class="c8srv-explore" style="margin-top: 1.5rem !important;" data-customizer="srv_deck3_link_text"><?php echo esc_html(cr8v_mod('srv_deck3_link_text', 'Explore Plugin Engineering →')); ?></a>
+            <a href="<?php echo esc_url(home_url(cr8v_mod('srv_deck3_url', '/services/custom-dev/'))); ?>" class="c8srv-explore" style="margin-top: 1.5rem !important;" data-customizer="srv_deck3_link_text"><?php echo esc_html(cr8v_mod('srv_deck3_link_text', 'Explore Plugin Engineering →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
@@ -1400,7 +1400,7 @@ body {
           <div class="c8srv-folder-card-left">
             <h3 class="c8srv-folder-card-title" data-customizer="srv_deck4_title"><?php echo esc_html(cr8v_mod('srv_deck4_title', 'Technical Schema & Semantic Keyword Infrastructure')); ?></h3>
             <p class="c8srv-folder-card-desc" data-customizer="srv_deck4_desc"><?php echo wp_kses_post(cr8v_mod('srv_deck4_desc', 'Screaming Frog crawl auditing, entity SEO optimization, automated XML sitemaps, canonical redirect mapping, and Core Web Vitals tuning for long-term search dominance across Google.')); ?></p>
-            <a href="<?php echo esc_url(cr8v_mod('srv_deck4_url', '../SEO and Content Service Page/index.html')); ?>" class="c8srv-explore" style="margin-top: 1.5rem !important;" data-customizer="srv_deck4_link_text"><?php echo esc_html(cr8v_mod('srv_deck4_link_text', 'Explore Search Infrastructure →')); ?></a>
+            <a href="<?php echo esc_url(home_url(cr8v_mod('srv_deck4_url', '/services/seo-content/'))); ?>" class="c8srv-explore" style="margin-top: 1.5rem !important;" data-customizer="srv_deck4_link_text"><?php echo esc_html(cr8v_mod('srv_deck4_link_text', 'Explore Search Infrastructure →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">

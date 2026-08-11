@@ -37,42 +37,42 @@ defined('ABSPATH') || exit;
     _cr8v_text($wp_customize, 'srv_card1_title', 'cr8v_srv_primary', 'Card 1 Title', 'WORDPRESS, NO-CODE');
     _cr8v_textarea($wp_customize, 'srv_card1_desc', 'cr8v_srv_primary', 'Card 1 Description', 'Fully custom themes built on Elementor and native block engines. Hand-written PHP templates ensure 95+ PageSpeed scores while remaining 100% editable by your non-technical team without touching line one of code.');
     _cr8v_text($wp_customize, 'srv_card1_btn_text', 'cr8v_srv_primary', 'Card 1 Button Text', 'Explore WordPress →');
-    _cr8v_text($wp_customize, 'srv_card1_btn_url', 'cr8v_srv_primary', 'Card 1 Button Link', '../WordPress Service Page/index.html');
+    _cr8v_text($wp_customize, 'srv_card1_btn_url', 'cr8v_srv_primary', 'Card 1 Button Link', '/services/wordpress/');
 
     // Card 2
     _cr8v_text($wp_customize, 'srv_card2_num', 'cr8v_srv_primary', 'Card 2 Number Tag', '02 / SHOPIFY');
     _cr8v_text($wp_customize, 'srv_card2_title', 'cr8v_srv_primary', 'Card 2 Title', 'SHOPIFY STOREFRONTS');
     _cr8v_textarea($wp_customize, 'srv_card2_desc', 'cr8v_srv_primary', 'Card 2 Description', 'Conversion-focused Liquid storefronts engineered from a blank file. We streamline third-party apps, optimize checkout velocity, and maximize product discovery across all desktop and mobile devices.');
     _cr8v_text($wp_customize, 'srv_card2_btn_text', 'cr8v_srv_primary', 'Card 2 Button Text', 'Explore Shopify →');
-    _cr8v_text($wp_customize, 'srv_card2_btn_url', 'cr8v_srv_primary', 'Card 2 Button Link', '../Shopify Service Page/index.html');
+    _cr8v_text($wp_customize, 'srv_card2_btn_url', 'cr8v_srv_primary', 'Card 2 Button Link', '/services/shopify/');
 
     // Card 3
     _cr8v_text($wp_customize, 'srv_card3_num', 'cr8v_srv_primary', 'Card 3 Number Tag', '03 / WOOCOMMERCE');
     _cr8v_text($wp_customize, 'srv_card3_title', 'cr8v_srv_primary', 'Card 3 Title', 'WOOCOMMERCE CONTROL');
     _cr8v_textarea($wp_customize, 'srv_card3_desc', 'cr8v_srv_primary', 'Card 3 Description', 'Total e-commerce freedom on your own WordPress hosting. Custom multi-step checkout flows, automated tax logic, multi-currency support, and zero third-party SaaS transaction fees.');
     _cr8v_text($wp_customize, 'srv_card3_btn_text', 'cr8v_srv_primary', 'Card 3 Button Text', 'Explore WooCommerce →');
-    _cr8v_text($wp_customize, 'srv_card3_btn_url', 'cr8v_srv_primary', 'Card 3 Button Link', '../WooCommerce Service Page/index.html');
+    _cr8v_text($wp_customize, 'srv_card3_btn_url', 'cr8v_srv_primary', 'Card 3 Button Link', '/services/woocommerce/');
 
     // Card 4
     _cr8v_text($wp_customize, 'srv_card4_num', 'cr8v_srv_primary', 'Card 4 Number Tag', '04 / CUSTOM DEV');
     _cr8v_text($wp_customize, 'srv_card4_title', 'cr8v_srv_primary', 'Card 4 Title', 'BESPOKE SOFTWARE');
     _cr8v_textarea($wp_customize, 'srv_card4_desc', 'cr8v_srv_primary', 'Card 4 Description', 'Tailored web applications, internal dashboards, and custom APIs built from line one without SaaS dependencies — engineered around your business operations with 100% client code ownership.');
     _cr8v_text($wp_customize, 'srv_card4_btn_text', 'cr8v_srv_primary', 'Card 4 Button Text', 'Explore Custom Dev →');
-    _cr8v_text($wp_customize, 'srv_card4_btn_url', 'cr8v_srv_primary', 'Card 4 Button Link', '../Custom Dev Service Page/index.html');
+    _cr8v_text($wp_customize, 'srv_card4_btn_url', 'cr8v_srv_primary', 'Card 4 Button Link', '/services/custom-dev/');
 
     // Card 5
     _cr8v_text($wp_customize, 'srv_card5_num', 'cr8v_srv_primary', 'Card 5 Number Tag', '05 / AI MVP');
     _cr8v_text($wp_customize, 'srv_card5_title', 'cr8v_srv_primary', 'Card 5 Title', 'AI PRODUCT MVPS');
     _cr8v_textarea($wp_customize, 'srv_card5_desc', 'cr8v_srv_primary', 'Card 5 Description', 'Production-grade AI applications built to validate early business concepts with real working software — integrating OpenAI, Claude, and custom model pipelines in weeks, not quarters.');
     _cr8v_text($wp_customize, 'srv_card5_btn_text', 'cr8v_srv_primary', 'Card 5 Button Text', 'Explore AI MVP →');
-    _cr8v_text($wp_customize, 'srv_card5_btn_url', 'cr8v_srv_primary', 'Card 5 Button Link', '../AI MVP Service Page/index.html');
+    _cr8v_text($wp_customize, 'srv_card5_btn_url', 'cr8v_srv_primary', 'Card 5 Button Link', '/services/ai-mvp/');
 
     // Card 6
     _cr8v_text($wp_customize, 'srv_card6_num', 'cr8v_srv_primary', 'Card 6 Number Tag', '06 / REDESIGNS');
     _cr8v_text($wp_customize, 'srv_card6_title', 'cr8v_srv_primary', 'Card 6 Title', 'PLATFORM REDESIGNS');
     _cr8v_textarea($wp_customize, 'srv_card6_desc', 'cr8v_srv_primary', 'Card 6 Description', 'Frontend modernization and core code refactoring for slow WordPress sites, proprietary web portals, and template-locked e-commerce storefronts seeking instant speed and conversion boosts.');
     _cr8v_text($wp_customize, 'srv_card6_btn_text', 'cr8v_srv_primary', 'Card 6 Button Text', 'Explore Redesigns →');
-    _cr8v_text($wp_customize, 'srv_card6_btn_url', 'cr8v_srv_primary', 'Card 6 Button Link', '../Web Design Service Page/index.html');
+    _cr8v_text($wp_customize, 'srv_card6_btn_url', 'cr8v_srv_primary', 'Card 6 Button Link', '/services/web-design/');
 
     // ── 3. GROWTH & STRATEGY LAYER ──
     _cr8v_section($wp_customize, 'cr8v_srv_growth', '3. Growth & Strategy Layer', 'cr8v_services_panel', 30);
@@ -84,25 +84,25 @@ defined('ABSPATH') || exit;
     _cr8v_text($wp_customize, 'srv_growth1_title', 'cr8v_srv_growth', 'Item 1 Title', 'Brand Identity');
     _cr8v_textarea($wp_customize, 'srv_growth1_tagline', 'cr8v_srv_growth', 'Item 1 Tagline', 'Bespoke vector logo systems, curated typography hierarchies, and color guidelines built for scale');
     _cr8v_text($wp_customize, 'srv_growth1_btn_text', 'cr8v_srv_growth', 'Item 1 Button Text', 'Explore →');
-    _cr8v_text($wp_customize, 'srv_growth1_url', 'cr8v_srv_growth', 'Item 1 Link URL', '../Brand Identity Design Service Page/index.html');
+    _cr8v_text($wp_customize, 'srv_growth1_url', 'cr8v_srv_growth', 'Item 1 Link URL', '/services/brand-identity/');
 
     _cr8v_text($wp_customize, 'srv_growth2_num', 'cr8v_srv_growth', 'Item 2 Number', '02');
     _cr8v_text($wp_customize, 'srv_growth2_title', 'cr8v_srv_growth', 'Item 2 Title', 'Brand Strategy');
     _cr8v_textarea($wp_customize, 'srv_growth2_tagline', 'cr8v_srv_growth', 'Item 2 Tagline', 'Market positioning matrices, competitive moat analysis, and messaging frameworks that guide your build');
     _cr8v_text($wp_customize, 'srv_growth2_btn_text', 'cr8v_srv_growth', 'Item 2 Button Text', 'Explore →');
-    _cr8v_text($wp_customize, 'srv_growth2_url', 'cr8v_srv_growth', 'Item 2 Link URL', '../Brand Strategy Service Page/index.html');
+    _cr8v_text($wp_customize, 'srv_growth2_url', 'cr8v_srv_growth', 'Item 2 Link URL', '/services/brand-strategy/');
 
     _cr8v_text($wp_customize, 'srv_growth3_num', 'cr8v_srv_growth', 'Item 3 Number', '03');
     _cr8v_text($wp_customize, 'srv_growth3_title', 'cr8v_srv_growth', 'Item 3 Title', 'SEO & Content');
     _cr8v_textarea($wp_customize, 'srv_growth3_tagline', 'cr8v_srv_growth', 'Item 3 Tagline', 'Technical schema markup, Screaming Frog audits, entity SEO, and semantic keyword architecture');
     _cr8v_text($wp_customize, 'srv_growth3_btn_text', 'cr8v_srv_growth', 'Item 3 Button Text', 'Explore →');
-    _cr8v_text($wp_customize, 'srv_growth3_url', 'cr8v_srv_growth', 'Item 3 Link URL', '../SEO and Content Service Page/index.html');
+    _cr8v_text($wp_customize, 'srv_growth3_url', 'cr8v_srv_growth', 'Item 3 Link URL', '/services/seo-content/');
 
     _cr8v_text($wp_customize, 'srv_growth4_num', 'cr8v_srv_growth', 'Item 4 Number', '04');
     _cr8v_text($wp_customize, 'srv_growth4_title', 'cr8v_srv_growth', 'Item 4 Title', 'Digital Marketing');
     _cr8v_textarea($wp_customize, 'srv_growth4_tagline', 'cr8v_srv_growth', 'Item 4 Tagline', 'Meta Ads funnels, Google Ads acquisition, Klaviyo email flows, and conversion tracking infrastructure');
     _cr8v_text($wp_customize, 'srv_growth4_btn_text', 'cr8v_srv_growth', 'Item 4 Button Text', 'Explore →');
-    _cr8v_text($wp_customize, 'srv_growth4_url', 'cr8v_srv_growth', 'Item 4 Link URL', '../Digital Marketing Service Page/index.html');
+    _cr8v_text($wp_customize, 'srv_growth4_url', 'cr8v_srv_growth', 'Item 4 Link URL', '/services/digital-marketing/');
 
     _cr8v_text($wp_customize, 'srv_fan_left', 'cr8v_srv_growth', 'Fan Left Word', 'Position');
     _cr8v_text($wp_customize, 'srv_fan_center', 'cr8v_srv_growth', 'Fan Center Word', 'Schema');
@@ -120,7 +120,7 @@ defined('ABSPATH') || exit;
     _cr8v_text($wp_customize, 'srv_deck1_title', 'cr8v_srv_deck', 'Card 1 Title', 'Full-Funnel Strategic Positioning & Architecture');
     _cr8v_textarea($wp_customize, 'srv_deck1_desc', 'cr8v_srv_deck', 'Card 1 Description', 'Competitor matrix mapping, pricing scoping, customer persona profiling, and messaging frameworks that give your visual identity, codebase, and paid campaigns clear direction before line one of code.');
     _cr8v_text($wp_customize, 'srv_deck1_link_text', 'cr8v_srv_deck', 'Card 1 Link Text', 'Explore Strategy Deliverables →');
-    _cr8v_text($wp_customize, 'srv_deck1_url', 'cr8v_srv_deck', 'Card 1 Link URL', '../Brand Strategy Service Page/index.html');
+    _cr8v_text($wp_customize, 'srv_deck1_url', 'cr8v_srv_deck', 'Card 1 Link URL', '/services/brand-strategy/');
     _cr8v_img($wp_customize, 'srv_deck1_img', 'cr8v_srv_deck', 'Card 1 Image', 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop');
 
     // Card 2
@@ -128,7 +128,7 @@ defined('ABSPATH') || exit;
     _cr8v_text($wp_customize, 'srv_deck2_title', 'cr8v_srv_deck', 'Card 2 Title', 'High-Converting Liquid & PHP Codebase');
     _cr8v_textarea($wp_customize, 'srv_deck2_desc', 'cr8v_srv_deck', 'Card 2 Description', 'Lightweight starter base themes, custom Gutenberg block suites, bespoke Liquid sections, and zero-SaaS custom application code tuned for sub-1.2s load speeds and friction-free user conversions.');
     _cr8v_text($wp_customize, 'srv_deck2_link_text', 'cr8v_srv_deck', 'Card 2 Link Text', 'Explore Code Deliverables →');
-    _cr8v_text($wp_customize, 'srv_deck2_url', 'cr8v_srv_deck', 'Card 2 Link URL', '../Web Design Service Page/index.html');
+    _cr8v_text($wp_customize, 'srv_deck2_url', 'cr8v_srv_deck', 'Card 2 Link URL', '/services/web-design/');
     _cr8v_img($wp_customize, 'srv_deck2_img', 'cr8v_srv_deck', 'Card 2 Image', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop');
 
     // Card 3
@@ -136,7 +136,7 @@ defined('ABSPATH') || exit;
     _cr8v_text($wp_customize, 'srv_deck3_title', 'cr8v_srv_deck', 'Card 3 Title', 'Proprietary Agency Plugins & API Wiring');
     _cr8v_textarea($wp_customize, 'srv_deck3_desc', 'cr8v_srv_deck', 'Card 3 Description', 'Custom-coded WordPress and WooCommerce extension plugins built in-house for specialized features, native payment gateway wiring (Stripe, Paystack), and vector AI integrations without third-party plugin overhead.');
     _cr8v_text($wp_customize, 'srv_deck3_link_text', 'cr8v_srv_deck', 'Card 3 Link Text', 'Explore Plugin Engineering →');
-    _cr8v_text($wp_customize, 'srv_deck3_url', 'cr8v_srv_deck', 'Card 3 Link URL', '../Custom Dev Service Page/index.html');
+    _cr8v_text($wp_customize, 'srv_deck3_url', 'cr8v_srv_deck', 'Card 3 Link URL', '/services/custom-dev/');
     _cr8v_img($wp_customize, 'srv_deck3_img', 'cr8v_srv_deck', 'Card 3 Image', 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=800&auto=format&fit=crop');
 
     // Card 4
@@ -144,7 +144,7 @@ defined('ABSPATH') || exit;
     _cr8v_text($wp_customize, 'srv_deck4_title', 'cr8v_srv_deck', 'Card 4 Title', 'Technical Schema & Semantic Keyword Infrastructure');
     _cr8v_textarea($wp_customize, 'srv_deck4_desc', 'cr8v_srv_deck', 'Card 4 Description', 'Screaming Frog crawl auditing, entity SEO optimization, automated XML sitemaps, canonical redirect mapping, and Core Web Vitals tuning for long-term search dominance across Google.');
     _cr8v_text($wp_customize, 'srv_deck4_link_text', 'cr8v_srv_deck', 'Card 4 Link Text', 'Explore Search Infrastructure →');
-    _cr8v_text($wp_customize, 'srv_deck4_url', 'cr8v_srv_deck', 'Card 4 Link URL', '../SEO and Content Service Page/index.html');
+    _cr8v_text($wp_customize, 'srv_deck4_url', 'cr8v_srv_deck', 'Card 4 Link URL', '/services/seo-content/');
     _cr8v_img($wp_customize, 'srv_deck4_img', 'cr8v_srv_deck', 'Card 4 Image', 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800&auto=format&fit=crop');
 
     // Card 5

@@ -906,10 +906,10 @@ get_header();
   var flankCards = root.querySelectorAll('.c8isv-flank-card');
   var portfolioCard = root.querySelector('[data-c8isv-portfolio-card]');
   var approachCards = root.querySelectorAll('[data-c8isv-approach-card]');
-  var testiGrid = root.querySelector('.c8srv-testimonials-grid');
-  var testiCards = root.querySelectorAll('.c8srv-testi-card');
-  var testiLeft = testiCards[0];
-  var testiRight = testiCards[2];
+  var testiGrid = root.querySelector('.c8isv-testi-grid, .c8srv-testimonials-grid, [data-c8isv-testi-trigger]');
+  var testiCards = root.querySelectorAll('.c8isv-testi-card, .c8srv-testi-card');
+  var testiLeft = root.querySelector('[data-c8isv-testi-left]') || testiCards[0];
+  var testiRight = root.querySelector('[data-c8isv-testi-right]') || testiCards[2];
 
   function handleScrollAnimations() {
     if (reduceMotion) return;
