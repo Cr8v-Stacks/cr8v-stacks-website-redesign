@@ -14,7 +14,7 @@ defined('ABSPATH') || exit;
 </head>
 <body <?php body_class('cr8v-single-post'); ?>>
 <?php wp_body_open(); ?>
-<?php get_template_part('parts/header'); ?>
+<?php get_template_part('parts/header-blog'); ?>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 

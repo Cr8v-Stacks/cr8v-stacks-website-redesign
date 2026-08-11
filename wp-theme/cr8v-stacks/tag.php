@@ -15,7 +15,7 @@ $tag = get_queried_object();
 </head>
 <body <?php body_class('cr8v-blog-tag'); ?>>
 <?php wp_body_open(); ?>
-<?php get_template_part('parts/header'); ?>
+<?php get_template_part('parts/header-blog'); ?>
 
 <main id="cr8v-main" class="fylla-outer-frame">
   <div class="fylla-blog-hero">
