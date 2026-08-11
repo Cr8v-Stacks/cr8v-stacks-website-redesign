@@ -32,8 +32,9 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   height: auto !important;
 }
 
-.c8isv-wrap, .c8srv-wrap {
+.c8isv-wrap, .c8srv-wrap, .c8srv-root .c8srv-wrap {
   padding: 5rem 3.5rem !important;
+  max-width: 100% !important;
   position: relative !important;
   z-index: 2 !important;
 }
@@ -2200,7 +2201,7 @@ button.c8isv-est-choice.is-active,
   }
 }
 
-.c8srv-root, .c8isv-root .c8srv-related-card, .c8isv-related-card, .c8srv-related-card {
+.c8srv-root .c8srv-related-card, .c8isv-root .c8isv-related-card, .c8isv-related-card, .c8srv-related-card {
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
@@ -2220,7 +2221,7 @@ button.c8isv-est-choice.is-active,
 }
 
 @media (max-width: 900px) {
-  .c8srv-root, .c8isv-root .c8srv-related-card, .c8isv-related-card, .c8srv-related-card {
+  .c8srv-root .c8srv-related-card, .c8isv-root .c8isv-related-card, .c8isv-related-card, .c8srv-related-card {
     border-right: none !important;
     border-bottom: 1px solid rgba(8, 8, 8, 0.12) !important;
   }

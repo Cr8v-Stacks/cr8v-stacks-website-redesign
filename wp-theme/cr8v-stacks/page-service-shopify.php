@@ -864,6 +864,19 @@ get_header();
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var canHover = window.matchMedia('(hover: hover)').matches;
 
+  /* ── Reveal on scroll ── */
+  var revealEls = root.querySelectorAll('.c8isv-reveal, .c8srv-reveal');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); el.classList.add('is-visible'); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
   function getElementProgress(el, startOffsetRatio, endOffsetRatio) {
     if (!el) return 0;
     var rect = el.getBoundingClientRect();
