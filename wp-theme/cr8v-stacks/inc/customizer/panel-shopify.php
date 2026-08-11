@@ -88,7 +88,7 @@ _cr8v_text($wp_customize, 'shp_deck5_title', 'cr8v_shp_deck', 'Card 5 Title', 'S
 _cr8v_textarea($wp_customize, 'shp_deck5_desc', 'cr8v_shp_deck', 'Card 5 Description', 'Complete payment gateway testing, domain cutover, 301 redirect mapping, and staff training on the Shopify admin dashboard.');
 
 // Section 5: Process & Approach
-$wp_customize->add_section('cr8v_shp_proc', ['title' => __('05. Process & Approach', 'cr8v-stacks'), 'panel' => 'cr8v_shp_panel']);
+$wp_customize->add_section('cr8v_shp_proc', ['title' => __('05a. Process & Approach (Copy)', 'cr8v-stacks'), 'panel' => 'cr8v_shp_panel']);
 _cr8v_text($wp_customize, 'shp_proc_label', 'cr8v_shp_proc', 'Section Label', 'How We Approach It');
 _cr8v_text($wp_customize, 'shp_proc_h2', 'cr8v_shp_proc', 'Section Title', 'Four stages. No overlap, no shortcuts.');
 _cr8v_textarea($wp_customize, 'shp_proc_desc', 'cr8v_shp_proc', 'Lead Description', 'A battle-tested 4-stage Liquid storefront development process crafted for brand storytelling, app curation, and mobile sales velocity.');
@@ -110,7 +110,7 @@ _cr8v_text($wp_customize, 'shp_proc4_tags', 'cr8v_shp_proc', 'Stage 4 Tags', 'Sp
 _cr8v_textarea($wp_customize, 'shp_proc4_desc', 'cr8v_shp_proc', 'Stage 4 Description', 'Speed optimization, 301 URL redirect maps, structured SEO metadata schema setup, and standard admin training. We launch your new custom Shopify store with zero downtime.');
 
 // Section 6: Build Platform Options
-$wp_customize->add_section('cr8v_shp_plat', ['title' => __('06. Shopify Stack Options', 'cr8v-stacks'), 'panel' => 'cr8v_shp_panel']);
+$wp_customize->add_section('cr8v_shp_plat', ['title' => __('06a. Shopify Stack Options (Copy)', 'cr8v-stacks'), 'panel' => 'cr8v_shp_panel']);
 _cr8v_text($wp_customize, 'shp_plat_label', 'cr8v_shp_plat', 'Section Label', 'Shopify Stack Options');
 _cr8v_text($wp_customize, 'shp_plat_h2_part1', 'cr8v_shp_plat', 'Title Part 1', 'Choosing The Right ');
 _cr8v_text($wp_customize, 'shp_plat_h2_serif', 'cr8v_shp_plat', 'Title Serif', 'Shopify Architecture');
@@ -132,7 +132,7 @@ _cr8v_text($wp_customize, 'shp_plat_cta_text', 'cr8v_shp_plat', 'CTA Button Text
 _cr8v_text($wp_customize, 'shp_plat_cta_url', 'cr8v_shp_plat', 'CTA Button URL', '/contact/?model=project&service=shopify');
 
 // Section 7: Project Catalog
-$wp_customize->add_section('cr8v_shp_cat', ['title' => __('07. Project Catalog', 'cr8v-stacks'), 'panel' => 'cr8v_shp_panel']);
+$wp_customize->add_section('cr8v_shp_cat', ['title' => __('07. Project Catalog (Copy)', 'cr8v-stacks'), 'panel' => 'cr8v_shp_panel']);
 _cr8v_text($wp_customize, 'shp_cat_label', 'cr8v_shp_cat', 'Section Label', 'Project Catalog');
 _cr8v_text($wp_customize, 'shp_cat_h2', 'cr8v_shp_cat', 'Section Title', 'Every Kind of Shopify Store We Engineer');
 _cr8v_textarea($wp_customize, 'shp_cat_desc', 'cr8v_shp_cat', 'Lead Description', 'From DTC beauty brands to omnichannel POS retail hubs — hover to inspect the project stack.');

@@ -108,7 +108,7 @@ _cr8v_text($wp_customize, 'wc_deck5_cta_url',  'cr8v_wc_deck', 'Card 5 CTA URL',
 _cr8v_img($wp_customize,  'wc_deck5_img',      'cr8v_wc_deck', 'Card 5 Image', 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop');
 
 // Section 5: Process & Approach
-$wp_customize->add_section('cr8v_wc_proc', ['title' => __('05. Process & Approach', 'cr8v-stacks'), 'panel' => 'cr8v_wc_panel']);
+$wp_customize->add_section('cr8v_wc_proc', ['title' => __('05a. Process & Approach (Copy)', 'cr8v-stacks'), 'panel' => 'cr8v_wc_panel']);
 _cr8v_text($wp_customize, 'wc_proc_label', 'cr8v_wc_proc', 'Section Label', 'How We Approach It');
 _cr8v_text($wp_customize, 'wc_proc_h2', 'cr8v_wc_proc', 'Section Title', 'Four stages. No overlap, no shortcuts.');
 _cr8v_textarea($wp_customize, 'wc_proc_desc', 'cr8v_wc_proc', 'Lead Description', 'A battle-tested 4-stage WooCommerce storefront development process built for performance, security, and sales growth.');
@@ -121,6 +121,7 @@ _cr8v_text($wp_customize, 'wc_proc2_name', 'cr8v_wc_proc', 'Stage 2 Name', 'Desi
 _cr8v_text($wp_customize, 'wc_proc2_tags', 'cr8v_wc_proc', 'Stage 2 Tags', 'UX · Cart · Mobile');
 _cr8v_textarea($wp_customize, 'wc_proc2_desc', 'cr8v_wc_proc', 'Stage 2 Description', 'Single-product layouts, shop archive filtering UX, mobile checkout drawers, and cart upsell design wireframing.');
 _cr8v_text($wp_customize, 'wc_proc3_num', 'cr8v_wc_proc', 'Stage 3 Number', '03');
+_cr8v_text($wp_customize, 'wc_proc3_name', 'cr8v_wc_proc', 'Stage 3 Name', 'Build');
 _cr8v_text($wp_customize, 'wc_proc3_tags', 'cr8v_wc_proc', 'Stage 3 Tags', 'PHP · WooCommerce · API');
 _cr8v_textarea($wp_customize, 'wc_proc3_desc', 'cr8v_wc_proc', 'Stage 3 Description', 'Custom PHP theme coding, custom WooCommerce checkout hooks, gateway SDK wiring, and plugin audit to eliminate slow code.');
 _cr8v_text($wp_customize, 'wc_proc4_num', 'cr8v_wc_proc', 'Stage 4 Number', '04');
@@ -136,7 +137,7 @@ _cr8v_img($wp_customize, 'wc_proc3_img', 'cr8v_wc_proc_imgs', 'Stage 3 Image', '
 _cr8v_img($wp_customize, 'wc_proc4_img', 'cr8v_wc_proc_imgs', 'Stage 4 Image', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop');
 
 // Section 6: Build Platform Options
-$wp_customize->add_section('cr8v_wc_plat', ['title' => __('06. WooCommerce Stack Options', 'cr8v-stacks'), 'panel' => 'cr8v_wc_panel']);
+$wp_customize->add_section('cr8v_wc_plat', ['title' => __('06a. WooCommerce Stack Options (Copy)', 'cr8v-stacks'), 'panel' => 'cr8v_wc_panel']);
 _cr8v_text($wp_customize, 'wc_plat_label', 'cr8v_wc_plat', 'Section Label', 'WooCommerce Stack Options');
 _cr8v_text($wp_customize, 'wc_plat_h2_part1', 'cr8v_wc_plat', 'Title Part 1', 'Choosing The Right ');
 _cr8v_text($wp_customize, 'wc_plat_h2_serif', 'cr8v_wc_plat', 'Title Serif', 'WooCommerce Architecture');
@@ -158,7 +159,7 @@ _cr8v_text($wp_customize, 'wc_plat_cta_text', 'cr8v_wc_plat', 'CTA Button Text',
 _cr8v_text($wp_customize, 'wc_plat_cta_url', 'cr8v_wc_plat', 'CTA Button URL', '/contact/?model=project&service=woocommerce');
 
 // Section 7: Project Catalog
-$wp_customize->add_section('cr8v_wc_cat', ['title' => __('07. Project Catalog', 'cr8v-stacks'), 'panel' => 'cr8v_wc_panel']);
+$wp_customize->add_section('cr8v_wc_cat', ['title' => __('07. Project Catalog (Copy)', 'cr8v-stacks'), 'panel' => 'cr8v_wc_panel']);
 _cr8v_text($wp_customize, 'wc_cat_label', 'cr8v_wc_cat', 'Section Label', 'Project Catalog');
 _cr8v_text($wp_customize, 'wc_cat_h2', 'cr8v_wc_cat', 'Section Title', 'Every Kind of WooCommerce Store We Engineer');
 _cr8v_textarea($wp_customize, 'wc_cat_desc', 'cr8v_wc_cat', 'Lead Description', 'From fashion boutiques to digital downloads and subscription boxes — hover to inspect the project stack.');

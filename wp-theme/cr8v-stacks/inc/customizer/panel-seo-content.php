@@ -88,7 +88,7 @@ _cr8v_text($wp_customize, 'seo_deck5_title', 'cr8v_seo_deck', 'Card 5 Title', 'G
 _cr8v_textarea($wp_customize, 'seo_deck5_desc', 'cr8v_seo_deck', 'Card 5 Description', 'Continuous rank position tracking, backlink audits, and organic revenue attribution dashboards.');
 
 // Section 5: Process & Approach
-$wp_customize->add_section('cr8v_seo_proc', ['title' => __('05. Process & Approach', 'cr8v-stacks'), 'panel' => 'cr8v_seo_panel']);
+$wp_customize->add_section('cr8v_seo_proc', ['title' => __('05a. Process & Approach (Copy)', 'cr8v-stacks'), 'panel' => 'cr8v_seo_panel']);
 _cr8v_text($wp_customize, 'seo_proc_label', 'cr8v_seo_proc', 'Section Label', 'How We Approach It');
 _cr8v_text($wp_customize, 'seo_proc_h2', 'cr8v_seo_proc', 'Section Title', 'How We Approach SEO & Content Strategy');
 _cr8v_textarea($wp_customize, 'seo_proc_desc', 'cr8v_seo_proc', 'Lead Description', 'Our milestone-driven design and engineering process delivers clear progress at every phase of your project.');
@@ -110,7 +110,7 @@ _cr8v_text($wp_customize, 'seo_proc4_tags', 'cr8v_seo_proc', 'Stage 4 Tags', 'Ra
 _cr8v_textarea($wp_customize, 'seo_proc4_desc', 'cr8v_seo_proc', 'Stage 4 Description', 'We monitor daily SERP rankings, earn authoritative backlinks, and refresh content to maintain top positions.');
 
 // Section 6: Search Strategy Options
-$wp_customize->add_section('cr8v_seo_plat', ['title' => __('06. Search Strategy Options', 'cr8v-stacks'), 'panel' => 'cr8v_seo_panel']);
+$wp_customize->add_section('cr8v_seo_plat', ['title' => __('06a. Search Strategy Options (Copy)', 'cr8v-stacks'), 'panel' => 'cr8v_seo_panel']);
 _cr8v_text($wp_customize, 'seo_plat_label', 'cr8v_seo_plat', 'Section Label', 'Search Strategy Options');
 _cr8v_text($wp_customize, 'seo_plat_h2_part1', 'cr8v_seo_plat', 'Title Part 1', 'Choosing Your ');
 _cr8v_text($wp_customize, 'seo_plat_h2_serif', 'cr8v_seo_plat', 'Title Serif', 'Organic Growth Engine');
@@ -132,7 +132,7 @@ _cr8v_text($wp_customize, 'seo_plat_cta_text', 'cr8v_seo_plat', 'CTA Button Text
 _cr8v_text($wp_customize, 'seo_plat_cta_url', 'cr8v_seo_plat', 'CTA Button URL', '/contact/?model=project&service=seo-content');
 
 // Section 7: Project Catalog
-$wp_customize->add_section('cr8v_seo_cat', ['title' => __('07. Project Catalog', 'cr8v-stacks'), 'panel' => 'cr8v_seo_panel']);
+$wp_customize->add_section('cr8v_seo_cat', ['title' => __('07. Project Catalog (Copy)', 'cr8v-stacks'), 'panel' => 'cr8v_seo_panel']);
 _cr8v_text($wp_customize, 'seo_cat_label', 'cr8v_seo_cat', 'Section Label', 'Project Catalog');
 _cr8v_text($wp_customize, 'seo_cat_h2', 'cr8v_seo_cat', 'Section Title', 'Every Kind of Search Strategy We Engineer');
 _cr8v_textarea($wp_customize, 'seo_cat_desc', 'cr8v_seo_cat', 'Lead Description', 'From technical site audits to enterprise content hubs — hover to inspect the SEO stack.');

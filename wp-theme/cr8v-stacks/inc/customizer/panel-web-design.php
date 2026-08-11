@@ -81,7 +81,7 @@ defined('ABSPATH') || exit;
     _cr8v_textarea($wp_customize, 'swd_deck5_desc', 'cr8v_swd_deck', 'Card 5 Description', 'Intuitive page editing setup and visual builder configuration so your team can edit content effortlessly without touching code.');
 
     // Section 5: Process & Approach
-    $wp_customize->add_section('cr8v_swd_proc', ['title' => __('05. Process & Approach', 'cr8v-stacks'), 'panel' => 'cr8v_swd_panel']);
+    $wp_customize->add_section('cr8v_swd_proc', ['title' => __('05a. Process & Approach (Copy)', 'cr8v-stacks'), 'panel' => 'cr8v_swd_panel']);
     _cr8v_text($wp_customize, 'swd_proc_label', 'cr8v_swd_proc', 'Section Label', 'How We Approach It');
     _cr8v_text($wp_customize, 'swd_proc_h2', 'cr8v_swd_proc', 'Section Title', 'How We Approach Web Design & UX');
     _cr8v_textarea($wp_customize, 'swd_proc_desc', 'cr8v_swd_proc', 'Lead Description', 'Our milestone-driven design and engineering process delivers clear progress at every phase of your project.');
@@ -103,7 +103,7 @@ defined('ABSPATH') || exit;
     _cr8v_textarea($wp_customize, 'swd_proc4_desc', 'cr8v_swd_proc', 'Stage 4 Description', 'We run Core Web Vitals speed tests, audit mobile responsiveness, set up SEO 301 redirects, and execute a tested live launch.');
 
     // Section 6: Build Platform Options
-    $wp_customize->add_section('cr8v_swd_plat', ['title' => __('06. Build Platform Options', 'cr8v-stacks'), 'panel' => 'cr8v_swd_panel']);
+    $wp_customize->add_section('cr8v_swd_plat', ['title' => __('06a. Build Platform Options (Copy)', 'cr8v-stacks'), 'panel' => 'cr8v_swd_panel']);
     _cr8v_text($wp_customize, 'swd_plat_label', 'cr8v_swd_plat', 'Section Label', 'Build Platform Options');
     _cr8v_text($wp_customize, 'swd_plat_h2_part1', 'cr8v_swd_plat', 'Title Part 1', 'Where Web Design ');
     _cr8v_text($wp_customize, 'swd_plat_h2_serif', 'cr8v_swd_plat', 'Title Serif', 'Flows Into Code');
@@ -125,7 +125,7 @@ defined('ABSPATH') || exit;
     _cr8v_text($wp_customize, 'swd_plat_cta_url', 'cr8v_swd_plat', 'CTA Button URL', 'https://cr8vstacks.com/contact/?model=project&service=web-design');
 
     // Section 7: Project Catalog
-    $wp_customize->add_section('cr8v_swd_cat', ['title' => __('07. Project Catalog', 'cr8v-stacks'), 'panel' => 'cr8v_swd_panel']);
+    $wp_customize->add_section('cr8v_swd_cat', ['title' => __('07. Project Catalog (Copy)', 'cr8v-stacks'), 'panel' => 'cr8v_swd_panel']);
     _cr8v_text($wp_customize, 'swd_cat_label', 'cr8v_swd_cat', 'Section Label', 'Project Catalog');
     _cr8v_text($wp_customize, 'swd_cat_h2', 'cr8v_swd_cat', 'Section Title', 'Every Kind of Web Design & UX We Engineer');
     _cr8v_textarea($wp_customize, 'swd_cat_desc', 'cr8v_swd_cat', 'Lead Description', 'From SaaS product landing pages to enterprise web portals — hover to inspect the design stack.');

@@ -1928,22 +1928,34 @@ button.c8isv-est-choice.is-active,
   margin-bottom: 2rem !important;
 }
 
-.faq-cta-link {
+.faq-cta-link, a.faq-cta-link {
+  background: #0047E1 !important;
+  color: #FFFFFF !important;
   font-family: 'Space Mono', monospace !important;
   font-size: 0.75rem !important;
   font-weight: 700 !important;
-  color: #0047E1 !important;
   text-transform: uppercase !important;
   text-decoration: none !important;
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: center !important;
   gap: 0.5rem !important;
+  padding: 0.85rem 1.6rem !important;
+  border-radius: 4px !important;
   letter-spacing: 0.08em !important;
-  transition: color 0.2s ease !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 4px 14px rgba(0, 71, 225, 0.25) !important;
 }
 
-.faq-cta-link:hover {
-  color: #0037B5 !important;
+.faq-cta-link:hover, a.faq-cta-link:hover {
+  background: #0037B5 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 71, 225, 0.35) !important;
+}
+
+.faq-cta-link svg {
+  stroke: #FFFFFF !important;
 }
 
 .faq-list {
