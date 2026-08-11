@@ -9,9 +9,9 @@
 get_header();
 ?>
 
-<div class="c8isv-root" style="width: 100% !important; max-width: 100% !important; overflow-x: hidden !important;">
+<div class="c8isv-root c8srv-root" style="width: 100% !important; max-width: 100% !important; overflow: visible !important;">
   <style>
-    .c8isv-root { width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+    .c8isv-root { width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; overflow: visible !important; }
     .c8isv-flank-section, .c8srv-folder-section, .c8isv-approach-outer, .c8isv-fits-outer, .c8isv-hl-section, .c8isv-testi-outer, .c8srv-pricing-section, .c8isv-related-outer {
       width: 100% !important; max-width: 100% !important; margin-left: 0 !important; left: 0 !important; right: 0 !important; transform: none !important;
     }

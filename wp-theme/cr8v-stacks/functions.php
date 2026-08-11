@@ -92,7 +92,6 @@ add_action('template_redirect', function () {
         'page-about.php',
         'page-contact.php',
         'page-discovery-call.php',
-        'page-service.php',
         'page-services.php',
         'page-service-web-design.php',
         'page-web-design.php',
@@ -203,17 +202,28 @@ add_filter('template_include', function ($template) {
             if ($t) return $t;
         }
 
-        // Service Pages (all 11 service slugs)
-        $service_slugs = [
-            'web-design', 'custom-dev', 'ecommerce', 'e-commerce',
-            'shopify', 'woocommerce', 'wordpress', 'ai-mvp',
-            'brand-identity', 'brand-strategy', 'digital-marketing', 'seo-content'
-        ];
-        if (in_array($slug, $service_slugs, true) || is_page_template('page-service.php')) {
-            $t = locate_template('page-service.php');
+        // Web Design & UX
+        if (in_array($slug, ['web-design', 'website-design', 'webdesign'], true) || is_page_template('page-web-design.php') || is_page_template('page-service-web-design.php')) {
+            $t = locate_template('page-service-web-design.php');
+            if ($t) return $t;
+        }
+
+        // Shopify Storefronts
+        if (in_array($slug, ['shopify', 'shopify-storefronts'], true) || is_page_template('page-shopify.php') || is_page_template('page-service-shopify.php')) {
+            $t = locate_template('page-service-shopify.php');
             if ($t) return $t;
         }
     }
     return $template;
 });
+
+/**
+ * Helper function for Customizer Theme Mods with Fallback Default
+ */
+if ( ! function_exists( 'cr8v_mod' ) ) {
+    function cr8v_mod( $setting, $default = '' ) {
+        return get_theme_mod( $setting, $default );
+    }
+}
+
 

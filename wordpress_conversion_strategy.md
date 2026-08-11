@@ -708,4 +708,93 @@ Every service page script block must self-initialize cleanly without external sc
   - Powers all 11 child service pages (`/services/web-design/`, `/services/custom-dev/`, `/services/ai-mvp/`, `/services/brand-strategy/`, `/services/seo-content/`, `/services/digital-marketing/`, etc.).
   - Configured with post meta fallbacks, tech stack pills, benefits flank cards, 4-step process cards, featured portfolio case study card, FAQ accordion, and bottom discovery CTA.
 
+---
+
+## 🛠️ Folder Deck Scroll Animation Bugfix Log (`page-service-web-design.php`) (2026-08-10)
+
+### 1. Issue Summary
+- **Target Page**: `page-service-web-design.php` (`https://devplayground.local/web-design/`).
+- **Symptom**: The "What You Get" Folder Deck Section (`.c8srv-folder-section` / `.c8srv-folder-deck` / `.c8srv-folder-card`) failed to stick or stack over Card 1 during scrolling on the front-end in WordPress.
+
+---
+
+### 2. Technical Root Causes & W3C Findings
+
+#### Finding A: The `overflow-x: hidden` Sticky Cancellation Bug
+- **Root Cause**: `.c8isv-root` contained an inline CSS rule `.c8isv-root { overflow-x: hidden !important; }`.
+- **W3C CSS Specification Rule**: Applying `overflow-x: hidden` (or `overflow: hidden`) to ANY parent/ancestor container between `body` and a sticky element forces the browser to create an isolated overflow clipping context. Because that container does not handle vertical scrolling itself, **the browser's rendering engine completely disables `position: sticky` for all child elements inside it**.
+- **Fix**: Removed `overflow-x: hidden !important` from `.c8isv-root` on `page-service-web-design.php` and `page-service-shopify.php`, replacing it with `overflow: visible !important`.
+
+#### Finding B: Parent CSS `transform` Neutralization
+- **Root Cause**: Scroll reveal animation classes (`.c8isv-reveal`) applied CSS `transform: translateY(...)` to section wrappers (`.c8srv-folder-section`).
+- **W3C CSS Specification Rule**: Any element with a CSS `transform` creates a new containing block for all descendants, which cancels `position: sticky` for child cards inside it.
+- **Fix**: Added `.c8srv-folder-section { transform: none !important; }` in the template top style block to neutralize parent scroll reveal transforms on the folder deck wrapper.
+
+#### Finding C: Stacking `z-index` (10..50) Selector Mismatch
+- **Root Cause**: In `style.css`, card stacking z-indexes (`z-index: 10`, `20`, `30`, `40`, `50`) were written strictly under `.c8srv-root .c8srv-folder-card:nth-child(n)`. However, `page-service-web-design.php` used `<div class="c8isv-root">` without `.c8srv-root`, preventing the CSS selectors from matching.
+- **Fix**: Updated root wrapper to `<div class="c8isv-root c8srv-root">` and injected explicit `z-index: 10..50` rules in `assets/css/shared-service-components.css` covering both `.c8isv-folder-card` and `.c8srv-folder-card`.
+
+#### Finding D: Template Router & Redundant File Cleanup
+- **Root Cause**: `functions.php` router initially mapped service pages to `page-service.php`, and `_wp_page_template` postmeta in the WordPress DB was set to `page-service.php`. When `page-service.php` was missing from disk, WP fell back to generic `page.php`.
+- **Fix**: Deleted redundant `page-service.php`, updated `functions.php` `template_include` filter to route `web-design` directly to `page-service-web-design.php`, and removed duplicate footer script tags.
+
+---
+
+### 3. Summary of Files Updated & Deployed
+| File | Action | Description |
+|---|---|---|
+| `page-service-web-design.php` | Modified | Updated root wrapper to `<div class="c8isv-root c8srv-root" style="overflow: visible !important;">`, added `.c8srv-folder-section { transform: none !important; }`, and removed duplicate script enqueue. |
+| `assets/css/shared-service-components.css` | Modified | Added explicit `z-index: 10..50` stacking hierarchy for `.c8isv-folder-card` and `.c8srv-folder-card` plus mobile responsive offsets. |
+| `functions.php` | Modified | Updated `template_include` filter to route `web-design` directly to `page-service-web-design.php` and `shopify` to `page-service-shopify.php`. |
+| `page-service.php` | Deleted | Deleted redundant generic fallback template. |
+| `C:\Users\HP\Local Sites\devplayground\...` | Synced | Synced all theme updates to local WordPress target. |
+
+---
+
+## 🚀 Customizer Modular Architecture & Exhaustive Control Protocol (2026-08-11)
+
+### 1. Modular Panel Architecture & `active_callback` Scoping
+To prevent browser memory crashes when registering hundreds of controls across multiple service pages:
+- **Modular Panel Files**: Split `inc/customizer.php` into lightweight sub-files inside `inc/customizer/`:
+  - `helpers.php` (reusable wrapper functions: `_cr8v_text`, `_cr8v_textarea`, `_cr8v_img`, `_cr8v_section`)
+  - `panel-homepage.php`
+  - `panel-about.php`
+  - `panel-services.php`
+  - `panel-web-design.php`
+  - `panel-shopify.php`
+  - `panel-seo-content.php`
+- **Dynamic `active_callback` Scoping**: Every panel uses an `active_callback` condition so WordPress Customizer ONLY loads and renders controls for the currently previewed page.
+```php
+$wp_customize->add_panel('cr8v_seo_panel', [
+    'title'           => 'CR8V Service — SEO & Content Strategy',
+    'priority'        => 37,
+    'active_callback' => function() {
+        return is_page('seo-content') || is_page_template('page-service-seo-content.php');
+    },
+]);
+```
+
+### 2. Exhaustive Control Granularity Standard (Web Design Parity)
+Every individual service page panel MUST achieve 100% control parity matching the Web Design panel (`panel-web-design.php`):
+- **Hero**: Eyebrow, H1 part 1, H1 serif, intro paragraph, CTA 1 text + URL, CTA 2 text + URL, Tech Pills (×4).
+- **Why Section**: Label, H2, 4 Flank Cards (Step, Title, Description for each).
+- **Case Study**: Label, H2 parts, Client tag, Title, Description, Stat 1 val + lbl, Stat 2 val + lbl, 4 Deliverable Pills, Case Study Photo URL, Case Study CTA URL.
+- **Deliverables Deck**: Label, H2 parts, Lead description, plus all 5 Cards (Tab, Title, Description, Image URL, CTA Text, CTA URL).
+- **Process & Approach**: Label, H2, Lead description, 4 Stages (Number, Name, Tags, Description, Stage Image URL).
+- **Build Options / Platform Deck**: Label, H2 parts, Lead description, 4 Platform Cards (Badge, Title, Description), Footer note, CTA text + URL.
+- **Catalog**: Label, H2, Lead description, 6 Catalog items (Title, Tagline, Tech badge, Logo 1 CDN URL, Logo 2 CDN URL).
+- **Testimonials**: Label, H2 parts, 3 Testimonials (Quote text, Author).
+- **Pricing & Scope Estimator**: Label, H2 parts, Lead description, Plan 1 & Plan 2 (Type, Title, Price, Period, Description, CTA text, CTA URL), Estimator submit CTA URL, Calculator link URL.
+- **FAQ Section**: Eyebrow, H2, Subtitle, FAQ CTA link text + URL, plus ALL Question & Answer text/textarea pairs.
+- **Related Services**: Label, H2, Description, 3 Related Service Cards (Title, Description, URL).
+
+### 3. Design Customization Capabilities
+WordPress Customizer allows live design customization beyond text:
+- **Brand & Theme Colors (`WP_Customize_Color_Control`)**: Change primary brand royal blue (`#0047E1`), accent gradients, card backgrounds, or text colors.
+- **Typography & Font Sizes**: Customizer dropdowns for font families or range sliders for font sizes/clamp values.
+- **Layout Spacing & Borders**: Range sliders for section padding, container max-widths, border-radius, and box shadows.
+- **Theme Toggles**: Light/dark mode toggles for individual section containers.
+
+
+
 

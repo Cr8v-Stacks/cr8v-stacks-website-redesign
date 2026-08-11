@@ -9,56 +9,35 @@ get_header();
 ?>
 
 <main id="cr8v-main">
-<div class="c8isv-root">
+<div class="c8isv-root c8srv-root" style="width: 100% !important; max-width: 100% !important; overflow: visible !important;">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
-
-/* Universal White 4px Case Study Deliverable Pills CSS */
-.c8isv-portfolio-deliverables, .c8srv-portfolio-deliverables {
-  grid-column: 1 / -1 !important;
-  margin-top: 1.25rem !important;
-  padding-top: 1.25rem !important;
-  border-top: 1px solid rgba(8, 8, 8, 0.08) !important;
-}
-
-.c8isv-portfolio-pills, .c8srv-portfolio-pills {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 0.5rem !important;
-  align-items: center !important;
-  margin-top: 0.4rem !important;
-}
-
-.c8isv-portfolio-pill, .c8srv-portfolio-pill {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 0.72rem !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.04em !important;
-  background: #FFFFFF !important;
-  color: #4A4A4A !important;
-  border: 1px solid rgba(8, 8, 8, 0.14) !important;
-  padding: 0.35rem 0.85rem !important;
-  border-radius: 4px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  white-space: nowrap !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.c8isv-portfolio-pill:hover, .c8srv-portfolio-pill:hover {
-  background: #0047E1 !important;
-  color: #FFFFFF !important;
-  border-color: #0047E1 !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 4px 12px rgba(0, 71, 225, 0.2) !important;
-}
-
-/* Base resets & bounds safety */
-.c8isv-root, .c8isv-root * { box-sizing: border-box !important; }
-.c8isv-root { width: 100% !important; max-width: 100% !important; overflow-x: hidden !important; background: #FFFFFF !important; color: #080808 !important; font-family: 'DM Sans', sans-serif !important; }
-</style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
+    .c8isv-root { width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+    .c8isv-flank-section, .c8srv-folder-section, .c8isv-approach-outer, .c8isv-fits-outer, .c8isv-hl-section, .c8isv-testi-outer, .c8srv-pricing-section, .c8isv-related-outer {
+      width: 100% !important; max-width: 100% !important; margin-left: 0 !important; left: 0 !important; right: 0 !important; transform: none !important;
+    }
+    .c8isv-portfolio-deliverables, .c8srv-portfolio-deliverables {
+      grid-column: 1 / -1 !important; margin-top: 1.25rem !important; padding-top: 1.25rem !important; border-top: 1px solid rgba(8, 8, 8, 0.08) !important;
+    }
+    .c8isv-portfolio-pills, .c8srv-portfolio-pills {
+      display: flex !important; flex-wrap: wrap !important; gap: 0.5rem !important; align-items: center !important; margin-top: 0.4rem !important;
+    }
+    .c8isv-portfolio-pill, .c8srv-portfolio-pill {
+      font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important;
+      text-transform: uppercase !important; letter-spacing: 0.04em !important; background: #FFFFFF !important;
+      color: #4A4A4A !important; border: 1px solid rgba(8, 8, 8, 0.14) !important; padding: 0.35rem 0.85rem !important;
+      border-radius: 4px !important; display: inline-flex !important; align-items: center !important;
+      white-space: nowrap !important; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .c8isv-portfolio-pill:hover, .c8srv-portfolio-pill:hover {
+      background: #0047E1 !important; color: #FFFFFF !important; border-color: #0047E1 !important;
+      transform: translateY(-1px) !important; box-shadow: 0 4px 12px rgba(0, 71, 225, 0.2) !important;
+    }
+    /* Base resets & bounds safety */
+    .c8isv-root, .c8isv-root * { box-sizing: border-box !important; }
+    .c8isv-root { width: 100% !important; max-width: 100% !important; overflow: visible !important; background: #FFFFFF !important; color: #080808 !important; font-family: 'DM Sans', sans-serif !important; }
+  </style>
 
 <!-- ══════════════════════════════════════════
      SECTION 1: HERO (Dark)
@@ -189,8 +168,8 @@ get_header();
         <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="swd_work_h2_part1"><?php echo esc_html(cr8v_mod('swd_work_h2_part1', 'Built for Real Outcomes,')); ?></span><br><span class="c8isv-serif" data-customizer="swd_work_h2_serif"><?php echo esc_html(cr8v_mod('swd_work_h2_serif', 'Not Just Concepts')); ?></span></h2>
       </div>
       <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
-        <div class="c8isv-portfolio-img">
-          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop" alt="The Duch Apartments — built by Cr8v Stacks">
+        <div class="c8isv-portfolio-img" data-customizer="swd_work_cs_img">
+          <img src="<?php echo esc_url(cr8v_mod('swd_work_cs_img', 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop')); ?>" alt="The Duch Apartments — built by Cr8v Stacks">
         </div>
         <div class="c8isv-portfolio-info">
           <span class="c8isv-portfolio-client" data-customizer="swd_work_cs_client"><?php echo esc_html(cr8v_mod('swd_work_cs_client', 'Case Study — The Duch Apartments')); ?></span>
@@ -240,11 +219,11 @@ get_header();
         <div class="c8srv-folder-card-left">
           <h3 class="c8srv-folder-card-title" data-customizer="swd_deck1_title"><?php echo esc_html(cr8v_mod('swd_deck1_title', 'User Flow & Layout Blueprint')); ?></h3>
           <p class="c8srv-folder-card-desc" data-customizer="swd_deck1_desc"><?php echo wp_kses_post(cr8v_mod('swd_deck1_desc', 'Information architecture, visual hierarchy mapping, and wireframe layouts engineered for high conversion rates.')); ?></p>
-          <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8srv-explore">Discuss layout strategy →</a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('swd_deck1_cta_url', '/discovery-call/'))); ?>" class="c8srv-explore" data-customizer="swd_deck1_cta_text"><?php echo esc_html(cr8v_mod('swd_deck1_cta_text', 'Discuss layout strategy →')); ?></a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="User Flow & Layout Blueprint">
+          <div class="c8srv-folder-card-img" data-customizer="swd_deck1_img">
+            <img src="<?php echo esc_url(cr8v_mod('swd_deck1_img', 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop')); ?>" alt="User Flow & Layout Blueprint">
           </div>
         </div>
       </div>
@@ -255,11 +234,11 @@ get_header();
         <div class="c8srv-folder-card-left">
           <h3 class="c8srv-folder-card-title" data-customizer="swd_deck2_title"><?php echo esc_html(cr8v_mod('swd_deck2_title', 'High-Fidelity Interface Design')); ?></h3>
           <p class="c8srv-folder-card-desc" data-customizer="swd_deck2_desc"><?php echo wp_kses_post(cr8v_mod('swd_deck2_desc', 'Bespoke typography, color palettes, custom UI components, and brand assets crafted for instant authority.')); ?></p>
-          <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8srv-explore">Discuss visual UI →</a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('swd_deck2_cta_url', '/discovery-call/'))); ?>" class="c8srv-explore" data-customizer="swd_deck2_cta_text"><?php echo esc_html(cr8v_mod('swd_deck2_cta_text', 'Discuss visual UI →')); ?></a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="High-Fidelity Interface Design">
+          <div class="c8srv-folder-card-img" data-customizer="swd_deck2_img">
+            <img src="<?php echo esc_url(cr8v_mod('swd_deck2_img', 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop')); ?>" alt="High-Fidelity Interface Design">
           </div>
         </div>
       </div>
@@ -270,11 +249,11 @@ get_header();
         <div class="c8srv-folder-card-left">
           <h3 class="c8srv-folder-card-title" data-customizer="swd_deck3_title"><?php echo esc_html(cr8v_mod('swd_deck3_title', 'Custom CMS & Platform Buildout')); ?></h3>
           <p class="c8srv-folder-card-desc" data-customizer="swd_deck3_desc"><?php echo wp_kses_post(cr8v_mod('swd_deck3_desc', 'Flawless implementation across WordPress, Elementor, Shopify, or WooCommerce tailored precisely to your team\'s workflow.')); ?></p>
-          <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8srv-explore">Discuss platform builds →</a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('swd_deck3_cta_url', '/discovery-call/'))); ?>" class="c8srv-explore" data-customizer="swd_deck3_cta_text"><?php echo esc_html(cr8v_mod('swd_deck3_cta_text', 'Discuss platform builds →')); ?></a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Custom CMS & Platform Buildout">
+          <div class="c8srv-folder-card-img" data-customizer="swd_deck3_img">
+            <img src="<?php echo esc_url(cr8v_mod('swd_deck3_img', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop')); ?>" alt="Custom CMS & Platform Buildout">
           </div>
         </div>
       </div>
@@ -285,11 +264,11 @@ get_header();
         <div class="c8srv-folder-card-left">
           <h3 class="c8srv-folder-card-title" data-customizer="swd_deck4_title"><?php echo esc_html(cr8v_mod('swd_deck4_title', 'Core Web Vitals & Technical SEO')); ?></h3>
           <p class="c8srv-folder-card-desc" data-customizer="swd_deck4_desc"><?php echo wp_kses_post(cr8v_mod('swd_deck4_desc', 'Image asset pipeline optimization, semantic HTML markup, fast mobile rendering, and GTmetrix speed tuning.')); ?></p>
-          <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8srv-explore">Discuss performance →</a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('swd_deck4_cta_url', '/discovery-call/'))); ?>" class="c8srv-explore" data-customizer="swd_deck4_cta_text"><?php echo esc_html(cr8v_mod('swd_deck4_cta_text', 'Discuss performance →')); ?></a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Core Web Vitals & Technical SEO">
+          <div class="c8srv-folder-card-img" data-customizer="swd_deck4_img">
+            <img src="<?php echo esc_url(cr8v_mod('swd_deck4_img', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop')); ?>" alt="Core Web Vitals & Technical SEO">
           </div>
         </div>
       </div>
@@ -300,11 +279,11 @@ get_header();
         <div class="c8srv-folder-card-left">
           <h3 class="c8srv-folder-card-title" data-customizer="swd_deck5_title"><?php echo esc_html(cr8v_mod('swd_deck5_title', 'Drag-and-Drop Admin Autonomy')); ?></h3>
           <p class="c8srv-folder-card-desc" data-customizer="swd_deck5_desc"><?php echo wp_kses_post(cr8v_mod('swd_deck5_desc', 'Intuitive page editing setup and visual builder configuration so your team can edit content effortlessly without touching code.')); ?></p>
-          <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8srv-explore">Discuss editing autonomy →</a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('swd_deck5_cta_url', '/discovery-call/'))); ?>" class="c8srv-explore" data-customizer="swd_deck5_cta_text"><?php echo esc_html(cr8v_mod('swd_deck5_cta_text', 'Discuss editing autonomy →')); ?></a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Drag-and-Drop Admin Autonomy">
+          <div class="c8srv-folder-card-img" data-customizer="swd_deck5_img">
+            <img src="<?php echo esc_url(cr8v_mod('swd_deck5_img', 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=800&auto=format&fit=crop')); ?>" alt="Drag-and-Drop Admin Autonomy">
           </div>
         </div>
       </div>
@@ -330,8 +309,8 @@ get_header();
         <div class="c8isv-approach-col-name" data-customizer="swd_proc1_name"><?php echo esc_html(cr8v_mod('swd_proc1_name', 'Discover')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="swd_proc1_tags"><?php echo esc_html(cr8v_mod('swd_proc1_tags', 'Audits · Competitors · Goals')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="swd_proc1_desc"><?php echo wp_kses_post(cr8v_mod('swd_proc1_desc', 'We audit your brand positioning, study competitive landscapes, and map conversion targets before designing layouts. We understand your users before creating visuals.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" alt="Web Design Discovery stage">
+        <div class="c8isv-approach-col-img" data-customizer="swd_proc1_img">
+          <img src="<?php echo esc_url(cr8v_mod('swd_proc1_img', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop')); ?>" alt="Web Design Discovery stage">
         </div>
       </div>
     </div>
@@ -343,8 +322,8 @@ get_header();
         <div class="c8isv-approach-col-name" data-customizer="swd_proc2_name"><?php echo esc_html(cr8v_mod('swd_proc2_name', 'Design')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="swd_proc2_tags"><?php echo esc_html(cr8v_mod('swd_proc2_tags', 'UX · Figma · Styling')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="swd_proc2_desc"><?php echo wp_kses_post(cr8v_mod('swd_proc2_desc', 'We craft custom Figma wireframes and high-fidelity interface mockups, pairing typography and brand colors for maximum visual credibility.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop" alt="Web Design Figma design stage">
+        <div class="c8isv-approach-col-img" data-customizer="swd_proc2_img">
+          <img src="<?php echo esc_url(cr8v_mod('swd_proc2_img', 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop')); ?>" alt="Web Design Figma design stage">
         </div>
       </div>
     </div>
@@ -356,8 +335,8 @@ get_header();
         <div class="c8isv-approach-col-name" data-customizer="swd_proc3_name"><?php echo esc_html(cr8v_mod('swd_proc3_name', 'Engineering')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="swd_proc3_tags"><?php echo esc_html(cr8v_mod('swd_proc3_tags', 'WordPress · Shopify · WooCommerce')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="swd_proc3_desc"><?php echo wp_kses_post(cr8v_mod('swd_proc3_desc', 'We build the live website across your target CMS (WordPress, Elementor, Shopify, WooCommerce, or Custom React/PHP) with clean code.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Web Design component system setup stage">
+        <div class="c8isv-approach-col-img" data-customizer="swd_proc3_img">
+          <img src="<?php echo esc_url(cr8v_mod('swd_proc3_img', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop')); ?>" alt="Web Design component system setup stage">
         </div>
       </div>
     </div>
@@ -368,8 +347,8 @@ get_header();
         <div class="c8isv-approach-col-name" data-customizer="swd_proc4_name"><?php echo esc_html(cr8v_mod('swd_proc4_name', 'Audit & Launch')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="swd_proc4_tags"><?php echo esc_html(cr8v_mod('swd_proc4_tags', 'Speed · SEO 301s · Go Live')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="swd_proc4_desc"><?php echo wp_kses_post(cr8v_mod('swd_proc4_desc', 'We run Core Web Vitals speed tests, audit mobile responsiveness, set up SEO 301 redirects, and execute a tested live launch.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Web Design visual signoff stage">
+        <div class="c8isv-approach-col-img" data-customizer="swd_proc4_img">
+          <img src="<?php echo esc_url(cr8v_mod('swd_proc4_img', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop')); ?>" alt="Web Design visual signoff stage">
         </div>
       </div>
     </div>
@@ -453,87 +432,87 @@ get_header();
   <div class="c8isv-wrap" style="padding-top:0 !important; position:relative">
     <div class="c8isv-hoverlist" data-c8isv-hoverlist>
       <!-- Item 1 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="HTML5" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="<?php echo esc_attr(cr8v_mod('swd_cat1_tech', 'Corporate')); ?>" data-logo-1="<?php echo esc_url(cr8v_mod('swd_cat1_logo1', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg')); ?>" data-tech-2="HTML5" data-logo-2="<?php echo esc_url(cr8v_mod('swd_cat1_logo2', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg')); ?>">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">01</span>
           <h3 class="c8isv-hoverlist-title" data-customizer="swd_cat1_title"><?php echo esc_html(cr8v_mod('swd_cat1_title', 'B2B & Enterprise Web Design')); ?></h3>
           <span class="c8isv-hoverlist-tagline" data-customizer="swd_cat1_tagline"><?php echo esc_html(cr8v_mod('swd_cat1_tagline', 'High-credibility corporate sites, executive team profiles, investor relations portals, and multi-branch company hubs.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Corporate</span>
+          <span class="c8isv-hoverlist-tech" data-customizer="swd_cat1_tech"><?php echo esc_html(cr8v_mod('swd_cat1_tech', 'Corporate')); ?></span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
 
       <!-- Item 2 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="React" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="Figma" data-logo-1="<?php echo esc_url(cr8v_mod('swd_cat2_logo1', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg')); ?>" data-tech-2="React" data-logo-2="<?php echo esc_url(cr8v_mod('swd_cat2_logo2', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg')); ?>">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">02</span>
           <h3 class="c8isv-hoverlist-title" data-customizer="swd_cat2_title"><?php echo esc_html(cr8v_mod('swd_cat2_title', 'SaaS & Product Landing Pages')); ?></h3>
           <span class="c8isv-hoverlist-tagline" data-customizer="swd_cat2_tagline"><?php echo esc_html(cr8v_mod('swd_cat2_tagline', 'Product feature showcases, interactive pricing calculators, API documentation hubs, and high-converting lead funnels.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">SaaS / Tech</span>
+          <span class="c8isv-hoverlist-tech" data-customizer="swd_cat2_tech"><?php echo esc_html(cr8v_mod('swd_cat2_tech', 'SaaS / Tech')); ?></span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
 
       <!-- Item 3 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d2" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="CSS3" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/css3.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d2" data-tech-1="Figma" data-logo-1="<?php echo esc_url(cr8v_mod('swd_cat3_logo1', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg')); ?>" data-tech-2="CSS3" data-logo-2="<?php echo esc_url(cr8v_mod('swd_cat3_logo2', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/css3.svg')); ?>">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">03</span>
           <h3 class="c8isv-hoverlist-title" data-customizer="swd_cat3_title"><?php echo esc_html(cr8v_mod('swd_cat3_title', 'E-Commerce Storefront UI Design')); ?></h3>
           <span class="c8isv-hoverlist-tagline" data-customizer="swd_cat3_tagline"><?php echo esc_html(cr8v_mod('swd_cat3_tagline', 'Bespoke Shopify and WooCommerce product pages, checkout flows, and collection grid designs.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">E-Commerce</span>
+          <span class="c8isv-hoverlist-tech" data-customizer="swd_cat3_tech"><?php echo esc_html(cr8v_mod('swd_cat3_tech', 'E-Commerce')); ?></span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
 
       <!-- Item 4 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d3" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="JavaScript" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/javascript.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d3" data-tech-1="Figma" data-logo-1="<?php echo esc_url(cr8v_mod('swd_cat4_logo1', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg')); ?>" data-tech-2="JavaScript" data-logo-2="<?php echo esc_url(cr8v_mod('swd_cat4_logo2', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/javascript.svg')); ?>">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">04</span>
           <h3 class="c8isv-hoverlist-title" data-customizer="swd_cat4_title"><?php echo esc_html(cr8v_mod('swd_cat4_title', 'Custom Web App Interface Design')); ?></h3>
           <span class="c8isv-hoverlist-tagline" data-customizer="swd_cat4_tagline"><?php echo esc_html(cr8v_mod('swd_cat4_tagline', 'SaaS dashboards, admin portals, onboarding workflows, and complex web app interfaces.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Web Apps</span>
+          <span class="c8isv-hoverlist-tech" data-customizer="swd_cat4_tech"><?php echo esc_html(cr8v_mod('swd_cat4_tech', 'Web Apps')); ?></span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
 
       <!-- Item 5 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="HTML5" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Figma" data-logo-1="<?php echo esc_url(cr8v_mod('swd_cat5_logo1', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg')); ?>" data-tech-2="HTML5" data-logo-2="<?php echo esc_url(cr8v_mod('swd_cat5_logo2', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg')); ?>">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">05</span>
           <h3 class="c8isv-hoverlist-title" data-customizer="swd_cat5_title"><?php echo esc_html(cr8v_mod('swd_cat5_title', 'Media, Editorial & Content Hubs')); ?></h3>
           <span class="c8isv-hoverlist-tagline" data-customizer="swd_cat5_tagline"><?php echo esc_html(cr8v_mod('swd_cat5_tagline', 'High-frequency article archives, publication layouts, and content-first web designs.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Media / Editorial</span>
+          <span class="c8isv-hoverlist-tech" data-customizer="swd_cat5_tech"><?php echo esc_html(cr8v_mod('swd_cat5_tech', 'Media / Editorial')); ?></span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
 
       <!-- Item 6 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="React" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="Figma" data-logo-1="<?php echo esc_url(cr8v_mod('swd_cat6_logo1', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg')); ?>" data-tech-2="React" data-logo-2="<?php echo esc_url(cr8v_mod('swd_cat6_logo2', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg')); ?>">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">06</span>
           <h3 class="c8isv-hoverlist-title" data-customizer="swd_cat6_title"><?php echo esc_html(cr8v_mod('swd_cat6_title', 'Website Redesign & System Refactoring')); ?></h3>
           <span class="c8isv-hoverlist-tagline" data-customizer="swd_cat6_tagline"><?php echo esc_html(cr8v_mod('swd_cat6_tagline', 'Rebuilding outdated site designs into modern, high-converting digital experiences without losing search rankings.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Redesign &amp; Refactor</span>
+          <span class="c8isv-hoverlist-tech" data-customizer="swd_cat6_tech"><?php echo esc_html(cr8v_mod('swd_cat6_tech', 'Redesign & Refactor')); ?></span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
     </div>
     <!-- 2-Card Fan Stack Preview -->
     <div class="c8isv-hoverlist-preview" data-c8isv-preview>
-      <div class="c8isv-fan-card c8isv-fan-left"><img class="c8isv-fan-logo" data-c8isv-fan-logo="left" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" alt="Figma"></div>
-      <div class="c8isv-fan-card c8isv-fan-right"><img class="c8isv-fan-logo" data-c8isv-fan-logo="right" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg" alt="React"></div>
+      <div class="c8isv-fan-card c8isv-fan-left"><img class="c8isv-fan-logo" data-c8isv-fan-logo="left" src="<?php echo esc_url(cr8v_mod('swd_cat1_logo1', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg')); ?>" alt="Figma"></div>
+      <div class="c8isv-fan-card c8isv-fan-right"><img class="c8isv-fan-logo" data-c8isv-fan-logo="right" src="<?php echo esc_url(cr8v_mod('swd_cat1_logo2', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg')); ?>" alt="React"></div>
     </div>
   </div>
 </div>
@@ -603,7 +582,7 @@ get_header();
             <span>Design tweaks, copy updates &amp; SEO execution</span>
           </div>
         </div>
-        <a href="https://cr8vstacks.com/contact/?model=retainer" class="c8srv-price-btn is-light" style="border-color:#080808 !important; color:#080808 !important;">Secure Retainer Slot</a>
+        <a href="<?php echo esc_url(cr8v_mod('swd_plan1_cta_url', 'https://cr8vstacks.com/contact/?model=retainer')); ?>" class="c8srv-price-btn is-light" style="border-color:#080808 !important; color:#080808 !important;" data-customizer="swd_plan1_cta_text"><?php echo esc_html(cr8v_mod('swd_plan1_cta_text', 'Secure Retainer Slot')); ?></a>
       </div>
 
       <!-- Fixed Project Card -->
@@ -628,7 +607,7 @@ get_header();
             <span>Developer-ready design handoff (Figma, assets, &amp; CSS tokens)</span>
           </div>
         </div>
-        <a href="https://cr8vstacks.com/contact/?model=project" class="c8srv-price-btn is-primary">Start A Project</a>
+        <a href="<?php echo esc_url(cr8v_mod('swd_plan2_cta_url', 'https://cr8vstacks.com/contact/?model=project')); ?>" class="c8srv-price-btn is-primary" data-customizer="swd_plan2_cta_text"><?php echo esc_html(cr8v_mod('swd_plan2_cta_text', 'Start A Project')); ?></a>
       </div>
     </div>
 
@@ -679,8 +658,8 @@ get_header();
           <span class="c8srv-est-deliverables-title">Included Deliverables:</span>
           <div class="c8srv-est-deliverables" id="est-deliverables-list"><div>• Custom Figma interface design file</div><div>• Responsive mobile &amp; desktop component layout</div><div>• Up to 5 editable layout pages</div></div>
 
-          <a href="https://cr8vstacks.com/contact/?platform=webdesign&amp;est=1200-1500" id="est-cta-link" class="c8srv-price-btn is-primary" style="margin-top: 1rem !important; margin-bottom: 1rem !important;">Submit Scope Request</a>
-          <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8srv-explore" style="justify-content: center !important; font-size: 11px !important; margin-top: 0.5rem !important; display: flex !important; font-family: 'Space Mono', monospace !important; color: #0047E1 !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important; align-items: center !important; gap: 8px !important;">Or build a custom stack with our Calculator →</a>
+          <a href="<?php echo esc_url(cr8v_mod('swd_est_cta_url', 'https://cr8vstacks.com/contact/?platform=webdesign&est=1200-1500')); ?>" id="est-cta-link" class="c8srv-price-btn is-primary" style="margin-top: 1rem !important; margin-bottom: 1rem !important;">Submit Scope Request</a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('swd_est_calc_url', '/discovery-call/'))); ?>" class="c8srv-explore" style="justify-content: center !important; font-size: 11px !important; margin-top: 0.5rem !important; display: flex !important; font-family: 'Space Mono', monospace !important; color: #0047E1 !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important; align-items: center !important; gap: 8px !important;">Or build a custom stack with our Calculator →</a>
         </div>
       </div>
     </div>
@@ -725,102 +704,102 @@ get_header();
       <div class="faq-eyebrow" data-customizer="swd_faq_eyebrow"><?php echo esc_html(cr8v_mod('swd_faq_eyebrow', '// COMMON QUESTIONS')); ?></div>
       <h2 class="faq-h2" data-customizer="swd_faq_h2"><?php echo esc_html(cr8v_mod('swd_faq_h2', 'Web Design Questions, Answered Honestly')); ?></h2>
       <p class="faq-sub" data-customizer="swd_faq_sub"><?php echo wp_kses_post(cr8v_mod('swd_faq_sub', 'Clear answers to common questions about our custom web design, Figma UI/UX prototyping, and conversion optimization processes.')); ?></p>
-      <a href="https://cr8vstacks.com/contact/" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+      <a href="<?php echo esc_url(cr8v_mod('swd_faq_cta_url', 'https://cr8vstacks.com/contact/')); ?>" class="faq-cta-link" data-customizer="swd_faq_cta_text"><?php echo esc_html(cr8v_mod('swd_faq_cta_text', 'Talk to us')); ?> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
     </div>
 
     <ul class="faq-list" id="srv-faq-list">
       <li class="faq-item is-open">
         <button class="faq-trigger" aria-expanded="true">
-          <span class="faq-q">Why invest in custom Web Design &amp; UX instead of using a generic pre-made template?</span>
+          <span class="faq-q" data-customizer="swd_faq1_q"><?php echo esc_html(cr8v_mod('swd_faq1_q', 'Why invest in custom Web Design & UX instead of using a generic pre-made template?')); ?></span>
           <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
         </button>
         <div class="faq-body" style="grid-template-rows: 1fr;">
           <div class="faq-body-inner">
-            <p class="faq-a">Generic templates force your brand into rigid pre-existing layouts, contain heavy bloat code that slows page speed, and make your business look like thousands of competitors. Custom web design builds a tailored user experience around your specific market positioning, increasing conversion rates and brand trust.</p>
+            <p class="faq-a" data-customizer="swd_faq1_a"><?php echo wp_kses_post(cr8v_mod('swd_faq1_a', 'Generic templates force your brand into rigid pre-existing layouts, contain heavy bloat code that slows page speed, and make your business look like thousands of competitors. Custom web design builds a tailored user experience around your specific market positioning, increasing conversion rates and brand trust.')); ?></p>
           </div>
         </div>
       </li>
 
       <li class="faq-item">
         <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">What platforms do you build custom web design projects on?</span>
+          <span class="faq-q" data-customizer="swd_faq2_q"><?php echo esc_html(cr8v_mod('swd_faq2_q', 'What platforms do you build custom web design projects on?')); ?></span>
           <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
         </button>
         <div class="faq-body">
           <div class="faq-body-inner">
-            <p class="faq-a">We build across custom WordPress (Gutenberg / Elementor), Shopify storefronts, WooCommerce stores, and bespoke PHP or React web applications depending on your team's technical preferences and operational goals.</p>
+            <p class="faq-a" data-customizer="swd_faq2_a"><?php echo wp_kses_post(cr8v_mod('swd_faq2_a', "We build across custom WordPress (Gutenberg / Elementor), Shopify storefronts, WooCommerce stores, and bespoke PHP or React web applications depending on your team's technical preferences and operational goals.")); ?></p>
           </div>
         </div>
       </li>
 
       <li class="faq-item">
         <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">How much does a custom Web Design project cost?</span>
+          <span class="faq-q" data-customizer="swd_faq3_q"><?php echo esc_html(cr8v_mod('swd_faq3_q', 'How much does a custom Web Design project cost?')); ?></span>
           <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
         </button>
         <div class="faq-body">
           <div class="faq-body-inner">
-            <p class="faq-a">Our fixed-scope Web Design and development projects start from $1,200 for a custom layout architecture, responsive page builds, and speed tuning. The final investment scales with the number of unique page layouts and specialized feature integrations.</p>
+            <p class="faq-a" data-customizer="swd_faq3_a"><?php echo wp_kses_post(cr8v_mod('swd_faq3_a', 'Our fixed-scope Web Design and development projects start from $1,200 for a custom layout architecture, responsive page builds, and speed tuning. The final investment scales with the number of unique page layouts and specialized feature integrations.')); ?></p>
           </div>
         </div>
       </li>
 
       <li class="faq-item">
         <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">Why hire an agency like Cr8v Stacks for Web Design instead of a solo freelancer?</span>
+          <span class="faq-q" data-customizer="swd_faq4_q"><?php echo esc_html(cr8v_mod('swd_faq4_q', 'Why hire an agency like Cr8v Stacks for Web Design instead of a solo freelancer?')); ?></span>
           <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
         </button>
         <div class="faq-body">
           <div class="faq-body-inner">
-            <p class="faq-a">Solo freelancers often handle strategy, UI design, frontend code, and SEO as a single person, leading to missed technical deadlines or security gaps. Cr8v Stacks provides a dedicated multi-disciplinary team — combining brand strategists, UI/UX designers, senior frontend engineers, and technical SEO specialists — backed by formal contracts and support.</p>
+            <p class="faq-a" data-customizer="swd_faq4_a"><?php echo wp_kses_post(cr8v_mod('swd_faq4_a', 'Solo freelancers often handle strategy, UI design, frontend code, and SEO as a single person, leading to missed technical deadlines or security gaps. Cr8v Stacks provides a dedicated multi-disciplinary team — combining brand strategists, UI/UX designers, senior frontend engineers, and technical SEO specialists — backed by formal contracts and support.')); ?></p>
           </div>
         </div>
       </li>
 
       <li class="faq-item">
         <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">Do you handle website redesigns and 301 URL SEO redirects?</span>
+          <span class="faq-q" data-customizer="swd_faq5_q"><?php echo esc_html(cr8v_mod('swd_faq5_q', 'Do you handle website redesigns and 301 URL SEO redirects?')); ?></span>
           <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
         </button>
         <div class="faq-body">
           <div class="faq-body-inner">
-            <p class="faq-a">Yes. When redesigning existing websites, we audit all existing URL structures and configure precise 301 redirect mapping to ensure your domain authority, search engine indexation, and organic rankings remain fully intact during launch.</p>
+            <p class="faq-a" data-customizer="swd_faq5_a"><?php echo wp_kses_post(cr8v_mod('swd_faq5_a', 'Yes. When redesigning existing websites, we audit all existing URL structures and configure precise 301 redirect mapping to ensure your domain authority, search engine indexation, and organic rankings remain fully intact during launch.')); ?></p>
           </div>
         </div>
       </li>
 
       <li class="faq-item">
         <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">How long does a complete Web Design and build project take?</span>
+          <span class="faq-q" data-customizer="swd_faq6_q"><?php echo esc_html(cr8v_mod('swd_faq6_q', 'How long does a complete Web Design and build project take?')); ?></span>
           <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
         </button>
         <div class="faq-body">
           <div class="faq-body-inner">
-            <p class="faq-a">A standard custom web design and build project for a core 3–5 page site takes approximately 3 to 4 weeks from discovery kick-off to live tested launch. Complex web platforms or multi-language sites take 4 to 6 weeks.</p>
+            <p class="faq-a" data-customizer="swd_faq6_a"><?php echo wp_kses_post(cr8v_mod('swd_faq6_a', 'A standard custom web design and build project for a core 3–5 page site takes approximately 3 to 4 weeks from discovery kick-off to live tested launch. Complex web platforms or multi-language sites take 4 to 6 weeks.')); ?></p>
           </div>
         </div>
       </li>
 
       <li class="faq-item">
         <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">Will I be able to edit page content myself without writing code?</span>
+          <span class="faq-q" data-customizer="swd_faq7_q"><?php echo esc_html(cr8v_mod('swd_faq7_q', 'Will I be able to edit page content myself without writing code?')); ?></span>
           <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
         </button>
         <div class="faq-body">
           <div class="faq-body-inner">
-            <p class="faq-a">Yes. We configure visual page builders (Elementor or Gutenberg) and intuitive admin dashboards so your marketing team can publish blog posts, edit text, upload images, and add new landing pages easily without touching code.</p>
+            <p class="faq-a" data-customizer="swd_faq7_a"><?php echo wp_kses_post(cr8v_mod('swd_faq7_a', 'Yes. We configure visual page builders (Elementor or Gutenberg) and intuitive admin dashboards so your marketing team can publish blog posts, edit text, upload images, and add new landing pages easily without touching code.')); ?></p>
           </div>
         </div>
       </li>
 
       <li class="faq-item">
         <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-q">Do I get full ownership of design source files and site code?</span>
+          <span class="faq-q" data-customizer="swd_faq8_q"><?php echo esc_html(cr8v_mod('swd_faq8_q', 'Do I get full ownership of design source files and site code?')); ?></span>
           <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
         </button>
         <div class="faq-body">
           <div class="faq-body-inner">
-            <p class="faq-a">100% yes. Upon final payment, you own all Figma design source files, custom theme codebase, graphics, and database assets with zero ongoing licensing fees or platform lock-in.</p>
+            <p class="faq-a" data-customizer="swd_faq8_a"><?php echo wp_kses_post(cr8v_mod('swd_faq8_a', '100% yes. Upon final payment, you own all Figma design source files, custom theme codebase, graphics, and database assets with zero ongoing licensing fees or platform lock-in.')); ?></p>
           </div>
         </div>
       </li>
@@ -837,7 +816,7 @@ get_header();
     <h2 class="c8isv-section-title c8isv-reveal" data-customizer="swd_rel_h2"><?php echo esc_html(cr8v_mod('swd_rel_h2', 'Related Services')); ?></h2>
     <p class="c8isv-lead c8isv-reveal" data-customizer="swd_rel_desc"><?php echo wp_kses_post(cr8v_mod('swd_rel_desc', 'Web Design & UX is one of several services we offer. If a standalone web design engagement is not what you need, check these out.')); ?></p>
     <div class="c8isv-related-grid">
-      <a href="<?php echo esc_url(home_url('/service/wordpress/')); ?>" class="c8isv-related-card c8isv-reveal">
+      <a href="<?php echo esc_url(home_url(cr8v_mod('swd_rel1_url', '/service/wordpress/'))); ?>" class="c8isv-related-card c8isv-reveal">
         <div class="c8isv-related-card-icon">
           <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></svg>
         </div>
@@ -846,7 +825,7 @@ get_header();
         <p class="c8isv-related-card-desc" data-customizer="swd_rel1_desc"><?php echo wp_kses_post(cr8v_mod('swd_rel1_desc', 'Lightweight, custom-coded WordPress themes built for sub-second page loads, clean organic search visibility, and editing autonomy for your team.')); ?></p>
         <span class="c8isv-related-card-link">Explore WordPress →</span>
       </a>
-      <a href="<?php echo esc_url(home_url('/service/brand-strategy/')); ?>" class="c8isv-related-card c8isv-reveal c8isv-reveal-d1">
+      <a href="<?php echo esc_url(home_url(cr8v_mod('swd_rel2_url', '/service/brand-strategy/'))); ?>" class="c8isv-related-card c8isv-reveal c8isv-reveal-d1">
         <div class="c8isv-related-card-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
         </div>
@@ -855,7 +834,7 @@ get_header();
         <p class="c8isv-related-card-desc" data-customizer="swd_rel2_desc"><?php echo wp_kses_post(cr8v_mod('swd_rel2_desc', 'Competitor analysis, pricing scoping, and messaging frameworks that give your website design clear strategic direction before a single pixel is designed.')); ?></p>
         <span class="c8isv-related-card-link">Explore Brand Strategy →</span>
       </a>
-      <a href="<?php echo esc_url(home_url('/service/custom-dev/')); ?>" class="c8isv-related-card c8isv-reveal c8isv-reveal-d2">
+      <a href="<?php echo esc_url(home_url(cr8v_mod('swd_rel3_url', '/service/custom-dev/'))); ?>" class="c8isv-related-card c8isv-reveal c8isv-reveal-d2">
         <div class="c8isv-related-card-icon">
           <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
@@ -1204,6 +1183,5 @@ get_header();
   });
 })();
 </script>
-<script src="<?php echo esc_url(get_template_directory_uri() . '/assets/js/shared-folder-stack.js'); ?>"></script>
 
 <?php get_footer(); ?>
