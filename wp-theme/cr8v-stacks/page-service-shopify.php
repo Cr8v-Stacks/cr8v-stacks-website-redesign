@@ -170,7 +170,7 @@ get_header();
       </div>
       <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
         <div class="c8isv-portfolio-img">
-          <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop" alt="Victoria's Lane Shopify storefront — built by Cr8v Stacks">
+          <img src="<?php echo esc_url(cr8v_mod('shp_work_cs_img', 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop')); ?>" alt="Victoria's Lane Shopify storefront — built by Cr8v Stacks" data-customizer="shp_work_cs_img">
         </div>
         <div class="c8isv-portfolio-info">
           <span class="c8isv-portfolio-client" data-customizer="shp_work_cs_client"><?php echo esc_html(cr8v_mod('shp_work_cs_client', 'Case Study — Victoria\'s Lane')); ?></span>
@@ -223,11 +223,11 @@ get_header();
           <div class="c8srv-folder-card-left">
             <h3 class="c8srv-folder-card-title" data-customizer="shp_deck1_title"><?php echo esc_html(cr8v_mod('shp_deck1_title', 'Custom Theme Coding')); ?></h3>
             <p class="c8srv-folder-card-desc" data-customizer="shp_deck1_desc"><?php echo esc_html(cr8v_mod('shp_deck1_desc', 'A fully custom-designed Shopify theme built using Shopify CLI and native JSON templates. No pre-made templates, no heavy page builder plugins like PageFly, and 100% custom Liquid code.')); ?></p>
-            <a href="https://cr8vstacks.com/contact/" class="c8srv-explore">Discuss storefront &rarr;</a>
+            <a href="<?php echo esc_url(cr8v_mod('shp_deck1_cta_url', home_url('/contact/'))); ?>" class="c8srv-explore" data-customizer="shp_deck1_cta_text"><?php echo esc_html(cr8v_mod('shp_deck1_cta_text', 'Discuss storefront →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800&auto=format&fit=crop" alt="Shopify custom store design">
+              <img src="<?php echo esc_url(cr8v_mod('shp_deck1_img', 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800&auto=format&fit=crop')); ?>" alt="Shopify custom store design" data-customizer="shp_deck1_img">
             </div>
           </div>
         </div>
@@ -238,11 +238,11 @@ get_header();
           <div class="c8srv-folder-card-left">
             <h3 class="c8srv-folder-card-title" data-customizer="shp_deck2_title"><?php echo esc_html(cr8v_mod('shp_deck2_title', 'App-Free Cart & Checkout')); ?></h3>
             <p class="c8srv-folder-card-desc" data-customizer="shp_deck2_desc"><?php echo esc_html(cr8v_mod('shp_deck2_desc', 'Custom slide-out AJAX cart drawers, native product bundles, and custom tier discounts coded directly to replace 10+ slow apps and eliminate recurring monthly app subscription fees.')); ?></p>
-            <a href="https://cr8vstacks.com/contact/" class="c8srv-explore">Discuss cart &rarr;</a>
+            <a href="<?php echo esc_url(cr8v_mod('shp_deck2_cta_url', home_url('/contact/'))); ?>" class="c8srv-explore" data-customizer="shp_deck2_cta_text"><?php echo esc_html(cr8v_mod('shp_deck2_cta_text', 'Discuss cart →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Shopify cart and checkout integration">
+              <img src="<?php echo esc_url(cr8v_mod('shp_deck2_img', 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop')); ?>" alt="Shopify cart and checkout integration" data-customizer="shp_deck2_img">
             </div>
           </div>
         </div>
@@ -253,11 +253,11 @@ get_header();
           <div class="c8srv-folder-card-left">
             <h3 class="c8srv-folder-card-title" data-customizer="shp_deck3_title"><?php echo esc_html(cr8v_mod('shp_deck3_title', 'Performance & SEO')); ?></h3>
             <p class="c8srv-folder-card-desc" data-customizer="shp_deck3_desc"><?php echo esc_html(cr8v_mod('shp_deck3_desc', 'Sub-1s page load speeds achieved natively. Structured product schema, optimized lazy-loading assets, and clean WebP asset pipelines configured directly for fast search indexing.')); ?></p>
-            <a href="https://cr8vstacks.com/contact/" class="c8srv-explore">Discuss performance &rarr;</a>
+            <a href="<?php echo esc_url(cr8v_mod('shp_deck3_cta_url', home_url('/contact/'))); ?>" class="c8srv-explore" data-customizer="shp_deck3_cta_text"><?php echo esc_html(cr8v_mod('shp_deck3_cta_text', 'Discuss performance →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" alt="Shopify speed and SEO engineering">
+              <img src="<?php echo esc_url(cr8v_mod('shp_deck3_img', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop')); ?>" alt="Shopify speed and SEO engineering" data-customizer="shp_deck3_img">
             </div>
           </div>
         </div>
@@ -268,11 +268,11 @@ get_header();
           <div class="c8srv-folder-card-left">
             <h3 class="c8srv-folder-card-title" data-customizer="shp_deck4_title"><?php echo esc_html(cr8v_mod('shp_deck4_title', 'Plus & B2B Wholesale')); ?></h3>
             <p class="c8srv-folder-card-desc" data-customizer="shp_deck4_desc"><?php echo esc_html(cr8v_mod('shp_deck4_desc', 'Scaling enterprise brands with Shopify Plus customization, multi-region local currencies, wholesaling expansions, and native integrations for clean ERP/inventory syncing.')); ?></p>
-            <a href="https://cr8vstacks.com/contact/" class="c8srv-explore">Discuss wholesaling &rarr;</a>
+            <a href="<?php echo esc_url(cr8v_mod('shp_deck4_cta_url', home_url('/contact/'))); ?>" class="c8srv-explore" data-customizer="shp_deck4_cta_text"><?php echo esc_html(cr8v_mod('shp_deck4_cta_text', 'Discuss wholesaling →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop" alt="Shopify Plus Operations Scale">
+              <img src="<?php echo esc_url(cr8v_mod('shp_deck4_img', 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop')); ?>" alt="Shopify Plus Operations Scale" data-customizer="shp_deck4_img">
             </div>
           </div>
         </div>
@@ -283,11 +283,11 @@ get_header();
           <div class="c8srv-folder-card-left">
             <h3 class="c8srv-folder-card-title" data-customizer="shp_deck5_title"><?php echo esc_html(cr8v_mod('shp_deck5_title', 'Store Launch QA & Training')); ?></h3>
             <p class="c8srv-folder-card-desc" data-customizer="shp_deck5_desc"><?php echo esc_html(cr8v_mod('shp_deck5_desc', 'Complete payment gateway testing, domain cutover, 301 redirect mapping, and staff training on the Shopify admin dashboard.')); ?></p>
-            <a href="https://cr8vstacks.com/contact/?model=project&amp;service=shopify" class="c8srv-explore">Discuss launch QA &rarr;</a>
+            <a href="<?php echo esc_url(cr8v_mod('shp_deck5_cta_url', home_url('/contact/?model=project&service=shopify'))); ?>" class="c8srv-explore" data-customizer="shp_deck5_cta_text"><?php echo esc_html(cr8v_mod('shp_deck5_cta_text', 'Discuss launch QA →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop" alt="Store Launch QA and Training">
+              <img src="<?php echo esc_url(cr8v_mod('shp_deck5_img', 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop')); ?>" alt="Store Launch QA and Training" data-customizer="shp_deck5_img">
             </div>
           </div>
         </div>
@@ -314,7 +314,7 @@ get_header();
           <div class="c8isv-approach-col-tags" data-customizer="shp_proc1_tags"><?php echo esc_html(cr8v_mod('shp_proc1_tags', 'Audit · Apps · Catalog')); ?></div>
           <div class="c8isv-approach-col-desc" data-customizer="shp_proc1_desc"><?php echo esc_html(cr8v_mod('shp_proc1_desc', 'Catalog mapping, Shopify app audits, and performance baselines. We identify which slow apps can be hardcoded and what features need custom Liquid layout setup.')); ?></div>
           <div class="c8isv-approach-col-img">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" alt="Discovery audit stage">
+            <img src="<?php echo esc_url(cr8v_mod('shp_proc1_img', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop')); ?>" alt="Discovery audit stage" data-customizer="shp_proc1_img">
           </div>
         </div>
       </div>
@@ -327,7 +327,7 @@ get_header();
           <div class="c8isv-approach-col-tags" data-customizer="shp_proc2_tags"><?php echo esc_html(cr8v_mod('shp_proc2_tags', 'UX · Layout · Branding')); ?></div>
           <div class="c8isv-approach-col-desc" data-customizer="shp_proc2_desc"><?php echo esc_html(cr8v_mod('shp_proc2_desc', 'AJAX cart drawer flows, responsive product page UX, custom checkout branding, and navigation hierarchies. Every pixel is custom-designed before coding begins.')); ?></div>
           <div class="c8isv-approach-col-img">
-            <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop" alt="Store UX design stage">
+            <img src="<?php echo esc_url(cr8v_mod('shp_proc2_img', 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop')); ?>" alt="Store UX design stage" data-customizer="shp_proc2_img">
           </div>
         </div>
       </div>
@@ -340,7 +340,7 @@ get_header();
           <div class="c8isv-approach-col-tags" data-customizer="shp_proc3_tags"><?php echo esc_html(cr8v_mod('shp_proc3_tags', 'Liquid · CLI · API')); ?></div>
           <div class="c8isv-approach-col-desc" data-customizer="shp_proc3_desc"><?php echo esc_html(cr8v_mod('shp_proc3_desc', 'Custom theme development using Shopify CLI and native JSON templates. AJAX scripts for cart drawers and native Shopify API connections are coded without slow plug-and-play apps.')); ?></div>
           <div class="c8isv-approach-col-img">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Custom Liquid theme coding stage">
+            <img src="<?php echo esc_url(cr8v_mod('shp_proc3_img', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop')); ?>" alt="Custom Liquid theme coding stage" data-customizer="shp_proc3_img">
           </div>
         </div>
       </div>
@@ -353,7 +353,7 @@ get_header();
           <div class="c8isv-approach-col-tags" data-customizer="shp_proc4_tags"><?php echo esc_html(cr8v_mod('shp_proc4_tags', 'Speed · SEO · Handover')); ?></div>
           <div class="c8isv-approach-col-desc" data-customizer="shp_proc4_desc"><?php echo esc_html(cr8v_mod('shp_proc4_desc', 'Speed optimization, 301 URL redirect maps, structured SEO metadata schema setup, and standard admin training. We launch your new custom Shopify store with zero downtime.')); ?></div>
           <div class="c8isv-approach-col-img">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Shopify storefront speed and launch stage">
+            <img src="<?php echo esc_url(cr8v_mod('shp_proc4_img', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop')); ?>" alt="Shopify storefront speed and launch stage" data-customizer="shp_proc4_img">
           </div>
         </div>
       </div>
@@ -423,7 +423,7 @@ get_header();
       </p>
 
       <div class="c8isv-reveal" style="display: flex !important; margin-top: 2rem !important;">
-        <a href="<?php echo esc_url(cr8v_mod('shp_plat_cta_url', 'https://cr8vstacks.com/contact/?model=project&service=shopify')); ?>" class="c8isv-btn-primary" data-customizer="shp_plat_cta_text"><?php echo esc_html(cr8v_mod('shp_plat_cta_text', 'Start a Shopify Scoping Call →')); ?></a>
+        <a href="<?php echo esc_url(cr8v_mod('shp_plat_cta_url', home_url('/contact/?model=project&service=shopify'))); ?>" class="c8isv-btn-primary" data-customizer="shp_plat_cta_text"><?php echo esc_html(cr8v_mod('shp_plat_cta_text', 'Start a Shopify Scoping Call →')); ?></a>
       </div>
     </div>
   </div>
@@ -440,66 +440,66 @@ get_header();
     <div class="c8isv-wrap" style="padding-top:0 !important; position:relative">
       <div class="c8isv-hoverlist" data-c8isv-hoverlist>
         <!-- Item 1 -->
-        <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Shopify" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg" data-tech-2="JavaScript" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/javascript.svg">
+        <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Shopify" data-logo-1="<?php echo esc_url(cr8v_mod('shp_cat1_logo1', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg')); ?>" data-tech-2="JavaScript" data-logo-2="<?php echo esc_url(cr8v_mod('shp_cat1_logo2', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/javascript.svg')); ?>">
           <div class="c8isv-hoverlist-left">
             <span class="c8isv-hoverlist-num">01</span>
             <h3 class="c8isv-hoverlist-title" data-customizer="shp_cat1_title"><?php echo esc_html(cr8v_mod('shp_cat1_title', 'DTC Beauty, Cosmetics & Skincare Stores')); ?></h3>
             <span class="c8isv-hoverlist-tagline" data-customizer="shp_cat1_tagline"><?php echo esc_html(cr8v_mod('shp_cat1_tagline', 'Shade finder quizzes, bundle builders, high-converting product detail pages, and subscription replenishment.')); ?></span>
           </div>
           <div class="c8isv-hoverlist-right">
-            <span class="c8isv-hoverlist-tech">Beauty &amp; Skincare</span>
+            <span class="c8isv-hoverlist-tech" data-customizer="shp_cat1_tech"><?php echo esc_html(cr8v_mod('shp_cat1_tech', 'Beauty & Skincare')); ?></span>
             <span class="c8isv-hoverlist-arrow">→</span>
           </div>
         </div>
 
         <!-- Item 2 -->
-        <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="Shopify" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg" data-tech-2="HTML5" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg">
+        <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="Shopify" data-logo-1="<?php echo esc_url(cr8v_mod('shp_cat2_logo1', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg')); ?>" data-tech-2="HTML5" data-logo-2="<?php echo esc_url(cr8v_mod('shp_cat2_logo2', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg')); ?>">
           <div class="c8isv-hoverlist-left">
             <span class="c8isv-hoverlist-num">02</span>
             <h3 class="c8isv-hoverlist-title" data-customizer="shp_cat2_title"><?php echo esc_html(cr8v_mod('shp_cat2_title', 'High-Volume Consumer Electronics & Gadgets')); ?></h3>
             <span class="c8isv-hoverlist-tagline" data-customizer="shp_cat2_tagline"><?php echo esc_html(cr8v_mod('shp_cat2_tagline', '3D product rotators, tech spec comparison grids, warranty add-ons, and multi-warehouse stock sync.')); ?></span>
           </div>
           <div class="c8isv-hoverlist-right">
-            <span class="c8isv-hoverlist-tech">Electronics</span>
+            <span class="c8isv-hoverlist-tech" data-customizer="shp_cat2_tech"><?php echo esc_html(cr8v_mod('shp_cat2_tech', 'Electronics')); ?></span>
             <span class="c8isv-hoverlist-arrow">→</span>
           </div>
         </div>
 
         <!-- Item 3 -->
-        <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d2" data-tech-1="Shopify" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg" data-tech-2="Stripe" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/stripe.svg">
+        <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d2" data-tech-1="Shopify" data-logo-1="<?php echo esc_url(cr8v_mod('shp_cat3_logo1', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg')); ?>" data-tech-2="Stripe" data-logo-2="<?php echo esc_url(cr8v_mod('shp_cat3_logo2', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/stripe.svg')); ?>">
           <div class="c8isv-hoverlist-left">
             <span class="c8isv-hoverlist-num">03</span>
             <h3 class="c8isv-hoverlist-title" data-customizer="shp_cat3_title"><?php echo esc_html(cr8v_mod('shp_cat3_title', 'Health, Wellness & Supplement Brands')); ?></h3>
             <span class="c8isv-hoverlist-tagline" data-customizer="shp_cat3_tagline"><?php echo esc_html(cr8v_mod('shp_cat3_tagline', 'Nutritional ingredient breakdown popups, recurring subscription delivery, and bulk buy discount tiers.')); ?></span>
           </div>
           <div class="c8isv-hoverlist-right">
-            <span class="c8isv-hoverlist-tech">Supplements</span>
+            <span class="c8isv-hoverlist-tech" data-customizer="shp_cat3_tech"><?php echo esc_html(cr8v_mod('shp_cat3_tech', 'Supplements')); ?></span>
             <span class="c8isv-hoverlist-arrow">→</span>
           </div>
         </div>
 
         <!-- Item 4 -->
-        <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d3" data-tech-1="Shopify" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg" data-tech-2="CSS3" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/css3.svg">
+        <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d3" data-tech-1="Shopify" data-logo-1="<?php echo esc_url(cr8v_mod('shp_cat4_logo1', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg')); ?>" data-tech-2="CSS3" data-logo-2="<?php echo esc_url(cr8v_mod('shp_cat4_logo2', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/css3.svg')); ?>">
           <div class="c8isv-hoverlist-left">
             <span class="c8isv-hoverlist-num">04</span>
             <h3 class="c8isv-hoverlist-title" data-customizer="shp_cat4_title"><?php echo esc_html(cr8v_mod('shp_cat4_title', 'Food, Beverage & Gourmet Subscription Stores')); ?></h3>
             <span class="c8isv-hoverlist-tagline" data-customizer="shp_cat4_tagline"><?php echo esc_html(cr8v_mod('shp_cat4_tagline', 'Perishable shipping date selectors, recurring box builders, and localized zip-code delivery routing.')); ?></span>
           </div>
           <div class="c8isv-hoverlist-right">
-            <span class="c8isv-hoverlist-tech">Food &amp; Beverage</span>
+            <span class="c8isv-hoverlist-tech" data-customizer="shp_cat4_tech"><?php echo esc_html(cr8v_mod('shp_cat4_tech', 'Food & Beverage')); ?></span>
             <span class="c8isv-hoverlist-arrow">→</span>
           </div>
         </div>
 
         <!-- Item 5 -->
-        <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Shopify" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg" data-tech-2="WordPress" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg">
+        <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Shopify" data-logo-1="<?php echo esc_url(cr8v_mod('shp_cat5_logo1', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shopify.svg')); ?>" data-tech-2="WordPress" data-logo-2="<?php echo esc_url(cr8v_mod('shp_cat5_logo2', 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg')); ?>">
           <div class="c8isv-hoverlist-left">
             <span class="c8isv-hoverlist-num">05</span>
             <h3 class="c8isv-hoverlist-title" data-customizer="shp_cat5_title"><?php echo esc_html(cr8v_mod('shp_cat5_title', 'WooCommerce to Shopify Store Migrations')); ?></h3>
             <span class="c8isv-hoverlist-tagline" data-customizer="shp_cat5_tagline"><?php echo esc_html(cr8v_mod('shp_cat5_tagline', 'Full store migrations transferring products, order histories, customer accounts, and 301 SEO redirects seamlessly.')); ?></span>
           </div>
           <div class="c8isv-hoverlist-right">
-            <span class="c8isv-hoverlist-tech">Migrations</span>
+            <span class="c8isv-hoverlist-tech" data-customizer="shp_cat5_tech"><?php echo esc_html(cr8v_mod('shp_cat5_tech', 'Migrations')); ?></span>
             <span class="c8isv-hoverlist-arrow">→</span>
           </div>
         </div>
@@ -586,7 +586,7 @@ get_header();
               <span>Design tweaks, copy updates &amp; SEO execution</span>
             </div>
           </div>
-          <a href="https://cr8vstacks.com/contact/?model=retainer" class="c8srv-price-btn is-light">Secure Retainer Slot</a>
+          <a href="<?php echo esc_url(cr8v_mod('shp_plan1_cta_url', home_url('/contact/?model=retainer'))); ?>" class="c8srv-price-btn is-light" data-customizer="shp_plan1_cta_text"><?php echo esc_html(cr8v_mod('shp_plan1_cta_text', 'Secure Retainer Slot')); ?></a>
         </div>
 
         <!-- Fixed Project Card -->
@@ -614,7 +614,7 @@ get_header();
               <span>App-free speed performance tuning &amp; Liquid optimization</span>
             </div>
           </div>
-          <a href="https://cr8vstacks.com/contact/?model=project" class="c8srv-price-btn is-primary">Start A Project</a>
+          <a href="<?php echo esc_url(cr8v_mod('shp_plan2_cta_url', home_url('/contact/?model=project'))); ?>" class="c8srv-price-btn is-primary" data-customizer="shp_plan2_cta_text"><?php echo esc_html(cr8v_mod('shp_plan2_cta_text', 'Start A Project')); ?></a>
         </div>
       </div>
 
@@ -665,8 +665,8 @@ get_header();
             <span class="c8srv-est-deliverables-title">Included Deliverables:</span>
             <div class="c8srv-est-deliverables" id="est-deliverables-list"><div>• Custom theme build &amp; setup</div><div>• Zero-bloat optimized speed architecture</div><div>• Up to 5 editable layout pages</div></div>
 
-            <a href="https://cr8vstacks.com/contact/?platform=shopify&amp;est=1800-2200" id="est-cta-link" class="c8srv-price-btn is-primary" style="margin-top: 1rem !important; margin-bottom: 1rem !important;">Submit Scope Request</a>
-            <a href="https://cr8vstacks.com/toolkits/website-cost-calculator/" class="c8srv-explore" style="justify-content: center !important; font-size: 11px !important; margin-top: 0.5rem !important; display: flex !important; font-family: 'Space Mono', monospace !important; color: #0047E1 !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important; align-items: center !important; gap: 8px !important;">Or build a custom stack with our Calculator &rarr;</a>
+            <a href="<?php echo esc_url(cr8v_mod('shp_est_cta_url', home_url('/contact/?platform=shopify&est=1800-2200'))); ?>" id="est-cta-link" class="c8srv-price-btn is-primary" style="margin-top: 1rem !important; margin-bottom: 1rem !important;">Submit Scope Request</a>
+            <a href="<?php echo esc_url(cr8v_mod('shp_est_calc_url', home_url('/toolkits/website-cost-calculator/'))); ?>" class="c8srv-explore" style="justify-content: center !important; font-size: 11px !important; margin-top: 0.5rem !important; display: flex !important; font-family: 'Space Mono', monospace !important; color: #0047E1 !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important; align-items: center !important; gap: 8px !important;">Or build a custom stack with our Calculator &rarr;</a>
           </div>
         </div>
       </div>
@@ -711,102 +711,102 @@ get_header();
         <div class="faq-eyebrow" data-customizer="shp_faq_eyebrow"><?php echo esc_html(cr8v_mod('shp_faq_eyebrow', '// COMMON QUESTIONS')); ?></div>
         <h2 class="faq-h2" data-customizer="shp_faq_h2"><?php echo esc_html(cr8v_mod('shp_faq_h2', 'Shopify Questions, Answered Honestly')); ?></h2>
         <p class="faq-sub" data-customizer="shp_faq_sub"><?php echo esc_html(cr8v_mod('shp_faq_sub', 'Clear answers to common questions about our custom Liquid theme development, Shopify app auditing, and checkout optimization.')); ?></p>
-        <a href="https://cr8vstacks.com/contact/" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        <a href="<?php echo esc_url(cr8v_mod('shp_faq_cta_url', home_url('/contact/'))); ?>" class="faq-cta-link" data-customizer="shp_faq_cta_text"><?php echo esc_html(cr8v_mod('shp_faq_cta_text', 'Talk to us')); ?> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
       </div>
 
       <ul class="faq-list" id="srv-faq-list">
         <li class="faq-item is-open">
           <button class="faq-trigger" aria-expanded="true">
-            <span class="faq-q">Why choose Shopify over WooCommerce?</span>
+            <span class="faq-q" data-customizer="shp_faq1_q"><?php echo esc_html(cr8v_mod('shp_faq1_q', 'Why choose Shopify over WooCommerce?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body" style="grid-template-rows: 1fr;">
             <div class="faq-body-inner">
-              <p class="faq-a">Shopify provides fully hosted server infrastructure, zero server maintenance overhead, built-in global PCI security compliance, and an effortless app ecosystem for rapid scaling without managing databases or hosting servers.</p>
+              <p class="faq-a" data-customizer="shp_faq1_a"><?php echo wp_kses_post(cr8v_mod('shp_faq1_a', 'Shopify provides fully hosted server infrastructure, zero server maintenance overhead, built-in global PCI security compliance, and an effortless app ecosystem for rapid scaling without managing databases or hosting servers.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">How much does a custom Shopify theme cost?</span>
+            <span class="faq-q" data-customizer="shp_faq2_q"><?php echo esc_html(cr8v_mod('shp_faq2_q', 'How much does a custom Shopify theme cost?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">Our fixed-scope custom Shopify builds start from $1,800 for a custom Liquid theme setup, custom AJAX cart drawers, and connecting payment gateways. The price scales with catalog complexity, B2B wholesale needs, or custom app integrations. We scope every project individually and give you a firm number within 24 hours.</p>
+              <p class="faq-a" data-customizer="shp_faq2_a"><?php echo wp_kses_post(cr8v_mod('shp_faq2_a', 'Our fixed-scope custom Shopify builds start from $1,800 for a custom Liquid theme setup, custom AJAX cart drawers, and connecting payment gateways. The price scales with catalog complexity, B2B wholesale needs, or custom app integrations. We scope every project individually and give you a firm number within 24 hours.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">Why hire an agency like Cr8v Stacks instead of a solo freelancer?</span>
+            <span class="faq-q" data-customizer="shp_faq3_q"><?php echo esc_html(cr8v_mod('shp_faq3_q', 'Why hire an agency like Cr8v Stacks instead of a solo freelancer?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">Solo freelancers often handle design, Liquid code, and app setups alone, leading to single-point delays. Cr8v Stacks provides a dedicated team — combining e-commerce UI/UX designers, senior Liquid developers, conversion specialists, and SEO leads — backed by milestone SLAs.</p>
+              <p class="faq-a" data-customizer="shp_faq3_a"><?php echo wp_kses_post(cr8v_mod('shp_faq3_a', 'Solo freelancers often handle design, Liquid code, and app setups alone, leading to single-point delays. Cr8v Stacks provides a dedicated team — combining e-commerce UI/UX designers, senior Liquid developers, conversion specialists, and SEO leads — backed by milestone SLAs.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">Do you handle multi-currency, geolocation redirects, and migrations from WooCommerce?</span>
+            <span class="faq-q" data-customizer="shp_faq4_q"><?php echo esc_html(cr8v_mod('shp_faq4_q', 'Do you handle multi-currency, geolocation redirects, and migrations from WooCommerce?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">Yes. We configure Shopify Markets for multi-currency pricing, automatic IP geolocation redirects, and execute full data migrations from WooCommerce, Magento, or WordPress — transferring products, orders, customers, and 301 SEO redirects seamlessly.</p>
+              <p class="faq-a" data-customizer="shp_faq4_a"><?php echo wp_kses_post(cr8v_mod('shp_faq4_a', 'Yes. We configure Shopify Markets for multi-currency pricing, automatic IP geolocation redirects, and execute full data migrations from WooCommerce, Magento, or WordPress — transferring products, orders, customers, and 301 SEO redirects seamlessly.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">How long does a custom Shopify store project take?</span>
+            <span class="faq-q" data-customizer="shp_faq5_q"><?php echo esc_html(cr8v_mod('shp_faq5_q', 'How long does a custom Shopify store project take?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">A standard custom Liquid storefront build takes 3 to 5 weeks from initial design wireframes to live store launch. Complex Shopify Plus B2B implementations or custom app integrations take 5 to 8 weeks.</p>
+              <p class="faq-a" data-customizer="shp_faq5_a"><?php echo wp_kses_post(cr8v_mod('shp_faq5_a', 'A standard custom Liquid storefront build takes 3 to 5 weeks from initial design wireframes to live store launch. Complex Shopify Plus B2B implementations or custom app integrations take 5 to 8 weeks.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">Will my team be able to edit theme sections without needing a page builder like PageFly or Shogun?</span>
+            <span class="faq-q" data-customizer="shp_faq6_q"><?php echo esc_html(cr8v_mod('shp_faq6_q', 'Will my team be able to edit theme sections without needing a page builder like PageFly or Shogun?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">Yes. We build native Shopify OS 2.0 JSON templates and customizable sections so your team can easily drag, drop, and edit page content directly within the native Shopify Theme Editor without needing heavy third-party page builder plugins like PageFly or Shogun.</p>
+              <p class="faq-a" data-customizer="shp_faq6_a"><?php echo wp_kses_post(cr8v_mod('shp_faq6_a', 'Yes. We build native Shopify OS 2.0 JSON templates and customizable sections so your team can easily drag, drop, and edit page content directly within the native Shopify Theme Editor without needing heavy third-party page builder plugins like PageFly or Shogun.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">Will my store load fast if I use Shopify apps?</span>
+            <span class="faq-q" data-customizer="shp_faq7_q"><?php echo esc_html(cr8v_mod('shp_faq7_q', 'Will my store load fast if I use Shopify apps?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">Every app you add to Shopify injects external scripts that can slow down your site. Our approach is to hardcode features (like cart drawers, sticky bars, and bundle offers) directly in Liquid. This keeps your theme lean and guarantees fast mobile load times.</p>
+              <p class="faq-a" data-customizer="shp_faq7_a"><?php echo wp_kses_post(cr8v_mod('shp_faq7_a', 'Every app you add to Shopify injects external scripts that can slow down your site. Our approach is to hardcode features (like cart drawers, sticky bars, and bundle offers) directly in Liquid. This keeps your theme lean and guarantees fast mobile load times.')); ?></p>
             </div>
           </div>
         </li>
 
         <li class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-q">What support do I get after my Shopify store goes live?</span>
+            <span class="faq-q" data-customizer="shp_faq8_q"><?php echo esc_html(cr8v_mod('shp_faq8_q', 'What support do I get after my Shopify store goes live?')); ?></span>
             <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
           </button>
           <div class="faq-body">
             <div class="faq-body-inner">
-              <p class="faq-a">We include 30 days of post-launch development support to cover any adjustments or layout tweaks. We also run a full handover training session with your team. For ongoing help, our Growth Retainer at $950/month provides dedicated hours for custom Liquid edits, app integrations, and regular audits.</p>
+              <p class="faq-a" data-customizer="shp_faq8_a"><?php echo wp_kses_post(cr8v_mod('shp_faq8_a', 'We include 30 days of post-launch development support to cover any adjustments or layout tweaks. We also run a full handover training session with your team. For ongoing help, our Growth Retainer at $950/month provides dedicated hours for custom Liquid edits, app integrations, and regular audits.')); ?></p>
             </div>
           </div>
         </li>
