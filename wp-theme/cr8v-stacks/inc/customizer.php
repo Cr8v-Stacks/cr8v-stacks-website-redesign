@@ -20,4 +20,10 @@ add_action('customize_register', function ($wp_customize) {
     require_once get_template_directory() . '/inc/customizer/panel-seo-content.php';
     require_once get_template_directory() . '/inc/customizer/panel-woocommerce.php';
     require_once get_template_directory() . '/inc/customizer/panel-wordpress.php';
+    require_once get_template_directory() . '/inc/customizer/panel-custom-dev.php';
+    require_once get_template_directory() . '/inc/customizer/panel-ai-mvp.php';
+    require_once get_template_directory() . '/inc/customizer/panel-ecommerce.php';
+    require_once get_template_directory() . '/inc/customizer/panel-digital-marketing.php';
+    require_once get_template_directory() . '/inc/customizer/panel-brand-identity.php';
+    require_once get_template_directory() . '/inc/customizer/panel-brand-strategy.php';
 });
