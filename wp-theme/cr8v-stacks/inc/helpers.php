@@ -99,6 +99,44 @@ function cr8v_sort_categories_hierarchically(array $cats): array {
 }
 
 /**
+ * Recursively fetches all WordPress categories in hierarchical order (parents, children, grandchildren)
+ * with published post counts (excluding drafts) for mega menu and dropdown rendering.
+ */
+function cr8v_get_all_hierarchical_categories(int $parent = 0, int $depth = 0): array {
+    $terms = get_terms([
+        'taxonomy'   => 'category',
+        'parent'     => $parent,
+        'hide_empty' => false,
+        'orderby'    => 'name',
+        'order'      => 'ASC',
+    ]);
+
+    if (empty($terms) || is_wp_error($terms)) return [];
+
+    $result = [];
+    foreach ($terms as $term) {
+        $term->depth = $depth;
+        // Compute count of published posts only (excluding drafts)
+        $query = new WP_Query([
+            'post_type'      => 'post',
+            'post_status'    => 'publish',
+            'cat'            => $term->term_id,
+            'posts_per_page' => 1,
+            'fields'         => 'ids',
+        ]);
+        $term->published_count = $query->found_posts;
+        
+        $result[] = $term;
+
+        $children = cr8v_get_all_hierarchical_categories($term->term_id, $depth + 1);
+        if (!empty($children)) {
+            $result = array_merge($result, $children);
+        }
+    }
+    return $result;
+}
+
+/**
  * Truncate text to a word count with ellipsis.
  */
 function cr8v_excerpt(string $text, int $words = 20): string {

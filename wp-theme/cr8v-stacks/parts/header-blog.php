@@ -8,6 +8,22 @@
  * - Dynamic Category Counters (Real-time REST API + Fallback)
  * - Brand-Colored Category Accordion Drawer Layout for Mobile
  */
+if (!function_exists('cr8v_get_cat_post_count')) {
+    function cr8v_get_cat_post_count(string $slug): int {
+        $term = get_category_by_slug($slug) ?: get_term_by('slug', $slug, 'category');
+        if (!$term || is_wp_error($term)) return 0;
+
+        $query = new WP_Query([
+            'post_type'      => 'post',
+            'post_status'    => 'publish',
+            'cat'            => $term->term_id,
+            'posts_per_page' => 1,
+            'fields'         => 'ids',
+        ]);
+        return (int) $query->found_posts;
+    }
+}
+
 defined('ABSPATH') || exit;
 ?>
 <div class="c8bm-root">
@@ -625,98 +641,33 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
   <div class="c8bm-bd-body">
     <div class="c8bm-bd-section-label">Categories</div>
     <div class="c8bm-bd-cat-list">
-      <div class="c8bm-bd-cat-item" onclick="c8bmToggleCat(this)">
-        <div class="c8bm-bdc-inner">
-          <div class="c8bm-bdc-left">
-            <span class="c8bm-bdc-name">Brand Strategy</span>
-            <span class="c8bm-bdc-subs">Business Marketing</span>
-          </div>
-          <div class="c8bm-bdc-right">
-            <span class="c8bm-bdc-count" data-cat-slug="business-brand-strategy">9</span>
-            <svg class="c8bm-bdc-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
-          </div>
-        </div>
-      </div>
-      <div class="c8bm-bdc-sub">
-        <a href="<?php echo esc_url(home_url('/category/business-marketing/')); ?>" class="c8bm-bdc-sub-link">Business Marketing</a>
-      </div>
-
-      <a href="<?php echo esc_url(home_url('/category/business-productivity/')); ?>" class="c8bm-bd-cat-item">
-        <div class="c8bm-bdc-inner">
-          <div class="c8bm-bdc-left">
-            <span class="c8bm-bdc-name">Business Productivity</span>
-            <span class="c8bm-bdc-subs">Systems, tools, and workflows</span>
-          </div>
-          <div class="c8bm-bdc-right">
-            <span class="c8bm-bdc-count" data-cat-slug="business-productivity">6</span>
-          </div>
-        </div>
-      </a>
-
-      <div class="c8bm-bd-cat-item" onclick="c8bmToggleCat(this)">
-        <div class="c8bm-bdc-inner">
-          <div class="c8bm-bdc-left">
-            <span class="c8bm-bdc-name">Business Tips</span>
-            <span class="c8bm-bdc-subs">Ecommerce · Small Business</span>
-          </div>
-          <div class="c8bm-bdc-right">
-            <span class="c8bm-bdc-count" data-cat-slug="business-tips">25</span>
-            <svg class="c8bm-bdc-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
-          </div>
-        </div>
-      </div>
-      <div class="c8bm-bdc-sub">
-        <a href="<?php echo esc_url(home_url('/category/ecommerce-hub/')); ?>" class="c8bm-bdc-sub-link">Ecommerce Hub</a>
-        <a href="<?php echo esc_url(home_url('/category/small-business-hub/')); ?>" class="c8bm-bdc-sub-link">Small Business Hub</a>
-      </div>
-
-      <a href="<?php echo esc_url(home_url('/category/career-planning/')); ?>" class="c8bm-bd-cat-item">
-        <div class="c8bm-bdc-inner">
-          <div class="c8bm-bdc-left">
-            <span class="c8bm-bdc-name">Career Planning</span>
-            <span class="c8bm-bdc-subs">Grow your professional life</span>
-          </div>
-          <div class="c8bm-bdc-right">
-            <span class="c8bm-bdc-count" data-cat-slug="career-planning">5</span>
-          </div>
-        </div>
-      </a>
-
-      <div class="c8bm-bd-cat-item" onclick="c8bmToggleCat(this)">
-        <div class="c8bm-bdc-inner">
-          <div class="c8bm-bdc-left">
-            <span class="c8bm-bdc-name">Content Creation</span>
-            <span class="c8bm-bdc-subs">Blogging · Content Writing</span>
-          </div>
-          <div class="c8bm-bdc-right">
-            <span class="c8bm-bdc-count" data-cat-slug="content-creation">17</span>
-            <svg class="c8bm-bdc-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
-          </div>
-        </div>
-      </div>
-      <div class="c8bm-bdc-sub">
-        <a href="<?php echo esc_url(home_url('/category/blogging/')); ?>" class="c8bm-bdc-sub-link">Blogging</a>
-        <a href="<?php echo esc_url(home_url('/category/content-writing/')); ?>" class="c8bm-bdc-sub-link">Content Writing</a>
-      </div>
-
-      <div class="c8bm-bd-cat-item" onclick="c8bmToggleCat(this)">
-        <div class="c8bm-bdc-inner">
-          <div class="c8bm-bdc-left">
-            <span class="c8bm-bdc-name">Digital Marketing</span>
-            <span class="c8bm-bdc-subs">Email · SEM · SEO · Social</span>
-          </div>
-          <div class="c8bm-bdc-right">
-            <span class="c8bm-bdc-count" data-cat-slug="digital-marketing-news">41</span>
-            <svg class="c8bm-bdc-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
-          </div>
-        </div>
-      </div>
-      <div class="c8bm-bdc-sub">
-        <a href="<?php echo esc_url(home_url('/category/email-marketing/')); ?>" class="c8bm-bdc-sub-link">Email Marketing</a>
-        <a href="<?php echo esc_url(home_url('/category/sem/')); ?>" class="c8bm-bdc-sub-link">SEM</a>
-        <a href="<?php echo esc_url(home_url('/category/seo/')); ?>" class="c8bm-bdc-sub-link">SEO</a>
-        <a href="<?php echo esc_url(home_url('/category/social-media-management/')); ?>" class="c8bm-bdc-sub-link">Social Media Management</a>
-      </div>
+      <?php
+      $all_cats = cr8v_get_all_hierarchical_categories();
+      if (!empty($all_cats)) :
+          foreach ($all_cats as $cat_item) :
+              $cat_link = get_category_link($cat_item->term_id);
+              $is_child = ($cat_item->parent != 0);
+              $indent_padding = $is_child ? ($cat_item->depth * 1.1 + 0.85) . 'rem' : '0.85rem';
+              $prefix = $is_child ? '↳ ' : '';
+              $name_style = $is_child ? 'color: #3D6BFF; font-size: 0.88rem;' : 'color: #FFFFFF; font-size: 0.95rem; font-weight: 700;';
+      ?>
+          <a href="<?php echo esc_url($cat_link); ?>" class="c8bm-bd-cat-item" style="padding-left: <?php echo $indent_padding; ?>;">
+            <div class="c8bm-bdc-inner">
+              <div class="c8bm-bdc-left">
+                <span class="c8bm-bdc-name" style="<?php echo $name_style; ?>"><?php echo esc_html($prefix . $cat_item->name); ?></span>
+                <?php if ($cat_item->description) : ?>
+                <span class="c8bm-bdc-subs"><?php echo esc_html(wp_trim_words($cat_item->description, 6)); ?></span>
+                <?php endif; ?>
+              </div>
+              <div class="c8bm-bdc-right">
+                <span class="c8bm-bdc-count"><?php echo (int) $cat_item->published_count; ?></span>
+              </div>
+            </div>
+          </a>
+      <?php
+          endforeach;
+      endif;
+      ?>
     </div>
   </div>
 

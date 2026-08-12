@@ -152,47 +152,44 @@ $is_tag = is_tag();
   padding: 0.2rem 0.65rem; letter-spacing: 0.05em; text-decoration: none;
 }
 
-.cat-dropdown-wrapper { position: relative; display: inline-flex; align-items: center; }
-.cat-popover {
-  display: none; position: absolute; top: calc(100% + 6px); right: 0; z-index: 99;
-  background: #FFFFFF; border: 1px solid var(--c8-grid-line); border-radius: 4px !important;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12); padding: 0.5rem; min-width: 140px;
-  flex-direction: column; gap: 0.25rem;
+.cat-popover-dropdown {
+  position: absolute; top: 100%; right: 0; z-index: 100;
+  background: #080808; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px !important;
+  padding: 0.75rem; min-width: 190px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  opacity: 0; visibility: hidden; transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  pointer-events: none; margin-top: 6px;
 }
-.cat-popover.is-open { display: flex; animation: catPopIn 0.18s ease-out; }
-@keyframes catPopIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
-
-.cat-popover-item {
-  font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
-  color: var(--c8-ink); padding: 0.35rem 0.6rem; text-decoration: none; border-radius: 2px;
-  transition: background 0.15s ease, color 0.15s ease;
+.cat-popover-dropdown.is-open {
+  opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important;
 }
-.cat-popover-item:hover { background: var(--c8-blue); color: #FFFFFF; }
 
-.card-title-wrap { margin-bottom: 1.25rem; }
-
-/* Fixed 16:9 Aspect Ratio Image Container & Canvas Fallbacks */
-.card-img-box {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 4px;
+.card-img-container {
+  aspect-ratio: 16 / 10;
+  border-radius: 4px !important;
   overflow: hidden;
+  background: #FAFAF7;
   margin-bottom: 1rem;
-  border: 1px solid var(--c8-grid-line);
-  background: #F3F2EC;
+  border: 1px solid var(--c8-grid-line) !important;
+  position: relative;
 }
-.card-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
-.blog-grid-card:hover .card-img-box img { transform: scale(1.03); }
+.card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
+.blog-grid-card:hover .card-img { transform: scale(1.03); }
 
-/* Generative Fallback Canvas (Zero Empty Gray Space) */
+/* AMBIENT MESH GRADIENT NON-IMAGE FALLBACK CARDS */
 .card-fallback-canvas {
+  width: 100%; height: 100%; min-height: 190px;
+  border-radius: 4px !important;
+  padding: 1.6rem 1.4rem;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  position: relative; overflow: hidden;
+  box-sizing: border-box;
 }
 
 .card-fallback-canvas.is-light {
-  background: 
-    radial-gradient(circle at 10% 90%, rgba(186, 230, 253, 0.9) 0%, transparent 60%),
-    radial-gradient(circle at 90% 10%, rgba(221, 214, 254, 0.9) 0%, transparent 60%),
-    linear-gradient(135deg, #F0F9FF 0%, #FFFFFF 50%, #F5F3FF 100%);
+  background: linear-gradient(135deg, #E0F2FE 0%, #F0F9FF 45%, #EDE9FE 100%);
   color: #080808; border: 1px solid rgba(8, 8, 8, 0.08);
 }
 .card-fallback-canvas.is-light .fallback-brand-icon {
@@ -228,7 +225,7 @@ $is_tag = is_tag();
   color: #A0B4FF; letter-spacing: 0.14em; text-transform: uppercase;
 }
 
-.card-title { font-family: var(--font-heading) !important; font-size: 0.8rem !important; font-weight: 700; color: var(--c8-ink); line-height: 1.4; text-transform: uppercase; margin: 0; }
+.card-title { font-family: var(--font-heading) !important; font-size: 0.95rem !important; font-weight: 700; color: var(--c8-ink); line-height: 1.4; text-transform: uppercase; margin: 0; }
 .card-title a { color: inherit; text-decoration: none; }
 .card-title a:hover { color: var(--c8-blue); }
 
@@ -278,7 +275,7 @@ $is_tag = is_tag();
             <div style="display: flex; align-items: center; gap: 0.35rem;">
               <a href="<?php echo esc_url($cats ? get_category_link($cats[0]->term_id) : '#'); ?>" class="card-category-pill"><?php echo esc_html($primary_cat); ?></a>
               <?php if (count($cats) > 1) : ?>
-              <div class="cat-dropdown-wrapper">
+              <div class="cat-dropdown-wrapper" style="position: relative; display: inline-flex; align-items: center;">
                 <button class="art-cat-pill" onclick="toggleCatPopover(event, 'arcat-<?php echo $post_idx; ?>')" style="cursor: pointer; background: #0047E1; color: #FFFFFF; border: none; display: inline-flex; align-items: center; gap: 3px; padding: 2px 7px; font-size: 0.72rem; font-weight: 700; font-family: var(--font-mono); border-radius: 4px !important;">
                   +<?php echo (count($cats) - 1); ?> <svg class="cat-dropdown-arrow" viewBox="0 0 24 24" width="10" height="10" stroke="currentColor" stroke-width="2.5" fill="none" style="transition: transform 0.25s ease;"><polyline points="6 9 12 15 18 9"/></svg>
                 </button>
@@ -303,7 +300,6 @@ $is_tag = is_tag();
               <?php else :
                 $variant_class = ($post_idx % 2 === 0) ? 'is-dark' : 'is-light';
               ?>
-                <!-- AMBIENT MESH GRADIENT NON-IMAGE FALLBACK CARD -->
                 <div class="card-fallback-canvas <?php echo $variant_class; ?>">
                   <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
@@ -319,11 +315,17 @@ $is_tag = is_tag();
       </article>
     <?php
       endwhile;
-    endif;
+    else :
     ?>
+      <div style="grid-column: 1 / -1; padding: 4rem 2rem; text-align: center; font-family: var(--font-body); color: var(--c8-sub);">
+        <h3 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--c8-ink);">NO ARTICLES PUBLISHED YET</h3>
+        <p>No published articles found in <?php echo esc_html($archive_title); ?>.</p>
+      </div>
+    <?php endif; ?>
   </div>
 
-  <div style="display:flex; justify-content:center; gap:0.5rem; margin-bottom: 4rem;">
+  <!-- PAGINATION -->
+  <div class="blog-pagination-wrapper">
     <?php
     echo paginate_links([
         'prev_text' => '← Prev',
@@ -332,7 +334,30 @@ $is_tag = is_tag();
     ]);
     ?>
   </div>
-
 </main>
+
+<script>
+function toggleCatPopover(e, id) {
+  e.stopPropagation();
+  e.preventDefault();
+  var el = document.getElementById(id);
+  if (!el) return;
+  var isOpen = el.classList.contains('is-open');
+  document.querySelectorAll('.cat-popover-dropdown').forEach(function(d) {
+    d.classList.remove('is-open');
+  });
+  if (!isOpen) {
+    el.classList.add('is-open');
+  }
+}
+document.addEventListener('click', function() {
+  document.querySelectorAll('.cat-popover-dropdown').forEach(function(d) {
+    d.classList.remove('is-open');
+  });
+});
+</script>
+
+<!-- BOTTOM DISCOVERY CTA SECTION -->
+<?php get_template_part('parts/prototype-cta'); ?>
 
 <?php get_footer(); ?>
