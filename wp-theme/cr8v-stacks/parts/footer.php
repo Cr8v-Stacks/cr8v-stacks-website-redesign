@@ -222,44 +222,69 @@ $facebook  = cr8v_mod('footer_facebook',  'https://www.facebook.com/cr8vstacks')
 </div><!-- /.c8ft-root -->
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var matrixSelector = '.c8-matrix-btn-blue, .c8-matrix-btn-dark, .c8-btn-primary, .c8srv-btn-ghost, .dp-btn-primary, .c8bm-btn-cta, .c8ft-cta-btn, .c8isv-cta-btn, .blog-cta-btn, .c8-btn';
-  var matrixBtns = document.querySelectorAll(matrixSelector);
+(function initGlobalMatrixEngine() {
+  if (window.__cr8vMatrixInited) return;
+  window.__cr8vMatrixInited = true;
+
   var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-  matrixBtns.forEach(function(btn) {
-    var textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === Node.TEXT_NODE && n.textContent.trim().length > 0; }) || btn;
-    var originalText = textNode.textContent.trim();
-    if (!originalText) return;
-    
+  document.addEventListener('mouseover', function(e) {
+    var btn = e.target.closest('.cta-btn-pill, .c8-btn-primary, .c8cs-btn-primary, .c8-matrix-btn-blue, .c8-matrix-btn-dark, .c8srv-btn-ghost, .dp-btn-primary, .c8bm-btn-cta, .c8ft-cta-btn, .c8isv-cta-btn, .blog-cta-btn, .c8-btn, .cta-card-btn, [data-customizer="cta_button_text"], [data-customizer="cs_cta_btn_text"], .c8-matrix-target');
+    if (!btn || btn.dataset.matrixActive === 'true') return;
+
+    btn.dataset.matrixActive = 'true';
+
+    var textTarget = btn.querySelector('.cta-text-content') || 
+                     btn.querySelector('[data-customizer="cs_cta_btn_text"]') || 
+                     Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; });
+
+    if (!textTarget) {
+      if (btn.children.length === 0) {
+        textTarget = btn;
+      } else {
+        btn.dataset.matrixActive = 'false';
+        return;
+      }
+    }
+
+    var originalText = btn.dataset.matrixOriginalText || textTarget.textContent.trim();
+    if (!originalText) {
+      btn.dataset.matrixActive = 'false';
+      return;
+    }
+    btn.dataset.matrixOriginalText = originalText;
+
     var scrambleInterval = null;
+    var iteration = 0;
 
-    btn.addEventListener('mouseenter', function() {
-      var iteration = 0;
+    scrambleInterval = setInterval(function() {
+      var scrambled = originalText.split('')
+        .map(function(char, index) {
+          if (char === ' ' || index < iteration) return originalText[index];
+          return matrixChars[Math.floor(Math.random() * matrixChars.length)];
+        })
+        .join('');
+
+      textTarget.textContent = scrambled;
+
+      if (iteration >= originalText.length) {
+        clearInterval(scrambleInterval);
+        textTarget.textContent = originalText;
+        btn.dataset.matrixActive = 'false';
+      }
+      iteration += 1 / 2;
+    }, 25);
+
+    var cleanup = function() {
       clearInterval(scrambleInterval);
+      textTarget.textContent = originalText;
+      btn.dataset.matrixActive = 'false';
+      btn.removeEventListener('mouseleave', cleanup);
+    };
 
-      scrambleInterval = setInterval(function() {
-        textNode.textContent = originalText.split('')
-          .map(function(char, index) {
-            if (char === ' ' || index < iteration) return originalText[index];
-            return matrixChars[Math.floor(Math.random() * matrixChars.length)];
-          })
-          .join('');
-
-        if (iteration >= originalText.length) {
-          clearInterval(scrambleInterval);
-          textNode.textContent = originalText;
-        }
-        iteration += 1 / 2;
-      }, 30);
-    });
-
-    btn.addEventListener('mouseleave', function() {
-      clearInterval(scrambleInterval);
-      textNode.textContent = originalText;
-    });
+    btn.addEventListener('mouseleave', cleanup);
   });
-});
+})();
 </script>
 
 <?php

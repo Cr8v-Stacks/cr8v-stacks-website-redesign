@@ -704,40 +704,6 @@ body.single-post {
 </main>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var matrixBtns = document.querySelectorAll('.c8-matrix-target');
-  var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-  matrixBtns.forEach(function(btn) {
-    var originalText = btn.innerText.trim();
-    var scrambleInterval = null;
-
-    btn.addEventListener('mouseenter', function() {
-      var iteration = 0;
-      clearInterval(scrambleInterval);
-
-      scrambleInterval = setInterval(function() {
-        btn.innerText = originalText.split('')
-          .map(function(char, index) {
-            if (char === ' ' || index < iteration) return originalText[index];
-            return matrixChars[Math.floor(Math.random() * matrixChars.length)];
-          })
-          .join('');
-
-        if (iteration >= originalText.length) {
-          clearInterval(scrambleInterval);
-        }
-        iteration += 1 / 2;
-      }, 25);
-    });
-
-    btn.addEventListener('mouseleave', function() {
-      clearInterval(scrambleInterval);
-      btn.innerText = originalText;
-    });
-  });
-});
-
 const shareConfig = {
   title: document.title,
   url: window.location.href
@@ -823,5 +789,8 @@ function toggleFAQ(item) {
 </script>
 
 <?php endwhile; endif; ?>
+
+<!-- BOTTOM DISCOVERY CTA SECTION -->
+<?php get_template_part('parts/prototype-cta'); ?>
 
 <?php get_footer(); ?>
