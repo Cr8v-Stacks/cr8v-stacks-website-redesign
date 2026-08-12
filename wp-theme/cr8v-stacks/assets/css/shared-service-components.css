@@ -468,22 +468,42 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   color: #080808 !important;
 }
 
-/* Between Breaths Canvas Container */
+/* Unboxed Hero Video Container */
+.c8isv-hero-visual-col,
 .c8isv-anim-container, .c8srv-anim-container {
   position: relative !important;
   width: 100% !important;
-  aspect-ratio: 1 / 1 !important;
-  max-width: 440px !important;
+  max-width: 580px !important;
   margin: 0 auto !important;
-  border-radius: 16px !important;
-  overflow: hidden !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3) !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.c8isv-anim-container video, .c8srv-anim-container video {
+  width: 100% !important;
+  max-width: 580px !important;
+  height: auto !important;
+  display: block !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
 @media (max-width: 1024px) {
+  .c8isv-hero-grid, .c8srv-hero-grid {
+    grid-template-columns: 1fr !important;
+  }
   .c8isv-anim-container, .c8srv-anim-container {
-    display: none !important;
+    display: flex !important;
+    max-width: 340px !important;
+    margin: 2rem auto 0 auto !important;
   }
 }
 

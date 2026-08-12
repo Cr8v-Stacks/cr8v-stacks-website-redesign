@@ -506,10 +506,10 @@ get_header();
     .fylla-icon-sq.is-no { background: rgba(220, 38, 38, 0.08); color: #DC2626; border: 1px solid rgba(220, 38, 38, 0.2); }
 
     /* ── SECTION 9: LEADERSHIP & FOUNDER PASS ── */
-    .fylla-leadership-section { display: grid; grid-template-columns: 0.9fr 1.1fr; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
-    .fylla-lead-left { padding: 6rem 4rem; border-right: 1px solid var(--c8-grid-line); display: flex; align-items: center; justify-content: center; background: #fff; }
-    .c8-lead-mascot-box { width: 100%; }
-    .c8-lead-mascot-box video, .c8-lead-mascot-box img { width: 100%; height: auto; display: block; }
+    .fylla-leadership-section { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--c8-grid-line); background: #000000; }
+    .fylla-lead-left { padding: 0 !important; border-right: 1px solid var(--c8-grid-line); display: flex; align-items: stretch; justify-content: center; background: #000000; overflow: hidden; }
+    .c8-lead-mascot-box { width: 100%; height: 100%; display: flex; }
+    .c8-lead-mascot-box video { width: 100%; height: 100%; object-fit: cover; display: block; }
     .fylla-lead-right { padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; background: #FAFAF7; }
 
     /* SECURE PASS CARD UI */
@@ -608,10 +608,9 @@ get_header();
       </div>
 
       <div class="fylla-hero-img-box">
-        <video autoplay loop muted playsinline class="fylla-hero-img" style="width: 100%; height: 100%; object-fit: cover; display: block;" poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg'); ?>">
+        <video autoplay loop muted playsinline class="fylla-hero-img" style="width: 100%; height: 100%; object-fit: cover; display: block;">
           <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/about_hero_video.webm'); ?>" type="video/webm">
           <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/about_hero_video.mp4'); ?>" type="video/mp4">
-          <img src="<?php echo esc_url(cr8v_mod('abt_hero_img', get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg')); ?>" alt="Cr8v Stacks Studio Workspace">
         </video>
         <div class="fylla-hud-tag" data-customizer="abt_hero_hud">// SYSTEM_ACTIVE</div>
       </div>
@@ -737,7 +736,6 @@ get_header();
           <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate">
             <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot_video.webm'); ?>" type="video/webm">
             <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot_video.mp4'); ?>" type="video/mp4">
-            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/download_mascot.mp4'); ?>" type="video/mp4">
           </video>
         </div>
       </div>
@@ -1315,10 +1313,9 @@ get_header();
     <section class="fylla-leadership-section">
       <div class="fylla-lead-left">
         <div class="c8-lead-mascot-box" data-customizer="abt_fnd_media">
-          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate" poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg'); ?>">
+          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate">
             <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/about_leadership_video.webm'); ?>" type="video/webm">
             <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/about_leadership_video.mp4'); ?>" type="video/mp4">
-            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/download_mascot.mp4'); ?>" type="video/mp4">
           </video>
         </div>
       </div>

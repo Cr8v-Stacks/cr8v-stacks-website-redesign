@@ -198,14 +198,22 @@ $is_tag = is_tag();
 
 <main class="archive-outer-frame">
   
-  <header class="archive-hero">
-    <div class="archive-eyebrow">// CATEGORY ARCHIVE</div>
-    <h1 class="archive-h1"><?php echo esc_html($archive_title); ?></h1>
-    <?php if (!empty($archive_desc)) : ?>
-      <div class="archive-sub"><?php echo wp_kses_post($archive_desc); ?></div>
-    <?php else : ?>
-      <div class="archive-sub">Curated technical breakdowns, case studies, and architecture insights published under <?php echo esc_html($archive_title); ?>.</div>
-    <?php endif; ?>
+  <header class="archive-hero" style="display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap;">
+    <div class="archive-hero-content" style="flex: 1; min-width: 280px;">
+      <div class="archive-eyebrow">// CATEGORY ARCHIVE</div>
+      <h1 class="archive-h1"><?php echo esc_html($archive_title); ?></h1>
+      <?php if (!empty($archive_desc)) : ?>
+        <div class="archive-sub"><?php echo wp_kses_post($archive_desc); ?></div>
+      <?php else : ?>
+        <div class="archive-sub">Curated technical breakdowns, case studies, and architecture insights published under <?php echo esc_html($archive_title); ?>.</div>
+      <?php endif; ?>
+    </div>
+    <div class="archive-hero-visual" style="display: flex; align-items: center; justify-content: center;">
+      <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 200px; max-width: 100%; height: auto; display: block; background: transparent;">
+        <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.webm'); ?>" type="video/webm">
+        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.gif'); ?>" alt="Cr8v Stacks Archive Logo Visual">
+      </video>
+    </div>
   </header>
 
   <div class="archive-grid-frame">

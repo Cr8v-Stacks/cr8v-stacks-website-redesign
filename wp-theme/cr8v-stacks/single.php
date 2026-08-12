@@ -159,11 +159,11 @@ if (have_posts()) : while (have_posts()) : the_post();
 }
 
 .cta-illustration {
-  width: 78px; height: 78px; margin: 0 0 1.25rem 0; border-radius: 50%;
-  overflow: hidden; border: 1px solid var(--c8-grid-line); background: #FAFAF7;
-  display: flex; align-items: center; justify-content: center;
+  width: 110px; height: auto; margin: 0 0 1.25rem 0;
+  display: flex; align-items: center; justify-content: flex-start;
+  background: transparent; border: none; overflow: visible;
 }
-.cta-illustration img, .cta-illustration video { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
+.cta-illustration img, .cta-illustration video { width: 100%; height: auto; display: block; background: transparent; border: none; border-radius: 0; }
 
 .cta-card-title {
   font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700;
@@ -456,7 +456,7 @@ if (have_posts()) : while (have_posts()) : the_post();
         <div class="cta-trust-label"><?php echo esc_html(cr8v_mod('sidebar_cta_trust_label', 'ENGINEERED ON MODERN STACKS')); ?></div>
 
         <div class="cta-illustration">
-          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%;">
+          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; height: auto; display: block; background: transparent;">
             <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.webm'); ?>" type="video/webm">
             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.gif'); ?>" alt="Cr8v Stacks Logo Visual">
           </video>

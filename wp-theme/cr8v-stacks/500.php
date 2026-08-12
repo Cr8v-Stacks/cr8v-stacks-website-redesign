@@ -126,34 +126,24 @@ get_header();
 <div class="err-bg-glow"></div>
 <div class="err-bg-noise"></div>
 
-<main class="err-hero-container" style="position: relative; overflow: hidden;">
+<main class="err-hero-container" style="position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 68px); padding: 4rem 2rem;">
 
-  <!-- Ambient Error Background Video -->
-  <video class="err-bg-video" autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.12; pointer-events: none;">
+  <!-- Ambient Error Background Video (Full Width, 100% Opacity) -->
+  <video class="err-bg-video" autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 1; pointer-events: none;">
     <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/error_bg.webm'); ?>" type="video/webm">
     <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/error_bg.mp4'); ?>" type="video/mp4">
   </video>
   
-  <div class="err-content-col" style="position: relative; z-index: 2;">
-    <div class="err-eyebrow">SERVER EXECUTION EXCEPTION</div>
-    <div class="err-big-num">500</div>
-    <h1 class="err-h1-title">INTERNAL SERVER ERROR</h1>
-    <p class="err-subtitle">Our core system encountered an unexpected server exception while attempting to process your request. Our technical team has been notified.</p>
+  <!-- Content Glassmorphic Overlay Box -->
+  <div class="err-content-col" style="position: relative; z-index: 2; background: rgba(8, 8, 8, 0.82); backdrop-filter: blur(16px); padding: 3.5rem 4rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.18); max-width: 640px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+    <div class="err-eyebrow" style="color: #7C93FF;">SERVER EXECUTION EXCEPTION</div>
+    <div class="err-big-num" style="color: #FFFFFF;">500</div>
+    <h1 class="err-h1-title" style="color: #FFFFFF;">INTERNAL SERVER ERROR</h1>
+    <p class="err-subtitle" style="color: rgba(255, 255, 255, 0.85);">Our core system encountered an unexpected server exception while attempting to process your request. Our technical team has been notified.</p>
 
     <div class="err-btn-group">
       <a href="<?php echo esc_url(home_url('/')); ?>" class="c8-matrix-btn-blue">Return to Homepage →</a>
-      <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8-matrix-btn-dark">Contact Support</a>
-    </div>
-  </div>
-
-  <div class="err-mascot-col" style="position: relative; z-index: 2;">
-    <div class="err-mascot-free-wrapper">
-      <video class="err-mascot-video" autoplay loop muted playsinline poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot.jpg'); ?>">
-        <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot_video.webm'); ?>" type="video/webm">
-        <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot_video.mp4'); ?>" type="video/mp4">
-        <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/download_mascot.mp4'); ?>" type="video/mp4">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot.jpg'); ?>" alt="Cr8v Stacks Mascot Visual">
-      </video>
+      <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8-matrix-btn-dark" style="border: 1px solid rgba(255,255,255,0.25);">Contact Support</a>
     </div>
   </div>
 

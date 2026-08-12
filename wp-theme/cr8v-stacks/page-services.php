@@ -1179,19 +1179,29 @@ body {
   <!-- Hero -->
   <div class="c8srv-hero">
     <div class="c8srv-label" data-customizer="srv_hero_eyebrow"><?php echo esc_html(cr8v_mod('srv_hero_eyebrow', 'Services')); ?></div>
-    <div class="c8srv-hero-content">
-      <h1 class="c8srv-headline"><span data-customizer="srv_hero_h1_part1"><?php echo esc_html(cr8v_mod('srv_hero_h1_part1', 'Every ')); ?></span><span class="c8srv-serif-text" data-customizer="srv_hero_h1_serif"><?php echo esc_html(cr8v_mod('srv_hero_h1_serif', 'layer')); ?></span><span data-customizer="srv_hero_h1_part2"><?php echo esc_html(cr8v_mod('srv_hero_h1_part2', ' of your presence, ')); ?></span><span class="c8srv-gradient-text" data-customizer="srv_hero_h1_gradient"><?php echo esc_html(cr8v_mod('srv_hero_h1_gradient', 'engineered by Cr8v Stacks.')); ?></span></h1>
-      <div class="c8srv-hero-intro c8srv-reveal c8srv-reveal-d1" data-customizer="srv_hero_intro"><?php echo wp_kses_post(cr8v_mod('srv_hero_intro', 'Cr8v Stacks handles every layer of your presence — brand positioning, design, the build itself, and the growth work after launch. Whichever platform your business runs on (WordPress, Shopify, WooCommerce, or a fully custom stack) the build is only one layer. We start with who you\'re competing against and end with the campaigns that bring people to the site we just built.')); ?></div>
-      <div class="c8srv-hero-ctas">
-        <a href="<?php echo esc_url(cr8v_mod('srv_hero_cta1_url', '#primary-service-6cards')); ?>" class="c8-btn-primary" data-customizer="srv_hero_cta1_text"><?php echo esc_html(cr8v_mod('srv_hero_cta1_text', 'See What We Build →')); ?></a>
-        <a href="<?php echo esc_url(home_url(cr8v_mod('srv_hero_cta2_url', '/discovery-call/'))); ?>" class="c8srv-btn-ghost" data-customizer="srv_hero_cta2_text"><?php echo esc_html(cr8v_mod('srv_hero_cta2_text', 'Get a Quote →')); ?></a>
+    <div class="c8srv-hero-grid" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center;">
+      <div class="c8srv-hero-content">
+        <h1 class="c8srv-headline"><span data-customizer="srv_hero_h1_part1"><?php echo esc_html(cr8v_mod('srv_hero_h1_part1', 'Every ')); ?></span><span class="c8srv-serif-text" data-customizer="srv_hero_h1_serif"><?php echo esc_html(cr8v_mod('srv_hero_h1_serif', 'layer')); ?></span><span data-customizer="srv_hero_h1_part2"><?php echo esc_html(cr8v_mod('srv_hero_h1_part2', ' of your presence, ')); ?></span><span class="c8srv-gradient-text" data-customizer="srv_hero_h1_gradient"><?php echo esc_html(cr8v_mod('srv_hero_h1_gradient', 'engineered by Cr8v Stacks.')); ?></span></h1>
+        <div class="c8srv-hero-intro c8srv-reveal c8srv-reveal-d1" data-customizer="srv_hero_intro"><?php echo wp_kses_post(cr8v_mod('srv_hero_intro', 'Cr8v Stacks handles every layer of your presence — brand positioning, design, the build itself, and the growth work after launch. Whichever platform your business runs on (WordPress, Shopify, WooCommerce, or a fully custom stack) the build is only one layer. We start with who you\'re competing against and end with the campaigns that bring people to the site we just built.')); ?></div>
+        <div class="c8srv-hero-ctas">
+          <a href="<?php echo esc_url(cr8v_mod('srv_hero_cta1_url', '#primary-service-6cards')); ?>" class="c8-btn-primary" data-customizer="srv_hero_cta1_text"><?php echo esc_html(cr8v_mod('srv_hero_cta1_text', 'See What We Build →')); ?></a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('srv_hero_cta2_url', '/discovery-call/'))); ?>" class="c8srv-btn-ghost" data-customizer="srv_hero_cta2_text"><?php echo esc_html(cr8v_mod('srv_hero_cta2_text', 'Get a Quote →')); ?></a>
+        </div>
+        <div class="c8srv-pill-row">
+          <span class="c8srv-pill" data-customizer="srv_hero_pill1"><?php echo esc_html(cr8v_mod('srv_hero_pill1', 'WordPress')); ?></span>
+          <span class="c8srv-pill" data-customizer="srv_hero_pill2"><?php echo esc_html(cr8v_mod('srv_hero_pill2', 'Shopify')); ?></span>
+          <span class="c8srv-pill" data-customizer="srv_hero_pill3"><?php echo esc_html(cr8v_mod('srv_hero_pill3', 'WooCommerce')); ?></span>
+          <span class="c8srv-pill" data-customizer="srv_hero_pill4"><?php echo esc_html(cr8v_mod('srv_hero_pill4', 'Custom Code')); ?></span>
+          <span class="c8srv-pill" data-customizer="srv_hero_pill5"><?php echo esc_html(cr8v_mod('srv_hero_pill5', 'AI MVP')); ?></span>
+        </div>
       </div>
-      <div class="c8srv-pill-row">
-        <span class="c8srv-pill" data-customizer="srv_hero_pill1"><?php echo esc_html(cr8v_mod('srv_hero_pill1', 'WordPress')); ?></span>
-        <span class="c8srv-pill" data-customizer="srv_hero_pill2"><?php echo esc_html(cr8v_mod('srv_hero_pill2', 'Shopify')); ?></span>
-        <span class="c8srv-pill" data-customizer="srv_hero_pill3"><?php echo esc_html(cr8v_mod('srv_hero_pill3', 'WooCommerce')); ?></span>
-        <span class="c8srv-pill" data-customizer="srv_hero_pill4"><?php echo esc_html(cr8v_mod('srv_hero_pill4', 'Custom Code')); ?></span>
-        <span class="c8srv-pill" data-customizer="srv_hero_pill5"><?php echo esc_html(cr8v_mod('srv_hero_pill5', 'AI MVP')); ?></span>
+
+      <!-- Right Side Hero Visual: Transparent Animated Logo Video -->
+      <div class="c8srv-anim-container" id="c8srv-anim-wrapper" style="display: flex; align-items: center; justify-content: center; background: transparent; border: none; box-shadow: none;">
+        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 520px; height: auto; display: block; object-fit: contain; background: transparent;">
+          <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.webm'); ?>" type="video/webm">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.gif'); ?>" alt="Cr8v Stacks Animated Logo Visual" style="width: 100%; max-width: 520px; height: auto; display: block;">
+        </video>
       </div>
     </div>
   </div>
