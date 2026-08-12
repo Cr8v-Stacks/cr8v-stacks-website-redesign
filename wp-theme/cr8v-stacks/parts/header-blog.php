@@ -451,54 +451,47 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
 
     <nav>
       <ul class="c8bm-pnav" id="c8bmPnav">
-        <?php
-        $top_categories = get_terms([
-            'taxonomy'   => 'category',
-            'parent'     => 0,
-            'hide_empty' => false,
-            'orderby'    => 'name',
-            'order'      => 'ASC',
-        ]);
+        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-brand">
+          <span class="c8bm-pnav-link" tabindex="0">Brand Strategy
+            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
 
-        if (!empty($top_categories) && !is_wp_error($top_categories)) :
-            foreach ($top_categories as $top_cat) :
-                $sub_cats = get_terms([
-                    'taxonomy'   => 'category',
-                    'parent'     => $top_cat->term_id,
-                    'hide_empty' => false,
-                    'orderby'    => 'name',
-                    'order'      => 'ASC',
-                ]);
-                $has_children = !empty($sub_cats) && !is_wp_error($sub_cats);
-                $top_cat_link = get_category_link($top_cat->term_id);
-        ?>
-                <li class="c8bm-pnav-item <?php echo $has_children ? 'has-sub-dropdown' : ''; ?>" style="position: relative;">
-                  <a class="c8bm-pnav-link" href="<?php echo esc_url($top_cat_link); ?>">
-                    <?php echo esc_html($top_cat->name); ?>
-                    <?php if ($has_children) : ?>
-                    <span class="c8bm-pill-badge">+<?php echo count($sub_cats); ?></span>
-                    <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-left: 3px;"><path d="M2 4l4 4 4-4"/></svg>
-                    <?php endif; ?>
-                  </a>
-                  <?php if ($has_children) : ?>
-                  <div class="c8bm-sub-popover">
-                    <div class="c8bm-sub-eyebrow">// SUBCATEGORIES</div>
-                    <?php foreach ($sub_cats as $sub_item) :
-                        $sub_link = get_category_link($sub_item->term_id);
-                        $sub_count = cr8v_get_cat_post_count($sub_item->slug);
-                    ?>
-                    <a href="<?php echo esc_url($sub_link); ?>" class="c8bm-sub-item">
-                      <span class="c8bm-sub-name">↳ <?php echo esc_html($sub_item->name); ?></span>
-                      <span class="c8bm-sub-cnt"><?php echo $sub_count; ?></span>
-                    </a>
-                    <?php endforeach; ?>
-                  </div>
-                  <?php endif; ?>
-                </li>
-        <?php
-            endforeach;
-        endif;
-        ?>
+        <li class="c8bm-pnav-item">
+          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/category/business-productivity/')); ?>">Productivity</a>
+        </li>
+
+        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-biztips">
+          <span class="c8bm-pnav-link" tabindex="0">Business Tips
+            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
+        <li class="c8bm-pnav-item">
+          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/category/career-planning/')); ?>">Career Planning</a>
+        </li>
+
+        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-content">
+          <span class="c8bm-pnav-link" tabindex="0">Content Creation
+            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
+        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-digimkt">
+          <span class="c8bm-pnav-link" tabindex="0">Digital Marketing
+            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
+        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-webdesign">
+          <span class="c8bm-pnav-link" tabindex="0">Web Design
+            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          </span>
+        </li>
+
+        <li class="c8bm-pnav-item">
+          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/category/tutorials/')); ?>">Tutorials</a>
+        </li>
       </ul>
     </nav>
 
@@ -729,28 +722,68 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
     <div class="c8bm-bd-section-label">Categories</div>
     <div class="c8bm-bd-cat-list">
       <?php
-      $all_cats = cr8v_get_all_hierarchical_categories();
-      if (!empty($all_cats)) :
-          foreach ($all_cats as $cat_item) :
-              $cat_link = get_category_link($cat_item->term_id);
-              $is_child = ($cat_item->parent != 0);
-              $indent_padding = $is_child ? ($cat_item->depth * 1.1 + 0.85) . 'rem' : '0.85rem';
-              $prefix = $is_child ? '↳ ' : '';
-              $name_style = $is_child ? 'color: #3D6BFF; font-size: 0.88rem;' : 'color: #FFFFFF; font-size: 0.95rem; font-weight: 700;';
+      $top_level_cats = get_terms([
+          'taxonomy'   => 'category',
+          'parent'     => 0,
+          'hide_empty' => false,
+          'orderby'    => 'name',
+          'order'      => 'ASC',
+      ]);
+
+      if (!empty($top_level_cats) && !is_wp_error($top_level_cats)) :
+          foreach ($top_level_cats as $top_cat) :
+              $sub_cats = get_terms([
+                  'taxonomy'   => 'category',
+                  'parent'     => $top_cat->term_id,
+                  'hide_empty' => false,
+                  'orderby'    => 'name',
+                  'order'      => 'ASC',
+              ]);
+              $has_subs = !empty($sub_cats) && !is_wp_error($sub_cats);
+              $top_link = get_category_link($top_cat->term_id);
+              $top_count = cr8v_get_cat_post_count($top_cat->slug);
       ?>
-          <a href="<?php echo esc_url($cat_link); ?>" class="c8bm-bd-cat-item" style="padding-left: <?php echo $indent_padding; ?>;">
-            <div class="c8bm-bdc-inner">
-              <div class="c8bm-bdc-left">
-                <span class="c8bm-bdc-name" style="<?php echo $name_style; ?>"><?php echo esc_html($prefix . $cat_item->name); ?></span>
-                <?php if ($cat_item->description) : ?>
-                <span class="c8bm-bdc-subs"><?php echo esc_html(wp_trim_words($cat_item->description, 6)); ?></span>
-                <?php endif; ?>
-              </div>
-              <div class="c8bm-bdc-right">
-                <span class="c8bm-bdc-count"><?php echo (int) $cat_item->published_count; ?></span>
+          <?php if ($has_subs) : ?>
+            <div class="c8bm-bd-cat-item" onclick="c8bmToggleCat(this)" style="cursor: pointer;">
+              <div class="c8bm-bdc-inner">
+                <div class="c8bm-bdc-left">
+                  <span class="c8bm-bdc-name"><?php echo esc_html($top_cat->name); ?></span>
+                  <span class="c8bm-bdc-subs"><?php echo esc_html(wp_trim_words($top_cat->description ?: 'Subcategory Topics & Guides', 5)); ?></span>
+                </div>
+                <div class="c8bm-bdc-right">
+                  <span class="c8bm-bdc-count">+<?php echo count($sub_cats); ?></span>
+                  <svg class="c8bm-bdc-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" style="transition: transform 0.25s ease;"><path d="M2 4l4 4 4-4"/></svg>
+                </div>
               </div>
             </div>
-          </a>
+            <div class="c8bm-bdc-sub">
+              <div style="font-family: 'Space Mono', monospace; font-size: 8.5px; color: #7C93FF; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; margin-bottom: 0.6rem;">// SUBCATEGORIES</div>
+              <a href="<?php echo esc_url($top_link); ?>" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.8rem; color: #FAFAF7; font-weight: 700; text-decoration: none; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 4px;">View All <?php echo esc_html($top_cat->name); ?> (<?php echo $top_count; ?>) →</a>
+              <?php foreach ($sub_cats as $sub_item) :
+                  $sub_link = get_category_link($sub_item->term_id);
+                  $sub_count = cr8v_get_cat_post_count($sub_item->slug);
+              ?>
+              <a href="<?php echo esc_url($sub_link); ?>" style="display: flex; align-items: center; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 0.78rem; color: #A0B4FF; text-decoration: none; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">
+                <span>↳ <?php echo esc_html($sub_item->name); ?></span>
+                <span style="font-size: 0.7rem; color: #0047E1; background: rgba(0,71,225,0.15); padding: 1px 6px; border-radius: 3px; font-weight: 700;"><?php echo $sub_count; ?></span>
+              </a>
+              <?php endforeach; ?>
+            </div>
+          <?php else : ?>
+            <a href="<?php echo esc_url($top_link); ?>" class="c8bm-bd-cat-item">
+              <div class="c8bm-bdc-inner">
+                <div class="c8bm-bdc-left">
+                  <span class="c8bm-bdc-name"><?php echo esc_html($top_cat->name); ?></span>
+                  <?php if ($top_cat->description) : ?>
+                  <span class="c8bm-bdc-subs"><?php echo esc_html(wp_trim_words($top_cat->description, 5)); ?></span>
+                  <?php endif; ?>
+                </div>
+                <div class="c8bm-bdc-right">
+                  <span class="c8bm-bdc-count"><?php echo $top_count; ?></span>
+                </div>
+              </div>
+            </a>
+          <?php endif; ?>
       <?php
           endforeach;
       endif;

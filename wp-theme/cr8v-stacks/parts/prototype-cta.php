@@ -149,8 +149,8 @@ $video_url = get_template_directory_uri() . '/assets/img/download.mp4';
       </p>
 
       <div>
-        <a href="<?php echo esc_url($cta_url); ?>" class="cta-btn-pill">
-          <span data-customizer="cs_cta_btn_text"><?php echo esc_html($cta_text); ?></span> <span class="cta-btn-arrow">&rarr;</span>
+        <a href="<?php echo esc_url($cta_url); ?>" class="cta-btn-pill" data-customizer="cta_button_text">
+          <span class="cta-text-content" data-customizer="cs_cta_btn_text"><?php echo esc_html($cta_text); ?></span> <span class="cta-btn-arrow">&rarr;</span>
         </a>
       </div>
     </div>
@@ -160,14 +160,16 @@ $video_url = get_template_directory_uri() . '/assets/img/download.mp4';
 <script>
 (function initCTAMatrix() {
   function setup() {
-    var srvMatrixButtons = document.querySelectorAll('.c8-btn-primary, .c8cs-btn-primary, .cta-btn-pill, .c8isv-related-card-link, .c8cs-back-btn, .c8cs-related-cell-link');
+    var srvMatrixButtons = document.querySelectorAll('.c8-btn-primary, .c8cs-btn-primary, .cta-btn-pill, .c8isv-related-card-link, .c8cs-back-btn, .c8cs-related-cell-link, [data-customizer="cta_button_text"]');
     var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
     srvMatrixButtons.forEach(function(btn) {
       if (btn.dataset.matrixInited) return;
       btn.dataset.matrixInited = 'true';
 
-      var textNode = btn.querySelector('[data-customizer="cs_cta_btn_text"]') || Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; }) || btn;
+      var textNode = btn.querySelector('.cta-text-content') || btn.querySelector('[data-customizer="cs_cta_btn_text"]') || Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; });
+      if (!textNode) return;
+
       var originalText = textNode.textContent.trim();
       var scrambleInterval = null;
 
