@@ -219,9 +219,41 @@ $facebook  = cr8v_mod('footer_facebook',  'https://www.facebook.com/cr8vstacks')
   </div>
 </div>
 
-</div><!-- /.c8ft-root -->
+<!-- Floating Back To Top Button -->
+<div id="c8-btt-btn" class="c8-btt-floating" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">
+  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M18 15l-6-6-6 6"/></svg>
+</div>
+
+<style>
+.c8-btt-floating {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 9990;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: #080808; color: #FFFFFF; border: 1px solid rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+.c8-btt-floating.is-visible {
+  opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important;
+}
+.c8-btt-floating:hover {
+  background: #0047E1 !important; border-color: #0047E1 !important; transform: translateY(-3px) !important;
+}
+</style>
 
 <script>
+window.addEventListener('scroll', function() {
+  var btt = document.getElementById('c8-btt-btn');
+  if (btt) {
+    if (window.scrollY > 300) {
+      btt.classList.add('is-visible');
+    } else {
+      btt.classList.remove('is-visible');
+    }
+  }
+});
+
 (function initGlobalMatrixEngine() {
   if (window.__cr8vMatrixInited) return;
   window.__cr8vMatrixInited = true;
@@ -229,7 +261,7 @@ $facebook  = cr8v_mod('footer_facebook',  'https://www.facebook.com/cr8vstacks')
   var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
   document.addEventListener('mouseover', function(e) {
-    var btn = e.target.closest('.cta-btn-pill, .c8-btn-primary, .c8cs-btn-primary, .c8-matrix-btn-blue, .c8-matrix-btn-dark, .c8srv-btn-ghost, .dp-btn-primary, .c8bm-btn-cta, .c8ft-cta-btn, .c8isv-cta-btn, .blog-cta-btn, .c8-btn, .cta-card-btn, [data-customizer="cta_button_text"], [data-customizer="cs_cta_btn_text"], .c8-matrix-target');
+    var btn = e.target.closest('.cta-btn-pill, .c8-btn-primary, .c8cs-btn-primary, .c8-matrix-btn-blue, .c8-matrix-btn-dark, .c8srv-btn-ghost, .dp-btn-primary, .c8bm-btn-cta, .c8ft-cta-btn, .c8isv-cta-btn, .blog-cta-btn, .c8-btn, .cta-card-btn, [data-customizer="cta_button_text"], [data-customizer="cs_cta_btn_text"], .art-btn-primary, .art-btn-secondary');
     if (!btn || btn.dataset.matrixActive === 'true') return;
 
     btn.dataset.matrixActive = 'true';

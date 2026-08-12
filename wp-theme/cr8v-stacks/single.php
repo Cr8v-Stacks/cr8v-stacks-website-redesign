@@ -290,11 +290,53 @@ body.single-post {
 
 .art-body-text ul, .art-body-text ol { margin: 1.25rem 0 1.75rem 1.75rem; }
 .art-body-text li { font-size: 1rem; line-height: 1.65; color: #222222; margin-bottom: 0.5rem; }
-.art-body-text a { color: var(--c8-blue); text-decoration: none; border-bottom: 1px solid var(--c8-blue); transition: color 0.2s ease; }
-.art-body-text a:hover { color: var(--c8-blue-hi); border-color: var(--c8-blue-hi); }
 
-/* DATA TABLES */
-.art-body-text table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.92rem; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; overflow: hidden; }
+/* Clean Content Link Styling without destroying CTA buttons */
+.art-body-text a:not(.art-btn-primary):not(.art-btn-secondary):not(.art-tag-pill):not(.cta-card-btn) {
+  color: var(--c8-blue);
+  text-decoration: none;
+  border-bottom: none !important;
+  transition: color 0.2s ease;
+}
+.art-body-text a:not(.art-btn-primary):not(.art-btn-secondary):not(.art-tag-pill):not(.cta-card-btn):hover {
+  color: var(--c8-blue-hi);
+  text-decoration: underline;
+}
+
+/* TABLE OF CONTENTS PLUGIN ISOLATION */
+.art-body-text #ez-toc-container,
+.art-body-text .ez-toc-v2_0_69_1,
+.art-body-text #toc_container,
+.art-body-text .lwptoc,
+.art-body-text .toc {
+  border: 1px solid var(--c8-grid-line) !important;
+  background: #FAFAF7 !important;
+  border-radius: 4px !important;
+  padding: 1.25rem 1.5rem !important;
+  margin: 2rem 0 !important;
+  box-shadow: none !important;
+}
+.art-body-text #ez-toc-container a,
+.art-body-text .ez-toc-v2_0_69_1 a,
+.art-body-text #toc_container a,
+.art-body-text .lwptoc a,
+.art-body-text .toc a {
+  border-bottom: none !important;
+  text-decoration: none !important;
+  color: var(--c8-ink) !important;
+  font-family: var(--font-body) !important;
+  font-size: 0.95rem !important;
+}
+.art-body-text #ez-toc-container a:hover,
+.art-body-text .ez-toc-v2_0_69_1 a:hover,
+.art-body-text #toc_container a:hover,
+.art-body-text .lwptoc a:hover,
+.art-body-text .toc a:hover {
+  color: var(--c8-blue) !important;
+}
+
+/* DATA TABLES (Excluding TOC) */
+.art-body-text table:not(.toc):not(.ez-toc-table) { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.92rem; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; overflow: hidden; }
 .art-body-text th { background: #222222; color: #FFFFFF; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 1.1rem 1.4rem; border-right: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid var(--c8-grid-line); }
 .art-body-text td { padding: 1.1rem 1.4rem; border-bottom: 1px solid var(--c8-grid-line); border-right: 1px solid var(--c8-grid-line); color: #222222; }
 .art-body-text tr:nth-child(even) td { background: #FAFAF7; }
@@ -304,8 +346,13 @@ body.single-post {
 .art-tag-pill { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; color: var(--c8-ink); background: #FAFAF7; border: 1px solid var(--c8-grid-line); padding: 0.35rem 0.75rem; border-radius: 4px !important; text-decoration: none; text-transform: uppercase; }
 .art-tag-pill:hover { background: var(--c8-blue); color: #FFFFFF; border-color: var(--c8-blue); }
 
-/* RELATED ARTICLES GRID */
-.related-section { padding: 3.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+/* RELATED ARTICLES GRID WITH SOLID TOP BORDER DIVIDER */
+.related-section {
+  padding: 3.5rem 4rem;
+  border-top: 1px solid var(--c8-grid-line) !important;
+  border-bottom: 1px solid var(--c8-grid-line);
+  background: #FFFFFF;
+}
 .related-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 1.75rem; }
 .related-grid-frame { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--c8-grid-line); border-radius: 4px !important; overflow: hidden; }
 .related-card { border-right: 1px solid var(--c8-grid-line); padding: 1.6rem; display: flex; flex-direction: column; justify-content: space-between; }
@@ -517,18 +564,18 @@ body.single-post {
         <a href="<?php echo esc_url(cr8v_mod('single_cta_btn_url', '/discovery-call/')); ?>" class="cta-card-btn c8-matrix-target"><?php echo esc_html(cr8v_mod('single_cta_btn_text', 'Book an intro call')); ?></a>
       </div>
 
-      <!-- DYNAMIC WORDPRESS AUTHOR CARD BOX WITH MATRIX TARGETS -->
+      <!-- DYNAMIC WORDPRESS AUTHOR CARD BOX -->
       <?php if (cr8v_mod('single_show_author_card', true)) : ?>
       <div class="art-author-card">
         <div class="art-author-header">
           <img src="<?php echo esc_url($author_avatar); ?>" alt="<?php echo esc_attr($author_name); ?>" class="art-author-avatar">
           <div class="art-author-info">
             <span class="art-author-label"><?php echo esc_html(cr8v_mod('single_author_label', 'Written By')); ?></span>
-            <span class="art-author-name c8-matrix-target"><?php echo esc_html($author_name); ?></span>
+            <span class="art-author-name"><?php echo esc_html($author_name); ?></span>
           </div>
         </div>
-        <p class="art-author-bio c8-matrix-target"><?php echo esc_html($author_bio); ?></p>
-        <a href="<?php echo esc_url($author_url); ?>" class="art-author-link c8-matrix-target">View Author Articles →</a>
+        <p class="art-author-bio"><?php echo esc_html($author_bio); ?></p>
+        <a href="<?php echo esc_url($author_url); ?>" class="art-author-link">View Author Articles →</a>
       </div>
       <?php endif; ?>
     </aside>
@@ -789,8 +836,5 @@ function toggleFAQ(item) {
 </script>
 
 <?php endwhile; endif; ?>
-
-<!-- BOTTOM DISCOVERY CTA SECTION -->
-<?php get_template_part('parts/prototype-cta'); ?>
 
 <?php get_footer(); ?>
