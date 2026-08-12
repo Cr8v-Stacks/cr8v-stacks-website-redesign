@@ -126,6 +126,7 @@ $facebook  = cr8v_mod('footer_facebook',  'https://www.facebook.com/cr8vstacks')
         <a href="<?php echo esc_url(home_url('/services/')); ?>" class="c8ft-site-link">Services <span class="c8ft-site-link-arr">→</span></a>
         <a href="<?php echo esc_url(home_url('/case-studies/')); ?>" class="c8ft-site-link">Case Studies <span class="c8ft-site-link-arr">→</span></a>
         <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8ft-site-link">Blog <span class="c8ft-site-link-arr">→</span></a>
+        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8ft-site-link">Contact Us <span class="c8ft-site-link-arr">→</span></a>
         <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8ft-site-link">Discovery Call <span class="c8ft-site-link-arr">→</span></a>
       <?php } ?>
     </div>

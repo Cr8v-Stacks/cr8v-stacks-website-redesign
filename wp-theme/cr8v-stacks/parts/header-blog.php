@@ -32,7 +32,6 @@ defined('ABSPATH') || exit;
 }
 
 body.admin-bar .c8bm-root .c8bm-header {top:32px!important;}
-body.admin-bar .c8bm-root .c8bm-mega, body.admin-bar .c8bm-root .c8bm-mega-back {top:calc(68px + 32px)!important;}
 body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-overlay {top:32px!important;}
 @media (max-width:782px){
   body.admin-bar .c8bm-root .c8bm-header {top:46px!important;}

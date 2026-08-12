@@ -111,6 +111,17 @@
             bindText('matrix_stat_' + idx + '_value', '.sw-matrix-stat:nth-child(' + idx + ') .sw-matrix-stat-floating');
             bindText('matrix_stat_' + idx + '_label', '.sw-matrix-stat:nth-child(' + idx + ') .sw-matrix-stat-label');
         })(j);
-    }
+    // ── GENERIC DATA-CUSTOMIZER BINDING ────────────────────────
+    $('[data-customizer]').each(function () {
+        var settingId = $(this).attr('data-customizer');
+        var $el = $(this);
+        if (settingId && api(settingId)) {
+            api(settingId, function (setting) {
+                setting.bind(function (value) {
+                    $el.html(value);
+                });
+            });
+        }
+    });
 
 }(jQuery));

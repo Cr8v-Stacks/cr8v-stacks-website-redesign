@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * CR8V Stacks — inc/customizer/helpers.php
  * Customizer Helper Registration Wrappers
@@ -95,3 +95,16 @@ if (!function_exists('_cr8v_image')) {
         }
     }
 }
+
+if (!function_exists('cr8v_add_text_control')) {
+    function cr8v_add_text_control($wp_customize, $id, $section, $label, $default = '', $selector = '') {
+        _cr8v_text($wp_customize, $id, $section, $label, $default, $selector);
+    }
+}
+
+if (!function_exists('cr8v_add_textarea_control')) {
+    function cr8v_add_textarea_control($wp_customize, $id, $section, $label, $default = '', $selector = '') {
+        _cr8v_textarea($wp_customize, $id, $section, $label, $default, $selector);
+    }
+}
+

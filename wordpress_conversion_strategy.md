@@ -795,6 +795,76 @@ WordPress Customizer allows live design customization beyond text:
 - **Layout Spacing & Borders**: Range sliders for section padding, container max-widths, border-radius, and box shadows.
 - **Theme Toggles**: Light/dark mode toggles for individual section containers.
 
+---
+
+## 📑 Blog, Archive & Contact Us Theme Conversion & Override Log (2026-08-11)
+
+### 1. WordPress Menu Registration & Management Guide
+All navigation menu locations are registered natively in `functions.php`:
+```php
+register_nav_menus([
+    'primary'        => __('Primary Navigation', 'cr8v-stacks'),
+    'services-mega'  => __('Services Mega Menu', 'cr8v-stacks'),
+    'toolkits-mega'  => __('Toolkits Mega Menu', 'cr8v-stacks'),
+    'mobile-drawer'  => __('Mobile Drawer Navigation', 'cr8v-stacks'),
+    'footer-col-1'   => __('Footer — Company Links', 'cr8v-stacks'),
+    'footer-col-2'   => __('Footer — Services Links', 'cr8v-stacks'),
+    'footer-col-3'   => __('Footer — Resources Links', 'cr8v-stacks'),
+]);
+```
+#### How to Edit Menus in WP Admin:
+1. Navigate to **WP Admin → Appearance → Menus**.
+2. Select an existing menu or click **create a new menu** (e.g. `Mobile Navigation` or `Footer Sitemap`).
+3. Add pages (such as `Contact Us`, `About Us`, `Services`, `Blog`) from the left panel.
+4. Under **Menu Settings → Display Location** (at the bottom of the page), check the corresponding location checkbox:
+   - Check `Mobile Drawer Navigation` to update the Mobile Drawer menu.
+   - Check `Primary Navigation` for Desktop Header.
+   - Check `Footer — Company Links` for Footer Sitemap Column 1.
+5. Click **Save Menu**.
+
+---
+
+### 2. Blog Archive (`home.php`), Category/Tag Archive (`archive.php`), & Single Post (`single.php`) Layout Overrides
+- **Outer Frame Width & Margin Bug**: In initial ports, `.blog-outer-frame` had `max-width: 1360px; margin: 0 auto;` which created unwanted white space margins on left and right on wide viewports. Overridden in `home.php` and `archive.php` to:
+  ```css
+  .blog-outer-frame {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 8.5rem 3.5rem 5rem 3.5rem;
+  }
+  ```
+- **Subtle Card Image Borders**: `.card-img-container` initially inherited a heavy solid border. Replaced with subtle `border: 1px solid var(--c8-grid-line);` (`rgba(8, 8, 8, 0.14)`) matching grid lines.
+- **Strict 4px Border Radius**: Enforced `border-radius: 4px !important;` across all category pills (`.card-category-pill`, `.art-cat-pill`), image containers, cards, author cards, popovers, and buttons.
+- **Solid Top CTA Divider**: Added `border-top: 1px solid var(--c8-grid-line);` above `.blog-cta-section` in `home.php` and `archive.php` to separate the 3-column article grid from the Discovery CTA section.
+- **Shortcode Embedding**: Embedded `do_shortcode('[sb_booking_form]')` centered inside `.cta-embed-box` and `.c8ct-form-container`.
+
+---
+
+### 3. Single Blog Post (`single.php`) Architectural Parity & Author Integration
+- **CDN Icons Parity**: Restored official SimpleIcons/thesvg CDN URLs for social sharing (X, LinkedIn, Facebook, WhatsApp, Telegram, Reddit) and AI summaries (ChatGPT, Claude, Gemini, Perplexity).
+- **Dynamic WordPress Author Card Box**: Integrated a dedicated author card box in `.art-sidebar-col` directly below the Discovery CTA card, bound to WP core functions:
+  ```php
+  $author_avatar = get_avatar_url(get_the_author_meta('ID'), ['size' => 112]);
+  $author_name   = get_the_author();
+  $author_bio    = get_the_author_meta('description');
+  $author_url    = get_author_posts_url(get_the_author_meta('ID'));
+  ```
+- **Matrix Scramble Button Animation**: Preserved Matrix character scramble animation JS on `.cta-card-btn`, `.art-btn-primary`, `.art-btn-secondary`, and `.c8-btn-primary`.
+- **Related Articles & FAQ Accordion**: Includes 3-card related articles grid (`.related-section`) and 12-question interactive accordion FAQ (`.faq-page-section`).
+
+---
+
+### 4. Customizer Panel Isolation (`panel-contact.php`)
+- Registered `cr8v_contact_panel` in `inc/customizer/panel-contact.php` with `active_callback` restricted to:
+  ```php
+  'active_callback' => function() {
+      return is_page('contact') || is_page('contact-us') || is_page_template('page-contact.php');
+  }
+  ```
+- Allows non-technical editing of Contact page eyebrow, heading, subtitle, stamp text, location metadata, phone number, and form label directly from WP Admin Customizer.
+
+
 
 
 

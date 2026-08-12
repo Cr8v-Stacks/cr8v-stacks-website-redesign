@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
     $wp_customize->add_panel('cr8v_homepage', [
-        'active_callback' => function() { return is_front_page() || is_home() || is_page_template('page-home.php') || is_page('home'); },
+        'active_callback' => function() { return is_front_page() || is_page_template('front-page.php') || is_page('home'); },
         'title'       => 'Homepage — Tropos Theme',
         'description' => 'Edit all 11 homepage sections with live preview controls and shortcut pencil icons.',
         'priority'    => 20,

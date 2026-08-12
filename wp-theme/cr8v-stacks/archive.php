@@ -1,23 +1,24 @@
 <?php
 /**
- * CR8V Stacks — home.php
- * Main Blog Posts Index Page Template — 100% exact parity with blog.html prototype.
- * Includes interactive category popovers, subcategory indents, 3x3 post grid capacity, date DESC ordering, and ambient mesh gradient non-image fallback cards.
+ * CR8V Stacks — archive.php
+ * Category & Tag Archive Template — 100% exact parity with blog-archive.html prototype.
+ * Includes category title headers, subcategory popover dropdowns, 3x3 post grid, date DESC ordering, and ambient mesh gradient non-image fallback cards.
  */
 
 defined('ABSPATH') || exit;
 
 get_header('blog');
 
-$eyebrow = cr8v_mod('blog_eyebrow', '// TECHNICAL JOURNAL');
-$title = cr8v_mod('blog_h1', 'ENGINEERING & DESIGN INSIGHTS');
-$subtitle = cr8v_mod('blog_subtitle', 'Technical breakdowns, platform engineering guides, and custom plugin case studies from our core team.');
-$posts_per_page = cr8v_mod('blog_posts_per_page', '9');
+$term = get_queried_object();
+$archive_title = single_term_title('', false);
+$archive_desc = get_the_archive_description();
+$is_cat = is_category();
+$is_tag = is_tag();
 ?>
 
 <style>
 :root {
-  --c8-paper-bg: #FAFAF7;
+  --c8-paper-bg: #F9F9F8;
   --c8-paper-card: #FFFFFF;
   --c8-ink: #080808;
   --c8-sub: #555555;
@@ -29,22 +30,26 @@ $posts_per_page = cr8v_mod('blog_posts_per_page', '9');
   --font-heading: 'Michroma', sans-serif;
 }
 
-.blog-hero-outer {
-  width: 100%;
-  border-bottom: 1px solid var(--c8-grid-line);
+.archive-outer-frame {
+  width: 100% !important;
+  max-width: 1360px !important;
+  margin: 0 auto !important;
   background: var(--c8-paper-card);
-  padding: 8.5rem 3.5rem 4rem 3.5rem;
+  border: 1px solid var(--c8-grid-line);
+  padding-top: 6.5rem;
+  min-height: 100vh;
   box-sizing: border-box;
 }
 
-.blog-hero-inner {
-  max-width: 1440px;
-  margin: 0 auto;
+.archive-hero {
+  padding: 3.5rem 4rem;
+  border-bottom: 1px solid var(--c8-grid-line);
+  background: #FFFFFF;
 }
 
-.blog-eyebrow {
+.archive-eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   color: var(--c8-blue);
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -52,106 +57,82 @@ $posts_per_page = cr8v_mod('blog_posts_per_page', '9');
   margin-bottom: 0.75rem;
 }
 
-.blog-h1 {
+.archive-h1 {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 700;
   color: var(--c8-ink);
   text-transform: uppercase;
   line-height: 1.15;
-  margin-bottom: 1rem;
-  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
 }
 
-.blog-sub {
+.archive-sub {
   font-family: var(--font-body);
   font-size: 1.05rem;
   color: var(--c8-sub);
   line-height: 1.6;
-  max-width: 720px;
-  margin-bottom: 0;
+  max-width: 680px;
 }
 
-/* ── 3x3 GRID FRAME DESIGN SYSTEM ── */
-.blog-grid-section {
-  padding: 4rem 3.5rem 6rem 3.5rem;
-  background: var(--c8-paper-bg);
-}
-
-.blog-grid-frame {
-  max-width: 1440px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.blog-grid-card {
+/* 3x3 GRID FRAME DESIGN */
+.archive-grid-frame {
+  max-width: 1360px; margin: 0 auto 4rem auto;
   background: var(--c8-paper-card);
   border: 1px solid var(--c8-grid-line);
   border-radius: 4px !important;
-  padding: 1.6rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+}
+
+.blog-grid-card {
+  border-right: 1px solid var(--c8-grid-line);
+  border-bottom: 1px solid var(--c8-grid-line);
+  padding: 1.8rem 1.6rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: background 0.2s ease;
+}
+.blog-grid-card:nth-child(3n) { border-right: none; }
+.blog-grid-card:hover { background: #FAFAF7; }
+
+.card-top-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+.card-date { font-family: var(--font-mono); font-size: 0.7rem; color: #8A8A8A; font-weight: 400; }
+.card-category-pill, .art-cat-pill {
+  font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+  color: var(--c8-ink); border: 1px solid rgba(8, 8, 8, 0.3); border-radius: 4px !important;
+  padding: 0.2rem 0.65rem; letter-spacing: 0.05em; text-decoration: none;
 }
 
-.blog-grid-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--c8-blue);
-  box-shadow: 0 12px 30px rgba(0, 71, 225, 0.08);
+.cat-dropdown-wrapper { position: relative; display: inline-flex; align-items: center; }
+.cat-popover-dropdown {
+  position: absolute; top: 100%; right: 0; z-index: 100;
+  background: #080808; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px !important;
+  padding: 0.75rem; min-width: 200px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  opacity: 0; visibility: hidden; transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  pointer-events: none; margin-top: 6px;
 }
-
-.card-top-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.85rem;
+.cat-popover-dropdown.is-open {
+  opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important;
 }
-
-.card-date {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--c8-sub);
-  text-transform: uppercase;
-}
-
-.card-category-pill {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--c8-ink);
-  border: 1px solid rgba(8, 8, 8, 0.3);
-  border-radius: 4px !important;
-  padding: 3px 9px;
-  text-decoration: none;
-  transition: border-color 0.2s ease, color 0.2s ease;
-}
-.card-category-pill:hover { border-color: var(--c8-blue); color: var(--c8-blue); }
 
 .card-img-container {
   aspect-ratio: 16 / 10;
-  width: 100%;
   border-radius: 4px !important;
   overflow: hidden;
-  border: 1px solid var(--c8-grid-line);
-  margin-bottom: 1.1rem;
+  background: #FAFAF7;
+  margin-bottom: 1rem;
+  border: 1px solid var(--c8-grid-line) !important;
   position: relative;
-  background: #FFFFFF;
 }
-
-.card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.35s ease;
-}
+.card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
 .blog-grid-card:hover .card-img { transform: scale(1.03); }
 
-/* ── AMBIENT MESH GRADIENT NON-IMAGE FALLBACK CARDS (MATCHING USER ATTACHED SPEC 100%) ── */
+/* AMBIENT MESH GRADIENT NON-IMAGE FALLBACK CARDS */
 .card-fallback-canvas {
   width: 100%; height: 100%; min-height: 190px;
   border-radius: 4px !important;
@@ -168,8 +149,7 @@ $posts_per_page = cr8v_mod('blog_posts_per_page', '9');
     radial-gradient(circle at 10% 90%, rgba(186, 230, 253, 0.9) 0%, transparent 60%),
     radial-gradient(circle at 90% 10%, rgba(221, 214, 254, 0.9) 0%, transparent 60%),
     linear-gradient(135deg, #F0F9FF 0%, #FFFFFF 50%, #F5F3FF 100%);
-  color: #080808;
-  border: 1px solid rgba(8, 8, 8, 0.08);
+  color: #080808; border: 1px solid rgba(8, 8, 8, 0.08);
 }
 .card-fallback-canvas.is-light .fallback-brand-icon {
   width: 22px; height: 22px; color: #080808; margin-bottom: 0.9rem; stroke-width: 2.2;
@@ -189,8 +169,7 @@ $posts_per_page = cr8v_mod('blog_posts_per_page', '9');
     radial-gradient(circle at 90% 10%, rgba(99, 102, 241, 0.4) 0%, transparent 60%),
     radial-gradient(circle at 10% 90%, rgba(14, 165, 233, 0.3) 0%, transparent 60%),
     linear-gradient(135deg, #070A12 0%, #0F172A 50%, #1E1B4B 100%);
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .card-fallback-canvas.is-dark .fallback-brand-icon {
   width: 22px; height: 22px; color: #FFFFFF; margin-bottom: 0.9rem; stroke-width: 2.2;
@@ -205,71 +184,31 @@ $posts_per_page = cr8v_mod('blog_posts_per_page', '9');
   color: #A0B4FF; letter-spacing: 0.14em; text-transform: uppercase;
 }
 
-.card-title {
-  font-family: var(--font-heading);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--c8-ink);
-  line-height: 1.35;
-  text-transform: uppercase;
-  margin: 0;
-}
-.card-title a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+.card-title { font-family: var(--font-heading) !important; font-size: 0.8rem !important; font-weight: 700; color: var(--c8-ink); line-height: 1.4; text-transform: uppercase; margin: 0; }
+.card-title a { color: inherit; text-decoration: none; }
 .card-title a:hover { color: var(--c8-blue); }
 
-.blog-pagination-wrapper {
-  max-width: 1440px;
-  margin: 3.5rem auto 0 auto;
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.page-numbers {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 40px;
-  height: 40px;
-  padding: 0 14px;
-  border: 1px solid var(--c8-grid-line);
-  background: var(--c8-paper-card);
-  color: var(--c8-ink);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 700;
-  border-radius: 4px !important;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-.page-numbers.current, .page-numbers:hover {
-  background: var(--c8-blue);
-  color: #FFFFFF;
-  border-color: var(--c8-blue);
-}
-
-@media (max-width: 1100px) {
-  .blog-grid-frame { grid-template-columns: repeat(2, 1fr); }
-  .blog-hero-outer, .blog-grid-section { padding-left: 1.5rem; padding-right: 1.5rem; }
-}
-@media (max-width: 700px) {
-  .blog-grid-frame { grid-template-columns: 1fr; }
-  .blog-hero-outer { padding-top: 6.5rem; }
+@media (max-width: 860px) {
+  .archive-outer-frame { padding-top: 2rem; }
+  .archive-grid-frame { grid-template-columns: 1fr; }
+  .blog-grid-card { border-right: none; }
+  .archive-hero { padding: 2rem 1.25rem; }
 }
 </style>
 
-<!-- BLOG HERO SECTION -->
-<section class="blog-hero-outer">
-  <div class="blog-hero-inner">
-    <div class="blog-eyebrow" data-customizer="blog_eyebrow"><?php echo esc_html($eyebrow); ?></div>
-    <h1 class="blog-h1" data-customizer="blog_h1"><?php echo esc_html($title); ?></h1>
-    <p class="blog-sub" data-customizer="blog_subtitle"><?php echo esc_html($subtitle); ?></p>
-  </div>
-</section>
+<main class="archive-outer-frame">
+  
+  <header class="archive-hero">
+    <div class="archive-eyebrow">// CATEGORY ARCHIVE</div>
+    <h1 class="archive-h1"><?php echo esc_html($archive_title); ?></h1>
+    <?php if (!empty($archive_desc)) : ?>
+      <div class="archive-sub"><?php echo wp_kses_post($archive_desc); ?></div>
+    <?php else : ?>
+      <div class="archive-sub">Curated technical breakdowns, case studies, and architecture insights published under <?php echo esc_html($archive_title); ?>.</div>
+    <?php endif; ?>
+  </header>
 
-<!-- BLOG 3x3 GRID SECTION -->
-<main class="blog-grid-section">
-  <div class="blog-grid-frame">
+  <div class="archive-grid-frame">
     <?php
     $post_idx = 0;
     if (have_posts()) :
@@ -287,11 +226,11 @@ $posts_per_page = cr8v_mod('blog_posts_per_page', '9');
             <div style="display: flex; align-items: center; gap: 0.35rem;">
               <a href="<?php echo esc_url($cats ? get_category_link($cats[0]->term_id) : '#'); ?>" class="card-category-pill"><?php echo esc_html($primary_cat); ?></a>
               <?php if (count($cats) > 1) : ?>
-              <div class="cat-dropdown-wrapper" style="position: relative; display: inline-flex; align-items: center;">
-                <button class="art-cat-pill" onclick="toggleCatPopover(event, 'bcat-<?php echo $post_idx; ?>')" style="cursor: pointer; background: #0047E1; color: #FFFFFF; border: none; display: inline-flex; align-items: center; gap: 3px; padding: 2px 7px; font-size: 0.72rem; font-weight: 700; font-family: var(--font-mono); border-radius: 4px !important;">
+              <div class="cat-dropdown-wrapper">
+                <button class="art-cat-pill" onclick="toggleCatPopover(event, 'arcat-<?php echo $post_idx; ?>')" style="cursor: pointer; background: #0047E1; color: #FFFFFF; border: none; display: inline-flex; align-items: center; gap: 3px; padding: 2px 7px; font-size: 0.72rem; font-weight: 700; font-family: var(--font-mono); border-radius: 4px !important;">
                   +<?php echo (count($cats) - 1); ?> <svg class="cat-dropdown-arrow" viewBox="0 0 24 24" width="10" height="10" stroke="currentColor" stroke-width="2.5" fill="none" style="transition: transform 0.25s ease;"><polyline points="6 9 12 15 18 9"/></svg>
                 </button>
-                <div id="bcat-<?php echo $post_idx; ?>" class="cat-popover-dropdown" style="min-width: 170px;">
+                <div id="arcat-<?php echo $post_idx; ?>" class="cat-popover-dropdown">
                   <div style="font-family: var(--font-mono); font-size: 8.5px; color: #7C93FF; text-transform: uppercase; margin-bottom: 0.4rem; letter-spacing: 0.1em; font-weight: 700;">MORE CATEGORIES</div>
                   <?php for ($i = 1; $i < count($cats); $i++) :
                     $is_subcat = ($cats[$i]->parent != 0);
@@ -312,7 +251,7 @@ $posts_per_page = cr8v_mod('blog_posts_per_page', '9');
               <?php else :
                 $variant_class = ($post_idx % 2 === 0) ? 'is-dark' : 'is-light';
               ?>
-                <!-- ENHANCED AMBIENT MESH GRADIENT NON-IMAGE FALLBACK CARD -->
+                <!-- AMBIENT MESH GRADIENT NON-IMAGE FALLBACK CARD -->
                 <div class="card-fallback-canvas <?php echo $variant_class; ?>">
                   <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
@@ -332,8 +271,7 @@ $posts_per_page = cr8v_mod('blog_posts_per_page', '9');
     ?>
   </div>
 
-  <!-- PAGINATION -->
-  <div class="blog-pagination-wrapper">
+  <div style="display:flex; justify-content:center; gap:0.5rem; margin-bottom: 4rem;">
     <?php
     echo paginate_links([
         'prev_text' => '← Prev',
@@ -342,9 +280,7 @@ $posts_per_page = cr8v_mod('blog_posts_per_page', '9');
     ]);
     ?>
   </div>
-</main>
 
-<!-- BOTTOM DISCOVERY CTA SECTION -->
-<?php get_template_part('parts/prototype-cta'); ?>
+</main>
 
 <?php get_footer(); ?>

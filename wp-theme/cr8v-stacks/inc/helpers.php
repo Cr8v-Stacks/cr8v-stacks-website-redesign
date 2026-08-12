@@ -55,6 +55,45 @@ function cr8v_logo_img(string $classes = 'c8-logo-img'): string {
 }
 
 /**
+ * Sorts array of WP_Term category objects into parent-child hierarchy.
+ * Top-level categories appear first, and their subcategories immediately follow underneath.
+ */
+function cr8v_sort_categories_hierarchically(array $cats): array {
+    if (empty($cats)) return [];
+    
+    $parents = [];
+    $children = [];
+
+    foreach ($cats as $cat) {
+        if ($cat->parent == 0) {
+            $parents[$cat->term_id] = $cat;
+        } else {
+            $children[$cat->parent][] = $cat;
+        }
+    }
+
+    $sorted = [];
+    foreach ($parents as $parent_id => $parent_cat) {
+        $sorted[] = $parent_cat;
+        if (isset($children[$parent_id])) {
+            foreach ($children[$parent_id] as $child_cat) {
+                $sorted[] = $child_cat;
+            }
+            unset($children[$parent_id]);
+        }
+    }
+
+    // Append any orphan subcategories whose parent was not in the list
+    foreach ($children as $orphan_group) {
+        foreach ($orphan_group as $orphan) {
+            $sorted[] = $orphan;
+        }
+    }
+
+    return $sorted;
+}
+
+/**
  * Truncate text to a word count with ellipsis.
  */
 function cr8v_excerpt(string $text, int $words = 20): string {

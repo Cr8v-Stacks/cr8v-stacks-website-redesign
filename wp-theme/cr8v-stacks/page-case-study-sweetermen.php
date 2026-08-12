@@ -1,66 +1,13 @@
 <?php
 /**
- * Single Case Study Template — Architectural Paper Grid (100% Prototype Parity)
- * Prototype Reference: Case Studies/the-duch-apartments.html
+ * Template Name: Case Study — Sweetermen NG
+ * Prototype Parity: Case Studies/sweetermen-ng.html (100% Exact Duplication)
  */
 defined('ABSPATH') || exit;
 
-// Smart Delegation: If viewing one of our 10 featured projects, load its dedicated template for 100% exact prototype duplication.
-$slug = get_post_field('post_name', get_the_ID());
-$map  = array(
-  'the-duch-apartments'   => 'page-case-study-duch.php',
-  'duch'                  => 'page-case-study-duch.php',
-  'mkenny-properties'     => 'page-case-study-mkenny.php',
-  'mkenny'                => 'page-case-study-mkenny.php',
-  'bridgepoint-compliance'=> 'page-case-study-bridgepoint.php',
-  'bridgepoint-consulting'=> 'page-case-study-bridgepoint.php',
-  'bridgepoint-advisory'  => 'page-case-study-bridgepoint.php',
-  'bridgepoints'          => 'page-case-study-bridgepoint-brand.php',
-  'blvck-hair-ng'         => 'page-case-study-blvck-hair.php',
-  'blvck-hair'            => 'page-case-study-blvck-hair.php',
-  'victorias-lane'        => 'page-case-study-victorias-lane.php',
-  'kiri-city-stays'       => 'page-case-study-kiri-city.php',
-  'kiri-city'             => 'page-case-study-kiri-city.php',
-  'stride-plus-media'     => 'page-case-study-stride.php',
-  'stride'                => 'page-case-study-stride.php',
-  'sweetermen-ng'         => 'page-case-study-sweetermen.php',
-  'sweetermen'            => 'page-case-study-sweetermen.php',
-  'wp-publishion-ai'      => 'page-case-study-wp-publishion.php',
-  'wp-publishion'         => 'page-case-study-wp-publishion.php',
-);
-
-if (isset($map[$slug])) {
-  $tpl = locate_template($map[$slug]);
-  if ($tpl) {
-    include $tpl;
-    exit;
-  }
-}
-
 get_header();
-
-// Fetch ACF fields with robust fallbacks
-$client_name    = get_field('client_name') ?: get_the_title();
-$services       = get_field('services') ?: get_field('project_type') ?: 'Web Engineering & SEO';
-$stack          = get_field('stack') ?: 'WordPress · Custom Code';
-$project_link   = get_field('project_link') ?: get_field('live_url') ?: home_url('/portfolio/');
-$timeline       = get_field('timeline') ?: '3 Weeks';
-$industry       = get_field('industry') ?: 'Digital Product Design';
-$hero_lead      = get_field('hero_lead') ?: get_the_excerpt();
-
-$metric_1_val   = get_field('metric_1_val') ?: '100%';
-$metric_1_lbl   = get_field('metric_1_lbl') ?: 'Direct Booking Base';
-$metric_1_desc  = get_field('metric_1_desc') ?: 'Designed and deployed a custom digital asset infrastructure with zero template overhead.';
-
-$metric_2_val   = get_field('metric_2_val') ?: '+340%';
-$metric_2_lbl   = get_field('metric_2_lbl') ?: 'Direct Revenue Growth';
-$metric_2_desc  = get_field('metric_2_desc') ?: 'Substantial expansion in direct revenue bypassing third-party commission structures.';
-
-$overview_title = get_field('overview_title') ?: 'The Strategic Challenge & Engineered Solution';
-$overview_desc  = get_field('overview_desc') ?: get_the_content();
-
-$feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_template_directory_uri() . '/assets/img/hww_stacks_visual.jpg';
 ?>
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
 
@@ -77,22 +24,9 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
     --font-heading: 'Michroma', sans-serif;
   }
 
-  body {
-    background: #FFFFFF;
-    color: var(--c8-ink);
-    font-family: var(--font-body);
-    line-height: 1.65;
-    overflow-x: hidden;
-  }
-
-  .c8cs-root { position: relative; width: 100%; }
+  .c8cs-root { position: relative; width: 100%; background: #FFFFFF; color: var(--c8-ink); font-family: var(--font-body); }
   .c8cs-wrap { max-width: 1340px; margin: 0 auto; padding: 3rem 2rem 5rem; position: relative; z-index: 2; }
   @media (max-width: 768px) { .c8cs-wrap { padding: 3.5rem 1.25rem; } }
-
-  .c8cs-back-btn {
-    font-family: var(--font-mono); font-size: 10px; color: #8A8A8A; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2.5rem; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; text-decoration: none; font-weight: 700; position: relative; z-index: 2;
-  }
-  .c8cs-back-btn:hover { color: var(--c8-blue); }
 
   .c8cs-label {
     font-family: var(--font-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--c8-blue); display: inline-flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;
@@ -216,6 +150,9 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
   .c8cs-status-val { font-family: var(--font-heading); font-size: 10.5px; font-weight: 700; color: #00BF63; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 8px; line-height: 1.2; }
   .c8cs-checkmark-circle { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: #00BF63; color: #FFFFFF; font-size: 10px; font-weight: bold; }
 
+  .c8cs-back-btn { font-family: var(--font-mono); font-size: 10px; color: #8A8A8A; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2.5rem; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; text-decoration: none; position: relative; z-index: 2; font-weight: 700; }
+  .c8cs-back-btn:hover { color: var(--c8-blue); }
+
   .c8cs-related-paper-outer { background: #FFFFFF; padding: 6rem 0; border-bottom: 1px solid var(--c8-grid-line); width: 100%; }
   .c8cs-related-matrix-box { max-width: 1340px; margin: 0 auto; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
   .c8cs-related-matrix-header { padding: 3.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
@@ -269,33 +206,33 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
     <div class="c8cs-wrap" style="padding-top: 1rem; padding-bottom: 2rem;">
       <a href="<?php echo esc_url(home_url('/portfolio/')); ?>" class="c8cs-back-btn">&larr; Back to Portfolio</a>
       
-      <div class="c8cs-label">Case Study // <?php echo esc_html($industry); ?></div>
-      <h1 class="c8cs-headline"><?php echo esc_html($client_name); ?> <br><span class="c8cs-serif">— <?php echo esc_html($services); ?></span></h1>
-      <p class="c8cs-lead"><?php echo esc_html($hero_lead); ?></p>
+      <div class="c8cs-label">Case Study // Luxury E-Commerce &amp; WooCommerce</div>
+      <h1 class="c8cs-headline">SweeterMen NG: Full-Stack <span class="c8cs-serif">WooCommerce Store</span></h1>
+      <p class="c8cs-lead">SweeterMen NG required a high-conversion e-commerce platform for luxury men's accessories. We engineered a custom WooCommerce theme with zero plugin bloat, custom checkout hooks, and integrated paid Meta ad campaigns.</p>
       
       <div class="fylla-pill-row">
-        <span class="fylla-pill">Web Design</span>
-        <span class="fylla-pill">Entity SEO</span>
-        <span class="fylla-pill">WordPress Custom</span>
-        <span class="fylla-pill">Brand Identity</span>
+        <span class="fylla-pill">WooCommerce</span>
+        <span class="fylla-pill">Custom PHP</span>
+        <span class="fylla-pill">Paid Growth</span>
+        <span class="fylla-pill">Checkout CRO</span>
       </div>
 
       <div class="c8cs-meta-grid">
         <div class="c8cs-meta-item">
           <span class="c8cs-meta-lbl">Client</span>
-          <span class="c8cs-meta-val"><?php echo esc_html($client_name); ?></span>
+          <span class="c8cs-meta-val">SweeterMen NG</span>
         </div>
         <div class="c8cs-meta-item">
           <span class="c8cs-meta-lbl">Services</span>
-          <span class="c8cs-meta-val"><?php echo esc_html($services); ?></span>
+          <span class="c8cs-meta-val">WooCommerce &amp; Paid Ads</span>
         </div>
         <div class="c8cs-meta-item">
           <span class="c8cs-meta-lbl">Stack</span>
-          <span class="c8cs-meta-val"><?php echo esc_html($stack); ?></span>
+          <span class="c8cs-meta-val">WordPress · WooCommerce · Meta Ads</span>
         </div>
         <div class="c8cs-meta-item">
           <span class="c8cs-meta-lbl">Link</span>
-          <span class="c8cs-meta-val"><a href="<?php echo esc_url($project_link); ?>" target="_blank" rel="noopener" style="color: #0047E1; text-decoration: underline;"><?php echo esc_html(str_replace(array('https://', 'http://', '/'), '', $project_link)); ?> ↗</a></span>
+          <span class="c8cs-meta-val"><a href="https://sweetermen.ng/" target="_blank" rel="noopener" style="color: #0047E1; text-decoration: underline;">sweetermen.ng ↗</a></span>
         </div>
       </div>
     </div>
@@ -304,7 +241,7 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
   <!-- Scroll Grow Media -->
   <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
     <div class="c8cs-main-img-box" id="c8cs-grow-target">
-      <img src="<?php echo esc_url($feat_img); ?>" alt="<?php echo esc_attr($client_name); ?>">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1600&auto=format&fit=crop" alt="SweeterMen NG showcase — built by Cr8v Stacks">
     </div>
   </div>
 
@@ -313,9 +250,10 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
     <div class="c8cs-split-section">
       <div class="c8cs-split-left">
         <div class="c8cs-label">Overview</div>
-        <h2 class="c8cs-split-title"><?php echo esc_html($overview_title); ?></h2>
+        <h2 class="c8cs-split-title">The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span></h2>
         <div class="c8cs-body-content">
-          <?php echo wp_kses_post($overview_desc); ?>
+          <p>SweeterMen NG was struggling with high cart abandonment rates and slow page loading times on their legacy WooCommerce setup.</p>
+          <p>They needed a sleek custom storefront with an app-free 1-step checkout drawer, seamless mobile payment gateway wiring, and targeted ad funnels.</p>
         </div>
       </div>
 
@@ -325,8 +263,8 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <div>
-            <h3 class="fylla-value-h3">01 / Brand Strategy &amp; Identity System</h3>
-            <p class="fylla-value-desc">Developed a high-trust color token palette, logotype typography scales, and unified visual guidelines.</p>
+            <h3 class="fylla-value-h3">01 / Custom WooCommerce Theme Code</h3>
+            <p class="fylla-value-desc">Hand-coded a responsive PHP theme eliminating 15+ heavy third-party plugins for sub-1.5s load speeds.</p>
           </div>
         </div>
         <div class="fylla-value-item">
@@ -334,8 +272,8 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <div>
-            <h3 class="fylla-value-h3">02 / Custom Catalog &amp; Layout Engine</h3>
-            <p class="fylla-value-desc">Engineered clean custom Gutenberg &amp; Elementor layout templates with high-res gallery carousels.</p>
+            <h3 class="fylla-value-h3">02 / AJAX Cart &amp; Quick Checkout Drawer</h3>
+            <p class="fylla-value-desc">Built a custom AJAX slide-out cart drawer with instant quantity updates and express payment options.</p>
           </div>
         </div>
         <div class="fylla-value-item">
@@ -343,8 +281,8 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <div>
-            <h3 class="fylla-value-h3">03 / Entity SEO &amp; Schema Integration</h3>
-            <p class="fylla-value-desc">Structured Schema.org JSON-LD code directly into the site header to dominate local search queries.</p>
+            <h3 class="fylla-value-h3">03 / Payment Gateway Optimization</h3>
+            <p class="fylla-value-desc">Integrated Paystack &amp; Flutterwave secure checkout webhooks with automated order confirmation triggers.</p>
           </div>
         </div>
         <div class="fylla-value-item">
@@ -352,8 +290,8 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <div>
-            <h3 class="fylla-value-h3">04 / Speed &amp; Conversion Optimization</h3>
-            <p class="fylla-value-desc">Tuned asset loading pipelines to achieve sub-2 second mobile page loads and seamless reservation routes.</p>
+            <h3 class="fylla-value-h3">04 / Dynamic Meta Conversion Retargeting</h3>
+            <p class="fylla-value-desc">Deployed Meta Pixel event triggers to retarget cart abandoners with dynamic product ad sets.</p>
           </div>
         </div>
       </div>
@@ -399,7 +337,7 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
             <div class="c8cs-gallery-card-bottom">
               <p class="c8cs-gallery-desc">Designing custom user interfaces, pricing breakdowns, and direct conversion triggers.</p>
               <div class="c8cs-gallery-img-box">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_workflow_visual.jpg'); ?>" alt="Interface screenshot">
+                <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop" alt="Sweetermen NG interface detail screenshot">
               </div>
             </div>
           </div>
@@ -412,10 +350,10 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
             <div class="c8cs-gallery-card-bottom">
               <p class="c8cs-gallery-desc">Optimizing touch targets and instant contact forms for mobile users discovering the platform online.</p>
               <div class="c8cs-gallery-img-box is-tall">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/services_visual_montage.jpg'); ?>" alt="Mobile experience flow">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop" alt="Sweetermen NG mobile experience flow">
               </div>
             </div>
-          </div>
+          </div>  </div>
         </div>
       </div>
     </div>
@@ -432,19 +370,19 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
 
         <div class="c8cs-metrics-grid">
           <div class="c8cs-metric-card">
-            <div class="c8cs-metric-val"><?php echo esc_html($metric_1_val); ?></div>
-            <div class="c8cs-metric-lbl"><?php echo esc_html($metric_1_lbl); ?></div>
-            <p class="c8cs-metric-desc"><?php echo esc_html($metric_1_desc); ?></p>
+            <div class="c8cs-metric-val">+45%</div>
+            <div class="c8cs-metric-lbl">Cart Checkout Conversion</div>
+            <p class="c8cs-metric-desc">Increased completed order velocity through streamlined 1-step mobile checkout paths.</p>
           </div>
           <div class="c8cs-metric-card">
-            <div class="c8cs-metric-val"><?php echo esc_html($metric_2_val); ?></div>
-            <div class="c8cs-metric-lbl"><?php echo esc_html($metric_2_lbl); ?></div>
-            <p class="c8cs-metric-desc"><?php echo esc_html($metric_2_desc); ?></p>
+            <div class="c8cs-metric-val">1.4s</div>
+            <div class="c8cs-metric-lbl">Average Mobile Page Load</div>
+            <p class="c8cs-metric-desc">Achieved lightning-fast loading speeds on mobile devices for seamless shopping UX.</p>
           </div>
 
           <div class="c8cs-metric-card">
             <div class="c8cs-metric-lbl" style="margin-bottom: 1.5rem;">Live Verification</div>
-            <a href="<?php echo esc_url($project_link); ?>" target="_blank" rel="noopener" class="c8cs-status-badge">
+            <a href="https://sweetermen.ng/" target="_blank" rel="noopener" class="c8cs-status-badge">
               <span class="c8cs-status-lbl">Launch Status</span>
               <span class="c8cs-status-val">
                 <span class="c8cs-checkmark-circle">✓</span> Visit Live Site ↗
@@ -467,27 +405,27 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
         </div>
 
         <div class="c8cs-related-matrix-grid">
-          <a href="<?php echo esc_url(home_url('/portfolio/kiri-city-stays/')); ?>" class="c8cs-related-cell">
+          <a href="<?php echo esc_url(home_url('/portfolio/victorias-lane/')); ?>" class="c8cs-related-cell">
             <div>
-              <div class="c8cs-related-cell-tag">01 / Web Design &amp; Booking</div>
-              <h3 class="c8cs-related-cell-title">Kiri City Stays</h3>
-              <p class="c8cs-related-cell-desc">Direct booking platform &amp; luxury stay catalog engineered for seamless reservations and local SEO visibility.</p>
+              <div class="c8cs-related-cell-tag">01 / Shopify Storefront</div>
+              <h3 class="c8cs-related-cell-title">Victoria's Lane</h3>
+              <p class="c8cs-related-cell-desc">Luxury handbag e-commerce storefront hand-coded in custom Liquid with AJAX cart drawer.</p>
             </div>
             <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
           </a>
-          <a href="<?php echo esc_url(home_url('/portfolio/mkenny-properties/')); ?>" class="c8cs-related-cell">
+          <a href="<?php echo esc_url(home_url('/portfolio/stride-plus-media/')); ?>" class="c8cs-related-cell">
             <div>
-              <div class="c8cs-related-cell-tag">02 / WordPress Custom</div>
-              <h3 class="c8cs-related-cell-title">Mkenny Properties</h3>
-              <p class="c8cs-related-cell-desc">Full real estate platform featuring custom Elementor widgets, listing archives, and property detail templates.</p>
+              <div class="c8cs-related-cell-tag">02 / Digital Marketing</div>
+              <h3 class="c8cs-related-cell-title">Stride Plus Media</h3>
+              <p class="c8cs-related-cell-desc">Brand strategy positioning and multi-channel paid acquisition funnels for Stride Radio.</p>
             </div>
             <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
           </a>
-          <a href="<?php echo esc_url(home_url('/portfolio/the-duch-apartments/')); ?>" class="c8cs-related-cell">
+          <a href="<?php echo esc_url(home_url('/portfolio/blvck-hair-ng/')); ?>" class="c8cs-related-cell">
             <div>
-              <div class="c8cs-related-cell-tag">03 / Web Design &amp; SEO</div>
-              <h3 class="c8cs-related-cell-title">The Duch Apartments</h3>
-              <p class="c8cs-related-cell-desc">Brand identity and direct booking platform engineered with SEO architecture built in from day one.</p>
+              <div class="c8cs-related-cell-tag">03 / SEO &amp; Content Strategy</div>
+              <h3 class="c8cs-related-cell-title">blvck Hair NG</h3>
+              <p class="c8cs-related-cell-desc">Organic revenue growth powered by semantic keyword mapping and entity search architecture.</p>
             </div>
             <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
           </a>

@@ -10,8 +10,8 @@ defined('ABSPATH') || exit;
 // Load helper functions
 require_once get_template_directory() . '/inc/customizer/helpers.php';
 
+// Register all customizer panels on customize_register action hook
 add_action('customize_register', function ($wp_customize) {
-    // Load Panel Modules
     require_once get_template_directory() . '/inc/customizer/panel-homepage.php';
     require_once get_template_directory() . '/inc/customizer/panel-about.php';
     require_once get_template_directory() . '/inc/customizer/panel-services.php';
@@ -26,4 +26,7 @@ add_action('customize_register', function ($wp_customize) {
     require_once get_template_directory() . '/inc/customizer/panel-digital-marketing.php';
     require_once get_template_directory() . '/inc/customizer/panel-brand-identity.php';
     require_once get_template_directory() . '/inc/customizer/panel-brand-strategy.php';
+    require_once get_template_directory() . '/inc/customizer/panel-case-studies.php';
+    require_once get_template_directory() . '/inc/customizer/panel-contact.php';
+    require_once get_template_directory() . '/inc/customizer/panel-blog.php';
 });

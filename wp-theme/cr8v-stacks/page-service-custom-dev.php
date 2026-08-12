@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: Service — Custom Development
- * Description: Custom Development Service Page Template with 100% Customizer Control Parity
+ * Template Name: Service — Custom Web Development
+ * Description: Custom Web Development Service Page Template with 100% Customizer Control Parity & Exact Layout Parity
  */
 defined('ABSPATH') || exit;
 ?><!DOCTYPE html>
@@ -13,26 +13,6 @@ defined('ABSPATH') || exit;
   <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri() . '/assets/css/shared-service-components.css'); ?>">
   <?php wp_head(); ?>
   <style>
-  .faq-cta-link {
-    background: #0047E1 !important;
-    color: #FFFFFF !important;
-    padding: 0.85rem 1.6rem !important;
-    border-radius: 4px !important;
-    stroke: #FFFFFF !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    font-family: 'Space Mono', monospace !important;
-    font-size: 0.85rem !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
-    text-decoration: none !important;
-  }
-  .faq-cta-link svg {
-    stroke: #FFFFFF !important;
-  }
-  /* Scope Estimator Choice Buttons */
   .c8srv-est-choices {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -70,7 +50,6 @@ defined('ABSPATH') || exit;
 
 <div class="c8isv-root">
 <style>
-/* Universal White 4px Case Study Deliverable Pills CSS */
 .c8isv-portfolio-deliverables, .c8srv-portfolio-deliverables {
   grid-column: 1 / -1 !important;
   margin-top: 1.25rem !important;
@@ -113,9 +92,7 @@ defined('ABSPATH') || exit;
 }
 </style>
 
-<!-- ══════════════════════════════════════════
-     SECTION 1: HERO (Dark)
-     ══════════════════════════════════════════ -->
+<!-- SECTION 1: HERO -->
 <div class="c8isv-hero-wrap" data-c8isv-hero>
   <div class="c8isv-hero-atmos">
     <svg class="c8isv-atmos-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
@@ -149,22 +126,21 @@ defined('ABSPATH') || exit;
     <div class="c8isv-hero-grid">
       <div class="c8isv-hero-content">
         <div class="c8isv-breadcrumb"><a href="<?php echo esc_url(home_url('/services/')); ?>"><?php echo esc_html(cr8v_mod('cdev_hero_crumb_parent', 'SERVICES')); ?></a> <span>/</span> <span class="is-current"><?php echo esc_html(cr8v_mod('cdev_hero_crumb_child', 'CUSTOM DEVELOPMENT')); ?></span></div>
-        <div class="c8isv-label is-light" data-customizer="cdev_hero_label"><?php echo esc_html(cr8v_mod('cdev_hero_label', 'Bespoke Application & Software Architecture')); ?></div>
-        <h1 class="c8isv-headline"><span data-customizer="cdev_hero_h1_part1"><?php echo esc_html(cr8v_mod('cdev_hero_h1_part1', 'Custom Web Applications ')); ?></span><span class="c8isv-serif" data-customizer="cdev_hero_h1_serif"><?php echo esc_html(cr8v_mod('cdev_hero_h1_serif', '& Bespoke Software')); ?></span></h1>
-        <p class="c8isv-hero-intro" data-customizer="cdev_hero_intro"><?php echo wp_kses_post(cr8v_mod('cdev_hero_intro', 'Bespoke web applications, interactive portals, and administrative dashboards engineered with custom React, Next.js, PHP, and SQL databases — tailored precisely to your complex business logic and scalability needs.')); ?></p>
+        <div class="c8isv-label is-light" data-customizer="cdev_hero_label"><?php echo esc_html(cr8v_mod('cdev_hero_label', 'Full-Stack Software Architecture & APIs')); ?></div>
+        <h1 class="c8isv-headline"><span data-customizer="cdev_hero_h1_part1"><?php echo esc_html(cr8v_mod('cdev_hero_h1_part1', 'Custom Software ')); ?></span><span class="c8isv-serif" data-customizer="cdev_hero_h1_serif"><?php echo esc_html(cr8v_mod('cdev_hero_h1_serif', '& Web Development')); ?></span></h1>
+        <p class="c8isv-hero-intro" data-customizer="cdev_hero_intro"><?php echo wp_kses_post(cr8v_mod('cdev_hero_intro', 'Bespoke web applications, high-performance APIs, relational database schemas, and microservice architectures engineered precisely to solve complex enterprise challenges.')); ?></p>
         <div class="c8isv-hero-ctas">
           <a href="<?php echo esc_url(cr8v_mod('cdev_hero_cta1_url', '#c8isv-services')); ?>" class="c8isv-btn-primary" data-customizer="cdev_hero_cta1_text"><?php echo esc_html(cr8v_mod('cdev_hero_cta1_text', 'See What We Build →')); ?></a>
           <a href="<?php echo esc_url(home_url(cr8v_mod('cdev_hero_cta2_url', '/discovery-call/'))); ?>" class="c8isv-btn-ghost" data-customizer="cdev_hero_cta2_text"><?php echo esc_html(cr8v_mod('cdev_hero_cta2_text', 'Get a Quote →')); ?></a>
         </div>
         <div class="c8isv-pill-row">
-          <span class="c8isv-pill" data-customizer="cdev_hero_pill1"><?php echo esc_html(cr8v_mod('cdev_hero_pill1', 'React')); ?></span>
-          <span class="c8isv-pill" data-customizer="cdev_hero_pill2"><?php echo esc_html(cr8v_mod('cdev_hero_pill2', 'Next.js')); ?></span>
-          <span class="c8isv-pill" data-customizer="cdev_hero_pill3"><?php echo esc_html(cr8v_mod('cdev_hero_pill3', 'PHP')); ?></span>
-          <span class="c8isv-pill" data-customizer="cdev_hero_pill4"><?php echo esc_html(cr8v_mod('cdev_hero_pill4', 'Node.js')); ?></span>
+          <span class="c8isv-pill" data-customizer="cdev_hero_pill1"><?php echo esc_html(cr8v_mod('cdev_hero_pill1', 'React & Node')); ?></span>
+          <span class="c8isv-pill" data-customizer="cdev_hero_pill2"><?php echo esc_html(cr8v_mod('cdev_hero_pill2', 'REST & GraphQL')); ?></span>
+          <span class="c8isv-pill" data-customizer="cdev_hero_pill3"><?php echo esc_html(cr8v_mod('cdev_hero_pill3', 'PostgreSQL / MySQL')); ?></span>
+          <span class="c8isv-pill" data-customizer="cdev_hero_pill4"><?php echo esc_html(cr8v_mod('cdev_hero_pill4', 'Microservices')); ?></span>
         </div>
       </div>
       
-      <!-- Right Side Parallax Shatter Animation -->
       <div class="c8isv-anim-container" id="c8isv-anim-wrapper">
         <canvas id="c8isv-canvas-bg"></canvas>
         <canvas id="c8isv-canvas-main"></canvas>
@@ -175,56 +151,49 @@ defined('ABSPATH') || exit;
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 2: WHY CUSTOM DEVELOPMENT (Flank Cards Stack)
-     Light #F4F6FB
-     ══════════════════════════════════════════ -->
+<!-- SECTION 2: WHY CUSTOM DEV -->
 <div class="c8isv-flank-section">
   <div class="c8isv-flank-inner">
     <div class="c8isv-label c8isv-reveal is-center" data-customizer="cdev_flank_label"><?php echo esc_html(cr8v_mod('cdev_flank_label', 'Why Custom Development')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal" data-customizer="cdev_flank_h2"><?php echo esc_html(cr8v_mod('cdev_flank_h2', 'Software Built Around Your Business Logic, Not SaaS Limits')); ?></h2>
+    <h2 class="c8isv-section-title c8isv-reveal" data-customizer="cdev_flank_h2"><?php echo esc_html(cr8v_mod('cdev_flank_h2', 'Built Without Limits for Complex Workflows')); ?></h2>
 
     <div class="c8isv-flank-container" data-c8isv-flank-trigger>
-      <!-- Card 1 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="0">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step" data-customizer="cdev_flank1_step"><?php echo esc_html(cr8v_mod('cdev_flank1_step', 'Ownership // 100% Data')); ?></span>
+        <span class="c8isv-flank-card-step" data-customizer="cdev_flank1_step"><?php echo esc_html(cr8v_mod('cdev_flank1_step', 'Architecture // Scale')); ?></span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title" data-customizer="cdev_flank1_title"><?php echo esc_html(cr8v_mod('cdev_flank1_title', '100% Code & Data Ownership')); ?></h3>
-        <p class="c8isv-flank-card-desc" data-customizer="cdev_flank1_desc"><?php echo wp_kses_post(cr8v_mod('cdev_flank1_desc', 'You own your entire codebase, database schema, and intellectual property with zero ongoing SaaS platform taxes.')); ?></p>
+        <h3 class="c8isv-flank-card-title" data-customizer="cdev_flank1_title"><?php echo esc_html(cr8v_mod('cdev_flank1_title', 'Clean Full-Stack Architecture')); ?></h3>
+        <p class="c8isv-flank-card-desc" data-customizer="cdev_flank1_desc"><?php echo wp_kses_post(cr8v_mod('cdev_flank1_desc', 'Decoupled front-end interfaces powered by robust backend APIs and scalable database models built for longevity.')); ?></p>
         <div class="c8isv-flank-card-icon">
           <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
       </div>
-      <!-- Card 2 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="1">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step" data-customizer="cdev_flank2_step"><?php echo esc_html(cr8v_mod('cdev_flank2_step', 'Scale // Unlimited')); ?></span>
+        <span class="c8isv-flank-card-step" data-customizer="cdev_flank2_step"><?php echo esc_html(cr8v_mod('cdev_flank2_step', 'API // Integration')); ?></span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title" data-customizer="cdev_flank2_title"><?php echo esc_html(cr8v_mod('cdev_flank2_title', 'Bespoke Business Logic')); ?></h3>
-        <p class="c8isv-flank-card-desc" data-customizer="cdev_flank2_desc"><?php echo wp_kses_post(cr8v_mod('cdev_flank2_desc', 'Custom database relationships, proprietary workflows, and automated pipelines designed specifically for your operational needs.')); ?></p>
+        <h3 class="c8isv-flank-card-title" data-customizer="cdev_flank2_title"><?php echo esc_html(cr8v_mod('cdev_flank2_title', 'Custom API & Webhook Suite')); ?></h3>
+        <p class="c8isv-flank-card-desc" data-customizer="cdev_flank2_desc"><?php echo wp_kses_post(cr8v_mod('cdev_flank2_desc', 'Seamless third-party API wiring, secure OAuth authentication, and real-time webhook listeners.')); ?></p>
         <div class="c8isv-flank-card-icon">
           <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
       </div>
-      <!-- Card 3 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="2">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step" data-customizer="cdev_flank3_step"><?php echo esc_html(cr8v_mod('cdev_flank3_step', 'Security // Enterprise')); ?></span>
+        <span class="c8isv-flank-card-step" data-customizer="cdev_flank3_step"><?php echo esc_html(cr8v_mod('cdev_flank3_step', 'Data // Integrity')); ?></span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title" data-customizer="cdev_flank3_title"><?php echo esc_html(cr8v_mod('cdev_flank3_title', 'Hardened Custom Security')); ?></h3>
-        <p class="c8isv-flank-card-desc" data-customizer="cdev_flank3_desc"><?php echo wp_kses_post(cr8v_mod('cdev_flank3_desc', 'Clean custom-coded backends built with explicit input validation, SQL injection prevention, role-based access control, and strict API authentication.')); ?></p>
+        <h3 class="c8isv-flank-card-title" data-customizer="cdev_flank3_title"><?php echo esc_html(cr8v_mod('cdev_flank3_title', 'Relational Database Schema')); ?></h3>
+        <p class="c8isv-flank-card-desc" data-customizer="cdev_flank3_desc"><?php echo wp_kses_post(cr8v_mod('cdev_flank3_desc', 'Optimized SQL database indexes, ACID compliance, and secure data encryption at rest and in transit.')); ?></p>
         <div class="c8isv-flank-card-icon">
           <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
         </div>
       </div>
-      <!-- Card 4 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="3">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step" data-customizer="cdev_flank4_step"><?php echo esc_html(cr8v_mod('cdev_flank4_step', 'API // Integration')); ?></span>
+        <span class="c8isv-flank-card-step" data-customizer="cdev_flank4_step"><?php echo esc_html(cr8v_mod('cdev_flank4_step', 'DevOps // Cloud')); ?></span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title" data-customizer="cdev_flank4_title"><?php echo esc_html(cr8v_mod('cdev_flank4_title', 'Seamless API Integrations')); ?></h3>
-        <p class="c8isv-flank-card-desc" data-customizer="cdev_flank4_desc"><?php echo wp_kses_post(cr8v_mod('cdev_flank4_desc', 'Connecting third-party webhooks, payment providers, AI models, and internal tools into unified web dashboards.')); ?></p>
+        <h3 class="c8isv-flank-card-title" data-customizer="cdev_flank4_title"><?php echo esc_html(cr8v_mod('cdev_flank4_title', 'Automated CI/CD Pipeline')); ?></h3>
+        <p class="c8isv-flank-card-desc" data-customizer="cdev_flank4_desc"><?php echo wp_kses_post(cr8v_mod('cdev_flank4_desc', 'Automated testing, containerized Docker deployments, and zero-downtime server migrations.')); ?></p>
         <div class="c8isv-flank-card-icon">
           <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         </div>
@@ -233,10 +202,7 @@ defined('ABSPATH') || exit;
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 3: OUR WORK (Portfolio Showcase)
-     White Background — Bridgepoint Consulting Showcase
-     ══════════════════════════════════════════ -->
+<!-- SECTION 3: OUR WORK -->
 <div class="c8isv-portfolio-outer">
   <div class="c8isv-portfolio-inner">
     <div class="c8isv-portfolio-head">
@@ -245,32 +211,32 @@ defined('ABSPATH') || exit;
     </div>
     <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
       <div class="c8isv-portfolio-img">
-        <img src="<?php echo esc_url(cr8v_mod('cdev_port_img', 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop')); ?>" alt="Bridgepoint Consulting Services — built by Cr8v Stacks" data-customizer="cdev_port_img">
+        <img src="<?php echo esc_url(cr8v_mod('cdev_port_img', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop')); ?>" alt="Enterprise Web App — built by Cr8v Stacks" data-customizer="cdev_port_img">
       </div>
       <div class="c8isv-portfolio-info">
-        <span class="c8isv-portfolio-client" data-customizer="cdev_port_client"><?php echo esc_html(cr8v_mod('cdev_port_client', 'Case Study — Bridgepoint Consulting Services')); ?></span>
-        <h3 class="c8isv-portfolio-title" data-customizer="cdev_port_title"><?php echo esc_html(cr8v_mod('cdev_port_title', 'Compliance Analysis Checker')); ?></h3>
-        <p class="c8isv-portfolio-desc" data-customizer="cdev_port_desc"><?php echo wp_kses_post(cr8v_mod('cdev_port_desc', 'A custom-built compliance analysis and checking application, delivered end-to-end by our team for a real business use case. Client project under NDA — architecture engineered with custom PHP and SQL data models.')); ?></p>
+        <span class="c8isv-portfolio-client" data-customizer="cdev_port_client"><?php echo esc_html(cr8v_mod('cdev_port_client', 'Case Study — Apex Logistics Portal')); ?></span>
+        <h3 class="c8isv-portfolio-title" data-customizer="cdev_port_title"><?php echo esc_html(cr8v_mod('cdev_port_title', 'Custom Fleet Management Dashboard & Real-Time API Engine')); ?></h3>
+        <p class="c8isv-portfolio-desc" data-customizer="cdev_port_desc"><?php echo wp_kses_post(cr8v_mod('cdev_port_desc', 'Apex Logistics needed a real-time fleet tracking portal with webhooks and automated dispatching. We engineered a custom React dashboard backed by a Node.js REST API and PostgreSQL database.')); ?></p>
         <div class="c8isv-portfolio-stats">
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="cdev_port_stat1_val"><?php echo esc_html(cr8v_mod('cdev_port_stat1_val', '1')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="cdev_port_stat1_lbl"><?php echo esc_html(cr8v_mod('cdev_port_stat1_lbl', 'Full App Delivered Independently')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="cdev_port_stat1_val"><?php echo esc_html(cr8v_mod('cdev_port_stat1_val', '10k+')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="cdev_port_stat1_lbl"><?php echo esc_html(cr8v_mod('cdev_port_stat1_lbl', 'Real-Time Webhook Events / Min')); ?></span>
           </div>
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="cdev_port_stat2_val"><?php echo esc_html(cr8v_mod('cdev_port_stat2_val', '100%')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="cdev_port_stat2_lbl"><?php echo esc_html(cr8v_mod('cdev_port_stat2_lbl', 'Client-Owned Code & Data')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="cdev_port_stat2_val"><?php echo esc_html(cr8v_mod('cdev_port_stat2_val', '99.99%')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="cdev_port_stat2_lbl"><?php echo esc_html(cr8v_mod('cdev_port_stat2_lbl', 'Cloud Infrastructure Uptime')); ?></span>
           </div>
         </div>
         <div class="c8isv-portfolio-deliverables">
           <span class="c8isv-portfolio-stat-lbl">Key Deliverables</span>
           <div class="c8isv-portfolio-pills">
-            <span class="c8isv-portfolio-pill">Bespoke Web Application</span>
-            <span class="c8isv-portfolio-pill">Custom SQL Schema</span>
-            <span class="c8isv-portfolio-pill">Role-Based Access Control</span>
-            <span class="c8isv-portfolio-pill">REST API Engine</span>
+            <span class="c8isv-portfolio-pill">React SPA Dashboard</span>
+            <span class="c8isv-portfolio-pill">Node.js API Suite</span>
+            <span class="c8isv-portfolio-pill">PostgreSQL Database</span>
+            <span class="c8isv-portfolio-pill">Docker &amp; AWS DevOps</span>
           </div>
         </div>
-        <a href="<?php echo esc_url(home_url(cr8v_mod('cdev_port_btn_url', '/case-studies/bridgepoint-consulting/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="cdev_port_btn_text"><?php echo esc_html(cr8v_mod('cdev_port_btn_text', 'View Case Study →')); ?></a>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('cdev_port_btn_url', '/case-studies/apex-logistics/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="cdev_port_btn_text"><?php echo esc_html(cr8v_mod('cdev_port_btn_text', 'View Case Study →')); ?></a>
       </div>
     </div>
     <div class="c8isv-portfolio-footer">
@@ -279,88 +245,80 @@ defined('ABSPATH') || exit;
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 4: WHAT YOU GET (Folder Deck)
-     Cream #FAFAF9
-     ══════════════════════════════════════════ -->
+<!-- SECTION 4: WHAT YOU GET -->
 <div class="c8srv-folder-section" id="c8isv-services">
   <div class="c8isv-wrap">
     <div class="c8isv-label c8isv-reveal" data-customizer="cdev_folder_label"><?php echo esc_html(cr8v_mod('cdev_folder_label', 'What You Get')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="cdev_folder_h2_part1"><?php echo esc_html(cr8v_mod('cdev_folder_h2_part1', 'Every layer of your web app, ')); ?></span><span class="c8isv-serif" data-customizer="cdev_folder_h2_serif"><?php echo esc_html(cr8v_mod('cdev_folder_h2_serif', 'engineered by Cr8v Stacks.')); ?></span></h2>
-    <p class="c8isv-lead c8isv-reveal" style="margin-bottom:2rem" data-customizer="cdev_folder_desc"><?php echo wp_kses_post(cr8v_mod('cdev_folder_desc', 'Custom frontend user interfaces, relational SQL schemas, API integrations, admin dashboards, and production server deployments.')); ?></p>
+    <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="cdev_folder_h2_part1"><?php echo esc_html(cr8v_mod('cdev_folder_h2_part1', 'Every layer of your custom stack, ')); ?></span><span class="c8isv-serif" data-customizer="cdev_folder_h2_serif"><?php echo esc_html(cr8v_mod('cdev_folder_h2_serif', 'engineered by Cr8v Stacks.')); ?></span></h2>
+    <p class="c8isv-lead c8isv-reveal" style="margin-bottom:2rem" data-customizer="cdev_folder_desc"><?php echo wp_kses_post(cr8v_mod('cdev_folder_desc', 'Custom API endpoints, reactive front-end dashboards, database schemas, continuous integration pipelines, and automated cloud deployments.')); ?></p>
 
     <div class="c8srv-folder-deck" data-c8srv-folder-deck>
-      <!-- Card 1 -->
       <div class="c8srv-folder-card">
-        <div class="c8srv-folder-tab" data-customizer="cdev_folder1_tab"><?php echo esc_html(cr8v_mod('cdev_folder1_tab', '01 // Architecture')); ?></div>
+        <div class="c8srv-folder-tab" data-customizer="cdev_folder1_tab"><?php echo esc_html(cr8v_mod('cdev_folder1_tab', '01 // Frontend')); ?></div>
         <div class="c8srv-folder-card-left">
-          <h3 class="c8srv-folder-card-title" data-customizer="cdev_folder1_title"><?php echo esc_html(cr8v_mod('cdev_folder1_title', 'Custom Application Architecture')); ?></h3>
-          <p class="c8srv-folder-card-desc" data-customizer="cdev_folder1_desc"><?php echo wp_kses_post(cr8v_mod('cdev_folder1_desc', 'Bespoke database schemas, server architecture, and application wireframes built for high-throughput security.')); ?></p>
-          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss app architecture →</a>
+          <h3 class="c8srv-folder-card-title" data-customizer="cdev_folder1_title"><?php echo esc_html(cr8v_mod('cdev_folder1_title', 'Reactive Single Page Applications')); ?></h3>
+          <p class="c8srv-folder-card-desc" data-customizer="cdev_folder1_desc"><?php echo wp_kses_post(cr8v_mod('cdev_folder1_desc', 'Ultra-fast React or Vue front-ends with state management and dynamic client-side rendering.')); ?></p>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss web applications →</a>
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Custom Application Architecture">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Reactive Single Page Applications">
           </div>
         </div>
       </div>
 
-      <!-- Card 2 -->
       <div class="c8srv-folder-card">
-        <div class="c8srv-folder-tab" data-customizer="cdev_folder2_tab"><?php echo esc_html(cr8v_mod('cdev_folder2_tab', '02 // Frontend')); ?></div>
+        <div class="c8srv-folder-tab" data-customizer="cdev_folder2_tab"><?php echo esc_html(cr8v_mod('cdev_folder2_tab', '02 // API')); ?></div>
         <div class="c8srv-folder-card-left">
-          <h3 class="c8srv-folder-card-title" data-customizer="cdev_folder2_title"><?php echo esc_html(cr8v_mod('cdev_folder2_title', 'React & Next.js Frontend')); ?></h3>
-          <p class="c8srv-folder-card-desc" data-customizer="cdev_folder2_desc"><?php echo wp_kses_post(cr8v_mod('cdev_folder2_desc', 'High-performance dynamic client interfaces with real-time state management and zero unnecessary library overhead.')); ?></p>
-          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss frontend engineering →</a>
+          <h3 class="c8srv-folder-card-title" data-customizer="cdev_folder2_title"><?php echo esc_html(cr8v_mod('cdev_folder2_title', 'REST & GraphQL Backend APIs')); ?></h3>
+          <p class="c8srv-folder-card-desc" data-customizer="cdev_folder2_desc"><?php echo wp_kses_post(cr8v_mod('cdev_folder2_desc', 'Secure Node.js or Python API architectures with JWT authentication and rate limiting.')); ?></p>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss API engineering →</a>
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="React & Next.js Frontend">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="REST & GraphQL Backend APIs">
           </div>
         </div>
       </div>
 
-      <!-- Card 3 -->
       <div class="c8srv-folder-card">
-        <div class="c8srv-folder-tab" data-customizer="cdev_folder3_tab"><?php echo esc_html(cr8v_mod('cdev_folder3_tab', '03 // Backend')); ?></div>
+        <div class="c8srv-folder-tab" data-customizer="cdev_folder3_tab"><?php echo esc_html(cr8v_mod('cdev_folder3_tab', '03 // Database')); ?></div>
         <div class="c8srv-folder-card-left">
-          <h3 class="c8srv-folder-card-title" data-customizer="cdev_folder3_title"><?php echo esc_html(cr8v_mod('cdev_folder3_title', 'PHP & Node.js Backend APIs')); ?></h3>
-          <p class="c8srv-folder-card-desc" data-customizer="cdev_folder3_desc"><?php echo wp_kses_post(cr8v_mod('cdev_folder3_desc', 'Clean RESTful and GraphQL API endpoints, background worker jobs, and secure user authentication systems.')); ?></p>
-          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss backend APIs →</a>
+          <h3 class="c8srv-folder-card-title" data-customizer="cdev_folder3_title"><?php echo esc_html(cr8v_mod('cdev_folder3_title', 'Relational Database Engineering')); ?></h3>
+          <p class="c8srv-folder-card-desc" data-customizer="cdev_folder3_desc"><?php echo wp_kses_post(cr8v_mod('cdev_folder3_desc', 'Optimized PostgreSQL and MySQL database models with automated migration scripts.')); ?></p>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss database architecture →</a>
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="PHP & Node.js Backend APIs">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Relational Database Engineering">
           </div>
         </div>
       </div>
 
-      <!-- Card 4 -->
       <div class="c8srv-folder-card">
-        <div class="c8srv-folder-tab" data-customizer="cdev_folder4_tab"><?php echo esc_html(cr8v_mod('cdev_folder4_tab', '04 // Database')); ?></div>
+        <div class="c8srv-folder-tab" data-customizer="cdev_folder4_tab"><?php echo esc_html(cr8v_mod('cdev_folder4_tab', '04 // DevOps')); ?></div>
         <div class="c8srv-folder-card-left">
-          <h3 class="c8srv-folder-card-title" data-customizer="cdev_folder4_title"><?php echo esc_html(cr8v_mod('cdev_folder4_title', 'Relational SQL Data Modeling')); ?></h3>
-          <p class="c8srv-folder-card-desc" data-customizer="cdev_folder4_desc"><?php echo wp_kses_post(cr8v_mod('cdev_folder4_desc', 'Normalized MySQL and PostgreSQL database architectures optimized for sub-second query performance.')); ?></p>
-          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss database design →</a>
+          <h3 class="c8srv-folder-card-title" data-customizer="cdev_folder4_title"><?php echo esc_html(cr8v_mod('cdev_folder4_title', 'Docker & Cloud Infrastructure')); ?></h3>
+          <p class="c8srv-folder-card-desc" data-customizer="cdev_folder4_desc"><?php echo wp_kses_post(cr8v_mod('cdev_folder4_desc', 'AWS/DigitalOcean server provisioning, SSL certificates, and containerized Docker environments.')); ?></p>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss cloud DevOps →</a>
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Relational SQL Data Modeling">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Docker & Cloud Infrastructure">
           </div>
         </div>
       </div>
 
-      <!-- Card 5 -->
       <div class="c8srv-folder-card">
-        <div class="c8srv-folder-tab" data-customizer="cdev_folder5_tab"><?php echo esc_html(cr8v_mod('cdev_folder5_tab', '05 // Deployment')); ?></div>
+        <div class="c8srv-folder-tab" data-customizer="cdev_folder5_tab"><?php echo esc_html(cr8v_mod('cdev_folder5_tab', '05 // Testing')); ?></div>
         <div class="c8srv-folder-card-left">
-          <h3 class="c8srv-folder-card-title" data-customizer="cdev_folder5_title"><?php echo esc_html(cr8v_mod('cdev_folder5_title', 'Server Deployment & Maintenance')); ?></h3>
-          <p class="c8srv-folder-card-desc" data-customizer="cdev_folder5_desc"><?php echo wp_kses_post(cr8v_mod('cdev_folder5_desc', 'CI/CD pipeline configuration, SSL setup, cloud hosting deployment, and post-launch maintenance retainers.')); ?></p>
-          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss server deployment →</a>
+          <h3 class="c8srv-folder-card-title" data-customizer="cdev_folder5_title"><?php echo esc_html(cr8v_mod('cdev_folder5_title', 'Automated QA & Unit Testing')); ?></h3>
+          <p class="c8srv-folder-card-desc" data-customizer="cdev_folder5_desc"><?php echo wp_kses_post(cr8v_mod('cdev_folder5_desc', 'Integration tests, end-to-end Cypress user flows, and continuous security vulnerability scans.')); ?></p>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss testing suites →</a>
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Server Deployment & Maintenance">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Automated QA & Unit Testing">
           </div>
         </div>
       </div>
@@ -368,380 +326,333 @@ defined('ABSPATH') || exit;
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 5: HOW WE APPROACH IT (Process Deck)
-     White Background — Slanted Overlapping Cards
-     ══════════════════════════════════════════ -->
+<!-- SECTION 5: HOW WE APPROACH IT -->
 <div class="c8isv-approach-outer">
   <div class="c8isv-wrap" style="padding-bottom:0">
     <div class="c8isv-label c8isv-reveal" data-customizer="cdev_app_label"><?php echo esc_html(cr8v_mod('cdev_app_label', 'How We Approach It')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal" data-customizer="cdev_app_h2"><?php echo esc_html(cr8v_mod('cdev_app_h2', 'How We Approach Custom Development')); ?></h2>
+    <h2 class="c8isv-section-title c8isv-reveal" data-customizer="cdev_app_h2"><?php echo esc_html(cr8v_mod('cdev_app_h2', 'How We Approach Custom Software Engineering')); ?></h2>
     <p class="c8isv-lead c8isv-reveal" data-customizer="cdev_app_sub"><?php echo wp_kses_post(cr8v_mod('cdev_app_sub', 'Our milestone-driven design and engineering process delivers clear progress at every phase of your project.')); ?></p>
   </div>
   
   <div class="c8isv-approach-deck" data-c8isv-approach-deck>
-    <!-- Stage 1 -->
     <div class="c8isv-approach-wrap">
       <div class="c8isv-approach-card" data-c8isv-approach-card>
         <div class="c8isv-approach-col-num" data-customizer="cdev_app1_num"><?php echo esc_html(cr8v_mod('cdev_app1_num', '01')); ?></div>
-        <div class="c8isv-approach-col-name" data-customizer="cdev_app1_name"><?php echo esc_html(cr8v_mod('cdev_app1_name', 'Discover')); ?></div>
-        <div class="c8isv-approach-col-tags" data-customizer="cdev_app1_tags"><?php echo wp_kses_post(cr8v_mod('cdev_app1_tags', 'Specs &middot; Architecture &middot;<br>Schemas')); ?></div>
-        <div class="c8isv-approach-col-desc" data-customizer="cdev_app1_desc"><?php echo wp_kses_post(cr8v_mod('cdev_app1_desc', 'We audit business requirements, map database entities, define API contracts, and establish technical architecture blueprints.')); ?></div>
+        <div class="c8isv-approach-col-name" data-customizer="cdev_app1_name"><?php echo esc_html(cr8v_mod('cdev_app1_name', 'Discovery')); ?></div>
+        <div class="c8isv-approach-col-tags" data-customizer="cdev_app1_tags"><?php echo wp_kses_post(cr8v_mod('cdev_app1_tags', 'Specs &middot; Wireframes &middot;<br>API Mapping')); ?></div>
+        <div class="c8isv-approach-col-desc" data-customizer="cdev_app1_desc"><?php echo wp_kses_post(cr8v_mod('cdev_app1_desc', 'We define system requirements, map user flows, and architect API specifications before writing code.')); ?></div>
         <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" alt="Custom Dev Discovery stage">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" alt="Discovery stage">
         </div>
       </div>
     </div>
 
-    <!-- Stage 2 -->
     <div class="c8isv-approach-wrap">
       <div class="c8isv-approach-card" data-c8isv-approach-card>
         <div class="c8isv-approach-col-num" data-customizer="cdev_app2_num"><?php echo esc_html(cr8v_mod('cdev_app2_num', '02')); ?></div>
-        <div class="c8isv-approach-col-name" data-customizer="cdev_app2_name"><?php echo esc_html(cr8v_mod('cdev_app2_name', 'Build')); ?></div>
-        <div class="c8isv-approach-col-tags" data-customizer="cdev_app2_tags"><?php echo wp_kses_post(cr8v_mod('cdev_app2_tags', 'Frontend &middot; Backend &middot;<br>APIs')); ?></div>
-        <div class="c8isv-approach-col-desc" data-customizer="cdev_app2_desc"><?php echo wp_kses_post(cr8v_mod('cdev_app2_desc', 'We write clean, modular frontend code in React/Next.js and secure backend logic in PHP or Node.js with strict type verification.')); ?></div>
+        <div class="c8isv-approach-col-name" data-customizer="cdev_app2_name"><?php echo esc_html(cr8v_mod('cdev_app2_name', 'Architecture')); ?></div>
+        <div class="c8isv-approach-col-tags" data-customizer="cdev_app2_tags"><?php echo wp_kses_post(cr8v_mod('cdev_app2_tags', 'Database &middot; Security &middot;<br>Microservices')); ?></div>
+        <div class="c8isv-approach-col-desc" data-customizer="cdev_app2_desc"><?php echo wp_kses_post(cr8v_mod('cdev_app2_desc', 'We construct database schemas, design API authentication paths, and set up Docker dev environments.')); ?></div>
         <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop" alt="Custom Dev coding stage">
+          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop" alt="Architecture stage">
         </div>
       </div>
     </div>
 
-    <!-- Stage 3 -->
     <div class="c8isv-approach-wrap">
       <div class="c8isv-approach-card" data-c8isv-approach-card>
         <div class="c8isv-approach-col-num" data-customizer="cdev_app3_num"><?php echo esc_html(cr8v_mod('cdev_app3_num', '03')); ?></div>
-        <div class="c8isv-approach-col-name" data-customizer="cdev_app3_name"><?php echo esc_html(cr8v_mod('cdev_app3_name', 'Integration')); ?></div>
-        <div class="c8isv-approach-col-tags" data-customizer="cdev_app3_tags"><?php echo wp_kses_post(cr8v_mod('cdev_app3_tags', 'Databases &middot; Webhooks &middot;<br>Security')); ?></div>
-        <div class="c8isv-approach-col-desc" data-customizer="cdev_app3_desc"><?php echo wp_kses_post(cr8v_mod('cdev_app3_desc', 'We wire up SQL databases, integrate third-party APIs, write automated test cases, and execute security audits.')); ?></div>
+        <div class="c8isv-approach-col-name" data-customizer="cdev_app3_name"><?php echo esc_html(cr8v_mod('cdev_app3_name', 'Engineering')); ?></div>
+        <div class="c8isv-approach-col-tags" data-customizer="cdev_app3_tags"><?php echo wp_kses_post(cr8v_mod('cdev_app3_tags', 'React &middot; Node &middot;<br>CI/CD')); ?></div>
+        <div class="c8isv-approach-col-desc" data-customizer="cdev_app3_desc"><?php echo wp_kses_post(cr8v_mod('cdev_app3_desc', 'We build reactive front-end views, connect API endpoints, and execute unit test suites.')); ?></div>
         <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Custom Dev database integration stage">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Engineering stage">
         </div>
       </div>
     </div>
 
-    <!-- Stage 4 -->
     <div class="c8isv-approach-wrap">
       <div class="c8isv-approach-card" data-c8isv-approach-card>
         <div class="c8isv-approach-col-num" data-customizer="cdev_app4_num"><?php echo esc_html(cr8v_mod('cdev_app4_num', '04')); ?></div>
-        <div class="c8isv-approach-col-name" data-customizer="cdev_app4_name"><?php echo esc_html(cr8v_mod('cdev_app4_name', 'Deploy')); ?></div>
-        <div class="c8isv-approach-col-tags" data-customizer="cdev_app4_tags"><?php echo wp_kses_post(cr8v_mod('cdev_app4_tags', 'CI/CD &middot; Server &middot;<br>Handoff')); ?></div>
-        <div class="c8isv-approach-col-desc" data-customizer="cdev_app4_desc"><?php echo wp_kses_post(cr8v_mod('cdev_app4_desc', 'We configure production server environments, execute staging QA verification, and deploy your custom web app securely.')); ?></div>
+        <div class="c8isv-approach-col-name" data-customizer="cdev_app4_name"><?php echo esc_html(cr8v_mod('cdev_app4_name', 'Deployment')); ?></div>
+        <div class="c8isv-approach-col-tags" data-customizer="cdev_app4_tags"><?php echo wp_kses_post(cr8v_mod('cdev_app4_tags', 'AWS Cloud &middot; QA &middot;<br>Handoff')); ?></div>
+        <div class="c8isv-approach-col-desc" data-customizer="cdev_app4_desc"><?php echo wp_kses_post(cr8v_mod('cdev_app4_desc', 'We deploy to cloud servers, run end-to-end load tests, and hand over fully documented source code.')); ?></div>
         <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Custom Dev deployment stage">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Deployment stage">
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 5.5: CUSTOM STACK OPTIONS
-     White Background — 4 Platform Cards Deck
-     ══════════════════════════════════════════ -->
+<!-- SECTION 5.5: OPTIONS -->
 <div class="c8isv-fits-outer" style="background: #FFFFFF !important; padding: 6rem 0 !important; border-top: 1px solid rgba(8,8,8,0.08) !important;">
   <div class="c8isv-wrap">
-    <div class="c8isv-label c8isv-reveal" data-customizer="cdev_plat_label"><?php echo esc_html(cr8v_mod('cdev_plat_label', 'Custom Stack Engineering Options')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal" style="margin-bottom: 1.5rem !important;"><span data-customizer="cdev_plat_h2_part1"><?php echo esc_html(cr8v_mod('cdev_plat_h2_part1', 'Choosing Your ')); ?></span><span class="c8isv-serif" data-customizer="cdev_plat_h2_serif"><?php echo esc_html(cr8v_mod('cdev_plat_h2_serif', 'Custom Architecture')); ?></span></h2>
-    <p class="c8isv-lead c8isv-reveal" style="max-width: 720px !important; margin-bottom: 3rem !important;">Whether you need a full-stack React web application, a custom PHP/SQL portal, a serverless API backend, or an AI integration:</p>
+    <div class="c8isv-label c8isv-reveal" data-customizer="cdev_plat_label"><?php echo esc_html(cr8v_mod('cdev_plat_label', 'Development Options')); ?></div>
+    <h2 class="c8isv-section-title c8isv-reveal" style="margin-bottom: 1.5rem !important;"><span data-customizer="cdev_plat_h2_part1"><?php echo esc_html(cr8v_mod('cdev_plat_h2_part1', 'Choosing Your ')); ?></span><span class="c8isv-serif" data-customizer="cdev_plat_h2_serif"><?php echo esc_html(cr8v_mod('cdev_plat_h2_serif', 'Software Stack')); ?></span></h2>
+    <p class="c8isv-lead c8isv-reveal" style="max-width: 720px !important; margin-bottom: 3rem !important;">Whether you need a web app, a portal, or API engineering:</p>
     
     <div class="c8isv-platform-deck" data-c8isv-platform-trigger>
-      <!-- Option 1 -->
       <div class="c8isv-platform-card c8isv-reveal">
-        <span class="c8isv-platform-badge" data-customizer="cdev_plat1_badge"><?php echo esc_html(cr8v_mod('cdev_plat1_badge', 'Stack // React')); ?></span>
+        <span class="c8isv-platform-badge" data-customizer="cdev_plat1_badge"><?php echo esc_html(cr8v_mod('cdev_plat1_badge', 'Stack // Web App')); ?></span>
         <div class="c8isv-platform-divider"></div>
-        <h3 class="c8isv-platform-title" data-customizer="cdev_plat1_title"><?php echo esc_html(cr8v_mod('cdev_plat1_title', 'React & Next.js Applications')); ?></h3>
-        <p class="c8isv-platform-desc" data-customizer="cdev_plat1_desc"><?php echo wp_kses_post(cr8v_mod('cdev_plat1_desc', 'For dynamic SaaS web applications requiring fast, real-time client-side interactivity.')); ?></p>
-        <div class="c8isv-platform-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></svg>
-        </div>
+        <h3 class="c8isv-platform-title" data-customizer="cdev_plat1_title"><?php echo esc_html(cr8v_mod('cdev_plat1_title', 'Single Page Application (SPA)')); ?></h3>
+        <p class="c8isv-platform-desc" data-customizer="cdev_plat1_desc"><?php echo wp_kses_post(cr8v_mod('cdev_plat1_desc', 'For businesses requiring dynamic, desktop-like user experiences in the browser.')); ?></p>
+        <div class="c8isv-platform-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></svg></div>
       </div>
 
-      <!-- Option 2 -->
       <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d1">
-        <span class="c8isv-platform-badge" data-customizer="cdev_plat2_badge"><?php echo esc_html(cr8v_mod('cdev_plat2_badge', 'Stack // PHP')); ?></span>
+        <span class="c8isv-platform-badge" data-customizer="cdev_plat2_badge"><?php echo esc_html(cr8v_mod('cdev_plat2_badge', 'Stack // Portal')); ?></span>
         <div class="c8isv-platform-divider"></div>
-        <h3 class="c8isv-platform-title" data-customizer="cdev_plat2_title"><?php echo esc_html(cr8v_mod('cdev_plat2_title', 'Custom PHP & MySQL Portals')); ?></h3>
-        <p class="c8isv-platform-desc" data-customizer="cdev_plat2_desc"><?php echo wp_kses_post(cr8v_mod('cdev_plat2_desc', 'For high-security corporate portals, database systems, and custom administrative platforms.')); ?></p>
-        <div class="c8isv-platform-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
-        </div>
+        <h3 class="c8isv-platform-title" data-customizer="cdev_plat2_title"><?php echo esc_html(cr8v_mod('cdev_plat2_title', 'Client & Admin Portals')); ?></h3>
+        <p class="c8isv-platform-desc" data-customizer="cdev_plat2_desc"><?php echo wp_kses_post(cr8v_mod('cdev_plat2_desc', 'For organizations needing secure user authentication, role management, and internal dashboards.')); ?></p>
+        <div class="c8isv-platform-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg></div>
       </div>
 
-      <!-- Option 3 -->
       <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d2">
-        <span class="c8isv-platform-badge" data-customizer="cdev_plat3_badge"><?php echo esc_html(cr8v_mod('cdev_plat3_badge', 'Stack // Node')); ?></span>
+        <span class="c8isv-platform-badge" data-customizer="cdev_plat3_badge"><?php echo esc_html(cr8v_mod('cdev_plat3_badge', 'Stack // API')); ?></span>
         <div class="c8isv-platform-divider"></div>
-        <h3 class="c8isv-platform-title" data-customizer="cdev_plat3_title"><?php echo esc_html(cr8v_mod('cdev_plat3_title', 'Node.js & Express Microservices')); ?></h3>
-        <p class="c8isv-platform-desc" data-customizer="cdev_plat3_desc"><?php echo wp_kses_post(cr8v_mod('cdev_plat3_desc', 'For high-concurrency event-driven backends, webhook processors, and API services.')); ?></p>
-        <div class="c8isv-platform-icon">
-          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
+        <h3 class="c8isv-platform-title" data-customizer="cdev_plat3_title"><?php echo esc_html(cr8v_mod('cdev_plat3_title', 'Custom Backend API Engine')); ?></h3>
+        <p class="c8isv-platform-desc" data-customizer="cdev_plat3_desc"><?php echo wp_kses_post(cr8v_mod('cdev_plat3_desc', 'For enterprises scaling API microservices to handle heavy data processing and mobile apps.')); ?></p>
+        <div class="c8isv-platform-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
       </div>
 
-      <!-- Option 4 -->
       <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d3">
-        <span class="c8isv-platform-badge" data-customizer="cdev_plat4_badge"><?php echo esc_html(cr8v_mod('cdev_plat4_badge', 'Stack // Hybrid')); ?></span>
+        <span class="c8isv-platform-badge" data-customizer="cdev_plat4_badge"><?php echo esc_html(cr8v_mod('cdev_plat4_badge', 'Stack // Retainer')); ?></span>
         <div class="c8isv-platform-divider"></div>
-        <h3 class="c8isv-platform-title" data-customizer="cdev_plat4_title"><?php echo esc_html(cr8v_mod('cdev_plat4_title', 'Full-Stack Hybrid Architecture')); ?></h3>
-        <p class="c8isv-platform-desc" data-customizer="cdev_plat4_desc"><?php echo wp_kses_post(cr8v_mod('cdev_plat4_desc', 'Combining custom web frontends with existing WordPress or headless CMS backends.')); ?></p>
-        <div class="c8isv-platform-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
+        <h3 class="c8isv-platform-title" data-customizer="cdev_plat4_title"><?php echo esc_html(cr8v_mod('cdev_plat4_title', 'Engineering Retainer Support')); ?></h3>
+        <p class="c8isv-platform-desc" data-customizer="cdev_plat4_desc"><?php echo wp_kses_post(cr8v_mod('cdev_plat4_desc', 'Dedicated monthly developer hours for ongoing feature releases and DevOps management.')); ?></p>
+        <div class="c8isv-platform-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
       </div>
     </div>
 
     <p class="c8isv-reveal" style="font-size: 0.95rem !important; color: #6B6B6B !important; max-width: 800px !important; margin: 2rem 0 !important; line-height: 1.7 !important;">
-      <strong>Not sure which architecture fits your product?</strong> Tell us your functional requirements and we'll design the right tech stack during our initial technical scoping call.
+      <strong>Unsure which technical architecture fits your software vision?</strong> Schedule a scoping call to review your system requirements with our engineers.
     </p>
 
     <div class="c8isv-reveal" style="display: flex !important; margin-top: 2rem !important;">
-      <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8isv-btn-primary">Start a Technical Scoping Call →</a>
+      <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8isv-btn-primary">Start a Custom Dev Scoping Call →</a>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 6: FULL CATALOG HOVERLIST (Project Types)
-     White Background — 6 Items Capability Index
-     ══════════════════════════════════════════ -->
+<!-- SECTION 6: CATALOG HOVERLIST -->
 <div class="c8isv-hl-section" id="c8isv-catalog">
   <div class="c8isv-wrap" style="padding-bottom:0">
     <div class="c8isv-label c8isv-reveal" data-customizer="cdev_hl_label"><?php echo esc_html(cr8v_mod('cdev_hl_label', 'Project Catalog')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal" data-customizer="cdev_hl_h2"><?php echo esc_html(cr8v_mod('cdev_hl_h2', 'Every Kind of Custom Software We Engineer')); ?></h2>
-    <p class="c8isv-lead c8isv-reveal" style="margin-bottom:2rem" data-customizer="cdev_hl_sub"><?php echo wp_kses_post(cr8v_mod('cdev_hl_sub', 'From SaaS web platforms to internal admin tools — hover to inspect the technology stack.')); ?></p>
+    <h2 class="c8isv-section-title c8isv-reveal" data-customizer="cdev_hl_h2"><?php echo esc_html(cr8v_mod('cdev_hl_h2', 'Every Kind of Custom System We Engineer')); ?></h2>
+    <p class="c8isv-lead c8isv-reveal" style="margin-bottom:2rem" data-customizer="cdev_hl_sub"><?php echo wp_kses_post(cr8v_mod('cdev_hl_sub', 'From SaaS web apps to enterprise portals — hover to inspect the engineering stack.')); ?></p>
   </div>
   <div class="c8isv-wrap" style="padding-top:0 !important; position:relative">
     <div class="c8isv-hoverlist" data-c8isv-hoverlist>
-      <!-- Item 1 -->
       <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="React" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg" data-tech-2="Node.js" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/nodedotjs.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">01</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="cdev_hl1_title"><?php echo esc_html(cr8v_mod('cdev_hl1_title', 'Custom SaaS Platforms & Web Apps')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="cdev_hl1_tagline"><?php echo wp_kses_post(cr8v_mod('cdev_hl1_tagline', 'Multi-tenant SaaS products, user subscriptions, usage metering, and real-time dashboard platforms.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="cdev_hl1_title"><?php echo esc_html(cr8v_mod('cdev_hl1_title', 'SaaS Product Web Applications')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="cdev_hl1_tagline"><?php echo wp_kses_post(cr8v_mod('cdev_hl1_tagline', 'Multi-tenant SaaS web apps with subscription billing, user auth, and API keys.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">SaaS Platforms</span>
+          <span class="c8isv-hoverlist-tech">SaaS Apps</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
 
-      <!-- Item 2 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="PHP" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/php.svg" data-tech-2="MySQL" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/mysql.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="React" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg" data-tech-2="PostgreSQL" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/postgresql.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">02</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="cdev_hl2_title"><?php echo esc_html(cr8v_mod('cdev_hl2_title', 'Enterprise Portals & Admin Tools')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="cdev_hl2_tagline"><?php echo wp_kses_post(cr8v_mod('cdev_hl2_tagline', 'Internal business management tools, staff dashboards, reporting engines, and role-based access portals.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="cdev_hl2_title"><?php echo esc_html(cr8v_mod('cdev_hl2_title', 'Customer & Client Portals')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="cdev_hl2_tagline"><?php echo wp_kses_post(cr8v_mod('cdev_hl2_tagline', 'Secure client dashboards for file sharing, billing management, and real-time status updates.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Enterprise Portals</span>
+          <span class="c8isv-hoverlist-tech">Client Portals</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
 
-      <!-- Item 3 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d2" data-tech-1="Node.js" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/nodedotjs.svg" data-tech-2="PHP" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/php.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d2" data-tech-1="Node.js" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/nodedotjs.svg" data-tech-2="Express" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/express.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">03</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="cdev_hl3_title"><?php echo esc_html(cr8v_mod('cdev_hl3_title', 'Custom API & Webhook Integrations')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="cdev_hl3_tagline"><?php echo wp_kses_post(cr8v_mod('cdev_hl3_tagline', 'Bespoke middleware, payment gateway logic, CRM sync tools, and third-party API orchestrations.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="cdev_hl3_title"><?php echo esc_html(cr8v_mod('cdev_hl3_title', 'RESTful API & Webhook Engines')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="cdev_hl3_tagline"><?php echo wp_kses_post(cr8v_mod('cdev_hl3_tagline', 'High-throughput backend APIs powering mobile applications and third-party integrations.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">API & Webhooks</span>
+          <span class="c8isv-hoverlist-tech">API Engines</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
 
-      <!-- Item 4 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d3" data-tech-1="PHP" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/php.svg" data-tech-2="MySQL" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/mysql.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d3" data-tech-1="PostgreSQL" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/postgresql.svg" data-tech-2="Docker" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/docker.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">04</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="cdev_hl4_title"><?php echo esc_html(cr8v_mod('cdev_hl4_title', 'Compliance & Data Checking Apps')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="cdev_hl4_tagline"><?php echo wp_kses_post(cr8v_mod('cdev_hl4_tagline', 'Automated compliance verification systems, document parsing engines, and auditing dashboards.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="cdev_hl4_title"><?php echo esc_html(cr8v_mod('cdev_hl4_title', 'Internal Enterprise Dashboards')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="cdev_hl4_tagline"><?php echo wp_kses_post(cr8v_mod('cdev_hl4_tagline', 'Custom administrative tools, data pipelines, and internal team reporting dashboards.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Compliance Tools</span>
+          <span class="c8isv-hoverlist-tech">Enterprise Tools</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
 
-      <!-- Item 5 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Next.js" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/nextdotjs.svg" data-tech-2="React" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="GraphQL" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/graphql.svg" data-tech-2="React" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">05</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="cdev_hl5_title"><?php echo esc_html(cr8v_mod('cdev_hl5_title', 'Headless CMS & React Frontends')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="cdev_hl5_tagline"><?php echo wp_kses_post(cr8v_mod('cdev_hl5_tagline', 'Decoupled web applications utilizing WordPress or Strapi as a headless content API powering Next.js.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="cdev_hl5_title"><?php echo esc_html(cr8v_mod('cdev_hl5_title', 'Microservice Architectures')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="cdev_hl5_tagline"><?php echo wp_kses_post(cr8v_mod('cdev_hl5_tagline', 'Decoupled service modules communicating via GraphQL and high-speed message queues.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Headless Web</span>
+          <span class="c8isv-hoverlist-tech">Microservices</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
 
-      <!-- Item 6 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="React" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg" data-tech-2="PHP" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/php.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="Docker" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/docker.svg" data-tech-2="AWS" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/amazonwebservices.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">06</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="cdev_hl6_title"><?php echo esc_html(cr8v_mod('cdev_hl6_title', 'Legacy System Refactoring & Migrations')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="cdev_hl6_tagline"><?php echo wp_kses_post(cr8v_mod('cdev_hl6_tagline', 'Rewriting outdated legacy codebases into modern, scalable React/PHP architectures.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="cdev_hl6_title"><?php echo esc_html(cr8v_mod('cdev_hl6_title', 'Cloud DevOps & CI/CD Pipelines')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="cdev_hl6_tagline"><?php echo wp_kses_post(cr8v_mod('cdev_hl6_tagline', 'Containerized AWS/Docker cloud environments with automated deployment workflows.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Refactoring</span>
+          <span class="c8isv-hoverlist-tech">Cloud DevOps</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
     </div>
-    <!-- 2-Card Fan Stack Preview with SVG CDN Logos -->
     <div class="c8isv-hoverlist-preview" data-c8isv-preview>
       <div class="c8isv-fan-card c8isv-fan-left"><img class="c8isv-fan-logo" data-c8isv-fan-logo="left" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg" alt="React"></div>
-      <div class="c8isv-fan-card c8isv-fan-right"><img class="c8isv-fan-logo" data-c8isv-fan-logo="right" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/php.svg" alt="PHP"></div>
+      <div class="c8isv-fan-card c8isv-fan-right"><img class="c8isv-fan-logo" data-c8isv-fan-logo="right" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/nodedotjs.svg" alt="Node.js"></div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 8: CLIENT FEEDBACK (Testimonials)
-     Light #F4F6FB — Fanning Stack Animation
-     ══════════════════════════════════════════ -->
+<!-- SECTION 8: CLIENT FEEDBACK -->
 <div class="c8isv-testi-outer">
   <div class="c8isv-testi-inner">
     <div class="c8isv-label c8isv-reveal is-center" data-customizer="cdev_testi_label"><?php echo esc_html(cr8v_mod('cdev_testi_label', 'Client Feedback')); ?></div>
     <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="cdev_testi_h2_part1"><?php echo esc_html(cr8v_mod('cdev_testi_h2_part1', 'What clients say after ')); ?></span><span class="c8isv-serif" data-customizer="cdev_testi_h2_serif"><?php echo esc_html(cr8v_mod('cdev_testi_h2_serif', 'launch')); ?></span></h2>
     <div class="c8isv-testi-grid" data-c8isv-testi-trigger>
-      <!-- Left Card -->
       <div class="c8isv-testi-card is-left" data-c8isv-testi-left>
         <div class="c8isv-testi-quote">"</div>
         <div class="c8isv-testi-divider"></div>
-        <p class="c8isv-testi-text" data-customizer="cdev_testi1_text"><?php echo wp_kses_post(cr8v_mod('cdev_testi1_text', 'Our organization required a secure, custom compliance analysis application with zero third-party software dependencies. Cr8v Stacks delivered the entire solution flawlessly on time.')); ?></p>
-        <div class="c8isv-testi-author" data-customizer="cdev_testi1_author"><?php echo esc_html(cr8v_mod('cdev_testi1_author', 'Senior Technical Architect')); ?></div>
+        <p class="c8isv-testi-text" data-customizer="cdev_testi1_text"><?php echo wp_kses_post(cr8v_mod('cdev_testi1_text', 'Cr8v Stacks engineered our React dashboard and Node.js API to process over 10,000 webhook events per minute without a single bottleneck. Incredible technical competence.')); ?></p>
+        <div class="c8isv-testi-author" data-customizer="cdev_testi1_author"><?php echo esc_html(cr8v_mod('cdev_testi1_author', 'Marcus Vance — VP of Engineering')); ?></div>
       </div>
-      <!-- Center Card -->
       <div class="c8isv-testi-card is-center">
         <div class="c8isv-testi-quote">"</div>
         <div class="c8isv-testi-divider"></div>
-        <p class="c8isv-testi-text" data-customizer="cdev_testi2_text"><?php echo wp_kses_post(cr8v_mod('cdev_testi2_text', 'The custom PHP and SQL database architecture built by Cr8v Stacks handles our high-volume operational data effortlessly. Clean code and excellent documentation.')); ?></p>
-        <div class="c8isv-testi-author" data-customizer="cdev_testi2_author"><?php echo esc_html(cr8v_mod('cdev_testi2_author', 'Marcus Vance — Chief Technology Officer')); ?></div>
+        <p class="c8isv-testi-text" data-customizer="cdev_testi2_text"><?php echo wp_kses_post(cr8v_mod('cdev_testi2_text', 'The custom client portal transformed how our logistics company operates. What used to take hours of manual data entry is now fully automated.')); ?></p>
+        <div class="c8isv-testi-author" data-customizer="cdev_testi2_author"><?php echo esc_html(cr8v_mod('cdev_testi2_author', 'Elena Rostova — Chief Operating Officer')); ?></div>
       </div>
-      <!-- Right Card -->
       <div class="c8isv-testi-card is-right" data-c8isv-testi-right>
         <div class="c8isv-testi-quote">"</div>
         <div class="c8isv-testi-divider"></div>
-        <p class="c8isv-testi-text" data-customizer="cdev_testi3_text"><?php echo wp_kses_post(cr8v_mod('cdev_testi3_text', 'Decoupling our frontend into Next.js and building a custom backend API completely transformed our application speed. Outstanding custom development team.')); ?></p>
-        <div class="c8isv-testi-author" data-customizer="cdev_testi3_author"><?php echo esc_html(cr8v_mod('cdev_testi3_author', 'Elena Rostova — VP of Product')); ?></div>
+        <p class="c8isv-testi-text" data-customizer="cdev_testi3_text"><?php echo wp_kses_post(cr8v_mod('cdev_testi3_text', 'Clean code, excellent documentation, and zero downtime deployments. Their full-stack team is top 1%.')); ?></p>
+        <div class="c8isv-testi-author" data-customizer="cdev_testi3_author"><?php echo esc_html(cr8v_mod('cdev_testi3_author', 'Tariq Al-Mansoor — Founder & CEO')); ?></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 9: PRICING MODELS & PROJECT ESTIMATOR
-     ══════════════════════════════════════════ -->
+<!-- SECTION 9: PRICING MODELS & ESTIMATOR -->
 <div class="c8srv-pricing-section" id="pricing-scope" style="padding: 6rem 0 !important; position: relative !important; z-index: 5 !important; background: #FFFFFF !important; display: block !important;">
   <div class="c8isv-wrap" style="text-align: left !important;">
     <div class="c8isv-label c8srv-reveal" style="justify-content: flex-start !important; margin-left: 0 !important; margin-right: auto !important; text-align: left !important;" data-customizer="cdev_pricing_label"><?php echo esc_html(cr8v_mod('cdev_pricing_label', 'PRICING MODELS')); ?></div>
     <h2 class="c8isv-section-title c8srv-reveal" style="text-align: left !important; margin-left: 0 !important;"><span data-customizer="cdev_pricing_h2_part1"><?php echo esc_html(cr8v_mod('cdev_pricing_h2_part1', 'HOW WE ')); ?></span><span class="c8isv-serif" data-customizer="cdev_pricing_h2_serif"><?php echo esc_html(cr8v_mod('cdev_pricing_h2_serif', 'WORK TOGETHER')); ?></span></h2>
-    <p class="c8isv-lead c8srv-reveal" style="text-align: left !important; margin-left: 0 !important;" data-customizer="cdev_pricing_desc"><?php echo wp_kses_post(cr8v_mod('cdev_pricing_desc', 'Whether you need a dedicated extension of your team or a custom design & code project with guaranteed delivery, we have a model to fit.')); ?></p>
+    <p class="c8isv-lead c8srv-reveal" style="text-align: left !important; margin-left: 0 !important;" data-customizer="cdev_pricing_desc"><?php echo wp_kses_post(cr8v_mod('cdev_pricing_desc', 'Whether you need a dedicated extension of your engineering team or a custom software build with guaranteed delivery, we have a model to fit.')); ?></p>
 
     <div class="c8srv-pricing-split">
-      <!-- Retainer Card -->
       <div class="c8srv-price-box c8srv-reveal">
         <div class="c8srv-price-header">
           <span class="c8srv-price-type">Ongoing Support</span>
           <h3 class="c8srv-price-title">Growth Retainer</h3>
           <div class="c8srv-price-amount">$950<span>/mo</span></div>
         </div>
-        <p class="c8srv-price-desc">A monthly block of dedicated design and development hours to keep your website fast, updated, and growing. Perfect for active search marketing, technical SEO, speed tuning, and site edits.</p>
+        <p class="c8srv-price-desc">A monthly block of dedicated senior engineering hours for ongoing feature development, code refactoring, performance tuning, and DevOps support.</p>
         <div class="c8srv-price-features">
           <div class="c8srv-price-feature">
-            <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Dedicated monthly support hours block</span>
+            <span class="c8srv-icon-sq"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Dedicated monthly developer hours block</span>
           </div>
           <div class="c8srv-price-feature">
-            <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Monthly speed audits &amp; code optimizations</span>
+            <span class="c8srv-icon-sq"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>API maintenance &amp; database optimizations</span>
           </div>
           <div class="c8srv-price-feature">
-            <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Design tweaks, copy updates &amp; SEO execution</span>
+            <span class="c8srv-icon-sq"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Feature releases &amp; CI/CD pipeline tuning</span>
           </div>
         </div>
-        <a href="<?php echo esc_url(home_url('/contact/?model=retainer')); ?>" class="c8srv-price-btn is-light" style="border-color:#080808 !important; color:#080808 !important;">Secure Retainer Slot</a>
+        <a href="<?php echo esc_url(home_url('/contact/?model=retainer')); ?>" class="c8srv-price-btn is-light">Secure Retainer Slot</a>
       </div>
 
-      <!-- Fixed Project Card -->
-      <div class="c8srv-price-box is-featured c8srv-reveal">
-        <div class="c8srv-price-badge">Most Popular</div>
+      <div class="c8srv-price-box is-highlight c8srv-reveal">
         <div class="c8srv-price-header">
-          <span class="c8srv-price-type" style="color: rgba(255,255,255,0.7) !important;">Fixed Scope</span>
-          <h3 class="c8srv-price-title" style="color: #FFFFFF !important;">Fixed Projects</h3>
-          <div class="c8srv-price-amount" style="color: #FFFFFF !important;"><span class="c8srv-price-period" style="color: rgba(255,255,255,0.7) !important;">From </span><span class="c8srv-price-num" style="color: #FFFFFF !important;">$2,500</span><span class="c8srv-price-period" style="color: rgba(255,255,255,0.7) !important;"> entry</span></div>
+          <span class="c8srv-price-type">Fixed Scope</span>
+          <h3 class="c8srv-price-title">Fixed Projects</h3>
+          <div class="c8srv-price-amount">From $2,000<span> entry</span></div>
         </div>
-        <p class="c8srv-price-desc" style="color: rgba(255,255,255,0.8) !important;">Ground-up custom web application development tailored to your exact relational database workflows.</p>
+        <p class="c8srv-price-desc">A deep, focused custom web application build with transparent scoping, milestone deliverables, and full source code ownership.</p>
         <div class="c8srv-price-features">
-          <div class="c8srv-price-feature" style="color: #FFFFFF !important;">
-            <span class="c8srv-icon-sq" style="background:#FFFFFF !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#0047E1" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Bespoke React / Next.js frontend architecture</span>
+          <div class="c8srv-price-feature">
+            <span class="c8srv-icon-sq"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Custom React/Vue front-end SPA dashboard</span>
           </div>
-          <div class="c8srv-price-feature" style="color: #FFFFFF !important;">
-            <span class="c8srv-icon-sq" style="background:#FFFFFF !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#0047E1" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Tailored REST/GraphQL API &amp; database schema design</span>
+          <div class="c8srv-price-feature">
+            <span class="c8srv-icon-sq"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Node.js REST/GraphQL backend API engine</span>
           </div>
-          <div class="c8srv-price-feature" style="color: #FFFFFF !important;">
-            <span class="c8srv-icon-sq" style="background:#FFFFFF !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#0047E1" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>100% client-owned codebase with zero SaaS lock-in</span>
+          <div class="c8srv-price-feature">
+            <span class="c8srv-icon-sq"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>PostgreSQL database schema &amp; Docker DevOps</span>
           </div>
         </div>
         <a href="<?php echo esc_url(home_url('/contact/?model=project')); ?>" class="c8srv-price-btn is-primary">Start A Project</a>
       </div>
     </div>
 
-    <!-- Scope Estimator Widget -->
-    <div class="c8srv-estimator c8srv-reveal" style="margin-top: 3.5rem !important;">
+    <div class="c8srv-estimator c8srv-reveal">
       <div style="margin-bottom: 2.5rem !important;">
-        <span class="c8srv-price-type" style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #0047E1; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">Project Scope Estimator</span>
-        <h3 class="c8srv-price-title" style="font-family: 'Michroma', sans-serif; font-size: 1.8rem; color: #080808; margin-top: 0.25rem; margin-bottom: 0.5rem; font-weight: 700;">Build Your Stack Estimate</h3>
-        <p class="c8srv-price-desc" style="margin-bottom: 0 !important;">Select your desired setup below to calculate an immediate starting price range estimate for your project.</p>
+        <span class="c8srv-price-type">Project Scope Estimator</span>
+        <h3 class="c8srv-price-title" style="font-size: 1.8rem !important; margin-bottom: 0.5rem !important;">Build Your Stack Estimate</h3>
+        <p class="c8srv-price-desc" style="margin-bottom: 0 !important; margin-left: auto !important; margin-right: auto !important;">Select your desired setup below to calculate an immediate starting price range estimate for your project.</p>
       </div>
 
-      <div class="c8srv-estimator-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; align-items: start;">
+      <div class="c8srv-estimator-grid">
         <div class="c8srv-est-options">
-          <!-- Step 1 -->
           <div>
-            <span class="c8srv-est-group-title" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9rem; color:#080808; display:block; margin-bottom:0.4rem;">1. Core Engineering Package</span>
+            <span class="c8srv-est-group-title">1. Core Application Package</span>
             <div class="c8srv-est-choices" data-est-group="platform">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="mvpapp" data-est-price="2500">MVP Web App ($2,500)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="fullapp" data-est-price="3500">Full Application ($3,500)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="enterprise" data-est-price="5000">Enterprise SaaS Platform ($5,000)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="spa" data-est-price="2000">Single Page Web App ($2,000)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="portal" data-est-price="2800">Client Portal &amp; Admin Hub ($2,800)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="enterprise" data-est-price="3800">Enterprise SaaS Platform ($3,800)</button>
             </div>
           </div>
 
-          <!-- Step 2 -->
           <div>
-            <span class="c8srv-est-group-title" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9rem; color:#080808; display:block; margin-bottom:0.4rem;">2. Architecture Complexity</span>
+            <span class="c8srv-est-group-title">2. Architecture Complexity</span>
             <div class="c8srv-est-choices" data-est-group="scale">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="core" data-est-multiplier="1.0">Single Tenant App</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="multi" data-est-multiplier="1.4">Multi-Tenant Architecture</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="standard" data-est-multiplier="1.0">Standard Monolith API</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="microservices" data-est-multiplier="1.4">Microservice Architecture &amp; Queues</button>
             </div>
           </div>
 
-          <!-- Step 3 -->
           <div>
-            <span class="c8srv-est-group-title" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9rem; color:#080808; display:block; margin-bottom:0.4rem;">3. Engineering Add-Ons</span>
+            <span class="c8srv-est-group-title">3. Engineering Add-Ons</span>
             <div class="c8srv-est-choices" data-est-group="growth">
               <button type="button" class="c8srv-est-choice is-active" data-est-val="none" data-est-price="0">No Add-Ons</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="api" data-est-price="800">Custom REST/GraphQL API (+ $800)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="dashboard" data-est-price="600">Admin Management Panel (+ $600)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="devops" data-est-price="500">AWS Docker Infrastructure (+ $500)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="qa" data-est-price="600">Cypress E2E Testing Suite (+ $600)</button>
             </div>
           </div>
         </div>
 
-        <div class="c8srv-est-result" style="background:#FAFAF7; padding:2rem; border-radius:4px; border:1px solid rgba(8,8,8,0.08);">
-          <span class="c8srv-est-range-label" style="font-family:'Space Mono',monospace; font-size:0.75rem; color:#6B6B6B; text-transform:uppercase; display:block; margin-bottom:0.3rem;">Estimated Starting Investment</span>
-          <div class="c8srv-est-range" id="est-range-display" style="font-family:'Michroma',sans-serif; font-size:1.8rem; color:#0047E1; font-weight:700; margin-bottom:1.5rem;">$2,500 - $3,125</div>
+        <div class="c8srv-est-result">
+          <span class="c8srv-est-range-label">Estimated Starting Investment</span>
+          <div class="c8srv-est-range" id="est-range-display">$2,000 - $2,500</div>
           
-          <span class="c8srv-est-deliverables-title" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.85rem; color:#080808; display:block; margin-bottom:0.5rem;">Included Deliverables:</span>
-          <div class="c8srv-est-deliverables" id="est-deliverables-list" style="font-family:'DM Sans',sans-serif; font-size:0.85rem; color:#555555; line-height:1.6; margin-bottom:1.5rem;"><div>• Custom PHP/JS/React framework engineering</div><div>• Third-party APIs and custom database queries</div><div>• Client dashboard whitelabel panel</div></div>
+          <span class="c8srv-est-deliverables-title">Included Deliverables:</span>
+          <div class="c8srv-est-deliverables" id="est-deliverables-list"><div>• Custom React/Vue front-end SPA</div><div>• Node.js API &amp; PostgreSQL database</div><div>• Clean, documented source code repository</div></div>
 
-          <a href="<?php echo esc_url(home_url('/contact/?platform=custom&est=2500-3125')); ?>" id="est-cta-link" class="c8srv-price-btn is-primary" style="margin-top: 1rem !important; margin-bottom: 1rem !important; display:block; text-align:center;">Submit Scope Request</a>
+          <a href="<?php echo esc_url(home_url('/contact/?platform=customdev&est=2000-2500')); ?>" id="est-cta-link" class="c8srv-price-btn is-primary" style="margin-top: 1rem !important; margin-bottom: 1rem !important;">Submit Scope Request</a>
           <a href="<?php echo esc_url(home_url('/toolkits/website-cost-calculator/')); ?>" class="c8srv-explore" style="justify-content: center !important; font-size: 11px !important; margin-top: 0.5rem !important; display: flex !important; font-family: 'Space Mono', monospace !important; color: #0047E1 !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important; align-items: center !important; gap: 8px !important;">Or build a custom stack with our Calculator →</a>
         </div>
       </div>
@@ -749,113 +660,159 @@ defined('ABSPATH') || exit;
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 10: FREQUENTLY ASKED QUESTIONS
-     Light #FAFAF7
-     ══════════════════════════════════════════ -->
-<section class="faq-section" id="faq" style="background: #FAFAF7 !important; padding: 6rem 0 !important; border-top: 1px solid rgba(8,8,8,0.06) !important;">
-  <div class="c8isv-wrap">
-    <div class="c8srv-faq-grid">
-      <div class="c8srv-faq-left">
-        <div class="c8isv-label c8srv-reveal" data-customizer="cdev_faq_eyebrow"><?php echo esc_html(cr8v_mod('cdev_faq_eyebrow', '// COMMON QUESTIONS')); ?></div>
-        <h2 class="c8isv-section-title c8srv-reveal" data-customizer="cdev_faq_h2"><?php echo esc_html(cr8v_mod('cdev_faq_h2', 'Custom Development Questions, Answered Honestly')); ?></h2>
-        <p class="c8isv-lead c8srv-reveal" style="margin-bottom: 2rem !important;" data-customizer="cdev_faq_sub"><?php echo wp_kses_post(cr8v_mod('cdev_faq_sub', 'Clear answers to common questions about our web application engineering, database schema design, and deployment processes.')); ?></p>
-        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-      </div>
+<!-- SECTION 10: FAQ -->
+<section class="faq-section" id="faq" style="background: #FFFFFF !important; padding: clamp(5rem, 10vw, 9rem) 0 !important;">
+  <style>
+    .faq-section { background: #FFFFFF !important; padding: clamp(5rem, 10vw, 9rem) 0 !important; position: relative !important; z-index: 5 !important; border-top: 1px solid rgba(8,8,8,0.12) !important; }
+    .faq-inner { max-width: 1360px !important; margin: 0 auto !important; padding: 0 clamp(1.5rem, 5vw, 5rem) !important; display: grid !important; grid-template-columns: 300px 1fr !important; gap: clamp(3rem, 6vw, 8rem) !important; align-items: start !important; }
+    .faq-aside { position: sticky !important; top: 6rem !important; align-self: start !important; }
+    .faq-eyebrow { font-family: 'Space Mono', monospace !important; font-size: 0.65rem !important; letter-spacing: 0.14em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 1rem !important; font-weight: 700 !important; }
+    .faq-h2 { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.6rem, 2.8vw, 2.2rem) !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.2 !important; margin-bottom: 1.5rem !important; }
+    .faq-sub { font-family: 'DM Sans', sans-serif !important; font-size: 0.85rem !important; font-weight: 300 !important; color: #555555 !important; line-height: 1.7 !important; margin-bottom: 2rem !important; }
+    .faq-cta-link { font-family: 'Space Mono', monospace !important; font-size: 0.75rem !important; font-weight: 700 !important; color: #0047E1 !important; text-transform: uppercase !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; letter-spacing: 0.08em !important; transition: color 0.2s ease !important; }
+    .faq-cta-link:hover { color: #0037B5 !important; }
+    .faq-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+    .faq-item { border-bottom: 1px solid rgba(8,8,8,0.1) !important; }
+    .faq-item:first-child { border-top: 1px solid rgba(8,8,8,0.1) !important; }
+    .faq-trigger { width: 100% !important; background: none !important; border: none !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.4rem 0 !important; text-align: left !important; }
+    .faq-q { font-family: 'DM Sans', sans-serif !important; font-size: clamp(0.88rem, 1.3vw, 0.95rem) !important; font-weight: 400 !important; color: #080808 !important; line-height: 1.4 !important; }
+    .faq-icon { width: 28px !important; height: 28px !important; border-radius: 50% !important; border: 1px solid rgba(8,8,8,0.14) !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; transition: background 0.25s, border-color 0.25s !important; }
+    .faq-icon svg { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+    .faq-item.is-open .faq-icon { background: #0047E1 !important; border-color: #0047E1 !important; }
+    .faq-item.is-open .faq-icon svg { transform: rotate(45deg) !important; stroke: #ffffff !important; }
+    .faq-body { display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+    .faq-item.is-open .faq-body { grid-template-rows: 1fr !important; }
+    .faq-body-inner { overflow: hidden !important; }
+    .faq-a { font-family: 'DM Sans', sans-serif !important; font-size: 0.88rem !important; font-weight: 300 !important; line-height: 1.75 !important; color: #555555 !important; padding-bottom: 1.4rem !important; }
+    @media (max-width: 900px) {
+      .faq-inner { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .faq-aside { position: static !important; }
+    }
+  </style>
 
-      <div class="c8srv-faq-right">
-        <ul class="faq-list">
-          <li class="faq-item is-open">
-            <button class="faq-trigger" aria-expanded="true">
-              <span class="faq-q" data-customizer="cdev_faq1_q"><?php echo esc_html(cr8v_mod('cdev_faq1_q', 'Why choose custom software development over existing SaaS platforms?')); ?></span>
-              <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-            </button>
-            <div class="faq-body" style="grid-template-rows: 1fr;">
-              <div class="faq-body-inner">
-                <p class="faq-a" data-customizer="cdev_faq1_a"><?php echo wp_kses_post(cr8v_mod('cdev_faq1_a', 'Existing SaaS platforms lock you into fixed feature sets, monthly subscription taxes per user, and zero data control. Custom software gives you 100% intellectual property ownership, tailored database logic, and freedom to scale without monthly per-user fees.')); ?></p>
-              </div>
-            </div>
-          </li>
-
-          <li class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-q" data-customizer="cdev_faq2_q"><?php echo esc_html(cr8v_mod('cdev_faq2_q', 'How much does a custom web application cost?')); ?></span>
-              <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-            </button>
-            <div class="faq-body">
-              <div class="faq-body-inner">
-                <p class="faq-a" data-customizer="cdev_faq2_a"><?php echo wp_kses_post(cr8v_mod('cdev_faq2_a', 'Fixed-scope custom development projects start from $2,500 for MVP web applications. The investment scales based on backend API complexity, user authentication requirements, database schemas, and third-party integrations.')); ?></p>
-              </div>
-            </div>
-          </li>
-
-          <li class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-q" data-customizer="cdev_faq3_q"><?php echo esc_html(cr8v_mod('cdev_faq3_q', 'Do we own 100% of the code and intellectual property?')); ?></span>
-              <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-            </button>
-            <div class="faq-body">
-              <div class="faq-body-inner">
-                <p class="faq-a" data-customizer="cdev_faq3_a"><?php echo wp_kses_post(cr8v_mod('cdev_faq3_a', 'Yes, absolutely. Upon final project delivery and milestone sign-off, full intellectual property rights, database schemas, and Git repositories are transferred entirely to your company with zero royalty fees.')); ?></p>
-              </div>
-            </div>
-          </li>
-
-          <li class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-q" data-customizer="cdev_faq4_q"><?php echo esc_html(cr8v_mod('cdev_faq4_q', 'What tech stack do you recommend for custom web apps?')); ?></span>
-              <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-            </button>
-            <div class="faq-body">
-              <div class="faq-body-inner">
-                <p class="faq-a" data-customizer="cdev_faq4_a"><?php echo wp_kses_post(cr8v_mod('cdev_faq4_a', 'We engineer frontends in React or Next.js for fluid interactivity, coupled with robust PHP, Node.js, or Python backends and MySQL/PostgreSQL databases. We tailor the stack to your specific throughput requirements.')); ?></p>
-              </div>
-            </div>
-          </li>
-
-          <li class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-q" data-customizer="cdev_faq5_q"><?php echo esc_html(cr8v_mod('cdev_faq5_q', 'How do you handle application maintenance and security updates?')); ?></span>
-              <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-            </button>
-            <div class="faq-body">
-              <div class="faq-body-inner">
-                <p class="faq-a" data-customizer="cdev_faq5_a"><?php echo wp_kses_post(cr8v_mod('cdev_faq5_a', 'We provide dedicated monthly Growth Retainers covering server security patches, API dependency updates, feature iterations, database backups, and SLA support.')); ?></p>
-              </div>
-            </div>
-          </li>
-
-          <li class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-q" data-customizer="cdev_faq6_q"><?php echo esc_html(cr8v_mod('cdev_faq6_q', 'Can you integrate third-party APIs and webhooks into our app?')); ?></span>
-              <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-            </button>
-            <div class="faq-body">
-              <div class="faq-body-inner">
-                <p class="faq-a" data-customizer="cdev_faq6_a"><?php echo wp_kses_post(cr8v_mod('cdev_faq6_a', 'Yes. We regularly build custom integrations with payment gateways (Stripe, PayPal), CRM systems (HubSpot, Salesforce), AI models (OpenAI, Anthropic), and internal enterprise databases.')); ?></p>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
+  <div class="faq-inner">
+    <div class="faq-aside">
+      <div class="faq-eyebrow" data-customizer="cdev_faq_eyebrow"><?php echo esc_html(cr8v_mod('cdev_faq_eyebrow', '// COMMON QUESTIONS')); ?></div>
+      <h2 class="faq-h2" data-customizer="cdev_faq_h2"><?php echo esc_html(cr8v_mod('cdev_faq_h2', 'Custom Development FAQ')); ?></h2>
+      <p class="faq-sub" data-customizer="cdev_faq_sub"><?php echo wp_kses_post(cr8v_mod('cdev_faq_sub', 'Clear answers to common questions about our React, Node.js, API engineering, and database deployment processes.')); ?></p>
+      <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
     </div>
+
+    <ul class="faq-list" id="srv-faq-list">
+      <li class="faq-item is-open">
+        <button class="faq-trigger" aria-expanded="true">
+          <span class="faq-q" data-customizer="cdev_faq1_q"><?php echo esc_html(cr8v_mod('cdev_faq1_q', 'Why build a custom web app instead of using a CMS plugin?')); ?></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body" style="grid-template-rows: 1fr;">
+          <div class="faq-body-inner">
+            <p class="faq-a" data-customizer="cdev_faq1_a"><?php echo wp_kses_post(cr8v_mod('cdev_faq1_a', 'Off-the-shelf CMS plugins force your business logic into pre-built constraints, leading to performance bottlenecks and security vulnerabilities. Custom software is engineered around your exact data structures and user workflows, delivering uncompromised speed and scalability.')); ?></p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q" data-customizer="cdev_faq2_q"><?php echo esc_html(cr8v_mod('cdev_faq2_q', 'What technology stack do you use for custom development?')); ?></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a" data-customizer="cdev_faq2_a"><?php echo wp_kses_post(cr8v_mod('cdev_faq2_a', 'We build modern web applications using React, Next.js, and TypeScript on the front-end, paired with Node.js, Express, Python, or Go for backend APIs, connected to PostgreSQL, MySQL, or MongoDB database clusters.')); ?></p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q" data-customizer="cdev_faq3_q"><?php echo esc_html(cr8v_mod('cdev_faq3_q', 'Who owns the source code and IP rights?')); ?></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a" data-customizer="cdev_faq3_a"><?php echo wp_kses_post(cr8v_mod('cdev_faq3_a', 'You own 100% of the custom source code, repository IP, database schemas, and documentation upon final milestone payment. We provide full Git repository access with zero vendor lock-in.')); ?></p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q" data-customizer="cdev_faq4_q"><?php echo esc_html(cr8v_mod('cdev_faq4_q', 'How do you handle API security and authentication?')); ?></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a" data-customizer="cdev_faq4_a"><?php echo wp_kses_post(cr8v_mod('cdev_faq4_a', 'We implement industry-standard OAuth 2.0, JWT token rotation, HTTPS encryption, API rate limiting, and CORS policy hardening to prevent unauthorized access.')); ?></p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q" data-customizer="cdev_faq5_q"><?php echo esc_html(cr8v_mod('cdev_faq5_q', 'How long does a custom web development project take?')); ?></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a" data-customizer="cdev_faq5_a"><?php echo wp_kses_post(cr8v_mod('cdev_faq5_a', 'A standard web application MVP or client portal takes 4 to 6 weeks from initial architecture specification to cloud production launch. Complex SaaS platforms take 6 to 10 weeks.')); ?></p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q" data-customizer="cdev_faq6_q"><?php echo esc_html(cr8v_mod('cdev_faq6_q', 'Do you offer ongoing DevOps and maintenance support?')); ?></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a" data-customizer="cdev_faq6_a"><?php echo wp_kses_post(cr8v_mod('cdev_faq6_a', 'Yes. We offer monthly engineering retainers providing dedicated developer hours for feature releases, cloud infrastructure scaling, database backups, and emergency SLA response.')); ?></p>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     SECTION 11: FOOTER CTA BAR
-     Dark #080808
-     ══════════════════════════════════════════ -->
-<div class="c8isv-cta-section">
+<!-- SECTION 11: RELATED SERVICES -->
+<div class="c8isv-related-outer">
   <div class="c8isv-wrap">
-    <div class="c8isv-cta-card">
-      <span class="c8isv-cta-tag" data-customizer="cdev_cta_label"><?php echo esc_html(cr8v_mod('cdev_cta_label', 'READY TO BUILD?')); ?></span>
-      <h2 class="c8isv-cta-title"><span data-customizer="cdev_cta_h2_part1"><?php echo esc_html(cr8v_mod('cdev_cta_h2_part1', 'Let’s Engineer Your Custom ')); ?></span><span class="c8isv-serif" data-customizer="cdev_cta_h2_serif"><?php echo esc_html(cr8v_mod('cdev_cta_h2_serif', 'Web Application')); ?></span></h2>
-      <p class="c8isv-cta-desc" data-customizer="cdev_cta_desc"><?php echo wp_kses_post(cr8v_mod('cdev_cta_desc', 'Tell us about your project requirements and get a complete price quote and timeline proposal within 24 hours.')); ?></p>
-      <a href="<?php echo esc_url(home_url(cr8v_mod('cdev_cta_btn_url', '/discovery-call/'))); ?>" class="c8isv-cta-btn" data-customizer="cdev_cta_btn_text"><?php echo esc_html(cr8v_mod('cdev_cta_btn_text', 'Book Strategy Call →')); ?></a>
+    <div class="c8isv-label c8isv-reveal is-muted">Other Ways We Build</div>
+    <h2 class="c8isv-section-title c8isv-reveal">Related Services</h2>
+    <p class="c8isv-lead c8isv-reveal">Custom Web Development is one of several services we offer. If a custom web app or portal is not what you need, check these out.</p>
+    <div class="c8isv-related-grid">
+      <a href="<?php echo esc_url(home_url('/wordpress/')); ?>" class="c8isv-related-card c8isv-reveal">
+        <div class="c8isv-related-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm0 18a8 8 0 118-8 8 8 0 01-8 8z"/></svg>
+        </div>
+        <span class="c8isv-related-card-platform">01 / WordPress</span>
+        <h3 class="c8isv-related-card-title">WordPress Theme Engineering</h3>
+        <p class="c8isv-related-card-desc">Custom PHP theme code, Gutenberg block libraries, and sub-1.2s page load speed optimization for content-driven brand sites.</p>
+        <span class="c8isv-related-card-link">Explore WordPress →</span>
+      </a>
+      <a href="<?php echo esc_url(home_url('/ai-mvp/')); ?>" class="c8isv-related-card c8isv-reveal c8isv-reveal-d1">
+        <div class="c8isv-related-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <span class="c8isv-related-card-platform">02 / AI MVP</span>
+        <h3 class="c8isv-related-card-title">AI MVP Engineering</h3>
+        <p class="c8isv-related-card-desc">Rapid 14-day production sprints building LLM-backed web products, RAG search pipelines, and autonomous AI agent workflows.</p>
+        <span class="c8isv-related-card-link">Explore AI MVP →</span>
+      </a>
+      <a href="<?php echo esc_url(home_url('/ecommerce/')); ?>" class="c8isv-related-card c8isv-reveal c8isv-reveal-d2">
+        <div class="c8isv-related-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <span class="c8isv-related-card-platform">03 / E-Commerce</span>
+        <h3 class="c8isv-related-card-title">E-Commerce Solutions</h3>
+        <p class="c8isv-related-card-desc">Custom WooCommerce and Shopify storefronts engineered for high conversion rates and zero platform bloat.</p>
+        <span class="c8isv-related-card-link">Explore E-Commerce →</span>
+      </a>
     </div>
   </div>
 </div>
+
+
 
 </div><!-- /.c8isv-root -->
 
@@ -869,7 +826,6 @@ defined('ABSPATH') || exit;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var canHover = window.matchMedia('(hover: hover)').matches;
 
-  // Reveal elements on load
   var revealEls = root.querySelectorAll('.c8isv-reveal, .c8srv-reveal');
   revealEls.forEach(function(el) { el.classList.add('is-visible'); });
 
@@ -1007,7 +963,6 @@ defined('ABSPATH') || exit;
   window.addEventListener('resize', handleScrollAnimations, { passive: true });
   handleScrollAnimations();
 
-  // Hoverlist 2-Card Fan Cursor Preview
   var hoverlist = root.querySelector('[data-c8isv-hoverlist]');
   var preview = root.querySelector('[data-c8isv-preview]');
   if (hoverlist && preview && canHover && !reduceMotion) {
@@ -1042,7 +997,6 @@ defined('ABSPATH') || exit;
     });
   }
 
-  // FAQ Accordion Toggle
   var faqTriggers = root.querySelectorAll('.faq-trigger');
   faqTriggers.forEach(function(trigger) {
     trigger.addEventListener('click', function() {
@@ -1065,60 +1019,156 @@ defined('ABSPATH') || exit;
     });
   });
 
-  // Scope Estimator Choices Calculation JS
-  var estChoices = root.querySelectorAll('.c8srv-est-choice');
-  var estRange = document.getElementById('est-range-display');
-  var estDeliv = document.getElementById('est-deliverables-list');
-  var estLink = document.getElementById('est-cta-link');
-
-  var currentBasePrice = 2500;
-  var currentMultiplier = 1.0;
-  var currentAddonPrice = 0;
-  var currentPlatformCode = 'custom';
-
-  function updateEstimator() {
-    var low = Math.round((currentBasePrice * currentMultiplier) + currentAddonPrice);
-    var high = Math.round(low * 1.25);
-
-    if (estRange) estRange.textContent = '$' + low.toLocaleString() + ' - $' + high.toLocaleString();
-
-    if (estDeliv) {
-      if (currentPlatformCode === 'enterprise') {
-        estDeliv.innerHTML = '<div>• Enterprise multi-tenant SaaS platform architecture</div><div>• Role-based access control &amp; microservices API</div><div>• High-availability database cluster &amp; CI/CD pipeline</div>';
-      } else if (currentPlatformCode === 'fullapp') {
-        estDeliv.innerHTML = '<div>• Full React / Next.js web application</div><div>• Custom REST/GraphQL backend API &amp; SQL schema</div><div>• Client dashboard &amp; payment gateway integration</div>';
+  function updateFolderStack() {
+    var cards = root.querySelectorAll('.c8srv-folder-card');
+    if (!cards.length) return;
+    if (reduceMotion) {
+      cards.forEach(function(c) {
+        c.style.setProperty('transform', 'none', 'important');
+        c.style.setProperty('filter', 'none', 'important');
+      });
+      return;
+    }
+    var isMobile = window.innerWidth < 900;
+    var limit = isMobile ? 101 : 131;
+    cards.forEach(function(card, i) {
+      var rect = card.getBoundingClientRect();
+      if (rect.top <= limit + 4) {
+        var stackedAfter = 0;
+        for (var j = i + 1; j < cards.length; j++) {
+          var nextRect = cards[j].getBoundingClientRect();
+          if (nextRect.top <= limit + 4) stackedAfter++;
+        }
+        var scale = 1 - (stackedAfter * 0.03);
+        var lift = stackedAfter * -8;
+        card.style.setProperty('transform', 'scale(' + scale + ') translate3d(0,' + lift + 'px,0)', 'important');
+        card.style.setProperty('filter', 'brightness(' + (1 - (stackedAfter * 0.05)) + ')', 'important');
       } else {
-        estDeliv.innerHTML = '<div>• Custom PHP/JS/React framework engineering</div><div>• Third-party APIs and custom database queries</div><div>• Client dashboard whitelabel panel</div>';
+        card.style.setProperty('transform', 'none', 'important');
+        card.style.setProperty('filter', 'none', 'important');
+      }
+    });
+  }
+  window.addEventListener('scroll', updateFolderStack, { passive: true });
+  window.addEventListener('resize', updateFolderStack);
+  updateFolderStack();
+
+  var choices = root.querySelectorAll('.c8srv-est-choice');
+  var rangeDisplay = root.querySelector('#est-range-display');
+  var deliverablesList = root.querySelector('#est-deliverables-list');
+  var estCta = root.querySelector('#est-cta-link');
+
+  var platformBases = {
+    spa: { price: 2000, deliverables: ["Custom React/Vue Single Page Application", "State Management & Responsive Component System", "Sub-1.0s Speed & Client-Side Caching"] },
+    portal: { price: 2800, deliverables: ["Secure Client & Admin Dashboard Architecture", "Role-Based Access Control & User Auth", "Real-Time Webhook & Data Sync Pipeline"] },
+    enterprise: { price: 3800, deliverables: ["Enterprise SaaS Microservice Architecture", "Multi-Tenant Database & Billing Integration", "Continuous Security & AWS Cloud DevOps"] }
+  };
+
+  var estimatorAddons = {
+    none: { price: 0, deliverables: [] },
+    devops: { price: 500, deliverables: ['AWS Docker Infrastructure & CI/CD Pipeline'] },
+    qa: { price: 600, deliverables: ['Cypress Automated End-to-End Testing Suite'] }
+  };
+
+  var scaleDescriptions = {
+    standard: 'Standard monolith API architecture',
+    microservices: 'Microservice architecture with event queues'
+  };
+
+  function updateEstimate() {
+    var activePlatformBtn = root.querySelector('[data-est-group="platform"] .c8srv-est-choice.is-active') || choices[0];
+    var activeScaleBtn = root.querySelector('[data-est-group="scale"] .c8srv-est-choice.is-active');
+    var activeGrowthBtn = root.querySelector('[data-est-group="growth"] .c8srv-est-choice.is-active');
+
+    var platformVal = activePlatformBtn ? activePlatformBtn.getAttribute('data-est-val') : 'spa';
+    var basePrice = platformBases[platformVal] ? platformBases[platformVal].price : 2000;
+    var scaleMult = activeScaleBtn ? parseFloat(activeScaleBtn.getAttribute('data-est-multiplier')) || 1.0 : 1.0;
+    var scaleVal = activeScaleBtn ? activeScaleBtn.getAttribute('data-est-val') || 'standard' : 'standard';
+    var growthVal = activeGrowthBtn ? activeGrowthBtn.getAttribute('data-est-val') || 'none' : 'none';
+    var growthPrice = estimatorAddons[growthVal] ? estimatorAddons[growthVal].price : 0;
+
+    var startPrice = Math.round(basePrice * scaleMult + growthPrice);
+    var endPrice = Math.round(startPrice * 1.25);
+
+    if (rangeDisplay) rangeDisplay.textContent = '$' + startPrice.toLocaleString() + ' - $' + endPrice.toLocaleString();
+
+    if (deliverablesList) {
+      deliverablesList.innerHTML = '';
+      if (platformBases[platformVal] && platformBases[platformVal].deliverables) {
+        platformBases[platformVal].deliverables.forEach(function (d) {
+          var item = document.createElement('div');
+          item.textContent = '• ' + d;
+          deliverablesList.appendChild(item);
+        });
+      }
+
+      if (scaleDescriptions[scaleVal]) {
+        var scaleItem = document.createElement('div');
+        scaleItem.style.color = '#0047E1';
+        scaleItem.style.fontWeight = '600';
+        scaleItem.textContent = '• Scope Tier: ' + scaleDescriptions[scaleVal];
+        deliverablesList.appendChild(scaleItem);
+      }
+
+      if (estimatorAddons[growthVal] && estimatorAddons[growthVal].deliverables) {
+        estimatorAddons[growthVal].deliverables.forEach(function (d) {
+          var item = document.createElement('div');
+          item.textContent = '• ' + d;
+          deliverablesList.appendChild(item);
+        });
       }
     }
 
-    if (estLink) {
-      estLink.href = '<?php echo esc_url(home_url('/contact/')); ?>?platform=' + currentPlatformCode + '&est=' + low + '-' + high;
+    if (estCta) {
+      estCta.href = "<?php echo esc_url(home_url('/contact/')); ?>?platform=" + platformVal + "&est=" + startPrice + "-" + endPrice;
     }
   }
 
-  estChoices.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var group = btn.closest('.c8srv-est-choices');
+  choices.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var group = btn.closest('[data-est-group]');
       if (group) {
-        group.querySelectorAll('.c8srv-est-choice').forEach(function(b) { b.classList.remove('is-active'); });
+        group.querySelectorAll('.c8srv-est-choice').forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
       }
-      btn.classList.add('is-active');
+      updateEstimate();
+    });
+  });
+  updateEstimate();
 
-      if (btn.hasAttribute('data-est-price')) {
-        var p = parseInt(btn.getAttribute('data-est-price'), 10);
-        if (group && group.getAttribute('data-est-group') === 'platform') {
-          currentBasePrice = p;
-          currentPlatformCode = btn.getAttribute('data-est-val');
-        } else if (group && group.getAttribute('data-est-group') === 'growth') {
-          currentAddonPrice = p;
+  /* ── Live Matrix Text Scramble Script ── */
+  var srvMatrixButtons = root.querySelectorAll('.c8-btn-primary, .c8isv-btn-primary, .c8srv-btn-primary, .c8srv-price-btn, .c8isv-price-btn, .c8srv-explore, .c8isv-explore, .c8isv-btn-ghost, .c8srv-btn-ghost, .faq-cta-link, .c8srv-vs-priority-btn, .c8isv-related-card-link, .c8srv-related-card-link, .c8isv-cta-btn');
+  var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  srvMatrixButtons.forEach(function(btn) {
+    var textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; });
+    var targetObj = textNode ? textNode : btn;
+    var originalText = targetObj.textContent.trim();
+    var scrambleInterval = null;
+
+    btn.addEventListener('mouseenter', function() {
+      var iteration = 0;
+      clearInterval(scrambleInterval);
+
+      scrambleInterval = setInterval(function() {
+        targetObj.textContent = originalText.split('')
+          .map(function(char, index) {
+            if (char === ' ' || index < iteration) return originalText[index];
+            return srvMatrixChars[Math.floor(Math.random() * srvMatrixChars.length)];
+          })
+          .join('');
+
+        if (iteration >= originalText.length) {
+          clearInterval(scrambleInterval);
         }
-      }
-      if (btn.hasAttribute('data-est-multiplier')) {
-        currentMultiplier = parseFloat(btn.getAttribute('data-est-multiplier'));
-      }
+        iteration += 1 / 2;
+      }, 25);
+    });
 
-      updateEstimator();
+    btn.addEventListener('mouseleave', function() {
+      clearInterval(scrambleInterval);
+      targetObj.textContent = originalText;
     });
   });
 })();

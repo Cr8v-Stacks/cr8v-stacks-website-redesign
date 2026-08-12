@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Service — Brand Identity Design
- * Description: Brand Identity Design Service Page Template with 100% Customizer Control Parity
+ * Description: Brand Identity Design Service Page Template with 100% Customizer Control Parity & Exact Layout Parity
  */
 defined('ABSPATH') || exit;
 ?><!DOCTYPE html>
@@ -13,26 +13,6 @@ defined('ABSPATH') || exit;
   <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri() . '/assets/css/shared-service-components.css'); ?>">
   <?php wp_head(); ?>
   <style>
-  .faq-cta-link {
-    background: #0047E1 !important;
-    color: #FFFFFF !important;
-    padding: 0.85rem 1.6rem !important;
-    border-radius: 4px !important;
-    stroke: #FFFFFF !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    font-family: 'Space Mono', monospace !important;
-    font-size: 0.85rem !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
-    text-decoration: none !important;
-  }
-  .faq-cta-link svg {
-    stroke: #FFFFFF !important;
-  }
-  /* Scope Estimator Choice Buttons */
   .c8srv-est-choices {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -70,7 +50,6 @@ defined('ABSPATH') || exit;
 
 <div class="c8isv-root">
 <style>
-/* Universal White 4px Case Study Deliverable Pills CSS */
 .c8isv-portfolio-deliverables, .c8srv-portfolio-deliverables {
   grid-column: 1 / -1 !important;
   margin-top: 1.25rem !important;
@@ -113,9 +92,7 @@ defined('ABSPATH') || exit;
 }
 </style>
 
-<!-- ══════════════════════════════════════════
-     SECTION 1: HERO (Dark)
-     ══════════════════════════════════════════ -->
+<!-- SECTION 1: HERO -->
 <div class="c8isv-hero-wrap" data-c8isv-hero>
   <div class="c8isv-hero-atmos">
     <svg class="c8isv-atmos-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
@@ -148,23 +125,22 @@ defined('ABSPATH') || exit;
   <div class="c8isv-wrap">
     <div class="c8isv-hero-grid">
       <div class="c8isv-hero-content">
-        <div class="c8isv-breadcrumb"><a href="<?php echo esc_url(home_url('/services/')); ?>"><?php echo esc_html(cr8v_mod('bident_hero_crumb_parent', 'SERVICES')); ?></a> <span>/</span> <span class="is-current"><?php echo esc_html(cr8v_mod('bident_hero_crumb_child', 'BRAND IDENTITY DESIGN')); ?></span></div>
-        <div class="c8isv-label is-light" data-customizer="bident_hero_label"><?php echo esc_html(cr8v_mod('bident_hero_label', 'Visual Identity Systems & Design Architecture')); ?></div>
-        <h1 class="c8isv-headline"><span data-customizer="bident_hero_h1_part1"><?php echo esc_html(cr8v_mod('bident_hero_h1_part1', 'Visual Identity Systems ')); ?></span><span class="c8isv-serif" data-customizer="bident_hero_h1_serif"><?php echo esc_html(cr8v_mod('bident_hero_h1_serif', '& Brand Design')); ?></span></h1>
-        <p class="c8isv-hero-intro" data-customizer="bident_hero_intro"><?php echo wp_kses_post(cr8v_mod('bident_hero_intro', 'Bespoke logo engineering, visual brand guidelines, typography tokens, and design systems engineered to build premium category presence and instant market authority.')); ?></p>
+        <div class="c8isv-breadcrumb"><a href="<?php echo esc_url(home_url('/services/')); ?>"><?php echo esc_html(cr8v_mod('brind_hero_crumb_parent', 'SERVICES')); ?></a> <span>/</span> <span class="is-current"><?php echo esc_html(cr8v_mod('brind_hero_crumb_child', 'BRAND IDENTITY DESIGN')); ?></span></div>
+        <div class="c8isv-label is-light" data-customizer="brind_hero_label"><?php echo esc_html(cr8v_mod('brind_hero_label', 'Visual Identity Systems & Brand Guidelines')); ?></div>
+        <h1 class="c8isv-headline"><span data-customizer="brind_hero_h1_part1"><?php echo esc_html(cr8v_mod('brind_hero_h1_part1', 'Bespoke Brand Identity ')); ?></span><span class="c8isv-serif" data-customizer="brind_hero_h1_serif"><?php echo esc_html(cr8v_mod('brind_hero_h1_serif', '& Design Systems')); ?></span></h1>
+        <p class="c8isv-hero-intro" data-customizer="brind_hero_intro"><?php echo wp_kses_post(cr8v_mod('brind_hero_intro', 'Comprehensive visual identity architectures, vector logomarks, typography rules, color token systems, and brand guideline books built for immediate brand recognition.')); ?></p>
         <div class="c8isv-hero-ctas">
-          <a href="<?php echo esc_url(cr8v_mod('bident_hero_cta1_url', '#c8isv-services')); ?>" class="c8isv-btn-primary" data-customizer="bident_hero_cta1_text"><?php echo esc_html(cr8v_mod('bident_hero_cta1_text', 'See What We Build →')); ?></a>
-          <a href="<?php echo esc_url(home_url(cr8v_mod('bident_hero_cta2_url', '/discovery-call/'))); ?>" class="c8isv-btn-ghost" data-customizer="bident_hero_cta2_text"><?php echo esc_html(cr8v_mod('bident_hero_cta2_text', 'Get a Quote →')); ?></a>
+          <a href="<?php echo esc_url(cr8v_mod('brind_hero_cta1_url', '#c8isv-services')); ?>" class="c8isv-btn-primary" data-customizer="brind_hero_cta1_text"><?php echo esc_html(cr8v_mod('brind_hero_cta1_text', 'See What We Build →')); ?></a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('brind_hero_cta2_url', '/discovery-call/'))); ?>" class="c8isv-btn-ghost" data-customizer="brind_hero_cta2_text"><?php echo esc_html(cr8v_mod('brind_hero_cta2_text', 'Get a Quote →')); ?></a>
         </div>
         <div class="c8isv-pill-row">
-          <span class="c8isv-pill" data-customizer="bident_hero_pill1"><?php echo esc_html(cr8v_mod('bident_hero_pill1', 'Figma')); ?></span>
-          <span class="c8isv-pill" data-customizer="bident_hero_pill2"><?php echo esc_html(cr8v_mod('bident_hero_pill2', 'Design System')); ?></span>
-          <span class="c8isv-pill" data-customizer="bident_hero_pill3"><?php echo esc_html(cr8v_mod('bident_hero_pill3', 'Typography')); ?></span>
-          <span class="c8isv-pill" data-customizer="bident_hero_pill4"><?php echo esc_html(cr8v_mod('bident_hero_pill4', 'Brand Guidelines')); ?></span>
+          <span class="c8isv-pill" data-customizer="brind_hero_pill1"><?php echo esc_html(cr8v_mod('brind_hero_pill1', 'Vector Logomarks')); ?></span>
+          <span class="c8isv-pill" data-customizer="brind_hero_pill2"><?php echo esc_html(cr8v_mod('brind_hero_pill2', 'Color Palette Systems')); ?></span>
+          <span class="c8isv-pill" data-customizer="brind_hero_pill3"><?php echo esc_html(cr8v_mod('brind_hero_pill3', 'Typography Rules')); ?></span>
+          <span class="c8isv-pill" data-customizer="brind_hero_pill4"><?php echo esc_html(cr8v_mod('brind_hero_pill4', 'Brand Style Guides')); ?></span>
         </div>
       </div>
       
-      <!-- Right Side Parallax Shatter Animation -->
       <div class="c8isv-anim-container" id="c8isv-anim-wrapper">
         <canvas id="c8isv-canvas-bg"></canvas>
         <canvas id="c8isv-canvas-main"></canvas>
@@ -175,102 +151,84 @@ defined('ABSPATH') || exit;
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 2: WHY BRAND IDENTITY (Flank Cards Stack)
-     Light #F4F6FB
-     ══════════════════════════════════════════ -->
+<!-- SECTION 2: WHY BRAND IDENTITY -->
 <div class="c8isv-flank-section">
   <div class="c8isv-flank-inner">
-    <div class="c8isv-label c8isv-reveal is-center" data-customizer="bident_flank_label"><?php echo esc_html(cr8v_mod('bident_flank_label', 'Why Brand Identity')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal" data-customizer="bident_flank_h2"><?php echo esc_html(cr8v_mod('bident_flank_h2', 'Visual Systems Engineered For Premium Market Trust')); ?></h2>
+    <div class="c8isv-label c8isv-reveal is-center" data-customizer="brind_flank_label"><?php echo esc_html(cr8v_mod('brind_flank_label', 'Why Brand Identity Systems')); ?></div>
+    <h2 class="c8isv-section-title c8isv-reveal" data-customizer="brind_flank_h2"><?php echo esc_html(cr8v_mod('brind_flank_h2', 'Distinctive Visual Presence Across Every Touchpoint')); ?></h2>
 
     <div class="c8isv-flank-container" data-c8isv-flank-trigger>
-      <!-- Card 1 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="0">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step" data-customizer="bident_flank1_step"><?php echo esc_html(cr8v_mod('bident_flank1_step', 'Identity // Vector')); ?></span>
+        <span class="c8isv-flank-card-step" data-customizer="brind_flank1_step"><?php echo esc_html(cr8v_mod('brind_flank1_step', 'Vector // Mark')); ?></span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title" data-customizer="bident_flank1_title"><?php echo esc_html(cr8v_mod('bident_flank1_title', 'Precision Logo Engineering')); ?></h3>
-        <p class="c8isv-flank-card-desc" data-customizer="bident_flank1_desc"><?php echo wp_kses_post(cr8v_mod('bident_flank1_desc', 'Crafting memorable, scalable vector logo marks with geometric precision and multi-context versatility.')); ?></p>
-        <div class="c8isv-flank-card-icon">
-          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
+        <h3 class="c8isv-flank-card-title" data-customizer="brind_flank1_title"><?php echo esc_html(cr8v_mod('brind_flank1_title', 'Iconic Vector Logomark Suite')); ?></h3>
+        <p class="c8isv-flank-card-desc" data-customizer="brind_flank1_desc"><?php echo wp_kses_post(cr8v_mod('brind_flank1_desc', 'Crafting primary logos, secondary wordmarks, favicons, and social avatars optimized for any display scale.')); ?></p>
+        <div class="c8isv-flank-card-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
       </div>
-      <!-- Card 2 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="1">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step" data-customizer="bident_flank2_step"><?php echo esc_html(cr8v_mod('bident_flank2_step', 'Tokens // Design')); ?></span>
+        <span class="c8isv-flank-card-step" data-customizer="brind_flank2_step"><?php echo esc_html(cr8v_mod('brind_flank2_step', 'Palette // Harmony')); ?></span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title" data-customizer="bident_flank2_title"><?php echo esc_html(cr8v_mod('bident_flank2_title', 'Typography & Color Systems')); ?></h3>
-        <p class="c8isv-flank-card-desc" data-customizer="bident_flank2_desc"><?php echo wp_kses_post(cr8v_mod('bident_flank2_desc', 'Curating harmonious color palettes and modern typography scales that project instant quality.')); ?></p>
-        <div class="c8isv-flank-card-icon">
-          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        </div>
+        <h3 class="c8isv-flank-card-title" data-customizer="brind_flank2_title"><?php echo esc_html(cr8v_mod('brind_flank2_title', 'Curated Color Token System')); ?></h3>
+        <p class="c8isv-flank-card-desc" data-customizer="brind_flank2_desc"><?php echo wp_kses_post(cr8v_mod('brind_flank2_desc', 'Establishing primary brand colors, accent highlights, and dark mode UI color tokens with WCAG accessibility contrast.')); ?></p>
+        <div class="c8isv-flank-card-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
       </div>
-      <!-- Card 3 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="2">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step" data-customizer="bident_flank3_step"><?php echo esc_html(cr8v_mod('bident_flank3_step', 'Guidelines // Rules')); ?></span>
+        <span class="c8isv-flank-card-step" data-customizer="brind_flank3_step"><?php echo esc_html(cr8v_mod('brind_flank3_step', 'Type // System')); ?></span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title" data-customizer="bident_flank3_title"><?php echo esc_html(cr8v_mod('bident_flank3_title', 'Brand Identity Guidelines')); ?></h3>
-        <p class="c8isv-flank-card-desc" data-customizer="bident_flank3_desc"><?php echo wp_kses_post(cr8v_mod('bident_flank3_desc', 'Defining clear usage rules, spacing ratios, dark mode variants, and misapplication safeguards.')); ?></p>
-        <div class="c8isv-flank-card-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
-        </div>
+        <h3 class="c8isv-flank-card-title" data-customizer="brind_flank3_title"><?php echo esc_html(cr8v_mod('brind_flank3_title', 'Typography & Type Hierarchy')); ?></h3>
+        <p class="c8isv-flank-card-desc" data-customizer="brind_flank3_desc"><?php echo wp_kses_post(cr8v_mod('brind_flank3_desc', 'Selecting pairing fonts, headline serif accents, and responsive font scale rules for web and print.')); ?></p>
+        <div class="c8isv-flank-card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg></div>
       </div>
-      <!-- Card 4 -->
       <div class="c8isv-flank-card" data-c8isv-flank-card="3">
         <div class="c8isv-flank-card-quote">"</div>
-        <span class="c8isv-flank-card-step" data-customizer="bident_flank4_step"><?php echo esc_html(cr8v_mod('bident_flank4_step', 'System // Scalability')); ?></span>
+        <span class="c8isv-flank-card-step" data-customizer="brind_flank4_step"><?php echo esc_html(cr8v_mod('brind_flank4_step', 'Guidelines // Book')); ?></span>
         <div class="c8isv-flank-card-divider"></div>
-        <h3 class="c8isv-flank-card-title" data-customizer="bident_flank4_title"><?php echo esc_html(cr8v_mod('bident_flank4_title', 'Cross-Platform Design Parity')); ?></h3>
-        <p class="c8isv-flank-card-desc" data-customizer="bident_flank4_desc"><?php echo wp_kses_post(cr8v_mod('bident_flank4_desc', 'Ensuring flawless visual consistency across web UI, mobile apps, social media, and printed collateral.')); ?></p>
-        <div class="c8isv-flank-card-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        </div>
+        <h3 class="c8isv-flank-card-title" data-customizer="brind_flank4_title"><?php echo esc_html(cr8v_mod('brind_flank4_title', 'Brand Guidelines Specification')); ?></h3>
+        <p class="c8isv-flank-card-desc" data-customizer="brind_flank4_desc"><?php echo wp_kses_post(cr8v_mod('brind_flank4_desc', 'Delivering a comprehensive PDF and digital brand portal outlining logo clear space, usage don’ts, and asset exports.')); ?></p>
+        <div class="c8isv-flank-card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 3: OUR WORK (Portfolio Showcase)
-     White Background — BridgePoints Showcase
-     ══════════════════════════════════════════ -->
+<!-- SECTION 3: OUR WORK -->
 <div class="c8isv-portfolio-outer">
   <div class="c8isv-portfolio-inner">
     <div class="c8isv-portfolio-head">
-      <div class="c8isv-label c8isv-reveal is-center" data-customizer="bident_port_label"><?php echo esc_html(cr8v_mod('bident_port_label', 'Our Work')); ?></div>
-      <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="bident_port_h2_part1"><?php echo esc_html(cr8v_mod('bident_port_h2_part1', 'Built for Real Outcomes, ')); ?></span><br><span class="c8isv-serif" data-customizer="bident_port_h2_serif"><?php echo esc_html(cr8v_mod('bident_port_h2_serif', 'Not Just Concepts')); ?></span></h2>
+      <div class="c8isv-label c8isv-reveal is-center" data-customizer="brind_port_label"><?php echo esc_html(cr8v_mod('brind_port_label', 'Our Work')); ?></div>
+      <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="brind_port_h2_part1"><?php echo esc_html(cr8v_mod('brind_port_h2_part1', 'Built for Real Outcomes, ')); ?></span><br><span class="c8isv-serif" data-customizer="brind_port_h2_serif"><?php echo esc_html(cr8v_mod('brind_port_h2_serif', 'Not Just Concepts')); ?></span></h2>
     </div>
     <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
       <div class="c8isv-portfolio-img">
-        <img src="<?php echo esc_url(cr8v_mod('bident_port_img', 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=800&auto=format&fit=crop')); ?>" alt="BridgePoints — built by Cr8v Stacks" data-customizer="bident_port_img">
+        <img src="<?php echo esc_url(cr8v_mod('brind_port_img', 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop')); ?>" alt="Vanguard Rebrand — built by Cr8v Stacks" data-customizer="brind_port_img">
       </div>
       <div class="c8isv-portfolio-info">
-        <span class="c8isv-portfolio-client" data-customizer="bident_port_client"><?php echo esc_html(cr8v_mod('bident_port_client', 'Case Study — BridgePoints')); ?></span>
-        <h3 class="c8isv-portfolio-title" data-customizer="bident_port_title"><?php echo esc_html(cr8v_mod('bident_port_title', 'Visual Identity System & Design Architecture')); ?></h3>
-        <p class="c8isv-portfolio-desc" data-customizer="bident_port_desc"><?php echo wp_kses_post(cr8v_mod('bident_port_desc', 'BridgePoints needed a high-trust visual brand identity for corporate compliance and advisory services. We designed their logo system, visual brand guidelines, typography scale, and color palette architecture.')); ?></p>
+        <span class="c8isv-portfolio-client" data-customizer="brind_port_client"><?php echo esc_html(cr8v_mod('brind_port_client', 'Case Study — Vanguard Architecture')); ?></span>
+        <h3 class="c8isv-portfolio-title" data-customizer="brind_port_title"><?php echo esc_html(cr8v_mod('brind_port_title', 'Complete Rebrand & Custom Visual Identity System')); ?></h3>
+        <p class="c8isv-portfolio-desc" data-customizer="brind_port_desc"><?php echo wp_kses_post(cr8v_mod('brind_port_desc', 'Vanguard needed a premium brand identity that matched their high-end architectural projects. We designed a vector logomark, custom typography guidelines, and a digital style guide.')); ?></p>
         <div class="c8isv-portfolio-stats">
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="bident_port_stat1_val"><?php echo esc_html(cr8v_mod('bident_port_stat1_val', '1')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="bident_port_stat1_lbl"><?php echo esc_html(cr8v_mod('bident_port_stat1_lbl', 'Complete Visual Identity System & Guidelines')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="brind_port_stat1_val"><?php echo esc_html(cr8v_mod('brind_port_stat1_val', '100%')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="brind_port_stat1_lbl"><?php echo esc_html(cr8v_mod('brind_port_stat1_lbl', 'Vector Asset Consistency')); ?></span>
           </div>
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="bident_port_stat2_val"><?php echo esc_html(cr8v_mod('bident_port_stat2_val', '100%')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="bident_port_stat2_lbl"><?php echo esc_html(cr8v_mod('bident_port_stat2_lbl', 'Brand Consistency Across Web & Collateral')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="brind_port_stat2_val"><?php echo esc_html(cr8v_mod('brind_port_stat2_val', '45 Page')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="brind_port_stat2_lbl"><?php echo esc_html(cr8v_mod('brind_port_stat2_lbl', 'Brand Guidelines Book')); ?></span>
           </div>
         </div>
         <div class="c8isv-portfolio-deliverables">
           <span class="c8isv-portfolio-stat-lbl">Key Deliverables</span>
           <div class="c8isv-portfolio-pills">
-            <span class="c8isv-portfolio-pill">Vector Logo Suite</span>
-            <span class="c8isv-portfolio-pill">Typography &amp; Color Tokens</span>
-            <span class="c8isv-portfolio-pill">Figma Design System</span>
-            <span class="c8isv-portfolio-pill">Brand Guidelines Manual</span>
+            <span class="c8isv-portfolio-pill">Vector Logomark Suite</span>
+            <span class="c8isv-portfolio-pill">Color Palette Tokens</span>
+            <span class="c8isv-portfolio-pill">Typography Rules</span>
+            <span class="c8isv-portfolio-pill">Brand Guidelines PDF</span>
           </div>
         </div>
-        <a href="<?php echo esc_url(home_url(cr8v_mod('bident_port_btn_url', '/case-studies/bridgepoints/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="bident_port_btn_text"><?php echo esc_html(cr8v_mod('bident_port_btn_text', 'View Case Study →')); ?></a>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('brind_port_btn_url', '/case-studies/vanguard-architecture/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="brind_port_btn_text"><?php echo esc_html(cr8v_mod('brind_port_btn_text', 'View Case Study →')); ?></a>
       </div>
     </div>
     <div class="c8isv-portfolio-footer">
@@ -279,88 +237,80 @@ defined('ABSPATH') || exit;
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 4: WHAT YOU GET (Folder Deck)
-     Cream #FAFAF9
-     ══════════════════════════════════════════ -->
+<!-- SECTION 4: WHAT YOU GET -->
 <div class="c8srv-folder-section" id="c8isv-services">
   <div class="c8isv-wrap">
-    <div class="c8isv-label c8isv-reveal" data-customizer="bident_folder_label"><?php echo esc_html(cr8v_mod('bident_folder_label', 'What You Get')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="bident_folder_h2_part1"><?php echo esc_html(cr8v_mod('bident_folder_h2_part1', 'Every layer of your visual identity, ')); ?></span><span class="c8isv-serif" data-customizer="bident_folder_h2_serif"><?php echo esc_html(cr8v_mod('bident_folder_h2_serif', 'engineered by Cr8v Stacks.')); ?></span></h2>
-    <p class="c8isv-lead c8isv-reveal" style="margin-bottom:2rem" data-customizer="bident_folder_desc"><?php echo wp_kses_post(cr8v_mod('bident_folder_desc', 'Vector logo systems, color token architectures, custom typography scales, brand rulebooks, and digital collateral templates.')); ?></p>
+    <div class="c8isv-label c8isv-reveal" data-customizer="brind_folder_label"><?php echo esc_html(cr8v_mod('brind_folder_label', 'What You Get')); ?></div>
+    <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="brind_folder_h2_part1"><?php echo esc_html(cr8v_mod('brind_folder_h2_part1', 'Every layer of your brand identity, ')); ?></span><span class="c8isv-serif" data-customizer="brind_folder_h2_serif"><?php echo esc_html(cr8v_mod('brind_folder_h2_serif', 'engineered by Cr8v Stacks.')); ?></span></h2>
+    <p class="c8isv-lead c8isv-reveal" style="margin-bottom:2rem" data-customizer="brind_folder_desc"><?php echo wp_kses_post(cr8v_mod('brind_folder_desc', 'Vector logos, color system tokens, typography rules, social media assets, and brand guideline books.')); ?></p>
 
     <div class="c8srv-folder-deck" data-c8srv-folder-deck>
-      <!-- Card 1 -->
       <div class="c8srv-folder-card">
-        <div class="c8srv-folder-tab" data-customizer="bident_folder1_tab"><?php echo esc_html(cr8v_mod('bident_folder1_tab', '01 // Logo')); ?></div>
+        <div class="c8srv-folder-tab" data-customizer="brind_folder1_tab"><?php echo esc_html(cr8v_mod('brind_folder1_tab', '01 // Logomark')); ?></div>
         <div class="c8srv-folder-card-left">
-          <h3 class="c8srv-folder-card-title" data-customizer="bident_folder1_title"><?php echo esc_html(cr8v_mod('bident_folder1_title', 'Primary & Secondary Logo Marks')); ?></h3>
-          <p class="c8srv-folder-card-desc" data-customizer="bident_folder1_desc"><?php echo wp_kses_post(cr8v_mod('bident_folder1_desc', 'Vector logo suite including primary logotype, sub-marks, favicons, and monochrome dark/light variants.')); ?></p>
-          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss logo suites →</a>
+          <h3 class="c8srv-folder-card-title" data-customizer="brind_folder1_title"><?php echo esc_html(cr8v_mod('brind_folder1_title', 'Primary & Secondary Vector Logomarks')); ?></h3>
+          <p class="c8srv-folder-card-desc" data-customizer="brind_folder1_desc"><?php echo wp_kses_post(cr8v_mod('brind_folder1_desc', 'Bespoke vector logo design delivered in SVG, EPS, PNG, and PDF formats with dark/light background variants.')); ?></p>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss logomark design →</a>
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Primary & Secondary Logo Marks">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Primary & Secondary Vector Logomarks">
           </div>
         </div>
       </div>
 
-      <!-- Card 2 -->
       <div class="c8srv-folder-card">
-        <div class="c8srv-folder-tab" data-customizer="bident_folder2_tab"><?php echo esc_html(cr8v_mod('bident_folder2_tab', '02 // Color')); ?></div>
+        <div class="c8srv-folder-tab" data-customizer="brind_folder2_tab"><?php echo esc_html(cr8v_mod('brind_folder2_tab', '02 // Palette')); ?></div>
         <div class="c8srv-folder-card-left">
-          <h3 class="c8srv-folder-card-title" data-customizer="bident_folder2_title"><?php echo esc_html(cr8v_mod('bident_folder2_title', 'Color Token & Palette Architecture')); ?></h3>
-          <p class="c8srv-folder-card-desc" data-customizer="bident_folder2_desc"><?php echo wp_kses_post(cr8v_mod('bident_folder2_desc', 'Curating primary brand colors, secondary accents, neutral backgrounds, and accessibility contrast pairs.')); ?></p>
-          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss color tokens →</a>
+          <h3 class="c8srv-folder-card-title" data-customizer="brind_folder2_title"><?php echo esc_html(cr8v_mod('brind_folder2_title', 'Color System & Design Tokens')); ?></h3>
+          <p class="c8srv-folder-card-desc" data-customizer="brind_folder2_desc"><?php echo wp_kses_post(cr8v_mod('brind_folder2_desc', 'HEX, RGB, HSL, and Pantone color specs crafted for consistent display on screens and print.')); ?></p>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss color systems →</a>
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Color Token & Palette Architecture">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Color System & Design Tokens">
           </div>
         </div>
       </div>
 
-      <!-- Card 3 -->
       <div class="c8srv-folder-card">
-        <div class="c8srv-folder-tab" data-customizer="bident_folder3_tab"><?php echo esc_html(cr8v_mod('bident_folder3_tab', '03 // Typography')); ?></div>
+        <div class="c8srv-folder-tab" data-customizer="brind_folder3_tab"><?php echo esc_html(cr8v_mod('brind_folder3_tab', '03 // Type')); ?></div>
         <div class="c8srv-folder-card-left">
-          <h3 class="c8srv-folder-card-title" data-customizer="bident_folder3_title"><?php echo esc_html(cr8v_mod('bident_folder3_title', 'Typography Hierarchy & Typeface Scale')); ?></h3>
-          <p class="c8srv-folder-card-desc" data-customizer="bident_folder3_desc"><?php echo wp_kses_post(cr8v_mod('bident_folder3_desc', 'Selecting web-safe Google/custom fonts with defined H1-H6 scales, body text line-heights, and letter spacing.')); ?></p>
+          <h3 class="c8srv-folder-card-title" data-customizer="brind_folder3_title"><?php echo esc_html(cr8v_mod('brind_folder3_title', 'Typography System & Font Pairing')); ?></h3>
+          <p class="c8srv-folder-card-desc" data-customizer="brind_folder3_desc"><?php echo wp_kses_post(cr8v_mod('brind_folder3_desc', 'Harmonious display font pairings, body copy guidelines, and web font web-safe fallbacks.')); ?></p>
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss typography →</a>
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Typography Hierarchy & Typeface Scale">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Typography System & Font Pairing">
           </div>
         </div>
       </div>
 
-      <!-- Card 4 -->
       <div class="c8srv-folder-card">
-        <div class="c8srv-folder-tab" data-customizer="bident_folder4_tab"><?php echo esc_html(cr8v_mod('bident_folder4_tab', '04 // Guidelines')); ?></div>
+        <div class="c8srv-folder-tab" data-customizer="brind_folder4_tab"><?php echo esc_html(cr8v_mod('brind_folder4_tab', '04 // Social')); ?></div>
         <div class="c8srv-folder-card-left">
-          <h3 class="c8srv-folder-card-title" data-customizer="bident_folder4_title"><?php echo esc_html(cr8v_mod('bident_folder4_title', 'Figma Brand Identity Guidelines')); ?></h3>
-          <p class="c8srv-folder-card-desc" data-customizer="bident_folder4_desc"><?php echo wp_kses_post(cr8v_mod('bident_folder4_desc', 'A comprehensive digital brand book documenting clear usage rules, clear-space ratios, and icon sets.')); ?></p>
-          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss brand guidelines →</a>
+          <h3 class="c8srv-folder-card-title" data-customizer="brind_folder4_title"><?php echo esc_html(cr8v_mod('brind_folder4_title', 'Social Media Asset Suite')); ?></h3>
+          <p class="c8srv-folder-card-desc" data-customizer="brind_folder4_desc"><?php echo wp_kses_post(cr8v_mod('brind_folder4_desc', 'Profile avatars, banner templates, and social post graphics formatted for LinkedIn, Twitter, and Instagram.')); ?></p>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss social assets →</a>
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Figma Brand Identity Guidelines">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Social Media Asset Suite">
           </div>
         </div>
       </div>
 
-      <!-- Card 5 -->
       <div class="c8srv-folder-card">
-        <div class="c8srv-folder-tab" data-customizer="bident_folder5_tab"><?php echo esc_html(cr8v_mod('bident_folder5_tab', '05 // Collateral')); ?></div>
+        <div class="c8srv-folder-tab" data-customizer="brind_folder5_tab"><?php echo esc_html(cr8v_mod('brind_folder5_tab', '05 // Book')); ?></div>
         <div class="c8srv-folder-card-left">
-          <h3 class="c8srv-folder-card-title" data-customizer="bident_folder5_title"><?php echo esc_html(cr8v_mod('bident_folder5_title', 'Social & Marketing Asset Templates')); ?></h3>
-          <p class="c8srv-folder-card-desc" data-customizer="bident_folder5_desc"><?php echo wp_kses_post(cr8v_mod('bident_folder5_desc', 'Editable Figma templates for social media posts, pitch decks, business cards, and email signatures.')); ?></p>
-          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss asset templates →</a>
+          <h3 class="c8srv-folder-card-title" data-customizer="brind_folder5_title"><?php echo esc_html(cr8v_mod('brind_folder5_title', 'Brand Guidelines Specification Book')); ?></h3>
+          <p class="c8srv-folder-card-desc" data-customizer="brind_folder5_desc"><?php echo wp_kses_post(cr8v_mod('brind_folder5_desc', 'A detailed brand PDF manual specifying clear space rules, improper uses, and design standards.')); ?></p>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss brand manuals →</a>
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Social & Marketing Asset Templates">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Brand Guidelines Specification Book">
           </div>
         </div>
       </div>
@@ -368,229 +318,197 @@ defined('ABSPATH') || exit;
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 5: HOW WE APPROACH IT (Process Deck)
-     White Background — Slanted Overlapping Cards
-     ══════════════════════════════════════════ -->
+<!-- SECTION 5: HOW WE APPROACH IT -->
 <div class="c8isv-approach-outer">
   <div class="c8isv-wrap" style="padding-bottom:0">
-    <div class="c8isv-label c8isv-reveal" data-customizer="bident_app_label"><?php echo esc_html(cr8v_mod('bident_app_label', 'How We Approach It')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal" data-customizer="bident_app_h2"><?php echo esc_html(cr8v_mod('bident_app_h2', 'How We Approach Brand Identity Design')); ?></h2>
-    <p class="c8isv-lead c8isv-reveal" data-customizer="bident_app_sub"><?php echo wp_kses_post(cr8v_mod('bident_app_sub', 'Our milestone-driven design and engineering process delivers clear progress at every phase of your project.')); ?></p>
+    <div class="c8isv-label c8isv-reveal" data-customizer="brind_app_label"><?php echo esc_html(cr8v_mod('brind_app_label', 'How We Approach It')); ?></div>
+    <h2 class="c8isv-section-title c8isv-reveal" data-customizer="brind_app_h2"><?php echo esc_html(cr8v_mod('brind_app_h2', 'How We Approach Brand Identity Design')); ?></h2>
+    <p class="c8isv-lead c8isv-reveal" data-customizer="brind_app_sub"><?php echo wp_kses_post(cr8v_mod('brind_app_sub', 'Our milestone-driven design and engineering process delivers clear progress at every phase of your project.')); ?></p>
   </div>
   
   <div class="c8isv-approach-deck" data-c8isv-approach-deck>
-    <!-- Stage 1 -->
     <div class="c8isv-approach-wrap">
       <div class="c8isv-approach-card" data-c8isv-approach-card>
-        <div class="c8isv-approach-col-num" data-customizer="bident_app1_num"><?php echo esc_html(cr8v_mod('bident_app1_num', '01')); ?></div>
-        <div class="c8isv-approach-col-name" data-customizer="bident_app1_name"><?php echo esc_html(cr8v_mod('bident_app1_name', 'Concept')); ?></div>
-        <div class="c8isv-approach-col-tags" data-customizer="bident_app1_tags"><?php echo wp_kses_post(cr8v_mod('bident_app1_tags', 'Moodboards &middot; Directions &middot;<br>Sketches')); ?></div>
-        <div class="c8isv-approach-col-desc" data-customizer="bident_app1_desc"><?php echo wp_kses_post(cr8v_mod('bident_app1_desc', 'We analyze brand strategy blueprints, create visual moodboards, and sketch initial logo concept directions.')); ?></div>
+        <div class="c8isv-approach-col-num" data-customizer="brind_app1_num"><?php echo esc_html(cr8v_mod('brind_app1_num', '01')); ?></div>
+        <div class="c8isv-approach-col-name" data-customizer="brind_app1_name"><?php echo esc_html(cr8v_mod('brind_app1_name', 'Research')); ?></div>
+        <div class="c8isv-approach-col-tags" data-customizer="brind_app1_tags"><?php echo wp_kses_post(cr8v_mod('brind_app1_tags', 'Competitors &middot; Moodboards &middot;<br>Attributes')); ?></div>
+        <div class="c8isv-approach-col-desc" data-customizer="brind_app1_desc"><?php echo wp_kses_post(cr8v_mod('brind_app1_desc', 'We analyze your market space, compile visual moodboards, and align on brand attributes.')); ?></div>
         <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" alt="Brand Identity Concept stage">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" alt="Research stage">
         </div>
       </div>
     </div>
 
-    <!-- Stage 2 -->
     <div class="c8isv-approach-wrap">
       <div class="c8isv-approach-card" data-c8isv-approach-card>
-        <div class="c8isv-approach-col-num" data-customizer="bident_app2_num"><?php echo esc_html(cr8v_mod('bident_app2_num', '02')); ?></div>
-        <div class="c8isv-approach-col-name" data-customizer="bident_app2_name"><?php echo esc_html(cr8v_mod('bident_app2_name', 'Vectorize')); ?></div>
-        <div class="c8isv-approach-col-tags" data-customizer="bident_app2_tags"><?php echo wp_kses_post(cr8v_mod('bident_app2_tags', 'Geometry &middot; Grid &middot;<br>Logotype')); ?></div>
-        <div class="c8isv-approach-col-desc" data-customizer="bident_app2_desc"><?php echo wp_kses_post(cr8v_mod('bident_app2_desc', 'We refine selected concept vectors on geometric grid systems, establishing exact proportions and alignment.')); ?></div>
+        <div class="c8isv-approach-col-num" data-customizer="brind_app2_num"><?php echo esc_html(cr8v_mod('brind_app2_num', '02')); ?></div>
+        <div class="c8isv-approach-col-name" data-customizer="brind_app2_name"><?php echo esc_html(cr8v_mod('brind_app2_name', 'Logomark')); ?></div>
+        <div class="c8isv-approach-col-tags" data-customizer="brind_app2_tags"><?php echo wp_kses_post(cr8v_mod('brind_app2_tags', 'Sketches &middot; Vectors &middot;<br>Refinement')); ?></div>
+        <div class="c8isv-approach-col-desc" data-customizer="brind_app2_desc"><?php echo wp_kses_post(cr8v_mod('brind_app2_desc', 'We sketch concept directions, refine vector paths, and present 3 distinct logo directions.')); ?></div>
         <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop" alt="Brand Identity Vectorize stage">
+          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop" alt="Logomark stage">
         </div>
       </div>
     </div>
 
-    <!-- Stage 3 -->
     <div class="c8isv-approach-wrap">
       <div class="c8isv-approach-card" data-c8isv-approach-card>
-        <div class="c8isv-approach-col-num" data-customizer="bident_app3_num"><?php echo esc_html(cr8v_mod('bident_app3_num', '03')); ?></div>
-        <div class="c8isv-approach-col-name" data-customizer="bident_app3_name"><?php echo esc_html(cr8v_mod('bident_app3_name', 'Systemize')); ?></div>
-        <div class="c8isv-approach-col-tags" data-customizer="bident_app3_tags"><?php echo wp_kses_post(cr8v_mod('bident_app3_tags', 'Colors &middot; Typography &middot;<br>Tokens')); ?></div>
-        <div class="c8isv-approach-col-desc" data-customizer="bident_app3_desc"><?php echo wp_kses_post(cr8v_mod('bident_app3_desc', 'We construct the complete design system — pairing typography scales, color palettes, and UI tokens.')); ?></div>
+        <div class="c8isv-approach-col-num" data-customizer="brind_app3_num"><?php echo esc_html(cr8v_mod('brind_app3_num', '03')); ?></div>
+        <div class="c8isv-approach-col-name" data-customizer="brind_app3_name"><?php echo esc_html(cr8v_mod('brind_app3_name', 'System')); ?></div>
+        <div class="c8isv-approach-col-tags" data-customizer="brind_app3_tags"><?php echo wp_kses_post(cr8v_mod('brind_app3_tags', 'Colors &middot; Type &middot;<br>Mockups')); ?></div>
+        <div class="c8isv-approach-col-desc" data-customizer="brind_app3_desc"><?php echo wp_kses_post(cr8v_mod('brind_app3_desc', 'We construct the full color palette tokens, typography rules, and real-world brand mockups.')); ?></div>
         <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Brand Identity Systemize stage">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="System stage">
         </div>
       </div>
     </div>
 
-    <!-- Stage 4 -->
     <div class="c8isv-approach-wrap">
       <div class="c8isv-approach-card" data-c8isv-approach-card>
-        <div class="c8isv-approach-col-num" data-customizer="bident_app4_num"><?php echo esc_html(cr8v_mod('bident_app4_num', '04')); ?></div>
-        <div class="c8isv-approach-col-name" data-customizer="bident_app4_name"><?php echo esc_html(cr8v_mod('bident_app4_name', 'Deliver')); ?></div>
-        <div class="c8isv-approach-col-tags" data-customizer="bident_app4_tags"><?php echo wp_kses_post(cr8v_mod('bident_app4_tags', 'Brand Book &middot; Assets &middot;<br>Templates')); ?></div>
-        <div class="c8isv-approach-col-desc" data-customizer="bident_app4_desc"><?php echo wp_kses_post(cr8v_mod('bident_app4_desc', 'We compile your final Figma Brand Book and export vector assets SVG, PNG, EPS, and PDF formats.')); ?></div>
+        <div class="c8isv-approach-col-num" data-customizer="brind_app4_num"><?php echo esc_html(cr8v_mod('brind_app4_num', '04')); ?></div>
+        <div class="c8isv-approach-col-name" data-customizer="brind_app4_name"><?php echo esc_html(cr8v_mod('brind_app4_name', 'Handoff')); ?></div>
+        <div class="c8isv-approach-col-tags" data-customizer="brind_app4_tags"><?php echo wp_kses_post(cr8v_mod('brind_app4_tags', 'PDF Guidelines &middot; SVGs &middot;<br>Asset Pack')); ?></div>
+        <div class="c8isv-approach-col-desc" data-customizer="brind_app4_desc"><?php echo wp_kses_post(cr8v_mod('brind_app4_desc', 'We deliver the master brand guideline PDF along with organized SVG, EPS, and PNG vector asset packages.')); ?></div>
         <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Brand Identity Deliver stage">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Handoff stage">
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 5.5: VISUAL IDENTITY OPTIONS
-     White Background — 4 Platform Cards Deck
-     ══════════════════════════════════════════ -->
+<!-- SECTION 5.5: OPTIONS -->
 <div class="c8isv-fits-outer" style="background: #FFFFFF !important; padding: 6rem 0 !important; border-top: 1px solid rgba(8,8,8,0.08) !important;">
   <div class="c8isv-wrap">
-    <div class="c8isv-label c8isv-reveal" data-customizer="bident_plat_label"><?php echo esc_html(cr8v_mod('bident_plat_label', 'Visual Identity Options')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal" style="margin-bottom: 1.5rem !important;"><span data-customizer="bident_plat_h2_part1"><?php echo esc_html(cr8v_mod('bident_plat_h2_part1', 'Choosing Your ')); ?></span><span class="c8isv-serif" data-customizer="bident_plat_h2_serif"><?php echo esc_html(cr8v_mod('bident_plat_h2_serif', 'Design Scope')); ?></span></h2>
-    <p class="c8isv-lead c8isv-reveal" style="max-width: 720px !important; margin-bottom: 3rem !important;">Whether you need a new logo mark, a full visual identity system, or an enterprise design rebrand:</p>
+    <div class="c8isv-label c8isv-reveal" data-customizer="brind_plat_label"><?php echo esc_html(cr8v_mod('brind_plat_label', 'Design Options')); ?></div>
+    <h2 class="c8isv-section-title c8isv-reveal" style="margin-bottom: 1.5rem !important;"><span data-customizer="brind_plat_h2_part1"><?php echo esc_html(cr8v_mod('brind_plat_h2_part1', 'Choosing Your ')); ?></span><span class="c8isv-serif" data-customizer="brind_plat_h2_serif"><?php echo esc_html(cr8v_mod('brind_plat_h2_serif', 'Design Package')); ?></span></h2>
+    <p class="c8isv-lead c8isv-reveal" style="max-width: 720px !important; margin-bottom: 3rem !important;">Whether you need a logo refresh, a complete brand identity system, or ongoing creative design support:</p>
     
     <div class="c8isv-platform-deck" data-c8isv-platform-trigger>
-      <!-- Option 1 -->
       <div class="c8isv-platform-card c8isv-reveal">
-        <span class="c8isv-platform-badge" data-customizer="bident_plat1_badge"><?php echo esc_html(cr8v_mod('bident_plat1_badge', 'Stack // Core')); ?></span>
+        <span class="c8isv-platform-badge" data-customizer="brind_plat1_badge"><?php echo esc_html(cr8v_mod('brind_plat1_badge', 'Stack // Logo')); ?></span>
         <div class="c8isv-platform-divider"></div>
-        <h3 class="c8isv-platform-title" data-customizer="bident_plat1_title"><?php echo esc_html(cr8v_mod('bident_plat1_title', 'Core Logo & Color Package')); ?></h3>
-        <p class="c8isv-platform-desc" data-customizer="bident_plat1_desc"><?php echo wp_kses_post(cr8v_mod('bident_plat1_desc', 'For early-stage companies needing a professional primary logo, color palette, and font pairing.')); ?></p>
-        <div class="c8isv-platform-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></svg>
-        </div>
+        <h3 class="c8isv-platform-title" data-customizer="brind_plat1_title"><?php echo esc_html(cr8v_mod('brind_plat1_title', 'Logo & Asset Package')); ?></h3>
+        <p class="c8isv-platform-desc" data-customizer="brind_plat1_desc"><?php echo wp_kses_post(cr8v_mod('brind_plat1_desc', 'For startups needing a crisp vector logomark suite, color palette, and core typography pairing.')); ?></p>
+        <div class="c8isv-platform-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></svg></div>
       </div>
 
-      <!-- Option 2 -->
       <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d1">
-        <span class="c8isv-platform-badge" data-customizer="bident_plat2_badge"><?php echo esc_html(cr8v_mod('bident_plat2_badge', 'Stack // Identity')); ?></span>
+        <span class="c8isv-platform-badge" data-customizer="brind_plat2_badge"><?php echo esc_html(cr8v_mod('brind_plat2_badge', 'Stack // System')); ?></span>
         <div class="c8isv-platform-divider"></div>
-        <h3 class="c8isv-platform-title" data-customizer="bident_plat2_title"><?php echo esc_html(cr8v_mod('bident_plat2_title', 'Complete Visual Identity System')); ?></h3>
-        <p class="c8isv-platform-desc" data-customizer="bident_plat2_desc"><?php echo wp_kses_post(cr8v_mod('bident_plat2_desc', 'For growing businesses requiring logo suites, full brand guidelines, and collateral templates.')); ?></p>
-        <div class="c8isv-platform-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
-        </div>
+        <h3 class="c8isv-platform-title" data-customizer="brind_plat2_title"><?php echo esc_html(cr8v_mod('brind_plat2_title', 'Full Brand Identity System')); ?></h3>
+        <p class="c8isv-platform-desc" data-customizer="brind_plat2_desc"><?php echo wp_kses_post(cr8v_mod('brind_plat2_desc', 'For established brands requiring logomarks, typography rules, social templates, and a PDF brand guide book.')); ?></p>
+        <div class="c8isv-platform-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg></div>
       </div>
 
-      <!-- Option 3 -->
       <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d2">
-        <span class="c8isv-platform-badge" data-customizer="bident_plat3_badge"><?php echo esc_html(cr8v_mod('bident_plat3_badge', 'Stack // Rebrand')); ?></span>
+        <span class="c8isv-platform-badge" data-customizer="brind_plat3_badge"><?php echo esc_html(cr8v_mod('brind_plat3_badge', 'Stack // Rebrand')); ?></span>
         <div class="c8isv-platform-divider"></div>
-        <h3 class="c8isv-platform-title" data-customizer="bident_plat3_title"><?php echo esc_html(cr8v_mod('bident_plat3_title', 'Enterprise Rebrand System')); ?></h3>
-        <p class="c8isv-platform-desc" data-customizer="bident_plat3_desc"><?php echo wp_kses_post(cr8v_mod('bident_plat3_desc', 'For established organizations replacing outdated brand identity assets across all touchpoints.')); ?></p>
-        <div class="c8isv-platform-icon">
-          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
+        <h3 class="c8isv-platform-title" data-customizer="brind_plat3_title"><?php echo esc_html(cr8v_mod('brind_plat3_title', 'Enterprise Brand Transformation')); ?></h3>
+        <p class="c8isv-platform-desc" data-customizer="brind_plat3_desc"><?php echo wp_kses_post(cr8v_mod('brind_plat3_desc', 'Complete visual rebranding across digital products, pitch decks, print collateral, and web guidelines.')); ?></p>
+        <div class="c8isv-platform-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
       </div>
 
-      <!-- Option 4 -->
       <div class="c8isv-platform-card c8isv-reveal c8isv-reveal-d3">
-        <span class="c8isv-platform-badge" data-customizer="bident_plat4_badge"><?php echo esc_html(cr8v_mod('bident_plat4_badge', 'Stack // Retainer')); ?></span>
+        <span class="c8isv-platform-badge" data-customizer="brind_plat4_badge"><?php echo esc_html(cr8v_mod('brind_plat4_badge', 'Stack // Retainer')); ?></span>
         <div class="c8isv-platform-divider"></div>
-        <h3 class="c8isv-platform-title" data-customizer="bident_plat4_title"><?php echo esc_html(cr8v_mod('bident_plat4_title', 'Design System Support Retainer')); ?></h3>
-        <p class="c8isv-platform-desc" data-customizer="bident_plat4_desc"><?php echo wp_kses_post(cr8v_mod('bident_plat4_desc', 'Ongoing design asset production, marketing templates, and visual system updates.')); ?></p>
-        <div class="c8isv-platform-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
+        <h3 class="c8isv-platform-title" data-customizer="brind_plat4_title"><?php echo esc_html(cr8v_mod('brind_plat4_title', 'Creative Design Retainer')); ?></h3>
+        <p class="c8isv-platform-desc" data-customizer="brind_plat4_desc"><?php echo wp_kses_post(cr8v_mod('brind_plat4_desc', 'Ongoing monthly hours for marketing collateral, social banners, pitch decks, and ad creative production.')); ?></p>
+        <div class="c8isv-platform-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
       </div>
     </div>
 
     <p class="c8isv-reveal" style="font-size: 0.95rem !important; color: #6B6B6B !important; max-width: 800px !important; margin: 2rem 0 !important; line-height: 1.7 !important;">
-      <strong>Need help deciding between a simple logo refresh or a full visual identity system?</strong> Tell us your timeline and budget during our initial scoping call.
+      <strong>Ready to craft a memorable visual identity?</strong> Schedule a brand scoping call to review your target aesthetic and brand guidelines.
     </p>
 
     <div class="c8isv-reveal" style="display: flex !important; margin-top: 2rem !important;">
-      <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8isv-btn-primary">Start a Brand Identity Scoping Call →</a>
+      <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8isv-btn-primary">Start a Brand Scoping Call →</a>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 6: FULL CATALOG HOVERLIST (Project Types)
-     White Background — 6 Items Capability Index
-     ══════════════════════════════════════════ -->
+<!-- SECTION 6: CATALOG HOVERLIST -->
 <div class="c8isv-hl-section" id="c8isv-catalog">
   <div class="c8isv-wrap" style="padding-bottom:0">
-    <div class="c8isv-label c8isv-reveal" data-customizer="bident_hl_label"><?php echo esc_html(cr8v_mod('bident_hl_label', 'Project Catalog')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal" data-customizer="bident_hl_h2"><?php echo esc_html(cr8v_mod('bident_hl_h2', 'Every Kind of Visual Identity We Engineer')); ?></h2>
-    <p class="c8isv-lead c8isv-reveal" style="margin-bottom:2rem" data-customizer="bident_hl_sub"><?php echo wp_kses_post(cr8v_mod('bident_hl_sub', 'From corporate logo suites to e-commerce brand systems — hover to inspect the design stack.')); ?></p>
+    <div class="c8isv-label c8isv-reveal" data-customizer="brind_hl_label"><?php echo esc_html(cr8v_mod('brind_hl_label', 'Project Catalog')); ?></div>
+    <h2 class="c8isv-section-title c8isv-reveal" data-customizer="brind_hl_h2"><?php echo esc_html(cr8v_mod('brind_hl_h2', 'Every Kind of Visual Identity We Engineer')); ?></h2>
+    <p class="c8isv-lead c8isv-reveal" style="margin-bottom:2rem" data-customizer="brind_hl_sub"><?php echo wp_kses_post(cr8v_mod('brind_hl_sub', 'From corporate rebrands to digital product style guides — hover to inspect the deliverables.')); ?></p>
   </div>
   <div class="c8isv-wrap" style="padding-top:0 !important; position:relative">
     <div class="c8isv-hoverlist" data-c8isv-hoverlist>
-      <!-- Item 1 -->
       <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="Illustrator" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeillustrator.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">01</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="bident_hl1_title"><?php echo esc_html(cr8v_mod('bident_hl1_title', 'Corporate & B2B Identity Systems')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="bident_hl1_tagline"><?php echo wp_kses_post(cr8v_mod('bident_hl1_tagline', 'High-trust logo marks, corporate identity guidelines, and pitch deck templates.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="brind_hl1_title"><?php echo esc_html(cr8v_mod('brind_hl1_title', 'Corporate Brand Identities')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="brind_hl1_tagline"><?php echo wp_kses_post(cr8v_mod('brind_hl1_tagline', 'Professional visual identity systems for B2B enterprises, legal firms, and tech startups.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">B2B Systems</span>
+          <span class="c8isv-hoverlist-tech">Corporate Brands</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
 
-      <!-- Item 2 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="Illustrator" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeillustrator.svg" data-tech-2="Photoshop" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobephotoshop.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="Illustrator" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeillustrator.svg" data-tech-2="Figma" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">02</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="bident_hl2_title"><?php echo esc_html(cr8v_mod('bident_hl2_title', 'E-Commerce & Retail Brand Design')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="bident_hl2_tagline"><?php echo wp_kses_post(cr8v_mod('bident_hl2_tagline', 'Packaging design guidelines, unboxing collateral, and Shopify visual assets.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="brind_hl2_title"><?php echo esc_html(cr8v_mod('brind_hl2_title', 'Vector Logomark Suites')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="brind_hl2_tagline"><?php echo wp_kses_post(cr8v_mod('brind_hl2_tagline', 'Scalable vector logos, monograms, favicons, and wordmarks for web and mobile icons.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Retail Design</span>
+          <span class="c8isv-hoverlist-tech">Logomarks</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
 
-      <!-- Item 3 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d2" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="Vector Assets" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeillustrator.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d2" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="W3C" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/w3c.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">03</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="bident_hl3_title"><?php echo esc_html(cr8v_mod('bident_hl3_title', 'Tech Startup Logo & Vector Suites')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="bident_hl3_tagline"><?php echo wp_kses_post(cr8v_mod('bident_hl3_tagline', 'Modern minimalist vector icons, dark-mode logotypes, and app icon assets.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="brind_hl3_title"><?php echo esc_html(cr8v_mod('brind_hl3_title', 'Digital Product Design Systems')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="brind_hl3_tagline"><?php echo wp_kses_post(cr8v_mod('brind_hl3_tagline', 'Figma design tokens, button components, and typography rules for React/Web products.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Startup Identity</span>
+          <span class="c8isv-hoverlist-tech">Design Systems</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
 
-      <!-- Item 4 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d3" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="Illustrator" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeillustrator.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d3" data-tech-1="InDesign" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeindesign.svg" data-tech-2="Figma" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">04</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="bident_hl4_title"><?php echo esc_html(cr8v_mod('bident_hl4_title', 'Professional Services Identity')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="bident_hl4_tagline"><?php echo wp_kses_post(cr8v_mod('bident_hl4_tagline', 'Refined identity systems for legal, financial, and consulting firms.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="brind_hl4_title"><?php echo esc_html(cr8v_mod('brind_hl4_title', 'Brand Guidelines Manuals')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="brind_hl4_tagline"><?php echo wp_kses_post(cr8v_mod('brind_hl4_tagline', 'Comprehensive PDF specifications outlining logo clear space, color rules, and font hierarchies.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Professional Systems</span>
+          <span class="c8isv-hoverlist-tech">Brand Manuals</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
 
-      <!-- Item 5 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="Vector Assets" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeillustrator.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal" data-tech-1="Photoshop" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobephotoshop.svg" data-tech-2="Illustrator" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeillustrator.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">05</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="bident_hl5_title"><?php echo esc_html(cr8v_mod('bident_hl5_title', 'Design System & Component Libraries')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="bident_hl5_tagline"><?php echo wp_kses_post(cr8v_mod('bident_hl5_tagline', 'Figma UI component libraries, color variables, and typography tokens.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="brind_hl5_title"><?php echo esc_html(cr8v_mod('brind_hl5_title', 'Social Media Asset Templates')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="brind_hl5_tagline"><?php echo wp_kses_post(cr8v_mod('brind_hl5_tagline', 'Custom social graphic templates for LinkedIn, Twitter, and Instagram brand presence.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Design Libraries</span>
+          <span class="c8isv-hoverlist-tech">Social Graphics</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
 
-      <!-- Item 6 -->
-      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="Figma" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" data-tech-2="Photoshop" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobephotoshop.svg">
+      <div class="c8isv-hoverlist-item c8isv-reveal c8isv-reveal-d1" data-tech-1="InDesign" data-logo-1="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeindesign.svg" data-tech-2="Illustrator" data-logo-2="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeillustrator.svg">
         <div class="c8isv-hoverlist-left">
           <span class="c8isv-hoverlist-num">06</span>
-          <h3 class="c8isv-hoverlist-title" data-customizer="bident_hl6_title"><?php echo esc_html(cr8v_mod('bident_hl6_title', 'Social Media & Marketing Templates')); ?></h3>
-          <span class="c8isv-hoverlist-tagline" data-customizer="bident_hl6_tagline"><?php echo wp_kses_post(cr8v_mod('bident_hl6_tagline', 'Reusable Figma graphic templates for Instagram, LinkedIn, and ad banners.')); ?></span>
+          <h3 class="c8isv-hoverlist-title" data-customizer="brind_hl6_title"><?php echo esc_html(cr8v_mod('brind_hl6_title', 'Print & Stationery Collateral')); ?></h3>
+          <span class="c8isv-hoverlist-tagline" data-customizer="brind_hl6_tagline"><?php echo wp_kses_post(cr8v_mod('brind_hl6_tagline', 'Business cards, letterheads, presentation pitch decks, and physical print collateral.')); ?></span>
         </div>
         <div class="c8isv-hoverlist-right">
-          <span class="c8isv-hoverlist-tech">Asset Templates</span>
+          <span class="c8isv-hoverlist-tech">Print Collateral</span>
           <span class="c8isv-hoverlist-arrow">→</span>
         </div>
       </div>
     </div>
-    <!-- 2-Card Fan Stack Preview with SVG CDN Logos -->
     <div class="c8isv-hoverlist-preview" data-c8isv-preview>
       <div class="c8isv-fan-card c8isv-fan-left"><img class="c8isv-fan-logo" data-c8isv-fan-logo="left" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" alt="Figma"></div>
       <div class="c8isv-fan-card c8isv-fan-right"><img class="c8isv-fan-logo" data-c8isv-fan-logo="right" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeillustrator.svg" alt="Illustrator"></div>
@@ -598,151 +516,135 @@ defined('ABSPATH') || exit;
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 8: CLIENT FEEDBACK (Testimonials)
-     Light #F4F6FB — Fanning Stack Animation
-     ══════════════════════════════════════════ -->
+<!-- SECTION 8: CLIENT FEEDBACK -->
 <div class="c8isv-testi-outer">
   <div class="c8isv-testi-inner">
-    <div class="c8isv-label c8isv-reveal is-center" data-customizer="bident_testi_label"><?php echo esc_html(cr8v_mod('bident_testi_label', 'Client Feedback')); ?></div>
-    <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="bident_testi_h2_part1"><?php echo esc_html(cr8v_mod('bident_testi_h2_part1', 'What clients say after ')); ?></span><span class="c8isv-serif" data-customizer="bident_testi_h2_serif"><?php echo esc_html(cr8v_mod('bident_testi_h2_serif', 'launch')); ?></span></h2>
+    <div class="c8isv-label c8isv-reveal is-center" data-customizer="brind_testi_label"><?php echo esc_html(cr8v_mod('brind_testi_label', 'Client Feedback')); ?></div>
+    <h2 class="c8isv-section-title c8isv-reveal"><span data-customizer="brind_testi_h2_part1"><?php echo esc_html(cr8v_mod('brind_testi_h2_part1', 'What clients say after ')); ?></span><span class="c8isv-serif" data-customizer="brind_testi_h2_serif"><?php echo esc_html(cr8v_mod('brind_testi_h2_serif', 'launch')); ?></span></h2>
     <div class="c8isv-testi-grid" data-c8isv-testi-trigger>
-      <!-- Left Card -->
       <div class="c8isv-testi-card is-left" data-c8isv-testi-left>
         <div class="c8isv-testi-quote">"</div>
         <div class="c8isv-testi-divider"></div>
-        <p class="c8isv-testi-text" data-customizer="bident_testi1_text"><?php echo wp_kses_post(cr8v_mod('bident_testi1_text', 'The visual identity system Cr8v Stacks engineered gave us immediate corporate credibility. Our brand book keeps every collateral piece aligned.')); ?></p>
-        <div class="c8isv-testi-author" data-customizer="bident_testi1_author"><?php echo esc_html(cr8v_mod('bident_testi1_author', 'Managing Partner — Corporate Advisory')); ?></div>
+        <p class="c8isv-testi-text" data-customizer="brind_testi1_text"><?php echo wp_kses_post(cr8v_mod('brind_testi1_text', 'The new brand identity and logomark suite elevated our architecture firm instantly. Clients notice the premium detail before we even start talking.')); ?></p>
+        <div class="c8isv-testi-author" data-customizer="brind_testi1_author"><?php echo esc_html(cr8v_mod('brind_testi1_author', 'Julian Vance — Founder, Vanguard Architecture')); ?></div>
       </div>
-      <!-- Center Card -->
       <div class="c8isv-testi-card is-center">
         <div class="c8isv-testi-quote">"</div>
         <div class="c8isv-testi-divider"></div>
-        <p class="c8isv-testi-text" data-customizer="bident_testi2_text"><?php echo wp_kses_post(cr8v_mod('bident_testi2_text', 'From the vector logo mark to the typography scale, everything was crafted with incredible visual quality. Our website now looks like a multi-million dollar brand.')); ?></p>
-        <div class="c8isv-testi-author" data-customizer="bident_testi2_author"><?php echo esc_html(cr8v_mod('bident_testi2_author', 'Kelechi Amadi — Operations Director')); ?></div>
+        <p class="c8isv-testi-text" data-customizer="brind_testi2_text"><?php echo wp_kses_post(cr8v_mod('brind_testi2_text', 'Having a thorough 45-page brand guidelines PDF saved our marketing team countless hours. Everyone knows exact font pairings and color tokens.')); ?></p>
+        <div class="c8isv-testi-author" data-customizer="brind_testi2_author"><?php echo esc_html(cr8v_mod('brind_testi2_author', 'Claire Dupont — Marketing Director')); ?></div>
       </div>
-      <!-- Right Card -->
       <div class="c8isv-testi-card is-right" data-c8isv-testi-right>
         <div class="c8isv-testi-quote">"</div>
         <div class="c8isv-testi-divider"></div>
-        <p class="c8isv-testi-text" data-customizer="bident_testi3_text"><?php echo wp_kses_post(cr8v_mod('bident_testi3_text', 'The Figma asset templates saved our marketing team dozens of hours every month. The visual consistency across web and social is flawless.')); ?></p>
-        <div class="c8isv-testi-author" data-customizer="bident_testi3_author"><?php echo esc_html(cr8v_mod('bident_testi3_author', 'Victoria Vance — Creative Brand Director')); ?></div>
+        <p class="c8isv-testi-text" data-customizer="brind_testi3_text"><?php echo wp_kses_post(cr8v_mod('brind_testi3_text', 'Clean, modern, and memorable. Their design team brought world-class aesthetic quality to our tech brand rebrand.')); ?></p>
+        <div class="c8isv-testi-author" data-customizer="brind_testi3_author"><?php echo esc_html(cr8v_mod('brind_testi3_author', 'Marcus Thorne — Managing Partner')); ?></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 9: PRICING MODELS & PROJECT ESTIMATOR
-     ══════════════════════════════════════════ -->
+<!-- SECTION 9: PRICING MODELS & ESTIMATOR -->
 <div class="c8srv-pricing-section" id="pricing-scope" style="padding: 6rem 0 !important; position: relative !important; z-index: 5 !important; background: #FFFFFF !important; display: block !important;">
   <div class="c8isv-wrap" style="text-align: left !important;">
-    <div class="c8isv-label c8srv-reveal" style="justify-content: flex-start !important; margin-left: 0 !important; margin-right: auto !important; text-align: left !important;" data-customizer="bident_pricing_label"><?php echo esc_html(cr8v_mod('bident_pricing_label', 'PRICING MODELS')); ?></div>
-    <h2 class="c8isv-section-title c8srv-reveal" style="text-align: left !important; margin-left: 0 !important;"><span data-customizer="bident_pricing_h2_part1"><?php echo esc_html(cr8v_mod('bident_pricing_h2_part1', 'HOW WE ')); ?></span><span class="c8isv-serif" data-customizer="bident_pricing_h2_serif"><?php echo esc_html(cr8v_mod('bident_pricing_h2_serif', 'WORK TOGETHER')); ?></span></h2>
-    <p class="c8isv-lead c8srv-reveal" style="text-align: left !important; margin-left: 0 !important;" data-customizer="bident_pricing_desc"><?php echo wp_kses_post(cr8v_mod('bident_pricing_desc', 'Whether you need a dedicated extension of your team or a custom design & code project with guaranteed delivery, we have a model to fit.')); ?></p>
+    <div class="c8isv-label c8srv-reveal" style="justify-content: flex-start !important; margin-left: 0 !important; margin-right: auto !important; text-align: left !important;" data-customizer="brind_pricing_label"><?php echo esc_html(cr8v_mod('brind_pricing_label', 'PRICING MODELS')); ?></div>
+    <h2 class="c8isv-section-title c8srv-reveal" style="text-align: left !important; margin-left: 0 !important;"><span data-customizer="brind_pricing_h2_part1"><?php echo esc_html(cr8v_mod('brind_pricing_h2_part1', 'HOW WE ')); ?></span><span class="c8isv-serif" data-customizer="brind_pricing_h2_serif"><?php echo esc_html(cr8v_mod('brind_pricing_h2_serif', 'WORK TOGETHER')); ?></span></h2>
+    <p class="c8isv-lead c8srv-reveal" style="text-align: left !important; margin-left: 0 !important;" data-customizer="brind_pricing_desc"><?php echo wp_kses_post(cr8v_mod('brind_pricing_desc', 'Whether you need an ongoing monthly creative design team or a custom brand identity build with guaranteed delivery, we have a model to fit.')); ?></p>
 
     <div class="c8srv-pricing-split">
-      <!-- Retainer Card -->
       <div class="c8srv-price-box c8srv-reveal">
         <div class="c8srv-price-header">
           <span class="c8srv-price-type">Ongoing Support</span>
           <h3 class="c8srv-price-title">Growth Retainer</h3>
           <div class="c8srv-price-amount">$950<span>/mo</span></div>
         </div>
-        <p class="c8srv-price-desc">A monthly block of dedicated design and development hours to keep your website fast, updated, and growing. Perfect for active search marketing, technical SEO, speed tuning, and site edits.</p>
+        <p class="c8srv-price-desc">A monthly block of dedicated senior design hours for social graphic production, marketing collateral, pitch deck designs, and brand asset updates.</p>
         <div class="c8srv-price-features">
           <div class="c8srv-price-feature">
-            <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Dedicated monthly support hours block</span>
+            <span class="c8srv-icon-sq"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Dedicated monthly graphic design hours</span>
           </div>
           <div class="c8srv-price-feature">
-            <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Monthly speed audits &amp; code optimizations</span>
+            <span class="c8srv-icon-sq"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Social media templates &amp; pitch deck designs</span>
           </div>
           <div class="c8srv-price-feature">
-            <span class="c8srv-icon-sq" style="background:#0047E1 !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Design tweaks, copy updates &amp; SEO execution</span>
+            <span class="c8srv-icon-sq"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Marketing collateral &amp; vector asset updates</span>
           </div>
         </div>
-        <a href="<?php echo esc_url(home_url('/contact/?model=retainer')); ?>" class="c8srv-price-btn is-light" style="border-color:#080808 !important; color:#080808 !important;">Secure Retainer Slot</a>
+        <a href="<?php echo esc_url(home_url('/contact/?model=retainer')); ?>" class="c8srv-price-btn is-light">Secure Retainer Slot</a>
       </div>
 
-      <!-- Fixed Project Card -->
-      <div class="c8srv-price-box is-featured c8srv-reveal">
-        <div class="c8srv-price-badge">Most Popular</div>
+      <div class="c8srv-price-box is-highlight c8srv-reveal">
         <div class="c8srv-price-header">
-          <span class="c8srv-price-type" style="color: rgba(255,255,255,0.7) !important;">Fixed Scope</span>
-          <h3 class="c8srv-price-title" style="color: #FFFFFF !important;">Fixed Projects</h3>
-          <div class="c8srv-price-amount" style="color: #FFFFFF !important;"><span class="c8srv-price-period" style="color: rgba(255,255,255,0.7) !important;">From </span><span class="c8srv-price-num" style="color: #FFFFFF !important;">$1,500</span><span class="c8srv-price-period" style="color: rgba(255,255,255,0.7) !important;"> entry</span></div>
+          <span class="c8srv-price-type">Fixed Scope</span>
+          <h3 class="c8srv-price-title">Fixed Projects</h3>
+          <div class="c8srv-price-amount">From $1,200<span> entry</span></div>
         </div>
-        <p class="c8srv-price-desc" style="color: rgba(255,255,255,0.8) !important;">A deep, focused visual identity engagement with transparent scoping, clear milestones, and guaranteed delivery. Best for crafting vector logo systems, color palettes, and digital style guides.</p>
+        <p class="c8srv-price-desc">Custom brand identity design project with transparent scoping, clear milestone deliverables, and full vector source file ownership.</p>
         <div class="c8srv-price-features">
-          <div class="c8srv-price-feature" style="color: #FFFFFF !important;">
-            <span class="c8srv-icon-sq" style="background:#FFFFFF !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#0047E1" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Vector logo system (Primary, Monogram, Favicon)</span>
+          <div class="c8srv-price-feature">
+            <span class="c8srv-icon-sq"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Vector logomark suite (Primary, Secondary, Icon)</span>
           </div>
-          <div class="c8srv-price-feature" style="color: #FFFFFF !important;">
-            <span class="c8srv-icon-sq" style="background:#FFFFFF !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#0047E1" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Curated typography hierarchy &amp; color token palette</span>
+          <div class="c8srv-price-feature">
+            <span class="c8srv-icon-sq"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Color system palette &amp; typography rules</span>
           </div>
-          <div class="c8srv-price-feature" style="color: #FFFFFF !important;">
-            <span class="c8srv-icon-sq" style="background:#FFFFFF !important; border-radius:4px !important;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#0047E1" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span>Digital brand identity style guide &amp; asset package</span>
+          <div class="c8srv-price-feature">
+            <span class="c8srv-icon-sq"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Brand guidelines PDF manual &amp; vector export pack</span>
           </div>
         </div>
         <a href="<?php echo esc_url(home_url('/contact/?model=project')); ?>" class="c8srv-price-btn is-primary">Start A Project</a>
       </div>
     </div>
 
-    <!-- Scope Estimator Widget -->
-    <div class="c8srv-estimator c8srv-reveal" style="margin-top: 3.5rem !important;">
+    <div class="c8srv-estimator c8srv-reveal">
       <div style="margin-bottom: 2.5rem !important;">
-        <span class="c8srv-price-type" style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #0047E1; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">Project Scope Estimator</span>
-        <h3 class="c8srv-price-title" style="font-family: 'Michroma', sans-serif; font-size: 1.8rem; color: #080808; margin-top: 0.25rem; margin-bottom: 0.5rem; font-weight: 700;">Build Your Stack Estimate</h3>
-        <p class="c8srv-price-desc" style="margin-bottom: 0 !important;">Select your desired setup below to calculate an immediate starting price range estimate for your project.</p>
+        <span class="c8srv-price-type">Project Scope Estimator</span>
+        <h3 class="c8srv-price-title" style="font-size: 1.8rem !important; margin-bottom: 0.5rem !important;">Build Your Stack Estimate</h3>
+        <p class="c8srv-price-desc" style="margin-bottom: 0 !important; margin-left: auto !important; margin-right: auto !important;">Select your desired setup below to calculate an immediate starting price range estimate for your project.</p>
       </div>
 
-      <div class="c8srv-estimator-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; align-items: start;">
+      <div class="c8srv-estimator-grid">
         <div class="c8srv-est-options">
-          <!-- Step 1 -->
           <div>
-            <span class="c8srv-est-group-title" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9rem; color:#080808; display:block; margin-bottom:0.4rem;">1. Core Package</span>
+            <span class="c8srv-est-group-title">1. Core Brand Identity Tier</span>
             <div class="c8srv-est-choices" data-est-group="platform">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="logosystem" data-est-price="900">Logo System ($900)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="fullidentity" data-est-price="1500">Full Brand System ($1,500)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="motionidentity" data-est-price="2400">Brand System &amp; Motion ($2,400)</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="logo" data-est-price="1200">Logo &amp; Core Assets ($1,200)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="fullsystem" data-est-price="1800">Full Brand Identity System ($1,800)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="rebrand" data-est-price="2500">Enterprise Visual Rebrand ($2,500)</button>
             </div>
           </div>
 
-          <!-- Step 2 -->
           <div>
-            <span class="c8srv-est-group-title" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9rem; color:#080808; display:block; margin-bottom:0.4rem;">2. Organization Scale</span>
+            <span class="c8srv-est-group-title">2. Guidelines Depth</span>
             <div class="c8srv-est-choices" data-est-group="scale">
-              <button type="button" class="c8srv-est-choice is-active" data-est-val="startup" data-est-multiplier="1.0">Startup Brand</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="scaleup" data-est-multiplier="1.3">Multi-Product Scale</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="enterprise" data-est-multiplier="1.6">Global Enterprise</button>
+              <button type="button" class="c8srv-est-choice is-active" data-est-val="standard" data-est-multiplier="1.0">Standard Brand Sheet (PDF)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="comprehensive" data-est-multiplier="1.35">Comprehensive 40+ Page Brand Book</button>
             </div>
           </div>
 
-          <!-- Step 3 -->
           <div>
-            <span class="c8srv-est-group-title" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9rem; color:#080808; display:block; margin-bottom:0.4rem;">3. Strategic Add-Ons</span>
+            <span class="c8srv-est-group-title">3. Design Add-Ons</span>
             <div class="c8srv-est-choices" data-est-group="growth">
               <button type="button" class="c8srv-est-choice is-active" data-est-val="none" data-est-price="0">No Add-Ons</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="stationery" data-est-price="400">Print Collateral Suite (+ $400)</button>
-              <button type="button" class="c8srv-est-choice" data-est-val="socialkit" data-est-price="500">Social Media Kit (+ $500)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="social" data-est-price="350">Social Media Graphic Templates (+ $350)</button>
+              <button type="button" class="c8srv-est-choice" data-est-val="deck" data-est-price="500">Pitch Deck Presentation Design (+ $500)</button>
             </div>
           </div>
         </div>
 
-        <div class="c8srv-est-result" style="background:#FAFAF7; padding:2rem; border-radius:4px; border:1px solid rgba(8,8,8,0.08);">
-          <span class="c8srv-est-range-label" style="font-family:'Space Mono',monospace; font-size:0.75rem; color:#6B6B6B; text-transform:uppercase; display:block; margin-bottom:0.3rem;">Estimated Starting Investment</span>
-          <div class="c8srv-est-range" id="est-range-display" style="font-family:'Michroma',sans-serif; font-size:1.8rem; color:#0047E1; font-weight:700; margin-bottom:1.5rem;">$1,500 - $1,875</div>
+        <div class="c8srv-est-result">
+          <span class="c8srv-est-range-label">Estimated Starting Investment</span>
+          <div class="c8srv-est-range" id="est-range-display">$1,200 - $1,500</div>
           
-          <span class="c8srv-est-deliverables-title" style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.85rem; color:#080808; display:block; margin-bottom:0.5rem;">Included Deliverables:</span>
-          <div class="c8srv-est-deliverables" id="est-deliverables-list" style="font-family:'DM Sans',sans-serif; font-size:0.85rem; color:#555555; line-height:1.6; margin-bottom:1.5rem;"><div>• Primary &amp; Secondary Vector Logo Suite</div><div>• Color Token &amp; Palette Architecture</div><div>• Figma Brand Identity Guidelines &amp; Fonts</div></div>
+          <span class="c8srv-est-deliverables-title">Included Deliverables:</span>
+          <div class="c8srv-est-deliverables" id="est-deliverables-list"><div>• Vector logomark suite (SVG, EPS, PNG)</div><div>• Curated color palette tokens</div><div>• Typography rules &amp; web font pairings</div></div>
 
-          <a href="<?php echo esc_url(home_url('/contact/?platform=brandidentity&est=1500-1875')); ?>" id="est-cta-link" class="c8srv-price-btn is-primary" style="margin-top: 1rem !important; margin-bottom: 1rem !important; display:block; text-align:center;">Submit Scope Request</a>
+          <a href="<?php echo esc_url(home_url('/contact/?platform=brandidentity&est=1200-1500')); ?>" id="est-cta-link" class="c8srv-price-btn is-primary" style="margin-top: 1rem !important; margin-bottom: 1rem !important;">Submit Scope Request</a>
           <a href="<?php echo esc_url(home_url('/toolkits/website-cost-calculator/')); ?>" class="c8srv-explore" style="justify-content: center !important; font-size: 11px !important; margin-top: 0.5rem !important; display: flex !important; font-family: 'Space Mono', monospace !important; color: #0047E1 !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important; align-items: center !important; gap: 8px !important;">Or build a custom stack with our Calculator →</a>
         </div>
       </div>
@@ -750,113 +652,159 @@ defined('ABSPATH') || exit;
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 10: FREQUENTLY ASKED QUESTIONS
-     Light #FAFAF7
-     ══════════════════════════════════════════ -->
-<section class="faq-section" id="faq" style="background: #FAFAF7 !important; padding: 6rem 0 !important; border-top: 1px solid rgba(8,8,8,0.06) !important;">
-  <div class="c8isv-wrap">
-    <div class="c8srv-faq-grid">
-      <div class="c8srv-faq-left">
-        <div class="c8isv-label c8srv-reveal" data-customizer="bident_faq_eyebrow"><?php echo esc_html(cr8v_mod('bident_faq_eyebrow', '// COMMON QUESTIONS')); ?></div>
-        <h2 class="c8isv-section-title c8srv-reveal" data-customizer="bident_faq_h2"><?php echo esc_html(cr8v_mod('bident_faq_h2', 'Brand Identity Design FAQ')); ?></h2>
-        <p class="c8isv-lead c8srv-reveal" style="margin-bottom: 2rem !important;" data-customizer="bident_faq_sub"><?php echo wp_kses_post(cr8v_mod('bident_faq_sub', 'Clear answers to common questions about our vector logo design, brand guidelines, and design systems.')); ?></p>
-        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-      </div>
+<!-- SECTION 10: FAQ -->
+<section class="faq-section" id="faq" style="background: #FFFFFF !important; padding: clamp(5rem, 10vw, 9rem) 0 !important;">
+  <style>
+    .faq-section { background: #FFFFFF !important; padding: clamp(5rem, 10vw, 9rem) 0 !important; position: relative !important; z-index: 5 !important; border-top: 1px solid rgba(8,8,8,0.12) !important; }
+    .faq-inner { max-width: 1360px !important; margin: 0 auto !important; padding: 0 clamp(1.5rem, 5vw, 5rem) !important; display: grid !important; grid-template-columns: 300px 1fr !important; gap: clamp(3rem, 6vw, 8rem) !important; align-items: start !important; }
+    .faq-aside { position: sticky !important; top: 6rem !important; align-self: start !important; }
+    .faq-eyebrow { font-family: 'Space Mono', monospace !important; font-size: 0.65rem !important; letter-spacing: 0.14em !important; text-transform: uppercase !important; color: #0047E1 !important; margin-bottom: 1rem !important; font-weight: 700 !important; }
+    .faq-h2 { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.6rem, 2.8vw, 2.2rem) !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.2 !important; margin-bottom: 1.5rem !important; }
+    .faq-sub { font-family: 'DM Sans', sans-serif !important; font-size: 0.85rem !important; font-weight: 300 !important; color: #555555 !important; line-height: 1.7 !important; margin-bottom: 2rem !important; }
+    .faq-cta-link { font-family: 'Space Mono', monospace !important; font-size: 0.75rem !important; font-weight: 700 !important; color: #0047E1 !important; text-transform: uppercase !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; letter-spacing: 0.08em !important; transition: color 0.2s ease !important; }
+    .faq-cta-link:hover { color: #0037B5 !important; }
+    .faq-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+    .faq-item { border-bottom: 1px solid rgba(8,8,8,0.1) !important; }
+    .faq-item:first-child { border-top: 1px solid rgba(8,8,8,0.1) !important; }
+    .faq-trigger { width: 100% !important; background: none !important; border: none !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1.5rem !important; padding: 1.4rem 0 !important; text-align: left !important; }
+    .faq-q { font-family: 'DM Sans', sans-serif !important; font-size: clamp(0.88rem, 1.3vw, 0.95rem) !important; font-weight: 400 !important; color: #080808 !important; line-height: 1.4 !important; }
+    .faq-icon { width: 28px !important; height: 28px !important; border-radius: 50% !important; border: 1px solid rgba(8,8,8,0.14) !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; transition: background 0.25s, border-color 0.25s !important; }
+    .faq-icon svg { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+    .faq-item.is-open .faq-icon { background: #0047E1 !important; border-color: #0047E1 !important; }
+    .faq-item.is-open .faq-icon svg { transform: rotate(45deg) !important; stroke: #ffffff !important; }
+    .faq-body { display: grid !important; grid-template-rows: 0fr !important; transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+    .faq-item.is-open .faq-body { grid-template-rows: 1fr !important; }
+    .faq-body-inner { overflow: hidden !important; }
+    .faq-a { font-family: 'DM Sans', sans-serif !important; font-size: 0.88rem !important; font-weight: 300 !important; line-height: 1.75 !important; color: #555555 !important; padding-bottom: 1.4rem !important; }
+    @media (max-width: 900px) {
+      .faq-inner { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .faq-aside { position: static !important; }
+    }
+  </style>
 
-      <div class="c8srv-faq-right">
-        <ul class="faq-list">
-          <li class="faq-item is-open">
-            <button class="faq-trigger" aria-expanded="true">
-              <span class="faq-q" data-customizer="bident_faq1_q"><?php echo esc_html(cr8v_mod('bident_faq1_q', 'What vector file formats do you deliver for the logo system?')); ?></span>
-              <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-            </button>
-            <div class="faq-body" style="grid-template-rows: 1fr;">
-              <div class="faq-body-inner">
-                <p class="faq-a" data-customizer="bident_faq1_a"><?php echo wp_kses_post(cr8v_mod('bident_faq1_a', 'We deliver full vector EPS, SVG, PDF, and high-resolution PNG/JPEG files in RGB, CMYK, and monochrome color spaces, along with an open Figma design system source file.')); ?></p>
-              </div>
-            </div>
-          </li>
-
-          <li class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-q" data-customizer="bident_faq2_q"><?php echo esc_html(cr8v_mod('bident_faq2_q', 'How many initial logo concepts do we receive?')); ?></span>
-              <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-            </button>
-            <div class="faq-body">
-              <div class="faq-body-inner">
-                <p class="faq-a" data-customizer="bident_faq2_a"><?php echo wp_kses_post(cr8v_mod('bident_faq2_a', 'We present 3 distinct visual concept directions based on your brand strategy phase. Once a direction is chosen, we iterate through fine-tuning rounds until vector perfection.')); ?></p>
-              </div>
-            </div>
-          </li>
-
-          <li class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-q" data-customizer="bident_faq3_q"><?php echo esc_html(cr8v_mod('bident_faq3_q', 'What is included in the Brand Identity Guidelines manual?')); ?></span>
-              <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-            </button>
-            <div class="faq-body">
-              <div class="faq-body-inner">
-                <p class="faq-a" data-customizer="bident_faq3_a"><?php echo wp_kses_post(cr8v_mod('bident_faq3_a', 'Our Brand Book documents clear logo clear-space rules, min-size thresholds, color hex/RGB codes, font pairing scales, social media avatar rules, and visual misapplication examples.')); ?></p>
-              </div>
-            </div>
-          </li>
-
-          <li class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-q" data-customizer="bident_faq4_q"><?php echo esc_html(cr8v_mod('bident_faq4_q', 'Do you also design business cards and marketing materials?')); ?></span>
-              <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-            </button>
-            <div class="faq-body">
-              <div class="faq-body-inner">
-                <p class="faq-a" data-customizer="bident_faq4_a"><?php echo wp_kses_post(cr8v_mod('bident_faq4_a', 'Yes. We include custom design templates for stationery, business cards, email signatures, pitch decks, and social media graphics.')); ?></p>
-              </div>
-            </div>
-          </li>
-
-          <li class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-q" data-customizer="bident_faq5_q"><?php echo esc_html(cr8v_mod('bident_faq5_q', 'How long does a brand identity design project take?')); ?></span>
-              <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-            </button>
-            <div class="faq-body">
-              <div class="faq-body-inner">
-                <p class="faq-a" data-customizer="bident_faq5_a"><?php echo wp_kses_post(cr8v_mod('bident_faq5_a', 'Our standard visual identity design engagement takes 2 to 3 weeks from initial concept briefing to final brand asset delivery.')); ?></p>
-              </div>
-            </div>
-          </li>
-
-          <li class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-q" data-customizer="bident_faq6_q"><?php echo esc_html(cr8v_mod('bident_faq6_q', 'Who owns the intellectual property and copyright for the logo design?')); ?></span>
-              <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-            </button>
-            <div class="faq-body">
-              <div class="faq-body-inner">
-                <p class="faq-a" data-customizer="bident_faq6_a"><?php echo wp_kses_post(cr8v_mod('bident_faq6_a', 'You own 100% of the copyright, vector source files, and trademark rights to your final brand identity system upon final project payment.')); ?></p>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
+  <div class="faq-inner">
+    <div class="faq-aside">
+      <div class="faq-eyebrow" data-customizer="brind_faq_eyebrow"><?php echo esc_html(cr8v_mod('brind_faq_eyebrow', '// COMMON QUESTIONS')); ?></div>
+      <h2 class="faq-h2" data-customizer="brind_faq_h2"><?php echo esc_html(cr8v_mod('brind_faq_h2', 'Brand Identity FAQ')); ?></h2>
+      <p class="faq-sub" data-customizer="brind_faq_sub"><?php echo wp_kses_post(cr8v_mod('brind_faq_sub', 'Clear answers to common questions about our logo design, vector asset handoffs, typography rules, and brand guidelines.')); ?></p>
+      <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="faq-cta-link">Talk to us <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
     </div>
+
+    <ul class="faq-list" id="srv-faq-list">
+      <li class="faq-item is-open">
+        <button class="faq-trigger" aria-expanded="true">
+          <span class="faq-q" data-customizer="brind_faq1_q"><?php echo esc_html(cr8v_mod('brind_faq1_q', 'How many logo concepts do you present during the initial phase?')); ?></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body" style="grid-template-rows: 1fr;">
+          <div class="faq-body-inner">
+            <p class="faq-a" data-customizer="brind_faq1_a"><?php echo wp_kses_post(cr8v_mod('brind_faq1_a', 'We present 3 distinct vector concept directions based on our initial brand attribute alignment. Each concept is presented with real-world mockups so you can visualize how it looks in production.')); ?></p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q" data-customizer="brind_faq2_q"><?php echo esc_html(cr8v_mod('brind_faq2_q', 'What file formats are included in the final brand asset package?')); ?></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a" data-customizer="brind_faq2_a"><?php echo wp_kses_post(cr8v_mod('brind_faq2_a', 'You receive scalable vector files (SVG, EPS, AI), high-resolution raster files (PNG, JPG), favicon ICOs, transparent background logos, and print-ready PDF vector packages.')); ?></p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q" data-customizer="brind_faq3_q"><?php echo esc_html(cr8v_mod('brind_faq3_q', 'What is a Brand Guidelines Manual and why is it important?')); ?></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a" data-customizer="brind_faq3_a"><?php echo wp_kses_post(cr8v_mod('brind_faq3_a', 'A Brand Guidelines Manual is your brand’s rulebook. It specifies clear space requirements, color HEX/Pantone values, typography hierarchies, and improper usage rules to ensure brand consistency across all designers.')); ?></p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q" data-customizer="brind_faq4_q"><?php echo esc_html(cr8v_mod('brind_faq4_q', 'Do I own full copyright and trademark rights to the final logo?')); ?></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a" data-customizer="brind_faq4_a"><?php echo wp_kses_post(cr8v_mod('brind_faq4_a', 'Yes. You receive 100% full commercial copyright ownership of the final chosen logomark and visual identity assets upon project completion.')); ?></p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q" data-customizer="brind_faq5_q"><?php echo esc_html(cr8v_mod('brind_faq5_q', 'How long does a brand identity design project take?')); ?></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a" data-customizer="brind_faq5_a"><?php echo wp_kses_post(cr8v_mod('brind_faq5_a', 'A standard brand identity project takes approximately 2 to 3 weeks from research moodboards to final brand book and vector package delivery.')); ?></p>
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q" data-customizer="brind_faq6_q"><?php echo esc_html(cr8v_mod('brind_faq6_q', 'Can you apply the new brand identity to my website and marketing materials?')); ?></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-a" data-customizer="brind_faq6_a"><?php echo wp_kses_post(cr8v_mod('brind_faq6_a', 'Yes. We build custom WordPress themes, web apps, social graphics, and pitch decks directly implementing your newly created design system.')); ?></p>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     SECTION 11: FOOTER CTA BAR
-     Dark #080808
-     ══════════════════════════════════════════ -->
-<div class="c8isv-cta-section">
+<!-- SECTION 11: RELATED SERVICES -->
+<div class="c8isv-related-outer">
   <div class="c8isv-wrap">
-    <div class="c8isv-cta-card">
-      <span class="c8isv-cta-tag" data-customizer="bident_cta_label"><?php echo esc_html(cr8v_mod('bident_cta_label', 'READY TO DESIGN?')); ?></span>
-      <h2 class="c8isv-cta-title"><span data-customizer="bident_cta_h2_part1"><?php echo esc_html(cr8v_mod('bident_cta_h2_part1', 'Let’s Engineer Your ')); ?></span><span class="c8isv-serif" data-customizer="bident_cta_h2_serif"><?php echo esc_html(cr8v_mod('bident_cta_h2_serif', 'Visual Identity')); ?></span></h2>
-      <p class="c8isv-cta-desc" data-customizer="bident_cta_desc"><?php echo wp_kses_post(cr8v_mod('bident_cta_desc', 'Tell us about your brand goals to receive a complete price quote and design proposal within 24 hours.')); ?></p>
-      <a href="<?php echo esc_url(home_url(cr8v_mod('bident_cta_btn_url', '/discovery-call/'))); ?>" class="c8isv-cta-btn" data-customizer="bident_cta_btn_text"><?php echo esc_html(cr8v_mod('bident_cta_btn_text', 'Book Strategy Call →')); ?></a>
+    <div class="c8isv-label c8isv-reveal is-muted">Other Ways We Build</div>
+    <h2 class="c8isv-section-title c8isv-reveal">Related Services</h2>
+    <p class="c8isv-lead c8isv-reveal">Brand Identity Design is one of several services we offer. If visual design is not what you need, check these out.</p>
+    <div class="c8isv-related-grid">
+      <a href="<?php echo esc_url(home_url('/brand-strategy/')); ?>" class="c8isv-related-card c8isv-reveal">
+        <div class="c8isv-related-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <span class="c8isv-related-card-platform">01 / Strategy</span>
+        <h3 class="c8isv-related-card-title">Brand Strategy</h3>
+        <p class="c8isv-related-card-desc">Market positioning frameworks, target audience personas, and value proposition messaging to define your market edge.</p>
+        <span class="c8isv-related-card-link">Explore Strategy →</span>
+      </a>
+      <a href="<?php echo esc_url(home_url('/wordpress/')); ?>" class="c8isv-related-card c8isv-reveal c8isv-reveal-d1">
+        <div class="c8isv-related-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm0 18a8 8 0 118-8 8 8 0 01-8 8z"/></svg>
+        </div>
+        <span class="c8isv-related-card-platform">02 / WordPress</span>
+        <h3 class="c8isv-related-card-title">WordPress Theme Engineering</h3>
+        <p class="c8isv-related-card-desc">Bespoke PHP theme code, Gutenberg block libraries, and sub-1.2s speed optimization for high-converting brand sites.</p>
+        <span class="c8isv-related-card-link">Explore WordPress →</span>
+      </a>
+      <a href="<?php echo esc_url(home_url('/custom-dev/')); ?>" class="c8isv-related-card c8isv-reveal c8isv-reveal-d2">
+        <div class="c8isv-related-card-icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <span class="c8isv-related-card-platform">03 / Custom Dev</span>
+        <h3 class="c8isv-related-card-title">Custom Development</h3>
+        <p class="c8isv-related-card-desc">Full-stack web applications, client portals, and administrative dashboards built precisely from scratch using React and Node.js.</p>
+        <span class="c8isv-related-card-link">Explore Custom Dev →</span>
+      </a>
     </div>
   </div>
 </div>
+
+
 
 </div><!-- /.c8isv-root -->
 
@@ -870,7 +818,6 @@ defined('ABSPATH') || exit;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var canHover = window.matchMedia('(hover: hover)').matches;
 
-  // Reveal elements on load
   var revealEls = root.querySelectorAll('.c8isv-reveal, .c8srv-reveal');
   revealEls.forEach(function(el) { el.classList.add('is-visible'); });
 
@@ -1008,7 +955,6 @@ defined('ABSPATH') || exit;
   window.addEventListener('resize', handleScrollAnimations, { passive: true });
   handleScrollAnimations();
 
-  // Hoverlist 2-Card Fan Cursor Preview
   var hoverlist = root.querySelector('[data-c8isv-hoverlist]');
   var preview = root.querySelector('[data-c8isv-preview]');
   if (hoverlist && preview && canHover && !reduceMotion) {
@@ -1043,7 +989,6 @@ defined('ABSPATH') || exit;
     });
   }
 
-  // FAQ Accordion Toggle
   var faqTriggers = root.querySelectorAll('.faq-trigger');
   faqTriggers.forEach(function(trigger) {
     trigger.addEventListener('click', function() {
@@ -1066,60 +1011,156 @@ defined('ABSPATH') || exit;
     });
   });
 
-  // Scope Estimator Choices Calculation JS
-  var estChoices = root.querySelectorAll('.c8srv-est-choice');
-  var estRange = document.getElementById('est-range-display');
-  var estDeliv = document.getElementById('est-deliverables-list');
-  var estLink = document.getElementById('est-cta-link');
-
-  var currentBasePrice = 1500;
-  var currentMultiplier = 1.0;
-  var currentAddonPrice = 0;
-  var currentPlatformCode = 'brandidentity';
-
-  function updateEstimator() {
-    var low = Math.round((currentBasePrice * currentMultiplier) + currentAddonPrice);
-    var high = Math.round(low * 1.25);
-
-    if (estRange) estRange.textContent = '$' + low.toLocaleString() + ' - $' + high.toLocaleString();
-
-    if (estDeliv) {
-      if (currentPlatformCode === 'motionidentity') {
-        estDeliv.innerHTML = '<div>• Full Brand Identity &amp; Motion Logo System</div><div>• Animated vector logo intro &amp; lottie assets</div><div>• Figma Design System &amp; Brand Guidelines</div>';
-      } else if (currentPlatformCode === 'logosystem') {
-        estDeliv.innerHTML = '<div>• Core Vector Logo Suite (Primary, Monogram)</div><div>• Color palette &amp; font pair recommendations</div><div>• High-resolution exported vector files</div>';
+  function updateFolderStack() {
+    var cards = root.querySelectorAll('.c8srv-folder-card');
+    if (!cards.length) return;
+    if (reduceMotion) {
+      cards.forEach(function(c) {
+        c.style.setProperty('transform', 'none', 'important');
+        c.style.setProperty('filter', 'none', 'important');
+      });
+      return;
+    }
+    var isMobile = window.innerWidth < 900;
+    var limit = isMobile ? 101 : 131;
+    cards.forEach(function(card, i) {
+      var rect = card.getBoundingClientRect();
+      if (rect.top <= limit + 4) {
+        var stackedAfter = 0;
+        for (var j = i + 1; j < cards.length; j++) {
+          var nextRect = cards[j].getBoundingClientRect();
+          if (nextRect.top <= limit + 4) stackedAfter++;
+        }
+        var scale = 1 - (stackedAfter * 0.03);
+        var lift = stackedAfter * -8;
+        card.style.setProperty('transform', 'scale(' + scale + ') translate3d(0,' + lift + 'px,0)', 'important');
+        card.style.setProperty('filter', 'brightness(' + (1 - (stackedAfter * 0.05)) + ')', 'important');
       } else {
-        estDeliv.innerHTML = '<div>• Primary &amp; Secondary Vector Logo Suite</div><div>• Color Token &amp; Palette Architecture</div><div>• Figma Brand Identity Guidelines &amp; Fonts</div>';
+        card.style.setProperty('transform', 'none', 'important');
+        card.style.setProperty('filter', 'none', 'important');
+      }
+    });
+  }
+  window.addEventListener('scroll', updateFolderStack, { passive: true });
+  window.addEventListener('resize', updateFolderStack);
+  updateFolderStack();
+
+  var choices = root.querySelectorAll('.c8srv-est-choice');
+  var rangeDisplay = root.querySelector('#est-range-display');
+  var deliverablesList = root.querySelector('#est-deliverables-list');
+  var estCta = root.querySelector('#est-cta-link');
+
+  var platformBases = {
+    logo: { price: 1200, deliverables: ["Primary & Secondary Vector Logomarks", "Curated Color System Tokens", "Typography Hierarchy Specification"] },
+    fullsystem: { price: 1800, deliverables: ["Full Visual Identity Design System", "Social Media Asset Graphic Suite", "Brand Guidelines Specification Book (PDF)"] },
+    rebrand: { price: 2500, deliverables: ["Enterprise Brand Transformation Architecture", "Figma Digital Product Design System", "Collateral & Pitch Deck Templates"] }
+  };
+
+  var estimatorAddons = {
+    none: { price: 0, deliverables: [] },
+    social: { price: 350, deliverables: ['Social Media Graphic Template Suite'] },
+    deck: { price: 500, deliverables: ['Pitch Deck Presentation Master Design'] }
+  };
+
+  var scaleDescriptions = {
+    standard: 'Standard brand sheet (PDF format)',
+    comprehensive: 'Comprehensive 40+ page brand book specification'
+  };
+
+  function updateEstimate() {
+    var activePlatformBtn = root.querySelector('[data-est-group="platform"] .c8srv-est-choice.is-active') || choices[0];
+    var activeScaleBtn = root.querySelector('[data-est-group="scale"] .c8srv-est-choice.is-active');
+    var activeGrowthBtn = root.querySelector('[data-est-group="growth"] .c8srv-est-choice.is-active');
+
+    var platformVal = activePlatformBtn ? activePlatformBtn.getAttribute('data-est-val') : 'logo';
+    var basePrice = platformBases[platformVal] ? platformBases[platformVal].price : 1200;
+    var scaleMult = activeScaleBtn ? parseFloat(activeScaleBtn.getAttribute('data-est-multiplier')) || 1.0 : 1.0;
+    var scaleVal = activeScaleBtn ? activeScaleBtn.getAttribute('data-est-val') || 'standard' : 'standard';
+    var growthVal = activeGrowthBtn ? activeGrowthBtn.getAttribute('data-est-val') || 'none' : 'none';
+    var growthPrice = estimatorAddons[growthVal] ? estimatorAddons[growthVal].price : 0;
+
+    var startPrice = Math.round(basePrice * scaleMult + growthPrice);
+    var endPrice = Math.round(startPrice * 1.25);
+
+    if (rangeDisplay) rangeDisplay.textContent = '$' + startPrice.toLocaleString() + ' - $' + endPrice.toLocaleString();
+
+    if (deliverablesList) {
+      deliverablesList.innerHTML = '';
+      if (platformBases[platformVal] && platformBases[platformVal].deliverables) {
+        platformBases[platformVal].deliverables.forEach(function (d) {
+          var item = document.createElement('div');
+          item.textContent = '• ' + d;
+          deliverablesList.appendChild(item);
+        });
+      }
+
+      if (scaleDescriptions[scaleVal]) {
+        var scaleItem = document.createElement('div');
+        scaleItem.style.color = '#0047E1';
+        scaleItem.style.fontWeight = '600';
+        scaleItem.textContent = '• Scope Tier: ' + scaleDescriptions[scaleVal];
+        deliverablesList.appendChild(scaleItem);
+      }
+
+      if (estimatorAddons[growthVal] && estimatorAddons[growthVal].deliverables) {
+        estimatorAddons[growthVal].deliverables.forEach(function (d) {
+          var item = document.createElement('div');
+          item.textContent = '• ' + d;
+          deliverablesList.appendChild(item);
+        });
       }
     }
 
-    if (estLink) {
-      estLink.href = '<?php echo esc_url(home_url('/contact/')); ?>?platform=' + currentPlatformCode + '&est=' + low + '-' + high;
+    if (estCta) {
+      estCta.href = "<?php echo esc_url(home_url('/contact/')); ?>?platform=" + platformVal + "&est=" + startPrice + "-" + endPrice;
     }
   }
 
-  estChoices.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var group = btn.closest('.c8srv-est-choices');
+  choices.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var group = btn.closest('[data-est-group]');
       if (group) {
-        group.querySelectorAll('.c8srv-est-choice').forEach(function(b) { b.classList.remove('is-active'); });
+        group.querySelectorAll('.c8srv-est-choice').forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
       }
-      btn.classList.add('is-active');
+      updateEstimate();
+    });
+  });
+  updateEstimate();
 
-      if (btn.hasAttribute('data-est-price')) {
-        var p = parseInt(btn.getAttribute('data-est-price'), 10);
-        if (group && group.getAttribute('data-est-group') === 'platform') {
-          currentBasePrice = p;
-          currentPlatformCode = btn.getAttribute('data-est-val');
-        } else if (group && group.getAttribute('data-est-group') === 'growth') {
-          currentAddonPrice = p;
+  /* ── Live Matrix Text Scramble Script ── */
+  var srvMatrixButtons = root.querySelectorAll('.c8-btn-primary, .c8isv-btn-primary, .c8srv-btn-primary, .c8srv-price-btn, .c8isv-price-btn, .c8srv-explore, .c8isv-explore, .c8isv-btn-ghost, .c8srv-btn-ghost, .faq-cta-link, .c8srv-vs-priority-btn, .c8isv-related-card-link, .c8srv-related-card-link, .c8isv-cta-btn');
+  var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  srvMatrixButtons.forEach(function(btn) {
+    var textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; });
+    var targetObj = textNode ? textNode : btn;
+    var originalText = targetObj.textContent.trim();
+    var scrambleInterval = null;
+
+    btn.addEventListener('mouseenter', function() {
+      var iteration = 0;
+      clearInterval(scrambleInterval);
+
+      scrambleInterval = setInterval(function() {
+        targetObj.textContent = originalText.split('')
+          .map(function(char, index) {
+            if (char === ' ' || index < iteration) return originalText[index];
+            return srvMatrixChars[Math.floor(Math.random() * srvMatrixChars.length)];
+          })
+          .join('');
+
+        if (iteration >= originalText.length) {
+          clearInterval(scrambleInterval);
         }
-      }
-      if (btn.hasAttribute('data-est-multiplier')) {
-        currentMultiplier = parseFloat(btn.getAttribute('data-est-multiplier'));
-      }
+        iteration += 1 / 2;
+      }, 25);
+    });
 
-      updateEstimator();
+    btn.addEventListener('mouseleave', function() {
+      clearInterval(scrambleInterval);
+      targetObj.textContent = originalText;
     });
   });
 })();

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Cr8v Stacks</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Michroma&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #080808;
+      --paper: #FFFFFF;
+      --blue: #0047E1;
+      --blue-mid: #0038C0;
+      --gray: #555555;
+      --line: rgba(8, 8, 8, 0.14);
+      --font-heading: 'Michroma', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-body: 'DM Sans', sans-serif;
+      --font-display: 'Bebas Neue', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #FFFFFF !important;
+      color: var(--ink);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER ROUTE BAR */
+    .err-header {
+      padding: 2.5rem 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      background: #FFFFFF;
+    }
+    .err-brand-logo {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .err-brand-logo span { color: var(--blue); }
+
+    .err-status-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--blue);
+      border: 1px solid rgba(0,71,225,0.3);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px !important;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: rgba(0,71,225,0.06);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .err-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    /* MAIN UNCONTAINED FREE HERO SECTION ON PLAIN WHITE BACKGROUND */
+    .err-hero-container {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 4rem 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      min-height: calc(100vh - 160px);
+    }
+
+    /* UNBOXED FREE TYPOGRAPHY COLUMN */
+    .err-content-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .err-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--blue);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .err-eyebrow::before { content: '// '; color: var(--blue-mid); }
+
+    .err-big-num {
+      font-family: var(--font-display);
+      font-size: clamp(8rem, 18vw, 15rem);
+      line-height: 0.82;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.85rem;
+      text-shadow: none !important;
+    }
+
+    .err-h1-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+      font-weight: 700;
+      color: var(--ink);
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.02em;
+      text-shadow: none !important;
+    }
+
+    .err-subtitle {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.65;
+      max-width: 580px;
+      margin-bottom: 2.75rem;
+      font-weight: 400;
+    }
+
+    /* HIGH-VISIBILITY BUTTON SYSTEM WITHOUT ANY SHADOWS */
+    .err-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .c8-matrix-btn-blue {
+      background: var(--blue);
+      color: #FFFFFF !important;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 1.1rem 2.25rem;
+      border-radius: 4px !important;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: background 0.25s ease, transform 0.25s ease;
+      box-shadow: none !important;
+    }
+    .c8-matrix-btn-blue::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -100%;
+      width: 100%;
+      height: 200%;
+      background: linear-gradient(115deg, transparent, rgba(255,255,255,0.4), rgba(61, 107, 255, 0.4), transparent);
+      transform: rotate(25deg);
+      transition: left 0.75s ease;
+      pointer-events: none;
+    }
+    .c8-matrix-btn-blue:hover::before { left: 150%; }
+    .c8-matrix-btn-blue:hover {
+      background: var(--blue-mid);
+      transform: translateY(-2px);
+    }
+
+    .c8-matrix-btn-dark {
+      background: var(--ink);
+      color: #FFFFFF !important;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 1.1rem 2.25rem;
+      border-radius: 4px !important;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: background 0.25s ease, transform 0.25s ease;
+      cursor: pointer;
+      box-shadow: none !important;
+      border: none;
+    }
+    .c8-matrix-btn-dark:hover {
+      background: #222222;
+      transform: translateY(-2px);
+    }
+
+    /* BIGGER UNCONTAINED FREE MASCOT VIDEO (FLOATING FREELY ON PLAIN WHITE) */
+    .err-mascot-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .err-mascot-free-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 680px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: floatMascot 6s ease-in-out infinite;
+    }
+
+    @keyframes floatMascot {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-16px); }
+    }
+
+    .err-mascot-video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* FOOTER METADATA */
+    .err-footer {
+      padding: 1.75rem 3.5rem;
+      border-top: 1px solid var(--line);
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--gray);
+    }
+
+    @media (max-width: 1024px) {
+      .err-hero-container {
+        grid-template-columns: 1fr;
+        padding: 3rem 2rem;
+        gap: 3rem;
+        text-align: center;
+      }
+      .err-content-col { align-items: center; }
+      .err-header, .err-footer { padding: 1.5rem 2rem; }
+      .err-mascot-free-wrapper { max-width: 480px; }
+    }
+    @media (max-width: 640px) {
+      .err-header, .err-footer { padding: 1.25rem 1.25rem; }
+      .err-hero-container { padding: 2rem 1.25rem; }
+      .err-big-num { font-size: 7rem; }
+      .err-h1-title { font-size: 1.4rem; }
+      .err-btn-group { flex-direction: column; width: 100%; }
+      .c8-matrix-btn-blue, .c8-matrix-btn-dark { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="err-header">
+    <a href="index.html" class="err-brand-logo">CR8V <span>STACKS</span></a>
+    <div class="err-status-pill">
+      <div class="err-status-dot"></div>
+      ROUTE_404_NULL
+    </div>
+  </header>
+
+  <!-- UNCONTAINED FREE HERO SECTION ON PLAIN WHITE BACKGROUND -->
+  <main class="err-hero-container">
+    
+    <!-- LEFT UNBOXED TYPOGRAPHY COLUMN -->
+    <div class="err-content-col">
+      <div class="err-eyebrow">SYSTEM BLUEPRINT EXCEPTION</div>
+      <div class="err-big-num">404</div>
+      <h1 class="err-h1-title">BLUEPRINT NOT FOUND</h1>
+      <p class="err-subtitle">The requested URL route does not exist in our platform architecture. It may have been moved, renamed, or temporarily taken offline for liquid performance updates.</p>
+
+      <div class="err-btn-group">
+        <a href="index.html" class="c8-matrix-btn-blue">Return to Homepage →</a>
+        <a href="Contact_us.html" class="c8-matrix-btn-dark">Contact Support</a>
+      </div>
+    </div>
+
+    <!-- RIGHT BIGGER UNCONTAINED FREE MASCOT VIDEO (FLOATING FREELY ON PLAIN WHITE) -->
+    <div class="err-mascot-col">
+      <div class="err-mascot-free-wrapper">
+        <video class="err-mascot-video" autoplay loop muted playsinline poster="assets/img/dev_mascot.jpg">
+          <source src="assets/img/download_mascot.mp4" type="video/mp4">
+          <source src="assets/img/download.mp4" type="video/mp4">
+          <img src="assets/img/dev_mascot.jpg" alt="Cr8v Stacks Mascot Visual">
+        </video>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER METADATA -->
+  <footer class="err-footer">
+    <div>// CR8V STACKS ENGINE v2.4</div>
+    <div>HTTP 404 RESOURCE_NOT_FOUND</div>
+  </footer>
+
+  <!-- MATRIX BUTTON TEXT SCRAMBLE SCRIPT -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var matrixBtns = document.querySelectorAll('.c8-matrix-btn-blue, .c8-matrix-btn-dark');
+    var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    matrixBtns.forEach(function(btn) {
+      var originalText = btn.innerText.trim();
+      var scrambleInterval = null;
+
+      btn.addEventListener('mouseenter', function() {
+        var iteration = 0;
+        clearInterval(scrambleInterval);
+
+        scrambleInterval = setInterval(function() {
+          btn.innerText = originalText.split('')
+            .map(function(char, index) {
+              if (char === ' ' || index < iteration) return originalText[index];
+              return matrixChars[Math.floor(Math.random() * matrixChars.length)];
+            })
+            .join('');
+
+          if (iteration >= originalText.length) {
+            clearInterval(scrambleInterval);
+          }
+          iteration += 1 / 2;
+        }, 25);
+      });
+
+      btn.addEventListener('mouseleave', function() {
+        clearInterval(scrambleInterval);
+        btn.innerText = originalText;
+      });
+    });
+  });
+  </script>
+
+</body>
+</html>

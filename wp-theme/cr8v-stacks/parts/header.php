@@ -27,7 +27,6 @@ $drawer_label = cr8v_mod('header_drawer_label', 'Strategy, Design &amp; Liquid P
 
 /* WordPress Admin Bar offsets */
 body.admin-bar .c8hdr-root .c8-header{top:32px!important;}
-body.admin-bar .c8hdr-root .c8-mega,body.admin-bar .c8hdr-root .c8-mega-back{top:calc(68px + 32px)!important;}
 body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overlay{top:32px!important;}
 @media(max-width:782px){body.admin-bar .c8hdr-root .c8-header{top:46px!important;}body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overlay{top:46px!important;}}
 
@@ -64,25 +63,24 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
 @media(max-width:1100px){.c8hdr-root .c8-hbg{display:flex!important;}}
 
 /* ── Mega Menu Backdrop ── */
-.c8hdr-root .c8-mega-back{position:fixed!important;inset:0!important;z-index:9400!important;background:rgba(8,8,8,0.25)!important;backdrop-filter:blur(2px)!important;opacity:0!important;pointer-events:none!important;transition:opacity .25s ease!important;}
-.c8hdr-root .c8-mega-back.c8-show{opacity:1!important;pointer-events:auto!important;}
+.c8hdr-root .c8-mega-back{position:fixed!important;top:68px!important;left:0!important;right:0!important;bottom:0!important;background:rgba(8,8,8,0.25)!important;z-index:9400!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .25s ease,visibility .25s ease!important;}
+.c8hdr-root .c8-mega-back.c8-show{opacity:1!important;visibility:visible!important;pointer-events:auto!important;}
 
-/* ── Mega Menu Panel ── */
-.c8hdr-root .c8-mega{position:fixed!important;top:68px!important;left:0!important;right:0!important;z-index:9450!important;transform:translateY(-8px)!important;opacity:0!important;pointer-events:none!important;transition:transform .25s ease,opacity .2s ease!important;}
-.c8hdr-root .c8-mega.c8-open{transform:translateY(0)!important;opacity:1!important;pointer-events:auto!important;}
+/* ── Mega Menu Shell ── */
+.c8hdr-root .c8-mega{position:fixed!important;top:68px!important;left:0!important;right:0!important;z-index:9450!important;display:flex!important;justify-content:center!important;padding-top:14px!important;background:transparent!important;pointer-events:none!important;visibility:hidden!important;opacity:0!important;transform:translateY(-8px)!important;transition:transform .25s cubic-bezier(.4,0,.2,1),opacity .2s ease,visibility .2s ease!important;}
+.c8hdr-root .c8-mega.c8-open{transform:translateY(0)!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;}
 @media(max-width:1100px){.c8hdr-root .c8-mega,.c8hdr-root .c8-mega-back{display:none!important;}}
 
-.c8hdr-root .c8-mega-card{background:#FFFFFF!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;box-shadow:0 24px 60px rgba(8,8,8,0.08)!important;}
-.c8hdr-root .c8-mega-grid{max-width:1440px!important;margin:0 auto!important;padding:0 3.5rem!important;display:grid!important;}
-.c8hdr-root .c8-mega-grid-services{grid-template-columns:1fr 1.2fr 1.2fr!important;}
-.c8hdr-root .c8-mega-grid-tools{grid-template-columns:1fr 1.5fr!important;}
-.c8hdr-root .c8-mcol-intro,.c8hdr-root .c8-mcol-list,.c8hdr-root .c8-mcol-list-wide{padding:2.5rem 2rem 2.5rem 0!important;border-right:1px solid rgba(8,8,8,0.06)!important;}
-.c8hdr-root .c8-mcol-intro{padding-left:0!important;}
-.c8hdr-root .c8-mcol-list{padding-left:2rem!important;}
-.c8hdr-root .c8-mcol-list-wide{padding-left:2rem!important;border-right:none!important;}
-.c8hdr-root .c8-mcol-eyebrow{font-family:'Space Mono',monospace!important;font-size:9px!important;font-weight:700!important;letter-spacing:.15em!important;text-transform:uppercase!important;color:#0047E1!important;margin-bottom:.85rem!important;}
-.c8hdr-root .c8-mcol-heading{font-family:'Michroma',sans-serif!important;font-size:1.35rem!important;font-weight:700!important;color:#080808!important;line-height:1.25!important;margin-bottom:.75rem!important;}
-.c8hdr-root .c8-mcol-desc{font-family:'DM Sans',sans-serif!important;font-size:12.5px!important;color:#6B6B6B!important;line-height:1.6!important;margin-bottom:1.2rem!important;max-width:220px!important;}
+.c8hdr-root .c8-mega-card{background:#FFFFFF!important;width:min(1280px, calc(100% - 4rem))!important;border-radius:4px!important;border:1px solid rgba(8,8,8,0.08)!important;box-shadow:0 24px 60px rgba(8,8,8,0.14)!important;overflow:hidden!important;pointer-events:auto!important;}
+.c8hdr-root .c8-mega-grid{display:grid!important;}
+.c8hdr-root .c8-mega-grid-services{grid-template-columns:1fr 1fr 1fr!important;}
+.c8hdr-root .c8-mega-grid-tools{grid-template-columns:1fr 1.4fr!important;}
+.c8hdr-root .c8-mcol-intro,.c8hdr-root .c8-mcol-list,.c8hdr-root .c8-mcol-list-wide{padding:2.2rem 2.2rem!important;border-right:1px solid rgba(8,8,8,0.06)!important;}
+.c8hdr-root .c8-mcol-list:last-child,.c8hdr-root .c8-mcol-list-wide{border-right:none!important;}
+.c8hdr-root .c8-mcol-eyebrow{font-family:'Space Mono',monospace!important;font-size:9.5px!important;letter-spacing:.28em!important;text-transform:uppercase!important;color:#0047E1!important;margin-bottom:1.1rem!important;display:flex!important;align-items:center!important;gap:8px!important;font-weight:700!important;}
+.c8hdr-root .c8-mcol-eyebrow::before{content:''!important;width:14px!important;height:1px!important;background:#0047E1!important;display:inline-block!important;flex-shrink:0!important;}
+.c8hdr-root .c8-mcol-heading{font-family:'Michroma',sans-serif!important;font-size:1.35rem!important;line-height:1.3!important;color:#080808!important;margin-bottom:.8rem!important;letter-spacing:.01em!important;font-weight:700!important;}
+.c8hdr-root .c8-mcol-desc{font-family:'DM Sans',sans-serif!important;font-size:12.5px!important;color:#666663!important;line-height:1.65!important;font-weight:400!important;margin-bottom:1.5rem!important;max-width:280px!important;}
 
 /* Highlight / Showcase Card */
 .c8hdr-root .c8-highlight-card{display:block!important;background:#0047E1!important;border-radius:4px!important;padding:1.1rem 1.2rem!important;transition:background .2s!important;}
@@ -429,15 +427,25 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
 
     <div class="c8-md-plain-links">
       <?php
-      wp_nav_menu([
-          'theme_location' => 'mobile-drawer',
-          'container'      => false,
-          'items_wrap'     => '%3$s',
-          'fallback_cb'    => false,
-          'depth'          => 1,
-          'walker'         => new CR8V_Mobile_Plain_Links_Walker(),
-      ]);
+      if (has_nav_menu('mobile-drawer')) {
+          wp_nav_menu([
+              'theme_location' => 'mobile-drawer',
+              'container'      => false,
+              'items_wrap'     => '%3$s',
+              'fallback_cb'    => false,
+              'depth'          => 1,
+              'walker'         => new CR8V_Mobile_Plain_Links_Walker(),
+          ]);
+      } else {
       ?>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="c8-md-plain-link">Home <span>→</span></a>
+        <a href="<?php echo esc_url(home_url('/services/')); ?>" class="c8-md-plain-link">Services <span>→</span></a>
+        <a href="<?php echo esc_url(home_url('/case-studies/')); ?>" class="c8-md-plain-link">Case Studies <span>→</span></a>
+        <a href="<?php echo esc_url(home_url('/about/')); ?>" class="c8-md-plain-link">About Us <span>→</span></a>
+        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8-md-plain-link">Blog <span>→</span></a>
+        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8-md-plain-link">Contact Us <span>→</span></a>
+        <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8-md-plain-link">Discovery Call <span>→</span></a>
+      <?php } ?>
     </div>
   </div>
 

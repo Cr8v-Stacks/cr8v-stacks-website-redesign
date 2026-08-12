@@ -1,66 +1,13 @@
 <?php
 /**
- * Single Case Study Template — Architectural Paper Grid (100% Prototype Parity)
- * Prototype Reference: Case Studies/the-duch-apartments.html
+ * Template Name: Case Study — BridgePoints Brand Identity
+ * Prototype Parity: Case Studies/bridgepoints.html (100% Exact Duplication)
  */
 defined('ABSPATH') || exit;
 
-// Smart Delegation: If viewing one of our 10 featured projects, load its dedicated template for 100% exact prototype duplication.
-$slug = get_post_field('post_name', get_the_ID());
-$map  = array(
-  'the-duch-apartments'   => 'page-case-study-duch.php',
-  'duch'                  => 'page-case-study-duch.php',
-  'mkenny-properties'     => 'page-case-study-mkenny.php',
-  'mkenny'                => 'page-case-study-mkenny.php',
-  'bridgepoint-compliance'=> 'page-case-study-bridgepoint.php',
-  'bridgepoint-consulting'=> 'page-case-study-bridgepoint.php',
-  'bridgepoint-advisory'  => 'page-case-study-bridgepoint.php',
-  'bridgepoints'          => 'page-case-study-bridgepoint-brand.php',
-  'blvck-hair-ng'         => 'page-case-study-blvck-hair.php',
-  'blvck-hair'            => 'page-case-study-blvck-hair.php',
-  'victorias-lane'        => 'page-case-study-victorias-lane.php',
-  'kiri-city-stays'       => 'page-case-study-kiri-city.php',
-  'kiri-city'             => 'page-case-study-kiri-city.php',
-  'stride-plus-media'     => 'page-case-study-stride.php',
-  'stride'                => 'page-case-study-stride.php',
-  'sweetermen-ng'         => 'page-case-study-sweetermen.php',
-  'sweetermen'            => 'page-case-study-sweetermen.php',
-  'wp-publishion-ai'      => 'page-case-study-wp-publishion.php',
-  'wp-publishion'         => 'page-case-study-wp-publishion.php',
-);
-
-if (isset($map[$slug])) {
-  $tpl = locate_template($map[$slug]);
-  if ($tpl) {
-    include $tpl;
-    exit;
-  }
-}
-
 get_header();
-
-// Fetch ACF fields with robust fallbacks
-$client_name    = get_field('client_name') ?: get_the_title();
-$services       = get_field('services') ?: get_field('project_type') ?: 'Web Engineering & SEO';
-$stack          = get_field('stack') ?: 'WordPress · Custom Code';
-$project_link   = get_field('project_link') ?: get_field('live_url') ?: home_url('/portfolio/');
-$timeline       = get_field('timeline') ?: '3 Weeks';
-$industry       = get_field('industry') ?: 'Digital Product Design';
-$hero_lead      = get_field('hero_lead') ?: get_the_excerpt();
-
-$metric_1_val   = get_field('metric_1_val') ?: '100%';
-$metric_1_lbl   = get_field('metric_1_lbl') ?: 'Direct Booking Base';
-$metric_1_desc  = get_field('metric_1_desc') ?: 'Designed and deployed a custom digital asset infrastructure with zero template overhead.';
-
-$metric_2_val   = get_field('metric_2_val') ?: '+340%';
-$metric_2_lbl   = get_field('metric_2_lbl') ?: 'Direct Revenue Growth';
-$metric_2_desc  = get_field('metric_2_desc') ?: 'Substantial expansion in direct revenue bypassing third-party commission structures.';
-
-$overview_title = get_field('overview_title') ?: 'The Strategic Challenge & Engineered Solution';
-$overview_desc  = get_field('overview_desc') ?: get_the_content();
-
-$feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_template_directory_uri() . '/assets/img/hww_stacks_visual.jpg';
 ?>
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
 
@@ -77,22 +24,9 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
     --font-heading: 'Michroma', sans-serif;
   }
 
-  body {
-    background: #FFFFFF;
-    color: var(--c8-ink);
-    font-family: var(--font-body);
-    line-height: 1.65;
-    overflow-x: hidden;
-  }
-
-  .c8cs-root { position: relative; width: 100%; }
+  .c8cs-root { position: relative; width: 100%; background: #FFFFFF; color: var(--c8-ink); font-family: var(--font-body); }
   .c8cs-wrap { max-width: 1340px; margin: 0 auto; padding: 3rem 2rem 5rem; position: relative; z-index: 2; }
   @media (max-width: 768px) { .c8cs-wrap { padding: 3.5rem 1.25rem; } }
-
-  .c8cs-back-btn {
-    font-family: var(--font-mono); font-size: 10px; color: #8A8A8A; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2.5rem; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; text-decoration: none; font-weight: 700; position: relative; z-index: 2;
-  }
-  .c8cs-back-btn:hover { color: var(--c8-blue); }
 
   .c8cs-label {
     font-family: var(--font-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--c8-blue); display: inline-flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;
@@ -216,6 +150,9 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
   .c8cs-status-val { font-family: var(--font-heading); font-size: 10.5px; font-weight: 700; color: #00BF63; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 8px; line-height: 1.2; }
   .c8cs-checkmark-circle { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: #00BF63; color: #FFFFFF; font-size: 10px; font-weight: bold; }
 
+  .c8cs-back-btn { font-family: var(--font-mono); font-size: 10px; color: #8A8A8A; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2.5rem; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; text-decoration: none; position: relative; z-index: 2; font-weight: 700; }
+  .c8cs-back-btn:hover { color: var(--c8-blue); }
+
   .c8cs-related-paper-outer { background: #FFFFFF; padding: 6rem 0; border-bottom: 1px solid var(--c8-grid-line); width: 100%; }
   .c8cs-related-matrix-box { max-width: 1340px; margin: 0 auto; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
   .c8cs-related-matrix-header { padding: 3.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
@@ -269,33 +206,33 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
     <div class="c8cs-wrap" style="padding-top: 1rem; padding-bottom: 2rem;">
       <a href="<?php echo esc_url(home_url('/portfolio/')); ?>" class="c8cs-back-btn">&larr; Back to Portfolio</a>
       
-      <div class="c8cs-label">Case Study // <?php echo esc_html($industry); ?></div>
-      <h1 class="c8cs-headline"><?php echo esc_html($client_name); ?> <br><span class="c8cs-serif">— <?php echo esc_html($services); ?></span></h1>
-      <p class="c8cs-lead"><?php echo esc_html($hero_lead); ?></p>
+      <div class="c8cs-label">Case Study // Brand Identity &amp; Vector Design</div>
+      <h1 class="c8cs-headline">BridgePoints: Corporate Visual <span class="c8cs-serif">Brand Identity</span></h1>
+      <p class="c8cs-lead">Bridgepoint Advisory Services needed a visual identity system that commanded authority in corporate financial markets. We crafted an original vector logo mark, set color swatch tokens, and compiled a comprehensive brand manual for digital and print collateral.</p>
       
       <div class="fylla-pill-row">
-        <span class="fylla-pill">Web Design</span>
-        <span class="fylla-pill">Entity SEO</span>
-        <span class="fylla-pill">WordPress Custom</span>
         <span class="fylla-pill">Brand Identity</span>
+        <span class="fylla-pill">Vector Logo</span>
+        <span class="fylla-pill">Design Tokens</span>
+        <span class="fylla-pill">Brand Manual</span>
       </div>
 
       <div class="c8cs-meta-grid">
         <div class="c8cs-meta-item">
           <span class="c8cs-meta-lbl">Client</span>
-          <span class="c8cs-meta-val"><?php echo esc_html($client_name); ?></span>
+          <span class="c8cs-meta-val">Bridgepoint Advisory</span>
         </div>
         <div class="c8cs-meta-item">
           <span class="c8cs-meta-lbl">Services</span>
-          <span class="c8cs-meta-val"><?php echo esc_html($services); ?></span>
+          <span class="c8cs-meta-val">Brand Identity Design</span>
         </div>
         <div class="c8cs-meta-item">
           <span class="c8cs-meta-lbl">Stack</span>
-          <span class="c8cs-meta-val"><?php echo esc_html($stack); ?></span>
+          <span class="c8cs-meta-val">Figma · Vector Assets</span>
         </div>
         <div class="c8cs-meta-item">
           <span class="c8cs-meta-lbl">Link</span>
-          <span class="c8cs-meta-val"><a href="<?php echo esc_url($project_link); ?>" target="_blank" rel="noopener" style="color: #0047E1; text-decoration: underline;"><?php echo esc_html(str_replace(array('https://', 'http://', '/'), '', $project_link)); ?> ↗</a></span>
+          <span class="c8cs-meta-val"><a href="https://bridgepoints.ng/" target="_blank" rel="noopener" style="color: #0047E1; text-decoration: underline;">bridgepoints.ng ↗</a></span>
         </div>
       </div>
     </div>
@@ -304,7 +241,7 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
   <!-- Scroll Grow Media -->
   <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
     <div class="c8cs-main-img-box" id="c8cs-grow-target">
-      <img src="<?php echo esc_url($feat_img); ?>" alt="<?php echo esc_attr($client_name); ?>">
+      <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1600&auto=format&fit=crop" alt="BridgePoints Brand Identity showcase — built by Cr8v Stacks">
     </div>
   </div>
 
@@ -313,9 +250,10 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
     <div class="c8cs-split-section">
       <div class="c8cs-split-left">
         <div class="c8cs-label">Overview</div>
-        <h2 class="c8cs-split-title"><?php echo esc_html($overview_title); ?></h2>
+        <h2 class="c8cs-split-title">The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span></h2>
         <div class="c8cs-body-content">
-          <?php echo wp_kses_post($overview_desc); ?>
+          <p>As Bridgepoint expanded its corporate advisory portfolio, their legacy visual assets lacked the premium polish required for high-stakes enterprise presentations.</p>
+          <p>They needed a flexible vector design system that maintained absolute consistency across dark web UIs, executive pitch decks, and large-scale print collateral.</p>
         </div>
       </div>
 
@@ -325,8 +263,8 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <div>
-            <h3 class="fylla-value-h3">01 / Brand Strategy &amp; Identity System</h3>
-            <p class="fylla-value-desc">Developed a high-trust color token palette, logotype typography scales, and unified visual guidelines.</p>
+            <h3 class="fylla-value-h3">01 / Geometric Logo Exploration</h3>
+            <p class="fylla-value-desc">Hand-sketched and vectorized modern geometric logotypes representing structural stability and corporate growth.</p>
           </div>
         </div>
         <div class="fylla-value-item">
@@ -334,8 +272,8 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <div>
-            <h3 class="fylla-value-h3">02 / Custom Catalog &amp; Layout Engine</h3>
-            <p class="fylla-value-desc">Engineered clean custom Gutenberg &amp; Elementor layout templates with high-res gallery carousels.</p>
+            <h3 class="fylla-value-h3">02 / Color &amp; Typography Tokenization</h3>
+            <p class="fylla-value-desc">Curated a high-contrast corporate palette (#0047E1 Royal Blue, Obsidian Slate) and paired precision sans-serif typography.</p>
           </div>
         </div>
         <div class="fylla-value-item">
@@ -343,8 +281,8 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <div>
-            <h3 class="fylla-value-h3">03 / Entity SEO &amp; Schema Integration</h3>
-            <p class="fylla-value-desc">Structured Schema.org JSON-LD code directly into the site header to dominate local search queries.</p>
+            <h3 class="fylla-value-h3">03 / Brand Guidelines Manual</h3>
+            <p class="fylla-value-desc">Compiled a 40-page digital brand book defining clear spacing grids, clear-space boundaries, and color usage rules.</p>
           </div>
         </div>
         <div class="fylla-value-item">
@@ -352,8 +290,8 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <div>
-            <h3 class="fylla-value-h3">04 / Speed &amp; Conversion Optimization</h3>
-            <p class="fylla-value-desc">Tuned asset loading pipelines to achieve sub-2 second mobile page loads and seamless reservation routes.</p>
+            <h3 class="fylla-value-h3">04 / Production Asset Package</h3>
+            <p class="fylla-value-desc">Delivered complete SVG, EPS, PNG, and PDF asset packages optimized for print resolution and web UI performance.</p>
           </div>
         </div>
       </div>
@@ -399,7 +337,7 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
             <div class="c8cs-gallery-card-bottom">
               <p class="c8cs-gallery-desc">Designing custom user interfaces, pricing breakdowns, and direct conversion triggers.</p>
               <div class="c8cs-gallery-img-box">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_workflow_visual.jpg'); ?>" alt="Interface screenshot">
+                <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop" alt="BridgePoints Brand Identity interface detail screenshot">
               </div>
             </div>
           </div>
@@ -412,7 +350,7 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
             <div class="c8cs-gallery-card-bottom">
               <p class="c8cs-gallery-desc">Optimizing touch targets and instant contact forms for mobile users discovering the platform online.</p>
               <div class="c8cs-gallery-img-box is-tall">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/services_visual_montage.jpg'); ?>" alt="Mobile experience flow">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop" alt="BridgePoints Brand Identity mobile experience flow">
               </div>
             </div>
           </div>
@@ -432,19 +370,19 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
 
         <div class="c8cs-metrics-grid">
           <div class="c8cs-metric-card">
-            <div class="c8cs-metric-val"><?php echo esc_html($metric_1_val); ?></div>
-            <div class="c8cs-metric-lbl"><?php echo esc_html($metric_1_lbl); ?></div>
-            <p class="c8cs-metric-desc"><?php echo esc_html($metric_1_desc); ?></p>
+            <div class="c8cs-metric-val">100%</div>
+            <div class="c8cs-metric-lbl">Original Vector System</div>
+            <p class="c8cs-metric-desc">Hand-crafted vector marks created entirely from scratch with zero stock templates or pre-made icons.</p>
           </div>
           <div class="c8cs-metric-card">
-            <div class="c8cs-metric-val"><?php echo esc_html($metric_2_val); ?></div>
-            <div class="c8cs-metric-lbl"><?php echo esc_html($metric_2_lbl); ?></div>
-            <p class="c8cs-metric-desc"><?php echo esc_html($metric_2_desc); ?></p>
+            <div class="c8cs-metric-val">1</div>
+            <div class="c8cs-metric-lbl">Unified Style Guide</div>
+            <p class="c8cs-metric-desc">Delivered a single source of truth for all external marketing, web development, and executive presentation design.</p>
           </div>
 
           <div class="c8cs-metric-card">
             <div class="c8cs-metric-lbl" style="margin-bottom: 1.5rem;">Live Verification</div>
-            <a href="<?php echo esc_url($project_link); ?>" target="_blank" rel="noopener" class="c8cs-status-badge">
+            <a href="https://bridgepoints.ng/" target="_blank" rel="noopener" class="c8cs-status-badge">
               <span class="c8cs-status-lbl">Launch Status</span>
               <span class="c8cs-status-val">
                 <span class="c8cs-checkmark-circle">✓</span> Visit Live Site ↗
@@ -467,27 +405,27 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
         </div>
 
         <div class="c8cs-related-matrix-grid">
-          <a href="<?php echo esc_url(home_url('/portfolio/kiri-city-stays/')); ?>" class="c8cs-related-cell">
+          <a href="<?php echo esc_url(home_url('/portfolio/stride-plus-media/')); ?>" class="c8cs-related-cell">
             <div>
-              <div class="c8cs-related-cell-tag">01 / Web Design &amp; Booking</div>
-              <h3 class="c8cs-related-cell-title">Kiri City Stays</h3>
-              <p class="c8cs-related-cell-desc">Direct booking platform &amp; luxury stay catalog engineered for seamless reservations and local SEO visibility.</p>
-            </div>
-            <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
-          </a>
-          <a href="<?php echo esc_url(home_url('/portfolio/mkenny-properties/')); ?>" class="c8cs-related-cell">
-            <div>
-              <div class="c8cs-related-cell-tag">02 / WordPress Custom</div>
-              <h3 class="c8cs-related-cell-title">Mkenny Properties</h3>
-              <p class="c8cs-related-cell-desc">Full real estate platform featuring custom Elementor widgets, listing archives, and property detail templates.</p>
+              <div class="c8cs-related-cell-tag">01 / Digital Marketing</div>
+              <h3 class="c8cs-related-cell-title">Stride Plus Media</h3>
+              <p class="c8cs-related-cell-desc">Brand strategy positioning and multi-channel paid acquisition funnels for Stride Radio.</p>
             </div>
             <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
           </a>
           <a href="<?php echo esc_url(home_url('/portfolio/the-duch-apartments/')); ?>" class="c8cs-related-cell">
             <div>
-              <div class="c8cs-related-cell-tag">03 / Web Design &amp; SEO</div>
+              <div class="c8cs-related-cell-tag">02 / Web Design &amp; SEO</div>
               <h3 class="c8cs-related-cell-title">The Duch Apartments</h3>
               <p class="c8cs-related-cell-desc">Brand identity and direct booking platform engineered with SEO architecture built in from day one.</p>
+            </div>
+            <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
+          </a>
+          <a href="<?php echo esc_url(home_url('/portfolio/victorias-lane/')); ?>" class="c8cs-related-cell">
+            <div>
+              <div class="c8cs-related-cell-tag">03 / Shopify Storefront</div>
+              <h3 class="c8cs-related-cell-title">Victoria's Lane</h3>
+              <p class="c8cs-related-cell-desc">Luxury storefront with hand-coded Liquid components and 99.8% PageSpeed score.</p>
             </div>
             <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
           </a>
