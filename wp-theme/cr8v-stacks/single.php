@@ -163,7 +163,7 @@ if (have_posts()) : while (have_posts()) : the_post();
   overflow: hidden; border: 1px solid var(--c8-grid-line); background: #FAFAF7;
   display: flex; align-items: center; justify-content: center;
 }
-.cta-illustration img { width: 100%; height: 100%; object-fit: cover; }
+.cta-illustration img, .cta-illustration video { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
 
 .cta-card-title {
   font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700;
@@ -455,9 +455,11 @@ if (have_posts()) : while (have_posts()) : the_post();
         
         <div class="cta-trust-label"><?php echo esc_html(cr8v_mod('sidebar_cta_trust_label', 'ENGINEERED ON MODERN STACKS')); ?></div>
 
-        <?php $badge_img = cr8v_mod('sidebar_cta_badge_img', get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg'); ?>
         <div class="cta-illustration">
-          <img src="<?php echo esc_url($badge_img); ?>" alt="Cr8v Stacks Visual Badge">
+          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%;">
+            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.webm'); ?>" type="video/webm">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.gif'); ?>" alt="Cr8v Stacks Logo Visual">
+          </video>
         </div>
 
         <h3 class="cta-card-title c8-matrix-target"><?php echo esc_html(cr8v_mod('single_cta_title', 'Your design + build partner')); ?></h3>

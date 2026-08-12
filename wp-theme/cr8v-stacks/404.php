@@ -116,9 +116,15 @@ body { background: #FFFFFF !important; }
 }
 </style>
 
-<main class="err-hero-container">
+<main class="err-hero-container" style="position: relative; overflow: hidden;">
+
+  <!-- Ambient Error Background Video -->
+  <video class="err-bg-video" autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.12; pointer-events: none;">
+    <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/error_bg.webm'); ?>" type="video/webm">
+    <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/error_bg.mp4'); ?>" type="video/mp4">
+  </video>
   
-  <div class="err-content-col">
+  <div class="err-content-col" style="position: relative; z-index: 2;">
     <div class="err-eyebrow">SYSTEM BLUEPRINT EXCEPTION</div>
     <div class="err-big-num">404</div>
     <h1 class="err-h1-title">BLUEPRINT NOT FOUND</h1>
@@ -130,11 +136,12 @@ body { background: #FFFFFF !important; }
     </div>
   </div>
 
-  <div class="err-mascot-col">
+  <div class="err-mascot-col" style="position: relative; z-index: 2;">
     <div class="err-mascot-free-wrapper">
       <video class="err-mascot-video" autoplay loop muted playsinline poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot.jpg'); ?>">
+        <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot_video.webm'); ?>" type="video/webm">
+        <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot_video.mp4'); ?>" type="video/mp4">
         <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/download_mascot.mp4'); ?>" type="video/mp4">
-        <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/download.mp4'); ?>" type="video/mp4">
         <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot.jpg'); ?>" alt="Cr8v Stacks Mascot Visual">
       </video>
     </div>

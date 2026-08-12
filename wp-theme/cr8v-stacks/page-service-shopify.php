@@ -85,12 +85,12 @@ get_header();
           </div>
         </div>
         
-        <!-- Right Side Canvas Shatter Animation -->
-        <div class="c8isv-anim-container" id="c8isv-anim-wrapper">
-          <canvas id="c8isv-canvas-bg"></canvas>
-          <canvas id="c8isv-canvas-main"></canvas>
-          <canvas id="c8isv-canvas-noise"></canvas>
-          <div id="c8isv-anim-fog"></div>
+        <!-- Right Side Hero Visual: Transparent Animated Logo Video -->
+        <div class="c8isv-anim-container" id="c8isv-anim-wrapper" style="display: flex; align-items: center; justify-content: center; background: transparent; border: none; box-shadow: none;">
+          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 440px; height: auto; display: block; object-fit: contain; background: transparent;">
+            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.webm'); ?>" type="video/webm">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.gif'); ?>" alt="Cr8v Stacks Animated Logo Visual" style="width: 100%; max-width: 440px; height: auto; display: block;">
+          </video>
         </div>
       </div>
     </div>

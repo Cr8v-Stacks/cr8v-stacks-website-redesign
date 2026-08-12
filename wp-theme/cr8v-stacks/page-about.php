@@ -608,7 +608,11 @@ get_header();
       </div>
 
       <div class="fylla-hero-img-box">
-        <img src="<?php echo esc_url(cr8v_mod('abt_hero_img', get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg')); ?>" alt="Cr8v Stacks Studio Workspace" class="fylla-hero-img" data-customizer="abt_hero_img">
+        <video autoplay loop muted playsinline class="fylla-hero-img" style="width: 100%; height: 100%; object-fit: cover; display: block;" poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg'); ?>">
+          <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/about_hero_video.webm'); ?>" type="video/webm">
+          <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/about_hero_video.mp4'); ?>" type="video/mp4">
+          <img src="<?php echo esc_url(cr8v_mod('abt_hero_img', get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg')); ?>" alt="Cr8v Stacks Studio Workspace">
+        </video>
         <div class="fylla-hud-tag" data-customizer="abt_hero_hud">// SYSTEM_ACTIVE</div>
       </div>
     </header>
@@ -731,6 +735,8 @@ get_header();
         <!-- MASCOT VIDEO STRADDLE (CENTERED OVER SPLIT SEAM VIA ABSOLUTE RIGHT -260PX ON DP-HALF-LEFT) -->
         <div class="dp-mascot-wrap" data-customizer="abt_dp_mascot">
           <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate">
+            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot_video.webm'); ?>" type="video/webm">
+            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot_video.mp4'); ?>" type="video/mp4">
             <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/download_mascot.mp4'); ?>" type="video/mp4">
           </video>
         </div>
@@ -1309,7 +1315,9 @@ get_header();
     <section class="fylla-leadership-section">
       <div class="fylla-lead-left">
         <div class="c8-lead-mascot-box" data-customizer="abt_fnd_media">
-          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate">
+          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate" poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg'); ?>">
+            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/about_leadership_video.webm'); ?>" type="video/webm">
+            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/about_leadership_video.mp4'); ?>" type="video/mp4">
             <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/download_mascot.mp4'); ?>" type="video/mp4">
           </video>
         </div>

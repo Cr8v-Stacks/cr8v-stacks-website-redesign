@@ -1568,9 +1568,9 @@ defined('ABSPATH') || exit;
       <!-- MASCOT: lives inside white half, overflows right to straddle the split on desktop -->
       <div class="dp-mascot-wrap">
           <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate">
-            <source src="<?php echo esc_url(cr8v_mod("dp_mascot_video", get_template_directory_uri() . "/assets/img/cartoon_fox_winks.webm")); ?>" type="video/webm">
-            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>Cartoon_fox_winks_web.mp4" type="video/mp4">
-            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>download_mascot.mp4" type="video/mp4">
+            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot_video.webm'); ?>" type="video/webm">
+            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/dev_mascot_video.mp4'); ?>" type="video/mp4">
+            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/download_mascot.mp4'); ?>" type="video/mp4">
           </video>
         </div>
 
