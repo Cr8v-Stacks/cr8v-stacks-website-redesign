@@ -221,6 +221,47 @@ $facebook  = cr8v_mod('footer_facebook',  'https://www.facebook.com/cr8vstacks')
 
 </div><!-- /.c8ft-root -->
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var matrixSelector = '.c8-matrix-btn-blue, .c8-matrix-btn-dark, .c8-btn-primary, .c8srv-btn-ghost, .dp-btn-primary, .c8bm-btn-cta, .c8ft-cta-btn, .c8isv-cta-btn, .blog-cta-btn, .c8-btn';
+  var matrixBtns = document.querySelectorAll(matrixSelector);
+  var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  matrixBtns.forEach(function(btn) {
+    var textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === Node.TEXT_NODE && n.textContent.trim().length > 0; }) || btn;
+    var originalText = textNode.textContent.trim();
+    if (!originalText) return;
+    
+    var scrambleInterval = null;
+
+    btn.addEventListener('mouseenter', function() {
+      var iteration = 0;
+      clearInterval(scrambleInterval);
+
+      scrambleInterval = setInterval(function() {
+        textNode.textContent = originalText.split('')
+          .map(function(char, index) {
+            if (char === ' ' || index < iteration) return originalText[index];
+            return matrixChars[Math.floor(Math.random() * matrixChars.length)];
+          })
+          .join('');
+
+        if (iteration >= originalText.length) {
+          clearInterval(scrambleInterval);
+          textNode.textContent = originalText;
+        }
+        iteration += 1 / 2;
+      }, 30);
+    });
+
+    btn.addEventListener('mouseleave', function() {
+      clearInterval(scrambleInterval);
+      textNode.textContent = originalText;
+    });
+  });
+});
+</script>
+
 <?php
 /* ── Footer Walker Classes ─────────────────────────────────── */
 

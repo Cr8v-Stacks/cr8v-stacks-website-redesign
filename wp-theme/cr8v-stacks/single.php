@@ -29,11 +29,11 @@ if (have_posts()) : while (have_posts()) : the_post();
 
 <style>
 :root {
-  --c8-paper-bg: #F9F9F8;
+  --c8-paper-bg: #FFFFFF;
   --c8-paper-card: #FFFFFF;
   --c8-ink: #080808;
   --c8-sub: #555555;
-  --c8-grid-line: rgba(8, 8, 8, 0.14);
+  --c8-grid-line: rgba(8, 8, 8, 0.12);
   --c8-blue: #0047E1;
   --c8-blue-hi: #3D6BFF;
   --font-body: 'DM Sans', sans-serif;
@@ -41,12 +41,19 @@ if (have_posts()) : while (have_posts()) : the_post();
   --font-heading: 'Michroma', sans-serif;
 }
 
+body.single-post {
+  background: #FFFFFF !important;
+}
+
 .art-outer-frame {
   width: 100% !important;
   max-width: 1360px !important;
   margin: 0 auto !important;
-  background: var(--c8-paper-card);
-  border: 1px solid var(--c8-grid-line);
+  background: #FFFFFF !important;
+  border-left: 1px solid var(--c8-grid-line);
+  border-right: 1px solid var(--c8-grid-line);
+  border-bottom: 1px solid var(--c8-grid-line);
+  border-top: none;
   padding-top: 6.5rem;
   min-height: 100vh;
   box-sizing: border-box;

@@ -67,12 +67,15 @@ $posts_per_page = cr8v_mod('blog_posts_per_page', '9');
   }
   .blog-hero-visual {
     justify-content: flex-start;
+    overflow: visible !important;
   }
   .blog-hero-visual video {
-    width: 310px !important;
-    height: 130px !important;
+    width: 280px !important;
+    height: 110px !important;
     object-fit: contain !important;
     object-position: left center !important;
+    transform: scale(1.35) !important;
+    transform-origin: left center !important;
     margin: 1.25rem auto 0 0 !important;
   }
 }

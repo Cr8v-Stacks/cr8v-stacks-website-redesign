@@ -532,7 +532,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
     justify-content: flex-start !important;
   }
   .c8isv-anim-container video, .c8srv-anim-container video {
-    height: 130px !important;
+    height: 310px !important;
     width: 310px !important;
     object-fit: contain !important;
     object-position: left center !important;

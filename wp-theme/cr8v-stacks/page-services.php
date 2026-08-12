@@ -1216,7 +1216,7 @@ body {
       <div class="c8-about-header" style="margin-bottom: 4rem; text-align: left;">
         <span class="c8srv-label" style="color: #7C93FF !important;" data-customizer="srv_primary_label"><?php echo esc_html(cr8v_mod('srv_primary_label', 'PRIMARY SERVICE // 01')); ?></span>
         <h2 class="c8-about-h2" style="font-family: 'Michroma', sans-serif; font-size: clamp(2.0rem, 4vw, 3.2rem); font-weight: 700; color: #FFFFFF; line-height: 1.15; text-transform: uppercase; margin-bottom: 1.25rem;"><span data-customizer="srv_primary_h2_part1"><?php echo esc_html(cr8v_mod('srv_primary_h2_part1', 'Web Design &')); ?></span><br><em style="font-style: normal; color: #0047E1;" data-customizer="srv_primary_h2_part2"><?php echo esc_html(cr8v_mod('srv_primary_h2_part2', 'Development Stacks')); ?></em></h2>
-        <p class="c8-about-desc" style="font-family: 'DM Sans', sans-serif; font-size: 1.08rem; font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.85; max-width: 850px;" data-customizer="srv_primary_desc">
+        <p class="c8-about-desc" style="font-family: 'DM Sans', sans-serif; font-size: 0.94rem; font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.85; max-width: 850px;" data-customizer="srv_primary_desc">
           <?php echo wp_kses_post(cr8v_mod('srv_primary_desc', 'One senior engineering team, every modern web stack. Whichever foundation your business runs on — WordPress, Shopify, WooCommerce, or custom PHP/JS — we engineer lightweight, high-speed digital platforms tuned for sub-1.2s speeds and direct revenue conversion.')); ?>
         </p>
       </div>

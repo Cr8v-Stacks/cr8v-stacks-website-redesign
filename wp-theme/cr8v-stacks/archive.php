@@ -79,12 +79,15 @@ $is_tag = is_tag();
   .archive-hero-visual {
     justify-content: flex-start;
     width: 100%;
+    overflow: visible !important;
   }
   .archive-hero-visual video {
-    width: 310px !important;
-    height: 130px !important;
+    width: 280px !important;
+    height: 110px !important;
     object-fit: contain !important;
     object-position: left center !important;
+    transform: scale(1.35) !important;
+    transform-origin: left center !important;
     margin: 1.25rem auto 0 0 !important;
   }
 }
