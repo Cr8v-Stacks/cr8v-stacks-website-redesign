@@ -158,38 +158,50 @@ $video_url = get_template_directory_uri() . '/assets/img/download.mp4';
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  var srvMatrixButtons = document.querySelectorAll('.c8-btn-primary, .c8cs-btn-primary, .cta-btn-pill, .c8isv-related-card-link, .c8cs-back-btn, .c8cs-related-cell-link');
-  var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+(function initCTAMatrix() {
+  function setup() {
+    var srvMatrixButtons = document.querySelectorAll('.c8-btn-primary, .c8cs-btn-primary, .cta-btn-pill, .c8isv-related-card-link, .c8cs-back-btn, .c8cs-related-cell-link');
+    var srvMatrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-  srvMatrixButtons.forEach(function(btn) {
-    var textNode = btn.querySelector('[data-customizer="cs_cta_btn_text"]') || Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; }) || btn;
-    var originalText = textNode.textContent.trim();
-    var scrambleInterval = null;
+    srvMatrixButtons.forEach(function(btn) {
+      if (btn.dataset.matrixInited) return;
+      btn.dataset.matrixInited = 'true';
 
-    btn.addEventListener('mouseenter', function() {
-      var iteration = 0;
-      clearInterval(scrambleInterval);
+      var textNode = btn.querySelector('[data-customizer="cs_cta_btn_text"]') || Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; }) || btn;
+      var originalText = textNode.textContent.trim();
+      var scrambleInterval = null;
 
-      scrambleInterval = setInterval(function() {
-        textNode.textContent = originalText.split('')
-          .map(function(char, index) {
-            if (char === ' ' || index < iteration) return originalText[index];
-            return srvMatrixChars[Math.floor(Math.random() * srvMatrixChars.length)];
-          })
-          .join('');
+      btn.addEventListener('mouseenter', function() {
+        var iteration = 0;
+        clearInterval(scrambleInterval);
 
-        if (iteration >= originalText.length) {
-          clearInterval(scrambleInterval);
-        }
-        iteration += 1 / 2;
-      }, 25);
+        scrambleInterval = setInterval(function() {
+          textNode.textContent = originalText.split('')
+            .map(function(char, index) {
+              if (char === ' ' || index < iteration) return originalText[index];
+              return srvMatrixChars[Math.floor(Math.random() * srvMatrixChars.length)];
+            })
+            .join('');
+
+          if (iteration >= originalText.length) {
+            clearInterval(scrambleInterval);
+            textNode.textContent = originalText;
+          }
+          iteration += 1 / 2;
+        }, 25);
+      });
+
+      btn.addEventListener('mouseleave', function() {
+        clearInterval(scrambleInterval);
+        textNode.textContent = originalText;
+      });
     });
+  }
 
-    btn.addEventListener('mouseleave', function() {
-      clearInterval(scrambleInterval);
-      textNode.textContent = originalText;
-    });
-  });
-});
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setup);
+  } else {
+    setup();
+  }
+})();
 </script>

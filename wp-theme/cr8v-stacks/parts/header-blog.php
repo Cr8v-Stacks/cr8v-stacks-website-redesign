@@ -39,7 +39,8 @@ defined('ABSPATH') || exit;
 .c8bm-root .c8bm-header {
   position:fixed!important;top:0!important;left:0!important;right:0!important;
   z-index:9500!important;height:68px!important;
-  background:transparent!important;border-bottom:none!important;
+  background:#FAFAF7!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;
+  box-shadow:0 4px 40px rgba(0,0,0,0.07)!important;
   transition:background .3s ease,box-shadow .3s ease,border-color .3s ease!important;
 }
 .c8bm-root .c8bm-header.c8bm-scrolled {
@@ -66,6 +67,85 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
 .c8bm-root .c8bm-logo-img {display:block!important;height:44px!important;width:auto!important;}
 
 /* ── Desktop Nav ── */
+/* ── Desktop Subcategory Dropdown Popover System ── */
+.c8bm-root .c8bm-pill-badge {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  background: #0047E1 !important;
+  color: #FFFFFF !important;
+  padding: 1px 5px !important;
+  border-radius: 4px !important;
+  margin-left: 4px !important;
+  display: inline-block !important;
+}
+
+.c8bm-root .c8bm-pnav-item.has-sub-dropdown:hover .c8bm-sub-popover {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+
+.c8bm-root .c8bm-sub-popover {
+  position: absolute !important;
+  top: calc(100% + 4px) !important;
+  left: 0 !important;
+  z-index: 9999 !important;
+  background: #080808 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 4px !important;
+  padding: 0.75rem !important;
+  min-width: 210px !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(6px) !important;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease !important;
+  pointer-events: none !important;
+}
+
+.c8bm-root .c8bm-sub-eyebrow {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 8.5px !important;
+  color: #7C93FF !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.c8bm-root .c8bm-sub-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 5px 6px !important;
+  border-radius: 3px !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  transition: background 0.15s ease, color 0.15s ease !important;
+}
+.c8bm-root .c8bm-sub-item:last-child { border-bottom: none !important; }
+.c8bm-root .c8bm-sub-item:hover { background: rgba(0, 71, 225, 0.25) !important; }
+
+.c8bm-root .c8bm-sub-name {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  color: #FAFAF7 !important;
+}
+
+.c8bm-root .c8bm-sub-cnt {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 9px !important;
+  color: #0047E1 !important;
+  background: rgba(0, 71, 225, 0.15) !important;
+  padding: 1px 5px !important;
+  border-radius: 3px !important;
+  font-weight: 700 !important;
+}
+
+/* ── Primary Desktop Nav Links ── */
 .c8bm-root .c8bm-pnav {
   display:flex!important;align-items:center!important;gap:2px!important;
   background:#F3F2EC!important;padding:4px!important;height:46px!important;
@@ -371,47 +451,54 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
 
     <nav>
       <ul class="c8bm-pnav" id="c8bmPnav">
-        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-brand">
-          <span class="c8bm-pnav-link" tabindex="0">Brand Strategy
-            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
-          </span>
-        </li>
+        <?php
+        $top_categories = get_terms([
+            'taxonomy'   => 'category',
+            'parent'     => 0,
+            'hide_empty' => false,
+            'orderby'    => 'name',
+            'order'      => 'ASC',
+        ]);
 
-        <li class="c8bm-pnav-item">
-          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/category/business-productivity/')); ?>">Productivity</a>
-        </li>
-
-        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-biztips">
-          <span class="c8bm-pnav-link" tabindex="0">Business Tips
-            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
-          </span>
-        </li>
-
-        <li class="c8bm-pnav-item">
-          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/category/career-planning/')); ?>">Career Planning</a>
-        </li>
-
-        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-content">
-          <span class="c8bm-pnav-link" tabindex="0">Content Creation
-            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
-          </span>
-        </li>
-
-        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-digimkt">
-          <span class="c8bm-pnav-link" tabindex="0">Digital Marketing
-            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
-          </span>
-        </li>
-
-        <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-webdesign">
-          <span class="c8bm-pnav-link" tabindex="0">Web Design
-            <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
-          </span>
-        </li>
-
-        <li class="c8bm-pnav-item">
-          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/category/tutorials/')); ?>">Tutorials</a>
-        </li>
+        if (!empty($top_categories) && !is_wp_error($top_categories)) :
+            foreach ($top_categories as $top_cat) :
+                $sub_cats = get_terms([
+                    'taxonomy'   => 'category',
+                    'parent'     => $top_cat->term_id,
+                    'hide_empty' => false,
+                    'orderby'    => 'name',
+                    'order'      => 'ASC',
+                ]);
+                $has_children = !empty($sub_cats) && !is_wp_error($sub_cats);
+                $top_cat_link = get_category_link($top_cat->term_id);
+        ?>
+                <li class="c8bm-pnav-item <?php echo $has_children ? 'has-sub-dropdown' : ''; ?>" style="position: relative;">
+                  <a class="c8bm-pnav-link" href="<?php echo esc_url($top_cat_link); ?>">
+                    <?php echo esc_html($top_cat->name); ?>
+                    <?php if ($has_children) : ?>
+                    <span class="c8bm-pill-badge">+<?php echo count($sub_cats); ?></span>
+                    <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-left: 3px;"><path d="M2 4l4 4 4-4"/></svg>
+                    <?php endif; ?>
+                  </a>
+                  <?php if ($has_children) : ?>
+                  <div class="c8bm-sub-popover">
+                    <div class="c8bm-sub-eyebrow">// SUBCATEGORIES</div>
+                    <?php foreach ($sub_cats as $sub_item) :
+                        $sub_link = get_category_link($sub_item->term_id);
+                        $sub_count = cr8v_get_cat_post_count($sub_item->slug);
+                    ?>
+                    <a href="<?php echo esc_url($sub_link); ?>" class="c8bm-sub-item">
+                      <span class="c8bm-sub-name">↳ <?php echo esc_html($sub_item->name); ?></span>
+                      <span class="c8bm-sub-cnt"><?php echo $sub_count; ?></span>
+                    </a>
+                    <?php endforeach; ?>
+                  </div>
+                  <?php endif; ?>
+                </li>
+        <?php
+            endforeach;
+        endif;
+        ?>
       </ul>
     </nav>
 
