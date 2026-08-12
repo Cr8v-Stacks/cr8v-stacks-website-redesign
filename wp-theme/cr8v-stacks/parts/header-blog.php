@@ -47,7 +47,7 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
 
 /* ── Logo ── */
 .c8bm-root .c8bm-logo {display:flex!important;align-items:center!important;gap:10px!important;flex-shrink:0!important;}
-.c8bm-root .c8bm-logo-img {display:block!important;height:44px!important;width:auto!important;}
+.c8bm-root .c8bm-logo-img {display:block!important;height:38px!important;width:auto!important;object-fit:contain!important;}
 
 /* ── Desktop Nav ── */
 .c8bm-root .c8bm-pnav {
@@ -273,7 +273,7 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
   height:60px!important;padding:0 1.25rem!important;display:flex!important;align-items:center!important;justify-content:space-between!important;
   border-bottom:1px solid rgba(255,255,255,0.1)!important;position:relative!important;z-index:1!important;
 }
-.c8bm-root .c8bm-bd-logo-img {display:block!important;height:38px!important;width:auto!important;}
+.c8bm-root .c8bm-bd-logo-img {display:block!important;height:36px!important;width:auto!important;object-fit:contain!important;}
 .c8bm-root .c8bm-bd-close {
   width:34px!important;height:34px!important;display:flex!important;align-items:center!important;justify-content:center!important;
   background:rgba(255,255,255,0.08)!important;border:1px solid rgba(255,255,255,0.15)!important;cursor:pointer!important;

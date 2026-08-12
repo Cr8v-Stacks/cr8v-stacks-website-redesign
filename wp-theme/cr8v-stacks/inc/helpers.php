@@ -48,8 +48,8 @@ function cr8v_logo_img(string $classes = 'c8-logo-img'): string {
         }
     }
     if (!$custom_logo) {
-        // Absolute fallback — production logo URL
-        $custom_logo = 'https://cr8vstacks.com/wp-content/uploads/2022/08/1.png';
+        // Fallback to local theme WebP logo asset
+        $custom_logo = get_template_directory_uri() . '/assets/img/cr8v_mobile_logo.webp';
     }
     return '<img src="' . esc_url($custom_logo) . '" alt="' . esc_attr(get_bloginfo('name')) . '" class="' . esc_attr($classes) . '">';
 }

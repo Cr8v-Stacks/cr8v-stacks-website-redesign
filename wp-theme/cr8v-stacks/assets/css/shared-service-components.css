@@ -510,7 +510,10 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   .c8isv-hero-section, .c8srv-hero {
     padding-top: 2rem !important;
     padding-bottom: 2.25rem !important;
-    margin-bottom: 2rem !important;
+    margin-bottom: 0 !important;
+  }
+  .c8srv-root .c8srv-hero {
+    margin-bottom: 0 !important;
   }
   .c8isv-headline, .c8srv-headline, .c8srv-root .c8srv-headline {
     font-size: clamp(1.4rem, 5.5vw, 1.85rem) !important;
@@ -522,8 +525,16 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
     line-height: 1.55 !important;
   }
   .c8isv-anim-container, .c8srv-anim-container {
-    max-width: 210px !important;
-    margin: 1.25rem auto 0 auto !important;
+    max-width: 310px !important;
+    margin: 1.25rem auto 0 0 !important;
+    height: 130px !important;
+    justify-content: flex-start !important;
+  }
+  .c8isv-anim-container video, .c8srv-anim-container video {
+    height: 130px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    object-position: left center !important;
   }
 }
 

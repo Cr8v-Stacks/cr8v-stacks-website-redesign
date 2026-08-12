@@ -35,7 +35,8 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
 
 /* ── Logo ── */
 .c8hdr-root .c8-logo{display:flex!important;align-items:center!important;gap:10px!important;flex-shrink:0!important;text-decoration:none!important;}
-.c8hdr-root .c8-logo-img{display:block!important;height:44px!important;width:auto!important;max-width:none!important;}
+.c8hdr-root .c8-logo-img{display:block!important;height:38px!important;width:auto!important;max-width:none!important;object-fit:contain!important;}
+.c8hdr-root .c8-md-hero-logo-img{height:36px!important;width:auto!important;display:block!important;object-fit:contain!important;}
 
 /* ── Primary Nav ── */
 .c8hdr-root .c8-pnav{display:flex!important;align-items:center!important;gap:2px!important;background:#F3F2EC!important;padding:4px!important;height:46px!important;border-radius:4px!important;}
@@ -126,7 +127,6 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
 .c8hdr-root .c8-md-hero{flex-shrink:0!important;background:#080808!important;padding:0!important;position:relative!important;overflow:hidden!important;}
 .c8hdr-root .c8-md-hero::before{content:''!important;position:absolute!important;inset:0!important;background:radial-gradient(circle at 85% 15%,rgba(0,71,225,0.55) 0%,transparent 55%),radial-gradient(circle at 10% 90%,rgba(0,56,192,0.25) 0%,transparent 50%)!important;pointer-events:none!important;z-index:0!important;}
 .c8hdr-root .c8-md-hero-bar{position:relative!important;z-index:1!important;display:flex!important;align-items:center!important;justify-content:space-between!important;padding:1.1rem 1.25rem 0.75rem!important;}
-.c8hdr-root .c8-md-hero-logo-img{height:34px!important;width:auto!important;display:block!important;}
 .c8hdr-root .c8-md-close{background:rgba(255,255,255,0.1)!important;border:1px solid rgba(255,255,255,0.15)!important;border-radius:4px!important;width:32px!important;height:32px!important;cursor:pointer!important;display:flex!important;align-items:center!important;justify-content:center!important;transition:background .2s!important;}
 .c8hdr-root .c8-md-close:hover{background:rgba(255,255,255,0.18)!important;}
 .c8hdr-root .c8-md-hero-label{position:relative!important;z-index:1!important;font-family:'Space Mono',monospace!important;font-size:9px!important;font-weight:700!important;color:rgba(250,250,247,0.5)!important;letter-spacing:.12em!important;text-transform:uppercase!important;padding:0 1.25rem 1rem!important;}
