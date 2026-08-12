@@ -261,7 +261,7 @@ window.addEventListener('scroll', function() {
   var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
   document.addEventListener('mouseover', function(e) {
-    var btn = e.target.closest('.cta-btn-pill, .c8-btn-primary, .c8cs-btn-primary, .c8-matrix-btn-blue, .c8-matrix-btn-dark, .c8srv-btn-ghost, .dp-btn-primary, .c8bm-btn-cta, .c8ft-cta-btn, .c8isv-cta-btn, .blog-cta-btn, .c8-btn, .cta-card-btn, [data-customizer="cta_button_text"], [data-customizer="cs_cta_btn_text"], .art-btn-primary, .art-btn-secondary');
+    var btn = e.target.closest('.cta-btn-pill, .c8-btn-primary, .c8cs-btn-primary, .c8-matrix-btn-blue, .c8-matrix-btn-dark, .c8srv-btn-ghost, .dp-btn-primary, .c8bm-btn-cta, .c8ft-cta-btn, .c8isv-cta-btn, .blog-cta-btn, .c8-btn, .cta-card-btn, [data-customizer="cta_button_text"], [data-customizer="cs_cta_btn_text"], .art-btn-primary, .art-btn-secondary, .art-ui-buttons a, .wp-block-button__link, .wp-block-button a, .c8-matrix-target');
     if (!btn || btn.dataset.matrixActive === 'true') return;
 
     btn.dataset.matrixActive = 'true';
@@ -274,8 +274,10 @@ window.addEventListener('scroll', function() {
       if (btn.children.length === 0) {
         textTarget = btn;
       } else {
-        btn.dataset.matrixActive = 'false';
-        return;
+        // Fallback to first non-empty text container or direct child
+        textTarget = Array.from(btn.querySelectorAll('span, a, p')).find(function(el) {
+          return !el.classList.contains('cta-btn-arrow') && !el.classList.contains('faq-icon') && el.textContent.trim().length > 0;
+        }) || btn;
       }
     }
 
@@ -307,14 +309,17 @@ window.addEventListener('scroll', function() {
       iteration += 1 / 2;
     }, 25);
 
-    var cleanup = function() {
+    var cleanup = function(evt) {
+      if (evt && evt.relatedTarget && btn.contains(evt.relatedTarget)) return;
       clearInterval(scrambleInterval);
       textTarget.textContent = originalText;
       btn.dataset.matrixActive = 'false';
       btn.removeEventListener('mouseleave', cleanup);
+      btn.removeEventListener('mouseout', cleanup);
     };
 
     btn.addEventListener('mouseleave', cleanup);
+    btn.addEventListener('mouseout', cleanup);
   });
 })();
 </script>

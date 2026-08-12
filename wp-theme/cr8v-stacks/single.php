@@ -315,15 +315,84 @@ body.single-post {
 .art-body-text li { font-size: 1rem; line-height: 1.65; color: #222222; margin-bottom: 0.5rem; }
 
 /* Clean Content Link Styling without destroying CTA buttons */
-.art-body-text a:not(.art-btn-primary):not(.art-btn-secondary):not(.art-tag-pill):not(.cta-card-btn) {
+.art-body-text a:not(.art-btn-primary):not(.art-btn-secondary):not(.art-tag-pill):not(.cta-card-btn):not(.wp-block-button__link) {
   color: var(--c8-blue);
   text-decoration: none;
   border-bottom: none !important;
   transition: color 0.2s ease;
 }
-.art-body-text a:not(.art-btn-primary):not(.art-btn-secondary):not(.art-tag-pill):not(.cta-card-btn):hover {
+.art-body-text a:not(.art-btn-primary):not(.art-btn-secondary):not(.art-tag-pill):not(.cta-card-btn):not(.wp-block-button__link):hover {
   color: var(--c8-blue-hi);
   text-decoration: underline;
+}
+
+/* ── TEXT-BASED UI CTA BUTTONS IN ARTICLE BODY ── */
+.art-ui-buttons { display: flex; gap: 1rem; margin: 2rem 0; flex-wrap: wrap; }
+.art-btn-primary,
+.art-btn-secondary,
+.art-body-text .wp-block-button__link {
+  font-family: var(--font-mono) !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+}
+
+.art-btn-primary {
+  background: var(--c8-blue) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+.art-btn-secondary {
+  background: #080808 !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.art-btn-primary::before,
+.art-btn-secondary::before,
+.art-body-text .wp-block-button__link::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -50% !important; left: -100% !important;
+  width: 100% !important; height: 200% !important;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,0.4), rgba(61, 107, 255, 0.4), rgba(0, 194, 255, 0.4), transparent) !important;
+  transform: rotate(25deg) !important;
+  transition: left 0.75s ease !important;
+  pointer-events: none !important;
+}
+
+.art-btn-primary:hover::before,
+.art-btn-secondary:hover::before,
+.art-body-text .wp-block-button__link:hover::before {
+  left: 150% !important;
+}
+
+.art-btn-primary:hover {
+  background: var(--c8-blue-hi) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+  text-decoration: none !important;
+}
+
+.art-btn-secondary:hover {
+  background: var(--c8-blue) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+  text-decoration: none !important;
 }
 
 /* TABLE OF CONTENTS PLUGIN ISOLATION */
