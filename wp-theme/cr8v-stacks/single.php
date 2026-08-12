@@ -182,8 +182,9 @@ body.single-post {
 .cta-card-btn {
   background: #080808; color: #FFFFFF !important; font-family: var(--font-body);
   font-size: 0.82rem; font-weight: 700; padding: 0.8rem 1.25rem; border-radius: 6px;
-  text-decoration: none; display: block; width: 100%; text-align: center;
-  position: relative; overflow: hidden; transition: transform 0.25s ease, background 0.25s ease;
+  text-decoration: none !important; border-bottom: none !important; display: block;
+  text-align: center; position: relative; overflow: hidden;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 .cta-card-btn::before {
   content: ''; position: absolute; top: -50%; left: -100%;
@@ -192,7 +193,29 @@ body.single-post {
   transform: rotate(25deg); transition: left 0.75s ease; pointer-events: none;
 }
 .cta-card-btn:hover::before { left: 150%; }
-.cta-card-btn:hover { background: var(--c8-blue); transform: translateY(-2px); }
+.cta-card-btn:hover { background: var(--c8-blue); transform: translateY(-2px); text-decoration: none !important; }
+
+/* CATEGORY POPOVER DROPDOWN IN HERO BANNER */
+.cat-dropdown-wrapper { position: relative; display: inline-flex; align-items: center; }
+.cat-popover-dropdown {
+  position: absolute; top: 100%; left: 0; z-index: 9999;
+  background: #080808; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;
+  padding: 0.75rem; min-width: 220px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  opacity: 0; visibility: hidden; transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  pointer-events: none; margin-top: 6px;
+}
+.cat-popover-dropdown::before {
+  content: '' !important; position: absolute !important; top: -14px !important; left: 0 !important; right: 0 !important; height: 14px !important; background: transparent !important;
+}
+.cat-dropdown-wrapper:hover .cat-popover-dropdown,
+.cat-popover-dropdown.is-open {
+  opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; display: block !important;
+}
+.cat-dropdown-wrapper:hover .cat-dropdown-arrow,
+.cat-dropdown-wrapper.is-open .cat-dropdown-arrow {
+  transform: rotate(180deg) !important;
+}
 
 /* WORDPRESS AUTHOR CARD BOX */
 .art-author-card {
@@ -381,14 +404,21 @@ body.single-post {
 .card-fallback-canvas.is-light .fallback-brand-icon {
   width: 20px; height: 20px; color: #080808; margin-bottom: 0.65rem; stroke-width: 2;
 }
+.card-fallback-canvas, .card-fallback-canvas *, .fallback-title, .fallback-cat, .card-title, .card-title a,
+.art-cat-pill, .card-category-pill, .art-author-name, .art-author-bio, .art-author-link,
+.art-back-btn, .cta-card-btn, .art-meta-author-link {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
 .card-fallback-canvas.is-light .fallback-title {
   font-family: var(--font-heading); font-size: 0.78rem; font-weight: 700;
   color: #080808; text-transform: uppercase; line-height: 1.35;
-  margin-bottom: 0.65rem; max-width: 90%;
+  margin-bottom: 0.65rem; max-width: 90%; text-decoration: none !important;
 }
 .card-fallback-canvas.is-light .fallback-cat {
   font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700;
-  color: #080808; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #080808; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none !important;
 }
 
 .card-fallback-canvas.is-dark {
@@ -401,16 +431,16 @@ body.single-post {
 .card-fallback-canvas.is-dark .fallback-title {
   font-family: var(--font-heading); font-size: 0.78rem; font-weight: 700;
   color: #FFFFFF; text-transform: uppercase; line-height: 1.35;
-  margin-bottom: 0.65rem; max-width: 90%;
+  margin-bottom: 0.65rem; max-width: 90%; text-decoration: none !important;
 }
 .card-fallback-canvas.is-dark .fallback-cat {
   font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700;
-  color: #A0B4FF; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #A0B4FF; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none !important;
 }
 
 .card-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; line-height: 1.35; margin: 0; }
-.card-title a { color: var(--c8-ink); text-decoration: none; }
-.card-title a:hover { color: var(--c8-blue); }
+.card-title a { color: var(--c8-ink); text-decoration: none !important; border-bottom: none !important; }
+.card-title a:hover { color: var(--c8-blue); text-decoration: none !important; }
 
 /* ACCORDION FAQ SECTION */
 .faq-page-section { padding: 4rem; background: #FAFAF7; }
@@ -472,7 +502,7 @@ body.single-post {
 
     <h1 class="art-h1"><?php echo esc_html($post_title); ?></h1>
     <div class="art-meta-date">
-      Published <?php echo get_the_date('F j, Y'); ?> · <?php echo esc_html($read_time); ?> · By <a href="<?php echo esc_url($author_url); ?>" style="color: inherit; text-decoration: underline;" class="c8-matrix-target"><?php echo esc_html($author_name); ?></a>
+      Published <?php echo get_the_date('F j, Y'); ?> · <?php echo esc_html($read_time); ?> · By <a href="<?php echo esc_url($author_url); ?>" class="art-meta-author-link" style="color: inherit; text-decoration: none !important; border-bottom: none !important;"><?php echo esc_html($author_name); ?></a>
     </div>
   </header>
 
@@ -833,6 +863,24 @@ function toggleFAQ(item) {
     item.classList.add('active');
   }
 }
+
+function toggleCatPopover(e, id) {
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  var popover = document.getElementById(id || 'hero-cat-popover');
+  var wrapper = e ? e.currentTarget.closest('.cat-dropdown-wrapper') : null;
+  if (popover) popover.classList.toggle('is-open');
+  if (wrapper) wrapper.classList.toggle('is-open');
+}
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.cat-dropdown-wrapper')) {
+    document.querySelectorAll('.cat-popover-dropdown').forEach(function(el) { el.classList.remove('is-open'); });
+    document.querySelectorAll('.cat-dropdown-wrapper').forEach(function(el) { el.classList.remove('is-open'); });
+  }
+});
 </script>
 
 <?php endwhile; endif; ?>
