@@ -24,6 +24,40 @@ if (!function_exists('cr8v_get_cat_post_count')) {
     }
 }
 
+if (!function_exists('cr8v_render_cat_sublink')) {
+    function cr8v_render_cat_sublink(string $preferred_slug, string $fallback_label, array $alt_slugs = []): void {
+        $term = get_category_by_slug($preferred_slug) ?: get_term_by('slug', $preferred_slug, 'category');
+
+        if ((!$term || is_wp_error($term)) && !empty($alt_slugs)) {
+            foreach ($alt_slugs as $alt) {
+                $term = get_category_by_slug($alt) ?: get_term_by('slug', $alt, 'category');
+                if ($term && !is_wp_error($term)) break;
+            }
+        }
+
+        if (!$term || is_wp_error($term)) {
+            $term = get_term_by('name', $fallback_label, 'category');
+        }
+
+        if ($term && !is_wp_error($term)) {
+            $url   = get_category_link($term->term_id);
+            $label = $term->name;
+            $slug  = $term->slug;
+            $count = cr8v_get_cat_post_count($slug);
+        } else {
+            $url   = home_url('/category/' . $preferred_slug . '/');
+            $label = $fallback_label;
+            $slug  = $preferred_slug;
+            $count = 0;
+        }
+
+        echo '<a href="' . esc_url($url) . '" class="c8bm-sublink">'
+             . esc_html($label) 
+             . ' <span class="c8bm-count" data-cat-slug="' . esc_attr($slug) . '">' . intval($count) . '</span>'
+             . '</a>';
+    }
+}
+
 defined('ABSPATH') || exit;
 ?>
 <div class="c8bm-root">
@@ -517,9 +551,7 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
         <div class="c8bm-mcol-eyebrow">// CATEGORY</div>
         <div class="c8bm-mcol-heading">Brand Strategy</div>
         <p class="c8bm-mcol-desc">Positioning your business for long-term recognition and trust.</p>
-        <a href="<?php echo esc_url(home_url('/category/business-marketing/')); ?>" class="c8bm-sublink">
-          Business Marketing <span class="c8bm-count" data-cat-slug="business-marketing"><?php echo cr8v_get_cat_post_count('business-marketing'); ?></span>
-        </a>
+        <?php cr8v_render_cat_sublink('business-marketing', 'Business Marketing', ['marketing', 'strategy']); ?>
       </div>
 
       <div class="c8bm-mcol">
@@ -556,8 +588,8 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
         <div class="c8bm-mcol-eyebrow">// CATEGORY</div>
         <div class="c8bm-mcol-heading">Business Tips</div>
         <p class="c8bm-mcol-desc">Practical, tested advice for running a growing business.</p>
-        <a href="<?php echo esc_url(home_url('/category/ecommerce-hub/')); ?>" class="c8bm-sublink">Ecommerce Hub <span class="c8bm-count" data-cat-slug="ecommerce-hub"><?php echo cr8v_get_cat_post_count('ecommerce-hub'); ?></span></a>
-        <a href="<?php echo esc_url(home_url('/category/small-business-hub/')); ?>" class="c8bm-sublink">Small Business Hub <span class="c8bm-count" data-cat-slug="small-business-hub"><?php echo cr8v_get_cat_post_count('small-business-hub'); ?></span></a>
+        <?php cr8v_render_cat_sublink('ecommerce-hub', 'Ecommerce Hub', ['ecommerce', 'ecommerce-website']); ?>
+        <?php cr8v_render_cat_sublink('small-business-hub', 'Small Business Hub', ['business', 'test']); ?>
       </div>
 
       <div class="c8bm-mcol">
@@ -594,8 +626,8 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
         <div class="c8bm-mcol-eyebrow">// CATEGORY</div>
         <div class="c8bm-mcol-heading">Content Creation</div>
         <p class="c8bm-mcol-desc">Writing and formats that keep an audience coming back.</p>
-        <a href="<?php echo esc_url(home_url('/category/blogging/')); ?>" class="c8bm-sublink">Blogging <span class="c8bm-count" data-cat-slug="blogging"><?php echo cr8v_get_cat_post_count('blogging'); ?></span></a>
-        <a href="<?php echo esc_url(home_url('/category/content-writing/')); ?>" class="c8bm-sublink">Content Writing <span class="c8bm-count" data-cat-slug="content-writing"><?php echo cr8v_get_cat_post_count('content-writing'); ?></span></a>
+        <?php cr8v_render_cat_sublink('blogging', 'Blogging', ['code-pilot', 'ai-market']); ?>
+        <?php cr8v_render_cat_sublink('content-writing', 'Content Writing', ['uncategorized']); ?>
       </div>
 
       <div class="c8bm-mcol">
@@ -632,10 +664,10 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
         <div class="c8bm-mcol-eyebrow">// CATEGORY</div>
         <div class="c8bm-mcol-heading">Digital Marketing</div>
         <p class="c8bm-mcol-desc">Strategies to grow reach, traffic, and qualified leads.</p>
-        <a href="<?php echo esc_url(home_url('/category/email-marketing/')); ?>" class="c8bm-sublink">Email Marketing <span class="c8bm-count" data-cat-slug="email-marketing"><?php echo cr8v_get_cat_post_count('email-marketing'); ?></span></a>
-        <a href="<?php echo esc_url(home_url('/category/sem/')); ?>" class="c8bm-sublink">SEM <span class="c8bm-count" data-cat-slug="sem"><?php echo cr8v_get_cat_post_count('sem'); ?></span></a>
-        <a href="<?php echo esc_url(home_url('/category/seo/')); ?>" class="c8bm-sublink">SEO <span class="c8bm-count" data-cat-slug="seo"><?php echo cr8v_get_cat_post_count('seo'); ?></span></a>
-        <a href="<?php echo esc_url(home_url('/category/social-media-management/')); ?>" class="c8bm-sublink">Social Media <span class="c8bm-count" data-cat-slug="social-media-management"><?php echo cr8v_get_cat_post_count('social-media-management'); ?></span></a>
+        <?php cr8v_render_cat_sublink('email-marketing', 'Email Marketing'); ?>
+        <?php cr8v_render_cat_sublink('sem', 'SEM'); ?>
+        <?php cr8v_render_cat_sublink('seo', 'SEO'); ?>
+        <?php cr8v_render_cat_sublink('social-media-management', 'Social Media'); ?>
       </div>
 
       <div class="c8bm-mcol">
@@ -672,8 +704,8 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
         <div class="c8bm-mcol-eyebrow">// CATEGORY</div>
         <div class="c8bm-mcol-heading">Web Design</div>
         <p class="c8bm-mcol-desc">Building fast, functional sites that look as good as they perform.</p>
-        <a href="<?php echo esc_url(home_url('/category/ecommerce-website/')); ?>" class="c8bm-sublink">Ecommerce Website <span class="c8bm-count" data-cat-slug="ecommerce-website"><?php echo cr8v_get_cat_post_count('ecommerce-website'); ?></span></a>
-        <a href="<?php echo esc_url(home_url('/category/website-design/')); ?>" class="c8bm-sublink">Website Design <span class="c8bm-count" data-cat-slug="website-design"><?php echo cr8v_get_cat_post_count('website-design'); ?></span></a>
+        <?php cr8v_render_cat_sublink('ecommerce-website', 'Ecommerce Website', ['ecommerce']); ?>
+        <?php cr8v_render_cat_sublink('website-design', 'Website Design', ['web-design', 'design']); ?>
       </div>
 
       <div class="c8bm-mcol">

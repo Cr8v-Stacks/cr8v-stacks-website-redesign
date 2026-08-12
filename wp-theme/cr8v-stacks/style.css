@@ -20,9 +20,9 @@ Tags:        custom-menu, custom-logo, featured-images, threaded-comments
    Radius:    4px
 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
-html, body {
-  overflow-x: clip !important;
-  width: 100% !important;
+html {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Eradicate Underline Plague across Cards, Titles, Pills, and Author Links */
