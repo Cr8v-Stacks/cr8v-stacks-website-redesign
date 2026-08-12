@@ -228,12 +228,14 @@ body.single-post {
 .art-author-label { font-family: var(--font-mono); font-size: 0.65rem; color: var(--c8-sub); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
 .art-author-name { font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; }
 .art-author-bio { font-size: 0.82rem; color: #444444; line-height: 1.55; margin: 0; }
-.art-author-link {
+.art-author-link,
+.art-author-card a {
   font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; color: var(--c8-blue);
-  text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em;
+  text-decoration: none !important; border-bottom: none !important; text-transform: uppercase; letter-spacing: 0.05em;
   display: inline-flex; align-items: center; gap: 4px; transition: transform 0.2s ease, color 0.2s ease;
 }
-.art-author-link:hover { transform: translateX(4px); color: var(--c8-blue-hi); }
+.art-author-link:hover,
+.art-author-card a:hover { transform: translateX(4px); color: var(--c8-blue-hi); text-decoration: none !important; border-bottom: none !important; }
 
 /* RIGHT MAIN CONTENT COLUMN */
 .art-content-col { padding: 3.5rem 4rem; background: #FFFFFF; min-width: 0; }
