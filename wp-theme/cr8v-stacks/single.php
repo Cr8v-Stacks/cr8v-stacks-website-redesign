@@ -397,48 +397,9 @@ body.single-post {
   text-decoration: none !important;
 }
 
-/* TABLE OF CONTENTS PLUGIN ISOLATION — covers ez-toc, lwptoc, toc, simpletoc, AND wptw plugins */
-.art-body-text #ez-toc-container,
-.art-body-text .ez-toc-v2_0_69_1,
-.art-body-text #toc_container,
-.art-body-text .lwptoc,
-.art-body-text .toc,
-.art-body-text .wptw-toc-wrapper,
-.art-body-text .wptw-toc {
-  border: none !important;
-  background: transparent !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  box-shadow: none !important;
-  all: revert !important;
-}
-.art-body-text #ez-toc-container a,
-.art-body-text .ez-toc-v2_0_69_1 a,
-.art-body-text #toc_container a,
-.art-body-text .lwptoc a,
-.art-body-text .toc a,
-.art-body-text .wptw-toc-wrapper a,
-.art-body-text .wptw-toc a,
-.art-body-text .wptw-toc__link {
-  border-bottom: none !important;
-  text-decoration: none !important;
-  color: var(--c8-ink) !important;
-}
-.art-body-text #ez-toc-container a:hover,
-.art-body-text .ez-toc-v2_0_69_1 a:hover,
-.art-body-text #toc_container a:hover,
-.art-body-text .lwptoc a:hover,
-.art-body-text .toc a:hover,
-.art-body-text .wptw-toc-wrapper a:hover,
-.art-body-text .wptw-toc a:hover,
-.art-body-text .wptw-toc__link:hover {
-  color: var(--c8-blue) !important;
-  text-decoration: none !important;
-}
 
-/* DATA TABLES (Excluding TOC) */
-.art-body-text table:not(.toc):not(.ez-toc-table) { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.92rem; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; overflow: hidden; }
+/* DATA TABLES */
+.art-body-text table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.92rem; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; overflow: hidden; }
 .art-body-text th { background: #222222; color: #FFFFFF; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 1.1rem 1.4rem; border-right: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid var(--c8-grid-line); }
 .art-body-text td { padding: 1.1rem 1.4rem; border-bottom: 1px solid var(--c8-grid-line); border-right: 1px solid var(--c8-grid-line); color: #222222; }
 .art-body-text tr:nth-child(even) td { background: #FAFAF7; }
@@ -489,14 +450,15 @@ body.single-post {
   text-decoration: none !important;
   border-bottom: none !important;
 }
-/* Anchor-inherited underline fix — browser propagates text-decoration into children of <a> */
-a > .card-fallback-canvas,
-a > .card-fallback-canvas *,
-a .fallback-title,
-a .fallback-cat,
-a .card-title {
+/* The <a> wrapping .card-fallback-canvas has no class — target the container anchor directly */
+.card-img-container a,
+.card-img-container a:hover,
+.card-img-container a:visited {
   text-decoration: none !important;
   border-bottom: none !important;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .card-fallback-canvas.is-light .fallback-title {

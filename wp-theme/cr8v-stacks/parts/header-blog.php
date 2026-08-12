@@ -941,7 +941,7 @@ function c8bmToggleCat(item) {
   }
 
   // Live REST API Category Counter Sync
-  fetch('<?php echo esc_url(rest_url('wp/v2/categories')); ?>?per_page=100')
+  fetch('<?php echo esc_url(rest_url('wp/v2/categories')); ?>?per_page=100&hide_empty=false')
     .then(function(res){ return res.json(); })
     .then(function(categories){
       if (Array.isArray(categories)) {
