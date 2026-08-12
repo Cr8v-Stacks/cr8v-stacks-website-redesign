@@ -30,6 +30,17 @@ html, body {
     text-decoration: none !important;
     border-bottom: none !important;
 }
+/* Browser propagates text-decoration through <a> into children — explicit anchor-child overrides */
+a > .card-fallback-canvas,
+a > .card-fallback-canvas *,
+a .fallback-title,
+a .fallback-cat,
+a .card-title,
+a .art-author-name,
+a .art-author-bio {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
 
 /* ============================================================
    Tropos — CR8V Stacks

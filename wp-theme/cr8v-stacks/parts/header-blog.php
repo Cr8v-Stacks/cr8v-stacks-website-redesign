@@ -452,45 +452,45 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
     <nav>
       <ul class="c8bm-pnav" id="c8bmPnav">
         <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-brand">
-          <span class="c8bm-pnav-link" tabindex="0">Brand Strategy <span class="c8bm-pill-badge" data-cat-slug="brand-strategy"><?php echo cr8v_get_cat_post_count('brand-strategy') ?: cr8v_get_cat_post_count('business-marketing'); ?></span>
+          <span class="c8bm-pnav-link" tabindex="0">Brand Strategy
             <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
           </span>
         </li>
 
         <li class="c8bm-pnav-item">
-          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/category/business-productivity/')); ?>">Productivity <span class="c8bm-pill-badge" data-cat-slug="business-productivity"><?php echo cr8v_get_cat_post_count('business-productivity'); ?></span></a>
+          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/category/business-productivity/')); ?>">Productivity</a>
         </li>
 
         <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-biztips">
-          <span class="c8bm-pnav-link" tabindex="0">Business Tips <span class="c8bm-pill-badge" data-cat-slug="business-tips"><?php echo cr8v_get_cat_post_count('business-tips') ?: cr8v_get_cat_post_count('small-business-hub'); ?></span>
+          <span class="c8bm-pnav-link" tabindex="0">Business Tips
             <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
           </span>
         </li>
 
         <li class="c8bm-pnav-item">
-          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/category/career-planning/')); ?>">Career Planning <span class="c8bm-pill-badge" data-cat-slug="career-planning"><?php echo cr8v_get_cat_post_count('career-planning'); ?></span></a>
+          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/category/career-planning/')); ?>">Career Planning</a>
         </li>
 
         <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-content">
-          <span class="c8bm-pnav-link" tabindex="0">Content Creation <span class="c8bm-pill-badge" data-cat-slug="content-creation"><?php echo cr8v_get_cat_post_count('content-creation') ?: cr8v_get_cat_post_count('blogging'); ?></span>
+          <span class="c8bm-pnav-link" tabindex="0">Content Creation
             <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
           </span>
         </li>
 
         <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-digimkt">
-          <span class="c8bm-pnav-link" tabindex="0">Digital Marketing <span class="c8bm-pill-badge" data-cat-slug="digital-marketing"><?php echo cr8v_get_cat_post_count('digital-marketing') ?: cr8v_get_cat_post_count('seo'); ?></span>
+          <span class="c8bm-pnav-link" tabindex="0">Digital Marketing
             <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
           </span>
         </li>
 
         <li class="c8bm-pnav-item" data-c8bm-mega="c8bm-mega-webdesign">
-          <span class="c8bm-pnav-link" tabindex="0">Web Design <span class="c8bm-pill-badge" data-cat-slug="web-design"><?php echo cr8v_get_cat_post_count('web-design') ?: cr8v_get_cat_post_count('wordpress-design'); ?></span>
+          <span class="c8bm-pnav-link" tabindex="0">Web Design
             <svg class="c8bm-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
           </span>
         </li>
 
         <li class="c8bm-pnav-item">
-          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/category/tutorials/')); ?>">Tutorials <span class="c8bm-pill-badge" data-cat-slug="tutorials"><?php echo cr8v_get_cat_post_count('tutorials'); ?></span></a>
+          <a class="c8bm-pnav-link" href="<?php echo esc_url(home_url('/category/tutorials/')); ?>">Tutorials</a>
         </li>
       </ul>
     </nav>

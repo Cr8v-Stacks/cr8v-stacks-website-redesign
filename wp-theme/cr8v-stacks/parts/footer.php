@@ -261,7 +261,7 @@ window.addEventListener('scroll', function() {
   var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
   document.addEventListener('mouseover', function(e) {
-    var btn = e.target.closest('.cta-btn-pill, .c8-btn-primary, .c8cs-btn-primary, .c8-matrix-btn-blue, .c8-matrix-btn-dark, .c8srv-btn-ghost, .dp-btn-primary, .c8bm-btn-cta, .c8ft-cta-btn, .c8isv-cta-btn, .blog-cta-btn, .c8-btn, .cta-card-btn, [data-customizer="cta_button_text"], [data-customizer="cs_cta_btn_text"], .art-btn-primary, .art-btn-secondary, .art-ui-buttons a, .wp-block-button__link, .wp-block-button a, .c8-matrix-target');
+    var btn = e.target.closest('.cta-btn-pill, .c8-btn-primary, .c8cs-btn-primary, .c8-matrix-btn-blue, .c8-matrix-btn-dark, .c8srv-btn-ghost, .dp-btn-primary, .c8bm-btn-cta, .c8ft-cta-btn, .c8isv-cta-btn, .blog-cta-btn, .c8-btn, .cta-card-btn, [data-customizer="cta_button_text"], [data-customizer="cs_cta_btn_text"], .art-btn-primary, .art-btn-secondary, .art-ui-buttons a, .wp-block-button__link, .wp-block-button a, .art-author-link, .c8-matrix-target');
     if (!btn || btn.dataset.matrixActive === 'true') return;
 
     btn.dataset.matrixActive = 'true';

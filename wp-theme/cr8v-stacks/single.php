@@ -397,36 +397,44 @@ body.single-post {
   text-decoration: none !important;
 }
 
-/* TABLE OF CONTENTS PLUGIN ISOLATION */
+/* TABLE OF CONTENTS PLUGIN ISOLATION — covers ez-toc, lwptoc, toc, simpletoc, AND wptw plugins */
 .art-body-text #ez-toc-container,
 .art-body-text .ez-toc-v2_0_69_1,
 .art-body-text #toc_container,
 .art-body-text .lwptoc,
-.art-body-text .toc {
-  border: 1px solid var(--c8-grid-line) !important;
-  background: #FAFAF7 !important;
-  border-radius: 4px !important;
-  padding: 1.25rem 1.5rem !important;
-  margin: 2rem 0 !important;
+.art-body-text .toc,
+.art-body-text .wptw-toc-wrapper,
+.art-body-text .wptw-toc {
+  border: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
   box-shadow: none !important;
+  all: revert !important;
 }
 .art-body-text #ez-toc-container a,
 .art-body-text .ez-toc-v2_0_69_1 a,
 .art-body-text #toc_container a,
 .art-body-text .lwptoc a,
-.art-body-text .toc a {
+.art-body-text .toc a,
+.art-body-text .wptw-toc-wrapper a,
+.art-body-text .wptw-toc a,
+.art-body-text .wptw-toc__link {
   border-bottom: none !important;
   text-decoration: none !important;
   color: var(--c8-ink) !important;
-  font-family: var(--font-body) !important;
-  font-size: 0.95rem !important;
 }
 .art-body-text #ez-toc-container a:hover,
 .art-body-text .ez-toc-v2_0_69_1 a:hover,
 .art-body-text #toc_container a:hover,
 .art-body-text .lwptoc a:hover,
-.art-body-text .toc a:hover {
+.art-body-text .toc a:hover,
+.art-body-text .wptw-toc-wrapper a:hover,
+.art-body-text .wptw-toc a:hover,
+.art-body-text .wptw-toc__link:hover {
   color: var(--c8-blue) !important;
+  text-decoration: none !important;
 }
 
 /* DATA TABLES (Excluding TOC) */
@@ -478,6 +486,15 @@ body.single-post {
 .card-fallback-canvas, .card-fallback-canvas *, .fallback-title, .fallback-cat, .card-title, .card-title a,
 .art-cat-pill, .card-category-pill, .art-author-name, .art-author-bio, .art-author-link,
 .art-back-btn, .cta-card-btn, .art-meta-author-link {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+/* Anchor-inherited underline fix — browser propagates text-decoration into children of <a> */
+a > .card-fallback-canvas,
+a > .card-fallback-canvas *,
+a .fallback-title,
+a .fallback-cat,
+a .card-title {
   text-decoration: none !important;
   border-bottom: none !important;
 }
