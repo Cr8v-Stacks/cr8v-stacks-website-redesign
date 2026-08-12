@@ -267,7 +267,7 @@ $posts_per_page = cr8v_mod('blog_posts_per_page', '9');
       <p class="blog-sub" data-customizer="blog_subtitle"><?php echo esc_html($subtitle); ?></p>
     </div>
     <div class="blog-hero-visual" style="display: flex; align-items: center; justify-content: center;">
-      <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 220px; max-width: 100%; height: auto; display: block; background: transparent;">
+      <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 340px; max-width: 100%; height: auto; display: block; background: transparent;">
         <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.webm'); ?>" type="video/webm">
         <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.gif'); ?>" alt="Cr8v Stacks Blog Logo Visual">
       </video>

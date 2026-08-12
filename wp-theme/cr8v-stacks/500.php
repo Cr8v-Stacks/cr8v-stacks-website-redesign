@@ -97,22 +97,81 @@ get_header();
 .c8-matrix-btn-dark:hover { background: #222222; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(8,8,8,0.3); }
 
 .err-mascot-col { display: flex; align-items: center; justify-content: center; position: relative; }
-.err-mascot-free-wrapper {
-  position: relative; width: 100%; max-width: 540px; aspect-ratio: 1 / 1;
-  display: flex; align-items: center; justify-content: center;
-  animation: floatMascot 6s ease-in-out infinite;
+.err-hero-container {
+  width: 100%;
+  padding: 8.5rem 3.5rem 5rem 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: calc(100vh - 68px);
+  position: relative;
+  overflow: hidden;
 }
-@keyframes floatMascot { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
 
-.err-mascot-video {
-  width: 100%; height: 100%; object-fit: contain; display: block;
-  filter: drop-shadow(0 20px 40px rgba(255,85,85,0.25));
+.err-content-col {
+  position: relative;
+  z-index: 2;
+  padding: 3.5rem 4rem;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
+.err-eyebrow {
+  font-family: var(--font-mono); font-size: 0.82rem; color: #7C93FF;
+  letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700;
+  margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.err-eyebrow::before { content: '// '; color: #3D6BFF; }
+
+.err-big-num {
+  font-family: var(--font-display); font-size: clamp(8rem, 18vw, 15rem);
+  line-height: 0.82; font-weight: 700; color: #FFFFFF; letter-spacing: 0.02em;
+  margin-bottom: 0.85rem; text-shadow: none !important;
+}
+
+.err-h1-title {
+  font-family: var(--font-heading); font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+  font-weight: 700; color: #FFFFFF; text-transform: uppercase; line-height: 1.2;
+  margin-bottom: 1.25rem; letter-spacing: 0.02em; text-shadow: none !important;
+}
+
+.err-subtitle {
+  font-family: var(--font-body); font-size: 1.05rem; color: rgba(255, 255, 255, 0.85);
+  line-height: 1.65; max-width: 580px; margin-bottom: 2.75rem; font-weight: 400;
+}
+
+.err-btn-group { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+
+.c8-matrix-btn-blue {
+  background: var(--blue); color: #FFFFFF !important; font-family: var(--font-mono);
+  font-size: 0.85rem; font-weight: 700; padding: 1.1rem 2.25rem; border-radius: 4px !important;
+  text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em;
+  position: relative; overflow: hidden; border: none; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  transition: background 0.25s ease, transform 0.25s ease; box-shadow: none !important;
+}
+.c8-matrix-btn-blue::before {
+  content: ''; position: absolute; top: -50%; left: -100%; width: 100%; height: 200%;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,0.4), rgba(61, 107, 255, 0.4), transparent);
+  transform: rotate(25deg); transition: left 0.75s ease; pointer-events: none;
+}
+.c8-matrix-btn-blue:hover::before { left: 150%; }
+.c8-matrix-btn-blue:hover { background: var(--blue-mid); transform: translateY(-2px); }
+
+.c8-matrix-btn-dark {
+  background: var(--ink); color: #FFFFFF !important; font-family: var(--font-mono);
+  font-size: 0.85rem; font-weight: 700; padding: 1.1rem 2.25rem; border-radius: 4px !important;
+  text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  transition: background 0.25s ease, transform 0.25s ease; cursor: pointer;
+  box-shadow: none !important; border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.c8-matrix-btn-dark:hover { background: #222222; transform: translateY(-2px); }
 
 @media (max-width: 1024px) {
-  .err-hero-container { grid-template-columns: 1fr; padding: 7rem 2rem 4rem 2rem; gap: 3rem; text-align: center; }
-  .err-content-col { align-items: center; }
-  .err-mascot-free-wrapper { max-width: 380px; }
+  .err-hero-container { padding: 7rem 2rem 4rem 2rem; justify-content: center; text-align: center; }
+  .err-content-col { align-items: center; padding: 2rem 1rem; }
 }
 @media (max-width: 640px) {
   .err-hero-container { padding: 6rem 1.25rem 3.5rem 1.25rem; }
@@ -126,7 +185,7 @@ get_header();
 <div class="err-bg-glow"></div>
 <div class="err-bg-noise"></div>
 
-<main class="err-hero-container" style="position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 68px); padding: 4rem 2rem;">
+<main class="err-hero-container">
 
   <!-- Ambient Error Background Video (Full Width, 100% Opacity) -->
   <video class="err-bg-video" autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 1; pointer-events: none;">
@@ -134,16 +193,15 @@ get_header();
     <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/error_bg.mp4'); ?>" type="video/mp4">
   </video>
   
-  <!-- Content Glassmorphic Overlay Box -->
-  <div class="err-content-col" style="position: relative; z-index: 2; background: rgba(8, 8, 8, 0.82); backdrop-filter: blur(16px); padding: 3.5rem 4rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.18); max-width: 640px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-    <div class="err-eyebrow" style="color: #7C93FF;">SERVER EXECUTION EXCEPTION</div>
-    <div class="err-big-num" style="color: #FFFFFF;">500</div>
-    <h1 class="err-h1-title" style="color: #FFFFFF;">INTERNAL SERVER ERROR</h1>
-    <p class="err-subtitle" style="color: rgba(255, 255, 255, 0.85);">Our core system encountered an unexpected server exception while attempting to process your request. Our technical team has been notified.</p>
+  <div class="err-content-col">
+    <div class="err-eyebrow">SERVER EXECUTION EXCEPTION</div>
+    <div class="err-big-num">500</div>
+    <h1 class="err-h1-title">INTERNAL SERVER ERROR</h1>
+    <p class="err-subtitle">Our core system encountered an unexpected server exception while attempting to process your request. Our technical team has been notified.</p>
 
     <div class="err-btn-group">
       <a href="<?php echo esc_url(home_url('/')); ?>" class="c8-matrix-btn-blue">Return to Homepage →</a>
-      <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8-matrix-btn-dark" style="border: 1px solid rgba(255,255,255,0.25);">Contact Support</a>
+      <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8-matrix-btn-dark">Contact Support</a>
     </div>
   </div>
 

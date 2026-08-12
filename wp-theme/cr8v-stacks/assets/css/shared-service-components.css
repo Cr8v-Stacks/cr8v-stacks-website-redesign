@@ -502,8 +502,28 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   }
   .c8isv-anim-container, .c8srv-anim-container {
     display: flex !important;
-    max-width: 340px !important;
-    margin: 2rem auto 0 auto !important;
+    max-width: 300px !important;
+    margin: 1.5rem auto 0 auto !important;
+  }
+}
+@media (max-width: 768px) {
+  .c8isv-hero-section, .c8srv-hero {
+    padding-top: 2rem !important;
+    padding-bottom: 2.25rem !important;
+    margin-bottom: 2rem !important;
+  }
+  .c8isv-headline, .c8srv-headline, .c8srv-root .c8srv-headline {
+    font-size: clamp(1.4rem, 5.5vw, 1.85rem) !important;
+    margin-bottom: 1rem !important;
+  }
+  .c8isv-hero-intro, .c8srv-hero-intro, .c8srv-root .c8srv-hero-intro {
+    font-size: 14px !important;
+    margin-top: 1rem !important;
+    line-height: 1.55 !important;
+  }
+  .c8isv-anim-container, .c8srv-anim-container {
+    max-width: 210px !important;
+    margin: 1.25rem auto 0 auto !important;
   }
 }
 

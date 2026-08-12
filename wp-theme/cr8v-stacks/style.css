@@ -2859,7 +2859,7 @@ html, body {
     }
     @media (max-width: 768px) {
       .c8ft-hero { padding: 3.5rem 1.25rem 4.5rem; }
-      .c8ft-hero-title { font-size: clamp(1.8rem, 8vw, 2.5rem); }
+      .c8ft-hero-title { font-size: clamp(1.8rem, 8vw, 1.5rem); }
       .c8ft-stack-zone { padding: 0 1.25rem; }
       .c8ft-stack { grid-template-columns: 1fr; gap: 1.75rem; margin-top: -2rem; }
       .c8ft-cap { padding: 1.1rem 1.25rem; }
@@ -13357,8 +13357,8 @@ html, body {
 .c8srv-root .c8srv-hero-atmos.is-active .c8srv-atmos-glow { opacity: 1 !important; }
 @media (prefers-reduced-motion: reduce) { .c8srv-root .c8srv-atmos-svg animate { display: none !important; } .c8srv-root .c8srv-atmos-glow { display: none !important; } }
 .c8srv-root .c8srv-hero-content { position: relative !important; z-index: 2 !important; max-width: 760px !important; }
-.c8srv-root .c8srv-headline { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.8rem, 4vw, 3.4rem) !important; letter-spacing: 0.02em !important; line-height: 1.2 !important; font-weight: 700 !important; color: #080808 !important; text-transform: uppercase !important; }
-.c8srv-root .c8srv-hero-intro { font-size: 17px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 480px !important; margin-top: 1.5rem !important; line-height: 1.6 !important; font-family: 'DM Sans', sans-serif !important; }
+.c8srv-root .c8srv-headline { font-family: 'Michroma', sans-serif !important; font-size: clamp(1.8rem, 4vw, 2.5rem) !important; letter-spacing: 0.02em !important; line-height: 1.2 !important; font-weight: 700 !important; color: #080808 !important; text-transform: uppercase !important; margin-bottom: 1.5rem !important; }
+.c8srv-root .c8srv-hero-intro { font-size: 15px !important; font-weight: 300 !important; color: #6B6B6B !important; max-width: 480px !important; margin-top: 1.5rem !important; line-height: 1.6 !important; font-family: 'DM Sans', sans-serif !important; }
 .c8srv-root .c8srv-pill-row { display: flex !important; flex-wrap: wrap !important; gap: 0.6rem !important; margin-top: 2.25rem !important; }
 .c8srv-root .c8srv-pill { border: 1px solid rgba(8,8,8,0.15) !important; background: #FFFFFF !important; padding: 8px 15px !important; font-size: 12px !important; font-weight: 500 !important; border-radius: 4px !important; font-family: 'Space Mono', monospace !important; letter-spacing: 0.05em !important; }
 
@@ -14519,16 +14519,7 @@ body {
       font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700;
       border-radius: 4px; text-transform: uppercase;
     }
-    .fylla-hero-img-box {
-      width: 100%; aspect-ratio: 21 / 9; border-radius: 4px; overflow: hidden;
-      border: 1px solid var(--c8-grid-line); background: #000000; position: relative;
-    }
-    .fylla-hero-img { width: 100%; height: 100%; object-fit: cover; }
-    .fylla-hud-tag {
-      position: absolute; bottom: 20px; right: 20px; background: #080808; color: #FAFAF7;
-      font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase;
-      padding: 6px 12px; border-top: 2px solid var(--c8-blue); z-index: 3;
-    }
+
 
     /* ── SECTION 2: FYLLA STUDIO VALUES SECTION (OUR PHILOSOPHY & LARGE ICONS) ── */
     .fylla-values-section {

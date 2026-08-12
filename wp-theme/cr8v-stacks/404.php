@@ -28,39 +28,45 @@ body { background: #FFFFFF !important; }
 
 .err-hero-container {
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
   padding: 8.5rem 3.5rem 5rem 3.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: center;
-  gap: 4rem;
-  min-height: calc(100vh - 100px);
-  background: #FFFFFF !important;
+  justify-content: flex-start;
+  min-height: calc(100vh - 68px);
+  position: relative;
+  overflow: hidden;
 }
 
-.err-content-col { display: flex; flex-direction: column; align-items: flex-start; }
+.err-content-col {
+  position: relative;
+  z-index: 2;
+  padding: 3.5rem 4rem;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 .err-eyebrow {
-  font-family: var(--font-mono); font-size: 0.82rem; color: var(--blue);
+  font-family: var(--font-mono); font-size: 0.82rem; color: #7C93FF;
   letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700;
   margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;
 }
-.err-eyebrow::before { content: '// '; color: var(--blue-mid); }
+.err-eyebrow::before { content: '// '; color: #3D6BFF; }
 
 .err-big-num {
   font-family: var(--font-display); font-size: clamp(8rem, 18vw, 15rem);
-  line-height: 0.82; font-weight: 700; color: var(--ink); letter-spacing: 0.02em;
+  line-height: 0.82; font-weight: 700; color: #FFFFFF; letter-spacing: 0.02em;
   margin-bottom: 0.85rem; text-shadow: none !important;
 }
 
 .err-h1-title {
   font-family: var(--font-heading); font-size: clamp(1.6rem, 3.2vw, 2.5rem);
-  font-weight: 700; color: var(--ink); text-transform: uppercase; line-height: 1.2;
+  font-weight: 700; color: #FFFFFF; text-transform: uppercase; line-height: 1.2;
   margin-bottom: 1.25rem; letter-spacing: 0.02em; text-shadow: none !important;
 }
 
 .err-subtitle {
-  font-family: var(--font-body); font-size: 1.05rem; color: var(--gray);
+  font-family: var(--font-body); font-size: 1.05rem; color: rgba(255, 255, 255, 0.85);
   line-height: 1.65; max-width: 580px; margin-bottom: 2.75rem; font-weight: 400;
 }
 
@@ -88,24 +94,13 @@ body { background: #FFFFFF !important; }
   text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em;
   display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
   transition: background 0.25s ease, transform 0.25s ease; cursor: pointer;
-  box-shadow: none !important; border: none;
+  box-shadow: none !important; border: 1px solid rgba(255, 255, 255, 0.25);
 }
 .c8-matrix-btn-dark:hover { background: #222222; transform: translateY(-2px); }
 
-.err-mascot-col { display: flex; align-items: center; justify-content: center; position: relative; }
-.err-mascot-free-wrapper {
-  position: relative; width: 100%; max-width: 680px; aspect-ratio: 1 / 1;
-  display: flex; align-items: center; justify-content: center;
-  animation: floatMascot 6s ease-in-out infinite;
-}
-@keyframes floatMascot { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
-
-.err-mascot-video { width: 100%; height: 100%; object-fit: contain; display: block; }
-
 @media (max-width: 1024px) {
-  .err-hero-container { grid-template-columns: 1fr; padding: 7rem 2rem 4rem 2rem; gap: 3rem; text-align: center; }
-  .err-content-col { align-items: center; }
-  .err-mascot-free-wrapper { max-width: 480px; }
+  .err-hero-container { padding: 7rem 2rem 4rem 2rem; justify-content: center; text-align: center; }
+  .err-content-col { align-items: center; padding: 2rem 1rem; }
 }
 @media (max-width: 640px) {
   .err-hero-container { padding: 6rem 1.25rem 3.5rem 1.25rem; }
@@ -116,7 +111,7 @@ body { background: #FFFFFF !important; }
 }
 </style>
 
-<main class="err-hero-container" style="position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 68px); padding: 4rem 2rem;">
+<main class="err-hero-container">
 
   <!-- Ambient Error Background Video (Full Width, 100% Opacity) -->
   <video class="err-bg-video" autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 1; pointer-events: none;">
@@ -124,16 +119,15 @@ body { background: #FFFFFF !important; }
     <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/error_bg.mp4'); ?>" type="video/mp4">
   </video>
   
-  <!-- Content Glassmorphic Overlay Box -->
-  <div class="err-content-col" style="position: relative; z-index: 2; background: rgba(8, 8, 8, 0.82); backdrop-filter: blur(16px); padding: 3.5rem 4rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.18); max-width: 640px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-    <div class="err-eyebrow" style="color: #7C93FF;">SYSTEM BLUEPRINT EXCEPTION</div>
-    <div class="err-big-num" style="color: #FFFFFF;">404</div>
-    <h1 class="err-h1-title" style="color: #FFFFFF;">BLUEPRINT NOT FOUND</h1>
-    <p class="err-subtitle" style="color: rgba(255, 255, 255, 0.85);">The requested URL route does not exist in our platform architecture. It may have been moved, renamed, or temporarily taken offline for liquid performance updates.</p>
+  <div class="err-content-col">
+    <div class="err-eyebrow">SYSTEM BLUEPRINT EXCEPTION</div>
+    <div class="err-big-num">404</div>
+    <h1 class="err-h1-title">BLUEPRINT NOT FOUND</h1>
+    <p class="err-subtitle">The requested URL route does not exist in our platform architecture. It may have been moved, renamed, or temporarily taken offline for liquid performance updates.</p>
 
     <div class="err-btn-group">
       <a href="<?php echo esc_url(home_url('/')); ?>" class="c8-matrix-btn-blue">Return to Homepage →</a>
-      <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8-matrix-btn-dark" style="border: 1px solid rgba(255,255,255,0.25);">Contact Support</a>
+      <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8-matrix-btn-dark">Contact Support</a>
     </div>
   </div>
 

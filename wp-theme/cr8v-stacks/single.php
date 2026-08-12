@@ -134,10 +134,11 @@ if (have_posts()) : while (have_posts()) : the_post();
   background: #FFFFFF; display: flex; align-items: center; justify-content: center;
   cursor: pointer; transition: all 0.2s ease; overflow: hidden;
 }
-.share-btn:hover { background: #080808; border-color: #080808; }
+.share-btn:hover { background: var(--c8-blue); border-color: var(--c8-blue); color: #FFFFFF !important; }
 .share-btn img { width: 16px; height: 16px; object-fit: contain; transition: filter 0.2s ease; }
 .share-btn:hover img { filter: brightness(0) invert(1) !important; }
-.share-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; }
+.share-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; transition: stroke 0.2s ease; }
+.share-btn:hover svg { stroke: #FFFFFF !important; }
 
 /* ── EXACT ORIGINAL PROTOTYPE SIDEBAR CTA CARD (WHITE CARD BG, CIRCULAR LOGO BADGES, 78PX AVATAR, DARK BUTTON WITH FLARE & MATRIX SCRAMBLE) ── */
 .sidebar-cta-card {
@@ -159,11 +160,11 @@ if (have_posts()) : while (have_posts()) : the_post();
 }
 
 .cta-illustration {
-  width: 110px; height: auto; margin: 0 0 1.25rem 0;
+  width: 200px; height: 100px; margin: 0 0 1.25rem 0;
   display: flex; align-items: center; justify-content: flex-start;
   background: transparent; border: none; overflow: visible;
 }
-.cta-illustration img, .cta-illustration video { width: 100%; height: auto; display: block; background: transparent; border: none; border-radius: 0; }
+.cta-illustration img, .cta-illustration video { width: 100%; height: 100%; object-fit: contain; display: block; background: transparent; border: none; border-radius: 0; }
 
 .cta-card-title {
   font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700;
@@ -333,9 +334,10 @@ if (have_posts()) : while (have_posts()) : the_post();
 .faq-accordion-item.active .faq-accordion-q .faq-icon { transform: rotate(45deg); }
 .faq-accordion-a { font-size: 0.92rem; color: #4A4A4A; line-height: 1.65; padding: 0 1.6rem 1.25rem 1.6rem; display: none; }
 .faq-accordion-item.active .faq-accordion-a { display: block; }
+.wptw-btt { font-family: sans-serif !important; font-size: 16px !important; line-height: 1 !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
+.wptw-btt::before { content: "↑" !important; font-size: 16px !important; font-weight: bold !important; }
 
 @media (max-width: 860px) {
-  .art-outer-frame { padding-top: 2rem; }
   .art-grid-layout { grid-template-columns: 1fr; }
   .art-sidebar-col { position: static; border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 1.5rem; }
   .sidebar-cta-card { display: none !important; }

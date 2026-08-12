@@ -86,7 +86,7 @@ $facebook  = cr8v_mod('footer_facebook',  'https://www.facebook.com/cr8vstacks')
 .c8ft-totop-icon svg{width:11px;height:11px;stroke:#fff;stroke-width:2;fill:none;}
 
 @media(max-width:1024px){.c8ft-hero{padding:4rem 2rem 5.5rem;}.c8ft-stack-zone{padding:0 2rem;}.c8ft-stack{grid-template-columns:1fr 1fr;gap:2rem;}.c8ft-card:last-child{grid-column:1/-1;}}
-@media(max-width:768px){.c8ft-hero{padding:3.5rem 1.25rem 4.5rem;}.c8ft-hero-title{font-size:clamp(1.8rem,8vw,2.5rem);}.c8ft-stack-zone{padding:0 1.25rem;}.c8ft-stack{grid-template-columns:1fr;gap:1.75rem;margin-top:-2rem;}.c8ft-cap{padding:1.1rem 1.25rem;}.c8ft-cap-in{justify-content:center;text-align:center;flex-direction:column;}}
+@media(max-width:768px){.c8ft-hero{padding:3.5rem 1.25rem 4.5rem;}.c8ft-hero-title{font-size:clamp(1.8rem,8vw,1.5rem);}.c8ft-stack-zone{padding:0 1.25rem;}.c8ft-stack{grid-template-columns:1fr;gap:1.75rem;margin-top:-2rem;}.c8ft-cap{padding:1.1rem 1.25rem;}.c8ft-cap-in{justify-content:center;text-align:center;flex-direction:column;}}
 </style>
 
 <!-- Hero CTA -->
