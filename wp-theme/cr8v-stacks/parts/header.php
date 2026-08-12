@@ -35,7 +35,7 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
 
 /* ── Logo ── */
 .c8hdr-root .c8-logo{display:flex!important;align-items:center!important;gap:10px!important;flex-shrink:0!important;text-decoration:none!important;}
-.c8hdr-root .c8-logo-img{display:block!important;height:38px!important;width:auto!important;max-width:none!important;object-fit:contain!important;}
+.c8hdr-root .c8-logo-img{display:block!important;height:44px!important;width:auto!important;max-width:none!important;}
 .c8hdr-root .c8-md-hero-logo-img{height:36px!important;width:auto!important;display:block!important;object-fit:contain!important;}
 
 /* ── Primary Nav ── */

@@ -40,16 +40,21 @@ function cr8v_get_meta(int $post_id, string $key, string $default = ''): string 
  * Returns the logo <img> tag using Customizer logo or WP custom logo fallback.
  */
 function cr8v_logo_img(string $classes = 'c8-logo-img'): string {
-    $custom_logo = get_theme_mod('header_logo', '');
-    if (!$custom_logo) {
-        $logo_id = get_theme_mod('custom_logo');
-        if ($logo_id) {
-            $custom_logo = wp_get_attachment_image_url($logo_id, 'full');
-        }
-    }
-    if (!$custom_logo) {
-        // Fallback to local theme WebP logo asset
+    $is_mobile_drawer = (strpos($classes, 'md-hero-logo') !== false || strpos($classes, 'bd-logo') !== false || strpos($classes, 'mobile') !== false);
+    
+    if ($is_mobile_drawer) {
         $custom_logo = get_template_directory_uri() . '/assets/img/cr8v_mobile_logo.webp';
+    } else {
+        $custom_logo = get_theme_mod('header_logo', '');
+        if (!$custom_logo) {
+            $logo_id = get_theme_mod('custom_logo');
+            if ($logo_id) {
+                $custom_logo = wp_get_attachment_image_url($logo_id, 'full');
+            }
+        }
+        if (!$custom_logo) {
+            $custom_logo = 'https://cr8vstacks.com/wp-content/uploads/2022/08/1.png';
+        }
     }
     return '<img src="' . esc_url($custom_logo) . '" alt="' . esc_attr(get_bloginfo('name')) . '" class="' . esc_attr($classes) . '">';
 }

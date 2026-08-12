@@ -40,6 +40,41 @@ $posts_per_page = cr8v_mod('blog_posts_per_page', '9');
 .blog-hero-inner {
   max-width: 1440px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+}
+
+.blog-hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-hero-visual video {
+  width: 340px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .blog-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .blog-hero-visual {
+    justify-content: flex-start;
+  }
+  .blog-hero-visual video {
+    width: 310px !important;
+    height: 130px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+    margin: 1.25rem auto 0 0 !important;
+  }
 }
 
 .blog-eyebrow {
@@ -161,113 +196,34 @@ $posts_per_page = cr8v_mod('blog_posts_per_page', '9');
   text-align: center;
   position: relative; overflow: hidden;
   box-sizing: border-box;
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 1.25rem; text-align: center; box-sizing: border-box;
 }
-
 .card-fallback-canvas.is-light {
-  background: 
-    radial-gradient(circle at 10% 90%, rgba(186, 230, 253, 0.9) 0%, transparent 60%),
-    radial-gradient(circle at 90% 10%, rgba(221, 214, 254, 0.9) 0%, transparent 60%),
-    linear-gradient(135deg, #F0F9FF 0%, #FFFFFF 50%, #F5F3FF 100%);
-  color: #080808;
-  border: 1px solid rgba(8, 8, 8, 0.08);
+  background: linear-gradient(135deg, #E0F2FE 0%, #F0F9FF 45%, #EDE9FE 100%);
+  color: #080808; border: 1px solid rgba(8, 8, 8, 0.08);
 }
 .card-fallback-canvas.is-light .fallback-brand-icon {
-  width: 22px; height: 22px; color: #080808; margin-bottom: 0.9rem; stroke-width: 2.2;
+  width: 24px; height: 24px; color: #080808; margin-bottom: 0.9rem; stroke-width: 2;
 }
 .card-fallback-canvas.is-light .fallback-title {
   font-family: var(--font-heading); font-size: 0.9rem; font-weight: 700;
   color: #080808; text-transform: uppercase; line-height: 1.35;
   margin-bottom: 0.9rem; max-width: 90%; letter-spacing: -0.01em;
 }
-.card-fallback-canvas.is-light .fallback-cat {
-  font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700;
-  color: #080808; letter-spacing: 0.14em; text-transform: uppercase;
-}
-
-.card-fallback-canvas.is-dark {
-  background: 
-    radial-gradient(circle at 90% 10%, rgba(99, 102, 241, 0.4) 0%, transparent 60%),
-    radial-gradient(circle at 10% 90%, rgba(14, 165, 233, 0.3) 0%, transparent 60%),
-    linear-gradient(135deg, #070A12 0%, #0F172A 50%, #1E1B4B 100%);
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.card-fallback-canvas.is-dark .fallback-brand-icon {
-  width: 22px; height: 22px; color: #FFFFFF; margin-bottom: 0.9rem; stroke-width: 2.2;
-}
-.card-fallback-canvas.is-dark .fallback-title {
-  font-family: var(--font-heading); font-size: 0.9rem; font-weight: 700;
-  color: #FFFFFF; text-transform: uppercase; line-height: 1.35;
-  margin-bottom: 0.9rem; max-width: 90%; letter-spacing: -0.01em;
-}
-.card-fallback-canvas.is-dark .fallback-cat {
-  font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700;
-  color: #A0B4FF; letter-spacing: 0.14em; text-transform: uppercase;
-}
-
-.card-title {
-  font-family: var(--font-heading);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--c8-ink);
-  line-height: 1.35;
-  text-transform: uppercase;
-  margin: 0;
-}
-.card-title a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
-.card-title a:hover { color: var(--c8-blue); }
-
-.blog-pagination-wrapper {
-  max-width: 1440px;
-  margin: 3.5rem auto 0 auto;
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.page-numbers {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 40px;
-  height: 40px;
-  padding: 0 14px;
-  border: 1px solid var(--c8-grid-line);
-  background: var(--c8-paper-card);
-  color: var(--c8-ink);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 700;
-  border-radius: 4px !important;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-.page-numbers.current, .page-numbers:hover {
-  background: var(--c8-blue);
-  color: #FFFFFF;
-  border-color: var(--c8-blue);
-}
-
-@media (max-width: 1100px) {
-  .blog-grid-frame { grid-template-columns: repeat(2, 1fr); }
-  .blog-hero-outer, .blog-grid-section { padding-left: 1.5rem; padding-right: 1.5rem; }
-}
-@media (max-width: 700px) {
-  .blog-grid-frame { grid-template-columns: 1fr; }
-  .blog-hero-outer { padding-top: 6.5rem; }
-}
 </style>
 
 <!-- BLOG HERO SECTION -->
 <section class="blog-hero-outer">
-  <div class="blog-hero-inner" style="display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center;">
+  <div class="blog-hero-inner">
     <div class="blog-hero-content">
       <div class="blog-eyebrow" data-customizer="blog_eyebrow"><?php echo esc_html($eyebrow); ?></div>
       <h1 class="blog-h1" data-customizer="blog_h1"><?php echo esc_html($title); ?></h1>
       <p class="blog-sub" data-customizer="blog_subtitle"><?php echo esc_html($subtitle); ?></p>
     </div>
-    <div class="blog-hero-visual" style="display: flex; align-items: center; justify-content: center;">
-      <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 340px; max-width: 100%; height: auto; display: block; background: transparent;">
+    <div class="blog-hero-visual">
+      <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback>
         <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.webm'); ?>" type="video/webm">
         <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.gif'); ?>" alt="Cr8v Stacks Blog Logo Visual">
       </video>

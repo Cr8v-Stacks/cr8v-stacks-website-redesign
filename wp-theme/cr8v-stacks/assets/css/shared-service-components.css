@@ -42,6 +42,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
 @media (max-width: 1100px) {
   .c8isv-wrap, .c8srv-wrap {
     padding: 3rem 1.25rem !important;
+    margin-top: 120px !important;
   }
 }
 
@@ -332,7 +333,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
 
 .c8isv-headline, .c8srv-headline {
   font-family: 'Michroma', sans-serif !important;
-  font-size: clamp(2rem, 4.5vw, 4rem) !important;
+  font-size: clamp(2rem, 4.5vw, 2.8rem) !important;
   font-weight: 700 !important;
   letter-spacing: 0.02em !important;
   line-height: 1.12 !important;
@@ -342,7 +343,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
 }
 
 .c8isv-hero-intro, .c8srv-hero-intro {
-  font-size: 17px !important;
+  font-size: 15px !important;
   font-weight: 300 !important;
   color: rgba(250,250,247,0.65) !important;
   line-height: 1.6 !important;
@@ -532,7 +533,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   }
   .c8isv-anim-container video, .c8srv-anim-container video {
     height: 130px !important;
-    width: auto !important;
+    width: 310px !important;
     object-fit: contain !important;
     object-position: left center !important;
   }

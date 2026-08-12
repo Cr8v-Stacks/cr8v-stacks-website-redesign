@@ -47,7 +47,7 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
 
 /* ── Logo ── */
 .c8bm-root .c8bm-logo {display:flex!important;align-items:center!important;gap:10px!important;flex-shrink:0!important;}
-.c8bm-root .c8bm-logo-img {display:block!important;height:38px!important;width:auto!important;object-fit:contain!important;}
+.c8bm-root .c8bm-logo-img {display:block!important;height:44px!important;width:auto!important;}
 
 /* ── Desktop Nav ── */
 .c8bm-root .c8bm-pnav {

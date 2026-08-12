@@ -21,7 +21,7 @@ get_header();
 .c8srv-root, .c8srv-root * { box-sizing: border-box !important; }
 .c8srv-root { overflow: visible !important; background: #FFFFFF !important; color: #080808 !important; font-family: 'DM Sans', sans-serif !important; line-height: 1.65 !important; position: relative !important; }
 .c8srv-root .c8srv-wrap { padding: 5rem 3.5rem !important; max-width: 1440px !important; margin: 0 auto !important; position: relative !important; z-index: 2 !important; }
-@media (max-width: 1100px) { .c8srv-root .c8srv-wrap { padding: 3rem 1.25rem !important; } }
+@media (max-width: 1100px) { .c8srv-root .c8srv-wrap { padding: 3rem 1.25rem 0px !important; margin-top: 50px !important; } }
 .c8srv-root h1, .c8srv-root h2, .c8srv-root h3, .c8srv-root h4 { margin-top: 0 !important; margin-left: 0 !important; margin-right: 0 !important; line-height: 1.1 !important; }
 .c8srv-root p { margin: 0 0 1rem 0 !important; }
 .c8srv-root p:last-child { margin-bottom: 0 !important; }
@@ -150,7 +150,7 @@ get_header();
 .c8srv-root .c8srv-icon-sq svg { width: 20px !important; height: 20px !important; stroke: #FFFFFF !important; }
 
 /* ── Hero ── */
-.c8srv-root .c8srv-hero { position: relative !important; z-index: 2 !important; margin-bottom: 3rem !important; padding-top: 2rem !important; }
+.c8srv-root .c8srv-hero { position: relative !important; z-index: 2 !important; padding-top: 2rem !important; }
 .c8srv-root .c8srv-hero-atmos {
   position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 420px !important;
   z-index: 0 !important; pointer-events: none !important; overflow: hidden !important;

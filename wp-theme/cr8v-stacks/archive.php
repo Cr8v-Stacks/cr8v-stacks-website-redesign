@@ -45,6 +45,48 @@ $is_tag = is_tag();
   padding: 3.5rem 4rem;
   border-bottom: 1px solid var(--c8-grid-line);
   background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.archive-hero-content {
+  flex: 1;
+  min-width: 280px;
+}
+
+.archive-hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.archive-hero-visual video {
+  width: 320px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .archive-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+  .archive-hero-visual {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .archive-hero-visual video {
+    width: 310px !important;
+    height: 130px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+    margin: 1.25rem auto 0 0 !important;
+  }
 }
 
 .archive-eyebrow {
@@ -108,40 +150,39 @@ $is_tag = is_tag();
 }
 
 .cat-dropdown-wrapper { position: relative; display: inline-flex; align-items: center; }
-.cat-popover-dropdown {
-  position: absolute; top: 100%; right: 0; z-index: 100;
-  background: #080808; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px !important;
-  padding: 0.75rem; min-width: 200px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  opacity: 0; visibility: hidden; transform: translateY(4px);
-  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-  pointer-events: none; margin-top: 6px;
+.cat-popover {
+  display: none; position: absolute; top: calc(100% + 6px); right: 0; z-index: 99;
+  background: #FFFFFF; border: 1px solid var(--c8-grid-line); border-radius: 4px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12); padding: 0.5rem; min-width: 140px;
+  flex-direction: column; gap: 0.25rem;
 }
-.cat-popover-dropdown.is-open {
-  opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important;
-}
+.cat-popover.is-open { display: flex; animation: catPopIn 0.18s ease-out; }
+@keyframes catPopIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 
-.card-img-container {
-  aspect-ratio: 16 / 10;
-  border-radius: 4px !important;
+.cat-popover-item {
+  font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+  color: var(--c8-ink); padding: 0.35rem 0.6rem; text-decoration: none; border-radius: 2px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.cat-popover-item:hover { background: var(--c8-blue); color: #FFFFFF; }
+
+.card-title-wrap { margin-bottom: 1.25rem; }
+
+/* Fixed 16:9 Aspect Ratio Image Container & Canvas Fallbacks */
+.card-img-box {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
   overflow: hidden;
-  background: #FAFAF7;
   margin-bottom: 1rem;
-  border: 1px solid var(--c8-grid-line) !important;
-  position: relative;
+  border: 1px solid var(--c8-grid-line);
+  background: #F3F2EC;
 }
-.card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
-.blog-grid-card:hover .card-img { transform: scale(1.03); }
+.card-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
+.blog-grid-card:hover .card-img-box img { transform: scale(1.03); }
 
-/* AMBIENT MESH GRADIENT NON-IMAGE FALLBACK CARDS */
+/* Generative Fallback Canvas (Zero Empty Gray Space) */
 .card-fallback-canvas {
-  width: 100%; height: 100%; min-height: 190px;
-  border-radius: 4px !important;
-  padding: 1.6rem 1.4rem;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center;
-  position: relative; overflow: hidden;
-  box-sizing: border-box;
 }
 
 .card-fallback-canvas.is-light {
@@ -198,8 +239,8 @@ $is_tag = is_tag();
 
 <main class="archive-outer-frame">
   
-  <header class="archive-hero" style="display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap;">
-    <div class="archive-hero-content" style="flex: 1; min-width: 280px;">
+  <header class="archive-hero">
+    <div class="archive-hero-content">
       <div class="archive-eyebrow">// CATEGORY ARCHIVE</div>
       <h1 class="archive-h1"><?php echo esc_html($archive_title); ?></h1>
       <?php if (!empty($archive_desc)) : ?>
@@ -208,8 +249,8 @@ $is_tag = is_tag();
         <div class="archive-sub">Curated technical breakdowns, case studies, and architecture insights published under <?php echo esc_html($archive_title); ?>.</div>
       <?php endif; ?>
     </div>
-    <div class="archive-hero-visual" style="display: flex; align-items: center; justify-content: center;">
-      <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 320px; max-width: 100%; height: auto; display: block; background: transparent;">
+    <div class="archive-hero-visual">
+      <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback>
         <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.webm'); ?>" type="video/webm">
         <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.gif'); ?>" alt="Cr8v Stacks Archive Logo Visual">
       </video>
