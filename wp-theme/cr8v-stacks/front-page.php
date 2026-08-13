@@ -1015,7 +1015,7 @@ defined('ABSPATH') || exit;
             <span class="sdv-item-title" data-customizer="sdv_1_title"><?php echo esc_html(cr8v_mod("sdv_1_title", "Website Design")); ?></span>
             <span class="sdv-item-tag tag-build">Build Layer</span>
             <div class="sdv-item-thumb">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_duch_apartments.jpg" alt="Website Design Preview">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.jpg'); ?>" alt="Website Design Preview">
             </div>
             <span class="sdv-item-chevron">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -1039,8 +1039,8 @@ defined('ABSPATH') || exit;
               </div>
               <!-- Visual thumbnail inside open panel -->
               <div class="sdv-panel-visual">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_duch_apartments.jpg" alt="Website Design Work">
-                <span class="sdv-panel-visual-label">Live Client Work</span>
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.jpg'); ?>" alt="Website Design Work">
+                <span class="sdv-panel-visual-label">Capability Layer</span>
               </div>
             </div>
           </div>
@@ -1053,7 +1053,7 @@ defined('ABSPATH') || exit;
             <span class="sdv-item-title" data-customizer="sdv_2_title"><?php echo esc_html(cr8v_mod("sdv_2_title", "Custom Development")); ?></span>
             <span class="sdv-item-tag tag-build">Build Layer</span>
             <div class="sdv-item-thumb">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_bridgepoint.jpg" alt="Custom Dev Preview">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.jpg'); ?>" alt="Custom Dev Preview">
             </div>
             <span class="sdv-item-chevron">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -1077,8 +1077,8 @@ defined('ABSPATH') || exit;
               </div>
               <!-- Visual thumbnail inside open panel -->
               <div class="sdv-panel-visual">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_bridgepoint.jpg" alt="Custom Development Work">
-                <span class="sdv-panel-visual-label">Live Client Work</span>
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.jpg'); ?>" alt="Custom Development Work">
+                <span class="sdv-panel-visual-label">Capability Layer</span>
               </div>
             </div>
           </div>
@@ -1091,7 +1091,7 @@ defined('ABSPATH') || exit;
             <span class="sdv-item-title" data-customizer="sdv_3_title"><?php echo esc_html(cr8v_mod("sdv_3_title", "AI MVP Products")); ?></span>
             <span class="sdv-item-tag tag-build">Build Layer</span>
             <div class="sdv-item-thumb">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>dev_mascot.jpg" alt="AI MVP Preview" style="object-position: center top;">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.jpg'); ?>" alt="AI MVP Preview">
             </div>
             <span class="sdv-item-chevron">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -1115,8 +1115,8 @@ defined('ABSPATH') || exit;
               </div>
               <!-- Visual thumbnail inside open panel -->
               <div class="sdv-panel-visual">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>dev_mascot.jpg" alt="AI MVP Build" style="object-position: center top;">
-                <span class="sdv-panel-visual-label">AI-Powered Build</span>
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.jpg'); ?>" alt="AI MVP Build">
+                <span class="sdv-panel-visual-label">Capability Layer</span>
               </div>
             </div>
           </div>
@@ -1129,7 +1129,7 @@ defined('ABSPATH') || exit;
             <span class="sdv-item-title" data-customizer="sdv_4_title"><?php echo esc_html(cr8v_mod("sdv_4_title", "Brand Strategy")); ?></span>
             <span class="sdv-item-tag tag-growth">Growth Layer</span>
             <div class="sdv-item-thumb">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_victorias_lane.jpg" alt="Brand Strategy Preview">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_brandstrategy.jpg'); ?>" alt="Brand Strategy Preview">
             </div>
             <span class="sdv-item-chevron">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -1164,7 +1164,7 @@ defined('ABSPATH') || exit;
             <span class="sdv-item-title" data-customizer="sdv_5_title"><?php echo esc_html(cr8v_mod("sdv_5_title", "SEO & Content")); ?></span>
             <span class="sdv-item-tag tag-growth">Growth Layer</span>
             <div class="sdv-item-thumb">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_blvck_hair.jpg" alt="SEO & Content Preview">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_seocontent.jpg'); ?>" alt="SEO & Content Preview">
             </div>
             <span class="sdv-item-chevron">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -1199,7 +1199,7 @@ defined('ABSPATH') || exit;
             <span class="sdv-item-title" data-customizer="sdv_6_title"><?php echo esc_html(cr8v_mod("sdv_6_title", "Digital Marketing")); ?></span>
             <span class="sdv-item-tag tag-growth">Growth Layer</span>
             <div class="sdv-item-thumb">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>case_studies/case_study_mkenny_properties.jpg" alt="Digital Marketing Preview">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_digimkt.jpg'); ?>" alt="Digital Marketing Preview">
             </div>
             <span class="sdv-item-chevron">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
