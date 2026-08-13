@@ -1044,7 +1044,7 @@ defined('ABSPATH') || exit;
           <button class="sdv-item-trigger" aria-expanded="true" data-sdv-toggle="sdv-web-design">
             <span class="sdv-item-num">01</span>
             <span class="sdv-item-title" data-customizer="sdv_1_title"><?php echo esc_html(cr8v_mod("sdv_1_title", "Website Design")); ?></span>
-            <span class="sdv-item-tag tag-build">Build Layer</span>
+            <span class="sdv-item-tag tag-build sdv-badge-blue">Build Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.jpg'); ?>" alt="Website Design Preview">
             </div>
@@ -1068,10 +1068,9 @@ defined('ABSPATH') || exit;
                   </a>
                 </div>
               </div>
-              <!-- Visual thumbnail inside open panel -->
               <div class="sdv-panel-visual">
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.jpg'); ?>" alt="Website Design Work">
-                <span class="sdv-panel-visual-label">Capability Layer</span>
+                <span class="sdv-panel-visual-label sdv-badge-blue">Capability Layer</span>
               </div>
             </div>
           </div>
@@ -1082,7 +1081,7 @@ defined('ABSPATH') || exit;
           <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-custom-dev">
             <span class="sdv-item-num">02</span>
             <span class="sdv-item-title" data-customizer="sdv_2_title"><?php echo esc_html(cr8v_mod("sdv_2_title", "Custom Development")); ?></span>
-            <span class="sdv-item-tag tag-build">Build Layer</span>
+            <span class="sdv-item-tag tag-build sdv-badge-red">Build Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.jpg'); ?>" alt="Custom Dev Preview">
             </div>
@@ -1106,10 +1105,9 @@ defined('ABSPATH') || exit;
                   </a>
                 </div>
               </div>
-              <!-- Visual thumbnail inside open panel -->
               <div class="sdv-panel-visual">
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.jpg'); ?>" alt="Custom Development Work">
-                <span class="sdv-panel-visual-label">Capability Layer</span>
+                <span class="sdv-panel-visual-label sdv-badge-red">Capability Layer</span>
               </div>
             </div>
           </div>
@@ -1120,7 +1118,7 @@ defined('ABSPATH') || exit;
           <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-ai-mvp">
             <span class="sdv-item-num">03</span>
             <span class="sdv-item-title" data-customizer="sdv_3_title"><?php echo esc_html(cr8v_mod("sdv_3_title", "AI MVP Products")); ?></span>
-            <span class="sdv-item-tag tag-build">Build Layer</span>
+            <span class="sdv-item-tag tag-build sdv-badge-gold">Build Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.jpg'); ?>" alt="AI MVP Preview">
             </div>
@@ -1144,10 +1142,9 @@ defined('ABSPATH') || exit;
                   </a>
                 </div>
               </div>
-              <!-- Visual thumbnail inside open panel -->
               <div class="sdv-panel-visual">
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.jpg'); ?>" alt="AI MVP Build">
-                <span class="sdv-panel-visual-label">Capability Layer</span>
+                <span class="sdv-panel-visual-label sdv-badge-gold">Capability Layer</span>
               </div>
             </div>
           </div>
@@ -1158,7 +1155,7 @@ defined('ABSPATH') || exit;
           <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-brand-strategy">
             <span class="sdv-item-num">04</span>
             <span class="sdv-item-title" data-customizer="sdv_4_title"><?php echo esc_html(cr8v_mod("sdv_4_title", "Brand Strategy")); ?></span>
-            <span class="sdv-item-tag tag-growth">Growth Layer</span>
+            <span class="sdv-item-tag tag-growth sdv-badge-white">Growth Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_brandstrategy.jpg'); ?>" alt="Brand Strategy Preview">
             </div>
@@ -1184,6 +1181,10 @@ defined('ABSPATH') || exit;
                   </a>
                 </div>
               </div>
+              <div class="sdv-panel-visual">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_brandstrategy.jpg'); ?>" alt="Brand Strategy Work">
+                <span class="sdv-panel-visual-label sdv-badge-white">Capability Layer</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1193,7 +1194,7 @@ defined('ABSPATH') || exit;
           <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-seo">
             <span class="sdv-item-num">05</span>
             <span class="sdv-item-title" data-customizer="sdv_5_title"><?php echo esc_html(cr8v_mod("sdv_5_title", "SEO & Content")); ?></span>
-            <span class="sdv-item-tag tag-growth">Growth Layer</span>
+            <span class="sdv-item-tag tag-growth sdv-badge-blue">Growth Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_seocontent.jpg'); ?>" alt="SEO & Content Preview">
             </div>
@@ -1219,6 +1220,10 @@ defined('ABSPATH') || exit;
                   </a>
                 </div>
               </div>
+              <div class="sdv-panel-visual">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_seocontent.jpg'); ?>" alt="SEO Architecture Work">
+                <span class="sdv-panel-visual-label sdv-badge-blue">Capability Layer</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1228,7 +1233,7 @@ defined('ABSPATH') || exit;
           <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-digital-marketing">
             <span class="sdv-item-num">06</span>
             <span class="sdv-item-title" data-customizer="sdv_6_title"><?php echo esc_html(cr8v_mod("sdv_6_title", "Digital Marketing")); ?></span>
-            <span class="sdv-item-tag tag-growth">Growth Layer</span>
+            <span class="sdv-item-tag tag-growth sdv-badge-red">Growth Layer</span>
             <div class="sdv-item-thumb">
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_digimkt.jpg'); ?>" alt="Digital Marketing Preview">
             </div>
@@ -1253,6 +1258,10 @@ defined('ABSPATH') || exit;
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
                 </div>
+              </div>
+              <div class="sdv-panel-visual">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_digimkt.jpg'); ?>" alt="Digital Marketing Campaign Work">
+                <span class="sdv-panel-visual-label sdv-badge-red">Capability Layer</span>
               </div>
             </div>
           </div>

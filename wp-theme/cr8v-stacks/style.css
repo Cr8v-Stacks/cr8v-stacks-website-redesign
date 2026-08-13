@@ -935,12 +935,35 @@ a .art-author-bio {
       border-bottom: 1px solid var(--c8-line);
     }
 
-    /* Paper Grid Section */
+    /* Global Tactile Grain Noise Overlay */
+    .c8-grain-overlay,
+    .c8-puzzle-section::before,
+    .sdv-section::before,
+    .dp-section::before,
+    .hww-section::before,
+    .wwa-section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.12;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Paper Grid Section (CREATIVE AGENCY MINDSET) — Full Width */
     .c8-puzzle-section {
-      padding: 6rem 2rem 8rem;
-      max-width: 1400px;
-      margin: 0 auto;
+      padding: 6rem 3.5rem 8rem;
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
       position: relative;
+      background-color: #080808 !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.35) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 71, 225, 0.25) 0%, transparent 60%) !important;
+      color: #FFFFFF;
+      overflow: hidden;
     }
 
     .c8-puzzle-header {
@@ -953,9 +976,9 @@ a .art-author-bio {
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(3, minmax(480px, auto));
       position: relative;
-      background: var(--c8-line);
+      background: rgba(255, 255, 255, 0.08) !important;
       gap: 1px;
-      border: 1px solid var(--c8-line);
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
       border-radius: 4px;
       overflow: hidden;
       touch-action: none;
