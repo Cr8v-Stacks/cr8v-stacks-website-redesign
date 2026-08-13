@@ -259,11 +259,17 @@ a .art-author-bio {
        HERO WRITTEN CONTENT (TOP SECTION)
        ═══════════════════════════════════════════════════════════════════════════ */
     .c8-hero-top {
-      padding-top: 8.5rem;
-      padding-bottom: 2.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 6rem;
+      padding-bottom: 3rem;
       text-align: center;
       position: relative;
       z-index: 10;
+      box-sizing: border-box;
     }
 
     .c8-hero-in {
@@ -950,7 +956,6 @@ a .art-author-bio {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E") !important;
     }
 
-    /* Paper Grid Section (CREATIVE AGENCY MINDSET) — Majority Obsidian Black #080808 with Restrained Blue Glow */
     .c8-puzzle-section {
       width: 100% !important;
       max-width: none !important;
@@ -958,9 +963,7 @@ a .art-author-bio {
       padding: 6rem 3.5rem 8rem !important;
       position: relative !important;
       background-color: #080808 !important;
-      background-image: 
-        radial-gradient(circle at 10% 0%, rgba(0, 71, 225, 0.08) 0%, transparent 40%), 
-        radial-gradient(circle at 90% 100%, rgba(0, 71, 225, 0.05) 0%, transparent 40%) !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.35) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 71, 225, 0.25) 0%, transparent 60%) !important;
       color: #FFFFFF !important;
       overflow: hidden !important;
     }
@@ -1663,18 +1666,16 @@ a .art-author-bio {
       overflow: visible;
     }
 
-    /* Right half: royal blue */
     .dp-half-right {
       flex: 1 !important;
-      background: #080808 !important;
-      background-image: 
-        radial-gradient(circle at 10% 0%, rgba(0, 71, 225, 0.08) 0%, transparent 40%), 
-        radial-gradient(circle at 90% 100%, rgba(0, 71, 225, 0.05) 0%, transparent 40%) !important;
+      background-color: #0047E1 !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(61, 107, 255, 0.4) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.4) 0%, transparent 60%) !important;
       position: relative !important;
       display: flex !important;
       align-items: center !important;
       padding: 7rem 3.5rem 7rem 5rem !important;
       overflow: visible !important;
+      color: #FFFFFF !important;
     }
 
 

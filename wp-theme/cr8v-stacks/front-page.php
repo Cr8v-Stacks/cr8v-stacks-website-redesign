@@ -1327,18 +1327,17 @@ defined('ABSPATH') || exit;
       overflow: visible;
     }
 
-    /* Right half: #080808 dark black with radial blue gradient & SVG noise filter */
+    /* Right half: Royal Blue #0047E1 */
     .dp-half-right {
       flex: 1 !important;
-      background: #080808 !important;
-      background-image: 
-        radial-gradient(circle at 10% 0%, rgba(0, 71, 225, 0.08) 0%, transparent 40%), 
-        radial-gradient(circle at 90% 100%, rgba(0, 71, 225, 0.05) 0%, transparent 40%) !important;
+      background-color: #0047E1 !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(61, 107, 255, 0.4) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.4) 0%, transparent 60%) !important;
       position: relative !important;
       display: flex !important;
       align-items: center !important;
       padding: 7rem 3.5rem 7rem 5rem !important;
       overflow: visible !important;
+      color: #FFFFFF !important;
     }
 
 
