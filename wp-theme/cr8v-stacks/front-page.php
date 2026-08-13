@@ -653,7 +653,9 @@ defined('ABSPATH') || exit;
     ────────────────────────────────────────────────────────────── */
     .sdv-section {
       background-color: #080808 !important;
-      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E") !important;
+      background-image: 
+        radial-gradient(circle at 10% 0%, rgba(0, 71, 225, 0.08) 0%, transparent 40%), 
+        radial-gradient(circle at 90% 100%, rgba(0, 71, 225, 0.05) 0%, transparent 40%) !important;
       padding: 9rem 3.5rem !important;
       position: relative !important;
       overflow: hidden !important;
@@ -1329,7 +1331,9 @@ defined('ABSPATH') || exit;
     .dp-half-right {
       flex: 1 !important;
       background: #080808 !important;
-      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E") !important;
+      background-image: 
+        radial-gradient(circle at 10% 0%, rgba(0, 71, 225, 0.08) 0%, transparent 40%), 
+        radial-gradient(circle at 90% 100%, rgba(0, 71, 225, 0.05) 0%, transparent 40%) !important;
       position: relative !important;
       display: flex !important;
       align-items: center !important;
