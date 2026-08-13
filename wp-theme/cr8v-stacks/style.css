@@ -963,7 +963,7 @@ a .art-author-bio {
       padding: 6rem 3.5rem 8rem !important;
       position: relative !important;
       background-color: #080808 !important;
-      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.35) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 71, 225, 0.25) 0%, transparent 60%) !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%) !important;
       color: #FFFFFF !important;
       overflow: hidden !important;
     }
@@ -1668,8 +1668,8 @@ a .art-author-bio {
 
     .dp-half-right {
       flex: 1 !important;
-      background-color: #0047E1 !important;
-      background-image: radial-gradient(circle at 15% 15%, rgba(61, 107, 255, 0.4) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.4) 0%, transparent 60%) !important;
+      background-color: #080808 !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.70) 0%, transparent 65%), radial-gradient(circle at 90% 85%, rgba(0, 71, 225, 0.50) 0%, transparent 65%) !important;
       position: relative !important;
       display: flex !important;
       align-items: center !important;
@@ -3185,9 +3185,7 @@ a .art-author-bio {
     /* ── SECTION 4: WHAT WE ACTUALLY DO (SERVICES ACCORDION FROM HOMEPAGE VERBATIM) ── */
     .sdv-section {
       background-color: #080808 !important;
-      background-image: 
-        radial-gradient(circle at 10% 0%, rgba(0, 71, 225, 0.08) 0%, transparent 40%), 
-        radial-gradient(circle at 90% 100%, rgba(0, 71, 225, 0.05) 0%, transparent 40%) !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%) !important;
       padding: 9rem 3.5rem !important;
       position: relative !important;
       overflow: hidden !important;
@@ -14707,9 +14705,7 @@ body {
     /* ── SECTION 4: WHAT WE ACTUALLY DO (SERVICES ACCORDION FROM HOMEPAGE VERBATIM) ── */
     .sdv-section {
       background-color: #080808 !important;
-      background-image: 
-        radial-gradient(circle at 10% 0%, rgba(0, 71, 225, 0.08) 0%, transparent 40%), 
-        radial-gradient(circle at 90% 100%, rgba(0, 71, 225, 0.05) 0%, transparent 40%) !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%) !important;
       padding: 9rem 3.5rem !important;
       position: relative !important;
       overflow: hidden !important;

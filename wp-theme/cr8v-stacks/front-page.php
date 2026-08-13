@@ -1327,11 +1327,11 @@ defined('ABSPATH') || exit;
       overflow: visible;
     }
 
-    /* Right half: Royal Blue #0047E1 */
+    /* Right half: #080808 dark black with higher intensity Royal Blue gradient */
     .dp-half-right {
       flex: 1 !important;
-      background-color: #0047E1 !important;
-      background-image: radial-gradient(circle at 15% 15%, rgba(61, 107, 255, 0.4) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.4) 0%, transparent 60%) !important;
+      background-color: #080808 !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.70) 0%, transparent 65%), radial-gradient(circle at 90% 85%, rgba(0, 71, 225, 0.50) 0%, transparent 65%) !important;
       position: relative !important;
       display: flex !important;
       align-items: center !important;
