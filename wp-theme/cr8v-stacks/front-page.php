@@ -18,6 +18,26 @@ defined('ABSPATH') || exit;
 <?php get_template_part('parts/header'); ?>
 
 <main id="cr8v-main">
+  <style>
+    .c8-hero-top.c8-hero-b-standalone,
+    .c8-hero-b-standalone {
+      min-height: 100vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      padding-top: 6rem !important;
+      padding-bottom: 3rem !important;
+      text-align: center !important;
+      position: relative !important;
+      z-index: 10 !important;
+      box-sizing: border-box !important;
+      background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/abstract/hero_bg_beam.jpg') !important;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+    }
+  </style>
   <section class="c8-hero-top c8-hero-b-standalone">
     <div class="c8-hero-in">
       <div class="c8-eyebrow" data-customizer="hero_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('hero_eyebrow', 'SCALE WITH AUTHORITY')); ?></div>

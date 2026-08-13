@@ -937,11 +937,21 @@ a .art-author-bio {
        HOMEPAGE B — CLEAN STANDALONE HERO & SUBTLE PAPER GRID SLIDING PUZZLE
        ═══════════════════════════════════════════════════════════════════════════ */
     .c8-hero-b-standalone {
-      padding-top: 8.5rem;
-      padding-bottom: 5.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 6rem;
+      padding-bottom: 3rem;
       text-align: center;
       position: relative;
-      background: var(--c8-bg);
+      z-index: 10;
+      box-sizing: border-box;
+      background-image: url('assets/img/abstract/hero_bg_beam.jpg') !important;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
       border-bottom: 1px solid var(--c8-line);
     }
 
@@ -996,7 +1006,9 @@ a .art-author-bio {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: #FFFFFF !important;
+      background: #111111 !important;
+      color: #FFFFFF !important;
+      border: 1px solid rgba(255, 255, 255, 0.06) !important;
       min-height: 480px;
       transition: background-color 0.3s ease;
       user-select: none;
@@ -1070,7 +1082,7 @@ a .art-author-bio {
       font-family: var(--font-heading);
       font-size: clamp(1.1rem, 2vw, 1.35rem) !important;
       font-weight: 700;
-      color: var(--c8-ink);
+      color: #FFFFFF !important;
       margin-bottom: 1rem;
       line-height: 1.35;
       text-transform: uppercase;
@@ -1081,7 +1093,7 @@ a .art-author-bio {
     .c8-pg-p {
       font-family: var(--font-body);
       font-size: 0.98rem;
-      color: var(--c8-muted);
+      color: rgba(255, 255, 255, 0.65) !important;
       line-height: 1.65;
       max-width: 380px;
       pointer-events: none;
