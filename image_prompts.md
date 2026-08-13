@@ -1,43 +1,43 @@
 # CR8V Stacks — Master Image Prompt Engineering Guide
 *Last updated: 2026-08-13*
 
-## 🎨 Master Prompt Engineering Systems
+## 🎨 The 3 Master Visual Systems
 
-All imagery across the website and social media templates follows **3 Master Visual Systems** that blend dark moody branding with stylized Lofi anime digital illustration.
-
----
-
-### 🟢 System 1: Stylized Silhouette & Shadow Beam (Chiaroscuro)
-* **Description**: Minimalist graphic silhouettes lit by dramatic beams of light casting long shadows across dark charcoal floors.
-* **Palette**: Dark obsidian (`#080808`), Royal Blue (`#0047E1`), warm golden light rays.
-* **Master Prompt**:
-  > Minimalist graphic lofi digital art illustration, 16:9 landscape aspect ratio. A stylized dark silhouette of a modern creator walking through a tall minimalist dark corridor, lit by a dramatic vertical beam of warm golden amber and royal blue (#0047E1) light casting a long shadow across the dark charcoal floor (#080808). High contrast chiaroscuro, stylized poster art, deep moody dark atmosphere, clean negative space, no photorealism.
+All visual assets across website cards, service landing pages, and social media media templates follow **3 Master Visual Systems**:
 
 ---
 
-### 🟢 System 2: Lofi Illustrated Workspace & Ambient Glow (Narrative Focus)
-* **Description**: Cozy late-night workspace scenes featuring **stylized Lofi anime characters** (soft cel-shading, messy hair, glasses, hoodie, Studio Ghibli / webtoon character aesthetic) working at glowing desks.
-* **Palette**: Dark room (`#080808`), Royal Blue (`#0047E1`) code screen glow, warm desk lamps.
+### 🟢 System 1: High-Contrast Chiaroscuro Silhouette & Shadow Beams
+* **Concept**: Minimalist graphic editorial poster art featuring stylized dark human silhouettes walking or standing through dramatic light shafts, casting long sharp shadows across dark obsidian floors.
+* **Key Visuals**: High contrast shadow play, geometric light beams, zero detailed facial features required.
+* **Palette**: Dark obsidian (`#080808`), Royal Blue (`#0047E1`), Sunset Crimson, and Warm Amber light shafts.
 * **Master Prompt**:
-  > Soft lofi digital anime illustration, dark moody atmosphere. A stylized young male developer with messy black hair and glasses sitting at a dark workspace at night, resting his head on his hand looking thoughtfully at glowing dual monitors. Soft royal blue (#0047E1) screen light and subtle warm golden twilight glow reflecting on his face and desk. Deep dark charcoal and obsidian background (#080808), painterly cel-shaded anime art style, soft linework, cozy moody atmosphere, 8k resolution, no photorealism, no 3D render.
+  > Minimalist high-contrast graphic editorial illustration, 16:9 landscape aspect ratio. A stylized dark silhouette of an adult professional walking through a dark minimalist space, struck by a dramatic beam of royal blue (#0047E1) light casting a long sharp shadow across the dark obsidian floor (#080808). High contrast chiaroscuro shadow play, graphic poster art style, deep moody dark atmosphere, clean negative space, no photorealism.
+
+---
+
+### 🟢 System 2: Mature Adult Lofi + Solid Stylized Silhouette Background
+* **Concept**: **Mature young adult characters** (28–35 age range, sophisticated adult features — NOT teenage look) set against **solid stylized silhouette backgrounds** (simplified dark shapes and monitor outlines) for high visual contrast.
+* **Key Visuals**: Mature facial structure, dark charcoal desk glow, flat graphic silhouette background shapes instead of cluttered realistic rooms.
+* **Palette**: Dark obsidian charcoal (`#080808`), Royal Blue (`#0047E1`) screen glow, warm amber accent rim light.
+* **Master Prompt**:
+  > Graphic lofi digital editorial illustration of a mature 30-year-old adult tech founder with glasses, resting head on hand thoughtfully at a desk at night. Soft royal blue (#0047E1) screen light reflecting on his face. Background features solid dark stylized minimalist silhouette shapes (#080808) creating high-contrast graphic contrast. Mature adult facial features, sophisticated cel-shading, moody dark tone, no teenage look, no clutter, no photorealism.
 
 ---
 
 ### 🟢 System 3: Rule-of-Thirds Negative Space Layout (Social & Overlay Ready)
-* **Description**: Lofi anime characters offset to the left or right third of the canvas, creating vast dark obsidian negative space for typography, headline copy, or UI card overlays.
-* **Palette**: Clean dark obsidian background (`#080808`), soft contextual light accents.
+* **Concept**: Mature adult character or graphic silhouette offset to the right or left third of the frame, leaving 50–60% clean dark obsidian (`#080808`) negative space for typography, headline text, or UI cards.
+* **Key Visuals**: Off-center framing, clean dark wall space, dual aspect ratio support (`16:9` landscape and `3:4` vertical).
+* **Palette**: Dark obsidian background (`#080808`), contextual brand light accents (Royal Blue, Sunset Crimson, Warm Amber).
 * **Master Prompt**:
-  > Atmospheric lofi digital anime illustration, 16:9 landscape aspect ratio. A stylized young female designer with dark hair sitting at a minimalist desk at night, offset to the right third of the frame. Left half of the image features a clean, vast deep dark obsidian charcoal (#080808) negative space wall for text overlay. Soft royal blue (#0047E1) glow from a laptop screen and warm amber desk lamp light, painterly lofi anime art style, soft cel-shading, moody quiet night aesthetic, no photorealism.
+  > Atmospheric graphic digital editorial illustration, 16:9 landscape aspect ratio. A mature adult female designer sitting at a minimalist desk, offset to the right third of the frame. The left 60% of the canvas is clean, vast deep obsidian black (#080808) negative space for copy overlay. Soft royal blue (#0047E1) rim light, mature adult features, stylized minimalist silhouette background, moody dark aesthetic, no photorealism.
 
 ---
 
-## 🛠️ Prompt Parameter Rules
+## 🛠️ Strict Prompt Guardrails
 
-1. **Character Engine Directive**: Always specify `lofi digital anime illustration`, `painterly cel-shaded anime art style`, `soft linework`. Always add negative constraints: `no photorealism, no 3D render, no real stock photos`.
-2. **Negative Space Directive**: Include explicit layout positioning: `subject offset to the right [or left] third of the frame, leaving clean deep dark charcoal negative space on the opposite side for text layout`.
-3. **Color Flexibility Directive**: Match ambient light to context:
-   - **Dev / Code**: Royal Blue (`#0047E1`) monitor glow.
-   - **Brand Strategy**: Warm Amber Gold & dusk lighting.
-   - **SEO & Growth**: Deep Crimson Sunset & twilight tones.
-4. **Aspect Ratios**: Specify `16:9` for landscape banners/cards and `3:4` or `9:16` for vertical cards & mobile layouts.
+1. **Mature Adult Features**: Always include `mature 30-year-old adult professional` and `mature adult facial features, no teenage look` to enforce appropriate character age.
+2. **Solid Silhouette Backgrounds**: Always specify `solid dark stylized minimalist silhouette shapes` for System 2 to keep backgrounds clean and punchy.
+3. **Pure Chiaroscuro Silhouettes**: System 1 uses graphic silhouettes and long shadows without facial details.
+4. **Aspect Ratios**: Supports `16:9` landscape and `3:4` / `9:16` vertical orientations.
 
