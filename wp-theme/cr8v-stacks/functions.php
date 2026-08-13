@@ -148,6 +148,7 @@ add_action('wp_enqueue_scripts', function () {
 /* ─── 3. INCLUDE MODULES ──────────────────────────────────────── */
 require_once get_template_directory() . '/inc/customizer.php';
 require_once get_template_directory() . '/inc/cpt-case-studies.php';
+require_once get_template_directory() . '/inc/cpt-business-talk.php';
 require_once get_template_directory() . '/inc/helpers.php';
 require_once get_template_directory() . '/inc/acf-fields.php';  // programmatic ACF groups (Tropos)
 
@@ -182,6 +183,7 @@ add_action('template_redirect', function () {
 /* ─── 5. PERMALINK FLUSH ON THEME ACTIVATION ─────────────────── */
 add_action('after_switch_theme', function () {
     cr8v_register_case_study_cpt(); // defined in inc/cpt-case-studies.php
+    cr8v_register_business_talk_cpt(); // defined in inc/cpt-business-talk.php
     flush_rewrite_rules();
 });
 
