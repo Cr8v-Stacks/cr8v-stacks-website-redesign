@@ -920,6 +920,92 @@ Audited all template headers and pages (`header.php`, `header-blog.php`, `front-
 - All headers now consistently output `wp_head()`, `body_class()`, `wp_body_open()`, and `wp_footer()`.
 - Zero missing hooks across all custom headers and service page templates.
 
+---
+
+## 🌐 Live Sitemap Audit & Zero-404 Permalink Synchronization (2026-08-13)
+
+### 1. Live Sitemap Index (`cr8vstacks.com/sitemap_index.xml`) Audit
+Extracted live URL patterns from `page-sitemap.xml`, `post-sitemap.xml`, `business-talk-sitemap.xml`, and `category-sitemap.xml`:
+
+| Sitemap Type | Live URL Pattern | Theme Routing / Architecture | Status |
+|---|---|---|---|
+| **Homepage** | `https://cr8vstacks.com/` | `front-page.php` | ✅ Matched |
+| **Contact Page** | `https://cr8vstacks.com/contact-us/` | `page-contact.php` (Slug alias: `contact-us`, `contact`) | ✅ Matched |
+| **About Page** | `https://cr8vstacks.com/about-us/` | `page-about.php` (Slug alias: `about-us`, `about`) | ✅ Matched |
+| **Services Index** | `https://cr8vstacks.com/services/` | `page-services.php` | ✅ Matched |
+| **Blog Index** | `https://cr8vstacks.com/blog/` | `home.php` (WP Reading Settings → Posts Page = Blog) | ✅ Matched |
+| **Case Studies CPT** | `https://cr8vstacks.com/case-studies/` | `archive-case_study.php` & `single-case_study.php` | ✅ Matched |
+| **Business Talk CPT** | `https://cr8vstacks.com/business-talk/` | `inc/cpt-business-talk.php` (`archive-business-talk.php` & `single.php` fallback) | ✅ Matched |
+| **Discovery Call** | `https://cr8vstacks.com/discovery-call/` | `page-discovery-call.php` | ✅ Matched |
+| **Toolkits** | `https://cr8vstacks.com/toolkits/` | `page-toolkits.php` | ✅ Matched |
+| **Nested Service Pages** | `/services/website-design-development/wordpress-development/` | Template Router in `functions.php` maps all nested & direct service slugs to custom templates | ✅ Matched |
+| **Single Blog Posts** | `https://cr8vstacks.com/%postname%/` | `single.php` | ✅ Matched |
+
+---
+
+### 2. Business Talk CPT Integration (`inc/cpt-business-talk.php`)
+- **Live Finding**: `cr8vstacks.com` has a dedicated `business-talk` custom post archive and article section (`/business-talk/%postname%/`).
+- **Solution**: Built `inc/cpt-business-talk.php` registering the `business-talk` Custom Post Type natively with category/tag taxonomy support, REST API compatibility, and `/business-talk/` rewrite rules.
+- **Result**: Installing this theme on the live site automatically routes all `business-talk` links into Tropos blog grid layout without any 404 errors.
+
+---
+
+### 3. Automatic Slug Alias Template Router (`functions.php`)
+To ensure that installing this theme on any WordPress environment (local or live) works out of the box without scrambling to fix broken page templates:
+```php
+// functions.php — Automatic Page Template Router
+add_filter('template_include', function ($template) {
+    $post_id = get_queried_object_id();
+    $slug    = $post_id ? get_post_field('post_name', $post_id) : '';
+
+    // Route service pages by slug aliases (supports both short & nested live slugs)
+    if (in_array($slug, ['web-design', 'website-design', 'website-design-development'], true)) {
+        return locate_template('page-service-web-design.php');
+    }
+    if (in_array($slug, ['shopify', 'shopify-ecommerce-design'], true)) {
+        return locate_template('page-service-shopify.php');
+    }
+    if (in_array($slug, ['wordpress', 'wordpress-development'], true)) {
+        return locate_template('page-service-wordpress.php');
+    }
+    if (in_array($slug, ['woocommerce', 'woocommerce-development'], true)) {
+        return locate_template('page-service-woocommerce.php');
+    }
+    if (in_array($slug, ['ecommerce', 'ecommerce-website-design'], true)) {
+        return locate_template('page-service-ecommerce.php');
+    }
+    if (in_array($slug, ['custom-dev', 'custom-web-development'], true)) {
+        return locate_template('page-service-custom-dev.php');
+    }
+    if (in_array($slug, ['ai-mvp', 'ai-mvp-development'], true)) {
+        return locate_template('page-service-ai-mvp.php');
+    }
+    if (in_array($slug, ['seo-content', 'search-engine-optimization-seo'], true)) {
+        return locate_template('page-service-seo-content.php');
+    }
+    if (in_array($slug, ['digital-marketing'], true)) {
+        return locate_template('page-service-digital-marketing.php');
+    }
+    if (in_array($slug, ['brand-strategy'], true)) {
+        return locate_template('page-service-brand-strategy.php');
+    }
+    return $template;
+});
+```
+
+---
+
+### 4. Step-by-Step Live Deployment Checklist (Zero 404 Protocol)
+When deploying this theme to the live production server `cr8vstacks.com`:
+1. **Upload Theme**: Upload `wp-theme/cr8v-stacks` to `/wp-content/themes/` and activate.
+2. **Flush Rewrite Rules**: Theme automatically triggers `flush_rewrite_rules()` on activation via `after_switch_theme`.
+3. **Permalink Settings**: WP Admin → Settings → Permalinks → verify **Post name** (`/%postname%/`) is selected.
+4. **WP Reading Settings**: WP Admin → Settings → Reading → set **Your homepage displays**:
+   - Homepage: **Home** (or leave empty if `front-page.php` handles root `/`)
+   - Posts page: **Blog** (`/blog/`)
+5. **Dynamic Menus**: WP Admin → Appearance → Menus → assign registered theme locations (`Primary Navigation`, `Mobile Drawer Navigation`, `Footer — Company Links`, `Footer — Services Links`).
+
+
 
 
 
