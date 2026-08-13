@@ -935,33 +935,25 @@ a .art-author-bio {
       border-bottom: 1px solid var(--c8-line);
     }
 
-    /* Global Hardware-Accelerated Film Grain Noise Overlay (Zero Scroll Lag, Pure Noise, No Dots) */
+    /* Remove background image from pseudo-elements per explicit user instruction */
     .c8-grain-overlay,
     .c8-puzzle-section::before,
     .sdv-section::before,
     .dp-section::before,
     .hww-section::before,
     .wwa-section::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.12;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%23080808'/%3E%3Cpath d='M2 3h1v1H2zm5 7h1v1H7zm12 4h1v1h-1zm8 9h1v1h-1zm14 2h1v1h-1zm9 8h1v1h-1zm15 3h1v1h-1zm8 7h1v1h-1zm12 5h1v1h-1zm7 9h1v1h-1zm-75 2h1v1h-1zm12 4h1v1h-1zm18 3h1v1h-1zm9 7h1v1h-1zm15 2h1v1h-1zm8 8h1v1h-1zm12 3h1v1h-1zm7 7h1v1h-1z' fill='%23ffffff' opacity='0.25'/%3E%3C/svg%3E");
-      background-repeat: repeat;
+      display: none !important;
     }
 
-    /* Paper Grid Section (CREATIVE AGENCY MINDSET) — Full Width Dark Theme */
+    /* Paper Grid Section (CREATIVE AGENCY MINDSET) — Full Width Dark Theme with Radial Blue Gradient & SVG Grain */
     .c8-puzzle-section {
-      padding: 6rem 3.5rem 8rem !important;
       width: 100% !important;
       max-width: none !important;
       margin: 0 !important;
+      padding: 6rem 3.5rem 8rem !important;
       position: relative !important;
       background-color: #080808 !important;
-      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.35) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 71, 225, 0.25) 0%, transparent 60%) !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.35) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 71, 225, 0.25) 0%, transparent 60%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E") !important;
       color: #FFFFFF !important;
       overflow: hidden !important;
     }
@@ -1666,13 +1658,14 @@ a .art-author-bio {
 
     /* Right half: royal blue */
     .dp-half-right {
-      flex: 1;
-      background: #0047E1;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding: 7rem 3.5rem 7rem 5rem;
-      overflow: visible;
+      flex: 1 !important;
+      background: #080808 !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E") !important;
+      position: relative !important;
+      display: flex !important;
+      align-items: center !important;
+      padding: 7rem 3.5rem 7rem 5rem !important;
+      overflow: visible !important;
     }
 
 
@@ -3181,8 +3174,13 @@ a .art-author-bio {
 
     /* ── SECTION 4: WHAT WE ACTUALLY DO (SERVICES ACCORDION FROM HOMEPAGE VERBATIM) ── */
     .sdv-section {
-      background: #080808; color: #FFFFFF; padding: 6rem 4rem;
-      position: relative; overflow: hidden; border-bottom: 1px solid var(--c8-grid-line);
+      background-color: #080808 !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E") !important;
+      padding: 9rem 3.5rem !important;
+      position: relative !important;
+      overflow: hidden !important;
+      color: #FFFFFF !important;
+      border-bottom: 1px solid var(--c8-grid-line);
     }
     .sdv-bg-blob { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; opacity: 0.15; }
     .sdv-bg-blob-1 { top: -100px; left: -100px; width: 500px; height: 500px; background: var(--c8-blue); }
@@ -14696,8 +14694,13 @@ body {
 
     /* ── SECTION 4: WHAT WE ACTUALLY DO (SERVICES ACCORDION FROM HOMEPAGE VERBATIM) ── */
     .sdv-section {
-      background: #080808; color: #FFFFFF; padding: 6rem 4rem;
-      position: relative; overflow: hidden; border-bottom: 1px solid var(--c8-grid-line);
+      background-color: #080808 !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E") !important;
+      padding: 9rem 3.5rem !important;
+      position: relative !important;
+      overflow: hidden !important;
+      color: #FFFFFF !important;
+      border-bottom: 1px solid var(--c8-grid-line);
     }
     .sdv-bg-blob { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; opacity: 0.15; }
     .sdv-bg-blob-1 { top: -100px; left: -100px; width: 500px; height: 500px; background: var(--c8-blue); }
