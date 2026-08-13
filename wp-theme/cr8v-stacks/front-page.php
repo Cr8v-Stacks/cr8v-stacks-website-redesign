@@ -42,7 +42,7 @@ defined('ABSPATH') || exit;
       max-width: none !important;
       margin: 0 !important;
       background-color: #080808 !important;
-      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.35) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 71, 225, 0.25) 0%, transparent 60%) !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%) !important;
       padding: 6rem 3.5rem 8rem !important;
       position: relative !important;
       overflow: hidden !important;
@@ -64,7 +64,7 @@ defined('ABSPATH') || exit;
       background-color: #0D0D0D !important;
     }
     .c8-pg-cell.is-empty-slot:hover {
-      background-color: rgba(0, 71, 225, 0.15) !important;
+      background-color: #040404 !important;
     }
     .c8-slot-hint { color: rgba(255, 255, 255, 0.4) !important; }
     .c8-drag-grip { color: #0047E1 !important; border-color: rgba(0, 71, 225, 0.4) !important; }

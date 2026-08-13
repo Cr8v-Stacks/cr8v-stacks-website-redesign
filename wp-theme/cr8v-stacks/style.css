@@ -270,6 +270,10 @@ a .art-author-bio {
       position: relative;
       z-index: 10;
       box-sizing: border-box;
+      background-image: url('assets/img/abstract/hero_bg_beam.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
     }
 
     .c8-hero-in {
@@ -1010,7 +1014,7 @@ a .art-author-bio {
       cursor: pointer;
     }
     .c8-pg-cell.is-empty-slot:hover {
-      background-color: rgba(0, 71, 225, 0.02) !important;
+      background-color: #040404 !important;
     }
 
     /* ULTRA-SUBTLE INK HINT BADGES */
