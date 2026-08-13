@@ -35,8 +35,39 @@ defined('ABSPATH') || exit;
     </div>
   </section>
 
-  <!-- POST-HERO ARCHITECTURAL PAPER GRID SECTION -->
+  <!-- POST-HERO ARCHITECTURAL PAPER GRID SECTION (CREATIVE AGENCY MINDSET) -->
+  <style>
+    .c8-puzzle-section {
+      background-color: #080808 !important;
+      padding: 6rem 2rem 8rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .c8-puzzle-section .c8-hero-h1 { color: #FFFFFF !important; }
+    .c8-puzzle-section .c8-hero-sub { color: rgba(255, 255, 255, 0.65) !important; }
+    .c8-paper-grid {
+      background: rgba(255, 255, 255, 0.08) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    }
+    .c8-pg-cell {
+      background: #111111 !important;
+      border: 1px solid rgba(255, 255, 255, 0.06) !important;
+      color: #FFFFFF !important;
+    }
+    .c8-pg-cell .c8-pg-h3 { color: #FFFFFF !important; }
+    .c8-pg-cell .c8-pg-p { color: rgba(255, 255, 255, 0.65) !important; }
+    .c8-pg-cell.is-empty-slot {
+      background-color: #0D0D0D !important;
+    }
+    .c8-pg-cell.is-empty-slot:hover {
+      background-color: rgba(0, 71, 225, 0.15) !important;
+    }
+    .c8-slot-hint { color: rgba(255, 255, 255, 0.4) !important; }
+    .c8-drag-grip { color: #0047E1 !important; border-color: rgba(0, 71, 225, 0.4) !important; }
+  </style>
+
   <section class="c8-puzzle-section" id="how-we-think">
+    <div class="c8-grain-overlay"></div>
     <div class="c8-puzzle-header">
       <div class="c8-eyebrow" data-customizer="paper_grid_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('paper_grid_eyebrow', 'CREATIVE AGENCY MINDSET')); ?></div>
       <h2 class="c8-hero-h1" style="font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 0.5rem;" data-customizer="paper_grid_heading"><?php echo esc_html(cr8v_mod('paper_grid_heading', 'How We Think & Create')); ?></h2>
@@ -47,9 +78,9 @@ defined('ABSPATH') || exit;
       
       <!-- Moving Visual Tile -->
       <div class="c8-puzzle-tile" id="desk-tile">
-        <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_1', get_template_directory_uri() . '/assets/img/kinetic_grid_showcase.jpg')); ?>" alt="Design Identity" class="c8-swap-img is-active-img" id="img-row-1">
-        <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_2', get_template_directory_uri() . '/assets/img/about_ai_workflow.jpg')); ?>" alt="AI Creative Partner" class="c8-swap-img" id="img-row-2">
-        <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_3', get_template_directory_uri() . '/assets/img/hww_stacks_visual.jpg')); ?>" alt="Growth Systems" class="c8-swap-img" id="img-row-3">
+        <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_1', get_template_directory_uri() . '/assets/img/abstract/cr8v_mindset_design_system.jpg')); ?>" alt="Design Identity" class="c8-swap-img is-active-img" id="img-row-1">
+        <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_2', get_template_directory_uri() . '/assets/img/abstract/cr8v_mindset_ai_partner.jpg')); ?>" alt="AI Creative Partner" class="c8-swap-img" id="img-row-2">
+        <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_3', get_template_directory_uri() . '/assets/img/abstract/cr8v_mindset_growth_engine.jpg')); ?>" alt="Growth Systems" class="c8-swap-img" id="img-row-3">
       </div>
 
       <!-- ROW 1 -->
@@ -1882,6 +1913,7 @@ defined('ABSPATH') || exit;
   </style>
 
   <section class="hww-section" id="how-we-work">
+    <div class="c8-grain-overlay"></div>
     <div class="hww-inner">
 
       <div class="hww-header">
@@ -1922,9 +1954,9 @@ defined('ABSPATH') || exit;
           </div>
         </div>
 
-        <!-- C2: Stacks visual -->
+        <!-- C2: Stacks visual (System 1 Chiaroscuro Beam) -->
         <div class="hww-card hww-c2">
-          <img src="<?php echo esc_url(cr8v_mod("hww_c2_img", get_template_directory_uri() . "/assets/img/hww_stacks_visual.jpg")); ?>" alt="Tech stack visualization" class="hww-visual-img" data-customizer="hww_c2_img">
+          <img src="<?php echo esc_url(cr8v_mod("hww_c2_img", get_template_directory_uri() . "/assets/img/abstract/cr8v_hww_chiaroscuro_beam.jpg")); ?>" alt="Tech stack visualization" class="hww-visual-img" data-customizer="hww_c2_img">
         </div>
 
         <!-- C3: Sprint Stat (blue) -->
@@ -2229,7 +2261,7 @@ defined('ABSPATH') || exit;
           </div>
           
           <div class="wwa-visual-card">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/'); ?>wwa_studio_visual.jpg" alt="Cr8v Stacks Studio Workspace" class="wwa-visual-img">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_about_negative_space.jpg'); ?>" alt="Cr8v Stacks Studio Workspace" class="wwa-visual-img">
             <div class="wwa-visual-overlay">
               <span class="wwa-visual-caption" data-customizer="wwa_caption"><?php echo esc_html(cr8v_mod("wwa_caption", "Built for execution, not pitch decks.")); ?></span>
               <span class="wwa-visual-badge" data-customizer="wwa_badge"><?php echo esc_html(cr8v_mod("wwa_badge", "IN-HOUSE STUDIO")); ?></span>
