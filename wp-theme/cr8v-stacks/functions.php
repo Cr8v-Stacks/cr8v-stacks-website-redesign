@@ -109,7 +109,7 @@ add_action('after_setup_theme', function () {
 /* ─── 2. ENQUEUE SCRIPTS & STYLES ────────────────────────────── */
 add_action('wp_enqueue_scripts', function () {
     $uri = get_template_directory_uri();
-    $v   = wp_get_theme()->get('Version');
+    $v   = time(); // Cache buster for live development updates
 
     // Google Fonts
     wp_enqueue_style(

@@ -38,10 +38,14 @@ defined('ABSPATH') || exit;
   <!-- POST-HERO ARCHITECTURAL PAPER GRID SECTION (CREATIVE AGENCY MINDSET) -->
   <style>
     .c8-puzzle-section {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
       background-color: #080808 !important;
-      padding: 6rem 2rem 8rem;
-      position: relative;
-      overflow: hidden;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.35) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 71, 225, 0.25) 0%, transparent 60%) !important;
+      padding: 6rem 3.5rem 8rem !important;
+      position: relative !important;
+      overflow: hidden !important;
     }
     .c8-puzzle-section .c8-hero-h1 { color: #FFFFFF !important; }
     .c8-puzzle-section .c8-hero-sub { color: rgba(255, 255, 255, 0.65) !important; }

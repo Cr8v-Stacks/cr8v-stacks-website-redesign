@@ -935,7 +935,7 @@ a .art-author-bio {
       border-bottom: 1px solid var(--c8-line);
     }
 
-    /* Global Tactile Grain Noise Overlay */
+    /* Global Hardware-Accelerated Film Grain Noise Overlay (Zero Scroll Lag, Pure Noise, No Dots) */
     .c8-grain-overlay,
     .c8-puzzle-section::before,
     .sdv-section::before,
@@ -949,21 +949,21 @@ a .art-author-bio {
       pointer-events: none;
       z-index: 1;
       opacity: 0.12;
-      mix-blend-mode: overlay;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%23080808'/%3E%3Cpath d='M2 3h1v1H2zm5 7h1v1H7zm12 4h1v1h-1zm8 9h1v1h-1zm14 2h1v1h-1zm9 8h1v1h-1zm15 3h1v1h-1zm8 7h1v1h-1zm12 5h1v1h-1zm7 9h1v1h-1zm-75 2h1v1h-1zm12 4h1v1h-1zm18 3h1v1h-1zm9 7h1v1h-1zm15 2h1v1h-1zm8 8h1v1h-1zm12 3h1v1h-1zm7 7h1v1h-1z' fill='%23ffffff' opacity='0.25'/%3E%3C/svg%3E");
+      background-repeat: repeat;
     }
 
-    /* Paper Grid Section (CREATIVE AGENCY MINDSET) — Full Width */
+    /* Paper Grid Section (CREATIVE AGENCY MINDSET) — Full Width Dark Theme */
     .c8-puzzle-section {
-      padding: 6rem 3.5rem 8rem;
+      padding: 6rem 3.5rem 8rem !important;
       width: 100% !important;
       max-width: none !important;
       margin: 0 !important;
-      position: relative;
+      position: relative !important;
       background-color: #080808 !important;
       background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.35) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 71, 225, 0.25) 0%, transparent 60%) !important;
-      color: #FFFFFF;
-      overflow: hidden;
+      color: #FFFFFF !important;
+      overflow: hidden !important;
     }
 
     .c8-puzzle-header {
