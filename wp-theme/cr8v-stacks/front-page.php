@@ -172,16 +172,16 @@ defined('ABSPATH') || exit;
 
     .sw-matrix-left {
       padding: 4rem 3.5rem;
-      border-right: 1px solid rgba(8, 8, 8, 0.06);
+      border-right: 1px solid rgba(0, 0, 0, 0.08);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: #FAFAF7;
+      background: var(--c8-surface-lift);
     }
 
     .sw-matrix-right {
       padding: 2.5rem;
-      background: #FFFFFF;
+      background: var(--c8-surface-lift);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -306,7 +306,7 @@ defined('ABSPATH') || exit;
 
       <!-- ── MATRIX INTRO HEADER CELL ── -->
       <div class="sw-matrix-cell sw-matrix-intro-cell">
-        <div class="sw-matrix-left" style="background:#FFFFFF; padding:3.5rem;">
+        <div class="sw-matrix-left" style="padding:3.5rem;">
           <div class="sw-matrix-eyebrow" data-customizer="work_matrix_eyebrow">// <?php echo esc_html(cr8v_mod('work_matrix_eyebrow', 'SELECTED WORK')); ?></div>
           <h2 class="sw-matrix-h2" style="font-size: clamp(1.4rem, 3.2vw, 2.2rem); margin-bottom: 0;" data-customizer="work_matrix_heading"><?php echo esc_html(cr8v_mod('work_matrix_heading', 'WORK THAT\'S VERIFIABLY LIVE.')); ?></h2>
         </div>
@@ -361,17 +361,7 @@ defined('ABSPATH') || exit;
 
       <!-- ── CASE 2: THE DUCH APARTMENTS ── -->
       <div class="sw-matrix-cell" id="cs-duch-apartments">
-        <div class="sw-matrix-right" style="border-right: 1px solid rgba(8, 8, 8, 0.06);">
-          <div class="sw-matrix-stat-floating">
-            <div class="sw-matrix-stat-val" data-customizer="cs2_stat_val"><?php echo esc_html(cr8v_mod('cs2_stat_val', '100% Custom')); ?></div>
-            <div class="sw-matrix-stat-lbl" data-customizer="cs2_stat_lbl"><?php echo esc_html(cr8v_mod('cs2_stat_lbl', 'Design & SEO Day 1')); ?></div>
-          </div>
-          <div class="sw-matrix-img-box">
-            <img src="<?php echo esc_url(cr8v_mod('cs2_img', get_template_directory_uri() . '/assets/img/case_studies/case_study_duch_apartments.jpg')); ?>" alt="The Duch Apartments" class="sw-matrix-img">
-          </div>
-        </div>
-
-        <div class="sw-matrix-left" style="border-right: none;">
+        <div class="sw-matrix-left">
           <div>
             <div class="sw-matrix-eyebrow" data-customizer="cs2_eyebrow">// <?php echo esc_html(cr8v_mod('cs2_eyebrow', 'BUILT-IN SEO ARCHITECTURE')); ?></div>
             <h2 class="sw-matrix-h2" data-customizer="cs2_heading"><?php echo esc_html(cr8v_mod('cs2_heading', 'Website Design With SEO Folded In From Day One')); ?></h2>
@@ -397,6 +387,16 @@ defined('ABSPATH') || exit;
               <span>Explore Case Study</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
+          </div>
+        </div>
+
+        <div class="sw-matrix-right">
+          <div class="sw-matrix-stat-floating">
+            <div class="sw-matrix-stat-val" data-customizer="cs2_stat_val"><?php echo esc_html(cr8v_mod('cs2_stat_val', '100% Custom')); ?></div>
+            <div class="sw-matrix-stat-lbl" data-customizer="cs2_stat_lbl"><?php echo esc_html(cr8v_mod('cs2_stat_lbl', 'Design & SEO Day 1')); ?></div>
+          </div>
+          <div class="sw-matrix-img-box">
+            <img src="<?php echo esc_url(cr8v_mod('cs2_img', get_template_directory_uri() . '/assets/img/case_studies/case_study_duch_apartments.jpg')); ?>" alt="The Duch Apartments" class="sw-matrix-img">
           </div>
         </div>
       </div>
@@ -1751,7 +1751,7 @@ defined('ABSPATH') || exit;
   <style>
     /* ── HOW WE WORK ── */
     .hww-section {
-      background: #F4F5F7;
+      background: #FFFFFF !important;
       padding: 7rem 3.5rem;
     }
     .hww-inner { max-width: 1360px; margin: 0 auto; }
@@ -1808,7 +1808,7 @@ defined('ABSPATH') || exit;
     }
     .hww-card:hover { transform: translateY(-4px) !important; box-shadow: 0 20px 60px rgba(0,0,0,0.10) !important; }
 
-    .hww-card-white  { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.07) !important; padding: 1.75rem; }
+    .hww-card-white  { background: var(--c8-surface-lift) !important; border: 1px solid rgba(0,0,0,0.08) !important; padding: 1.75rem; }
     .hww-card-blue   { background: var(--c8-blue); padding: 1.75rem; }
     .hww-card-dark   { background: #0A0A0A; padding: 1.75rem; }
     .hww-card-light  { background: #EAECF5; border: none !important; padding: 1.75rem; }
@@ -2120,7 +2120,7 @@ defined('ABSPATH') || exit;
         flex-direction: column;
         justify-content: space-between;
         padding: 3.5rem;
-        background: #FAFAF7;
+        background: var(--c8-surface-lift);
         border-right: 1px solid rgba(8, 8, 8, 0.06);
       }
       .wwa-h2 {
@@ -2194,7 +2194,7 @@ defined('ABSPATH') || exit;
         flex-direction: column;
         justify-content: space-between;
         padding: 3.5rem;
-        background: #FFFFFF;
+        background: var(--c8-surface-lift);
       }
       .wwa-features {
         display: flex;
@@ -2208,7 +2208,7 @@ defined('ABSPATH') || exit;
         gap: 1.2rem;
         align-items: flex-start;
         padding: 1.5rem;
-        background: #FAFAF7;
+        background: var(--c8-surface-lift);
         border-bottom: 1px solid rgba(8,8,8,0.06);
         transition: background 0.3s ease;
       }
@@ -2249,7 +2249,7 @@ defined('ABSPATH') || exit;
         grid-template-columns: repeat(3, 1fr);
         gap: 0;
         border: 1px solid rgba(8,8,8,0.06);
-        background: #FAFAF7;
+        background: var(--c8-surface-lift);
       }
       .wwa-stat {
         padding: 1.25rem 1rem;

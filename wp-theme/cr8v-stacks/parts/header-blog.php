@@ -73,12 +73,12 @@ defined('ABSPATH') || exit;
 .c8bm-root .c8bm-header {
   position:fixed!important;top:0!important;left:0!important;right:0!important;
   z-index:9500!important;height:68px!important;
-  background:#FAFAF7!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;
+  background:#FFFFFF!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;
   box-shadow:0 4px 40px rgba(0,0,0,0.07)!important;
   transition:background .3s ease,box-shadow .3s ease,border-color .3s ease!important;
 }
 .c8bm-root .c8bm-header.c8bm-scrolled {
-  background:#FAFAF7!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;
+  background:#FFFFFF!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;
   box-shadow:0 4px 40px rgba(0,0,0,0.07)!important;
 }
 
