@@ -57,15 +57,31 @@ a .art-author-bio {
        Brand Primary Color: #0047E1 (Royal Blue)
        ═══════════════════════════════════════════════════════════════════════════ */
     :root {
-      --c8-blue: #0047E1;
-      --c8-blue-hover: #0038C0;
-      --c8-blue-glow: rgba(0, 71, 225, 0.22);
-      --c8-blue-lite: rgba(0, 71, 225, 0.08);
-      --c8-ink: #080808;
-      --c8-muted: #6B6B6B;
-      --c8-bg: #FAFAF7;
-      --c8-white: #FFFFFF;
-      --c8-line: rgba(8, 8, 8, 0.06);
+      /* ── 1. CANVASES (Section Base Backdrops) ── */
+      --c8-page-light:        #FFFFFF;   /* Pure White Section Base Canvas (100% Video/Render Compatible) */
+      --c8-page-dark:         #080808;   /* Obsidian Black Section Base Canvas */
+      --c8-bg:                #FFFFFF;   /* Legacy mapping -> Pure White */
+
+      /* ── 2. SURFACES & ELEVATION (Cards & Panels ON Canvases) ── */
+      --c8-surface-lift:        #F2F2F0; /* Architectural Surface Fills on Light Canvas (15-20pt offset) */
+      --c8-surface-lift-border: rgba(0, 0, 0, 0.08);
+      
+      --c8-surface-lift-dark:   #141414; /* Elevated Charcoal Surface Fills on Dark Canvas */
+      --c8-surface-lift-dark-border: rgba(255, 255, 255, 0.10);
+
+      /* ── 3. BRAND ACCENTS & GLOWS ── */
+      --c8-blue:              #0047E1;   /* Agency Royal Blue */
+      --c8-blue-hover:        #0038C0;
+      --c8-blue-hi:           #3D6BFF;   /* Glowing Accent */
+      --c8-blue-glow:         rgba(0, 71, 225, 0.45);
+      --c8-blue-lite:         rgba(0, 71, 225, 0.08);
+
+      /* ── 4. TYPOGRAPHY ── */
+      --c8-ink:               #111111;   /* Primary Text on Light Canvas */
+      --c8-muted:             #555555;   /* Secondary Text on Light Canvas */
+      --c8-white:             #FFFFFF;
+      --c8-line:              rgba(0, 0, 0, 0.08);
+      
       --radius-sm: 4px;
       --radius-md: 4px;
       --radius-card: 4px;
@@ -73,7 +89,8 @@ a .art-author-bio {
       --radius-pill: 4px;
       --radius-lg: 4px;
       --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      /* Typography */
+
+      /* Typography Families */
       --font-heading: 'Michroma', sans-serif;
       --font-mono:    'Space Mono', monospace;
       --font-body:    'DM Sans', sans-serif;
