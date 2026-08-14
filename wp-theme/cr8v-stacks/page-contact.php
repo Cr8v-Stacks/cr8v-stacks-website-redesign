@@ -32,7 +32,7 @@ $form_label = cr8v_mod('contact_form_label', 'FILL OUT THE PROJECT FORM BELOW');
 .c8ct-root a, .c8ct-root a:hover, .c8ct-root a:focus, .c8ct-root button { text-decoration: none !important; }
 
 .c8ct-wrap { position:relative; background:var(--ink); overflow:hidden; padding:7.5rem 2.5rem 5rem 2.5rem; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-.c8ct-wrap::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 15% 15%,rgba(0,71,225,.4) 0%,transparent 50%),radial-gradient(circle at 90% 85%,rgba(0,56,192,.25) 0%,transparent 50%); pointer-events:none; }
+.c8ct-wrap::before { content:''; position:absolute; inset:0; background:none !important; pointer-events:none; }
 .c8ct-wrap::after { content:''; position:absolute; inset:0; background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size:140px 140px; mix-blend-mode:screen; pointer-events:none; }
 
 .c8ct-card { position:relative; z-index:1; width: 100%; max-width:720px; margin:0 auto; background:var(--paper); padding:4.5rem; overflow:visible; border-radius:4px !important; }

@@ -1718,7 +1718,7 @@ defined('ABSPATH') || exit;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
+      color: #0047E1 !important;
       margin-bottom: 2.5rem;
       display: flex;
       align-items: center;
@@ -1729,7 +1729,7 @@ defined('ABSPATH') || exit;
       content: '';
       width: 22px;
       height: 1.5px;
-      background: rgba(255,255,255,0.35);
+      background: #0047E1 !important;
       flex-shrink: 0;
     }
 
@@ -1746,7 +1746,7 @@ defined('ABSPATH') || exit;
       font-family: 'Michroma', sans-serif;
       font-size: clamp(2rem, 4vw, 2rem);
       font-weight: 700;
-      color: #FFFFFF;
+      color: #080808 !important;
       line-height: 1;
       margin-bottom: 0.3rem;
     }
@@ -1755,7 +1755,7 @@ defined('ABSPATH') || exit;
       font-family: 'DM Sans', sans-serif;
       font-size: 0.78rem;
       font-weight: 400;
-      color: rgba(255,255,255,0.5);
+      color: #555555 !important;
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
@@ -1764,10 +1764,10 @@ defined('ABSPATH') || exit;
       font-family: 'DM Sans', sans-serif;
       font-size: 0.95rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.65);
+      color: #333333 !important;
       line-height: 1.75;
       margin-bottom: 2.5rem;
-      border-left: 2px solid rgba(255,255,255,0.2);
+      border-left: 2px solid #0047E1 !important;
       padding-left: 1.25rem;
     }
 
@@ -1782,18 +1782,18 @@ defined('ABSPATH') || exit;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      color: rgba(255,255,255,0.65);
+      color: #0047E1 !important;
       font-family: 'DM Sans', sans-serif;
       font-size: 0.85rem;
       font-weight: 500;
-      border-bottom: 1px solid rgba(255,255,255,0.25);
+      border-bottom: 1px solid rgba(0, 71, 225, 0.35) !important;
       padding-bottom: 2px;
       transition: color 0.25s ease, border-color 0.25s ease;
     }
 
     .dp-btn-ghost:hover {
-      color: #FFFFFF;
-      border-color: rgba(255,255,255,0.7);
+      color: #0037B5 !important;
+      border-color: #0047E1 !important;
     }
 
     /* ── Mobile ── */

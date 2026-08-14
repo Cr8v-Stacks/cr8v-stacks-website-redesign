@@ -39,7 +39,7 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
 .c8hdr-root .c8-md-hero-logo-img{height:36px!important;width:auto!important;display:block!important;object-fit:contain!important;}
 
 /* ── Primary Nav ── */
-.c8hdr-root .c8-pnav{display:flex!important;align-items:center!important;gap:2px!important;background:#F3F2EC!important;padding:4px!important;height:46px!important;border-radius:4px!important;}
+.c8hdr-root .c8-pnav{display:flex!important;align-items:center!important;gap:2px!important;background:#F2F2F0!important;padding:4px!important;height:46px!important;border-radius:4px!important;}
 .c8hdr-root .c8-pnav-item{position:static!important;}
 .c8hdr-root .c8-pnav-link{display:flex!important;align-items:center!important;gap:4px!important;font-size:13px!important;font-weight:500!important;color:#080808!important;padding:0 1rem!important;height:38px!important;letter-spacing:.01em!important;cursor:pointer!important;position:relative!important;border-radius:4px!important;transition:background .2s ease,color .2s ease,box-shadow .2s ease!important;white-space:nowrap!important;user-select:none!important;font-family:'DM Sans',sans-serif!important;}
 .c8hdr-root .c8-pnav-link:hover,.c8hdr-root .c8-pnav-link.c8-open{background:#FFFFFF!important;color:#0047E1!important;box-shadow:0 2px 10px rgba(8,8,8,0.07)!important;}

@@ -1210,7 +1210,7 @@ body {
   <!-- ════════════════════════════════════════════════════════════════ -->
   <!-- PRIMARY SERVICE SHOWCASE — 6-CARD FULL-WIDTH ABOUT US GRID       -->
   <!-- ════════════════════════════════════════════════════════════════ -->
-  <section class="c8-about-section" id="primary-service-6cards" style="width: 100% !important; max-width: 100% !important; margin-left: 0 !important; margin-right: 0 !important; left: 0 !important; right: 0 !important; background-color: #080808 !important; background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%) !important; padding: 6rem 5vw !important; box-sizing: border-box !important; color: #FFFFFF !important; border-radius: 0 !important; margin-top: 3rem !important; margin-bottom: 5rem !important;">
+  <section class="c8-about-section" id="primary-service-6cards" style="width: 100% !important; max-width: 100% !important; margin-left: 0 !important; margin-right: 0 !important; left: 0 !important; right: 0 !important; background-color: #080808 !important; background-image: none !important; padding: 6rem 5vw !important; box-sizing: border-box !important; color: #FFFFFF !important; border-radius: 0 !important; margin-top: 3rem !important; margin-bottom: 5rem !important;">
     <div class="c8-about-inner" style="max-width: 1400px; margin: 0 auto; position: relative; z-index: 1;">
       
       <div class="c8-about-header" style="margin-bottom: 4rem; text-align: left;">

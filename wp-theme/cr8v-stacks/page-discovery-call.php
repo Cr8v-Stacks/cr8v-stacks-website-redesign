@@ -38,7 +38,7 @@ get_header();
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 15% 15%, rgba(0,71,225,0.35) 0%, transparent 50%), radial-gradient(circle at 90% 85%, rgba(0,56,192,0.22) 0%, transparent 50%);
+  background: none !important;
   pointer-events: none;
 }
 .c8dc-wrap::after {
