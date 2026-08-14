@@ -121,28 +121,37 @@ $subtitle = cr8v_mod('blog_subtitle', 'Technical breakdowns, platform engineerin
 }
 
 .blog-grid-frame {
-  max-width: 1440px;
-  margin: 0 auto;
+  max-width: 1360px;
+  margin: 0 auto 4rem auto;
+  background: var(--c8-paper-card);
+  border: 1px solid var(--c8-grid-line);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  gap: 0 !important;
 }
 
 .blog-grid-card {
-  background: var(--c8-paper-card);
-  border: 1px solid var(--c8-grid-line);
-  border-radius: 4px !important;
-  padding: 1.6rem;
+  border-right: 1px solid var(--c8-grid-line) !important;
+  border-bottom: 1px solid var(--c8-grid-line) !important;
+  border-left: none !important;
+  border-top: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 1.8rem 1.6rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: background 0.2s ease;
+  transform: none !important;
 }
+.blog-grid-card:nth-child(3n) { border-right: none !important; }
 
 .blog-grid-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--c8-blue);
-  box-shadow: 0 12px 30px rgba(0, 71, 225, 0.08);
+  background: #FAFAF7 !important;
+  transform: none !important;
+  border-color: var(--c8-grid-line) !important;
+  box-shadow: none !important;
 }
 
 .card-top-meta {
@@ -188,12 +197,17 @@ $subtitle = cr8v_mod('blog_subtitle', 'Technical breakdowns, platform engineerin
 .card-img-container {
   aspect-ratio: 16 / 10;
   width: 100%;
-  border-radius: 4px !important;
+  border-radius: 2px !important;
   overflow: hidden;
   border: 1px solid var(--c8-grid-line);
   margin-bottom: 1.1rem;
   position: relative;
-  background: #FFFFFF;
+  background: transparent !important;
+}
+
+.card-fallback-canvas, .card-fallback-canvas *, .fallback-title, .fallback-cat, .card-title, .card-title a, .art-cat-pill, .card-category-pill, .art-author-name, .art-author-bio, .art-author-link, .art-back-btn, .cta-card-btn, .art-meta-author-link {
+  text-decoration: none !important;
+  border-bottom: none !important;
 }
 
 .card-img {

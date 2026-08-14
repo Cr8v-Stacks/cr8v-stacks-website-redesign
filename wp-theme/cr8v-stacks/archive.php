@@ -171,15 +171,20 @@ $is_tag = is_tag();
 
 .card-img-container {
   aspect-ratio: 16 / 10;
-  border-radius: 4px !important;
+  border-radius: 2px !important;
   overflow: hidden;
-  background: #FAFAF7;
+  background: transparent !important;
   margin-bottom: 1rem;
   border: 1px solid var(--c8-grid-line) !important;
   position: relative;
 }
 .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
 .blog-grid-card:hover .card-img { transform: scale(1.03); }
+
+.card-fallback-canvas, .card-fallback-canvas *, .fallback-title, .fallback-cat, .card-title, .card-title a, .art-cat-pill, .card-category-pill, .art-author-name, .art-author-bio, .art-author-link, .art-back-btn, .cta-card-btn, .art-meta-author-link {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
 
 /* AMBIENT MESH GRADIENT NON-IMAGE FALLBACK CARDS */
 .card-fallback-canvas {

@@ -262,9 +262,14 @@ body.single-post {
 /* FEATURED IMAGE */
 .art-featured-box {
   aspect-ratio: 16 / 9; width: 100%; border-radius: 4px; overflow: hidden;
-  border: 1px solid var(--c8-grid-line); margin-bottom: 2.5rem; background: #000000;
+  border: 1px solid var(--c8-grid-line); margin-bottom: 2.5rem; background: transparent !important;
 }
 .art-featured-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.card-fallback-canvas, .card-fallback-canvas *, .fallback-title, .fallback-cat, .card-title, .card-title a, .art-cat-pill, .card-category-pill, .art-author-name, .art-author-bio, .art-author-link, .art-back-btn, .cta-card-btn, .art-meta-author-link {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
 
 /* PRE-STYLED BLOG ELEMENT DESIGN SYSTEM */
 .art-body-text { min-width: 0; word-break: break-word; overflow-wrap: break-word; }
