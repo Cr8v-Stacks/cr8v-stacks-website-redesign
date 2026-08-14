@@ -298,19 +298,214 @@ defined('ABSPATH') || exit;
       }
       .sw-matrix-right {
         padding: 1.5rem;
+ <div class="sw-wrapper" id="selected-work">
+    <style>
+      /* ── SELECTED WORK REDESIGN (Architectural Blueprint Style) ── */
+      .sw-wrapper {
+        width: 100%;
+        background: #FFFFFF;
+        padding: 6rem 3.5rem 8rem;
       }
-    }
-  </style>
-<div class="sw-wrapper" id="selected-work">
+      .sw-matrix-wrapper {
+        max-width: 1280px;
+        margin: 0 auto;
+        border-top: 1px solid rgba(8, 8, 8, 0.12);
+        border-bottom: 1px solid rgba(8, 8, 8, 0.12);
+      }
+      .sw-matrix-intro-cell {
+        display: flex;
+        gap: 4rem;
+        align-items: flex-start;
+        padding: 3.5rem 0 3.5rem;
+        border-bottom: 1px solid rgba(8, 8, 8, 0.12);
+      }
+      .sw-matrix-intro-left { flex: 1; }
+      .sw-matrix-intro-right { flex: 1; }
+
+      .sw-matrix-cell {
+        display: flex;
+        position: relative;
+        border-bottom: 1px solid rgba(8, 8, 8, 0.12);
+      }
+      .sw-matrix-cell:last-child { border-bottom: none; }
+      .sw-matrix-cell.flip { flex-direction: row-reverse; }
+
+      /* Corner crosshair blueprint marks */
+      .sw-matrix-cell::before, .sw-matrix-cell::after {
+        content: '+';
+        position: absolute;
+        font-size: 14px;
+        font-family: var(--font-mono);
+        color: rgba(8, 8, 8, 0.25);
+        line-height: 1;
+        z-index: 10;
+      }
+      .sw-matrix-cell::before { top: -7px; left: -7px; }
+      .sw-matrix-cell::after { bottom: -7px; right: -7px; }
+
+      .sw-matrix-left {
+        flex: 1;
+        padding: 4rem 3.5rem 4rem 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: transparent;
+        border-right: none;
+      }
+      .sw-matrix-right {
+        flex: 1;
+        padding: 4rem 0.5rem 4rem 3.5rem;
+        border-left: 1px solid rgba(8, 8, 8, 0.12);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: transparent;
+      }
+      .sw-matrix-cell.flip .sw-matrix-left {
+        padding: 4rem 0.5rem 4rem 3.5rem;
+      }
+      .sw-matrix-cell.flip .sw-matrix-right {
+        padding: 4rem 3.5rem 4rem 0.5rem;
+        border-left: none;
+        border-right: 1px solid rgba(8, 8, 8, 0.12);
+      }
+
+      .sw-quote-box {
+        margin: 0 0 1.75rem 0;
+        padding: 4px 0 4px 18px;
+        border-left: 2px solid #0047E1;
+      }
+      .sw-quote-box p {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: #33332F;
+        margin: 0;
+      }
+      .sw-chip-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #555555;
+        margin-bottom: 1.75rem;
+      }
+      .sw-chip-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        background: rgba(0, 71, 225, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        color: #0047E1;
+        font-weight: 700;
+        font-family: var(--font-mono);
+        flex-shrink: 0;
+      }
+
+      /* Media Frame & Floating Badge Overlays */
+      .sw-media-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16/10;
+        overflow: hidden;
+        border: 1px solid rgba(8, 8, 8, 0.12);
+      }
+      .sw-media-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+      .sw-media-frame:hover img {
+        transform: scale(1.04);
+      }
+
+      .sw-corner-label {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        z-index: 4;
+        background: rgba(8, 8, 8, 0.75);
+        backdrop-filter: blur(6px);
+        padding: 5px 10px;
+        border-radius: 4px;
+      }
+      .sw-dot-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 3px);
+        grid-template-rows: repeat(3, 3px);
+        gap: 2px;
+      }
+      .sw-dot-grid span { width: 3px; height: 3px; background: rgba(255, 255, 255, 0.65); }
+      .sw-corner-text {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .sw-floating-badge {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        background: #FFFFFF;
+        border: 1px solid rgba(8, 8, 8, 0.12);
+        padding: 8px 14px;
+        z-index: 4;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+      .sw-floating-badge .b1 {
+        font-family: var(--font-heading);
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #0047E1;
+        line-height: 1.3;
+      }
+      .sw-floating-badge .b2 {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #555555;
+        line-height: 1.4;
+      }
+
+      @media (max-width: 900px) {
+        .sw-matrix-intro-cell { flex-direction: column; gap: 1.5rem; }
+        .sw-matrix-cell, .sw-matrix-cell.flip { flex-direction: column; }
+        .sw-matrix-left, .sw-matrix-right,
+        .sw-matrix-cell.flip .sw-matrix-left,
+        .sw-matrix-cell.flip .sw-matrix-right {
+          padding: 2.5rem 0;
+          border: none;
+        }
+      }
+    </style>
+
     <div class="sw-matrix-wrapper">
 
       <!-- ── MATRIX INTRO HEADER CELL ── -->
-      <div class="sw-matrix-cell sw-matrix-intro-cell">
-        <div class="sw-matrix-left" style="padding:3.5rem;">
+      <div class="sw-matrix-intro-cell">
+        <div class="sw-matrix-intro-left">
           <div class="sw-matrix-eyebrow" data-customizer="work_matrix_eyebrow">// <?php echo esc_html(cr8v_mod('work_matrix_eyebrow', 'SELECTED WORK')); ?></div>
-          <h2 class="sw-matrix-h2" style="font-size: clamp(1.4rem, 3.2vw, 2.2rem); margin-bottom: 0;" data-customizer="work_matrix_heading"><?php echo esc_html(cr8v_mod('work_matrix_heading', 'WORK THAT\'S VERIFIABLY LIVE.')); ?></h2>
+          <h2 class="sw-matrix-h2" style="font-size: clamp(1.6rem, 3.5vw, 2.5rem); margin-bottom: 0;" data-customizer="work_matrix_heading"><?php echo esc_html(cr8v_mod('work_matrix_heading', 'WORK THAT\'S VERIFIABLY LIVE.')); ?></h2>
         </div>
-        <div class="sw-matrix-right" style="padding:3.5rem;">
+        <div class="sw-matrix-intro-right">
           <p class="sw-matrix-sub" style="margin-bottom:0;" data-customizer="work_matrix_sub">
             <?php echo esc_html(cr8v_mod('work_matrix_sub', 'These aren\'t concept projects or fictitious mockups. Every case study below is a live engagement — search the clients on Google and see the work for yourself. We only show projects we\'re allowed to talk about.')); ?>
           </p>
@@ -328,16 +523,13 @@ defined('ABSPATH') || exit;
             </p>
           </div>
 
-          <div class="sw-testimonial-card" style="margin-bottom: 2rem;">
-            <p class="sw-testimonial-quote" data-customizer="cs1_quote"><?php echo esc_html(cr8v_mod('cs1_quote', 'We handled their SEO end-to-end — keyword mapping, page architecture, and content — from the ground up. We built out the strategy for two markets simultaneously, and both storefronts are now ranking and converting independently.')); ?></p>
-            <div class="sw-testimonial-meta">
-              <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(149,191,71,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(149,191,71,0.3);">
-                <img src="<?php echo esc_url(cr8v_mod("tmn_1_logo", "https://cdn.simpleicons.org/shopify/95BF47")); ?>" alt="Shopify" style="width:20px;height:20px;">
-              </div>
-              <div>
-                <div class="sw-testimonial-role" data-customizer="cs1_role"><?php echo esc_html(cr8v_mod('cs1_role', 'SEO & E-Commerce · Nigeria & UK')); ?></div>
-              </div>
-            </div>
+          <div class="sw-quote-box">
+            <p data-customizer="cs1_quote"><?php echo esc_html(cr8v_mod('cs1_quote', 'We handled their SEO end-to-end — keyword mapping, page architecture, and content — from the ground up. Both storefronts are now ranking and converting independently.')); ?></p>
+          </div>
+
+          <div class="sw-chip-tag">
+            <span class="sw-chip-icon">S</span>
+            <span data-customizer="cs1_role"><?php echo esc_html(cr8v_mod('cs1_role', 'SEO & E-Commerce · Nigeria & UK')); ?></span>
           </div>
 
           <div>
@@ -349,18 +541,22 @@ defined('ABSPATH') || exit;
         </div>
 
         <div class="sw-matrix-right">
-          <div class="sw-matrix-stat-floating">
-            <div class="sw-matrix-stat-val" data-customizer="cs1_stat_val"><?php echo esc_html(cr8v_mod('cs1_stat_val', '2 Active Stores')); ?></div>
-            <div class="sw-matrix-stat-lbl" data-customizer="cs1_stat_lbl"><?php echo esc_html(cr8v_mod('cs1_stat_lbl', 'UK & NG Growth')); ?></div>
-          </div>
-          <div class="sw-matrix-img-box">
+          <div class="sw-media-frame">
+            <div class="sw-corner-label">
+              <span class="sw-dot-grid"><span></span><span></span><span></span><span></span><span></span><span></span></span>
+              <span class="sw-corner-text">// P.01 — Live</span>
+            </div>
+            <div class="sw-floating-badge">
+              <div class="b1" data-customizer="cs1_stat_val"><?php echo esc_html(cr8v_mod('cs1_stat_val', '2 Active Stores')); ?></div>
+              <div class="b2" data-customizer="cs1_stat_lbl"><?php echo esc_html(cr8v_mod('cs1_stat_lbl', 'UK & NG Growth')); ?></div>
+            </div>
             <img src="<?php echo esc_url(cr8v_mod('cs1_img', get_template_directory_uri() . '/assets/img/case_studies/case_study_blvck_hair.jpg')); ?>" alt="blvck Hair NG" class="sw-matrix-img">
           </div>
         </div>
       </div>
 
-      <!-- ── CASE 2: THE DUCH APARTMENTS ── -->
-      <div class="sw-matrix-cell" id="cs-duch-apartments">
+      <!-- ── CASE 2: THE DUCH APARTMENTS (FLIP ROW) ── -->
+      <div class="sw-matrix-cell flip" id="cs-duch-apartments">
         <div class="sw-matrix-left">
           <div>
             <div class="sw-matrix-eyebrow" data-customizer="cs2_eyebrow">// <?php echo esc_html(cr8v_mod('cs2_eyebrow', 'BUILT-IN SEO ARCHITECTURE')); ?></div>
@@ -370,16 +566,13 @@ defined('ABSPATH') || exit;
             </p>
           </div>
 
-          <div class="sw-testimonial-card" style="margin-bottom: 2rem;">
-            <p class="sw-testimonial-quote" data-customizer="cs2_quote"><?php echo esc_html(cr8v_mod('cs2_quote', 'We designed and built the full site — custom layout, zero template base — with SEO architecture already coded in before a single page went live. Direct booking integration was included from the first sprint, maximising their direct revenue channel from day one.')); ?></p>
-            <div class="sw-testimonial-meta">
-              <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(33,117,155,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(33,117,155,0.3);">
-                <img src="<?php echo esc_url(cr8v_mod("tmn_4_logo", "https://cdn.simpleicons.org/wordpress/21759B")); ?>" alt="WordPress" style="width:20px;height:20px;">
-              </div>
-              <div>
-                <div class="sw-testimonial-role" data-customizer="cs2_role"><?php echo esc_html(cr8v_mod('cs2_role', 'Web Design & Technical SEO · Lagos, Nigeria')); ?></div>
-              </div>
-            </div>
+          <div class="sw-quote-box">
+            <p data-customizer="cs2_quote"><?php echo esc_html(cr8v_mod('cs2_quote', 'Custom layout, zero template base, with SEO architecture coded in before a single page went live. Direct booking integration maximised their direct revenue channel from day one.')); ?></p>
+          </div>
+
+          <div class="sw-chip-tag">
+            <span class="sw-chip-icon">W</span>
+            <span data-customizer="cs2_role"><?php echo esc_html(cr8v_mod('cs2_role', 'Web Design & Technical SEO · Lagos, Nigeria')); ?></span>
           </div>
 
           <div>
@@ -391,11 +584,15 @@ defined('ABSPATH') || exit;
         </div>
 
         <div class="sw-matrix-right">
-          <div class="sw-matrix-stat-floating">
-            <div class="sw-matrix-stat-val" data-customizer="cs2_stat_val"><?php echo esc_html(cr8v_mod('cs2_stat_val', '100% Custom')); ?></div>
-            <div class="sw-matrix-stat-lbl" data-customizer="cs2_stat_lbl"><?php echo esc_html(cr8v_mod('cs2_stat_lbl', 'Design & SEO Day 1')); ?></div>
-          </div>
-          <div class="sw-matrix-img-box">
+          <div class="sw-media-frame">
+            <div class="sw-corner-label">
+              <span class="sw-dot-grid"><span></span><span></span><span></span><span></span><span></span><span></span></span>
+              <span class="sw-corner-text">// P.02 — Live</span>
+            </div>
+            <div class="sw-floating-badge">
+              <div class="b1" data-customizer="cs2_stat_val"><?php echo esc_html(cr8v_mod('cs2_stat_val', '100% Custom')); ?></div>
+              <div class="b2" data-customizer="cs2_stat_lbl"><?php echo esc_html(cr8v_mod('cs2_stat_lbl', 'Design & SEO Day 1')); ?></div>
+            </div>
             <img src="<?php echo esc_url(cr8v_mod('cs2_img', get_template_directory_uri() . '/assets/img/case_studies/case_study_duch_apartments.jpg')); ?>" alt="The Duch Apartments" class="sw-matrix-img">
           </div>
         </div>
@@ -412,16 +609,13 @@ defined('ABSPATH') || exit;
             </p>
           </div>
 
-          <div class="sw-testimonial-card" style="margin-bottom: 2rem;">
-            <p class="sw-testimonial-quote" data-customizer="cs3_quote"><?php echo esc_html(cr8v_mod('cs3_quote', 'Engineered as our in-house flagship AI platform: OpenAI API orchestration, vector embedding indexes, automated content generation pipelines, and multi-site WordPress publishing workflows.')); ?></p>
-            <div class="sw-testimonial-meta">
-              <div class="sw-testimonial-avatar" style="width:36px;height:36px;border-radius:4px;background:rgba(217,119,87,0.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(217,119,87,0.3);">
-                <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Anthropic Claude" style="width:20px;height:20px;">
-              </div>
-              <div>
-                <div class="sw-testimonial-role" data-customizer="cs3_role"><?php echo esc_html(cr8v_mod('cs3_role', 'OpenAI & Claude AI MVP · In-House Platform')); ?></div>
-              </div>
-            </div>
+          <div class="sw-quote-box">
+            <p data-customizer="cs3_quote"><?php echo esc_html(cr8v_mod('cs3_quote', 'Engineered as our in-house flagship AI platform: OpenAI API orchestration, vector embedding indexes, automated content generation pipelines, and multi-site WordPress publishing workflows.')); ?></p>
+          </div>
+
+          <div class="sw-chip-tag">
+            <span class="sw-chip-icon">A</span>
+            <span data-customizer="cs3_role"><?php echo esc_html(cr8v_mod('cs3_role', 'OpenAI & Claude AI MVP · In-House Platform')); ?></span>
           </div>
 
           <div>
@@ -433,17 +627,22 @@ defined('ABSPATH') || exit;
         </div>
 
         <div class="sw-matrix-right">
-          <div class="sw-matrix-stat-floating">
-            <div class="sw-matrix-stat-val" data-customizer="cs3_stat_val"><?php echo esc_html(cr8v_mod('cs3_stat_val', 'AI MVP Engine')); ?></div>
-            <div class="sw-matrix-stat-lbl" data-customizer="cs3_stat_lbl"><?php echo esc_html(cr8v_mod('cs3_stat_lbl', 'Proprietary AI Build')); ?></div>
-          </div>
-          <div class="sw-matrix-img-box">
+          <div class="sw-media-frame">
+            <div class="sw-corner-label">
+              <span class="sw-dot-grid"><span></span><span></span><span></span><span></span><span></span><span></span></span>
+              <span class="sw-corner-text">// P.03 — In-House</span>
+            </div>
+            <div class="sw-floating-badge">
+              <div class="b1" data-customizer="cs3_stat_val"><?php echo esc_html(cr8v_mod('cs3_stat_val', 'AI MVP Engine')); ?></div>
+              <div class="b2" data-customizer="cs3_stat_lbl"><?php echo esc_html(cr8v_mod('cs3_stat_lbl', 'Proprietary Build')); ?></div>
+            </div>
             <img src="<?php echo esc_url(cr8v_mod('cs3_img', get_template_directory_uri() . '/assets/img/case_studies/case_study_bridgepoint_compliance.jpg')); ?>" alt="WP Publishion AI" class="sw-matrix-img">
           </div>
         </div>
       </div>
 
     </div>
+  </div>
   </div>
 
 <!-- High-Performance 60FPS Continuous Canvas Controller -->
@@ -671,9 +870,7 @@ defined('ABSPATH') || exit;
     ────────────────────────────────────────────────────────────── */
     .sdv-section {
       background-color: #080808 !important;
-      background-image: 
-        radial-gradient(circle at 10% 0%, rgba(0, 71, 225, 0.08) 0%, transparent 40%), 
-        radial-gradient(circle at 90% 100%, rgba(0, 71, 225, 0.05) 0%, transparent 40%) !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%) !important;
       padding: 9rem 3.5rem !important;
       position: relative !important;
       overflow: hidden !important;
@@ -1751,7 +1948,7 @@ defined('ABSPATH') || exit;
   <style>
     /* ── HOW WE WORK ── */
     .hww-section {
-      background: #FFFFFF !important;
+      background: #F4F5F7 !important;
       padding: 7rem 3.5rem;
     }
     .hww-inner { max-width: 1360px; margin: 0 auto; }

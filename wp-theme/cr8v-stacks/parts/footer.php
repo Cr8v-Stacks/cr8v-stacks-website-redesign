@@ -18,16 +18,17 @@ $facebook  = cr8v_mod('footer_facebook',  'https://www.facebook.com/cr8vstacks')
    Edit all text: WP Admin → Appearance → Customize → Footer
 ═══════════════════════════════════════════════════════════ -->
 <div class="c8ft-root">
+<div class="c8-grain-overlay"></div>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
-.c8ft-root{--c8ft-black:#080808;--c8ft-white:#FAFAF7;--c8ft-off:#EFEEE8;--c8ft-blue:#0047E1;--c8ft-blue-mid:#0038C0;--c8ft-blue-hi:#4A9EFF;--c8ft-gray:#8A8A8A;font-family:'DM Sans',sans-serif;background:var(--c8ft-black);overflow:hidden;position:relative;}
+.c8ft-root{--c8ft-black:#080808;--c8ft-white:#FFFFFF;--c8ft-off:#141414;--c8ft-blue:#0047E1;--c8ft-blue-mid:#0038C0;--c8ft-blue-hi:#4A9EFF;--c8ft-gray:#A0A0A0;font-family:'DM Sans',sans-serif;background:var(--c8ft-black);overflow:hidden;position:relative;}
 .c8ft-root *,.c8ft-root *::before,.c8ft-root *::after{box-sizing:border-box;margin:0;padding:0;}
 :where(.c8ft-root) a{text-decoration:none;color:inherit;}
 .c8ft-root ul{list-style:none;}
 
 /* Hero CTA Zone */
 .c8ft-hero{position:relative;padding:5rem 3.5rem 6rem;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.08);}
-.c8ft-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(0,71,225,.35) 0%,transparent 55%),radial-gradient(circle at 85% 80%,rgba(0,56,192,.25) 0%,transparent 50%);}
+.c8ft-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(0,71,225,.45) 0%,transparent 55%),radial-gradient(circle at 85% 80%,rgba(0,56,192,.35) 0%,transparent 50%);}
 .c8ft-hero-ghost{position:absolute;bottom:-2.5rem;left:3rem;font-family:'Michroma',sans-serif;font-size:min(15vw,10rem);line-height:.8;color:rgba(255,255,255,.03);letter-spacing:-.02em;pointer-events:none;z-index:0;white-space:nowrap;}
 .c8ft-hero-in{position:relative;z-index:1;max-width:1440px;margin:0 auto;}
 .c8ft-hero-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--c8ft-blue-hi);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px;}
@@ -43,21 +44,21 @@ $facebook  = cr8v_mod('footer_facebook',  'https://www.facebook.com/cr8vstacks')
 /* Stack Cards */
 .c8ft-stack-zone{max-width:1440px;margin:0 auto;padding:0 3.5rem;position:relative;z-index:1;}
 .c8ft-stack{display:grid;grid-template-columns:1.1fr 1.2fr 1fr;gap:2.5rem;margin-top:-3rem;padding-bottom:4rem;align-items:start;}
-.c8ft-card{background:var(--c8ft-off);position:relative;padding:2.25rem 2rem;border-radius:4px;}
-.c8ft-card-label{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--c8ft-blue);margin-bottom:1.25rem;display:flex;align-items:center;gap:8px;}
-.c8ft-card-label::before{content:'';width:14px;height:1px;background:var(--c8ft-blue);}
+.c8ft-card{background:#141414!important;border:1px solid rgba(255,255,255,0.1)!important;position:relative;padding:2.25rem 2rem;border-radius:4px;color:#FFFFFF!important;}
+.c8ft-card-label{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--c8ft-blue-hi);margin-bottom:1.25rem;display:flex;align-items:center;gap:8px;}
+.c8ft-card-label::before{content:'';width:14px;height:1px;background:var(--c8ft-blue-hi);}
 
 /* Card 1 — site links */
-.c8ft-site-link{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(8,8,8,.08);font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:500;color:var(--c8ft-black);transition:padding-left .18s,color .18s;}
+.c8ft-site-link{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:500;color:#FFFFFF!important;transition:padding-left .18s,color .18s;}
 .c8ft-site-link:last-child{border-bottom:none;}
-.c8ft-site-link:hover{padding-left:6px;color:var(--c8ft-blue);}
-.c8ft-site-link-arr{font-size:.9rem;opacity:.4;transition:opacity .18s,transform .18s;}
-.c8ft-site-link:hover .c8ft-site-link-arr{opacity:1;transform:translateX(4px);color:var(--c8ft-blue);}
+.c8ft-site-link:hover{padding-left:6px;color:var(--c8ft-blue-hi)!important;}
+.c8ft-site-link-arr{font-size:.9rem;opacity:.6;transition:opacity .18s,transform .18s;}
+.c8ft-site-link:hover .c8ft-site-link-arr{opacity:1;transform:translateX(4px);color:var(--c8ft-blue-hi)!important;}
 
 /* Card 2 — service chips */
 .c8ft-chip-cluster{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1.25rem;}
-.c8ft-chip{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;background:var(--c8ft-white);border:1px solid rgba(8,8,8,.1);font-size:12px;font-weight:500;color:var(--c8ft-black);border-radius:3px;transition:background .18s,border-color .18s,color .18s,transform .18s;}
-.c8ft-chip:hover{background:var(--c8ft-blue);border-color:var(--c8ft-blue);color:#fff;transform:translateY(-1px);}
+.c8ft-chip{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;background:#1E1E1E!important;border:1px solid rgba(255,255,255,.12)!important;font-size:12px;font-weight:500;color:#FFFFFF!important;border-radius:3px;transition:background .18s,border-color .18s,color .18s,transform .18s;}
+.c8ft-chip:hover{background:var(--c8ft-blue)!important;border-color:var(--c8ft-blue)!important;color:#fff!important;transform:translateY(-1px);}
 .c8ft-card-note{font-size:12px;color:var(--c8ft-gray);font-weight:300;line-height:1.6;}
 .c8ft-card-note a{color:var(--c8ft-blue);font-weight:500;}
 .c8ft-card-note a:hover{text-decoration:underline;}

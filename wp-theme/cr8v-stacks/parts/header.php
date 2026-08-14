@@ -22,7 +22,7 @@ $drawer_label = cr8v_mod('header_drawer_label', 'Strategy, Design &amp; Liquid P
 .c8hdr-root button{font-family:'DM Sans',sans-serif!important;}
 
 /* ── Header Shell ── */
-.c8hdr-root .c8-header{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:9500!important;height:68px!important;background:transparent!important;border-bottom:none!important;transition:background .3s ease,box-shadow .3s ease,border-color .3s ease!important;}
+.c8hdr-root .c8-header{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:9500!important;height:68px!important;background:#FFFFFF!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;box-shadow:0 2px 20px rgba(0,0,0,0.04)!important;transition:background .3s ease,box-shadow .3s ease,border-color .3s ease!important;}
 .c8hdr-root .c8-header.c8-scrolled{background:#FFFFFF!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;box-shadow:0 4px 30px rgba(0,0,0,0.06)!important;}
 
 /* WordPress Admin Bar offsets */

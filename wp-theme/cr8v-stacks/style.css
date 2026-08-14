@@ -972,6 +972,8 @@ a .art-author-bio {
     .hww-section::before,
     .wwa-section::before,
     .dp-half-right::before,
+    .dae-section::before,
+    .c8ft-root::before,
     .c8-grain-overlay {
       content: '' !important;
       position: absolute !important;
