@@ -1324,7 +1324,7 @@ a .art-author-bio {
     }
 
     /* Subtle backdrop glow blobs */
-    .sdv-bg-blob { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; opacity: 0.05; }
+    .sdv-bg-blob { display: none !important; opacity: 0 !important; }
     .sdv-bg-blob-1 {
       width: 600px; height: 600px;
       background: #0047E1;

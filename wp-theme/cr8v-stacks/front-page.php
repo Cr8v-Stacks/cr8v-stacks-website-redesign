@@ -320,11 +320,11 @@ defined('ABSPATH') || exit;
         display: flex;
         gap: 4rem;
         align-items: flex-start;
-        padding: 3.5rem 0 3.5rem;
+        padding: 3.5rem 3.5rem;
         border-bottom: 1px solid rgba(8, 8, 8, 0.12);
       }
       .sw-matrix-intro-left { flex: 1; }
-      .sw-matrix-intro-right { flex: 1; }
+      .sw-matrix-intro-right { flex: 1; align-self: flex-end; }
 
       .sw-matrix-cell {
         display: flex;
@@ -881,7 +881,7 @@ defined('ABSPATH') || exit;
     }
 
     /* Subtle backdrop glow blobs */
-    .sdv-bg-blob { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; opacity: 0.05; }
+    .sdv-bg-blob { display: none !important; opacity: 0 !important; }
     .sdv-bg-blob-1 {
       width: 600px; height: 600px;
       background: #0047E1;
@@ -1533,12 +1533,13 @@ defined('ABSPATH') || exit;
       overflow: clip;
       min-height: 680px;
       display: flex;
+      background: #FFFFFF !important;
     }
 
     /* Left half: white */
     .dp-half-left {
       flex: 1;
-      background: #FFFFFF;
+      background: #FFFFFF !important;
       position: relative;
       display: flex;
       align-items: center;
@@ -1546,17 +1547,18 @@ defined('ABSPATH') || exit;
       overflow: visible;
     }
 
-    /* Right half: #080808 dark black with higher intensity Royal Blue gradient */
+    /* Right half: white with solid left border to break sections */
     .dp-half-right {
       flex: 1 !important;
-      background-color: #080808 !important;
+      background-color: #FFFFFF !important;
       background-image: none !important;
+      border-left: 1px solid rgba(8, 8, 8, 0.08) !important;
       position: relative !important;
       display: flex !important;
       align-items: center !important;
       padding: 7rem 3.5rem 7rem 5rem !important;
       overflow: visible !important;
-      color: #FFFFFF !important;
+      color: #080808 !important;
     }
 
 
@@ -1681,7 +1683,7 @@ defined('ABSPATH') || exit;
       right: -260px;
       bottom: -50px;
       width: 520px;
-      z-index: 1; /* Pushed behind content */
+      z-index: 2;
       pointer-events: none;
     }
 

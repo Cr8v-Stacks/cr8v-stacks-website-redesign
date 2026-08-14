@@ -65,7 +65,7 @@ $facebook  = cr8v_mod('footer_facebook',  'https://www.facebook.com/cr8vstacks')
 
 /* Card 3 — contact + social */
 .c8ft-touch-row{display:flex;flex-direction:column;gap:.9rem;margin-bottom:1.5rem;}
-.c8ft-touch-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--c8ft-black);}
+.c8ft-touch-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#FFFFFF!important;}
 .c8ft-touch-item strong{display:block;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--c8ft-gray);font-weight:500;margin-bottom:2px;}
 .c8ft-touch-icon{width:28px;height:28px;background:var(--c8ft-white);border:1px solid rgba(8,8,8,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:3px;}
 .c8ft-touch-icon svg{width:12px;height:12px;stroke:var(--c8ft-blue);stroke-width:1.8;fill:none;}
