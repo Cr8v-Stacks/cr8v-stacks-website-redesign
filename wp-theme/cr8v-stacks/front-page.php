@@ -32,10 +32,8 @@ defined('ABSPATH') || exit;
       position: relative !important;
       z-index: 10 !important;
       box-sizing: border-box !important;
-      background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/abstract/hero_bg_beam.jpg') !important;
-      background-size: cover !important;
-      background-position: center center !important;
-      background-repeat: no-repeat !important;
+      background: var(--c8-bg) !important;
+      border-bottom: 1px solid var(--c8-line) !important;
     }
   </style>
   <section class="c8-hero-top c8-hero-b-standalone">

@@ -270,10 +270,7 @@ a .art-author-bio {
       position: relative;
       z-index: 10;
       box-sizing: border-box;
-      background-image: url('assets/img/abstract/hero_bg_beam.jpg');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
+      background: var(--c8-bg);
     }
 
     .c8-hero-in {
@@ -948,10 +945,7 @@ a .art-author-bio {
       position: relative;
       z-index: 10;
       box-sizing: border-box;
-      background-image: url('assets/img/abstract/hero_bg_beam.jpg') !important;
-      background-size: cover !important;
-      background-position: center center !important;
-      background-repeat: no-repeat !important;
+      background: var(--c8-bg);
       border-bottom: 1px solid var(--c8-line);
     }
 
