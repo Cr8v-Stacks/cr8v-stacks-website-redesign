@@ -349,7 +349,7 @@ defined('ABSPATH') || exit;
 
       .sw-matrix-left {
         flex: 1;
-        padding: 4rem 3.5rem 4rem 0.5rem;
+        padding: 4rem 3.5rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -358,7 +358,7 @@ defined('ABSPATH') || exit;
       }
       .sw-matrix-right {
         flex: 1;
-        padding: 4rem 0.5rem 4rem 3.5rem;
+        padding: 4rem 3.5rem;
         border-left: 1px solid rgba(8, 8, 8, 0.12);
         display: flex;
         flex-direction: column;
@@ -366,10 +366,10 @@ defined('ABSPATH') || exit;
         background: transparent;
       }
       .sw-matrix-cell.flip .sw-matrix-left {
-        padding: 4rem 0.5rem 4rem 3.5rem;
+        padding: 4rem 3.5rem;
       }
       .sw-matrix-cell.flip .sw-matrix-right {
-        padding: 4rem 3.5rem 4rem 0.5rem;
+        padding: 4rem 3.5rem;
         border-left: none;
         border-right: 1px solid rgba(8, 8, 8, 0.12);
       }
