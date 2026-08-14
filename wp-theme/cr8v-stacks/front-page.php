@@ -60,7 +60,7 @@ defined('ABSPATH') || exit;
       max-width: none !important;
       margin: 0 !important;
       background-color: #080808 !important;
-      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%) !important;
+      background-image: none !important;
       padding: 6rem 3.5rem 8rem !important;
       position: relative !important;
       overflow: hidden !important;
@@ -171,7 +171,7 @@ defined('ABSPATH') || exit;
     }
 
     .sw-matrix-left {
-      padding: 4rem 3.5rem;
+      padding: 4rem 3.5rem !important;
       border-right: 1px solid rgba(0, 0, 0, 0.08);
       display: flex;
       flex-direction: column;
@@ -180,7 +180,7 @@ defined('ABSPATH') || exit;
     }
 
     .sw-matrix-right {
-      padding: 2.5rem;
+      padding: 4rem 3.5rem !important;
       background: var(--c8-surface-lift);
       display: flex;
       flex-direction: column;
@@ -874,7 +874,7 @@ defined('ABSPATH') || exit;
     ────────────────────────────────────────────────────────────── */
     .sdv-section {
       background-color: #080808 !important;
-      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%) !important;
+      background-image: none !important;
       padding: 9rem 3.5rem !important;
       position: relative !important;
       overflow: hidden !important;
@@ -1550,7 +1550,7 @@ defined('ABSPATH') || exit;
     .dp-half-right {
       flex: 1 !important;
       background-color: #080808 !important;
-      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.70) 0%, transparent 65%), radial-gradient(circle at 90% 85%, rgba(0, 71, 225, 0.50) 0%, transparent 65%) !important;
+      background-image: none !important;
       position: relative !important;
       display: flex !important;
       align-items: center !important;

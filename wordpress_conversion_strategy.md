@@ -1001,9 +1001,39 @@ When deploying this theme to the live production server `cr8vstacks.com`:
 2. **Flush Rewrite Rules**: Theme automatically triggers `flush_rewrite_rules()` on activation via `after_switch_theme`.
 3. **Permalink Settings**: WP Admin → Settings → Permalinks → verify **Post name** (`/%postname%/`) is selected.
 4. **WP Reading Settings**: WP Admin → Settings → Reading → set **Your homepage displays**:
-   - Homepage: **Home** (or leave empty if `front-page.php` handles root `/`)
-   - Posts page: **Blog** (`/blog/`)
-5. **Dynamic Menus**: WP Admin → Appearance → Menus → assign registered theme locations (`Primary Navigation`, `Mobile Drawer Navigation`, `Footer — Company Links`, `Footer — Services Links`).
+    - Homepage: **Home** (or leave empty if `front-page.php` handles root `/`)
+    - Posts page: **Blog** (`/blog/`)
+ 5. **Dynamic Menus**: WP Admin → Appearance → Menus → assign registered theme locations (`Primary Navigation`, `Mobile Drawer Navigation`, `Footer — Company Links`, `Footer — Services Links`).
+
+---
+
+## 🎨 Homepage Section-by-Section Color System & Architectural Layout Audit (2026-08-14)
+
+### 1. Content-Driven Color Architecture & Strategy
+Background color assignments on the homepage are strictly **content-driven** rather than arbitrary rhythm toggles:
+* **Dark Canvases (`#080808` Solid Obsidian)**: Reserved for heavy workstation environments and high-density interactive tools (such as Section 02 *Creative Agency Mindset* Paper Grid and Section 04 *Services Deep Dive*).
+* **Light Canvases (`#FFFFFF` Pure White & `#F4F5F7` Architectural Off-White)**: Applied to editorial, storytelling, process, proof, and inquiry sections (Hero, Selected Work, How We Work, Who We Are, Testimonials, and FAQ).
+* **Radial Blue Ambient Glow Note**: Radial blue gradients (`radial-gradient(...)`) are disabled/removed for now in favor of crisp solid obsidian dark (`#080808`), but preserved in this registry as a future Customizer design toggle.
+* **Pre-Footer CTA UI Specification**: The Pre-Footer CTA zone uses the **Paper Grid UI** (`.c8-paper-grid` blueprint border and cell slot system) integrated cleanly over a light canvas base.
+
+---
+
+### 2. Section-by-Section Color & Surface Elevation Audit Matrix
+
+| # | Section Name & HTML ID | Section Base Canvas Color | Internal Cards / Surface Fill | Border & Separator Spec | Accent & Highlight Tokens | Strategy & Content Rationale |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **00** | **Header Navigation**<br>`parts/header.php` | `--c8-page-light`<br>(`#FFFFFF` Pure White + Blur) | Clean inline logo & nav menu items | `border-bottom: 1px solid rgba(0,0,0,0.08)` | `--c8-blue`<br>(`#0047E1` Active Link & CTA) | Permanent Pure White overlay bar |
+| **01** | **Hero Section**<br>`#cr8v-hero` | `--c8-page-light`<br>(`#FFFFFF` Pure White) | Architectural Canvas Base (No cards) | Bottom boundary divider: `1px solid rgba(0,0,0,0.08)` | `--c8-blue`<br>(Primary CTA button, eyebrow slashes) | Primary brand greeting canvas |
+| **02** | **Creative Agency Mindset (Paper Grid)**<br>`#how-we-think` | `--c8-page-dark`<br>(`#080808` Solid Obsidian) | `--c8-surface-lift-dark`<br>(`#141414` Elevated Charcoal Drag Slots) | Slot borders: `1px solid rgba(255,255,255,0.10)` | `--c8-blue` & `--c8-blue-hi`<br>(Drag grip highlight & glowing active nodes) | **Content-Driven Dark**: High-density lofi interactive paper grid workstation |
+| **03** | **Selected Work (Case Studies Matrix)**<br>`#selected-work` | `--c8-page-light`<br>(`#FFFFFF` Pure White) | `--c8-surface-lift`<br>(`#F2F2F0` Off-White Cells) | Blueprint crosshairs `+` & cell borders: `1px solid rgba(0,0,0,0.08)` | `--c8-blue`<br>(Stat values, blockquote left border, live badges) | Symmetrical `4rem 3.5rem` card padding |
+| **04** | **Services Deep Dive**<br>`#services-deep-dive` | `--c8-page-dark`<br>(`#080808` Solid Obsidian) | `--c8-surface-lift-dark`<br>(`#141414` Elevated Charcoal Accordions) | Item dividers: `1px solid rgba(255,255,255,0.10)` | Palette Accent Rotation:<br>Blue (`#0047E1`), Red (`#E20025`), Gold (`#FFB800`) | **Content-Driven Dark**: Heavy interactive service breakdown |
+| **05** | **Dev Playground**<br>`#dev-playground` | **50 / 50 Architectural Split Canvas:**<br>• Left: `#FFFFFF` Pure White<br>• Right: `#080808` Solid Obsidian Dark | • Left: White background for Fox Mascot video render<br>• Right: `#141414` Elevated Code Terminal | Center split line: `1px solid rgba(0,0,0,0.08)` | `--c8-blue`<br>(Terminal prompt accents & active stat highlights) | Architectural transition buffer |
+| **06** | **How We Work (Process Bento)**<br>`#how-we-work` | `#F4F5F7`<br>(Architectural Off-White Canvas Base) | `--c8-surface-lift`<br>(`#F2F2F0` Off-White Bento Cards + Royal Blue accent card) | Card borders: `1px solid rgba(0,0,0,0.08)` | `--c8-blue`<br>(Sprint model tags & step numbers) | Process clarity & sprint model showcase |
+| **07** | **Who We Are (Agency Pillars)**<br>`#who-we-are` | `--c8-page-light`<br>(`#FFFFFF` Pure White) | `--c8-surface-lift`<br>(`#F2F2F0` Off-White Pillar Cards) | Card borders: `1px solid rgba(0,0,0,0.08)` | `--c8-blue`<br>(Pillar icons & manifesto highlights) | Agency philosophy & core team pillars |
+| **08** | **Testimonials Showcase**<br>`#testimonials` | `--c8-page-light`<br>(`#FFFFFF` Pure White) | `--c8-surface-lift`<br>(`#F2F2F0` Elevated White Quote Cards) | Card borders: `1px solid rgba(0,0,0,0.08)` | `--c8-blue`<br>(Author avatar rings & quote mark icons) | **Light Canvas**: Editorial client social proof |
+| **09** | **FAQ Accordion**<br>`#faq` | `--c8-page-light`<br>(`#FFFFFF` Pure White) | `--c8-surface-lift`<br>(`#F2F2F0` Off-White Accordion Cards) | Item borders: `1px solid rgba(0,0,0,0.08)` | `--c8-blue`<br>(Expand `+` icons & active question text) | Clean editorial Q&A |
+| **10** | **Pre-Footer CTA & Master Footer**<br>`parts/footer.php` | `--c8-page-light`<br>(`#FFFFFF` Pure White Base Canvas) | **Paper Grid UI** (`.c8-paper-grid` blueprint slot container) | Slot borders: `1px solid rgba(0,0,0,0.08)` | `--c8-blue`<br>(Primary CTA button & interactive slots) | **Light Paper Grid UI** pre-footer CTA box transitioning to dark footer bar |
+
 
 
 

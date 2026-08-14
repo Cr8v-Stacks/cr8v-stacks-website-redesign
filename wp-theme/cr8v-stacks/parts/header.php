@@ -22,13 +22,13 @@ $drawer_label = cr8v_mod('header_drawer_label', 'Strategy, Design &amp; Liquid P
 .c8hdr-root button{font-family:'DM Sans',sans-serif!important;}
 
 /* ── Header Shell ── */
-.c8hdr-root .c8-header{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:9500!important;height:68px!important;background:#FFFFFF!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;box-shadow:0 2px 20px rgba(0,0,0,0.04)!important;transition:background .3s ease,box-shadow .3s ease,border-color .3s ease!important;}
-.c8hdr-root .c8-header.c8-scrolled{background:#FFFFFF!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;box-shadow:0 4px 30px rgba(0,0,0,0.06)!important;}
+.c8hdr-root .c8-nav-header{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:9500!important;height:68px!important;background:#FFFFFF!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;box-shadow:0 2px 20px rgba(0,0,0,0.04)!important;transition:background .3s ease,box-shadow .3s ease,border-color .3s ease!important;}
+.c8hdr-root .c8-nav-header.c8-scrolled{background:#FFFFFF!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;box-shadow:0 4px 30px rgba(0,0,0,0.06)!important;}
 
 /* WordPress Admin Bar offsets */
-body.admin-bar .c8hdr-root .c8-header{top:32px!important;}
+body.admin-bar .c8hdr-root .c8-nav-header{top:32px!important;}
 body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overlay{top:32px!important;}
-@media(max-width:782px){body.admin-bar .c8hdr-root .c8-header{top:46px!important;}body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overlay{top:46px!important;}}
+@media(max-width:782px){body.admin-bar .c8hdr-root .c8-nav-header{top:46px!important;}body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overlay{top:46px!important;}}
 
 .c8hdr-root .c8hdr-inner{max-width:1440px!important;margin:0 auto!important;height:68px!important;padding:0 3.5rem!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:1.5rem!important;}
 @media(max-width:1100px){.c8hdr-root .c8hdr-inner{padding:0 1.25rem!important;}}

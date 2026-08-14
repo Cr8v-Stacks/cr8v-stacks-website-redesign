@@ -28,4 +28,4 @@ $count = (Get-ChildItem $dest -Recurse -File).Count
 Write-Host "Done! $count files deployed to:" -ForegroundColor Green
 Write-Host $dest -ForegroundColor White
 Write-Host ""
-Write-Host "Refresh your browser — changes are live." -ForegroundColor Yellow
+Write-Host "Refresh your browser - changes are live." -ForegroundColor Yellow
