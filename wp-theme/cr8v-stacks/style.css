@@ -213,7 +213,7 @@ a .art-author-bio {
       right: 0;
       height: 72px;
       z-index: 1000;
-      background: rgba(250, 250, 247, 0.92);
+      background: #FFFFFF !important;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--c8-line);
@@ -3130,8 +3130,15 @@ a .art-author-bio {
       border-right: none;
     }
     .dp-half-right {
-      flex: 1; background: #0047E1; position: relative; display: flex;
-      align-items: center; padding: 7rem 3.5rem 7rem 5rem; overflow: visible;
+      flex: 1 !important;
+      background-color: #080808 !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.70) 0%, transparent 65%), radial-gradient(circle at 90% 85%, rgba(0, 71, 225, 0.50) 0%, transparent 65%) !important;
+      position: relative !important;
+      display: flex !important;
+      align-items: center !important;
+      padding: 7rem 3.5rem 7rem 5rem !important;
+      overflow: visible !important;
+      color: #FFFFFF !important;
     }
     .dp-left-content { width: 100%; max-width: 480px; position: relative; z-index: 2; }
     .dp-eyebrow {
@@ -14650,8 +14657,15 @@ body {
       border-right: none;
     }
     .dp-half-right {
-      flex: 1; background: #0047E1; position: relative; display: flex;
-      align-items: center; padding: 7rem 3.5rem 7rem 5rem; overflow: visible;
+      flex: 1 !important;
+      background-color: #080808 !important;
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.70) 0%, transparent 65%), radial-gradient(circle at 90% 85%, rgba(0, 71, 225, 0.50) 0%, transparent 65%) !important;
+      position: relative !important;
+      display: flex !important;
+      align-items: center !important;
+      padding: 7rem 3.5rem 7rem 5rem !important;
+      overflow: visible !important;
+      color: #FFFFFF !important;
     }
     .dp-left-content { width: 100%; max-width: 480px; position: relative; z-index: 2; }
     .dp-eyebrow {

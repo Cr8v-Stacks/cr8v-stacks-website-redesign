@@ -298,7 +298,11 @@ defined('ABSPATH') || exit;
       }
       .sw-matrix-right {
         padding: 1.5rem;
- <div class="sw-wrapper" id="selected-work">
+      }
+    }
+  </style>
+
+  <div class="sw-wrapper" id="selected-work">
     <style>
       /* ── SELECTED WORK REDESIGN (Architectural Blueprint Style) ── */
       .sw-wrapper {
