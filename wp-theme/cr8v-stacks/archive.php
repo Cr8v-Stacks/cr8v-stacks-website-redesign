@@ -181,9 +181,51 @@ $is_tag = is_tag();
 .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
 .blog-grid-card:hover .card-img { transform: scale(1.03); }
 
-.card-fallback-canvas, .card-fallback-canvas *, .fallback-title, .fallback-cat, .card-title, .card-title a, .art-cat-pill, .card-category-pill, .art-author-name, .art-author-bio, .art-author-link, .art-back-btn, .cta-card-btn, .art-meta-author-link {
+.art-cat-pill, .card-category-pill {
+  text-decoration: none !important;
+}
+
+.card-fallback-canvas, .card-fallback-canvas *, .fallback-title, .fallback-cat, .card-title, .card-title a, .art-author-name, .art-author-bio, .art-author-link, .art-back-btn, .cta-card-btn, .art-meta-author-link {
   text-decoration: none !important;
   border-bottom: none !important;
+}
+
+.blog-pagination-wrapper {
+  max-width: 1360px;
+  margin: 3.5rem auto 4rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+}
+
+.page-numbers,
+.blog-pagination-wrapper a,
+.blog-pagination-wrapper span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--c8-grid-line);
+  background: var(--c8-paper-card);
+  color: var(--c8-ink);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+}
+
+.page-numbers.current, .page-numbers:hover,
+.blog-pagination-wrapper span.current,
+.blog-pagination-wrapper a:hover {
+  background: var(--c8-blue);
+  color: #FFFFFF !important;
+  border-color: var(--c8-blue);
 }
 
 /* AMBIENT MESH GRADIENT NON-IMAGE FALLBACK CARDS */

@@ -214,8 +214,16 @@ get_header();
       border-right: none;
     }
     .dp-half-right {
-      flex: 1; background: #0047E1; position: relative; display: flex;
-      align-items: center; padding: 7rem 3.5rem 7rem 5rem; overflow: visible;
+      flex: 1 !important;
+      background-color: #FFFFFF !important;
+      background-image: none !important;
+      border-left: 1px solid rgba(8, 8, 8, 0.08) !important;
+      position: relative !important;
+      display: flex !important;
+      align-items: center !important;
+      padding: 7rem 3.5rem 7rem 5rem !important;
+      overflow: visible !important;
+      color: #080808 !important;
     }
     .dp-left-content { width: 100%; max-width: 480px; position: relative; z-index: 2; }
     .dp-eyebrow {
