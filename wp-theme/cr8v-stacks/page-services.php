@@ -487,7 +487,7 @@ body {
   transform: none !important;
   left: 0 !important;
   right: 0 !important;
-  background: #F4F6FB !important;
+  background: #FFFFFF !important;
   padding: 6rem 0 !important;
   overflow: hidden !important;
   position: relative !important;

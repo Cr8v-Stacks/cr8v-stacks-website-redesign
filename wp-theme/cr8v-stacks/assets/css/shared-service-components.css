@@ -27,6 +27,22 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   position: relative !important;
 }
 
+/* ══════════════════════════════════════════
+   GLOBAL TACTILE SVG NOISE OVERLAY
+   ══════════════════════════════════════════ */
+.c8isv-root::before,
+.c8srv-root::before {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important; left: 0 !important;
+  width: 100vw !important; height: 100vh !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E") !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+  mix-blend-mode: overlay !important;
+  opacity: 0.75 !important;
+}
+
 .c8isv-root img, .c8srv-root img {
   max-width: 100% !important;
   height: auto !important;
@@ -300,7 +316,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   opacity: 0.38 !important;
 }
 
-.c8isv-hero-glow, .c8srv-hero-glow {
+.c8isv-hero-glow {
   position: absolute !important;
   width: 600px !important; height: 600px !important;
   background: radial-gradient(circle, rgba(0,71,225,0.28) 0%, transparent 68%) !important;
@@ -312,8 +328,11 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   transition: opacity 0.4s ease !important;
 }
 
-.c8isv-hero-wrap.is-active .c8isv-hero-glow,
-.c8srv-hero-wrap.is-active .c8srv-hero-glow {
+.c8srv-hero-glow {
+  display: none !important;
+}
+
+.c8isv-hero-wrap.is-active .c8isv-hero-glow {
   opacity: 1 !important;
 }
 
@@ -555,7 +574,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   width: 100vw !important;
   margin-left: 50% !important;
   transform: translateX(-50%) !important;
-  background: #F4F6FB !important; /* Cool light background */
+  background: #FFFFFF !important; /* Pure White Canvas Base */
   padding: 6rem 0 !important;
   overflow: hidden !important;
   position: relative !important;
@@ -678,7 +697,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
    ══════════════════════════════════════════ */
 .c8isv-approach-outer, .c8srv-approach-outer {
   padding: 6rem 0 !important;
-  background: #F4F6FB !important;
+  background: #F4F5F7 !important; /* Architectural Off-White Canvas */
   position: relative !important;
   z-index: 2 !important;
 }
@@ -1693,7 +1712,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   border: 1px solid rgba(8,8,8,0.15) !important;
 }
 .c8srv-price-btn.is-light:hover, .c8isv-price-btn.is-light:hover {
-  background: #F4F6FB !important;
+  background: #F2F2F0 !important;
   border-color: #0047E1 !important;
   color: #0047E1 !important;
 }
@@ -1840,7 +1859,7 @@ button.c8isv-est-choice.is-active,
   width: 100vw !important;
   margin-left: 50% !important;
   transform: translateX(-50%) !important;
-  background: #F4F6FB !important;
+  background: #FFFFFF !important; /* Pure White Canvas Base */
   padding: 6rem 0 !important;
   position: relative !important;
   z-index: 2 !important;
