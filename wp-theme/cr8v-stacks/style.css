@@ -3390,7 +3390,7 @@ a .art-author-bio {
     /* ── SECTION 7: ABOUT CR8V STACKS (3-COL GRID + BOTTOM STATS) ── */
     .c8-about-section {
       background-color: #080808 !important;
-      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%) !important;
+      background-image: none !important;
       padding: 6rem 4rem; position: relative; overflow: hidden; color: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line);
     }
     .c8-about-inner { max-width: 1360px; margin: 0 auto; position: relative; z-index: 1; }
@@ -14966,7 +14966,7 @@ body {
     /* ── SECTION 7: ABOUT CR8V STACKS (3-COL GRID + BOTTOM STATS) ── */
     .c8-about-section {
       background-color: #080808 !important;
-      background-image: radial-gradient(circle at 15% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 60%), radial-gradient(circle at 90% 85%, rgba(0, 56, 192, 0.35) 0%, transparent 60%) !important;
+      background-image: none !important;
       padding: 6rem 4rem; position: relative; overflow: hidden; color: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line);
     }
     .c8-about-inner { max-width: 1360px; margin: 0 auto; position: relative; z-index: 1; }

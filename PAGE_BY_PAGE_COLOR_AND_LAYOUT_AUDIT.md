@@ -92,14 +92,14 @@
 
 *(Web Design, Custom Dev, AI MVP, Shopify, WordPress, WooCommerce, E-Commerce, SEO & Content, Digital Marketing, Brand Strategy)*
 
-| Section # | Section Name & Purpose | Target Base Canvas | Target Surface Fills | Atmospheric Animation Strategy |
+| Section # | Section Name & Purpose | Target Base Canvas | Target Surface Fills | Atmospheric Animation & Color Strategy |
 | :--- | :--- | :--- | :--- | :--- |
-| **01** | **Service Hero & Value Prop** | `#FFFFFF` Pure White | Clean Canvas Base | Hero SVG gooey filter & canvas layers render seamlessly over transparent `#FFFFFF` canvas |
-| **02** | **Deliverables Matrix Bento** | `#FFFFFF` Pure White | `#F2F2F0` Surface Lift Cards (`1px solid rgba(0,0,0,0.08)`) | Standardize `#F2F2F0` surface cards |
-| **03** | **Technical Architecture Stack** | `#080808` Solid Obsidian Dark | `#141414` Elevated Charcoal Cards (`1px solid rgba(255,255,255,0.10)`) | Remove radial gradients; enforce solid obsidian `#080808` |
-| **04** | **14-Day Sprint Model** | `#F4F5F7` Off-White Canvas | `#F2F2F0` Bento Step Cards | Update canvas to `#F4F5F7` architectural off-white |
-| **05** | **Verified Case Study Spotlight** | `#FFFFFF` Pure White | `#F2F2F0` Showcase Card | Symmetrical `4rem 3.5rem` cell padding & blueprint `+` crosshairs |
-| **06** | **Service FAQ & Pre-Footer CTA** | `#FFFFFF` Pure White | **Paper Grid UI** (`.c8-paper-grid`) CTA Box | Standardize Light Paper Grid UI pre-footer CTA box |
+| **01** | **Service Hero & Value Prop** (`.c8isv-hero-wrap`) | `#050813` / `#080808` Dark Atmosphere Canvas | `#141414` / `#080808` Hero Cards | **Dark Atmosphere Hero**: Floating SVG fluid blobs (`.c8isv-atmos-blob`), radial glow (`.c8isv-hero-glow`), white headlines (`#FFFFFF`), light body text (`rgba(255,255,255,0.75)`), and animated logo visual. *(Note: Uncouple `.c8srv-hero-wrap` in `shared-service-components.css` so Main Services Hub retains its `#FFFFFF` light hero).* |
+| **02** | **Deliverables Matrix Bento** (`.c8isv-flank-section`) | `#FFFFFF` Pure White | `#F2F2F0` Surface Lift Cards (`1px solid rgba(0,0,0,0.08)`) | Standardize `#F2F2F0` surface lift cards across all templates. |
+| **03** | **Technical Architecture Stack** (`.c8isv-hl-section` / `#stack-bento`) | `#080808` Solid Obsidian Dark | `#141414` Elevated Charcoal Cards (`1px solid rgba(255,255,255,0.10)`) | **Content-Driven Dark**: High-density tech stack. Remove radial blue gradients for solid obsidian `#080808`. |
+| **04** | **14-Day Sprint Model** (`.c8isv-approach-outer`) | `#F4F5F7` Off-White Canvas | `#F2F2F0` Bento Step Cards | Update canvas to `#F4F5F7` architectural off-white. |
+| **05** | **Verified Case Study Spotlight** (`.c8isv-fits-outer`) | `#FFFFFF` Pure White | `#F2F2F0` Showcase Card | Symmetrical `4rem 3.5rem` cell padding & blueprint `+` crosshairs. |
+| **06** | **Service FAQ & Pre-Footer CTA** (`.c8srv-pricing-section`) | `#FFFFFF` Pure White | **Paper Grid UI** (`.c8-paper-grid`) CTA Box | Standardize Light Paper Grid UI pre-footer CTA box before dark footer bar. |
 
 ---
 

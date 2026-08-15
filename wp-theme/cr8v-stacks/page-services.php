@@ -1225,7 +1225,7 @@ body {
       <div class="c8-about-mockup-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
         
         <!-- Card 1: WordPress -->
-        <div class="c8-about-card" style="border: 1px solid rgba(255,255,255,0.14); background: #FAFAF7; color: #080808; padding: 3.5rem 2.5rem !important; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px !important; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+        <div class="c8-about-card" style="border: 1px solid rgba(255,255,255,0.14); background: #F2F2F0; color: #080808; padding: 3.5rem 2.5rem !important; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px !important; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
           <div>
             <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;" data-customizer="srv_card1_num"><?php echo esc_html(cr8v_mod('srv_card1_num', '01 / WORDPRESS')); ?></span>
             <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card1_title"><?php echo esc_html(cr8v_mod('srv_card1_title', 'WORDPRESS, NO-CODE')); ?></h3>
@@ -1245,7 +1245,7 @@ body {
         </div>
 
         <!-- Card 3: WooCommerce -->
-        <div class="c8-about-card" style="border: 1px solid rgba(255,255,255,0.14); background: #FAFAF7; color: #080808; padding: 3.5rem 2.5rem !important; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px !important; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+        <div class="c8-about-card" style="border: 1px solid rgba(255,255,255,0.14); background: #F2F2F0; color: #080808; padding: 3.5rem 2.5rem !important; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px !important; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
           <div>
             <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;" data-customizer="srv_card3_num"><?php echo esc_html(cr8v_mod('srv_card3_num', '03 / WOOCOMMERCE')); ?></span>
             <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card3_title"><?php echo esc_html(cr8v_mod('srv_card3_title', 'WOOCOMMERCE CONTROL')); ?></h3>
@@ -1255,7 +1255,7 @@ body {
         </div>
 
         <!-- Card 4: Custom Dev -->
-        <div class="c8-about-card" style="border: 1px solid rgba(255,255,255,0.14); background: #FAFAF7; color: #080808; padding: 3.5rem 2.5rem !important; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px !important; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+        <div class="c8-about-card" style="border: 1px solid rgba(255,255,255,0.14); background: #F2F2F0; color: #080808; padding: 3.5rem 2.5rem !important; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px !important; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
           <div>
             <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;" data-customizer="srv_card4_num"><?php echo esc_html(cr8v_mod('srv_card4_num', '04 / CUSTOM DEV')); ?></span>
             <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card4_title"><?php echo esc_html(cr8v_mod('srv_card4_title', 'BESPOKE SOFTWARE')); ?></h3>
@@ -1275,7 +1275,7 @@ body {
         </div>
 
         <!-- Card 6: Redesigns -->
-        <div class="c8-about-card" style="border: 1px solid rgba(255,255,255,0.14); background: #FAFAF7; color: #080808; padding: 3.5rem 2.5rem !important; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px !important; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+        <div class="c8-about-card" style="border: 1px solid rgba(255,255,255,0.14); background: #F2F2F0; color: #080808; padding: 3.5rem 2.5rem !important; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px !important; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
           <div>
             <span style="font-family: 'Space Mono', monospace !important; font-size: 0.72rem !important; font-weight: 700 !important; color: #0047E1 !important; display: block !important; margin-bottom: 1.25rem !important; letter-spacing: 0.1em !important;" data-customizer="srv_card6_num"><?php echo esc_html(cr8v_mod('srv_card6_num', '06 / REDESIGNS')); ?></span>
             <h3 style="font-family: 'Michroma', sans-serif !important; font-size: 1.25rem !important; text-transform: uppercase !important; margin-bottom: 0.85rem !important; font-weight: 700 !important; color: #080808 !important; letter-spacing: 0.02em !important; line-height: 1.35 !important;" data-customizer="srv_card6_title"><?php echo esc_html(cr8v_mod('srv_card6_title', 'PLATFORM REDESIGNS')); ?></h3>

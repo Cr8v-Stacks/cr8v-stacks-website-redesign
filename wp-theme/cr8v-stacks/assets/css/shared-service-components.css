@@ -262,9 +262,18 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
 /* ══════════════════════════════════════════
    SECTION 1: HERO (Dark Atmosphere)
    ══════════════════════════════════════════ */
-.c8isv-hero-wrap, .c8srv-hero-wrap {
+.c8isv-hero-wrap {
   position: relative !important;
   background: #050813 !important;
+  min-height: 88vh !important;
+  display: flex !important;
+  align-items: center !important;
+  overflow: hidden !important;
+}
+
+.c8srv-hero-wrap {
+  position: relative !important;
+  background: transparent !important;
   min-height: 88vh !important;
   display: flex !important;
   align-items: center !important;
@@ -789,7 +798,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
 }
 
 .c8isv-folder-card, .c8srv-folder-card {
-  background: #FAFAF9 !important;
+  background: #F2F2F0 !important;
   border: 1px solid rgba(8,8,8,0.1) !important;
   border-radius: 4px !important;
   padding: 3.5rem !important;
@@ -810,7 +819,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   width: 155px !important;
   box-sizing: border-box !important;
   padding: 8px 12px !important;
-  background: #FAFAF9 !important;
+  background: #F2F2F0 !important;
   border: 1px solid rgba(8,8,8,0.1) !important;
   border-bottom: none !important;
   border-radius: 4px 4px 0 0 !important;
@@ -1386,7 +1395,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
 }
 
 .c8isv-platform-card:hover, .c8srv-platform-card:hover {
-  background: #FAFAF7 !important;
+  background: #F2F2F0 !important;
   border-color: rgba(8, 8, 8, 0.12) !important;
   transform: none !important;
   box-shadow: none !important;
@@ -1471,7 +1480,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
 }
 
 .c8isv-price-box, .c8srv-price-box {
-  background: #FAFAF9 !important;
+  background: #F2F2F0 !important;
   border: 1px solid rgba(8,8,8,0.1) !important;
   border-radius: 4px !important;
   padding: 3.5rem !important;
@@ -1692,7 +1701,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
 /* Estimator Widget */
 .c8srv-estimator, .c8isv-estimator {
   margin-top: 4rem !important;
-  background: #FAFAF9 !important;
+  background: #F2F2F0 !important;
   border: 1px solid rgba(8,8,8,0.1) !important;
   border-radius: 4px !important;
   padding: 4rem !important;
@@ -2285,7 +2294,7 @@ button.c8isv-est-choice.is-active,
 }
 
 .c8srv-root .c8srv-related-card:hover, .c8isv-root .c8isv-related-card:hover, .c8isv-related-card:hover, .c8srv-related-card:hover {
-  background: #FAFAF7 !important;
+  background: #F2F2F0 !important;
   border-color: rgba(8, 8, 8, 0.12) !important;
   transform: none !important;
   box-shadow: none !important;
