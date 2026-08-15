@@ -32,7 +32,7 @@ defined('ABSPATH') || exit;
       position: relative !important;
       z-index: 10 !important;
       box-sizing: border-box !important;
-      background: #FFFFFF url('<?php echo esc_url(get_template_directory_uri() . "/assets/img/cr8v_home_hero_bg.jpeg"); ?>') center bottom / cover no-repeat !important;
+      background: #FFFFFF url('<?php echo esc_url(get_template_directory_uri() . "/assets/img/cr8v_home_hero_bg.png"); ?>') center bottom / cover no-repeat !important;
       border-bottom: 1px solid var(--c8-line) !important;
     }
   </style>

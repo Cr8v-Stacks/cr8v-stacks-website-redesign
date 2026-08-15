@@ -963,7 +963,7 @@ a .art-author-bio {
       position: relative;
       z-index: 10;
       box-sizing: border-box;
-      background: #FFFFFF url('assets/img/cr8v_home_hero_bg.jpeg') center bottom / cover no-repeat;
+      background: #FFFFFF url('assets/img/cr8v_home_hero_bg.png') center bottom / cover no-repeat;
       border-bottom: 1px solid var(--c8-line);
     }
 
