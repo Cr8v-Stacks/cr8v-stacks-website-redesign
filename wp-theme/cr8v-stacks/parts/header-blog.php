@@ -305,7 +305,8 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
 }
 .c8bm-root .c8bm-upsell::before {
   content:''!important;position:absolute!important;inset:0!important;
-  background:radial-gradient(circle at 80% 15%,rgba(0,71,225,0.5) 0%,transparent 60%)!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")!important;
+  pointer-events:none!important;z-index:0!important;
 }
 .c8bm-root .c8bm-upsell-header-row {
   display:flex!important;align-items:center!important;gap:10px!important;margin-bottom:8px!important;position:relative!important;z-index:1!important;
@@ -396,7 +397,7 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
 .c8bm-root .c8bm-bd-top {background:#080808!important;flex-shrink:0!important;position:relative!important;overflow:hidden!important;padding-bottom:1rem!important;}
 .c8bm-root .c8bm-bd-top::before {
   content:''!important;position:absolute!important;inset:0!important;
-  background:radial-gradient(circle at 85% 15%,rgba(0,71,225,0.45) 0%,transparent 55%),radial-gradient(circle at 10% 90%,rgba(0,56,192,0.2) 0%,transparent 50%)!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")!important;
   pointer-events:none!important;z-index:0!important;
 }
 .c8bm-root .c8bm-bd-top-bar {
@@ -447,7 +448,7 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
 }
 .c8bm-root .c8bm-bd-foot::before {
   content:''!important;position:absolute!important;inset:0!important;
-  background:radial-gradient(circle at 85% 15%,rgba(0,71,225,0.45) 0%,transparent 55%),radial-gradient(circle at 10% 90%,rgba(0,56,192,0.2) 0%,transparent 50%)!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")!important;
   pointer-events:none!important;z-index:0!important;
 }
 .c8bm-root .c8bm-bd-services {
