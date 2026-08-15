@@ -280,7 +280,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
    ══════════════════════════════════════════ */
 .c8isv-hero-wrap {
   position: relative !important;
-  background: #050813 !important;
+  background: #080808 !important;
   min-height: 88vh !important;
   display: flex !important;
   align-items: center !important;

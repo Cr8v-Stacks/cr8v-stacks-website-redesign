@@ -116,7 +116,7 @@ get_header();
   .c8cs-gallery-title { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.01em; }
   .c8cs-gallery-desc { font-size: 14.5px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 2rem; }
 
-  .c8cs-gallery-img-box { width: 100%; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-top: auto; background: #000000; }
+  .c8cs-gallery-img-box { width: 100%; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-top: auto; background: #080808; }
   .c8cs-gallery-img-box.is-tall { max-height: 520px !important; height: 520px !important; }
   .c8cs-gallery-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.5s ease; }
   .c8cs-gallery-card:hover .c8cs-gallery-img-box img { transform: scale(1.03); }

@@ -132,7 +132,7 @@
     }
     .fylla-hero-img-box {
       width: 100%; aspect-ratio: 21 / 9; border-radius: 4px; overflow: hidden;
-      border: 1px solid var(--c8-grid-line); background: #000000; position: relative;
+      border: 1px solid var(--c8-grid-line); background: #080808; position: relative;
     }
     .fylla-hero-img { width: 100%; height: 100%; object-fit: cover; }
     .fylla-hud-tag {
@@ -520,7 +520,7 @@
     .fylla-edu-section { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
     .fylla-edu-col { padding: 4.5rem 4rem; }
     .fylla-edu-col:first-child { border-right: 1px solid var(--c8-grid-line); }
-    .fylla-img-frame { width: 100%; aspect-ratio: 16 / 9; border-radius: 4px; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #000000; position: relative; margin-top: 2rem; }
+    .fylla-img-frame { width: 100%; aspect-ratio: 16 / 9; border-radius: 4px; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; position: relative; margin-top: 2rem; }
     .fylla-img-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .fylla-play-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.15); }
     .fylla-play-btn { width: 64px; height: 64px; background: #FF0000; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(255,0,0,0.4); }
