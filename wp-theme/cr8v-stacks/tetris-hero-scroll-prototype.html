@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CR8V Stacks — Authentic Scroll-Driven Tetris Assembly Prototype</title>
+  <title>CR8V Stacks — Perfected 3D Tetris Hero Assembly Prototype</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -19,7 +19,6 @@
       --font-body: 'DM Sans', sans-serif;
       --font-mono: 'Space Mono', monospace;
       --font-heading: 'Michroma', sans-serif;
-      --cell-size: 60px; /* Base Tetris Grid Unit */
     }
 
     * {
@@ -113,10 +112,10 @@
       transform: translateY(-1px);
     }
 
-    /* Pinned Hero Stage Area */
+    /* Pinned Scroll Track Area */
     .hero-scroll-track {
       position: relative;
-      height: 380vh; /* Deep scroll track for sequential Tetris piece falls */
+      height: 350vh; /* Deep track for smooth, step-by-step scroll progress */
     }
 
     .sticky-hero-stage {
@@ -205,12 +204,12 @@
     }
 
     /* ════════════════════════════════════════════════════════════════
-       AUTHENTIC 3D TETROMINO ASSEMBLY STAGE
+       AUTHENTIC 3D TETROMINO ASSEMBLY STAGE (ZERO OVERLAP FIT)
        ════════════════════════════════════════════════════════════════ */
     .tetris-assembly-canvas {
       position: relative;
       width: 100%;
-      max-width: 1140px;
+      max-width: 1160px;
       height: 360px;
       display: flex;
       justify-content: center;
@@ -219,21 +218,21 @@
       z-index: 20;
     }
 
-    /* Base Grid Matrix Container (16 Cols x 5 Rows of 60px Cells) */
+    /* Exact Pixel Grid Base (1020px Wide x 280px Tall) */
     .tetris-grid-matrix {
       position: relative;
-      width: 960px;
-      height: 300px;
+      width: 1020px;
+      height: 280px;
     }
 
     /* 3D Beveled Tetromino Base Class */
     .tetromino {
       position: absolute;
-      border-radius: 5px;
+      border-radius: 6px;
       box-shadow:
         inset 3px 3px 0px rgba(255, 255, 255, 0.45),
         inset -3px -3px 0px rgba(0, 0, 0, 0.25),
-        0 12px 28px rgba(0, 0, 0, 0.15);
+        0 12px 28px rgba(0, 0, 0, 0.14);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -282,141 +281,156 @@
     .color-lime      { background: #6B9F3F; color: #FFFFFF; }
     .color-gold      { background: #E89A1B; color: #FFFFFF; }
 
-    /* ── CLASSIC TETROMINO SHAPES & TARGET GRID LANDING SLOTS ── */
+    /* ════════════════════════════════════════════════════════════════
+       PERFECTED ASSEMBLED RESTING COORDINATES (ZERO OVERLAP FIT)
+       ════════════════════════════════════════════════════════════════ */
     
-    /* 1. Piece #1: Custom Development (I-Block 4x1 Horizontal Base Left) */
-    #t-custom-dev {
-      left: 60px;
-      bottom: 0;
-      width: 240px;
-      height: 60px;
-      z-index: 10;
-    }
-
-    /* 2. Piece #2: OpenAI J-Block Corner (2x2 Corner Left) */
+    /* ── 1. FLOOR TIER (GROUND LEVEL - BOTTOM: 0px) ── */
+    
+    /* OpenAI Corner Block (Far-Left Floor Edge) */
     #t-openai {
-      left: 0;
-      bottom: 0;
-      width: 60px;
-      height: 120px;
-      clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 50%, 50% 100%, 0 100%);
+      left: 0px;
+      bottom: 0px;
+      width: 76px;
+      height: 124px;
+      clip-path: polygon(0 0, 100% 0, 100% 48%, 48% 48%, 48% 100%, 0 100%);
       z-index: 11;
     }
 
-    /* 3. Piece #3: Web Design Ivory L-Block (3x2 L-Shape Layer 2 Left) */
-    #t-web-design {
-      left: 120px;
-      bottom: 60px;
-      width: 180px;
-      height: 120px;
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 33.3% 100%, 33.3% 50%, 0 50%);
-      z-index: 12;
+    /* Custom Development Base (Floor Left) */
+    #t-custom-dev {
+      left: 78px;
+      bottom: 0px;
+      width: 254px;
+      height: 64px;
+      z-index: 10;
     }
 
-    /* 4. Piece #4: Shopify O-Block (2x1 Box Base Center) */
+    /* Shopify Base Box (Floor Center) */
     #t-shopify {
-      left: 300px;
-      bottom: 0;
-      width: 180px;
-      height: 60px;
+      left: 334px;
+      bottom: 0px;
+      width: 174px;
+      height: 64px;
       z-index: 13;
     }
 
-    /* 5. Piece #5: AI MVP T-Block (3x2 T-Shape Center) */
-    #t-ai-mvp {
-      left: 240px;
-      bottom: 120px;
-      width: 180px;
-      height: 120px;
-      clip-path: polygon(0 0, 66.6% 0, 66.6% 50%, 100% 50%, 100% 100%, 0 100%);
-      z-index: 14;
-    }
-
-    /* 6. Piece #6: Elementor Orange L-Tower (2x3 Vertical L-Shape) */
-    #t-elementor {
-      left: 420px;
-      bottom: 60px;
-      width: 120px;
-      height: 180px;
-      clip-path: polygon(0 0, 50% 0, 50% 66.6%, 100% 66.6%, 100% 100%, 0 100%);
-      z-index: 15;
-    }
-
-    /* 7. Piece #7: Figma Green Z-Block (3x2 Offset Zigzag Right Center) */
+    /* Figma Forest Green Block (Floor Center-Right) */
     #t-figma {
-      left: 480px;
-      bottom: 0;
-      width: 180px;
-      height: 120px;
+      left: 510px;
+      bottom: 0px;
+      width: 172px;
+      height: 124px;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
       z-index: 14;
     }
 
-    /* 8. Piece #8: WordPress Silver L-Block (3x2 L-Shape Layer 2 Right Center) */
-    #t-wordpress {
-      left: 540px;
-      bottom: 120px;
-      width: 180px;
-      height: 120px;
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 66.6% 100%, 66.6% 50%, 0 50%);
-      z-index: 16;
-    }
-
-    /* 9. Piece #9: Content Writing Sand Bar (2x1 Horizontal Bar Right) */
-    #t-content {
-      left: 660px;
-      bottom: 60px;
-      width: 120px;
-      height: 60px;
+    /* Purple Agency Corner Block (Floor Right) */
+    #t-agency-purple {
+      left: 684px;
+      bottom: 0px;
+      width: 174px;
+      height: 64px;
       z-index: 15;
     }
 
-    /* 10. Piece #10: Claude Obsidian Pillar (1x2 Vertical Base Far Right) */
+    /* Claude Obsidian Dark Block (Far-Right Floor Edge) */
     #t-claude {
-      left: 840px;
-      bottom: 0;
-      width: 120px;
-      height: 120px;
+      left: 860px;
+      bottom: 0px;
+      width: 114px;
+      height: 124px;
       z-index: 16;
     }
 
-    /* ── TOP FLOATING / FALLING TETROMINOS ── */
+    /* ── 2. MIDDLE TIER (LAYER 2 - INTERLOCKED FLUSH ON TOP) ── */
+    
+    /* Web Design Ivory L-Block (Sitting flush on Custom Dev) */
+    #t-web-design {
+      left: 114px;
+      bottom: 66px;
+      width: 180px;
+      height: 122px;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 42% 100%, 42% 48%, 0 48%);
+      z-index: 12;
+    }
 
-    /* 11. Piece #11: Next.js Navy Pillar (1x3 Vertical Top Left) */
+    /* AI MVP Royal Blue T-Block (Fitting cavity between Web Design & Shopify) */
+    #t-ai-mvp {
+      left: 296px;
+      bottom: 66px;
+      width: 176px;
+      height: 122px;
+      clip-path: polygon(0 0, 48% 0, 48% 48%, 100% 48%, 100% 100%, 0 100%);
+      z-index: 13;
+    }
+
+    /* Elementor Bright Orange L-Tower (Rising vertically from Shopify) */
+    #t-elementor {
+      left: 442px;
+      bottom: 66px;
+      width: 120px;
+      height: 178px;
+      clip-path: polygon(0 0, 48% 0, 48% 54%, 100% 54%, 100% 100%, 0 100%);
+      z-index: 17;
+    }
+
+    /* WordPress Silver L-Block (Sitting flush on Figma/Purple) */
+    #t-wordpress {
+      left: 564px;
+      bottom: 66px;
+      width: 130px;
+      height: 122px;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 55% 100%, 55% 48%, 0 48%);
+      z-index: 18;
+    }
+
+    /* Content Writing Sand Box (Sitting flush next to WordPress) */
+    #t-content {
+      left: 696px;
+      bottom: 66px;
+      width: 104px;
+      height: 64px;
+      z-index: 15;
+    }
+
+    /* ── 3. UPPER AIRBORNE TIER (FLOATING TOP LEFT & RIGHT) ── */
+
+    /* Next.js Navy Pillar (Floating Top Left) */
     #t-nextjs {
-      left: 0px;
-      bottom: 180px;
-      width: 60px;
-      height: 180px;
+      left: 10px;
+      bottom: 195px;
+      width: 68px;
+      height: 176px;
       z-index: 25;
     }
 
-    /* 12. Piece #12: WordPress Purple Corner (2x2 Corner Top Left) */
+    /* WordPress Purple Corner (Floating Top Left) */
     #t-wp-purple {
-      left: 60px;
-      bottom: 240px;
-      width: 120px;
-      height: 120px;
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 50% 50%, 0 50%);
+      left: 80px;
+      bottom: 250px;
+      width: 98px;
+      height: 98px;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 50% 48%, 0 48%);
       z-index: 26;
     }
 
-    /* 13. Piece #13: Lime Green UX/UI S-Block (3x2 S-Shape Top Right) */
+    /* Lime Green UX/UI Block (Floating Top Right) */
     #t-lime-green {
       right: 120px;
-      bottom: 240px;
-      width: 120px;
-      height: 80px;
+      bottom: 255px;
+      width: 98px;
+      height: 78px;
       z-index: 27;
     }
 
-    /* 14. Piece #14: Amber Gold E-Commerce L-Block (2x2 L-Shape Top Right) */
+    /* Amber Gold E-Commerce L-Block (Floating Top Right) */
     #t-gold-l {
-      right: 0px;
-      bottom: 180px;
-      width: 120px;
-      height: 120px;
-      clip-path: polygon(0 0, 50% 0, 50% 50%, 100% 50%, 100% 100%, 0 100%);
+      right: 60px;
+      bottom: 185px;
+      width: 88px;
+      height: 110px;
+      clip-path: polygon(0 0, 50% 0, 50% 55%, 100% 55%, 100% 100%, 0 100%);
       z-index: 28;
     }
 
@@ -544,99 +558,138 @@
         </div>
       </div>
 
-      <!-- Authentic 3D Tetromino Assembly Stage -->
+      <!-- Perfected 3D Tetromino Assembly Stage -->
       <div class="tetris-assembly-canvas">
         <div class="tetris-grid-matrix" id="tetrisMatrix">
           
-          <!-- Piece #1: Custom Development (I-Block 4x1 Horizontal Base Left) -->
-          <div class="tetromino color-blue" id="t-custom-dev" data-start-y="-680" data-rot-x="45" data-rot-z="-90" data-start-time="0.0" data-end-time="0.22">
-            <div class="tetromino-label">CUSTOM DEVELOPMENT</div>
-          </div>
+          <!-- ── 1. FLOOR TIER (Ground Level — Rise Up from Below) ── -->
 
-          <!-- Piece #2: OpenAI J-Block Corner (2x2 Corner Left) -->
-          <div class="tetromino color-dark" id="t-openai" data-start-y="-750" data-rot-x="60" data-rot-z="180" data-start-time="0.05" data-end-time="0.28">
+          <!-- OpenAI Corner Block (Far-Left Floor Edge) -->
+          <div class="tetromino color-dark" id="t-openai" 
+               data-start-x="0" data-start-y="260" data-start-rot="0"
+               data-start-time="0.0" data-end-time="0.25">
             <div class="tetromino-label">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg" alt="OpenAI" class="cdn-brand-icon icon-light">
             </div>
           </div>
 
-          <!-- Piece #3: Web Design Ivory L-Block (3x2 L-Shape Layer 2 Left) -->
-          <div class="tetromino color-ivory" id="t-web-design" data-start-y="-820" data-rot-x="-45" data-rot-z="-90" data-start-time="0.18" data-end-time="0.42">
-            <div class="tetromino-label">WEB DESIGN</div>
+          <!-- Custom Development Base (Floor Left) -->
+          <div class="tetromino color-blue" id="t-custom-dev" 
+               data-start-x="0" data-start-y="260" data-start-rot="0"
+               data-start-time="0.0" data-end-time="0.25">
+            <div class="tetromino-label">CUSTOM DEVELOPMENT</div>
           </div>
 
-          <!-- Piece #4: Shopify O-Block (2x1 Box Base Center) -->
-          <div class="tetromino color-dark" id="t-shopify" data-start-y="-620" data-rot-x="-30" data-rot-z="90" data-start-time="0.10" data-end-time="0.32">
+          <!-- Shopify Base Box (Floor Center) -->
+          <div class="tetromino color-dark" id="t-shopify" 
+               data-start-x="0" data-start-y="260" data-start-rot="0"
+               data-start-time="0.05" data-end-time="0.30">
             <div class="tetromino-label">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/shopify.svg" alt="Shopify" class="cdn-brand-icon icon-light">
               SHOPIFY
             </div>
           </div>
 
-          <!-- Piece #5: AI MVP T-Block (3x2 T-Shape Center) -->
-          <div class="tetromino color-blue" id="t-ai-mvp" data-start-y="-780" data-rot-x="55" data-rot-z="180" data-start-time="0.25" data-end-time="0.52">
-            <div class="tetromino-label">AI MVP</div>
-          </div>
-
-          <!-- Piece #6: Elementor Orange L-Tower (2x3 Vertical L-Shape Center) -->
-          <div class="tetromino color-orange" id="t-elementor" data-start-y="-880" data-rot-x="70" data-rot-z="-90" data-start-time="0.32" data-end-time="0.62">
-            <div class="tetromino-label">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/elementor.svg" alt="Elementor" class="cdn-brand-icon icon-light">
-            </div>
-          </div>
-
-          <!-- Piece #7: Figma Green Z-Block (3x2 Offset Zigzag Right Center) -->
-          <div class="tetromino color-green" id="t-figma" data-start-y="-740" data-rot-x="-50" data-rot-z="90" data-start-time="0.22" data-end-time="0.48">
+          <!-- Figma Forest Green Block (Floor Center-Right) -->
+          <div class="tetromino color-green" id="t-figma" 
+               data-start-x="0" data-start-y="260" data-start-rot="0"
+               data-start-time="0.08" data-end-time="0.32">
             <div class="tetromino-label">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg" alt="Figma" class="cdn-brand-icon icon-light">
               FIGMA
             </div>
           </div>
 
-          <!-- Piece #8: WordPress Silver L-Block (3x2 L-Shape Layer 2 Right Center) -->
-          <div class="tetromino color-silver" id="t-wordpress" data-start-y="-800" data-rot-x="40" data-rot-z="-180" data-start-time="0.38" data-end-time="0.68">
-            <div class="tetromino-label">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/wordpress.svg" alt="WordPress" class="cdn-brand-icon icon-dark">
-              WORDPRESS
-            </div>
+          <!-- Purple Agency Corner Block (Floor Right) -->
+          <div class="tetromino color-purple" id="t-agency-purple" 
+               data-start-x="0" data-start-y="260" data-start-rot="0"
+               data-start-time="0.10" data-end-time="0.35">
+            <div class="tetromino-label">AGENCY</div>
           </div>
 
-          <!-- Piece #9: Content Writing Sand Bar (2x1 Horizontal Bar Right) -->
-          <div class="tetromino color-sand" id="t-content" data-start-y="-680" data-rot-x="-35" data-rot-z="90" data-start-time="0.42" data-end-time="0.72">
-            <div class="tetromino-label">CONTENT</div>
-          </div>
-
-          <!-- Piece #10: Claude Obsidian Pillar (1x2 Vertical Base Far Right) -->
-          <div class="tetromino color-dark" id="t-claude" data-start-y="-700" data-rot-x="35" data-rot-z="-90" data-start-time="0.15" data-end-time="0.40">
+          <!-- Claude Obsidian Dark Block (Far-Right Floor Edge) -->
+          <div class="tetromino color-dark" id="t-claude" 
+               data-start-x="0" data-start-y="260" data-start-rot="0"
+               data-start-time="0.12" data-end-time="0.38">
             <div class="tetromino-label">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/anthropic.svg" alt="Claude" class="cdn-brand-icon icon-light">
               CLAUDE
             </div>
           </div>
 
-          <!-- Top Floating / Sequential Falling Tetrominos -->
+          <!-- ── 2. MIDDLE TIER (Layer 2 — Drop Down & Rotate from Mid-Air) ── -->
 
-          <!-- Piece #11: Next.js Navy Pillar (1x3 Vertical Top Left) -->
-          <div class="tetromino color-navy" id="t-nextjs" data-start-y="-980" data-rot-x="80" data-rot-z="-180" data-start-time="0.58" data-end-time="0.88">
+          <!-- Web Design Ivory L-Block (Sitting flush on Custom Dev) -->
+          <div class="tetromino color-ivory" id="t-web-design" 
+               data-start-x="0" data-start-y="-420" data-start-rot="-45"
+               data-start-time="0.22" data-end-time="0.55">
+            <div class="tetromino-label">WEB DESIGN</div>
+          </div>
+
+          <!-- AI MVP Royal Blue T-Block (Fitting cavity between Web Design & Shopify) -->
+          <div class="tetromino color-blue" id="t-ai-mvp" 
+               data-start-x="0" data-start-y="-450" data-start-rot="45"
+               data-start-time="0.28" data-end-time="0.60">
+            <div class="tetromino-label">AI MVP</div>
+          </div>
+
+          <!-- Elementor Bright Orange L-Tower (Rising vertically from Shopify) -->
+          <div class="tetromino color-orange" id="t-elementor" 
+               data-start-x="0" data-start-y="-500" data-start-rot="-90"
+               data-start-time="0.35" data-end-time="0.68">
+            <div class="tetromino-label">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/elementor.svg" alt="Elementor" class="cdn-brand-icon icon-light">
+            </div>
+          </div>
+
+          <!-- WordPress Silver L-Block (Sitting flush on Figma/Purple) -->
+          <div class="tetromino color-silver" id="t-wordpress" 
+               data-start-x="0" data-start-y="-420" data-start-rot="60"
+               data-start-time="0.40" data-end-time="0.72">
+            <div class="tetromino-label">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/wordpress.svg" alt="WordPress" class="cdn-brand-icon icon-dark">
+              WORDPRESS
+            </div>
+          </div>
+
+          <!-- Content Writing Sand Box (Sitting flush next to WordPress) -->
+          <div class="tetromino color-sand" id="t-content" 
+               data-start-x="0" data-start-y="-380" data-start-rot="-30"
+               data-start-time="0.45" data-end-time="0.78">
+            <div class="tetromino-label">CONTENT</div>
+          </div>
+
+          <!-- ── 3. UPPER AIRBORNE TIER (Floating Peek-a-Boo Margins) ── -->
+
+          <!-- Next.js Navy Pillar (Top Left Floating) -->
+          <div class="tetromino color-navy" id="t-nextjs" 
+               data-start-x="-180" data-start-y="-120" data-start-rot="-25"
+               data-start-time="0.0" data-end-time="0.85">
             <div class="tetromino-label">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nextdotjs.svg" alt="Next.js" class="cdn-brand-icon icon-light">
             </div>
           </div>
 
-          <!-- Piece #12: WordPress Purple Corner (2x2 Corner Top Left) -->
-          <div class="tetromino color-purple" id="t-wp-purple" data-start-y="-1050" data-rot-x="-70" data-rot-z="180" data-start-time="0.65" data-end-time="0.94">
+          <!-- WordPress Purple Corner (Top Left Floating) -->
+          <div class="tetromino color-purple" id="t-wp-purple" 
+               data-start-x="-160" data-start-y="-140" data-start-rot="30"
+               data-start-time="0.0" data-end-time="0.90">
             <div class="tetromino-label">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/wordpress.svg" alt="WordPress" class="cdn-brand-icon icon-light">
             </div>
           </div>
 
-          <!-- Piece #13: Lime Green UX/UI S-Block (3x2 S-Shape Top Right) -->
-          <div class="tetromino color-lime" id="t-lime-green" data-start-y="-940" data-rot-x="65" data-rot-z="-180" data-start-time="0.70" data-end-time="0.96">
+          <!-- Lime Green UX/UI Block (Top Right Floating) -->
+          <div class="tetromino color-lime" id="t-lime-green" 
+               data-start-x="180" data-start-y="-120" data-start-rot="25"
+               data-start-time="0.0" data-end-time="0.92">
             <div class="tetromino-label">UX/UI</div>
           </div>
 
-          <!-- Piece #14: Amber Gold E-Commerce L-Block (2x2 L-Shape Top Right) -->
-          <div class="tetromino color-gold" id="t-gold-l" data-start-y="-900" data-rot-x="-55" data-rot-z="180" data-start-time="0.75" data-end-time="0.99">
+          <!-- Amber Gold E-Commerce L-Block (Top Right Floating) -->
+          <div class="tetromino color-gold" id="t-gold-l" 
+               data-start-x="180" data-start-y="-140" data-start-rot="-30"
+               data-start-time="0.0" data-end-time="0.95">
             <div class="tetromino-label">E-COM</div>
           </div>
 
@@ -655,7 +708,7 @@
   <!-- Interactive Control Bar -->
   <div class="demo-controller">
     <label>
-      <span>Tetris Fit Progress</span>
+      <span>Assembly Progress</span>
       <span class="demo-badge" id="progressVal">0%</span>
     </label>
     <input type="range" id="scrollScrambler" min="0" max="100" value="0">
@@ -675,20 +728,20 @@
       let autoPlayDirection = 1;
       let animFrameId = null;
 
-      // Sequential Tetris Fall & Mid-Air Rotation Fit Algorithm
+      // Sequential Entrance Engine (From Load State -> Perfect Finished State)
       function updateTetrisAssembly(globalProgress) {
         const p = Math.max(0, Math.min(1, globalProgress));
         progressVal.textContent = Math.round(p * 100) + '%';
         scrollScrambler.value = Math.round(p * 100);
 
         tetrominos.forEach((piece) => {
-          const startY = parseFloat(piece.getAttribute('data-start-y')) || -750;
-          const rotX = parseFloat(piece.getAttribute('data-rot-x')) || 45;
-          const rotZ = parseFloat(piece.getAttribute('data-rot-z')) || 90;
+          const startX = parseFloat(piece.getAttribute('data-start-x')) || 0;
+          const startY = parseFloat(piece.getAttribute('data-start-y')) || 0;
+          const startRot = parseFloat(piece.getAttribute('data-start-rot')) || 0;
           const startTime = parseFloat(piece.getAttribute('data-start-time')) || 0.0;
           const endTime = parseFloat(piece.getAttribute('data-end-time')) || 1.0;
 
-          // Compute piecewise progress for this specific block
+          // Compute piecewise progress for this block
           let pieceProgress = 0;
           if (p <= startTime) {
             pieceProgress = 0;
@@ -698,17 +751,15 @@
             pieceProgress = (p - startTime) / (endTime - startTime);
           }
 
-          // Ease Out Back for realistic Tetris landing snap/impact
-          const c1 = 1.70158;
-          const c3 = c1 + 1;
-          const easedProgress = pieceProgress === 1 ? 1 : 1 + c3 * Math.pow(pieceProgress - 1, 3) + c1 * Math.pow(pieceProgress - 1, 2);
+          // Smooth Ease Out Cubic for fluid deceleration into resting slots
+          const easedProgress = 1 - Math.pow(1 - pieceProgress, 3);
 
-          const currentY = startY * (1 - Math.min(1, Math.max(0, pieceProgress)));
-          const currentRotX = rotX * (1 - pieceProgress);
-          const currentRotZ = rotZ * (1 - pieceProgress);
-          const currentOpacity = 0.15 + (0.85 * Math.min(1, pieceProgress));
+          const currentX = startX * (1 - easedProgress);
+          const currentY = startY * (1 - easedProgress);
+          const currentRot = startRot * (1 - easedProgress);
+          const currentOpacity = 0.25 + (0.75 * easedProgress);
 
-          piece.style.transform = `translate3d(0, ${currentY}px, 0) rotateX(${currentRotX}deg) rotateZ(${currentRotZ}deg)`;
+          piece.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) rotate(${currentRot}deg)`;
           piece.style.opacity = currentOpacity;
         });
       }
