@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CR8V Stacks — Scroll-Driven Tetris Hero Prototype</title>
+  <title>CR8V Stacks — Scroll-Driven Tetris Assembly Prototype</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
@@ -35,47 +35,44 @@
       line-height: 1.5;
     }
 
-    /* Global Tactile SVG Noise Grain Overlay */
+    /* Global Tactile SVG Noise Overlay */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       width: 100vw;
       height: 100vh;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 9999;
       mix-blend-mode: overlay;
       opacity: 0.75;
     }
 
-    /* Top Navigation Header Mockup */
+    /* Navigation Header */
     .c8-nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      height: 80px;
+      height: 76px;
       padding: 0 3.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--c8-grid-line);
     }
 
     .c8-logo {
       font-family: var(--font-heading);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       letter-spacing: 0.05em;
       color: var(--c8-ink);
       text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
     }
 
     .c8-logo span {
@@ -85,7 +82,7 @@
     .c8-nav-links {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 2.2rem;
       font-family: var(--font-mono);
       font-size: 0.75rem;
       text-transform: uppercase;
@@ -96,9 +93,9 @@
       background: var(--c8-blue);
       color: #FFFFFF;
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
-      padding: 0.75rem 1.6rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 4px;
       text-decoration: none;
       text-transform: uppercase;
@@ -106,20 +103,19 @@
       transition: all 0.25s ease;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
       box-shadow: 0 4px 14px rgba(0, 71, 225, 0.2);
     }
 
     .c8-btn-primary:hover {
       background: #0036AD;
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(0, 71, 225, 0.3);
     }
 
     /* Scroll Track Container (Pinned Hero Animation Area) */
     .hero-scroll-track {
       position: relative;
-      height: 240vh; /* Gives ample scroll distance for smooth block landing */
+      height: 320vh; /* Extended distance for step-by-step sequential Tetris falling */
     }
 
     .sticky-hero-stage {
@@ -131,18 +127,20 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      padding-top: 100px;
-      padding-bottom: 20px;
+      padding-top: 105px;
+      padding-bottom: 24px;
       overflow: hidden;
       box-sizing: border-box;
+      background: #FFFFFF;
     }
 
-    /* Hero Text Content */
-    .hero-header-box {
+    /* Centered Hero Intersection Box */
+    .hero-centered-content {
       text-align: center;
-      max-width: 860px;
+      max-width: 820px;
       padding: 0 1.5rem;
-      z-index: 20;
+      z-index: 50;
+      margin: 0 auto;
     }
 
     .c8-eyebrow {
@@ -152,7 +150,7 @@
       color: var(--c8-blue);
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
@@ -160,7 +158,7 @@
 
     .c8-hero-h1 {
       font-family: var(--font-heading);
-      font-size: clamp(2.0rem, 4vw, 3.4rem);
+      font-size: clamp(2.1rem, 3.8vw, 3.2rem);
       font-weight: 700;
       color: var(--c8-ink);
       line-height: 1.15;
@@ -170,11 +168,11 @@
     }
 
     .c8-hero-sub {
-      font-size: 1.05rem;
-      font-weight: 300;
+      font-size: 1.02rem;
+      font-weight: 400;
       color: var(--c8-sub);
-      max-width: 680px;
-      margin: 0 auto 1.5rem auto;
+      max-width: 660px;
+      margin: 0 auto 1.75rem auto;
       line-height: 1.6;
     }
 
@@ -182,7 +180,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.25rem;
     }
 
     .btn-secondary {
@@ -190,9 +188,9 @@
       color: var(--c8-ink);
       border: 1px solid var(--c8-grid-line);
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
-      padding: 0.75rem 1.6rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 4px;
       text-decoration: none;
       text-transform: uppercase;
@@ -206,287 +204,285 @@
     }
 
     /* ════════════════════════════════════════════════════════════════
-       3D TETRIS CANVAS & INTERACTIVE BLOCKS SYSTEM
+       PHOTOREALISTIC 3D TETRIS CANVAS & SEQUENCED FALL ENGINE
        ════════════════════════════════════════════════════════════════ */
-    .tetris-stage-wrap {
+    .tetris-assembly-canvas {
       position: relative;
       width: 100%;
-      max-width: 1200px;
+      max-width: 1100px;
       height: 380px;
       display: flex;
       justify-content: center;
       align-items: flex-end;
       perspective: 1200px;
-      z-index: 10;
+      z-index: 20;
     }
 
-    .tetris-grid-base {
+    .tetris-floor-grid {
       position: relative;
-      width: 1060px;
-      height: 360px;
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(4, 80px);
-      gap: 6px;
+      width: 1020px;
+      height: 340px;
     }
 
-    /* Individual Tetris Block Base Styling */
-    .t-block {
+    /* Base 3D Beveled Tetris Block Styling */
+    .t-piece {
       position: absolute;
       border-radius: 6px;
-      box-shadow: 
-        inset 2px 2px 0px rgba(255, 255, 255, 0.4),
+      box-shadow:
+        inset 3px 3px 0px rgba(255, 255, 255, 0.45),
         inset -3px -3px 0px rgba(0, 0, 0, 0.25),
-        0 12px 28px rgba(0, 0, 0, 0.12);
+        0 14px 32px rgba(0, 0, 0, 0.14);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--font-heading);
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       box-sizing: border-box;
       will-change: transform, opacity;
       transform-style: preserve-3d;
-      transition: transform 0.05s linear; /* Smooth scroll interpolation */
     }
 
-    .t-block-content {
+    .t-piece-inner {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
-      padding: 0 1rem;
+      gap: 0.65rem;
+      padding: 0 0.85rem;
       width: 100%;
       height: 100%;
       text-align: center;
-      line-height: 1.2;
     }
 
-    .t-block svg {
+    .cdn-brand-icon {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
       flex-shrink: 0;
     }
 
-    /* ── BLOCK COLOR PALETTE (PARITY WITH REFERENCE IMAGE) ── */
-    .bg-openai-black {
-      background: #111418;
-      color: #FFFFFF;
+    .cdn-brand-icon.icon-light {
+      filter: brightness(0) invert(1);
     }
 
-    .bg-custom-blue {
+    .cdn-brand-icon.icon-dark {
+      filter: brightness(0);
+    }
+
+    /* ── PALETTE PARITY WITH PHOTOREALISTIC REFERENCE ── */
+    .bg-royal-blue {
       background: #0047E1;
       color: #FFFFFF;
     }
 
-    .bg-webdesign-ivory {
-      background: #EAE6DF;
-      color: #080808;
-      box-shadow: 
-        inset 2px 2px 0px rgba(255, 255, 255, 0.7),
-        inset -3px -3px 0px rgba(0, 0, 0, 0.12),
-        0 8px 24px rgba(0, 0, 0, 0.08);
+    .bg-obsidian-black {
+      background: #11141A;
+      color: #FFFFFF;
     }
 
-    .bg-shopify-charcoal {
-      background: #181C20;
-      color: #FFFFFF;
+    .bg-ivory-white {
+      background: #ECEAE4;
+      color: #080808;
+      box-shadow: 
+        inset 3px 3px 0px rgba(255, 255, 255, 0.8),
+        inset -3px -3px 0px rgba(0, 0, 0, 0.15),
+        0 10px 28px rgba(0, 0, 0, 0.08);
     }
 
     .bg-elementor-orange {
-      background: #E6561D;
+      background: #E8551E;
       color: #FFFFFF;
     }
 
-    .bg-wordpress-grey {
-      background: #D8D6D0;
+    .bg-wordpress-silver {
+      background: #D5D3CC;
       color: #080808;
     }
 
     .bg-figma-green {
-      background: #1E6B3A;
+      background: #1D6938;
       color: #FFFFFF;
     }
 
     .bg-content-sand {
-      background: #D7C4A5;
+      background: #D9C6A7;
       color: #080808;
     }
 
-    .bg-claude-black {
-      background: #0D0E11;
+    .bg-claude-dark {
+      background: #0F1014;
       color: #FFFFFF;
     }
 
-    .bg-purple-corner {
+    .bg-wp-purple {
       background: #5E3EB6;
       color: #FFFFFF;
     }
 
-    .bg-next-blue {
-      background: #0044CC;
+    .bg-next-navy {
+      background: #003FB9;
       color: #FFFFFF;
     }
 
     .bg-lime-green {
-      background: #6A9E3F;
+      background: #6B9F3F;
       color: #FFFFFF;
     }
 
     .bg-amber-gold {
-      background: #E59819;
+      background: #E89A1B;
       color: #FFFFFF;
     }
 
-    /* Block Specific Shapes and Grid Placement Coordinates */
-    /* 1. Custom Dev Foundation (Bottom Row Left) */
-    #block-custom-dev {
-      left: 78px;
+    /* ── TETRIS PIECE SHAPES & LANDING TARGET COORDINATES ── */
+    
+    /* 1. Custom Development (Bottom Left Base) */
+    #p-custom-dev {
+      left: 76px;
       bottom: 0;
-      width: 250px;
-      height: 76px;
+      width: 254px;
+      height: 74px;
       z-index: 10;
     }
 
-    /* 2. OpenAI Corner Block (Far Bottom Left) */
-    #block-openai {
+    /* 2. OpenAI Corner Block (Far Left Edge) */
+    #p-openai {
       left: 0;
       bottom: 0;
       width: 74px;
-      height: 120px;
+      height: 122px;
       clip-path: polygon(0 0, 100% 0, 100% 40%, 45% 40%, 45% 100%, 0 100%);
       z-index: 11;
     }
 
-    /* 3. Web Design Block (Layer 2 Left) */
-    #block-web-design {
+    /* 3. Web Design Ivory L-Block (Layer 2 Left) */
+    #p-web-design {
       left: 110px;
-      bottom: 82px;
+      bottom: 80px;
       width: 178px;
-      height: 116px;
+      height: 118px;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 42% 100%, 42% 45%, 0 45%);
       z-index: 12;
     }
 
-    /* 4. AI MVP Block (Middle Layer 2) */
-    #block-ai-mvp {
+    /* 4. AI MVP Center Blue Block */
+    #p-ai-mvp {
       left: 294px;
-      bottom: 82px;
+      bottom: 80px;
       width: 176px;
-      height: 116px;
+      height: 118px;
       clip-path: polygon(0 0, 45% 0, 45% 45%, 100% 45%, 100% 100%, 0 100%);
       z-index: 13;
     }
 
-    /* 5. Shopify Block (Bottom Center) */
-    #block-shopify {
+    /* 5. Shopify Base Block (Bottom Center) */
+    #p-shopify {
       left: 334px;
       bottom: 0;
-      width: 172px;
-      height: 76px;
+      width: 174px;
+      height: 74px;
       z-index: 14;
     }
 
-    /* 6. Elementor L-Block (Center Tower) */
-    #block-elementor {
+    /* 6. Elementor Orange L-Tower (Center Feature) */
+    #p-elementor {
       left: 440px;
-      bottom: 82px;
+      bottom: 80px;
       width: 120px;
-      height: 170px;
+      height: 172px;
       clip-path: polygon(0 0, 48% 0, 48% 54%, 100% 54%, 100% 100%, 0 100%);
       z-index: 15;
     }
 
-    /* 7. Figma Block (Layer 1-2 Right Center) */
-    #block-figma {
-      left: 512px;
+    /* 7. Figma Forest Green Block */
+    #p-figma {
+      left: 514px;
       bottom: 0;
-      width: 170px;
-      height: 120px;
+      width: 168px;
+      height: 122px;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
       z-index: 14;
     }
 
-    /* 8. WordPress Block (Layer 2 Right Center) */
-    #block-wordpress {
+    /* 8. WordPress Silver Block */
+    #p-wordpress {
       left: 566px;
-      bottom: 82px;
+      bottom: 80px;
       width: 128px;
-      height: 116px;
+      height: 118px;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 55% 100%, 55% 45%, 0 45%);
       z-index: 16;
     }
 
-    /* 9. Content Writing Block (Layer 2 Right) */
-    #block-content {
+    /* 9. Content Writing Sand Block */
+    #p-content {
       left: 700px;
-      bottom: 82px;
+      bottom: 80px;
       width: 104px;
-      height: 76px;
+      height: 74px;
       z-index: 15;
     }
 
-    /* 10. Claude Block (Bottom Far Right) */
-    #block-claude {
+    /* 10. Claude Obsidian Block (Bottom Right Wall) */
+    #p-claude {
       left: 870px;
       bottom: 0;
-      width: 110px;
-      height: 116px;
+      width: 112px;
+      height: 118px;
       z-index: 16;
     }
 
-    /* ── FLOATING/FALLING ANIMATED TOP BLOCKS ── */
-    /* 11. Next.js Blue Block (Falling Left) */
-    #block-nextjs {
-      left: 10px;
+    /* ── TOP FLOATING / SEQUENTIAL FALLING BLOCKS ── */
+    
+    /* 11. Next.js Blue Pillar (Top Left Falling) */
+    #p-nextjs {
+      left: 14px;
       bottom: 210px;
       width: 68px;
-      height: 180px;
-      transform: rotate(-12deg);
+      height: 176px;
       z-index: 25;
     }
 
-    /* 12. WordPress Purple Corner Block (Falling Top Left) */
-    #block-wp-purple {
-      left: 80px;
+    /* 12. WordPress Purple Corner (Top Left Falling) */
+    #p-wp-purple {
+      left: 82px;
       bottom: 270px;
-      width: 100px;
-      height: 100px;
+      width: 98px;
+      height: 98px;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 50% 48%, 0 48%);
-      transform: rotate(8deg);
       z-index: 26;
     }
 
-    /* 13. Green Tetris Block (Floating Top Right) */
-    #block-green-tetris {
+    /* 13. Lime Green UX/UI L-Block (Top Right Falling) */
+    #p-lime-green {
       right: 120px;
       bottom: 280px;
-      width: 100px;
-      height: 80px;
-      transform: rotate(15deg);
+      width: 98px;
+      height: 78px;
       z-index: 27;
     }
 
-    /* 14. Amber Gold L-Block (Falling Top Right) */
-    #block-gold-l {
+    /* 14. Amber Gold E-Commerce L-Block (Top Right Falling) */
+    #p-gold-l {
       right: 60px;
       bottom: 200px;
-      width: 90px;
+      width: 88px;
       height: 110px;
       clip-path: polygon(0 0, 50% 0, 50% 55%, 100% 55%, 100% 100%, 0 100%);
-      transform: rotate(-18deg);
       z-index: 28;
     }
 
     /* ════════════════════════════════════════════════════════════════
-       CONTROLLER UI OVERLAY (FOR EASY TESTING & PREVIEW)
+       FLOATING DEMO SCRUBBER CONTROLLER
        ════════════════════════════════════════════════════════════════ */
-    .demo-controls-bar {
+    .demo-controller {
       position: fixed;
       bottom: 24px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(8, 8, 8, 0.92);
+      background: rgba(8, 8, 8, 0.94);
       color: #FFFFFF;
       padding: 0.85rem 1.6rem;
       border-radius: 40px;
@@ -494,12 +490,12 @@
       align-items: center;
       gap: 1.5rem;
       z-index: 10000;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
       border: 1px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
     }
 
-    .demo-controls-bar label {
+    .demo-controller label {
       font-family: var(--font-mono);
       font-size: 0.72rem;
       text-transform: uppercase;
@@ -510,8 +506,8 @@
       gap: 0.5rem;
     }
 
-    .demo-controls-bar input[type="range"] {
-      width: 220px;
+    .demo-controller input[type="range"] {
+      width: 240px;
       accent-color: var(--c8-blue);
       cursor: pointer;
     }
@@ -526,25 +522,25 @@
       border-radius: 12px;
     }
 
-    .btn-play-trigger {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+    .btn-auto-play {
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       color: #FFFFFF;
       font-family: var(--font-mono);
       font-size: 0.72rem;
-      padding: 5px 12px;
+      padding: 5px 14px;
       border-radius: 20px;
       cursor: pointer;
       transition: all 0.2s ease;
     }
 
-    .btn-play-trigger:hover {
+    .btn-auto-play:hover {
       background: var(--c8-blue);
       border-color: var(--c8-blue);
     }
 
-    /* Section 2 (Post-Hero Content to Demonstrate Normal Scroll Flow) */
-    .post-hero-section {
+    /* Section 2 (Post-Hero Workstation) */
+    .post-hero-workstation {
       position: relative;
       background: #080808;
       color: #FFFFFF;
@@ -554,7 +550,7 @@
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .post-hero-section h2 {
+    .post-hero-workstation h2 {
       font-family: var(--font-heading);
       font-size: 2.2rem;
       margin-bottom: 1rem;
@@ -562,7 +558,7 @@
       text-transform: uppercase;
     }
 
-    .post-hero-section p {
+    .post-hero-workstation p {
       max-width: 640px;
       margin: 0 auto;
       color: rgba(255, 255, 255, 0.7);
@@ -573,7 +569,7 @@
 </head>
 <body>
 
-  <!-- Top Navigation Header -->
+  <!-- Navigation Header -->
   <header class="c8-nav">
     <div class="c8-logo">
       CR8V <span>STACKS</span>
@@ -581,112 +577,120 @@
     <div class="c8-nav-links">
       <a href="#services" style="color: var(--c8-ink); text-decoration: none;">Services</a>
       <a href="#work" style="color: var(--c8-ink); text-decoration: none;">Work</a>
-      <a href="#about" style="color: var(--c8-ink); text-decoration: none;">About</a>
+      <a href="#about" style="color: var(--c8-ink); text-decoration: none;">About Us</a>
     </div>
     <a href="#start" class="c8-btn-primary">Start a Project →</a>
   </header>
 
-  <!-- Scroll-Driven Pinning Container -->
+  <!-- Pinned Scroll Track Area -->
   <div class="hero-scroll-track" id="scrollTrack">
     <div class="sticky-hero-stage">
       
-      <!-- Hero Text Header -->
-      <div class="hero-header-box">
-        <div class="c8-eyebrow"><span>//</span> SCALE WITH AUTHORITY</div>
+      <!-- Centered Hero Text Content -->
+      <div class="hero-centered-content">
+        <div class="c8-eyebrow"><span>//</span> SYSTEM ARCHITECTURE & DESIGN ENGINE</div>
         <h1 class="c8-hero-h1">We build what your business actually runs on.</h1>
         <p class="c8-hero-sub">Strategy, design, and liquid performance engineering — built from scratch by one team for ambitious brands.</p>
         
         <div class="c8-hero-ctas">
-          <a href="#discovery" class="c8-btn-primary">Start a Project →</a>
-          <a href="#philosophy" class="btn-secondary">Explore Philosophy ↓</a>
+          <a href="#discovery" class="c8-btn-primary">Book A Discovery Call →</a>
+          <a href="#work" class="btn-secondary">Explore Work ↓</a>
         </div>
       </div>
 
-      <!-- Interactive 3D Tetris Assembly Stage -->
-      <div class="tetris-stage-wrap">
-        <div class="tetris-grid-base" id="tetrisStage">
+      <!-- Photorealistic 3D Tetris Assembly Stage -->
+      <div class="tetris-assembly-canvas">
+        <div class="tetris-floor-grid" id="tetrisGrid">
           
-          <!-- Block 1: Custom Development (Bottom Left) -->
-          <div class="t-block bg-custom-blue" id="block-custom-dev" data-drop-y="-450" data-rot-x="40" data-rot-z="-15">
-            <div class="t-block-content">CUSTOM DEVELOPMENT</div>
+          <!-- Piece 1: Custom Development Base (Blue) -->
+          <div class="t-piece bg-royal-blue" id="p-custom-dev" data-start-y="-650" data-rot-x="45" data-rot-z="-20" data-start-time="0.0" data-end-time="0.30">
+            <div class="t-piece-inner">CUSTOM DEVELOPMENT</div>
           </div>
 
-          <!-- Block 2: OpenAI Icon Corner Block -->
-          <div class="t-block bg-openai-black" id="block-openai" data-drop-y="-500" data-rot-x="50" data-rot-z="25">
-            <div class="t-block-content">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
-                <path d="M12 6v12M6 12h12"/>
-              </svg>
+          <!-- Piece 2: OpenAI Corner Block (Dark Obsidian) -->
+          <div class="t-piece bg-obsidian-black" id="p-openai" data-start-y="-750" data-rot-x="60" data-rot-z="35" data-start-time="0.05" data-end-time="0.35">
+            <div class="t-piece-inner">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg" alt="OpenAI" class="cdn-brand-icon icon-light">
             </div>
           </div>
 
-          <!-- Block 3: Web Design Block -->
-          <div class="t-block bg-webdesign-ivory" id="block-web-design" data-drop-y="-600" data-rot-x="-30" data-rot-z="-20">
-            <div class="t-block-content">WEB DESIGN</div>
+          <!-- Piece 3: Web Design Ivory L-Block -->
+          <div class="t-piece bg-ivory-white" id="p-web-design" data-start-y="-800" data-rot-x="-40" data-rot-z="-30" data-start-time="0.15" data-end-time="0.45">
+            <div class="t-piece-inner">WEB DESIGN</div>
           </div>
 
-          <!-- Block 4: AI MVP Block -->
-          <div class="t-block bg-custom-blue" id="block-ai-mvp" data-drop-y="-550" data-rot-x="45" data-rot-z="15">
-            <div class="t-block-content">AI MVP</div>
+          <!-- Piece 4: AI MVP Blue Block -->
+          <div class="t-piece bg-royal-blue" id="p-ai-mvp" data-start-y="-700" data-rot-x="50" data-rot-z="20" data-start-time="0.20" data-end-time="0.50">
+            <div class="t-piece-inner">AI MVP</div>
           </div>
 
-          <!-- Block 5: Shopify Block -->
-          <div class="t-block bg-shopify-charcoal" id="block-shopify" data-drop-y="-400" data-rot-x="-20" data-rot-z="10">
-            <div class="t-block-content">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#95BF47">
-                <path d="M21.5 7.5L12 2 2.5 7.5v9L12 22l9.5-5.5v-9z"/>
-              </svg>
+          <!-- Piece 5: Shopify Base Block -->
+          <div class="t-piece bg-obsidian-black" id="p-shopify" data-start-y="-600" data-rot-x="-30" data-rot-z="15" data-start-time="0.10" data-end-time="0.40">
+            <div class="t-piece-inner">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/shopify.svg" alt="Shopify" class="cdn-brand-icon icon-light">
               SHOPIFY
             </div>
           </div>
 
-          <!-- Block 6: Elementor Orange Block -->
-          <div class="t-block bg-elementor-orange" id="block-elementor" data-drop-y="-700" data-rot-x="60" data-rot-z="-30">
-            <div class="t-block-content">
-              ELEMENTOR
+          <!-- Piece 6: Elementor Orange L-Tower -->
+          <div class="t-piece bg-elementor-orange" id="p-elementor" data-start-y="-850" data-rot-x="70" data-rot-z="-40" data-start-time="0.30" data-end-time="0.65">
+            <div class="t-piece-inner">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/elementor.svg" alt="Elementor" class="cdn-brand-icon icon-light">
             </div>
           </div>
 
-          <!-- Block 7: Figma Green Block -->
-          <div class="t-block bg-figma-green" id="block-figma" data-drop-y="-480" data-rot-x="-40" data-rot-z="20">
-            <div class="t-block-content">FIGMA</div>
+          <!-- Piece 7: Figma Forest Green Block -->
+          <div class="t-piece bg-figma-green" id="p-figma" data-start-y="-720" data-rot-x="-45" data-rot-z="25" data-start-time="0.25" data-end-time="0.55">
+            <div class="t-piece-inner">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg" alt="Figma" class="cdn-brand-icon icon-light">
+              FIGMA
+            </div>
           </div>
 
-          <!-- Block 8: WordPress Grey Block -->
-          <div class="t-block bg-wordpress-grey" id="block-wordpress" data-drop-y="-650" data-rot-x="35" data-rot-z="-15">
-            <div class="t-block-content">WORDPRESS</div>
+          <!-- Piece 8: WordPress Silver Block -->
+          <div class="t-piece bg-wordpress-silver" id="p-wordpress" data-start-y="-780" data-rot-x="40" data-rot-z="-20" data-start-time="0.35" data-end-time="0.70">
+            <div class="t-piece-inner">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/wordpress.svg" alt="WordPress" class="cdn-brand-icon icon-dark">
+              WORDPRESS
+            </div>
           </div>
 
-          <!-- Block 9: Content Writing Block -->
-          <div class="t-block bg-content-sand" id="block-content" data-drop-y="-520" data-rot-x="-25" data-rot-z="12">
-            <div class="t-block-content">CONTENT</div>
+          <!-- Piece 9: Content Writing Sand Block -->
+          <div class="t-piece bg-content-sand" id="p-content" data-start-y="-650" data-rot-x="-35" data-rot-z="15" data-start-time="0.40" data-end-time="0.75">
+            <div class="t-piece-inner">CONTENT</div>
           </div>
 
-          <!-- Block 10: Claude Black Block -->
-          <div class="t-block bg-claude-black" id="block-claude" data-drop-y="-420" data-rot-x="30" data-rot-z="-10">
-            <div class="t-block-content">CLAUDE</div>
+          <!-- Piece 10: Claude Obsidian Block -->
+          <div class="t-piece bg-claude-dark" id="p-claude" data-start-y="-680" data-rot-x="35" data-rot-z="-15" data-start-time="0.20" data-end-time="0.50">
+            <div class="t-piece-inner">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/anthropic.svg" alt="Claude" class="cdn-brand-icon icon-light">
+              CLAUDE
+            </div>
           </div>
 
-          <!-- Falling Top Floating Blocks -->
-          <!-- Block 11: Next.js Blue -->
-          <div class="t-block bg-next-blue" id="block-nextjs" data-drop-y="-800" data-rot-x="70" data-rot-z="-45">
-            <div class="t-block-content">NEXT.JS</div>
+          <!-- Top Floating Falling Tetris Pieces -->
+          <!-- Piece 11: Next.js Navy Block -->
+          <div class="t-piece bg-next-navy" id="p-nextjs" data-start-y="-950" data-rot-x="80" data-rot-z="-60" data-start-time="0.55" data-end-time="0.90">
+            <div class="t-piece-inner">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nextdotjs.svg" alt="Next.js" class="cdn-brand-icon icon-light">
+            </div>
           </div>
 
-          <!-- Block 12: WP Purple -->
-          <div class="t-block bg-purple-corner" id="block-wp-purple" data-drop-y="-900" data-rot-x="-60" data-rot-z="50">
-            <div class="t-block-content">W</div>
+          <!-- Piece 12: WordPress Purple Corner -->
+          <div class="t-piece bg-wp-purple" id="p-wp-purple" data-start-y="-1000" data-rot-x="-70" data-rot-z="55" data-start-time="0.60" data-end-time="0.92">
+            <div class="t-piece-inner">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/wordpress.svg" alt="WordPress" class="cdn-brand-icon icon-light">
+            </div>
           </div>
 
-          <!-- Block 13: Green Tetris -->
-          <div class="t-block bg-lime-green" id="block-green-tetris" data-drop-y="-850" data-rot-x="50" data-rot-z="-35">
-            <div class="t-block-content">UX/UI</div>
+          <!-- Piece 13: Lime Green UX/UI Block -->
+          <div class="t-piece bg-lime-green" id="p-lime-green" data-start-y="-920" data-rot-x="65" data-rot-z="-45" data-start-time="0.65" data-end-time="0.95">
+            <div class="t-piece-inner">UX/UI</div>
           </div>
 
-          <!-- Block 14: Gold L-Block -->
-          <div class="t-block bg-amber-gold" id="block-gold-l" data-drop-y="-750" data-rot-x="-45" data-rot-z="40">
-            <div class="t-block-content">E-COM</div>
+          <!-- Piece 14: Amber Gold E-Commerce Block -->
+          <div class="t-piece bg-amber-gold" id="p-gold-l" data-start-y="-880" data-rot-x="-55" data-rot-z="45" data-start-time="0.70" data-end-time="0.98">
+            <div class="t-piece-inner">E-COM</div>
           </div>
 
         </div>
@@ -696,19 +700,19 @@
   </div>
 
   <!-- Post-Hero Section -->
-  <section class="post-hero-section">
-    <h2>Creative Agency Mindset</h2>
-    <p>Scroll back up to watch the Tetris blocks disassemble into mid-air, or scroll down to explore the studio dossier.</p>
+  <section class="post-hero-workstation">
+    <h2>Sequential Tetris Motion Complete</h2>
+    <p>Scroll back up to watch the Tetris pieces lift and un-stack step-by-step in exact reverse order, or drag the preview slider below.</p>
   </section>
 
-  <!-- Interactive Controls Bar for Instant Previewing -->
-  <div class="demo-controls-bar">
+  <!-- Interactive Control Bar -->
+  <div class="demo-controller">
     <label>
-      <span>Scroll Progress</span>
+      <span>Tetris Assembly Progress</span>
       <span class="demo-badge" id="progressVal">0%</span>
     </label>
     <input type="range" id="scrollScrambler" min="0" max="100" value="0">
-    <button class="btn-play-trigger" id="btnAutoPlay">▶ Auto Play</button>
+    <button class="btn-auto-play" id="btnAutoPlay">▶ Auto Play</button>
   </div>
 
   <script>
@@ -717,44 +721,57 @@
       const progressVal = document.getElementById('progressVal');
       const scrollScrambler = document.getElementById('scrollScrambler');
       const btnAutoPlay = document.getElementById('btnAutoPlay');
-      const blocks = document.querySelectorAll('.t-block');
+      const pieces = document.querySelectorAll('.t-piece');
 
       let isAutoPlaying = false;
       let autoPlayProgress = 0;
       let autoPlayDirection = 1;
       let animFrameId = null;
 
-      // Calculate animation state based on scroll percentage (0.0 to 1.0)
-      function updateTetrisAssembly(progress) {
-        const p = Math.max(0, Math.min(1, progress));
+      // Sequential Tetris Fall & Lock Algorithm
+      function updateSequentialAssembly(globalProgress) {
+        const p = Math.max(0, Math.min(1, globalProgress));
         progressVal.textContent = Math.round(p * 100) + '%';
         scrollScrambler.value = Math.round(p * 100);
 
-        blocks.forEach((block) => {
-          const dropY = parseFloat(block.getAttribute('data-drop-y')) || -500;
-          const rotX = parseFloat(block.getAttribute('data-rot-x')) || 45;
-          const rotZ = parseFloat(block.getAttribute('data-rot-z')) || 20;
+        pieces.forEach((piece) => {
+          const startY = parseFloat(piece.getAttribute('data-start-y')) || -700;
+          const rotX = parseFloat(piece.getAttribute('data-rot-x')) || 45;
+          const rotZ = parseFloat(piece.getAttribute('data-rot-z')) || 20;
+          const startTime = parseFloat(piece.getAttribute('data-start-time')) || 0.0;
+          const endTime = parseFloat(piece.getAttribute('data-end-time')) || 1.0;
 
-          // Inverse factor: at progress = 0 (top of page), blocks are high up in mid-air.
-          // At progress = 1 (scrolled down), blocks land perfectly in place (0px offset, 0deg rotation).
-          const currentY = dropY * (1 - p);
-          const currentRotX = rotX * (1 - p);
-          const currentRotZ = rotZ * (1 - p);
-          const currentOpacity = 0.3 + (0.7 * p); // Smooth fade-in as they lock
+          // Compute piecewise progress for this specific block
+          let pieceProgress = 0;
+          if (p <= startTime) {
+            pieceProgress = 0;
+          } else if (p >= endTime) {
+            pieceProgress = 1;
+          } else {
+            pieceProgress = (p - startTime) / (endTime - startTime);
+          }
 
-          block.style.transform = `translate3d(0, ${currentY}px, 0) rotateX(${currentRotX}deg) rotateZ(${currentRotZ}deg)`;
-          block.style.opacity = currentOpacity;
+          // Ease out cubic for realistic falling impact
+          const easedProgress = 1 - Math.pow(1 - pieceProgress, 3);
+
+          const currentY = startY * (1 - easedProgress);
+          const currentRotX = rotX * (1 - easedProgress);
+          const currentRotZ = rotZ * (1 - easedProgress);
+          const currentOpacity = 0.2 + (0.8 * easedProgress);
+
+          piece.style.transform = `translate3d(0, ${currentY}px, 0) rotateX(${currentRotX}deg) rotateZ(${currentRotZ}deg)`;
+          piece.style.opacity = currentOpacity;
         });
       }
 
       // Scroll Event Listener
       function onScroll() {
-        if (isAutoPlaying) return; // Don't override if autoplay is active
+        if (isAutoPlaying) return;
         const rect = scrollTrack.getBoundingClientRect();
         const totalHeight = scrollTrack.offsetHeight - window.innerHeight;
         const currentScroll = -rect.top;
         const progress = currentScroll / totalHeight;
-        updateTetrisAssembly(progress);
+        updateSequentialAssembly(progress);
       }
 
       window.addEventListener('scroll', onScroll, { passive: true });
@@ -763,12 +780,12 @@
       scrollScrambler.addEventListener('input', (e) => {
         if (isAutoPlaying) stopAutoPlay();
         const p = parseFloat(e.target.value) / 100;
-        updateTetrisAssembly(p);
+        updateSequentialAssembly(p);
       });
 
-      // Auto Play Preview Loop
+      // Auto Play Loop
       function autoPlayLoop() {
-        autoPlayProgress += 0.008 * autoPlayDirection;
+        autoPlayProgress += 0.005 * autoPlayDirection;
         if (autoPlayProgress >= 1) {
           autoPlayProgress = 1;
           autoPlayDirection = -1;
@@ -776,7 +793,7 @@
           autoPlayProgress = 0;
           autoPlayDirection = 1;
         }
-        updateTetrisAssembly(autoPlayProgress);
+        updateSequentialAssembly(autoPlayProgress);
         animFrameId = requestAnimationFrame(autoPlayLoop);
       }
 
@@ -797,8 +814,8 @@
         }
       });
 
-      // Initial call
-      updateTetrisAssembly(0);
+      // Initial state
+      updateSequentialAssembly(0);
     });
   </script>
 </body>
