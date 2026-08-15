@@ -201,7 +201,7 @@
       overflow: visible !important;
       color: #080808 !important;
     }
-    .dp-left-content { width: 100%; max-width: 480px; position: relative; z-index: 2; }
+    .dp-left-content { width: 100%; max-width: 480px; position: relative; z-index: 5 !important; }
     .dp-eyebrow {
       font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
       letter-spacing: 0.16em; text-transform: uppercase; color: var(--c8-blue);
@@ -239,7 +239,7 @@
     /* Mascot: straddles split smoothly behind right text content */
     .dp-mascot-wrap {
       position: absolute; right: -260px; bottom: -50px; width: 520px;
-      z-index: 1; pointer-events: none;
+      z-index: 2 !important; pointer-events: none;
     }
     .dp-mascot-wrap video {
       width: 100%; height: auto; display: block;
@@ -496,8 +496,8 @@
     .fylla-icon-sq.is-no { background: rgba(220, 38, 38, 0.08); color: #DC2626; border: 1px solid rgba(220, 38, 38, 0.2); }
 
     /* ── SECTION 9: LEADERSHIP & FOUNDER PASS ── */
-    .fylla-leadership-section { display: grid; grid-template-columns: 0.9fr 1.1fr; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
-    .fylla-lead-left { padding: 6rem 4rem; border-right: 1px solid var(--c8-grid-line); display: flex; align-items: center; justify-content: center; background: #fff; }
+    .fylla-leadership-section { display: grid; grid-template-columns: 0.9fr 1.1fr; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF !important; }
+    .fylla-lead-left { padding: 6rem 4rem; border-right: 1px solid var(--c8-grid-line); display: flex; align-items: center; justify-content: center; background: #FFFFFF !important; }
     .c8-lead-mascot-box { width: 100%; }
     .c8-lead-mascot-box video, .c8-lead-mascot-box img { width: 100%; height: auto; display: block; }
     .fylla-lead-right { padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; background: #FAFAF7; }

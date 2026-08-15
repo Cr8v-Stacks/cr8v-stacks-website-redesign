@@ -1566,6 +1566,8 @@ defined('ABSPATH') || exit;
     .dp-left-content {
       width: 100%;
       max-width: 480px;
+      position: relative;
+      z-index: 5 !important;
     }
 
     .dp-eyebrow {

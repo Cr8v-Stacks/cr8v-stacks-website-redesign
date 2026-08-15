@@ -454,7 +454,7 @@ body.single-post {
   width: 20px; height: 20px; color: #080808; margin-bottom: 0.65rem; stroke-width: 2;
 }
 .card-fallback-canvas, .card-fallback-canvas *, .fallback-title, .fallback-cat, .card-title, .card-title a,
-.art-cat-pill, .card-category-pill, .art-author-name, .art-author-bio, .art-author-link,
+.art-author-name, .art-author-bio, .art-author-link,
 .art-back-btn, .cta-card-btn, .art-meta-author-link {
   text-decoration: none !important;
   border-bottom: none !important;

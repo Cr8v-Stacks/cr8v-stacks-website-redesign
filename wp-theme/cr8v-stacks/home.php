@@ -28,7 +28,7 @@ $subtitle = cr8v_mod('blog_subtitle', 'Technical breakdowns, platform engineerin
   --font-heading: 'Michroma', sans-serif;
 }
 
-.card-fallback-canvas, .card-fallback-canvas *, .fallback-title, .fallback-cat, .card-title, .card-title a, .art-cat-pill, .card-category-pill, .art-author-name, .art-author-bio, .art-author-link, .art-back-btn, .cta-card-btn, .art-meta-author-link {
+.card-fallback-canvas, .card-fallback-canvas *, .fallback-title, .fallback-cat, .card-title, .card-title a, .art-author-name, .art-author-bio, .art-author-link, .art-back-btn, .cta-card-btn, .art-meta-author-link {
     text-decoration: none !important;
     border-bottom: none !important;
 }

@@ -225,7 +225,7 @@ get_header();
       overflow: visible !important;
       color: #080808 !important;
     }
-    .dp-left-content { width: 100%; max-width: 480px; position: relative; z-index: 2; }
+    .dp-left-content { width: 100%; max-width: 480px; position: relative; z-index: 5 !important; }
     .dp-eyebrow {
       font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
       letter-spacing: 0.16em; text-transform: uppercase; color: var(--c8-blue);
@@ -263,7 +263,7 @@ get_header();
     /* Mascot: straddles split smoothly behind right text content */
     .dp-mascot-wrap {
       position: absolute; right: -260px; bottom: -50px; width: 520px;
-      z-index: 1; pointer-events: none;
+      z-index: 2 !important; pointer-events: none;
     }
     .dp-mascot-wrap video {
       width: 100%; height: auto; display: block;
@@ -515,8 +515,8 @@ get_header();
     .fylla-icon-sq.is-no { background: rgba(220, 38, 38, 0.08); color: #DC2626; border: 1px solid rgba(220, 38, 38, 0.2); }
 
     /* ── SECTION 9: LEADERSHIP & FOUNDER PASS ── */
-    .fylla-leadership-section { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--c8-grid-line); background: #000000; }
-    .fylla-lead-left { padding: 0 !important; border-right: 1px solid var(--c8-grid-line); display: flex; align-items: stretch; justify-content: center; background: #000000; overflow: hidden; }
+    .fylla-leadership-section { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF !important; }
+    .fylla-lead-left { padding: 0 !important; border-right: 1px solid var(--c8-grid-line); display: flex; align-items: stretch; justify-content: center; background: #FFFFFF !important; overflow: hidden; }
     .c8-lead-mascot-box { width: 100%; height: 100%; display: flex; }
     .c8-lead-mascot-box video { width: 100%; height: 100%; object-fit: cover; display: block; }
     .fylla-lead-right { padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; background: var(--c8-surface-lift); }
@@ -847,6 +847,10 @@ get_header();
                     </a>
                   </div>
                 </div>
+                <div class="sdv-panel-visual">
+                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.jpg'); ?>" alt="Website Design Work">
+                  <span class="sdv-panel-visual-label sdv-badge-blue">Capability Layer</span>
+                </div>
               </div>
             </div>
           </div>
@@ -880,6 +884,10 @@ get_header();
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
                   </div>
+                </div>
+                <div class="sdv-panel-visual">
+                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.jpg'); ?>" alt="Custom Development Work">
+                  <span class="sdv-panel-visual-label sdv-badge-red">Capability Layer</span>
                 </div>
               </div>
             </div>
@@ -915,6 +923,10 @@ get_header();
                     </a>
                   </div>
                 </div>
+                <div class="sdv-panel-visual">
+                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.jpg'); ?>" alt="AI MVP Build">
+                  <span class="sdv-panel-visual-label sdv-badge-gold">Capability Layer</span>
+                </div>
               </div>
             </div>
           </div>
@@ -949,6 +961,10 @@ get_header();
                     </a>
                   </div>
                 </div>
+                <div class="sdv-panel-visual">
+                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_brandstrategy.jpg'); ?>" alt="Brand Strategy Work">
+                  <span class="sdv-panel-visual-label sdv-badge-white">Capability Layer</span>
+                </div>
               </div>
             </div>
           </div>
@@ -982,6 +998,10 @@ get_header();
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
                   </div>
+                </div>
+                <div class="sdv-panel-visual">
+                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_seocontent.jpg'); ?>" alt="SEO Architecture Work">
+                  <span class="sdv-panel-visual-label sdv-badge-blue">Capability Layer</span>
                 </div>
               </div>
             </div>
