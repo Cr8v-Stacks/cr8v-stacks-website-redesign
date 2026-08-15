@@ -952,18 +952,18 @@ a .art-author-bio {
        HOMEPAGE B — CLEAN STANDALONE HERO & SUBTLE PAPER GRID SLIDING PUZZLE
        ═══════════════════════════════════════════════════════════════════════════ */
     .c8-hero-b-standalone {
-      min-height: 100vh;
+      min-height: 92vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      padding-top: 6rem;
-      padding-bottom: 3rem;
+      padding-top: 8rem;
+      padding-bottom: 14rem;
       text-align: center;
       position: relative;
       z-index: 10;
       box-sizing: border-box;
-      background: var(--c8-bg);
+      background: #FFFFFF url('assets/img/cr8v_home_hero_bg.jpeg') center bottom / cover no-repeat;
       border-bottom: 1px solid var(--c8-line);
     }
 

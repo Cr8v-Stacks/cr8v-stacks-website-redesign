@@ -21,18 +21,18 @@ defined('ABSPATH') || exit;
   <style>
     .c8-hero-top.c8-hero-b-standalone,
     .c8-hero-b-standalone {
-      min-height: 100vh !important;
+      min-height: 92vh !important;
       display: flex !important;
       flex-direction: column !important;
-      justify-content: center !important;
+      justify-content: flex-start !important;
       align-items: center !important;
-      padding-top: 6rem !important;
-      padding-bottom: 3rem !important;
+      padding-top: 8rem !important;
+      padding-bottom: 14rem !important;
       text-align: center !important;
       position: relative !important;
       z-index: 10 !important;
       box-sizing: border-box !important;
-      background: var(--c8-bg) !important;
+      background: #FFFFFF url('<?php echo esc_url(get_template_directory_uri() . "/assets/img/cr8v_home_hero_bg.jpeg"); ?>') center bottom / cover no-repeat !important;
       border-bottom: 1px solid var(--c8-line) !important;
     }
   </style>
