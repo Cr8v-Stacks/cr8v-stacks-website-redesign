@@ -3,22 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CR8V Stacks — Tetris Piece Design Component Showcase</title>
+  <title>CR8V Stacks — Source of Truth Tetris Block Component Showcase</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Michroma&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --c8-blue: #0047E1;
+      /* Muted, Studio-Grade Color Palette Extracted Directly From Reference Image */
+      --block-slate-blue: #8CAAD8;
+      --block-charcoal: #3A3C3E;
+      --block-sage-green: #94B598;
+      --block-terracotta: #D98858;
+      --block-midnight-blue: #243B54;
+      --block-sand-beige: #D9CFBD;
+      
       --c8-ink: #080808;
-      --c8-sub: #555555;
-      --c8-page-bg: #FFFFFF;
-      --c8-grid-line: rgba(8, 8, 8, 0.08);
+      --c8-sub: #666666;
       --font-body: 'DM Sans', sans-serif;
-      --font-mono: 'Space Mono', monospace;
       --font-heading: 'Michroma', sans-serif;
-      --grid-unit: 56px;
     }
 
     * {
@@ -28,25 +31,25 @@
     }
 
     body {
-      background-color: #F8F9FA;
+      background-color: #FAFAF8;
       color: var(--c8-ink);
       font-family: var(--font-body);
-      padding: 3rem 2rem;
+      padding: 3.5rem 2rem;
       line-height: 1.5;
     }
 
     /* Page Header */
     .catalog-header {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto 3rem auto;
       text-align: center;
     }
 
     .catalog-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
       font-weight: 700;
-      color: var(--c8-blue);
+      color: #0047E1;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
@@ -58,33 +61,64 @@
       font-weight: 700;
       text-transform: uppercase;
       margin-bottom: 0.75rem;
+      color: #111111;
     }
 
     .catalog-desc {
       color: var(--c8-sub);
-      font-size: 0.95rem;
-      max-width: 600px;
+      font-size: 1rem;
+      max-width: 640px;
       margin: 0 auto;
     }
 
-    /* Grid Gallery of Tetris Block Component Cards */
+    /* Reference Image Display Container */
+    .reference-preview-box {
+      max-width: 1000px;
+      margin: 0 auto 4rem auto;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      text-align: center;
+    }
+
+    .reference-preview-box h2 {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #555555;
+      margin-bottom: 1rem;
+    }
+
+    .reference-preview-img {
+      width: 100%;
+      max-height: 380px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #FFFFFF;
+    }
+
+    /* Grid Gallery of Block Components */
     .catalog-grid {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
 
     .piece-card {
       background: #FFFFFF;
-      border: 1px solid var(--c8-grid-line);
-      border-radius: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     }
 
     .piece-card-header {
@@ -94,378 +128,260 @@
       align-items: center;
       margin-bottom: 1.25rem;
       padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--c8-grid-line);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
 
     .piece-title {
-      font-family: var(--font-heading);
-      font-size: 0.8rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
       font-weight: 700;
-      text-transform: uppercase;
+      color: #111111;
     }
 
-    .piece-type {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--c8-blue);
-      text-transform: uppercase;
-      font-weight: 700;
+    .piece-color-tag {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      color: #666666;
+      font-weight: 500;
     }
 
-    /* Stage box where each individual 3D block is displayed */
-    .piece-display-stage {
+    .piece-stage {
       width: 100%;
-      height: 200px;
-      background: #F2F2F0;
-      border-radius: 6px;
+      height: 180px;
+      background: #F4F4F0;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      overflow: hidden;
-      border: 1px dashed rgba(8, 8, 8, 0.12);
     }
 
     /* ════════════════════════════════════════════════════════════════
-       3D BEVELED TETRIS BLOCK STYLING ENGINE
+       3D MATTE FOAM/WOODEN BLOCK STYLING ENGINE (EXACT PARITY)
        ════════════════════════════════════════════════════════════════ */
-    .t-box {
-      border-radius: 6px;
-      position: relative;
+    .m-block {
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-heading);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.92);
+      letter-spacing: 0.02em;
       box-shadow: 
-        inset 3px 3px 0px rgba(255, 255, 255, 0.45),
-        inset -3px -3px 0px rgba(0, 0, 0, 0.25),
-        0 8px 24px rgba(0, 0, 0, 0.12);
+        inset 2px 2px 3px rgba(255, 255, 255, 0.35),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.25),
+        0 10px 24px rgba(0, 0, 0, 0.12);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
 
-    .t-label {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.5rem 0.85rem;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-    }
+    /* Color Palette Classes */
+    .bg-slate-blue   { background: var(--block-slate-blue); color: #FFFFFF; }
+    .bg-charcoal     { background: var(--block-charcoal); color: #FFFFFF; }
+    .bg-sage-green   { background: var(--block-sage-green); color: #FFFFFF; }
+    .bg-terracotta   { background: var(--block-terracotta); color: #FFFFFF; }
+    .bg-midnight-blue{ background: var(--block-midnight-blue); color: #FFFFFF; }
+    .bg-sand-beige   { background: var(--block-sand-beige); color: #4A443B; text-shadow: none; }
 
-    .brand-ico {
-      width: 20px;
-      height: 20px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-
-    .ico-light { filter: brightness(0) invert(1); }
-    .ico-dark  { filter: brightness(0); }
-
-    /* Color Palettes */
-    .bg-blue      { background: #0047E1; color: #FFFFFF; }
-    .bg-dark      { background: #11141A; color: #FFFFFF; }
-    .bg-ivory     { background: #ECEAE4; color: #080808; box-shadow: inset 3px 3px 0px rgba(255, 255, 255, 0.8), inset -3px -3px 0px rgba(0, 0, 0, 0.15), 0 6px 20px rgba(0, 0, 0, 0.08); }
-    .bg-orange    { background: #E8551E; color: #FFFFFF; }
-    .bg-silver    { background: #D5D3CC; color: #080808; }
-    .bg-green     { background: #1D6938; color: #FFFFFF; }
-    .bg-sand      { background: #D9C6A7; color: #080808; }
-    .bg-purple    { background: #5E3EB6; color: #FFFFFF; }
-    .bg-navy      { background: #003FB9; color: #FFFFFF; }
-    .bg-lime      { background: #6B9F3F; color: #FFFFFF; }
-    .bg-gold      { background: #E89A1B; color: #FFFFFF; }
-
-    /* ── INDIVIDUAL SHAPE CONSTRUCTIONS (USING GRID CELLS) ── */
-
-    /* 1. Custom Development (4x1 Horizontal Bar) */
-    .shape-custom-dev {
-      width: 220px;
-      height: 54px;
-    }
-
-    /* 2. OpenAI (Corner Block) */
-    .shape-openai {
-      width: 110px;
-      height: 110px;
-      display: grid;
-      grid-template-columns: 55px 55px;
-      grid-template-rows: 55px 55px;
-      box-shadow: none;
-    }
-    .shape-openai .cell {
-      border-radius: 5px;
-      box-shadow: 
-        inset 3px 3px 0px rgba(255, 255, 255, 0.45),
-        inset -3px -3px 0px rgba(0, 0, 0, 0.25),
-        0 4px 12px rgba(0, 0, 0, 0.12);
-    }
-
-    /* 3. Web Design (Ivory L-Shape) */
-    .shape-l-block {
-      display: grid;
-      grid-template-columns: repeat(3, 52px);
-      grid-template-rows: repeat(2, 52px);
-      gap: 0;
-    }
-    .shape-l-block .cell {
-      border-radius: 4px;
-      box-shadow: 
-        inset 3px 3px 0px rgba(255, 255, 255, 0.6),
-        inset -3px -3px 0px rgba(0, 0, 0, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* 4. Shopify (2x1 Box) */
-    .shape-shopify {
-      width: 160px;
-      height: 54px;
-    }
-
-    /* 5. AI MVP (T-Shape) */
-    .shape-t-block {
-      display: grid;
-      grid-template-columns: repeat(3, 52px);
-      grid-template-rows: repeat(2, 52px);
-    }
-
-    /* 6. Elementor (Tall L-Tower) */
-    .shape-elementor-tower {
-      display: grid;
-      grid-template-columns: repeat(2, 52px);
-      grid-template-rows: repeat(3, 52px);
-    }
-
-    /* 7. Figma (3x2 Z-Shape) */
-    .shape-figma {
-      width: 170px;
-      height: 110px;
-    }
-
-    /* 8. Claude (Vertical Pillar) */
-    .shape-claude-pillar {
-      width: 100px;
-      height: 110px;
-    }
   </style>
 </head>
 <body>
 
-  <!-- Catalog Header -->
+  <!-- Page Header -->
   <header class="catalog-header">
-    <div class="catalog-eyebrow">// STEP 1: COMPONENT CATALOG</div>
-    <h1 class="catalog-h1">Tetris Block Design System Showcase</h1>
-    <p class="catalog-desc">Reviewing each individual 3D Tetris piece design, color, texture, and brand logo before applying layout coordinates or scroll animations.</p>
+    <div class="catalog-eyebrow">// SOURCE OF TRUTH DESIGN PARITY</div>
+    <h1 class="catalog-h1">Tetris 3D Block Texture & Palette Catalog</h1>
+    <p class="catalog-desc">Comparing the exact studio-grade color palette, soft matte 3D foam bevels, and debossed typography extracted directly from the reference mockup.</p>
   </header>
 
-  <!-- Catalog Component Gallery -->
+  <!-- Source of Truth Reference Image Box -->
+  <div class="reference-preview-box">
+    <h2>Source of Truth Reference Image (cr8v_home_hero_bg.png)</h2>
+    <img src="assets/img/cr8v_home_hero_bg.png" alt="Source of Truth Reference" class="reference-preview-img">
+  </div>
+
+  <!-- Component Gallery Catalog -->
   <main class="catalog-grid">
 
-    <!-- Card 1: Custom Development -->
-    <div class="piece-card">
-      <div class="piece-card-header">
-        <span class="piece-title">Custom Development</span>
-        <span class="piece-type">I-Block (4x1)</span>
-      </div>
-      <div class="piece-display-stage">
-        <div class="t-box bg-blue shape-custom-dev">
-          <div class="t-label">CUSTOM DEVELOPMENT</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 2: OpenAI -->
-    <div class="piece-card">
-      <div class="piece-card-header">
-        <span class="piece-title">OpenAI</span>
-        <span class="piece-type">J-Corner (2x2)</span>
-      </div>
-      <div class="piece-display-stage">
-        <div class="t-box bg-dark" style="width: 110px; height: 110px; border-radius: 6px;">
-          <div class="t-label">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg" alt="OpenAI" class="brand-ico ico-light">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 3: Web Design -->
+    <!-- Card 1: Web Design -->
     <div class="piece-card">
       <div class="piece-card-header">
         <span class="piece-title">Web Design</span>
-        <span class="piece-type">Ivory L-Shape</span>
+        <span class="piece-color-tag">Soft Slate Blue (#8CAAD8)</span>
       </div>
-      <div class="piece-display-stage">
-        <div class="t-box bg-ivory" style="width: 170px; height: 110px; border-radius: 6px;">
-          <div class="t-label">WEB DESIGN</div>
+      <div class="piece-stage">
+        <div class="m-block bg-slate-blue" style="width: 170px; height: 54px;">
+          Web Design
         </div>
       </div>
     </div>
 
-    <!-- Card 4: Shopify -->
-    <div class="piece-card">
-      <div class="piece-card-header">
-        <span class="piece-title">Shopify</span>
-        <span class="piece-type">O-Box (2x1)</span>
-      </div>
-      <div class="piece-display-stage">
-        <div class="t-box bg-dark shape-shopify">
-          <div class="t-label">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/shopify.svg" alt="Shopify" class="brand-ico ico-light">
-            SHOPIFY
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 5: AI MVP -->
-    <div class="piece-card">
-      <div class="piece-card-header">
-        <span class="piece-title">AI MVP</span>
-        <span class="piece-type">T-Shape (3x2)</span>
-      </div>
-      <div class="piece-display-stage">
-        <div class="t-box bg-blue" style="width: 160px; height: 110px; border-radius: 6px;">
-          <div class="t-label">AI MVP</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 6: Elementor -->
-    <div class="piece-card">
-      <div class="piece-card-header">
-        <span class="piece-title">Elementor</span>
-        <span class="piece-type">Orange L-Tower</span>
-      </div>
-      <div class="piece-display-stage">
-        <div class="t-box bg-orange" style="width: 110px; height: 160px; border-radius: 6px;">
-          <div class="t-label" style="flex-direction: column;">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/elementor.svg" alt="Elementor" class="brand-ico ico-light" style="width: 28px; height: 28px;">
-            ELEMENTOR
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 7: Figma -->
-    <div class="piece-card">
-      <div class="piece-card-header">
-        <span class="piece-title">Figma</span>
-        <span class="piece-type">Forest Green Z-Block</span>
-      </div>
-      <div class="piece-display-stage">
-        <div class="t-box bg-green shape-figma">
-          <div class="t-label">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg" alt="Figma" class="brand-ico ico-light">
-            FIGMA
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 8: WordPress -->
-    <div class="piece-card">
-      <div class="piece-card-header">
-        <span class="piece-title">WordPress</span>
-        <span class="piece-type">Silver L-Block</span>
-      </div>
-      <div class="piece-display-stage">
-        <div class="t-box bg-silver" style="width: 160px; height: 110px; border-radius: 6px;">
-          <div class="t-label">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/wordpress.svg" alt="WordPress" class="brand-ico ico-dark">
-            WORDPRESS
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 9: Content Writing -->
-    <div class="piece-card">
-      <div class="piece-card-header">
-        <span class="piece-title">Content Writing</span>
-        <span class="piece-type">Sand Box (2x1)</span>
-      </div>
-      <div class="piece-display-stage">
-        <div class="t-box bg-sand" style="width: 150px; height: 54px; border-radius: 6px;">
-          <div class="t-label">CONTENT</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 10: Claude -->
-    <div class="piece-card">
-      <div class="piece-card-header">
-        <span class="piece-title">Claude / Anthropic</span>
-        <span class="piece-type">Obsidian Pillar</span>
-      </div>
-      <div class="piece-display-stage">
-        <div class="t-box bg-dark shape-claude-pillar">
-          <div class="t-label" style="flex-direction: column;">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/anthropic.svg" alt="Claude" class="brand-ico ico-light" style="width: 24px; height: 24px;">
-            CLAUDE
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 11: Next.js -->
+    <!-- Card 2: Next.js -->
     <div class="piece-card">
       <div class="piece-card-header">
         <span class="piece-title">Next.js</span>
-        <span class="piece-type">Navy Pillar</span>
+        <span class="piece-color-tag">Dark Charcoal Slate (#3A3C3E)</span>
       </div>
-      <div class="piece-display-stage">
-        <div class="t-box bg-navy" style="width: 70px; height: 150px; border-radius: 6px;">
-          <div class="t-label">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nextdotjs.svg" alt="Next.js" class="brand-ico ico-light">
-          </div>
+      <div class="piece-stage">
+        <div class="m-block bg-charcoal" style="width: 140px; height: 54px;">
+          Next.js
         </div>
       </div>
     </div>
 
-    <!-- Card 12: WordPress Purple -->
+    <!-- Card 3: Figma -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">WP Purple</span>
-        <span class="piece-type">Purple Corner</span>
+        <span class="piece-title">Figma</span>
+        <span class="piece-color-tag">Muted Sage Green (#94B598)</span>
       </div>
-      <div class="piece-display-stage">
-        <div class="t-box bg-purple" style="width: 100px; height: 100px; border-radius: 6px;">
-          <div class="t-label">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/wordpress.svg" alt="WordPress" class="brand-ico ico-light" style="width: 26px; height: 26px;">
-          </div>
+      <div class="piece-stage">
+        <div class="m-block bg-sage-green" style="width: 140px; height: 54px;">
+          Figma
         </div>
       </div>
     </div>
 
-    <!-- Card 13: UX/UI -->
+    <!-- Card 4: Elementor -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">UX/UI</span>
-        <span class="piece-type">Lime Green S-Block</span>
+        <span class="piece-title">Elementor</span>
+        <span class="piece-color-tag">Warm Terracotta (#D98858)</span>
       </div>
-      <div class="piece-display-stage">
-        <div class="t-box bg-lime" style="width: 120px; height: 80px; border-radius: 6px;">
-          <div class="t-label">UX/UI</div>
+      <div class="piece-stage">
+        <div class="m-block bg-terracotta" style="width: 120px; height: 54px;">
+          Elementor
         </div>
       </div>
     </div>
 
-    <!-- Card 14: E-Commerce -->
+    <!-- Card 5: WordPress -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">E-Commerce</span>
-        <span class="piece-type">Amber Gold L-Block</span>
+        <span class="piece-title">WordPress</span>
+        <span class="piece-color-tag">Dark Charcoal Slate (#3A3C3E)</span>
       </div>
-      <div class="piece-display-stage">
-        <div class="t-box bg-gold" style="width: 100px; height: 120px; border-radius: 6px;">
-          <div class="t-label">E-COM</div>
+      <div class="piece-stage">
+        <div class="m-block bg-charcoal" style="width: 130px; height: 54px;">
+          WordPress
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: Custom Development -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">Custom Development</span>
+        <span class="piece-color-tag">Deep Midnight Blue (#243B54)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-midnight-blue" style="width: 200px; height: 54px;">
+          Custom Development
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 7: Digital Marketing -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">Digital Marketing</span>
+        <span class="piece-color-tag">Deep Midnight Blue (#243B54)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-midnight-blue" style="width: 170px; height: 54px;">
+          Digital Marketing
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 8: Shopify -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">Shopify</span>
+        <span class="piece-color-tag">Warm Terracotta (#D98858)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-terracotta" style="width: 140px; height: 54px;">
+          Shopify
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 9: AI MVP -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">AI MVP</span>
+        <span class="piece-color-tag">Soft Slate Blue (#8CAAD8)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-slate-blue" style="width: 130px; height: 54px;">
+          AI MVP
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 10: SEO -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">SEO</span>
+        <span class="piece-color-tag">Muted Sand Beige (#D9CFBD)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-sand-beige" style="width: 130px; height: 54px;">
+          SEO
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 11: Web App (Floating) -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">Web App (Airborne)</span>
+        <span class="piece-color-tag">Soft Slate Blue (#8CAAD8)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-slate-blue" style="width: 110px; height: 54px;">
+          Web App
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 12: API (Floating) -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">API (Airborne)</span>
+        <span class="piece-color-tag">Dark Charcoal Slate (#3A3C3E)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-charcoal" style="width: 70px; height: 54px;">
+          API
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 13: UX/UI (Floating) -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">UX/UI (Airborne)</span>
+        <span class="piece-color-tag">Muted Sage Green (#94B598)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-sage-green" style="width: 110px; height: 54px;">
+          UX/UI
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 14: E-com (Floating) -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">E-com (Airborne)</span>
+        <span class="piece-color-tag">Warm Terracotta (#D98858)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-terracotta" style="width: 90px; height: 54px;">
+          E-com
         </div>
       </div>
     </div>
