@@ -13,11 +13,11 @@ $search_query = get_search_query();
 
 <style>
 :root {
-  --c8-paper-bg: #FAFAF7;
-  --c8-paper-card: #FFFFFF;
+  --c8-paper-bg: #FFFFFF;
+  --c8-paper-card: #F2F2F0;
   --c8-ink: #080808;
   --c8-sub: #555555;
-  --c8-grid-line: rgba(8, 8, 8, 0.14);
+  --c8-grid-line: rgba(8, 8, 8, 0.08);
   --c8-blue: #0047E1;
   --c8-blue-hi: #3D6BFF;
   --font-body: 'DM Sans', sans-serif;
@@ -30,7 +30,7 @@ $search_query = get_search_query();
   max-width: 100% !important;
   margin: 0 !important;
   padding: 8.5rem 3.5rem 5rem 3.5rem;
-  background: #FAFAF7;
+  background: #FFFFFF;
   min-height: 80vh;
   box-sizing: border-box;
 }
@@ -75,7 +75,7 @@ $search_query = get_search_query();
 }
 
 .search-card {
-  background: #FFFFFF;
+  background: #F2F2F0;
   border: 1px solid var(--c8-grid-line);
   border-radius: 4px !important;
   padding: 1.6rem;

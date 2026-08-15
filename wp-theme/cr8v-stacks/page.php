@@ -12,11 +12,11 @@ get_header();
 
 <style>
 :root {
-  --c8-paper-bg: #F9F9F8;
-  --c8-paper-card: #FFFFFF;
+  --c8-paper-bg: #FFFFFF;
+  --c8-paper-card: #F2F2F0;
   --c8-ink: #080808;
   --c8-sub: #555555;
-  --c8-grid-line: rgba(8, 8, 8, 0.14);
+  --c8-grid-line: rgba(8, 8, 8, 0.08);
   --c8-blue: #0047E1;
   --font-body: 'DM Sans', sans-serif;
   --font-mono: 'Space Mono', monospace;
