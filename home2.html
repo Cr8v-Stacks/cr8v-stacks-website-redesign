@@ -1692,7 +1692,6 @@
     .piece-color-tag { font-size: 0.72rem; color: #555; font-weight: 600; background: #F4F4F0; padding: 0.25rem 0.65rem; border-radius: 4px; }
     .piece-stage { width: 100%; height: 220px; background: #F5F5F2; border-radius: 8px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
 
-  
   </style>
 </head>
 <body class="mode-70">
@@ -7222,6 +7221,638 @@
           piece.style.transform = '';
           piece.style.boxShadow = '';
           piece.style.zIndex = '';
+          piece.style.transition = 'transform 0.4s ease-out, box-shadow 0.4s ease-out';
+        });
+      });
+
+      // Initial Setup
+      setTimeout(() => {
+        calculateVectorTargets();
+        updateScrollProgress(0);
+        updateLiveHUDDisplay();
+      }, 300);
+    });
+  
+  </script>
+
+  <!-- 3D TETRIS HERO MOTION ENGINE -->
+  <script>
+
+    let activePiece = null;
+
+    function setMode(mode) {
+      document.body.className = 'mode-' + mode;
+      const btns = document.querySelectorAll('.state-btn');
+      btns.forEach(btn => btn.classList.remove('active'));
+      if (mode === '70') btns[0].classList.add('active');
+      if (mode === '100') btns[1].classList.add('active');
+      
+      const status = document.getElementById('hudStatus');
+      if (status) {
+        status.textContent = mode === '70' ? 
+          'STATE A (70% IN-MOTION): BASE FLOOR BLOCKS RESTING + 4 AIRBORNE BLOCKS FLOATING ABOVE MATRIX' : 
+          'STATE B (100% ASSEMBLED): ALL 4 AIRBORNE BLOCKS DOCKED FLUSH INTO MATRIX MATCHING SCREENSHOT (INPUT_FILE_0.PNG)';
+      }
+    }
+
+    // ════════════════════════════════════════════════════════════════
+    // REAL-TIME CELL COLLISION DETECTION & ANTI-OVERLAY ENGINE
+    // ════════════════════════════════════════════════════════════════
+    document.addEventListener('DOMContentLoaded', () => {
+      const pieces = document.querySelectorAll('.t-piece');
+      const hudStatus = document.getElementById('hudStatus');
+
+      function getOccupiedMatrix(movingPiece) {
+        const matrix = Array.from({length: 18}, () => Array(8).fill(false));
+        const mode = document.body.className.includes('mode-100') ? '100' : '70';
+        
+        pieces.forEach(p => {
+          if (p === movingPiece) return;
+          
+          if (mode === '70' && p.classList.contains('docked-socket')) return;
+          if (mode === '100' && p.closest('.airborne-layer')) return;
+          if (p.offsetWidth === 0 || p.offsetHeight === 0) return;
+
+          const style = window.getComputedStyle(p);
+          const colStart = parseInt(p.dataset.col || style.gridColumnStart || '1');
+          const rowStart = parseInt(p.dataset.row || style.gridRowStart || '1');
+
+          const dX = Math.round((p._translateX || 0) / 56);
+          const dY = Math.round((p._translateY || 0) / 56);
+
+          const finalCol = colStart + dX;
+          const finalRow = rowStart + dY;
+
+          const cells = p.querySelectorAll('.t-cell');
+          cells.forEach(cell => {
+            if (cell.querySelector('.t-shape-body')) {
+              const cellColOffset = (parseInt(cell.style.gridColumn || '1') - 1);
+              const cellRowOffset = (parseInt(cell.style.gridRow || '1') - 1);
+
+              const c = finalCol + cellColOffset;
+              const r = finalRow + cellRowOffset;
+
+              if (c >= 1 && c <= 17 && r >= 1 && r <= 7) {
+                matrix[c][r] = true;
+              }
+            }
+          });
+        });
+
+        return matrix;
+      }
+
+      function checkCollision(piece, tx, ty) {
+        const matrix = getOccupiedMatrix(piece);
+        const style = window.getComputedStyle(piece);
+        const colStart = parseInt(piece.dataset.col || style.gridColumnStart || '1');
+        const rowStart = parseInt(piece.dataset.row || style.gridRowStart || '1');
+
+        const dX = Math.round(tx / 56);
+        const dY = Math.round(ty / 56);
+
+        const targetCol = colStart + dX;
+        const targetRow = rowStart + dY;
+
+        let hasCollision = false;
+
+        const cells = piece.querySelectorAll('.t-cell');
+        cells.forEach(cell => {
+          if (cell.querySelector('.t-shape-body')) {
+            const cellColOffset = (parseInt(cell.style.gridColumn || '1') - 1);
+            const cellRowOffset = (parseInt(cell.style.gridRow || '1') - 1);
+
+            const c = targetCol + cellColOffset;
+            const r = targetRow + cellRowOffset;
+
+            if (c < 1 || c > 17 || r < 1 || r > 7 || matrix[c][r]) {
+              hasCollision = true;
+            }
+          }
+        });
+
+        return hasCollision;
+      }
+
+      pieces.forEach(piece => {
+        if (!piece.dataset.rotation) piece.dataset.rotation = '0';
+        if (!piece.dataset.flipX) piece.dataset.flipX = '1';
+        if (!piece.dataset.flipY) piece.dataset.flipY = '1';
+
+        let isDragging = false;
+        let startX, startY;
+        let currentTranslateX = 0, currentTranslateY = 0;
+        let lastValidX = 0, lastValidY = 0;
+
+        const rotateBtn = piece.querySelector('.t-rotate-handle');
+        if (rotateBtn) {
+          rotateBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            rotatePiece(piece);
+          });
+        }
+
+        const flipHBtn = piece.querySelector('.t-fliph-handle');
+        if (flipHBtn) {
+          flipHBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            flipPieceHorizontal(piece);
+          });
+        }
+
+        const flipVBtn = piece.querySelector('.t-flipv-handle');
+        if (flipVBtn) {
+          flipVBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            flipPieceVertical(piece);
+          });
+        }
+
+        piece.addEventListener('dblclick', (e) => {
+          if (e.target.classList.contains('t-handle')) return;
+          e.stopPropagation();
+          rotatePiece(piece);
+        });
+
+        piece.addEventListener('pointerdown', (e) => {
+          if (e.target.classList.contains('t-handle')) return;
+          
+          pieces.forEach(p => p.classList.remove('is-selected', 'is-colliding'));
+          piece.classList.add('is-selected');
+          activePiece = piece;
+
+          isDragging = true;
+          piece.classList.add('is-dragging');
+          piece.setPointerCapture(e.pointerId);
+
+          startX = e.clientX - currentTranslateX;
+          startY = e.clientY - currentTranslateY;
+
+          updateHudState(piece, 'DRAGGING...');
+        });
+
+        piece.addEventListener('pointermove', (e) => {
+          if (!isDragging) return;
+          currentTranslateX = e.clientX - startX;
+          currentTranslateY = e.clientY - startY;
+
+          const isColliding = checkCollision(piece, currentTranslateX, currentTranslateY);
+
+          if (isColliding) {
+            piece.classList.add('is-colliding');
+            if (hudStatus) {
+              const name = (piece.dataset.name || 'Block').toUpperCase();
+              hudStatus.textContent = `WARNING: [${name}] COLLISION DETECTED — REJECTED (SOLID BLOCK BOUNDARY)`;
+            }
+          } else {
+            piece.classList.remove('is-colliding');
+            lastValidX = currentTranslateX;
+            lastValidY = currentTranslateY;
+            updateHudState(piece, 'DRAGGING...');
+          }
+
+          applyPieceTransform(
+            piece, 
+            currentTranslateX, 
+            currentTranslateY, 
+            parseInt(piece.dataset.rotation || '0'),
+            parseInt(piece.dataset.flipX || '1'),
+            parseInt(piece.dataset.flipY || '1')
+          );
+        });
+
+        const endDrag = (e) => {
+          if (!isDragging) return;
+          isDragging = false;
+          piece.classList.remove('is-dragging');
+          try { piece.releasePointerCapture(e.pointerId); } catch(err) {}
+
+          const isColliding = checkCollision(piece, currentTranslateX, currentTranslateY);
+
+          if (isColliding) {
+            currentTranslateX = lastValidX;
+            currentTranslateY = lastValidY;
+            applyPieceTransform(
+              piece, 
+              currentTranslateX, 
+              currentTranslateY, 
+              parseInt(piece.dataset.rotation || '0'),
+              parseInt(piece.dataset.flipX || '1'),
+              parseInt(piece.dataset.flipY || '1')
+            );
+            piece.classList.remove('is-colliding');
+            if (hudStatus) {
+              const name = (piece.dataset.name || 'Block').toUpperCase();
+              hudStatus.textContent = `PHYSICS SNAP: [${name}] LANDED ON SOLID SURFACE (OVERLAP PREVENTED)`;
+            }
+          } else {
+            updateHudState(piece, 'LANDED');
+          }
+        };
+
+        piece.addEventListener('pointerup', endDrag);
+        piece.addEventListener('pointercancel', endDrag);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!activePiece) return;
+        const key = e.key.toLowerCase();
+
+        if (key === 'r' || key === ' ') {
+          e.preventDefault();
+          rotatePiece(activePiece);
+        } else if (key === 'f' || key === 'h') {
+          e.preventDefault();
+          flipPieceHorizontal(activePiece);
+        } else if (key === 'v') {
+          e.preventDefault();
+          flipPieceVertical(activePiece);
+        }
+      });
+
+      function rotatePiece(piece) {
+        let currentRot = parseInt(piece.dataset.rotation || '0');
+        let newRot = (currentRot + 90) % 360;
+        piece.dataset.rotation = newRot.toString();
+
+        applyPieceTransform(
+          piece, 
+          piece._translateX || 0, 
+          piece._translateY || 0, 
+          newRot,
+          parseInt(piece.dataset.flipX || '1'),
+          parseInt(piece.dataset.flipY || '1')
+        );
+        updateHudState(piece, 'ROTATED 90°');
+      }
+
+      function flipPieceHorizontal(piece) {
+        let currentFlipX = parseInt(piece.dataset.flipX || '1');
+        let newFlipX = currentFlipX * -1;
+        piece.dataset.flipX = newFlipX.toString();
+
+        applyPieceTransform(
+          piece, 
+          piece._translateX || 0, 
+          piece._translateY || 0, 
+          parseInt(piece.dataset.rotation || '0'),
+          newFlipX,
+          parseInt(piece.dataset.flipY || '1')
+        );
+        updateHudState(piece, 'HORIZONTALLY FLIPPED');
+      }
+
+      function flipPieceVertical(piece) {
+        let currentFlipY = parseInt(piece.dataset.flipY || '1');
+        let newFlipY = currentFlipY * -1;
+        piece.dataset.flipY = newFlipY.toString();
+
+        applyPieceTransform(
+          piece, 
+          piece._translateX || 0, 
+          piece._translateY || 0, 
+          parseInt(piece.dataset.rotation || '0'),
+          parseInt(piece.dataset.flipX || '1'),
+          newFlipY
+        );
+        updateHudState(piece, 'VERTICALLY FLIPPED');
+      }
+
+      function applyPieceTransform(piece, tx, ty, rot, fx, fy) {
+        piece._translateX = tx;
+        piece._translateY = ty;
+        piece.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${rot}deg) scale(${fx}, ${fy})`;
+      }
+
+      function updateHudState(piece, actionText) {
+        if (!hudStatus) return;
+        const name = (piece.dataset.name || 'Block').toUpperCase();
+        const rot = piece.dataset.rotation || '0';
+        const fx = piece.dataset.flipX === '-1' ? 'H-FLIPPED' : 'NORMAL-H';
+        const fy = piece.dataset.flipY === '-1' ? 'V-FLIPPED' : 'NORMAL-V';
+        hudStatus.textContent = `ACTIVE: [${name}] | ROTATION: ${rot}° | FLIP: ${fx} / ${fy} | ACTION: ${actionText}`;
+      }
+
+      // ════════════════════════════════════════════════════════════════
+      // DIRECT DOM SCROLL & PLAY ANIMATION ENGINE
+      // ════════════════════════════════════════════════════════════════
+      const btnStateA = document.getElementById('btnStateA');
+      const btnStateB = document.getElementById('btnStateB');
+      const btnPlayDOM = document.getElementById('btnPlayDOM');
+
+      const airWoo = document.querySelector('.air-wp-purple');
+      const airNext = document.querySelector('.air-nextjs');
+      const airYellow = document.querySelector('.air-amber-l');
+      const airGreen = document.querySelector('.air-green-z');
+
+      const sockWoo = document.querySelector('.docked-socket[data-name="Purple WooCommerce L-Piece"]');
+      const sockNext = document.querySelector('.docked-socket[data-name="Next.js"]');
+      const sockYellow = document.querySelector('.docked-socket[data-name="Golden Yellow L"]');
+      const sockGreen = document.querySelector('.docked-socket[data-name="Lime Green Lemon Z"]');
+
+      // User-Calibrated 2D Trajectory Keyframe Vectors (Exact Visual Calibrator Output)
+      const vectorTargets = {
+        woo:    { dX: 148,  dY: 469, rot: 0,  flipX: 1 },   // Socket 1 (Purple WooCommerce L)
+        next:   { dX: 168,  dY: 332, rot: 0,  flipX: 1 },   // Socket 2 (Next.js 1x3 Bar)
+        yellow: { dX: -540, dY: 320, rot: 90, flipX: -1 },  // Socket 3 (Golden Yellow L)
+        green:  { dX: -75,  dY: 425, rot: 0,  flipX: 1 }    // Socket 4 (Lime Green Lemon Z)
+      };
+      let isPlayingAnim = false;
+
+      function calculateVectorTargets() {
+        // Constant exact grid cell vectors, no DOM measurement needed
+      }
+
+      function updateScrollProgress(p) {
+        const progress = Math.min(1, Math.max(0, p));
+        const pct = Math.round(progress * 100);
+
+        if (btnStateA && btnStateB) {
+          btnStateA.classList.toggle('active', pct === 0);
+          btnStateB.classList.toggle('active', pct === 100);
+        }
+
+        if (!vectorTargets) calculateVectorTargets();
+
+        // WAVE 1 (0% -> 50% Scroll Progress): Next.js Bar & Golden Yellow L (Nearest Pair)
+        const tWave1 = Math.min(1, Math.max(0, progress / 0.5));
+
+        // 1. Next.js Bar (Wave 1)
+        if (airNext && vectorTargets.next) {
+          const xNext = tWave1 * vectorTargets.next.dX;
+          const yNext = tWave1 * vectorTargets.next.dY;
+          const rotNext = -16 * (1 - tWave1);
+          airNext.style.transform = `translate3d(${xNext}px, ${yNext}px, 0) rotate(${rotNext}deg)`;
+        }
+
+        // 2. Golden Yellow L-Piece (Wave 1 - Mid-air rotation past CTA zone)
+        if (airYellow && vectorTargets.yellow) {
+          const xYellow = tWave1 * vectorTargets.yellow.dX;
+          const yYellow = tWave1 * vectorTargets.yellow.dY;
+          let rotYellow = 0;
+          let flipX = 1;
+
+          if (tWave1 <= 0.40) {
+            // Mid-air spin & flip as it glides past CTA buttons (22° -> 90°)
+            const norm = tWave1 / 0.40;
+            rotYellow = 22 + (norm * 68);
+            flipX = 1 - (norm * 2);
+          } else {
+            // Settles smoothly into Socket 3 (90° -> 0°)
+            const norm = (tWave1 - 0.40) / 0.60;
+            rotYellow = 90 * (1 - norm);
+            flipX = -1 + (norm * 2);
+          }
+          airYellow.style.transform = `translate3d(${xYellow}px, ${yYellow}px, 0) rotate(${rotYellow}deg) scaleX(${flipX})`;
+        }
+
+        // WAVE 2 (50% -> 100% Scroll Progress): WooCommerce L & Lime Green Z
+        const tWave2 = Math.min(1, Math.max(0, (progress - 0.5) / 0.5));
+
+        // 3. WooCommerce Purple L-Piece (Wave 2)
+        if (airWoo && vectorTargets.woo) {
+          const xWoo = tWave2 * vectorTargets.woo.dX;
+          const yWoo = tWave2 * vectorTargets.woo.dY;
+          const rotWoo = -10 * (1 - tWave2);
+          airWoo.style.transform = `translate3d(${xWoo}px, ${yWoo}px, 0) rotate(${rotWoo}deg)`;
+        }
+
+        // 4. Lime Green Lemon Z-Piece (Wave 2)
+        if (airGreen && vectorTargets.green) {
+          const xGreen = tWave2 * vectorTargets.green.dX;
+          const yGreen = tWave2 * vectorTargets.green.dY;
+          const rotGreen = 12 * (1 - tWave2);
+          airGreen.style.transform = `translate3d(${xGreen}px, ${yGreen}px, 0) rotate(${rotGreen}deg)`;
+        }
+
+        // Handle Docked Sockets Opacity at 100%
+        const isFullyAssembled = progress >= 0.99;
+        [sockWoo, sockNext, sockYellow, sockGreen].forEach(s => {
+          if (!s) return;
+          s.style.opacity = isFullyAssembled ? '1' : '0';
+        });
+
+        if (hudStatus) {
+          if (progress === 0) {
+            hudStatus.textContent = 'STATE A (0% SCROLL): 4 AIRBORNE FLOATING BLOCKS HOVERING IN SPACE';
+          } else if (progress < 0.5) {
+            hudStatus.textContent = `📜 WAVE 1 SCROLL (${pct}%): NEXT.JS & GOLDEN YELLOW L GLIDING... MID-AIR ROTATION PAST CTA ZONE!`;
+          } else if (progress < 1.0) {
+            hudStatus.textContent = `📜 WAVE 2 SCROLL (${pct}%): WOOCOMMERCE & LIME GREEN Z DESCENDING INTO RESTING SOCKETS...`;
+          } else {
+            hudStatus.textContent = 'STATE B (100% SCROLL): ALL 4 BLOCKS DOCKED FLUSH INTO MATRIX RESTING SOCKETS!';
+          }
+        }
+      }
+
+      // Bind Page Scroll Directly to Animate DOM Blocks
+      window.addEventListener('scroll', () => {
+        if (isPlayingAnim) return;
+        const track = document.getElementById('heroScrollTrack');
+        if (!track) return;
+        const rect = track.getBoundingClientRect();
+        const winH = window.innerHeight;
+        const totalDist = rect.height - winH;
+        if (totalDist <= 0) return;
+        const scrolled = -rect.top;
+        const p = Math.min(1, Math.max(0, scrolled / totalDist));
+        updateScrollProgress(p);
+      });
+
+      // Play Direct DOM Motion Function (Smooth 2.5s Auto Play)
+      window.playDirectDOMAnimation = function() {
+        if (isPlayingAnim) return;
+        isPlayingAnim = true;
+        
+        let startVal = 0;
+        const duration = 2400; // 2.4 seconds smooth ease
+        const startTime = performance.now();
+
+        function step(now) {
+          const elapsed = now - startTime;
+          const p = Math.min(1, elapsed / duration);
+          // Smooth Easing (cubic-bezier easeInOut)
+          const easeP = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+          updateScrollProgress(easeP);
+
+          if (p < 1) {
+            requestAnimationFrame(step);
+          } else {
+            isPlayingAnim = false;
+          }
+        }
+
+        requestAnimationFrame(step);
+      };
+
+      // Window Resize Listener
+      window.addEventListener('resize', () => {
+        calculateVectorTargets();
+        updateScrollProgress(0);
+      });
+
+      // Override global setMode to update progress directly
+      window.setMode = function(mode) {
+        document.body.className = mode === '100' ? 'mode-100' : 'mode-70';
+        const targetP = mode === '100' ? 1.0 : 0.0;
+        updateScrollProgress(targetP);
+      };
+
+      // Toggle Floating Viewport Path Calibrator HUD
+      window.toggleCalibratorHUD = function() {
+        const hud = document.getElementById('floatingCalibHUD');
+        if (hud) {
+          const isHidden = hud.style.display === 'none';
+          hud.style.display = isHidden ? 'block' : 'none';
+        }
+      };
+
+      // ════════════════════════════════════════════════════════════════
+      // INTERACTIVE MOUSE DRAG & LIVE PATH CALIBRATOR ENGINE
+      // ════════════════════════════════════════════════════════════════
+      let activeDragPiece = null;
+      let dragStartX = 0, dragStartY = 0;
+      let initialPieceX = 0, initialPieceY = 0;
+
+      const liveCalibData = {
+        woo:    { dX: 148,  dY: 469, rot: 0,  flipX: 1 },
+        next:   { dX: 168,  dY: 332, rot: 0,  flipX: 1 },
+        yellow: { dX: -540, dY: 320, rot: 90, flipX: -1 },
+        green:  { dX: -75,  dY: 425, rot: 0,  flipX: 1 }
+      };
+
+      function updateLiveHUDDisplay() {
+        const hudNext = document.getElementById('hudNextVal');
+        const hudYellow = document.getElementById('hudYellowVal');
+        const hudWoo = document.getElementById('hudWooVal');
+        const hudGreen = document.getElementById('hudGreenVal');
+
+        if (hudNext) hudNext.textContent = `dX: ${Math.round(liveCalibData.next.dX)}px | dY: ${Math.round(liveCalibData.next.dY)}px | Rot: ${liveCalibData.next.rot}°`;
+        if (hudYellow) hudYellow.textContent = `dX: ${Math.round(liveCalibData.yellow.dX)}px | dY: ${Math.round(liveCalibData.yellow.dY)}px | Rot: ${liveCalibData.yellow.rot}° | Flip: ${liveCalibData.yellow.flipX}`;
+        if (hudWoo) hudWoo.textContent = `dX: ${Math.round(liveCalibData.woo.dX)}px | dY: ${Math.round(liveCalibData.woo.dY)}px | Rot: ${liveCalibData.woo.rot}°`;
+        if (hudGreen) hudGreen.textContent = `dX: ${Math.round(liveCalibData.green.dX)}px | dY: ${Math.round(liveCalibData.green.dY)}px | Rot: ${liveCalibData.green.rot}°`;
+      }
+
+      function getKeyForPiece(piece) {
+        if (piece === airNext) return 'next';
+        if (piece === airYellow) return 'yellow';
+        if (piece === airWoo) return 'woo';
+        if (piece === airGreen) return 'green';
+        return null;
+      }
+
+      [airWoo, airNext, airYellow, airGreen].forEach(piece => {
+        if (!piece) return;
+
+        piece.addEventListener('mousedown', (e) => {
+          activeDragPiece = piece;
+          dragStartX = e.clientX;
+          dragStartY = e.clientY;
+
+          const key = getKeyForPiece(piece);
+          if (key) {
+            initialPieceX = liveCalibData[key].dX;
+            initialPieceY = liveCalibData[key].dY;
+          }
+
+          document.body.style.userSelect = 'none';
+          e.preventDefault();
+        });
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!activeDragPiece) return;
+
+        const deltaX = e.clientX - dragStartX;
+        const deltaY = e.clientY - dragStartY;
+
+        const key = getKeyForPiece(activeDragPiece);
+        if (!key) return;
+
+        const newDX = initialPieceX + deltaX;
+        const newDY = initialPieceY + deltaY;
+
+        liveCalibData[key].dX = newDX;
+        liveCalibData[key].dY = newDY;
+
+        const rot = liveCalibData[key].rot || 0;
+        const flipX = liveCalibData[key].flipX || 1;
+
+        activeDragPiece.style.transform = `translate3d(${newDX}px, ${newDY}px, 0) rotate(${rot}deg) scaleX(${flipX})`;
+        updateLiveHUDDisplay();
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (activeDragPiece) {
+          activeDragPiece = null;
+          document.body.style.userSelect = '';
+        }
+      });
+
+      // Hotkey listeners: [R] to Rotate 90°, [F] to Flip Horizontally
+      window.addEventListener('keydown', (e) => {
+        if (!activeDragPiece) return;
+        const key = getKeyForPiece(activeDragPiece);
+        if (!key) return;
+
+        if (e.key === 'r' || e.key === 'R') {
+          liveCalibData[key].rot = (liveCalibData[key].rot + 90) % 360;
+        } else if (e.key === 'f' || e.key === 'F') {
+          liveCalibData[key].flipX = liveCalibData[key].flipX * -1;
+        }
+
+        const dX = liveCalibData[key].dX;
+        const dY = liveCalibData[key].dY;
+        const rot = liveCalibData[key].rot;
+        const flipX = liveCalibData[key].flipX;
+
+        activeDragPiece.style.transform = `translate3d(${dX}px, ${dY}px, 0) rotate(${rot}deg) scaleX(${flipX})`;
+        updateLiveHUDDisplay();
+      });
+
+      // Export live coordinates JSON
+      window.copyCalibratedCoordinates = function() {
+        const text = JSON.stringify(liveCalibData, null, 2);
+        navigator.clipboard.writeText(text).then(() => {
+          alert('Live calibrated trajectory keyframes copied to clipboard!\n\n' + text);
+        }).catch(() => {
+          alert('Live calibrated coordinates:\n\n' + text);
+        });
+      };
+
+      // ════════════════════════════════════════════════════════════════
+      // OPTION A: FREE-FORM DRAG & AUTO-SNAP BACK ON SCROLL ENGINE
+      // ════════════════════════════════════════════════════════════════
+      const userDragOffset = {
+        woo:    { x: 0, y: 0 },
+        next:   { x: 0, y: 0 },
+        yellow: { x: 0, y: 0 },
+        green:  { x: 0, y: 0 }
+      };
+
+      // ════════════════════════════════════════════════════════════════
+      // UNIVERSAL MAGNETIC HOVER MICRO-INTERACTION ENGINE
+      // ════════════════════════════════════════════════════════════════
+      const allHoverPieces = document.querySelectorAll('.t-piece, .docked-socket');
+      allHoverPieces.forEach(piece => {
+        piece.addEventListener('mousemove', (e) => {
+          if (document.body.classList.contains('calibrator-active')) return;
+          const rect = piece.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          
+          const deltaX = (e.clientX - centerX) * 0.16; // Magnetic pull X
+          const deltaY = (e.clientY - centerY) * 0.16; // Magnetic pull Y
+
+          piece.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(1.03)`;
+          piece.style.boxShadow = '0 12px 32px rgba(0, 71, 225, 0.28)';
+          piece.style.transition = 'transform 0.1s ease-out, box-shadow 0.2s ease-out';
+        });
+
+        piece.addEventListener('mouseleave', () => {
+          if (document.body.classList.contains('calibrator-active')) return;
+          piece.style.transform = '';
+          piece.style.boxShadow = '';
           piece.style.transition = 'transform 0.4s ease-out, box-shadow 0.4s ease-out';
         });
       });

@@ -1767,10 +1767,20 @@
       };
 
       // ════════════════════════════════════════════════════════════════
-      // MAGNETIC HOVER MICRO-INTERACTION ENGINE
+      // OPTION A: FREE-FORM DRAG & AUTO-SNAP BACK ON SCROLL ENGINE
       // ════════════════════════════════════════════════════════════════
-      const allPieces = document.querySelectorAll('.t-piece');
-      allPieces.forEach(piece => {
+      const userDragOffset = {
+        woo:    { x: 0, y: 0 },
+        next:   { x: 0, y: 0 },
+        yellow: { x: 0, y: 0 },
+        green:  { x: 0, y: 0 }
+      };
+
+      // ════════════════════════════════════════════════════════════════
+      // UNIVERSAL MAGNETIC HOVER MICRO-INTERACTION ENGINE
+      // ════════════════════════════════════════════════════════════════
+      const allHoverPieces = document.querySelectorAll('.t-piece, .docked-socket');
+      allHoverPieces.forEach(piece => {
         piece.addEventListener('mousemove', (e) => {
           if (document.body.classList.contains('calibrator-active')) return;
           const rect = piece.getBoundingClientRect();
@@ -1783,14 +1793,12 @@
           piece.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(1.03)`;
           piece.style.boxShadow = '0 12px 32px rgba(0, 71, 225, 0.28)';
           piece.style.transition = 'transform 0.1s ease-out, box-shadow 0.2s ease-out';
-          piece.style.zIndex = '999';
         });
 
         piece.addEventListener('mouseleave', () => {
           if (document.body.classList.contains('calibrator-active')) return;
           piece.style.transform = '';
           piece.style.boxShadow = '';
-          piece.style.zIndex = '';
           piece.style.transition = 'transform 0.4s ease-out, box-shadow 0.4s ease-out';
         });
       });
