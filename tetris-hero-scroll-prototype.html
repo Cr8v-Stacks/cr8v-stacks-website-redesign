@@ -641,22 +641,16 @@
   </header>
 
   <!-- Motion Controller Bar -->
-  <div class="motion-controller">
+  <div class="motion-controller" style="position: sticky; top: 10px; z-index: 9999; max-width: 1360px; margin: 1rem auto 1.5rem auto;">
     <button class="state-btn active" id="btnStateA" onclick="setMode('70')">State A (0% Start: 4 Airborne Floating)</button>
     
-    <div style="display: flex; align-items: center; gap: 0.75rem; background: rgba(0,0,0,0.04); padding: 0.35rem 0.85rem; border-radius: 6px; border: 1px solid rgba(0,0,0,0.08);">
-      <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--c8-blue);">📜 SCROLL / SCRUB:</span>
-      <input type="range" id="scrollScrubber" min="0" max="100" value="0" style="width: 200px; cursor: pointer; accent-color: #0047E1;">
-      <span id="scrubVal" style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; width: 45px; color: var(--c8-ink);">0%</span>
+    <div style="display: flex; align-items: center; gap: 0.75rem; background: rgba(0,0,0,0.06); padding: 0.4rem 1rem; border-radius: 6px; border: 1px solid rgba(0,0,0,0.12); box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+      <span style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: var(--c8-blue);">📜 SCROLL / SCRUB ANIMATION:</span>
+      <input type="range" id="scrollScrubber" min="0" max="100" value="0" style="width: 260px; cursor: pointer; accent-color: #0047E1;">
+      <span id="scrubVal" style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; width: 45px; color: var(--c8-ink);">0%</span>
     </div>
 
     <button class="state-btn" id="btnStateB" onclick="setMode('100')">State B (100% Assembled: All Docked)</button>
-  </div>
-
-  <!-- Source of Truth Reference Box -->
-  <div class="reference-box">
-    <h2>State B Exact User Target Screenshot (input_file_0.png)</h2>
-    <img src="recreate_this_exact_design_202608151817.jpeg" alt="Source of Truth Reference" class="reference-img">
   </div>
 
   <!-- ════════════════════════════════════════════════════════════════
@@ -1478,12 +1472,20 @@
 
         const measurePair = (air, sock) => {
           if (!air || !sock) return { dX: 0, dY: 0 };
-          sock.style.display = 'grid';
-          sock.style.visibility = 'hidden';
+          
+          // Clear inline transforms temporarily to measure true clean delta vector
+          const savedAirTransform = air.style.transform;
+          const savedSockTransform = sock.style.transform;
+          
+          air.style.transform = 'none';
+          sock.style.transform = 'none';
+          
           const rAir = air.getBoundingClientRect();
           const rSock = sock.getBoundingClientRect();
-          sock.style.visibility = '';
-          sock.style.display = '';
+          
+          air.style.transform = savedAirTransform;
+          sock.style.transform = savedSockTransform;
+
           return {
             dX: rSock.left - rAir.left,
             dY: rSock.top - rAir.top
@@ -1607,7 +1609,7 @@
         const totalDist = rect.height;
         const currentDist = winH - rect.top;
         if (currentDist >= 0 && currentDist <= totalDist + winH) {
-          const p = Math.min(1, Math.max(0, currentDist / (totalDist + winH * 0.5)));
+          const p = Math.min(1, Math.max(0, currentDist / (totalDist + 300)));
           updateScrollProgress(p);
         }
       });
