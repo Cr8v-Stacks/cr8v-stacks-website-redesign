@@ -558,6 +558,7 @@
     .airborne-layer .t-piece {
       pointer-events: auto;
       z-index: 250 !important; /* ALL FLOATING AIRBORNE BLOCKS HOVER ABOVE FLOOR BLOCKS */
+      transition: transform 0.85s cubic-bezier(0.34, 1.45, 0.64, 1), top 0.85s cubic-bezier(0.34, 1.45, 0.64, 1), left 0.85s cubic-bezier(0.34, 1.45, 0.64, 1), right 0.85s cubic-bezier(0.34, 1.45, 0.64, 1), opacity 0.4s ease;
     }
 
     /* State A Airborne Floating Coordinates (Hovering Above Floor Matrix) */
@@ -565,6 +566,21 @@
     .air-nextjs      { position: absolute; left: 180px; top: 180px; transform: rotate(-16deg); z-index: 300 !important; } /* NEXT.JS Z-INDEX 300 > OPENAI Z-INDEX 70 */
     .air-green-z     { position: absolute; right: 100px; top: 30px;  transform: rotate(12deg);  z-index: 260 !important; }
     .air-amber-l     { position: absolute; right: 30px;  top: 190px; transform: rotate(22deg);  z-index: 260 !important; }
+
+    /* State A -> State B Assembly Animation Target Coordinates */
+    .air-wp-purple.dock-animating  { top: 224px !important; left: 0px !important; transform: rotate(0deg) scale(1) !important; }
+    .air-nextjs.dock-animating     { top: 224px !important; left: 168px !important; transform: rotate(0deg) scale(1) !important; }
+    .air-amber-l.dock-animating    { top: 224px !important; left: 448px !important; right: auto !important; transform: rotate(0deg) scale(1) !important; }
+    .air-green-z.dock-animating    { top: 168px !important; left: 840px !important; right: auto !important; transform: rotate(0deg) scale(1) !important; }
+
+    @keyframes socketDockPulse {
+      0% { transform: scale(1); filter: brightness(1); }
+      50% { transform: scale(1.04); filter: brightness(1.35); }
+      100% { transform: scale(1); filter: brightness(1); }
+    }
+    .dock-pulse-active {
+      animation: socketDockPulse 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
 
     /* ════════════════════════════════════════════════════════════════
        EXACT MASTER PROMPT DUAL-STATE RULES
@@ -644,6 +660,7 @@
   <div class="motion-controller">
     <button class="state-btn active" onclick="setMode('70')">State A: 70% In-Motion (Base Floor + 4 Floating Airborne)</button>
     <button class="state-btn" onclick="setMode('100')">State B: 100% Fully Assembled (Exact Screenshot Match)</button>
+    <button class="state-btn" onclick="playAssemblyAnimation()">▶ Play Assembly Animation (State A → State B Flow)</button>
   </div>
 
   <!-- Source of Truth Reference Box -->
@@ -1152,8 +1169,18 @@
 
   <script>
     let activePiece = null;
+    let isAnimPlaying = false;
+
+    function resetAnimClasses() {
+      const airborne = document.querySelectorAll('.airborne-layer .t-piece');
+      const sockets = document.querySelectorAll('.docked-socket');
+      airborne.forEach(p => p.classList.remove('dock-animating'));
+      sockets.forEach(s => s.classList.remove('dock-pulse-active'));
+    }
 
     function setMode(mode) {
+      isAnimPlaying = false;
+      resetAnimClasses();
       document.body.className = 'mode-' + mode;
       const btns = document.querySelectorAll('.state-btn');
       btns.forEach(btn => btn.classList.remove('active'));
@@ -1166,6 +1193,56 @@
           'STATE A (70% IN-MOTION): BASE FLOOR BLOCKS RESTING + 4 AIRBORNE BLOCKS FLOATING ABOVE MATRIX' : 
           'STATE B (100% ASSEMBLED): ALL 4 AIRBORNE BLOCKS DOCKED FLUSH INTO MATRIX MATCHING SCREENSHOT (INPUT_FILE_0.PNG)';
       }
+    }
+
+    function playAssemblyAnimation() {
+      if (isAnimPlaying) return;
+      isAnimPlaying = true;
+
+      const btns = document.querySelectorAll('.state-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      if (btns[2]) btns[2].classList.add('active');
+
+      resetAnimClasses();
+      document.body.className = 'mode-70';
+
+      const status = document.getElementById('hudStatus');
+      if (status) status.textContent = '▶ ASSEMBLY ANIMATION INITIATED: HOVERING AT STATE A FLOATING ANGLES...';
+
+      const woo = document.querySelector('.air-wp-purple');
+      const next = document.querySelector('.air-nextjs');
+      const yellow = document.querySelector('.air-amber-l');
+      const green = document.querySelector('.air-green-z');
+      const sockets = document.querySelectorAll('.docked-socket');
+
+      // Staggered 3D Gliding Sequence
+      setTimeout(() => {
+        if (woo) woo.classList.add('dock-animating');
+        if (status) status.textContent = '▶ [1/4] WOOCOMMERCE L-PIECE GLIDING DOWN INTO MATRIX SOCKET 1...';
+      }, 350);
+
+      setTimeout(() => {
+        if (next) next.classList.add('dock-animating');
+        if (status) status.textContent = '▶ [2/4] NEXT.JS 1x3 BAR GLIDING DOWN INTO MATRIX SOCKET 2...';
+      }, 750);
+
+      setTimeout(() => {
+        if (yellow) yellow.classList.add('dock-animating');
+        if (status) status.textContent = '▶ [3/4] GOLDEN YELLOW L-PIECE GLIDING DOWN INTO MATRIX SOCKET 3...';
+      }, 1150);
+
+      setTimeout(() => {
+        if (green) green.classList.add('dock-animating');
+        if (status) status.textContent = '▶ [4/4] LIME GREEN Z-PIECE GLIDING DOWN INTO MATRIX SOCKET 4...';
+      }, 1550);
+
+      // Final Touchdown -> Transition to State B with socket pulse
+      setTimeout(() => {
+        document.body.className = 'mode-100';
+        sockets.forEach(s => s.classList.add('dock-pulse-active'));
+        if (status) status.textContent = '✔ ASSEMBLY COMPLETE! ALL 4 AIRBORNE BLOCKS DOCKED FLUSH INTO MATRIX (STATE B MATCHING SCREENSHOT).';
+        isAnimPlaying = false;
+      }, 2350);
     }
 
     // ════════════════════════════════════════════════════════════════
