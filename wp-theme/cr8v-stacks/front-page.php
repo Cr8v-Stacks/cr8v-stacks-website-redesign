@@ -835,6 +835,71 @@ defined('ABSPATH') || exit;
       pointer-events: auto !important;
     }
 
+  
+    /* ABSOLUTE OVERLAY TEXT POSITIONING & HUD STYLING */
+    .c8-hero-top.c8-hero-b-standalone,
+    .c8-hero-b-standalone {
+      position: relative !important;
+      overflow: hidden !important;
+      min-height: 100vh !important;
+      height: 100vh !important;
+      background-color: #FFFFFF !important;
+      background-image: none !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    .c8-hero-top .c8-hero-in,
+    .c8-hero-in {
+      position: absolute !important;
+      top: 3.5rem !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 100% !important;
+      max-width: 820px !important;
+      text-align: center !important;
+      z-index: 200 !important;
+      pointer-events: none !important;
+      padding: 0 1.5rem !important;
+      margin: 0 !important;
+    }
+
+    .c8-hero-top .c8-hero-in a,
+    .c8-hero-in a,
+    .c8-hero-top .c8-hero-in button,
+    .c8-hero-in button {
+      pointer-events: auto !important;
+    }
+
+    .c8-hero-top .matrix-floor-wrapper {
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      z-index: 100 !important;
+      margin: 0 !important;
+      width: 952px !important;
+      height: 392px !important;
+    }
+
+    .c8-hero-top .airborne-layer {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      pointer-events: none !important;
+      z-index: 500 !important;
+    }
+
+    .c8-hero-top .airborne-layer .t-piece {
+      pointer-events: auto !important;
+      cursor: grab !important;
+    }
+    .c8-hero-top .airborne-layer .t-piece:active {
+      cursor: grabbing !important;
+    }
+
   </style>
 </head>
 <body <?php body_class('cr8v-homepage mode-70'); ?>>
@@ -843,6 +908,22 @@ defined('ABSPATH') || exit;
 
 <main id="cr8v-main">
                 <section class="c8-hero-top c8-hero-b-standalone">
+
+    <!-- Live Floating Viewport Path Calibrator HUD -->
+    <div id="floatingCalibHUD" style="position: fixed; top: 90px; right: 20px; z-index: 999999; background: #141414; color: #FFFFFF; padding: 14px 18px; border-radius: 8px; font-family: monospace; font-size: 0.75rem; box-shadow: 0 8px 30px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15);">
+      <div style="font-weight: 700; color: #3D6BFF; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+        <span>LIVE HOMEPAGE PATH CALIBRATOR</span>
+        <button onclick="document.getElementById('floatingCalibHUD').style.display='none'" style="background:none; border:none; color:#AAA; cursor:pointer; font-size:0.9rem;">✕</button>
+      </div>
+      <div id="hudWooVal" style="margin-bottom: 4px; color: #E0E0E0;">Woo: dX: 148px | dY: 469px</div>
+      <div id="hudNextVal" style="margin-bottom: 4px; color: #E0E0E0;">Next: dX: 168px | dY: 332px</div>
+      <div id="hudYellowVal" style="margin-bottom: 4px; color: #E0E0E0;">Yellow: dX: -540px | dY: 320px</div>
+      <div id="hudGreenVal" style="margin-bottom: 8px; color: #E0E0E0;">Green: dX: -75px | dY: 425px</div>
+      <div style="font-size: 0.68rem; color: #888888; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 6px;">
+        Drag floating cards to position. Press [R] to Rotate 90°, [F] to Flip.
+      </div>
+    </div>
+
     <div class="c8-hero-in">
       <div class="c8-eyebrow" data-customizer="hero_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('hero_eyebrow', 'SCALE WITH AUTHORITY')); ?></div>
       <h1 class="c8-hero-h1" data-customizer="hero_headline_1"><?php echo esc_html(cr8v_mod('hero_headline_1', 'We build what your business actually runs on.')); ?></h1>
@@ -5103,6 +5184,7 @@ defined('ABSPATH') || exit;
   
   </script>
 
+  
   <script>
     (function() {
       document.addEventListener('DOMContentLoaded', function() {
@@ -5120,24 +5202,19 @@ defined('ABSPATH') || exit;
           green:  { dX: -75,  dY: 425, rot: 0,  flipX: 1 }
         };
 
-        let userDragOffset = {
-          woo: { x: 0, y: 0 },
-          next: { x: 0, y: 0 },
-          yellow: { x: 0, y: 0 },
-          green: { x: 0, y: 0 }
-        };
+        function updateHUDDisplay() {
+          const hudWoo = document.getElementById('hudWooVal');
+          const hudNext = document.getElementById('hudNextVal');
+          const hudYellow = document.getElementById('hudYellowVal');
+          const hudGreen = document.getElementById('hudGreenVal');
 
-        function updateScrollProgress(p) {
-          const clampedP = Math.min(1.0, Math.max(0.0, p));
-          const easeP = clampedP < 0.5 ? 2 * clampedP * clampedP : -1 + (4 - 2 * clampedP) * clampedP;
-          
-          const targets = {
-            woo:    { x: liveCalibData.woo.dX * (1 - easeP),    y: liveCalibData.woo.dY * (1 - easeP) },
-            next:   { x: liveCalibData.next.dX * (1 - easeP),   y: liveCalibData.next.dY * (1 - easeP) },
-            yellow: { x: liveCalibData.yellow.dX * (1 - easeP), y: liveCalibData.yellow.dY * (1 - easeP) },
-            green:  { x: liveCalibData.green.dX * (1 - easeP),  y: liveCalibData.green.dY * (1 - easeP) }
-          };
+          if (hudWoo) hudWoo.textContent = `Woo: dX: ${Math.round(liveCalibData.woo.dX)}px | dY: ${Math.round(liveCalibData.woo.dY)}px | Rot: ${liveCalibData.woo.rot}°`;
+          if (hudNext) hudNext.textContent = `Next: dX: ${Math.round(liveCalibData.next.dX)}px | dY: ${Math.round(liveCalibData.next.dY)}px | Rot: ${liveCalibData.next.rot}°`;
+          if (hudYellow) hudYellow.textContent = `Yellow: dX: ${Math.round(liveCalibData.yellow.dX)}px | dY: ${Math.round(liveCalibData.yellow.dY)}px | Rot: ${liveCalibData.yellow.rot}° | Flip: ${liveCalibData.yellow.flipX}`;
+          if (hudGreen) hudGreen.textContent = `Green: dX: ${Math.round(liveCalibData.green.dX)}px | dY: ${Math.round(liveCalibData.green.dY)}px | Rot: ${liveCalibData.green.rot}°`;
+        }
 
+        function renderPositions() {
           const pieces = [
             { el: airWoo, key: 'woo' },
             { el: airNext, key: 'next' },
@@ -5147,33 +5224,82 @@ defined('ABSPATH') || exit;
 
           pieces.forEach(item => {
             if (!item.el) return;
-            const t = targets[item.key];
-            const d = userDragOffset[item.key];
-            const rot = (liveCalibData[item.key].rot || 0) * (1 - easeP);
-            const flip = liveCalibData[item.key].flipX || 1;
-            item.el.style.transform = `translate3d(${t.x + d.x}px, ${t.y + d.y}px, 0) rotate(${rot}deg) scaleX(${flip})`;
+            const c = liveCalibData[item.key];
+            const rot = c.rot || 0;
+            const flip = c.flipX || 1;
+            item.el.style.transform = `translate3d(${c.dX}px, ${c.dY}px, 0) rotate(${rot}deg) scaleX(${flip})`;
           });
+          updateHUDDisplay();
         }
 
-        function onScroll() {
-          const scrollY = window.scrollY || window.pageYOffset;
-          const heroH = window.innerHeight * 0.5;
-          const progress = Math.min(1.0, Math.max(0.0, scrollY / heroH));
-          
-          // Lerp drag offset back to zero on scroll
-          Object.keys(userDragOffset).forEach(k => {
-            userDragOffset[k].x *= 0.88;
-            userDragOffset[k].y *= 0.88;
-          });
+        // Mouse Drag Engine
+        let activePiece = null;
+        let dragStartX = 0, dragStartY = 0;
+        let initialDX = 0, initialDY = 0;
 
-          updateScrollProgress(progress);
+        function getKey(el) {
+          if (el === airWoo) return 'woo';
+          if (el === airNext) return 'next';
+          if (el === airYellow) return 'yellow';
+          if (el === airGreen) return 'green';
+          return null;
         }
 
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll(); // Initial call
+        [airWoo, airNext, airYellow, airGreen].forEach(piece => {
+          piece.addEventListener('mousedown', function(e) {
+            activePiece = piece;
+            dragStartX = e.clientX;
+            dragStartY = e.clientY;
+            const k = getKey(piece);
+            if (k) {
+              initialDX = liveCalibData[k].dX;
+              initialDY = liveCalibData[k].dY;
+            }
+            document.body.style.userSelect = 'none';
+            e.preventDefault();
+          });
+        });
+
+        window.addEventListener('mousemove', function(e) {
+          if (!activePiece) return;
+          const k = getKey(activePiece);
+          if (!k) return;
+
+          const deltaX = e.clientX - dragStartX;
+          const deltaY = e.clientY - dragStartY;
+
+          liveCalibData[k].dX = initialDX + deltaX;
+          liveCalibData[k].dY = initialDY + deltaY;
+          renderPositions();
+        });
+
+        window.addEventListener('mouseup', function() {
+          if (activePiece) {
+            activePiece = null;
+            document.body.style.userSelect = '';
+          }
+        });
+
+        // Hotkeys [R] and [F]
+        window.addEventListener('keydown', function(e) {
+          if (!activePiece) return;
+          const k = getKey(activePiece);
+          if (!k) return;
+
+          if (e.key === 'r' || e.key === 'R') {
+            liveCalibData[k].rot = (liveCalibData[k].rot + 90) % 360;
+            renderPositions();
+          } else if (e.key === 'f' || e.key === 'F') {
+            liveCalibData[k].flipX = liveCalibData[k].flipX * -1;
+            renderPositions();
+          }
+        });
+
+        renderPositions(); // Initial layout render
       });
     })();
   </script>
+
 
 </body>
 </html>
