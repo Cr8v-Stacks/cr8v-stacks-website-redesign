@@ -651,21 +651,37 @@
     <button class="state-btn" id="btnToggleCalib" onclick="toggleCalibratorHUD()" style="background: #141414; color: #EAB308; border-color: #EAB308; font-weight: 700;">🛠️ Floating Path Calibrator</button>
   </div>
 
-  <!-- FIXED BOTTOM-RIGHT VIEWPORT FLOATING PATH CALIBRATOR HUD (STAYS VISIBLE AT ALL SCROLL POSITIONS) -->
-  <div id="floatingCalibHUD" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 999999; width: 340px; background: rgba(20, 20, 20, 0.96); backdrop-filter: blur(12px); border: 1px solid #EAB308; border-radius: 12px; padding: 1rem; color: #FFFFFF; font-family: 'Space Mono', monospace; font-size: 0.75rem; box-shadow: 0 12px 40px rgba(0,0,0,0.4);">
+  <!-- FIXED BOTTOM-RIGHT VIEWPORT FLOATING PATH CALIBRATOR HUD (LIVE POPULATING) -->
+  <div id="floatingCalibHUD" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 999999; width: 360px; background: rgba(20, 20, 20, 0.96); backdrop-filter: blur(14px); border: 1.5px solid #EAB308; border-radius: 14px; padding: 1.1rem; color: #FFFFFF; font-family: 'Space Mono', monospace; font-size: 0.75rem; box-shadow: 0 12px 45px rgba(0,0,0,0.5);">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 0.5rem;">
-      <span style="color: #EAB308; font-weight: 700;">🛠️ PATH CALIBRATOR</span>
-      <button onclick="toggleCalibratorHUD()" style="background: none; border: none; color: #FFF; cursor: pointer; font-weight: 700;">✕</button>
+      <span style="color: #EAB308; font-weight: 700; display: flex; align-items: center; gap: 6px;">🛠️ LIVE PATH CALIBRATOR</span>
+      <span id="calibModeTag" style="background: #0047E1; color: #FFF; padding: 2px 6px; border-radius: 4px; font-size: 0.68rem; font-weight: 700;">ACTIVE DRAG</span>
     </div>
 
-    <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-      <div><span style="color: #EAB308;">1. Next.js 1x3:</span> <span style="color: #3D6BFF; font-weight: 700;">dX: -12px, dY: 44px</span></div>
-      <div><span style="color: #EAB308;">2. Yellow L (CTA):</span> <span style="color: #3D6BFF; font-weight: 700;">dX: -362px, dY: 34px</span> (Mid-air 90°)</div>
-      <div><span style="color: #EAB308;">3. WooCommerce L:</span> <span style="color: #3D6BFF; font-weight: 700;">dX: -30px, dY: 184px</span></div>
-      <div><span style="color: #EAB308;">4. Lime Green Z:</span> <span style="color: #3D6BFF; font-weight: 700;">dX: 100px, dY: 138px</span></div>
+    <div style="font-size: 0.7rem; color: #AAA; margin-bottom: 0.75rem;">
+      💡 Click & drag any block. Press <b style="color:#FFF;">[R]</b> to Rotate 90°, <b style="color:#FFF;">[F]</b> to Flip H.
     </div>
 
-    <button onclick="copyCalibratedCoordinates()" style="margin-top: 0.85rem; width: 100%; background: #0047E1; color: #FFF; border: none; padding: 0.5rem; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">📋 Copy Path Coordinates</button>
+    <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+      <div style="background: rgba(255,255,255,0.05); padding: 6px 8px; border-radius: 6px;">
+        <span style="color: #EAB308; font-weight:700;">1. Next.js 1x3:</span><br>
+        <span id="hudNextVal" style="color: #3D6BFF; font-weight: 700;">dX: -12px | dY: 44px | Rot: 0°</span>
+      </div>
+      <div style="background: rgba(255,255,255,0.05); padding: 6px 8px; border-radius: 6px;">
+        <span style="color: #EAB308; font-weight:700;">2. Golden Yellow L (CTA Spin):</span><br>
+        <span id="hudYellowVal" style="color: #3D6BFF; font-weight: 700;">dX: -362px | dY: 34px | Rot: 90° | Flip: -1</span>
+      </div>
+      <div style="background: rgba(255,255,255,0.05); padding: 6px 8px; border-radius: 6px;">
+        <span style="color: #EAB308; font-weight:700;">3. WooCommerce Purple L:</span><br>
+        <span id="hudWooVal" style="color: #3D6BFF; font-weight: 700;">dX: -30px | dY: 184px | Rot: 0°</span>
+      </div>
+      <div style="background: rgba(255,255,255,0.05); padding: 6px 8px; border-radius: 6px;">
+        <span style="color: #EAB308; font-weight:700;">4. Lime Green Z:</span><br>
+        <span id="hudGreenVal" style="color: #3D6BFF; font-weight: 700;">dX: 100px | dY: 138px | Rot: 0°</span>
+      </div>
+    </div>
+
+    <button onclick="copyCalibratedCoordinates()" style="margin-top: 0.9rem; width: 100%; background: #0047E1; color: #FFF; border: none; padding: 0.6rem; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 6px;">📋 Copy Path Coordinates JSON</button>
   </div>
 
   <!-- ════════════════════════════════════════════════════════════════
@@ -1638,19 +1654,116 @@
         }
       };
 
-      // Copy Calibrated Keyframe Coordinates to Clipboard
+      // ════════════════════════════════════════════════════════════════
+      // INTERACTIVE MOUSE DRAG & LIVE PATH CALIBRATOR ENGINE
+      // ════════════════════════════════════════════════════════════════
+      let activeDragPiece = null;
+      let dragStartX = 0, dragStartY = 0;
+      let initialPieceX = 0, initialPieceY = 0;
+
+      const liveCalibData = {
+        woo:    { dX: -30,  dY: 184, rot: 0, flipX: 1 },
+        next:   { dX: -12,  dY: 44,  rot: 0, flipX: 1 },
+        yellow: { dX: -362, dY: 34,  rot: 90, flipX: -1 },
+        green:  { dX: 100,  dY: 138, rot: 0, flipX: 1 }
+      };
+
+      function updateLiveHUDDisplay() {
+        const hudNext = document.getElementById('hudNextVal');
+        const hudYellow = document.getElementById('hudYellowVal');
+        const hudWoo = document.getElementById('hudWooVal');
+        const hudGreen = document.getElementById('hudGreenVal');
+
+        if (hudNext) hudNext.textContent = `dX: ${Math.round(liveCalibData.next.dX)}px | dY: ${Math.round(liveCalibData.next.dY)}px | Rot: ${liveCalibData.next.rot}°`;
+        if (hudYellow) hudYellow.textContent = `dX: ${Math.round(liveCalibData.yellow.dX)}px | dY: ${Math.round(liveCalibData.yellow.dY)}px | Rot: ${liveCalibData.yellow.rot}° | Flip: ${liveCalibData.yellow.flipX}`;
+        if (hudWoo) hudWoo.textContent = `dX: ${Math.round(liveCalibData.woo.dX)}px | dY: ${Math.round(liveCalibData.woo.dY)}px | Rot: ${liveCalibData.woo.rot}°`;
+        if (hudGreen) hudGreen.textContent = `dX: ${Math.round(liveCalibData.green.dX)}px | dY: ${Math.round(liveCalibData.green.dY)}px | Rot: ${liveCalibData.green.rot}°`;
+      }
+
+      function getKeyForPiece(piece) {
+        if (piece === airNext) return 'next';
+        if (piece === airYellow) return 'yellow';
+        if (piece === airWoo) return 'woo';
+        if (piece === airGreen) return 'green';
+        return null;
+      }
+
+      [airWoo, airNext, airYellow, airGreen].forEach(piece => {
+        if (!piece) return;
+
+        piece.addEventListener('mousedown', (e) => {
+          activeDragPiece = piece;
+          dragStartX = e.clientX;
+          dragStartY = e.clientY;
+
+          const key = getKeyForPiece(piece);
+          if (key) {
+            initialPieceX = liveCalibData[key].dX;
+            initialPieceY = liveCalibData[key].dY;
+          }
+
+          document.body.style.userSelect = 'none';
+          e.preventDefault();
+        });
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!activeDragPiece) return;
+
+        const deltaX = e.clientX - dragStartX;
+        const deltaY = e.clientY - dragStartY;
+
+        const key = getKeyForPiece(activeDragPiece);
+        if (!key) return;
+
+        const newDX = initialPieceX + deltaX;
+        const newDY = initialPieceY + deltaY;
+
+        liveCalibData[key].dX = newDX;
+        liveCalibData[key].dY = newDY;
+
+        const rot = liveCalibData[key].rot || 0;
+        const flipX = liveCalibData[key].flipX || 1;
+
+        activeDragPiece.style.transform = `translate3d(${newDX}px, ${newDY}px, 0) rotate(${rot}deg) scaleX(${flipX})`;
+        updateLiveHUDDisplay();
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (activeDragPiece) {
+          activeDragPiece = null;
+          document.body.style.userSelect = '';
+        }
+      });
+
+      // Hotkey listeners: [R] to Rotate 90°, [F] to Flip Horizontally
+      window.addEventListener('keydown', (e) => {
+        if (!activeDragPiece) return;
+        const key = getKeyForPiece(activeDragPiece);
+        if (!key) return;
+
+        if (e.key === 'r' || e.key === 'R') {
+          liveCalibData[key].rot = (liveCalibData[key].rot + 90) % 360;
+        } else if (e.key === 'f' || e.key === 'F') {
+          liveCalibData[key].flipX = liveCalibData[key].flipX * -1;
+        }
+
+        const dX = liveCalibData[key].dX;
+        const dY = liveCalibData[key].dY;
+        const rot = liveCalibData[key].rot;
+        const flipX = liveCalibData[key].flipX;
+
+        activeDragPiece.style.transform = `translate3d(${dX}px, ${dY}px, 0) rotate(${rot}deg) scaleX(${flipX})`;
+        updateLiveHUDDisplay();
+      });
+
+      // Export live coordinates JSON
       window.copyCalibratedCoordinates = function() {
-        const coords = {
-          next: { dX: -12, dY: 44, targetRot: 0 },
-          yellow: { dX: -362, dY: 34, midAirRot: 90, flipX: -1 },
-          woo: { dX: -30, dY: 184, targetRot: 0 },
-          green: { dX: 100, dY: 138, targetRot: 0 }
-        };
-        const text = JSON.stringify(coords, null, 2);
+        const text = JSON.stringify(liveCalibData, null, 2);
         navigator.clipboard.writeText(text).then(() => {
-          alert('Path coordinates copied to clipboard!\n\n' + text);
+          alert('Live calibrated trajectory keyframes copied to clipboard!\n\n' + text);
         }).catch(() => {
-          alert('Path coordinates:\n\n' + text);
+          alert('Live calibrated coordinates:\n\n' + text);
         });
       };
 
@@ -1658,6 +1771,7 @@
       setTimeout(() => {
         calculateVectorTargets();
         updateScrollProgress(0);
+        updateLiveHUDDisplay();
       }, 300);
     });
   </script>
