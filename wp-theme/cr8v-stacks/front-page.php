@@ -758,6 +758,83 @@ defined('ABSPATH') || exit;
       pointer-events: auto !important;
     }
 
+  
+    /* 100VH HOMEPAGE HERO SECTION, CENTERED TEXT & TETRIS ANCHOR RULES */
+    .c8-hero-top.c8-hero-b-standalone,
+    .c8-hero-b-standalone {
+      position: relative !important;
+      overflow: hidden !important;
+      min-height: 100vh !important;
+      height: 100vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      background-color: #FFFFFF !important;
+      background-image: none !important;
+      padding-top: 3.5rem !important;
+      padding-bottom: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    .c8-hero-top .c8-hero-in,
+    .c8-hero-in {
+      min-height: 42vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important;
+      margin: 0 auto !important;
+      z-index: 200 !important;
+      position: relative !important;
+    }
+
+    .c8-hero-top .c8-hero-h1,
+    .c8-hero-in .c8-hero-h1 {
+      font-size: clamp(1.5rem, 3vw, 2.3rem) !important;
+      line-height: 1.18 !important;
+      margin-bottom: 0.75rem !important;
+      max-width: 800px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    .c8-hero-top .c8-hero-sub,
+    .c8-hero-in .c8-hero-sub {
+      font-size: clamp(0.9rem, 1.2vw, 1.02rem) !important;
+      line-height: 1.5 !important;
+      max-width: 580px !important;
+      margin: 0 auto 1.25rem auto !important;
+    }
+
+    .c8-hero-top .matrix-floor-wrapper {
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      z-index: 100 !important;
+      margin: 0 !important;
+      width: 952px !important;
+      height: 392px !important;
+    }
+
+    .c8-hero-top .airborne-layer {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      pointer-events: none !important;
+      z-index: 500 !important;
+    }
+
+    .c8-hero-top .airborne-layer .t-piece {
+      pointer-events: auto !important;
+    }
+
   </style>
 </head>
 <body <?php body_class('cr8v-homepage mode-70'); ?>>
@@ -765,7 +842,7 @@ defined('ABSPATH') || exit;
 <?php get_template_part('parts/header'); ?>
 
 <main id="cr8v-main">
-            <section class="c8-hero-top c8-hero-b-standalone">
+                <section class="c8-hero-top c8-hero-b-standalone">
     <div class="c8-hero-in">
       <div class="c8-eyebrow" data-customizer="hero_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('hero_eyebrow', 'SCALE WITH AUTHORITY')); ?></div>
       <h1 class="c8-hero-h1" data-customizer="hero_headline_1"><?php echo esc_html(cr8v_mod('hero_headline_1', 'We build what your business actually runs on.')); ?></h1>
@@ -781,7 +858,7 @@ defined('ABSPATH') || exit;
       </div>
     </div>
 
-    <!-- 3D Tetris Matrix Grid Arena -->
+    <!-- 3D Tetris Matrix Grid Arena (Complete 15 Blocks) -->
     <div class="matrix-floor-wrapper">
         <div class="matrix-arena" id="matrixArena">
 
@@ -892,6 +969,156 @@ defined('ABSPATH') || exit;
             </div>
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-terracotta"></div></div>
           </div>
+
+          <!-- 9. Figma (Base Floor Block - Cols 12-14, Row 7 - Row 7 Z-Index 70) -->
+          <div class="t-piece tone-forest-green" data-name="Figma" data-col="12" data-row="7" style="grid-column: 12 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-forest-green"></div></div>
+            <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-forest-green"></div></div>
+            <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-forest-green"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; align-items: center; justify-content: center; font-size: 0.68rem; color: #FFF;">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg" alt="Figma CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+              <span>FIGMA</span>
+            </div>
+          </div>
+
+          <!-- 10. Claude (Base Floor Block - Col 15, Rows 6-7 - Row 7 Z-Index 70) -->
+          <div class="t-piece tone-obsidian" data-name="Claude" data-col="15" data-row="7" style="grid-column: 15; grid-row: 6 / span 2; display:grid; grid-template-columns: var(--u); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
+              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude Verified CDN Logo" class="t-cdn-logo">
+              <span style="font-size: 0.65rem; color: #FFFFFF;">CLAUDE</span>
+            </div>
+          </div>
+
+          <!-- ════════════════════════════════════════════════════════════
+               THE 4 DOCKED SOCKETS
+               ════════════════════════════════════════════════════════════ -->
+
+          <!-- Docked Socket 1: Purple WooCommerce Flipped 2x3 L-Piece - Starts at Row 5, Z-Index 50 < OpenAI 70 -->
+          <div class="t-piece tone-purple docked-socket" data-name="Purple WooCommerce L-Piece" data-col="1" data-row="5" style="grid-column: 1 / span 2; grid-row: 5 / span 3; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;">
+              <div class="t-shape-body tone-purple">
+                <img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/woocommerce-light.svg" alt="WooCommerce Light Logo" class="t-cdn-logo">
+              </div>
+            </div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 3;"><!-- PURE TRANSPARENT CUTOUT --></div>
+            <div class="t-label" style="left: 0; width: var(--u); top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 4px; color: #FFFFFF; font-size: 0.65rem;">
+              <span>W</span><span>O</span><span>O</span>
+            </div>
+          </div>
+
+          <!-- Docked Socket 2: Next.js -->
+          <div class="t-piece tone-royal-blue docked-socket" data-name="Next.js" data-col="4" data-row="5" style="grid-column: 4; grid-row: 5 / span 3; display:grid; grid-template-columns: var(--u); grid-template-rows: repeat(3, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-row: 1;">
+              <div class="t-shape-body tone-royal-blue"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nextdotjs.svg" alt="Next.js CDN Logo" class="t-cdn-logo is-white"></div>
+            </div>
+            <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-row: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
+          </div>
+
+          <!-- Docked Socket 3: Golden Yellow L-Piece -->
+          <div class="t-piece tone-golden-yellow docked-socket" data-name="Golden Yellow L" data-col="9" data-row="5" style="grid-column: 9 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
+          </div>
+
+          <!-- Docked Socket 4: Lime Green Lemon Z-Piece -->
+          <div class="t-piece tone-lime-green docked-socket" data-name="Lime Green Lemon Z" data-col="16" data-row="4" style="grid-column: 16 / span 2; grid-row: 4 / span 4; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(4, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><!-- PURE TRANSPARENT CUTOUT --></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-lime-green"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-lime-green"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 70% In-Motion Floating Layer (THE 4 AIRBORNE FLOATING HERO BLOCKS IN STATE A) -->
+      <div class="airborne-layer">
+        <!-- 1. Airborne Flipped Purple WooCommerce L-Piece -->
+        <div class="t-piece tone-purple air-wp-purple" data-name="Airborne Purple WooCommerce" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;">
+            <div class="t-shape-body tone-purple"><img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/woocommerce-light.svg" alt="WooCommerce Light" class="t-cdn-logo"></div>
+          </div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 3;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-label" style="left: 0; width: var(--u); top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 4px; color: #FFFFFF; font-size: 0.65rem;">
+            <span>W</span><span>O</span><span>O</span>
+          </div>
+        </div>
+
+        <!-- 2. Airborne Next.js Blue 1x3 Bar -->
+        <div class="t-piece tone-royal-blue air-nextjs" data-name="Airborne Next.js" style="grid-template-columns: var(--u); grid-template-rows: repeat(3, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-row: 1;">
+            <div class="t-shape-body tone-royal-blue"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nextdotjs.svg" alt="Next.js" class="t-cdn-logo is-white"></div>
+          </div>
+          <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+          <div class="t-cell" style="grid-row: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
+        </div>
+
+        <!-- 3. Airborne Lime Green Lemon Z-Piece -->
+        <div class="t-piece tone-lime-green air-green-z" data-name="Airborne Lime Green Z" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(4, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
+        </div>
+
+        <!-- 4. Airborne Golden Yellow L-Piece -->
+        <div class="t-piece tone-golden-yellow air-amber-l" data-name="Airborne Golden Yellow L" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
+        </div>
   </section>
 
   <!-- POST-HERO ARCHITECTURAL PAPER GRID SECTION (CREATIVE AGENCY MINDSET) -->
@@ -4875,6 +5102,79 @@ defined('ABSPATH') || exit;
     });
   
   </script>
+
+  <script>
+    (function() {
+      document.addEventListener('DOMContentLoaded', function() {
+        const airWoo = document.querySelector('.air-wp-purple');
+        const airNext = document.querySelector('.air-nextjs');
+        const airGreen = document.querySelector('.air-green-z');
+        const airYellow = document.querySelector('.air-amber-l');
+
+        if (!airWoo || !airNext || !airGreen || !airYellow) return;
+
+        const liveCalibData = {
+          woo:    { dX: 148,  dY: 469, rot: 0,  flipX: 1 },
+          next:   { dX: 168,  dY: 332, rot: 0,  flipX: 1 },
+          yellow: { dX: -540, dY: 320, rot: 90, flipX: -1 },
+          green:  { dX: -75,  dY: 425, rot: 0,  flipX: 1 }
+        };
+
+        let userDragOffset = {
+          woo: { x: 0, y: 0 },
+          next: { x: 0, y: 0 },
+          yellow: { x: 0, y: 0 },
+          green: { x: 0, y: 0 }
+        };
+
+        function updateScrollProgress(p) {
+          const clampedP = Math.min(1.0, Math.max(0.0, p));
+          const easeP = clampedP < 0.5 ? 2 * clampedP * clampedP : -1 + (4 - 2 * clampedP) * clampedP;
+          
+          const targets = {
+            woo:    { x: liveCalibData.woo.dX * (1 - easeP),    y: liveCalibData.woo.dY * (1 - easeP) },
+            next:   { x: liveCalibData.next.dX * (1 - easeP),   y: liveCalibData.next.dY * (1 - easeP) },
+            yellow: { x: liveCalibData.yellow.dX * (1 - easeP), y: liveCalibData.yellow.dY * (1 - easeP) },
+            green:  { x: liveCalibData.green.dX * (1 - easeP),  y: liveCalibData.green.dY * (1 - easeP) }
+          };
+
+          const pieces = [
+            { el: airWoo, key: 'woo' },
+            { el: airNext, key: 'next' },
+            { el: airYellow, key: 'yellow' },
+            { el: airGreen, key: 'green' }
+          ];
+
+          pieces.forEach(item => {
+            if (!item.el) return;
+            const t = targets[item.key];
+            const d = userDragOffset[item.key];
+            const rot = (liveCalibData[item.key].rot || 0) * (1 - easeP);
+            const flip = liveCalibData[item.key].flipX || 1;
+            item.el.style.transform = `translate3d(${t.x + d.x}px, ${t.y + d.y}px, 0) rotate(${rot}deg) scaleX(${flip})`;
+          });
+        }
+
+        function onScroll() {
+          const scrollY = window.scrollY || window.pageYOffset;
+          const heroH = window.innerHeight * 0.5;
+          const progress = Math.min(1.0, Math.max(0.0, scrollY / heroH));
+          
+          // Lerp drag offset back to zero on scroll
+          Object.keys(userDragOffset).forEach(k => {
+            userDragOffset[k].x *= 0.88;
+            userDragOffset[k].y *= 0.88;
+          });
+
+          updateScrollProgress(progress);
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(); // Initial call
+      });
+    })();
+  </script>
+
 </body>
 </html>
 
