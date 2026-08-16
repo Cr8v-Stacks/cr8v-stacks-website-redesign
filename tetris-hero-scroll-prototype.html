@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CR8V Stacks — 3D Tetris Hero System</title>
+  <title>CR8V Stacks — 3D Tetris Hero System (Unified Single-Block Architecture)</title>
   
   <!-- Brand Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +32,7 @@
       --font-mono: 'Space Mono', monospace;
       
       --u: 56px;            /* Standardized 1x1 Tetris Module Scale */
-      --block-radius: 2px;  /* STRICT 2PX CORNER RADIUS RESTORED */
+      --block-radius: 2px;  /* STRICT 2PX CORNER RADIUS */
     }
 
     * {
@@ -146,7 +146,7 @@
     }
 
     /* ════════════════════════════════════════════════════════════════
-       3D TETRIS PUZZLE ENGINE (COLLISION DETECTION & ANTI-OVERLAY PHYSICS)
+       3D TETRIS PUZZLE ENGINE (UNIFIED SINGLE-BLOCK ARCHITECTURE)
        ════════════════════════════════════════════════════════════════ */
 
     .t-piece {
@@ -154,7 +154,10 @@
       position: relative;
       user-select: none;
       background: transparent !important; /* 100% TRANSPARENT CONTAINER BOUNDING */
-      filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.16));
+      /* Unified 3D Outer Drop-Shadow & Bevel Highlight */
+      filter: 
+        drop-shadow(0 10px 18px rgba(0, 0, 0, 0.18))
+        drop-shadow(1px 1px 0px rgba(255, 255, 255, 0.35));
       transition: transform 0.2s ease, filter 0.2s ease, opacity 0.3s ease;
       cursor: grab;
       touch-action: none;
@@ -228,9 +231,7 @@
       width: 100%;
       height: 100%;
       border-radius: var(--block-radius, 2px);
-      box-shadow: 
-        inset 1.5px 1.5px 3px rgba(255, 255, 255, 0.40),
-        inset -1.5px -1.5px 3px rgba(0, 0, 0, 0.32);
+      box-shadow: none; /* Individual cell box-shadow removed so cells merge flush into a single continuous shape */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -242,9 +243,7 @@
     .tone-light-grey { 
       background: var(--block-light-grey); 
       color: #111111;
-      box-shadow: 
-        inset 1.5px 1.5px 3px rgba(255, 255, 255, 0.85),
-        inset -1.5px -1.5px 3px rgba(0, 0, 0, 0.16);
+      box-shadow: none;
     }
     .tone-purple { background: var(--block-purple); color: #FFFFFF; }
     .tone-terracotta { background: var(--block-terracotta); color: #FFFFFF; }
@@ -253,24 +252,9 @@
     .tone-lime-green { background: var(--block-lime-green); color: #FFFFFF; }
     .tone-sand-beige { background: var(--block-sand-beige); color: #111111; }
 
-    /* Internal Seam Lines */
-    .t-seam-h {
-      position: absolute;
-      left: 2px; right: 2px; bottom: -1px;
-      height: 1px;
-      background: rgba(0, 0, 0, 0.16);
-      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.16);
-      z-index: 3;
-      pointer-events: none;
-    }
-    .t-seam-v {
-      position: absolute;
-      top: 2px; bottom: 2px; right: -1px;
-      width: 1px;
-      background: rgba(0, 0, 0, 0.16);
-      box-shadow: 1px 0 0 rgba(255, 255, 255, 0.16);
-      z-index: 3;
-      pointer-events: none;
+    /* Internal Seam Lines REMOVED to Unify Blocks into Single Continuous Shapes */
+    .t-seam-h, .t-seam-v {
+      display: none !important;
     }
 
     /* Text & Logo Label Overlay */
@@ -551,7 +535,7 @@
   <header class="catalog-header">
     <div class="catalog-eyebrow">// MASTER PROMPT SPECIFICATION — 3D TETRIS MODULAR HERO SYSTEM</div>
     <h1 class="catalog-h1">CR8V Stacks 3D Tetris Hero System</h1>
-    <p class="catalog-desc">Exact Master Specification Restored: 2px Corner Radius & Crisp 3D Bevel Lighting.</p>
+    <p class="catalog-desc">Unified Single-Block Architecture: Internal Seams Removed & Single Continuous 3D Surface Finish.</p>
   </header>
 
   <!-- Motion Controller Bar -->
@@ -587,14 +571,14 @@
       <div class="matrix-floor-wrapper">
         <div class="matrix-arena" id="matrixArena">
 
-          <!-- 1. OpenAI (Base Floor Block - Cols 2-3, Rows 6-7) -->
+          <!-- 1. OpenAI (Base Floor Block - Cols 2-3, Rows 6-7 - UNIFIED SINGLE BLOCK) -->
           <div class="t-piece" data-name="OpenAI" data-col="2" data-row="6" style="grid-column: 2 / span 2; grid-row: 6 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-h"></div><div class="t-seam-v"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-h"></div></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
               <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/default.svg" alt="OpenAI CDN Logo" class="t-cdn-logo">
@@ -602,49 +586,49 @@
             </div>
           </div>
 
-          <!-- 2. Web Design (Base Floor Block - Cols 5-6, Rows 5-6) -->
+          <!-- 2. Web Design (Base Floor Block - Cols 5-6, Rows 5-6 - UNIFIED SINGLE BLOCK) -->
           <div class="t-piece" data-name="Web Design" data-col="5" data-row="5" style="grid-column: 5 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-h"></div><div class="t-seam-v"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-h"></div></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #111; font-size: 0.72rem;">WEB DESIGN</div>
           </div>
 
-          <!-- 3. Custom Development (Base Floor Block - Cols 5-8, Row 7 - WHITE TEXT) -->
+          <!-- 3. Custom Development (Base Floor Block - Cols 5-8, Row 7 - UNIFIED SINGLE BLOCK BAR) -->
           <div class="t-piece" data-name="Custom Development" data-col="5" data-row="7" style="grid-column: 5 / span 4; grid-row: 7; display:grid; grid-template-columns: repeat(4, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
-            <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
-            <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
             <div class="t-cell" style="grid-column: 4;"><div class="t-shape-body tone-royal-blue"></div></div>
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; align-items: center; justify-content: center; color: #FFFFFF;">CUSTOM DEVELOPMENT</div>
           </div>
 
-          <!-- 4. AI MVP (Base Floor Block - Cols 7-8, Rows 5-6 - SOLID 2x2 BOX - WHITE TEXT) -->
+          <!-- 4. AI MVP (Base Floor Block - Cols 7-8, Rows 5-6 - UNIFIED SINGLE BLOCK BOX) -->
           <div class="t-piece" data-name="AI MVP" data-col="7" data-row="5" style="grid-column: 7 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-h"></div><div class="t-seam-v"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-h"></div></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #FFFFFF;">AI MVP</div>
           </div>
 
-          <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7 - WHITE LOGO & TEXT) -->
+          <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7 - UNIFIED SINGLE BLOCK BAR) -->
           <div class="t-piece" data-name="Shopify" data-col="9" data-row="7" style="grid-column: 9 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
-            <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; align-items: center; justify-content: center; color: #FFFFFF;">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg" alt="Shopify CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
@@ -652,29 +636,28 @@
             </div>
           </div>
 
-          <!-- 6. WordPress (Base Floor Block - Cols 11-12, Rows 5-6) -->
+          <!-- 6. WordPress (Base Floor Block - Cols 11-12, Rows 5-6 - UNIFIED SINGLE BLOCK BOX) -->
           <div class="t-piece" data-name="WordPress" data-col="11" data-row="5" style="grid-column: 11 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
             <div class="t-cell" style="grid-column: 1; grid-row: 1;">
               <div class="t-shape-body tone-light-grey"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="WordPress CDN Logo" class="t-cdn-logo"></div>
-              <div class="t-seam-v"></div><div class="t-seam-h"></div>
             </div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-h"></div></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
             <div class="t-label" style="left: 0; right: 0; bottom: 0; height: var(--u); color: #111; font-size: 0.65rem; align-items: center; justify-content: center;">WORDPRESS</div>
           </div>
 
-          <!-- 7. Python (Base Floor Block - Cols 13-14, Rows 4-5 - SAND BEIGE BLOCK WITH PYTHON LOGO & TEXT) -->
+          <!-- 7. Python (Base Floor Block - Cols 13-14, Rows 4-5 - UNIFIED SAND BEIGE BLOCK) -->
           <div class="t-piece" data-name="Python" data-col="13" data-row="4" style="grid-column: 13 / span 2; grid-row: 4 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-h"></div></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; flex-direction: column; gap: 4px; align-items: center; justify-content: center; color: #111;">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python CDN Logo" class="t-cdn-logo" style="width: 24px; height: 24px;">
@@ -682,7 +665,7 @@
             </div>
           </div>
 
-          <!-- 8. Elementor (Base Floor Block - Cols 13-14, Row 6 - TEXT REMOVED) -->
+          <!-- 8. Elementor (Base Floor Block - Cols 13-14, Row 6 - UNIFIED SINGLE BLOCK BAR) -->
           <div class="t-piece" data-name="Elementor" data-col="13" data-row="6" style="grid-column: 13 / span 2; grid-row: 6; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -691,18 +674,17 @@
               <div class="t-shape-body tone-terracotta">
                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/elementor.svg" alt="Elementor CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
               </div>
-              <div class="t-seam-v"></div>
             </div>
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-terracotta"></div></div>
           </div>
 
-          <!-- 9. Figma (Base Floor Block - Cols 12-14, Row 7 - WITH FIGMA LOGO BESIDE TEXT) -->
+          <!-- 9. Figma (Base Floor Block - Cols 12-14, Row 7 - UNIFIED SINGLE BLOCK BAR) -->
           <div class="t-piece" data-name="Figma" data-col="12" data-row="7" style="grid-column: 12 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-forest-green"></div><div class="t-seam-v"></div></div>
-            <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-forest-green"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-forest-green"></div></div>
+            <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-forest-green"></div></div>
             <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-forest-green"></div></div>
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; align-items: center; justify-content: center; font-size: 0.68rem; color: #FFF;">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg" alt="Figma CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
@@ -710,12 +692,12 @@
             </div>
           </div>
 
-          <!-- 10. Claude (Base Floor Block - Col 15, Rows 6-7 - PERFECT 56px MATRIX GRID SCALE) -->
+          <!-- 10. Claude (Base Floor Block - Col 15, Rows 6-7 - UNIFIED SINGLE BLOCK BAR) -->
           <div class="t-piece" data-name="Claude" data-col="15" data-row="6" style="grid-column: 15; grid-row: 6 / span 2; display:grid; grid-template-columns: var(--u); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
               <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude Verified CDN Logo" class="t-cdn-logo">
@@ -724,65 +706,63 @@
           </div>
 
           <!-- ════════════════════════════════════════════════════════════
-               THE 4 DOCKED SOCKETS (HIDDEN IN STATE A, VISIBLE IN STATE B)
+               THE 4 DOCKED SOCKETS (UNIFIED SINGLE CONTINUOUS SHAPES)
                ════════════════════════════════════════════════════════════ -->
 
-          <!-- Docked Socket 1: Purple WooCommerce Flipped 2x3 L-Piece (Cols 1-2, Rows 5-7 - WOOCOMMERCE LIGHT NATIVE SVG LOGO WITHOUT FILTER) -->
+          <!-- Docked Socket 1: Purple WooCommerce Flipped 2x3 L-Piece (Cols 1-2, Rows 5-7 - UNIFIED PURPLE L-PIECE) -->
           <div class="t-piece docked-socket" data-name="Purple WooCommerce L-Piece" data-col="1" data-row="5" style="grid-column: 1 / span 2; grid-row: 5 / span 3; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 1;">
               <div class="t-shape-body tone-purple">
                 <img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/woocommerce-light.svg" alt="WooCommerce Light Logo" class="t-cdn-logo">
               </div>
-              <div class="t-seam-h"></div>
             </div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 3;"><!-- PURE TRANSPARENT CUTOUT --></div>
             <div class="t-label" style="left: 0; width: var(--u); top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 4px; color: #FFFFFF; font-size: 0.65rem;">
               <span>W</span><span>O</span><span>O</span>
             </div>
           </div>
 
-          <!-- Docked Socket 2: Next.js (Col 4, Rows 5-7) -->
+          <!-- Docked Socket 2: Next.js (Col 4, Rows 5-7 - UNIFIED ROYAL BLUE BAR) -->
           <div class="t-piece docked-socket" data-name="Next.js" data-col="4" data-row="5" style="grid-column: 4; grid-row: 5 / span 3; display:grid; grid-template-columns: var(--u); grid-template-rows: repeat(3, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
             <div class="t-cell" style="grid-row: 1;">
               <div class="t-shape-body tone-royal-blue"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nextdotjs.svg" alt="Next.js CDN Logo" class="t-cdn-logo is-white"></div>
-              <div class="t-seam-h"></div>
             </div>
-            <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
             <div class="t-cell" style="grid-row: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
           </div>
 
-          <!-- Docked Socket 3: Golden Yellow L-Piece (Cols 9-10, Rows 5-6) -->
+          <!-- Docked Socket 3: Golden Yellow L-Piece (Cols 9-10, Rows 5-6 - UNIFIED YELLOW L-PIECE) -->
           <div class="t-piece docked-socket" data-name="Golden Yellow L" data-col="9" data-row="5" style="grid-column: 9 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
             <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
           </div>
 
-          <!-- Docked Socket 4: Lime Green Lemon Z-Piece (Cols 16-17, Rows 4-7) -->
+          <!-- Docked Socket 4: Lime Green Lemon Z-Piece (Cols 16-17, Rows 4-7 - UNIFIED GREEN Z-PIECE) -->
           <div class="t-piece docked-socket" data-name="Lime Green Lemon Z" data-col="16" data-row="4" style="grid-column: 16 / span 2; grid-row: 4 / span 4; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(4, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
             <div class="t-cell" style="grid-column: 1; grid-row: 1;"><!-- PURE TRANSPARENT CUTOUT --></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-lime-green"></div></div>
             <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-h"></div></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-lime-green"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
             <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
           </div>
@@ -797,14 +777,13 @@
           <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
           <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
           <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 1;">
             <div class="t-shape-body tone-purple"><img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/woocommerce-light.svg" alt="WooCommerce Light" class="t-cdn-logo"></div>
-            <div class="t-seam-h"></div>
           </div>
-          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
-          <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 3;"><!-- PURE TRANSPARENT CUTOUT --></div>
           <div class="t-label" style="left: 0; width: var(--u); top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 4px; color: #FFFFFF; font-size: 0.65rem;">
             <span>W</span><span>O</span><span>O</span>
@@ -818,9 +797,8 @@
           <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
           <div class="t-cell" style="grid-row: 1;">
             <div class="t-shape-body tone-royal-blue"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nextdotjs.svg" alt="Next.js" class="t-cdn-logo is-white"></div>
-            <div class="t-seam-h"></div>
           </div>
-          <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
           <div class="t-cell" style="grid-row: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
         </div>
 
@@ -830,11 +808,11 @@
           <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
           <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
           <div class="t-cell" style="grid-column: 1; grid-row: 1;"><!-- PURE TRANSPARENT CUTOUT --></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-lime-green"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
         </div>
@@ -844,8 +822,8 @@
           <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
           <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
           <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
         </div>
@@ -878,10 +856,9 @@
             <div class="t-shape-body tone-obsidian">
               <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/default.svg" alt="OpenAI CDN Logo" class="t-cdn-logo">
             </div>
-            <div class="t-seam-h"></div><div class="t-seam-v"></div>
           </div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
         </div>
       </div>
@@ -895,9 +872,9 @@
       </div>
       <div class="piece-stage">
         <div class="t-piece" style="grid-template-columns: repeat(4, var(--u, 56px)); grid-template-rows: var(--u, 56px);">
-          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
-          <div class="t-cell" style="grid-column: 3; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
+          <div class="t-cell" style="grid-column: 3; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
           <div class="t-cell" style="grid-column: 4; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
           <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.72rem; color: #FFFFFF;">CUSTOM DEVELOPMENT</div>
         </div>
@@ -912,9 +889,9 @@
       </div>
       <div class="piece-stage">
         <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
-          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-h"></div><div class="t-seam-v"></div></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
           <div class="t-label" style="left: 0; right: 0; bottom: 0; height: var(--u, 56px); color: #111;">WEB DESIGN</div>
         </div>
@@ -929,9 +906,9 @@
       </div>
       <div class="piece-stage">
         <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
-          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-h"></div><div class="t-seam-v"></div></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
           <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; color: #FFFFFF;">AI MVP</div>
         </div>
@@ -946,8 +923,8 @@
       </div>
       <div class="piece-stage">
         <div class="t-piece" style="grid-template-columns: repeat(3, var(--u, 56px)); grid-template-rows: var(--u, 56px);">
-          <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
-          <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-obsidian"></div></div>
+          <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-obsidian"></div></div>
           <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-obsidian"></div></div>
           <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; color: #FFFFFF;">
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg" alt="Shopify CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
@@ -969,7 +946,6 @@
             <div class="t-shape-body tone-terracotta">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/elementor.svg" alt="Elementor CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
             </div>
-            <div class="t-seam-v"></div>
           </div>
           <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-terracotta"></div></div>
         </div>
@@ -984,8 +960,8 @@
       </div>
       <div class="piece-stage">
         <div class="t-piece" style="grid-template-columns: repeat(3, var(--u, 56px)); grid-template-rows: var(--u, 56px);">
-          <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-forest-green"></div><div class="t-seam-v"></div></div>
-          <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-forest-green"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-forest-green"></div></div>
+          <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-forest-green"></div></div>
           <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-forest-green"></div></div>
           <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; color: #FFF; font-size: 0.68rem;">
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg" alt="Figma CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
@@ -1007,10 +983,9 @@
             <div class="t-shape-body tone-light-grey">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="WordPress CDN Logo" class="t-cdn-logo">
             </div>
-            <div class="t-seam-v"></div><div class="t-seam-h"></div>
           </div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
           <div class="t-label" style="left: 0; right: 0; bottom: 0; height: var(--u, 56px); color: #111; font-size: 0.72rem;">WORDPRESS</div>
         </div>
@@ -1025,9 +1000,9 @@
       </div>
       <div class="piece-stage">
         <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
-          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
           <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; flex-direction: column; gap: 4px; color: #111;">
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python CDN Logo" class="t-cdn-logo" style="width: 24px; height: 24px;">
@@ -1045,7 +1020,7 @@
       </div>
       <div class="piece-stage">
         <div class="t-piece" style="grid-template-columns: var(--u, 56px); grid-template-rows: repeat(2, var(--u, 56px));">
-          <div class="t-cell" style="grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
           <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
           <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
             <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude Verified CDN Logo" class="t-cdn-logo">
@@ -1063,8 +1038,8 @@
       </div>
       <div class="piece-stage">
         <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
-          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- CUTOUT --></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
         </div>
