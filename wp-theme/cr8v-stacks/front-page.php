@@ -645,6 +645,49 @@ defined('ABSPATH') || exit;
       padding-bottom: 2rem !important;
     }
 
+  
+    /* 3D TETRIS HERO COMPACT SIZING & BACKGROUND REMOVAL */
+    .c8-hero-top.c8-hero-b-standalone,
+    .c8-hero-b-standalone {
+      background-color: #FFFFFF !important;
+      background-image: none !important;
+      padding-top: 6rem !important;
+      padding-bottom: 2rem !important;
+      min-height: auto !important;
+    }
+
+    .c8-hero-top .c8-hero-h1,
+    .hero-content-overlay .hero-h1,
+    .c8-hero-in .c8-hero-h1 {
+      font-size: clamp(1.6rem, 3.2vw, 2.4rem) !important;
+      line-height: 1.18 !important;
+      margin-bottom: 0.85rem !important;
+      max-width: 820px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    .c8-hero-top .c8-hero-sub,
+    .hero-content-overlay .hero-sub,
+    .c8-hero-in .c8-hero-sub {
+      font-size: clamp(0.92rem, 1.3vw, 1.05rem) !important;
+      line-height: 1.55 !important;
+      max-width: 600px !important;
+      margin: 0 auto 1.5rem auto !important;
+    }
+
+    .c8-hero-top .c8-eyebrow,
+    .hero-content-overlay .hero-eyebrow,
+    .c8-hero-in .c8-eyebrow {
+      margin-bottom: 1rem !important;
+    }
+
+    .c8-hero-top .c8-hero-ctas,
+    .hero-content-overlay .hero-ctas,
+    .c8-hero-in .c8-hero-ctas {
+      margin-bottom: 2rem !important;
+    }
+
   </style>
 </head>
 <body <?php body_class('cr8v-homepage mode-70'); ?>>
@@ -652,7 +695,7 @@ defined('ABSPATH') || exit;
 <?php get_template_part('parts/header'); ?>
 
 <main id="cr8v-main">
-        <section class="c8-hero-top c8-hero-b-standalone">
+          <section class="c8-hero-top c8-hero-b-standalone">
     <div class="c8-hero-in">
       <div class="c8-eyebrow" data-customizer="hero_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('hero_eyebrow', 'SCALE WITH AUTHORITY')); ?></div>
       <h1 class="c8-hero-h1" data-customizer="hero_headline_1"><?php echo esc_html(cr8v_mod('hero_headline_1', 'We build what your business actually runs on.')); ?></h1>
@@ -668,7 +711,7 @@ defined('ABSPATH') || exit;
       </div>
     </div>
 
-    <!-- 3D Tetris Matrix Grid Arena -->
+    <!-- 3D Tetris Matrix Grid Arena (Full 15 Blocks) -->
     <div class="matrix-floor-wrapper">
         <div class="matrix-arena" id="matrixArena">
 
