@@ -515,24 +515,25 @@
       position: relative;
     }
 
-    /* Airborne Layer at 70% In-Motion Mode */
+    /* Airborne Layer at 70% In-Motion Mode (FLOATING BLOCKS HAVE TOP VISUAL PRIORITY OVER RESTING FLOOR MATRIX) */
     .airborne-layer {
       position: absolute;
       inset: 0;
       pointer-events: none;
-      z-index: 15;
+      z-index: 200 !important; /* ELEVATED ABOVE ALL RESTING FLOOR BLOCKS (Z-INDEX 40-70) */
       transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
     .airborne-layer .t-piece {
       pointer-events: auto;
+      z-index: 250 !important; /* ALL FLOATING AIRBORNE BLOCKS HOVER ABOVE FLOOR BLOCKS */
     }
 
     /* State A Airborne Floating Coordinates (Hovering Above Floor Matrix) */
-    .air-wp-purple   { position: absolute; left: 30px;  top: 40px;  transform: rotate(-10deg); }
-    .air-nextjs      { position: absolute; left: 180px; top: 180px; transform: rotate(-16deg); }
-    .air-green-z     { position: absolute; right: 100px; top: 30px;  transform: rotate(12deg); }
-    .air-amber-l     { position: absolute; right: 30px;  top: 190px; transform: rotate(22deg); }
+    .air-wp-purple   { position: absolute; left: 30px;  top: 40px;  transform: rotate(-10deg); z-index: 260 !important; }
+    .air-nextjs      { position: absolute; left: 180px; top: 180px; transform: rotate(-16deg); z-index: 300 !important; } /* NEXT.JS Z-INDEX 300 > OPENAI Z-INDEX 70 */
+    .air-green-z     { position: absolute; right: 100px; top: 30px;  transform: rotate(12deg);  z-index: 260 !important; }
+    .air-amber-l     { position: absolute; right: 30px;  top: 190px; transform: rotate(22deg);  z-index: 260 !important; }
 
     /* ════════════════════════════════════════════════════════════════
        EXACT MASTER PROMPT DUAL-STATE RULES
