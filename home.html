@@ -506,8 +506,633 @@
       line-height: 1.65;
     }
   </style>
+
+  <!-- 3D TETRIS HERO CALIBRATED SYSTEM STYLING -->
+  <style>
+/* 3D TETRIS HERO DIRECT DOM STYLING */
+
+    :root {
+      /* Studio-Grade Palette Extracted Directly From Master Prompt */
+      --block-obsidian: #141414;      /* OpenAI, Shopify, Claude */
+      --block-royal-blue: #0D52E0;    /* Custom Development, Next.js, AI MVP */
+      --block-light-grey: #E5E4DE;    /* Web Design, WordPress */
+      --block-purple: #5C32BD;        /* WooCommerce Purple Step/L Filler */
+      --block-terracotta: #E85A1C;    /* Elementor */
+      --block-golden-yellow: #EAB308;/* Golden Yellow L Filler */
+      --block-forest-green: #1E7D34;  /* Figma */
+      --block-lime-green: #6E9C26;    /* Structural Tetris Step/L Filler */
+      --block-sand-beige: #D9C5A0;    /* Python Sand Beige */
+      
+      --c8-blue: #0047E1;
+      --c8-ink: #080808;
+      --c8-sub: #666666;
+      
+      --font-body: 'DM Sans', sans-serif;
+      --font-heading: 'Michroma', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      
+      --u: 56px;            /* Standardized 1x1 Tetris Module Scale */
+      --block-radius: 0px;  /* ZERO CORNER RADIUS */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #FAFAF7;
+      color: var(--c8-ink);
+      font-family: var(--font-body);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* Page Header */
+    .catalog-header {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .catalog-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--c8-blue);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .catalog-h1 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      color: #111111;
+    }
+
+    .catalog-desc {
+      color: var(--c8-sub);
+      font-size: 0.95rem;
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    /* Motion Controller Bar */
+    .motion-controller {
+      max-width: 1240px;
+      margin: 0 auto 1.5rem auto;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 40px;
+      padding: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .state-btn {
+      background: transparent;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 30px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .state-btn.active {
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(0, 71, 225, 0.3);
+    }
+
+    /* Source of Truth Reference Box */
+    .reference-box {
+      max-width: 1240px;
+      margin: 0 auto 2.5rem auto;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      text-align: center;
+    }
+
+    .reference-box h2 {
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #666;
+      margin-bottom: 0.75rem;
+    }
+
+    .reference-img {
+      width: 100%;
+      max-height: 360px;
+      object-fit: contain;
+      border-radius: 0px;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       3D TETRIS PUZZLE ENGINE (MASTER Z-INDEX & PRONOUNCED BLOCK SEPARATION)
+       ════════════════════════════════════════════════════════════════ */
+
+    .t-piece {
+      display: inline-grid;
+      position: relative;
+      user-select: none;
+      background: transparent !important; /* 100% TRANSPARENT CONTAINER BOUNDING */
+      transition: transform 0.2s ease, filter 0.2s ease, opacity 0.3s ease;
+      cursor: grab;
+      touch-action: none;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       EXPLICIT MASTER Z-INDEX CHAIN (CUSTOM DEV, SHOPIFY & FIGMA ABOVE AI MVP, WORDPRESS & ELEMENTOR)
+       ════════════════════════════════════════════════════════════════ */
+    .t-piece[data-name="Purple WooCommerce L-Piece"]  { z-index: 20 !important; }
+    .t-piece[data-name="Airborne Purple WooCommerce"] { z-index: 300 !important; }
+    
+    .t-piece[data-name="OpenAI"]                      { z-index: 30 !important; }
+    .t-piece[data-name="Next.js"]                     { z-index: 40 !important; } /* Next.js (40) > OpenAI (30) */
+    .t-piece[data-name="Airborne Next.js"]            { z-index: 350 !important; }
+    
+    /* MIDDLE/UPPER ROW BLOCKS HELD LOW AT Z-INDEX 50 */
+    .t-piece[data-name="Web Design"]                  { z-index: 50 !important; }
+    .t-piece[data-name="AI MVP"]                      { z-index: 50 !important; }
+    .t-piece[data-name="Golden Yellow L"]             { z-index: 50 !important; }
+    .t-piece[data-name="Airborne Golden Yellow L"]    { z-index: 300 !important; }
+    .t-piece[data-name="WordPress"]                   { z-index: 50 !important; }
+    .t-piece[data-name="Python"]                      { z-index: 50 !important; }
+    .t-piece[data-name="Elementor"]                   { z-index: 50 !important; }
+    
+    /* CUSTOM DEV, SHOPIFY, FIGMA (BOTTOM FLOOR BLOCKS) SIT HIGH ABOVE AI MVP, WORDPRESS, ELEMENTOR */
+    .t-piece[data-name="Custom Development"]         { z-index: 100 !important; } /* Custom Dev (100) > AI MVP, WP, Elementor (50) */
+    .t-piece[data-name="Shopify"]                     { z-index: 110 !important; } /* Shopify (110) > Custom Dev (100) & AI MVP, WP, Elementor (50) */
+    .t-piece[data-name="Figma"]                       { z-index: 120 !important; } /* Figma (120) > Shopify (110) & AI MVP, WP, Elementor (50) */
+    
+    .t-piece[data-name="Claude"]                      { z-index: 130 !important; }
+    .t-piece[data-name="Lime Green Lemon Z"]          { z-index: 140 !important; }
+    .t-piece[data-name="Airborne Lime Green Z"]       { z-index: 300 !important; }
+
+    /* Tone-Specific Outer 3D Extrusions + Sharp Outer Boundary Separation (ZERO Internal Lines) */
+    .t-piece.tone-obsidian {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.85))
+        drop-shadow(3px 5px 0px #000000)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.35));
+    }
+    .t-piece.tone-royal-blue {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
+        drop-shadow(3px 5px 0px #062E8A)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.30));
+    }
+    .t-piece.tone-light-grey {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.65))
+        drop-shadow(3px 5px 0px #A09F96)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.25));
+    }
+    .t-piece.tone-purple {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
+        drop-shadow(3px 5px 0px #381B7B)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.30));
+    }
+    .t-piece.tone-terracotta {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
+        drop-shadow(3px 5px 0px #9C3205)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.30));
+    }
+    .t-piece.tone-golden-yellow {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
+        drop-shadow(3px 5px 0px #8C6902)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.28));
+    }
+    .t-piece.tone-forest-green {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
+        drop-shadow(3px 5px 0px #0D481C)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.30));
+    }
+    .t-piece.tone-lime-green {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
+        drop-shadow(3px 5px 0px #3E5C12)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.30));
+    }
+    .t-piece.tone-sand-beige {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.65))
+        drop-shadow(3px 5px 0px #85724E)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.25));
+    }
+
+    .t-shape-body {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 0px !important;
+      box-shadow: none !important; /* ZERO INTERNAL BOX LINES — 100% FLUSH UNBROKEN SURFACE */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .t-piece.is-dragging {
+      cursor: grabbing !important;
+      z-index: 1000 !important;
+      filter: drop-shadow(4px 14px 30px rgba(0, 71, 225, 0.45)) brightness(1.06) !important;
+    }
+
+    .t-piece.is-selected {
+      outline: 2px dashed var(--c8-blue);
+      outline-offset: 4px;
+      border-radius: 0px;
+    }
+
+    /* Red Collision Alert Highlight */
+    .t-piece.is-colliding {
+      outline: 2px dashed #E53935 !important;
+      outline-offset: 4px !important;
+      filter: drop-shadow(0 0 20px rgba(229, 57, 53, 0.85)) brightness(1.1) !important;
+    }
+
+    /* Floating Handle Overlay Triggers */
+    .t-handle {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 71, 225, 0.4);
+      z-index: 30;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.2s ease;
+    }
+
+    .t-piece:hover .t-handle,
+    .t-piece.is-selected .t-handle {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .t-handle:hover {
+      background: #0030A0;
+      transform: scale(1.18) !important;
+    }
+
+    .t-rotate-handle { top: -12px; right: -12px; }
+    .t-fliph-handle  { top: -12px; left: -12px; }
+    .t-flipv-handle  { bottom: -12px; left: -12px; }
+
+    .t-cell {
+      width: var(--u, 56px);
+      height: var(--u, 56px);
+      position: relative;
+      box-sizing: border-box;
+      background: transparent;
+    }
+
+    .t-shape-body {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 0px !important;
+      box-shadow: none !important; /* ZERO INTERNAL BOX LINES — 100% FLUSH UNBROKEN SURFACE */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* High-Performance Hardware-Accelerated Tactile Noise Overlay */
+    .t-shape-body::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.05;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Clean Seamless Color Tone Surfaces */
+    .tone-obsidian { background: var(--block-obsidian); color: #FFFFFF; }
+    .tone-royal-blue { background: var(--block-royal-blue); color: #FFFFFF; }
+    .tone-light-grey { background: var(--block-light-grey); color: #111111; }
+    .tone-purple { background: var(--block-purple); color: #FFFFFF; }
+    .tone-terracotta { background: var(--block-terracotta); color: #FFFFFF; }
+    .tone-golden-yellow { background: var(--block-golden-yellow); color: #111111; }
+    .tone-forest-green { background: var(--block-forest-green); color: #FFFFFF; }
+    .tone-lime-green { background: var(--block-lime-green); color: #FFFFFF; }
+    .tone-sand-beige { background: var(--block-sand-beige); color: #111111; }
+
+    /* Internal Seam Lines REMOVED */
+    .t-seam-h, .t-seam-v {
+      display: none !important;
+    }
+
+    /* Text & Logo Label Overlay */
+    .t-label {
+      position: absolute;
+      z-index: 5;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .t-cdn-logo {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+    }
+
+    .t-cdn-logo.is-white {
+      filter: brightness(0) invert(1);
+    }
+
+    /* Live Coordinate HUD Status Bar */
+    .matrix-hud {
+      max-width: 1320px;
+      margin: -2.5rem auto 2rem auto;
+      background: #141414;
+      color: #FFFFFF;
+      border-radius: 8px;
+      padding: 0.65rem 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .hud-title { color: #888888; text-transform: uppercase; letter-spacing: 0.08em; }
+    .hud-status { color: #3D6BFF; font-weight: 700; }
+    .hud-hint { color: #AAAAAA; font-size: 0.72rem; }
+
+    /* ════════════════════════════════════════════════════════════════
+       MAIN HERO SECTION PREVIEW (HERO TEXT + INTERLOCKING PUZZLE MATRIX)
+       ════════════════════════════════════════════════════════════════ */
+    .hero-arena-section {
+      max-width: 1360px;
+      margin: 0 auto 4rem auto;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+      padding: 3rem 1.5rem;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-arena-container {
+      width: 100%;
+      height: 680px;
+      background: #FAFAF7;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Embedded Hero Written Content Overlay (Upper-Center Space) */
+    .hero-content-overlay {
+      position: absolute;
+      top: 2.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 820px;
+      text-align: center;
+      z-index: 20;
+      padding: 0 1.5rem;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      text-transform: uppercase;
+      color: var(--c8-ink);
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: #4A4A4A;
+      max-width: 640px;
+      margin: 0 auto 1.25rem auto;
+      line-height: 1.6;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      pointer-events: auto;
+    }
+
+    .btn-primary-c8 {
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary-c8:hover {
+      background: #0038C0;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary-c8 {
+      background: #FFFFFF;
+      color: var(--c8-ink);
+      border: 1px solid rgba(8, 8, 8, 0.15);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-secondary-c8:hover {
+      border-color: var(--c8-blue);
+      color: var(--c8-blue);
+      transform: translateY(-2px);
+    }
+
+    /* 2D Matrix Floor Arena (17 cols x 7 rows - Exact Screenshot Matrix) */
+    .matrix-floor-wrapper {
+      width: 100%;
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: center;
+      z-index: 500 !important; /* Elevated above airborne-layer so OpenAI, Shopify, Figma stack on top */
+    }
+
+    .matrix-arena {
+      display: grid;
+      grid-template-columns: repeat(17, var(--u, 56px));
+      grid-template-rows: repeat(7, var(--u, 56px));
+      gap: 0;
+      position: relative;
+    }
+
+    /* Airborne Layer at 70% In-Motion Mode */
+    .airborne-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10 !important; /* Placed below floor wrapper so OpenAI & Shopify sit on top */
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .airborne-layer .t-piece {
+      pointer-events: auto;
+    }
+
+    /* State A Airborne Floating Coordinates */
+    .air-wp-purple   { position: absolute; left: 30px;  top: 40px;  transform: rotate(-10deg); }
+    .air-nextjs      { position: absolute; left: 180px; top: 180px; transform: rotate(-16deg); z-index: 600 !important; }
+    .air-green-z     { position: absolute; right: 100px; top: 30px;  transform: rotate(12deg); }
+    .air-amber-l     { position: absolute; right: 30px;  top: 190px; transform: rotate(22deg); }
+
+    /* ════════════════════════════════════════════════════════════════
+       EXACT MASTER PROMPT DUAL-STATE RULES
+       ════════════════════════════════════════════════════════════════ */
+    body.mode-70 .docked-socket {
+      opacity: 0 !important;
+      transform: translateY(-80px) scale(0.9) !important;
+      pointer-events: none !important;
+    }
+
+    body.mode-70 .airborne-layer {
+      display: block !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+
+    body.mode-100 .airborne-layer {
+      display: block !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transition: opacity 0.3s ease;
+    }
+
+    body.mode-100 .docked-socket {
+      opacity: 1 !important;
+      transform: translateY(0) scale(1) !important;
+      pointer-events: auto !important;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       ISOLATED STANDARDIZED COMPONENT CATALOG (11 ISOLATED CARDS)
+       ════════════════════════════════════════════════════════════════ */
+    .catalog-grid {
+      max-width: 1240px;
+      margin: 0 auto 4rem auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+    }
+
+    .piece-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .piece-card-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .piece-title { font-size: 0.88rem; font-weight: 700; color: #111; }
+    .piece-color-tag { font-size: 0.72rem; color: #555; font-weight: 600; background: #F4F4F0; padding: 0.25rem 0.65rem; border-radius: 4px; }
+    .piece-stage { width: 100%; height: 220px; background: #F5F5F2; border-radius: 8px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+
+  
+  </style>
 </head>
-<body>
+<body class="mode-70">
 
   <!-- Top Navigation Bar -->
   <header class="c8-header">
@@ -532,169 +1157,289 @@
   </header>
 
   <!-- HERO WRITTEN CONTENT -->
-  <section class="c8-hero-section">
-    <div class="c8-hero-container">
-      <div class="c8-hero-eyebrow">Web Design · AI MVP · Custom Development</div>
-      <h1 class="c8-hero-title">We build what your business actually runs on.</h1>
-      <p class="c8-hero-lead">Strategy, design, and code — as one team, not four vendors.</p>
+  <div class="hero-scroll-track" id="heroScrollTrack" style="height: 250vh; position: relative; margin-bottom: 2rem;">
+    <section class="hero-arena-section" style="position: sticky; top: 85px; z-index: 100;">
+      <div class="hero-arena-container">
       
-      <div class="c8-hero-ctas">
-        <a href="https://cr8vstacks.com/contact/" class="btn-brand-primary">Start a Project →</a>
-        <a href="#case-studies" class="btn-brand-ghost">See Our Work ↓</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTINUOUS SCROLL-ANIMATION SECTION -->
-  <div class="c8-anim-track" id="anim-track">
-    <div class="c8-anim-sticky">
-
-      <!-- Canvas Stage (Starts contained under Hero, then widens and shifts!) -->
-      <div class="c8-canvas-stage hero-boxed" id="canvas-stage">
-        <canvas id="hero-canvas"></canvas>
+      <!-- Embedded Hero Written Content Overlay (Upper-Center Space) -->
+      <div class="hero-content-overlay">
+        <div class="hero-eyebrow">// CRAFTED FOR HIGH-GROWTH BRANDS</div>
+        <h1 class="hero-h1">WE BUILD DIGITAL PRODUCTS THAT SCALE BRANDS</h1>
+        <p class="hero-sub">From strategy and high-converting platforms to custom Next.js applications and AI MVP integrations — engineered for liquid performance.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary-c8">START A PROJECT →</a>
+          <a href="#services" class="btn-secondary-c8">EXPLORE SERVICES ↓</a>
+        </div>
       </div>
 
-      <!-- WRITTEN CONTENT OVERLAYS FOR THE 3 SECTIONS -->
-      <div class="c8-stage-overlay">
-        
-        <!-- SECTION 1: WEBSITE DESIGN (Animation moves RIGHT -> Written content on LEFT) -->
-        <div class="c8-stage-content content-left" id="stage-web-design">
-          <div class="stage-eyebrow">Design &amp; Build</div>
-          <h2 class="stage-h2">One design process. Whatever platform fits.</h2>
-          <p class="stage-p">
-            We design in Figma first, then build on whichever platform actually serves your business — not whichever one we default to.
-          </p>
+      <!-- Bottom Floor 2D Matrix Grid Assembly Arena (17 cols x 7 rows - Exact Screenshot Matrix) -->
+      <div class="matrix-floor-wrapper">
+        <div class="matrix-arena" id="matrixArena">
 
-          <div class="stage-cards">
-            <div class="stage-card">
-              <div class="stage-card-title">WordPress</div>
-              <div class="stage-card-desc">Lightweight, custom-coded builds your team can maintain without touching code.</div>
-            </div>
-            <div class="stage-card">
-              <div class="stage-card-title">Shopify</div>
-              <div class="stage-card-desc">Custom storefronts engineered for checkout conversion, not template limits.</div>
-            </div>
-            <div class="stage-card">
-              <div class="stage-card-title">WooCommerce</div>
-              <div class="stage-card-desc">Full data and hosting ownership, no platform licensing fees.</div>
+          <!-- 1. OpenAI (Base Floor Block - Cols 2-3, Rows 6-7 - Row 7 Z-Index 70 > Woo) -->
+          <div class="t-piece tone-obsidian" data-name="OpenAI" data-col="2" data-row="7" style="grid-column: 2 / span 2; grid-row: 6 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
+              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/default.svg" alt="OpenAI CDN Logo" class="t-cdn-logo">
+              <span style="font-size: 0.65rem; color: #FFF;">OPENAI</span>
             </div>
           </div>
 
-          <a href="Web Design Service Page/index.html" class="stage-link">Explore Web Design →</a>
-        </div>
+          <!-- 2. Web Design (Base Floor Block - Cols 5-6, Rows 5-6 - Row 6 Z-Index 60) -->
+          <div class="t-piece tone-light-grey" data-name="Web Design" data-col="5" data-row="6" style="grid-column: 5 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #111; font-size: 0.72rem;">WEB DESIGN</div>
+          </div>
 
-        <!-- SECTION 2: CUSTOM DEVELOPMENT (Animation moves LEFT -> Written content on RIGHT) -->
-        <div class="c8-stage-content content-right" id="stage-custom-dev">
-          <div class="stage-eyebrow">Build From Nothing</div>
-          <h2 class="stage-h2">Real software, not just a landing page.</h2>
-          <p class="stage-p">
-            When nothing off-the-shelf fits, we build it — from bespoke applications engineered around your exact workflow to scalable software.
-          </p>
+          <!-- 3. Custom Development (Base Floor Block - Cols 5-8, Row 7 - Row 7 Z-Index 70) -->
+          <div class="t-piece tone-royal-blue" data-name="Custom Development" data-col="5" data-row="7" style="grid-column: 5 / span 4; grid-row: 7; display:grid; grid-template-columns: repeat(4, var(--u)); grid-template-rows: var(--u);">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 4;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; align-items: center; justify-content: center; color: #FFFFFF;">CUSTOM DEVELOPMENT</div>
+          </div>
 
-          <div class="stage-cards">
-            <div class="stage-card">
-              <div class="stage-card-title">Custom Development</div>
-              <div class="stage-card-desc">Bespoke applications built from a blank file, engineered around your exact workflow.</div>
+          <!-- 4. AI MVP (Base Floor Block - Cols 7-8, Rows 5-6 - Row 6 Z-Index 60) -->
+          <div class="t-piece tone-royal-blue" data-name="AI MVP" data-col="7" data-row="6" style="grid-column: 7 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #FFFFFF;">AI MVP</div>
+          </div>
+
+          <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7 - Row 7 Z-Index 70) -->
+          <div class="t-piece tone-obsidian" data-name="Shopify" data-col="9" data-row="7" style="grid-column: 9 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; align-items: center; justify-content: center; color: #FFFFFF;">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg" alt="Shopify CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+              <span style="color: #FFFFFF;">SHOPIFY</span>
             </div>
           </div>
 
-          <a href="Custom Dev Service Page/index.html" class="stage-link">Explore Custom Dev →</a>
-        </div>
-
-        <!-- SECTION 3: AI MVP (Animation is CENTERED -> Written content on LEFT & RIGHT) -->
-        <div class="c8-stage-content content-split-wrapper" id="stage-ai-mvp">
-          
-          <!-- Left Column -->
-          <div class="content-split-col">
-            <div class="stage-eyebrow">Validated AI Products</div>
-            <h2 class="stage-h2" style="font-size: 1.6rem;">Real Software.</h2>
-            <p class="stage-p">
-              Working AI products that validate a real business idea, not a slide deck.
-            </p>
+          <!-- 6. WordPress (Base Floor Block - Cols 11-12, Rows 5-6 - Row 6 Z-Index 60) -->
+          <div class="t-piece tone-light-grey" data-name="WordPress" data-col="11" data-row="6" style="grid-column: 11 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="WordPress CDN Logo" class="t-cdn-logo">
+              <span style="font-size: 0.65rem; color: #111111;">WORDPRESS</span>
+            </div>
           </div>
 
-          <!-- Right Column -->
-          <div class="content-split-col" style="text-align: right;">
-            <div class="stage-cards" style="text-align: left;">
-              <div class="stage-card">
-                <div class="stage-card-title">AI MVP</div>
-                <div class="stage-card-desc">Working AI products that validate a real idea, not a slide deck.</div>
+          <!-- 7. Python (Base Floor Block - Cols 13-14, Rows 4-5 - Row 5 Z-Index 50 < Elementor 60) -->
+          <div class="t-piece tone-sand-beige" data-name="Python" data-col="13" data-row="5" style="grid-column: 13 / span 2; grid-row: 4 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; flex-direction: column; gap: 4px; align-items: center; justify-content: center; color: #111;">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python CDN Logo" class="t-cdn-logo" style="width: 24px; height: 24px;">
+              <span>PYTHON</span>
+            </div>
+          </div>
+
+          <!-- 8. Elementor (Base Floor Block - Cols 13-14, Row 6 - Row 6 Z-Index 60 > Python 50) -->
+          <div class="t-piece tone-terracotta" data-name="Elementor" data-col="13" data-row="6" style="grid-column: 13 / span 2; grid-row: 6; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: var(--u);">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;">
+              <div class="t-shape-body tone-terracotta">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/elementor.svg" alt="Elementor CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
               </div>
             </div>
-            <a href="AI MVP Service Page/index.html" class="stage-link">Explore AI MVP →</a>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-terracotta"></div></div>
+          </div>
+
+          <!-- 9. Figma (Base Floor Block - Cols 12-14, Row 7 - Row 7 Z-Index 70) -->
+          <div class="t-piece tone-forest-green" data-name="Figma" data-col="12" data-row="7" style="grid-column: 12 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-forest-green"></div></div>
+            <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-forest-green"></div></div>
+            <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-forest-green"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; align-items: center; justify-content: center; font-size: 0.68rem; color: #FFF;">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg" alt="Figma CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+              <span>FIGMA</span>
+            </div>
+          </div>
+
+          <!-- 10. Claude (Base Floor Block - Col 15, Rows 6-7 - Row 7 Z-Index 70) -->
+          <div class="t-piece tone-obsidian" data-name="Claude" data-col="15" data-row="7" style="grid-column: 15; grid-row: 6 / span 2; display:grid; grid-template-columns: var(--u); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
+              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude Verified CDN Logo" class="t-cdn-logo">
+              <span style="font-size: 0.65rem; color: #FFFFFF;">CLAUDE</span>
+            </div>
+          </div>
+
+          <!-- ════════════════════════════════════════════════════════════
+               THE 4 DOCKED SOCKETS
+               ════════════════════════════════════════════════════════════ -->
+
+          <!-- Docked Socket 1: Purple WooCommerce Flipped 2x3 L-Piece - Starts at Row 5, Z-Index 50 < OpenAI 70 -->
+          <div class="t-piece tone-purple docked-socket" data-name="Purple WooCommerce L-Piece" data-col="1" data-row="5" style="grid-column: 1 / span 2; grid-row: 5 / span 3; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;">
+              <div class="t-shape-body tone-purple">
+                <img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/woocommerce-light.svg" alt="WooCommerce Light Logo" class="t-cdn-logo">
+              </div>
+            </div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 3;"><!-- PURE TRANSPARENT CUTOUT --></div>
+            <div class="t-label" style="left: 0; width: var(--u); top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 4px; color: #FFFFFF; font-size: 0.65rem;">
+              <span>W</span><span>O</span><span>O</span>
+            </div>
+          </div>
+
+          <!-- Docked Socket 2: Next.js -->
+          <div class="t-piece tone-royal-blue docked-socket" data-name="Next.js" data-col="4" data-row="5" style="grid-column: 4; grid-row: 5 / span 3; display:grid; grid-template-columns: var(--u); grid-template-rows: repeat(3, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-row: 1;">
+              <div class="t-shape-body tone-royal-blue"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nextdotjs.svg" alt="Next.js CDN Logo" class="t-cdn-logo is-white"></div>
+            </div>
+            <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-row: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
+          </div>
+
+          <!-- Docked Socket 3: Golden Yellow L-Piece -->
+          <div class="t-piece tone-golden-yellow docked-socket" data-name="Golden Yellow L" data-col="9" data-row="5" style="grid-column: 9 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
+          </div>
+
+          <!-- Docked Socket 4: Lime Green Lemon Z-Piece -->
+          <div class="t-piece tone-lime-green docked-socket" data-name="Lime Green Lemon Z" data-col="16" data-row="4" style="grid-column: 16 / span 2; grid-row: 4 / span 4; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(4, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><!-- PURE TRANSPARENT CUTOUT --></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-lime-green"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-lime-green"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
           </div>
 
         </div>
-
       </div>
-    </div>
-  </div>
 
-  <!-- SECTION 5: REAL CLIENTS, REAL RESULTS -->
-  <section class="c8-section-cases" id="case-studies">
-    <div class="c8-cases-in">
-      <div class="stage-eyebrow">Real Clients, Real Results</div>
-      <h2 class="stage-h2" style="margin-bottom: 1rem;">Work you can actually verify.</h2>
-      <p class="stage-p" style="max-width: 600px;">
-        No mockups, no placeholder clients — every project below is real.
-      </p>
+      <!-- 70% In-Motion Floating Layer (THE 4 AIRBORNE FLOATING HERO BLOCKS IN STATE A) -->
+      <div class="airborne-layer">
+        <!-- 1. Airborne Flipped Purple WooCommerce L-Piece -->
+        <div class="t-piece tone-purple air-wp-purple" data-name="Airborne Purple WooCommerce" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;">
+            <div class="t-shape-body tone-purple"><img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/woocommerce-light.svg" alt="WooCommerce Light" class="t-cdn-logo"></div>
+          </div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 3;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-label" style="left: 0; width: var(--u); top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 4px; color: #FFFFFF; font-size: 0.65rem;">
+            <span>W</span><span>O</span><span>O</span>
+          </div>
+        </div>
 
-      <div class="cases-grid">
-        <a href="Case Studies/the-duch-apartments.html" class="case-card" style="display:block;">
-          <div class="case-title">The Duch Apartments</div>
-          <div class="case-desc">Website design with SEO built in from day one. Custom layout with direct booking architecture.</div>
-          <div style="margin-top:1.25rem; padding-top:1rem; border-top:1px solid rgba(8,8,8,0.08); display:flex; flex-wrap:wrap; gap:0.4rem;">
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Apartment Showcase</span>
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Booking System</span>
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Built-in SEO</span>
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Responsive Layout</span>
+        <!-- 2. Airborne Next.js Blue 1x3 Bar -->
+        <div class="t-piece tone-royal-blue air-nextjs" data-name="Airborne Next.js" style="grid-template-columns: var(--u); grid-template-rows: repeat(3, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-row: 1;">
+            <div class="t-shape-body tone-royal-blue"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nextdotjs.svg" alt="Next.js" class="t-cdn-logo is-white"></div>
           </div>
-        </a>
-        <a href="Case Studies/blvck-hair-ng.html" class="case-card" style="display:block;">
-          <div class="case-title">blvck Hair NG</div>
-          <div class="case-desc">SEO from the ground up — expanded from a single store to active storefronts in Nigeria &amp; UK.</div>
-          <div style="margin-top:1.25rem; padding-top:1rem; border-top:1px solid rgba(8,8,8,0.08); display:flex; flex-wrap:wrap; gap:0.4rem;">
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Semantic Keyword Mapping</span>
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Entity SEO</span>
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Technical Site Audit</span>
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Content Strategy Engine</span>
-          </div>
-        </a>
-        <a href="Case Studies/mkenny-properties.html" class="case-card" style="display:block;">
-          <div class="case-title">Mkenny Properties</div>
-          <div class="case-desc">From a basic landing page to a full property platform with custom listing widgets, live right now.</div>
-          <div style="margin-top:1.25rem; padding-top:1rem; border-top:1px solid rgba(8,8,8,0.08); display:flex; flex-wrap:wrap; gap:0.4rem;">
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">WooCommerce Engine</span>
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Listing Architecture</span>
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Built-in SEO</span>
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Custom Layout</span>
-          </div>
-        </a>
-        <a href="Case Studies/victorias-lane.html" class="case-card" style="display:block;">
-          <div class="case-title">Victoria's Lane</div>
-          <div class="case-desc">Handbag &amp; purse e-commerce rebuilt on Shopify Liquid — 1.4s mobile speed, +38% add-to-cart rate.</div>
-          <div style="margin-top:1.25rem; padding-top:1rem; border-top:1px solid rgba(8,8,8,0.08); display:flex; flex-wrap:wrap; gap:0.4rem;">
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Shopify Theme Engine</span>
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">1.4s Mobile Speed</span>
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Conversion CRO</span>
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Liquid Customization</span>
-          </div>
-        </a>
-        <a href="Case Studies/sweetermen-ng.html" class="case-card" style="display:block;">
-          <div class="case-title">SweeterMen NG</div>
-          <div class="case-desc">Full-stack watch store on WooCommerce + Google &amp; Meta ad campaigns handled by one team.</div>
-          <div style="margin-top:1.25rem; padding-top:1rem; border-top:1px solid rgba(8,8,8,0.08); display:flex; flex-wrap:wrap; gap:0.4rem;">
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">WooCommerce Engine</span>
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Paid Ad Campaigns</span>
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Meta &amp; Google Ads</span>
-            <span style="font-family:'Space Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#FFFFFF; color:#4A4A4A; border:1px solid rgba(8,8,8,0.14); padding:0.3rem 0.65rem; border-radius:4px;">Conversion CRO</span>
-          </div>
-        </a>
+          <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+          <div class="t-cell" style="grid-row: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
+        </div>
+
+        <!-- 3. Airborne Lime Green Lemon Z-Piece -->
+        <div class="t-piece tone-lime-green air-green-z" data-name="Airborne Lime Green Z" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(4, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
+        </div>
+
+        <!-- 4. Airborne Golden Yellow L-Piece -->
+        <div class="t-piece tone-golden-yellow air-amber-l" data-name="Airborne Golden Yellow L" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
+        </div>
       </div>
+
     </div>
   </section>
+  </div>
 
-  <!-- Interactive Canvas Scroll Script -->
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const canvas = document.getElementById('hero-canvas');
@@ -799,6 +1544,1254 @@
         }
       }
     });
+  </script>
+
+  <!-- 3D TETRIS HERO MOTION ENGINE -->
+  <script>
+
+    let activePiece = null;
+
+    function setMode(mode) {
+      document.body.className = 'mode-' + mode;
+      const btns = document.querySelectorAll('.state-btn');
+      btns.forEach(btn => btn.classList.remove('active'));
+      if (mode === '70') btns[0].classList.add('active');
+      if (mode === '100') btns[1].classList.add('active');
+      
+      const status = document.getElementById('hudStatus');
+      if (status) {
+        status.textContent = mode === '70' ? 
+          'STATE A (70% IN-MOTION): BASE FLOOR BLOCKS RESTING + 4 AIRBORNE BLOCKS FLOATING ABOVE MATRIX' : 
+          'STATE B (100% ASSEMBLED): ALL 4 AIRBORNE BLOCKS DOCKED FLUSH INTO MATRIX MATCHING SCREENSHOT (INPUT_FILE_0.PNG)';
+      }
+    }
+
+    // ════════════════════════════════════════════════════════════════
+    // REAL-TIME CELL COLLISION DETECTION & ANTI-OVERLAY ENGINE
+    // ════════════════════════════════════════════════════════════════
+    document.addEventListener('DOMContentLoaded', () => {
+      const pieces = document.querySelectorAll('.t-piece');
+      const hudStatus = document.getElementById('hudStatus');
+
+      function getOccupiedMatrix(movingPiece) {
+        const matrix = Array.from({length: 18}, () => Array(8).fill(false));
+        const mode = document.body.className.includes('mode-100') ? '100' : '70';
+        
+        pieces.forEach(p => {
+          if (p === movingPiece) return;
+          
+          if (mode === '70' && p.classList.contains('docked-socket')) return;
+          if (mode === '100' && p.closest('.airborne-layer')) return;
+          if (p.offsetWidth === 0 || p.offsetHeight === 0) return;
+
+          const style = window.getComputedStyle(p);
+          const colStart = parseInt(p.dataset.col || style.gridColumnStart || '1');
+          const rowStart = parseInt(p.dataset.row || style.gridRowStart || '1');
+
+          const dX = Math.round((p._translateX || 0) / 56);
+          const dY = Math.round((p._translateY || 0) / 56);
+
+          const finalCol = colStart + dX;
+          const finalRow = rowStart + dY;
+
+          const cells = p.querySelectorAll('.t-cell');
+          cells.forEach(cell => {
+            if (cell.querySelector('.t-shape-body')) {
+              const cellColOffset = (parseInt(cell.style.gridColumn || '1') - 1);
+              const cellRowOffset = (parseInt(cell.style.gridRow || '1') - 1);
+
+              const c = finalCol + cellColOffset;
+              const r = finalRow + cellRowOffset;
+
+              if (c >= 1 && c <= 17 && r >= 1 && r <= 7) {
+                matrix[c][r] = true;
+              }
+            }
+          });
+        });
+
+        return matrix;
+      }
+
+      function checkCollision(piece, tx, ty) {
+        const matrix = getOccupiedMatrix(piece);
+        const style = window.getComputedStyle(piece);
+        const colStart = parseInt(piece.dataset.col || style.gridColumnStart || '1');
+        const rowStart = parseInt(piece.dataset.row || style.gridRowStart || '1');
+
+        const dX = Math.round(tx / 56);
+        const dY = Math.round(ty / 56);
+
+        const targetCol = colStart + dX;
+        const targetRow = rowStart + dY;
+
+        let hasCollision = false;
+
+        const cells = piece.querySelectorAll('.t-cell');
+        cells.forEach(cell => {
+          if (cell.querySelector('.t-shape-body')) {
+            const cellColOffset = (parseInt(cell.style.gridColumn || '1') - 1);
+            const cellRowOffset = (parseInt(cell.style.gridRow || '1') - 1);
+
+            const c = targetCol + cellColOffset;
+            const r = targetRow + cellRowOffset;
+
+            if (c < 1 || c > 17 || r < 1 || r > 7 || matrix[c][r]) {
+              hasCollision = true;
+            }
+          }
+        });
+
+        return hasCollision;
+      }
+
+      pieces.forEach(piece => {
+        if (!piece.dataset.rotation) piece.dataset.rotation = '0';
+        if (!piece.dataset.flipX) piece.dataset.flipX = '1';
+        if (!piece.dataset.flipY) piece.dataset.flipY = '1';
+
+        let isDragging = false;
+        let startX, startY;
+        let currentTranslateX = 0, currentTranslateY = 0;
+        let lastValidX = 0, lastValidY = 0;
+
+        const rotateBtn = piece.querySelector('.t-rotate-handle');
+        if (rotateBtn) {
+          rotateBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            rotatePiece(piece);
+          });
+        }
+
+        const flipHBtn = piece.querySelector('.t-fliph-handle');
+        if (flipHBtn) {
+          flipHBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            flipPieceHorizontal(piece);
+          });
+        }
+
+        const flipVBtn = piece.querySelector('.t-flipv-handle');
+        if (flipVBtn) {
+          flipVBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            flipPieceVertical(piece);
+          });
+        }
+
+        piece.addEventListener('dblclick', (e) => {
+          if (e.target.classList.contains('t-handle')) return;
+          e.stopPropagation();
+          rotatePiece(piece);
+        });
+
+        piece.addEventListener('pointerdown', (e) => {
+          if (e.target.classList.contains('t-handle')) return;
+          
+          pieces.forEach(p => p.classList.remove('is-selected', 'is-colliding'));
+          piece.classList.add('is-selected');
+          activePiece = piece;
+
+          isDragging = true;
+          piece.classList.add('is-dragging');
+          piece.setPointerCapture(e.pointerId);
+
+          startX = e.clientX - currentTranslateX;
+          startY = e.clientY - currentTranslateY;
+
+          updateHudState(piece, 'DRAGGING...');
+        });
+
+        piece.addEventListener('pointermove', (e) => {
+          if (!isDragging) return;
+          currentTranslateX = e.clientX - startX;
+          currentTranslateY = e.clientY - startY;
+
+          const isColliding = checkCollision(piece, currentTranslateX, currentTranslateY);
+
+          if (isColliding) {
+            piece.classList.add('is-colliding');
+            if (hudStatus) {
+              const name = (piece.dataset.name || 'Block').toUpperCase();
+              hudStatus.textContent = `WARNING: [${name}] COLLISION DETECTED — REJECTED (SOLID BLOCK BOUNDARY)`;
+            }
+          } else {
+            piece.classList.remove('is-colliding');
+            lastValidX = currentTranslateX;
+            lastValidY = currentTranslateY;
+            updateHudState(piece, 'DRAGGING...');
+          }
+
+          applyPieceTransform(
+            piece, 
+            currentTranslateX, 
+            currentTranslateY, 
+            parseInt(piece.dataset.rotation || '0'),
+            parseInt(piece.dataset.flipX || '1'),
+            parseInt(piece.dataset.flipY || '1')
+          );
+        });
+
+        const endDrag = (e) => {
+          if (!isDragging) return;
+          isDragging = false;
+          piece.classList.remove('is-dragging');
+          try { piece.releasePointerCapture(e.pointerId); } catch(err) {}
+
+          const isColliding = checkCollision(piece, currentTranslateX, currentTranslateY);
+
+          if (isColliding) {
+            currentTranslateX = lastValidX;
+            currentTranslateY = lastValidY;
+            applyPieceTransform(
+              piece, 
+              currentTranslateX, 
+              currentTranslateY, 
+              parseInt(piece.dataset.rotation || '0'),
+              parseInt(piece.dataset.flipX || '1'),
+              parseInt(piece.dataset.flipY || '1')
+            );
+            piece.classList.remove('is-colliding');
+            if (hudStatus) {
+              const name = (piece.dataset.name || 'Block').toUpperCase();
+              hudStatus.textContent = `PHYSICS SNAP: [${name}] LANDED ON SOLID SURFACE (OVERLAP PREVENTED)`;
+            }
+          } else {
+            updateHudState(piece, 'LANDED');
+          }
+        };
+
+        piece.addEventListener('pointerup', endDrag);
+        piece.addEventListener('pointercancel', endDrag);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!activePiece) return;
+        const key = e.key.toLowerCase();
+
+        if (key === 'r' || key === ' ') {
+          e.preventDefault();
+          rotatePiece(activePiece);
+        } else if (key === 'f' || key === 'h') {
+          e.preventDefault();
+          flipPieceHorizontal(activePiece);
+        } else if (key === 'v') {
+          e.preventDefault();
+          flipPieceVertical(activePiece);
+        }
+      });
+
+      function rotatePiece(piece) {
+        let currentRot = parseInt(piece.dataset.rotation || '0');
+        let newRot = (currentRot + 90) % 360;
+        piece.dataset.rotation = newRot.toString();
+
+        applyPieceTransform(
+          piece, 
+          piece._translateX || 0, 
+          piece._translateY || 0, 
+          newRot,
+          parseInt(piece.dataset.flipX || '1'),
+          parseInt(piece.dataset.flipY || '1')
+        );
+        updateHudState(piece, 'ROTATED 90°');
+      }
+
+      function flipPieceHorizontal(piece) {
+        let currentFlipX = parseInt(piece.dataset.flipX || '1');
+        let newFlipX = currentFlipX * -1;
+        piece.dataset.flipX = newFlipX.toString();
+
+        applyPieceTransform(
+          piece, 
+          piece._translateX || 0, 
+          piece._translateY || 0, 
+          parseInt(piece.dataset.rotation || '0'),
+          newFlipX,
+          parseInt(piece.dataset.flipY || '1')
+        );
+        updateHudState(piece, 'HORIZONTALLY FLIPPED');
+      }
+
+      function flipPieceVertical(piece) {
+        let currentFlipY = parseInt(piece.dataset.flipY || '1');
+        let newFlipY = currentFlipY * -1;
+        piece.dataset.flipY = newFlipY.toString();
+
+        applyPieceTransform(
+          piece, 
+          piece._translateX || 0, 
+          piece._translateY || 0, 
+          parseInt(piece.dataset.rotation || '0'),
+          parseInt(piece.dataset.flipX || '1'),
+          newFlipY
+        );
+        updateHudState(piece, 'VERTICALLY FLIPPED');
+      }
+
+      function applyPieceTransform(piece, tx, ty, rot, fx, fy) {
+        piece._translateX = tx;
+        piece._translateY = ty;
+        piece.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${rot}deg) scale(${fx}, ${fy})`;
+      }
+
+      function updateHudState(piece, actionText) {
+        if (!hudStatus) return;
+        const name = (piece.dataset.name || 'Block').toUpperCase();
+        const rot = piece.dataset.rotation || '0';
+        const fx = piece.dataset.flipX === '-1' ? 'H-FLIPPED' : 'NORMAL-H';
+        const fy = piece.dataset.flipY === '-1' ? 'V-FLIPPED' : 'NORMAL-V';
+        hudStatus.textContent = `ACTIVE: [${name}] | ROTATION: ${rot}° | FLIP: ${fx} / ${fy} | ACTION: ${actionText}`;
+      }
+
+      // ════════════════════════════════════════════════════════════════
+      // DIRECT DOM SCROLL & PLAY ANIMATION ENGINE
+      // ════════════════════════════════════════════════════════════════
+      const btnStateA = document.getElementById('btnStateA');
+      const btnStateB = document.getElementById('btnStateB');
+      const btnPlayDOM = document.getElementById('btnPlayDOM');
+
+      const airWoo = document.querySelector('.air-wp-purple');
+      const airNext = document.querySelector('.air-nextjs');
+      const airYellow = document.querySelector('.air-amber-l');
+      const airGreen = document.querySelector('.air-green-z');
+
+      const sockWoo = document.querySelector('.docked-socket[data-name="Purple WooCommerce L-Piece"]');
+      const sockNext = document.querySelector('.docked-socket[data-name="Next.js"]');
+      const sockYellow = document.querySelector('.docked-socket[data-name="Golden Yellow L"]');
+      const sockGreen = document.querySelector('.docked-socket[data-name="Lime Green Lemon Z"]');
+
+      // User-Calibrated 2D Trajectory Keyframe Vectors (Exact Visual Calibrator Output)
+      const vectorTargets = {
+        woo:    { dX: 148,  dY: 469, rot: 0,  flipX: 1 },   // Socket 1 (Purple WooCommerce L)
+        next:   { dX: 168,  dY: 332, rot: 0,  flipX: 1 },   // Socket 2 (Next.js 1x3 Bar)
+        yellow: { dX: -540, dY: 320, rot: 90, flipX: -1 },  // Socket 3 (Golden Yellow L)
+        green:  { dX: -75,  dY: 425, rot: 0,  flipX: 1 }    // Socket 4 (Lime Green Lemon Z)
+      };
+      let isPlayingAnim = false;
+
+      function calculateVectorTargets() {
+        // Constant exact grid cell vectors, no DOM measurement needed
+      }
+
+      function updateScrollProgress(p) {
+        const progress = Math.min(1, Math.max(0, p));
+        const pct = Math.round(progress * 100);
+
+        if (btnStateA && btnStateB) {
+          btnStateA.classList.toggle('active', pct === 0);
+          btnStateB.classList.toggle('active', pct === 100);
+        }
+
+        if (!vectorTargets) calculateVectorTargets();
+
+        // WAVE 1 (0% -> 50% Scroll Progress): Next.js Bar & Golden Yellow L (Nearest Pair)
+        const tWave1 = Math.min(1, Math.max(0, progress / 0.5));
+
+        // 1. Next.js Bar (Wave 1)
+        if (airNext && vectorTargets.next) {
+          const xNext = tWave1 * vectorTargets.next.dX;
+          const yNext = tWave1 * vectorTargets.next.dY;
+          const rotNext = -16 * (1 - tWave1);
+          airNext.style.transform = `translate3d(${xNext}px, ${yNext}px, 0) rotate(${rotNext}deg)`;
+        }
+
+        // 2. Golden Yellow L-Piece (Wave 1 - Mid-air rotation past CTA zone)
+        if (airYellow && vectorTargets.yellow) {
+          const xYellow = tWave1 * vectorTargets.yellow.dX;
+          const yYellow = tWave1 * vectorTargets.yellow.dY;
+          let rotYellow = 0;
+          let flipX = 1;
+
+          if (tWave1 <= 0.40) {
+            // Mid-air spin & flip as it glides past CTA buttons (22° -> 90°)
+            const norm = tWave1 / 0.40;
+            rotYellow = 22 + (norm * 68);
+            flipX = 1 - (norm * 2);
+          } else {
+            // Settles smoothly into Socket 3 (90° -> 0°)
+            const norm = (tWave1 - 0.40) / 0.60;
+            rotYellow = 90 * (1 - norm);
+            flipX = -1 + (norm * 2);
+          }
+          airYellow.style.transform = `translate3d(${xYellow}px, ${yYellow}px, 0) rotate(${rotYellow}deg) scaleX(${flipX})`;
+        }
+
+        // WAVE 2 (50% -> 100% Scroll Progress): WooCommerce L & Lime Green Z
+        const tWave2 = Math.min(1, Math.max(0, (progress - 0.5) / 0.5));
+
+        // 3. WooCommerce Purple L-Piece (Wave 2)
+        if (airWoo && vectorTargets.woo) {
+          const xWoo = tWave2 * vectorTargets.woo.dX;
+          const yWoo = tWave2 * vectorTargets.woo.dY;
+          const rotWoo = -10 * (1 - tWave2);
+          airWoo.style.transform = `translate3d(${xWoo}px, ${yWoo}px, 0) rotate(${rotWoo}deg)`;
+        }
+
+        // 4. Lime Green Lemon Z-Piece (Wave 2)
+        if (airGreen && vectorTargets.green) {
+          const xGreen = tWave2 * vectorTargets.green.dX;
+          const yGreen = tWave2 * vectorTargets.green.dY;
+          const rotGreen = 12 * (1 - tWave2);
+          airGreen.style.transform = `translate3d(${xGreen}px, ${yGreen}px, 0) rotate(${rotGreen}deg)`;
+        }
+
+        // Handle Docked Sockets Opacity at 100%
+        const isFullyAssembled = progress >= 0.99;
+        [sockWoo, sockNext, sockYellow, sockGreen].forEach(s => {
+          if (!s) return;
+          s.style.opacity = isFullyAssembled ? '1' : '0';
+        });
+
+        if (hudStatus) {
+          if (progress === 0) {
+            hudStatus.textContent = 'STATE A (0% SCROLL): 4 AIRBORNE FLOATING BLOCKS HOVERING IN SPACE';
+          } else if (progress < 0.5) {
+            hudStatus.textContent = `📜 WAVE 1 SCROLL (${pct}%): NEXT.JS & GOLDEN YELLOW L GLIDING... MID-AIR ROTATION PAST CTA ZONE!`;
+          } else if (progress < 1.0) {
+            hudStatus.textContent = `📜 WAVE 2 SCROLL (${pct}%): WOOCOMMERCE & LIME GREEN Z DESCENDING INTO RESTING SOCKETS...`;
+          } else {
+            hudStatus.textContent = 'STATE B (100% SCROLL): ALL 4 BLOCKS DOCKED FLUSH INTO MATRIX RESTING SOCKETS!';
+          }
+        }
+      }
+
+      // Bind Page Scroll Directly to Animate DOM Blocks
+      window.addEventListener('scroll', () => {
+        if (isPlayingAnim) return;
+        const track = document.getElementById('heroScrollTrack');
+        if (!track) return;
+        const rect = track.getBoundingClientRect();
+        const winH = window.innerHeight;
+        const totalDist = rect.height - winH;
+        if (totalDist <= 0) return;
+        const scrolled = -rect.top;
+        const p = Math.min(1, Math.max(0, scrolled / totalDist));
+        updateScrollProgress(p);
+      });
+
+      // Play Direct DOM Motion Function (Smooth 2.5s Auto Play)
+      window.playDirectDOMAnimation = function() {
+        if (isPlayingAnim) return;
+        isPlayingAnim = true;
+        
+        let startVal = 0;
+        const duration = 2400; // 2.4 seconds smooth ease
+        const startTime = performance.now();
+
+        function step(now) {
+          const elapsed = now - startTime;
+          const p = Math.min(1, elapsed / duration);
+          // Smooth Easing (cubic-bezier easeInOut)
+          const easeP = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+          updateScrollProgress(easeP);
+
+          if (p < 1) {
+            requestAnimationFrame(step);
+          } else {
+            isPlayingAnim = false;
+          }
+        }
+
+        requestAnimationFrame(step);
+      };
+
+      // Window Resize Listener
+      window.addEventListener('resize', () => {
+        calculateVectorTargets();
+        updateScrollProgress(0);
+      });
+
+      // Override global setMode to update progress directly
+      window.setMode = function(mode) {
+        document.body.className = mode === '100' ? 'mode-100' : 'mode-70';
+        const targetP = mode === '100' ? 1.0 : 0.0;
+        updateScrollProgress(targetP);
+      };
+
+      // Toggle Floating Viewport Path Calibrator HUD
+      window.toggleCalibratorHUD = function() {
+        const hud = document.getElementById('floatingCalibHUD');
+        if (hud) {
+          const isHidden = hud.style.display === 'none';
+          hud.style.display = isHidden ? 'block' : 'none';
+        }
+      };
+
+      // ════════════════════════════════════════════════════════════════
+      // INTERACTIVE MOUSE DRAG & LIVE PATH CALIBRATOR ENGINE
+      // ════════════════════════════════════════════════════════════════
+      let activeDragPiece = null;
+      let dragStartX = 0, dragStartY = 0;
+      let initialPieceX = 0, initialPieceY = 0;
+
+      const liveCalibData = {
+        woo:    { dX: 148,  dY: 469, rot: 0,  flipX: 1 },
+        next:   { dX: 168,  dY: 332, rot: 0,  flipX: 1 },
+        yellow: { dX: -540, dY: 320, rot: 90, flipX: -1 },
+        green:  { dX: -75,  dY: 425, rot: 0,  flipX: 1 }
+      };
+
+      function updateLiveHUDDisplay() {
+        const hudNext = document.getElementById('hudNextVal');
+        const hudYellow = document.getElementById('hudYellowVal');
+        const hudWoo = document.getElementById('hudWooVal');
+        const hudGreen = document.getElementById('hudGreenVal');
+
+        if (hudNext) hudNext.textContent = `dX: ${Math.round(liveCalibData.next.dX)}px | dY: ${Math.round(liveCalibData.next.dY)}px | Rot: ${liveCalibData.next.rot}°`;
+        if (hudYellow) hudYellow.textContent = `dX: ${Math.round(liveCalibData.yellow.dX)}px | dY: ${Math.round(liveCalibData.yellow.dY)}px | Rot: ${liveCalibData.yellow.rot}° | Flip: ${liveCalibData.yellow.flipX}`;
+        if (hudWoo) hudWoo.textContent = `dX: ${Math.round(liveCalibData.woo.dX)}px | dY: ${Math.round(liveCalibData.woo.dY)}px | Rot: ${liveCalibData.woo.rot}°`;
+        if (hudGreen) hudGreen.textContent = `dX: ${Math.round(liveCalibData.green.dX)}px | dY: ${Math.round(liveCalibData.green.dY)}px | Rot: ${liveCalibData.green.rot}°`;
+      }
+
+      function getKeyForPiece(piece) {
+        if (piece === airNext) return 'next';
+        if (piece === airYellow) return 'yellow';
+        if (piece === airWoo) return 'woo';
+        if (piece === airGreen) return 'green';
+        return null;
+      }
+
+      [airWoo, airNext, airYellow, airGreen].forEach(piece => {
+        if (!piece) return;
+
+        piece.addEventListener('mousedown', (e) => {
+          activeDragPiece = piece;
+          dragStartX = e.clientX;
+          dragStartY = e.clientY;
+
+          const key = getKeyForPiece(piece);
+          if (key) {
+            initialPieceX = liveCalibData[key].dX;
+            initialPieceY = liveCalibData[key].dY;
+          }
+
+          document.body.style.userSelect = 'none';
+          e.preventDefault();
+        });
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!activeDragPiece) return;
+
+        const deltaX = e.clientX - dragStartX;
+        const deltaY = e.clientY - dragStartY;
+
+        const key = getKeyForPiece(activeDragPiece);
+        if (!key) return;
+
+        const newDX = initialPieceX + deltaX;
+        const newDY = initialPieceY + deltaY;
+
+        liveCalibData[key].dX = newDX;
+        liveCalibData[key].dY = newDY;
+
+        const rot = liveCalibData[key].rot || 0;
+        const flipX = liveCalibData[key].flipX || 1;
+
+        activeDragPiece.style.transform = `translate3d(${newDX}px, ${newDY}px, 0) rotate(${rot}deg) scaleX(${flipX})`;
+        updateLiveHUDDisplay();
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (activeDragPiece) {
+          activeDragPiece = null;
+          document.body.style.userSelect = '';
+        }
+      });
+
+      // Hotkey listeners: [R] to Rotate 90°, [F] to Flip Horizontally
+      window.addEventListener('keydown', (e) => {
+        if (!activeDragPiece) return;
+        const key = getKeyForPiece(activeDragPiece);
+        if (!key) return;
+
+        if (e.key === 'r' || e.key === 'R') {
+          liveCalibData[key].rot = (liveCalibData[key].rot + 90) % 360;
+        } else if (e.key === 'f' || e.key === 'F') {
+          liveCalibData[key].flipX = liveCalibData[key].flipX * -1;
+        }
+
+        const dX = liveCalibData[key].dX;
+        const dY = liveCalibData[key].dY;
+        const rot = liveCalibData[key].rot;
+        const flipX = liveCalibData[key].flipX;
+
+        activeDragPiece.style.transform = `translate3d(${dX}px, ${dY}px, 0) rotate(${rot}deg) scaleX(${flipX})`;
+        updateLiveHUDDisplay();
+      });
+
+      // Export live coordinates JSON
+      window.copyCalibratedCoordinates = function() {
+        const text = JSON.stringify(liveCalibData, null, 2);
+        navigator.clipboard.writeText(text).then(() => {
+          alert('Live calibrated trajectory keyframes copied to clipboard!\n\n' + text);
+        }).catch(() => {
+          alert('Live calibrated coordinates:\n\n' + text);
+        });
+      };
+
+      // ════════════════════════════════════════════════════════════════
+      // MAGNETIC HOVER MICRO-INTERACTION ENGINE
+      // ════════════════════════════════════════════════════════════════
+      const allPieces = document.querySelectorAll('.t-piece');
+      allPieces.forEach(piece => {
+        piece.addEventListener('mousemove', (e) => {
+          if (document.body.classList.contains('calibrator-active')) return;
+          const rect = piece.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          
+          const deltaX = (e.clientX - centerX) * 0.16; // Magnetic pull X
+          const deltaY = (e.clientY - centerY) * 0.16; // Magnetic pull Y
+
+          piece.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(1.03)`;
+          piece.style.boxShadow = '0 12px 32px rgba(0, 71, 225, 0.28)';
+          piece.style.transition = 'transform 0.1s ease-out, box-shadow 0.2s ease-out';
+          piece.style.zIndex = '999';
+        });
+
+        piece.addEventListener('mouseleave', () => {
+          if (document.body.classList.contains('calibrator-active')) return;
+          piece.style.transform = '';
+          piece.style.boxShadow = '';
+          piece.style.zIndex = '';
+          piece.style.transition = 'transform 0.4s ease-out, box-shadow 0.4s ease-out';
+        });
+      });
+
+      // Initial Setup
+      setTimeout(() => {
+        calculateVectorTargets();
+        updateScrollProgress(0);
+        updateLiveHUDDisplay();
+      }, 300);
+    });
+  
+  </script>
+
+  <!-- 3D TETRIS HERO MOTION ENGINE -->
+  <script>
+
+    let activePiece = null;
+
+    function setMode(mode) {
+      document.body.className = 'mode-' + mode;
+      const btns = document.querySelectorAll('.state-btn');
+      btns.forEach(btn => btn.classList.remove('active'));
+      if (mode === '70') btns[0].classList.add('active');
+      if (mode === '100') btns[1].classList.add('active');
+      
+      const status = document.getElementById('hudStatus');
+      if (status) {
+        status.textContent = mode === '70' ? 
+          'STATE A (70% IN-MOTION): BASE FLOOR BLOCKS RESTING + 4 AIRBORNE BLOCKS FLOATING ABOVE MATRIX' : 
+          'STATE B (100% ASSEMBLED): ALL 4 AIRBORNE BLOCKS DOCKED FLUSH INTO MATRIX MATCHING SCREENSHOT (INPUT_FILE_0.PNG)';
+      }
+    }
+
+    // ════════════════════════════════════════════════════════════════
+    // REAL-TIME CELL COLLISION DETECTION & ANTI-OVERLAY ENGINE
+    // ════════════════════════════════════════════════════════════════
+    document.addEventListener('DOMContentLoaded', () => {
+      const pieces = document.querySelectorAll('.t-piece');
+      const hudStatus = document.getElementById('hudStatus');
+
+      function getOccupiedMatrix(movingPiece) {
+        const matrix = Array.from({length: 18}, () => Array(8).fill(false));
+        const mode = document.body.className.includes('mode-100') ? '100' : '70';
+        
+        pieces.forEach(p => {
+          if (p === movingPiece) return;
+          
+          if (mode === '70' && p.classList.contains('docked-socket')) return;
+          if (mode === '100' && p.closest('.airborne-layer')) return;
+          if (p.offsetWidth === 0 || p.offsetHeight === 0) return;
+
+          const style = window.getComputedStyle(p);
+          const colStart = parseInt(p.dataset.col || style.gridColumnStart || '1');
+          const rowStart = parseInt(p.dataset.row || style.gridRowStart || '1');
+
+          const dX = Math.round((p._translateX || 0) / 56);
+          const dY = Math.round((p._translateY || 0) / 56);
+
+          const finalCol = colStart + dX;
+          const finalRow = rowStart + dY;
+
+          const cells = p.querySelectorAll('.t-cell');
+          cells.forEach(cell => {
+            if (cell.querySelector('.t-shape-body')) {
+              const cellColOffset = (parseInt(cell.style.gridColumn || '1') - 1);
+              const cellRowOffset = (parseInt(cell.style.gridRow || '1') - 1);
+
+              const c = finalCol + cellColOffset;
+              const r = finalRow + cellRowOffset;
+
+              if (c >= 1 && c <= 17 && r >= 1 && r <= 7) {
+                matrix[c][r] = true;
+              }
+            }
+          });
+        });
+
+        return matrix;
+      }
+
+      function checkCollision(piece, tx, ty) {
+        const matrix = getOccupiedMatrix(piece);
+        const style = window.getComputedStyle(piece);
+        const colStart = parseInt(piece.dataset.col || style.gridColumnStart || '1');
+        const rowStart = parseInt(piece.dataset.row || style.gridRowStart || '1');
+
+        const dX = Math.round(tx / 56);
+        const dY = Math.round(ty / 56);
+
+        const targetCol = colStart + dX;
+        const targetRow = rowStart + dY;
+
+        let hasCollision = false;
+
+        const cells = piece.querySelectorAll('.t-cell');
+        cells.forEach(cell => {
+          if (cell.querySelector('.t-shape-body')) {
+            const cellColOffset = (parseInt(cell.style.gridColumn || '1') - 1);
+            const cellRowOffset = (parseInt(cell.style.gridRow || '1') - 1);
+
+            const c = targetCol + cellColOffset;
+            const r = targetRow + cellRowOffset;
+
+            if (c < 1 || c > 17 || r < 1 || r > 7 || matrix[c][r]) {
+              hasCollision = true;
+            }
+          }
+        });
+
+        return hasCollision;
+      }
+
+      pieces.forEach(piece => {
+        if (!piece.dataset.rotation) piece.dataset.rotation = '0';
+        if (!piece.dataset.flipX) piece.dataset.flipX = '1';
+        if (!piece.dataset.flipY) piece.dataset.flipY = '1';
+
+        let isDragging = false;
+        let startX, startY;
+        let currentTranslateX = 0, currentTranslateY = 0;
+        let lastValidX = 0, lastValidY = 0;
+
+        const rotateBtn = piece.querySelector('.t-rotate-handle');
+        if (rotateBtn) {
+          rotateBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            rotatePiece(piece);
+          });
+        }
+
+        const flipHBtn = piece.querySelector('.t-fliph-handle');
+        if (flipHBtn) {
+          flipHBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            flipPieceHorizontal(piece);
+          });
+        }
+
+        const flipVBtn = piece.querySelector('.t-flipv-handle');
+        if (flipVBtn) {
+          flipVBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            flipPieceVertical(piece);
+          });
+        }
+
+        piece.addEventListener('dblclick', (e) => {
+          if (e.target.classList.contains('t-handle')) return;
+          e.stopPropagation();
+          rotatePiece(piece);
+        });
+
+        piece.addEventListener('pointerdown', (e) => {
+          if (e.target.classList.contains('t-handle')) return;
+          
+          pieces.forEach(p => p.classList.remove('is-selected', 'is-colliding'));
+          piece.classList.add('is-selected');
+          activePiece = piece;
+
+          isDragging = true;
+          piece.classList.add('is-dragging');
+          piece.setPointerCapture(e.pointerId);
+
+          startX = e.clientX - currentTranslateX;
+          startY = e.clientY - currentTranslateY;
+
+          updateHudState(piece, 'DRAGGING...');
+        });
+
+        piece.addEventListener('pointermove', (e) => {
+          if (!isDragging) return;
+          currentTranslateX = e.clientX - startX;
+          currentTranslateY = e.clientY - startY;
+
+          const isColliding = checkCollision(piece, currentTranslateX, currentTranslateY);
+
+          if (isColliding) {
+            piece.classList.add('is-colliding');
+            if (hudStatus) {
+              const name = (piece.dataset.name || 'Block').toUpperCase();
+              hudStatus.textContent = `WARNING: [${name}] COLLISION DETECTED — REJECTED (SOLID BLOCK BOUNDARY)`;
+            }
+          } else {
+            piece.classList.remove('is-colliding');
+            lastValidX = currentTranslateX;
+            lastValidY = currentTranslateY;
+            updateHudState(piece, 'DRAGGING...');
+          }
+
+          applyPieceTransform(
+            piece, 
+            currentTranslateX, 
+            currentTranslateY, 
+            parseInt(piece.dataset.rotation || '0'),
+            parseInt(piece.dataset.flipX || '1'),
+            parseInt(piece.dataset.flipY || '1')
+          );
+        });
+
+        const endDrag = (e) => {
+          if (!isDragging) return;
+          isDragging = false;
+          piece.classList.remove('is-dragging');
+          try { piece.releasePointerCapture(e.pointerId); } catch(err) {}
+
+          const isColliding = checkCollision(piece, currentTranslateX, currentTranslateY);
+
+          if (isColliding) {
+            currentTranslateX = lastValidX;
+            currentTranslateY = lastValidY;
+            applyPieceTransform(
+              piece, 
+              currentTranslateX, 
+              currentTranslateY, 
+              parseInt(piece.dataset.rotation || '0'),
+              parseInt(piece.dataset.flipX || '1'),
+              parseInt(piece.dataset.flipY || '1')
+            );
+            piece.classList.remove('is-colliding');
+            if (hudStatus) {
+              const name = (piece.dataset.name || 'Block').toUpperCase();
+              hudStatus.textContent = `PHYSICS SNAP: [${name}] LANDED ON SOLID SURFACE (OVERLAP PREVENTED)`;
+            }
+          } else {
+            updateHudState(piece, 'LANDED');
+          }
+        };
+
+        piece.addEventListener('pointerup', endDrag);
+        piece.addEventListener('pointercancel', endDrag);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!activePiece) return;
+        const key = e.key.toLowerCase();
+
+        if (key === 'r' || key === ' ') {
+          e.preventDefault();
+          rotatePiece(activePiece);
+        } else if (key === 'f' || key === 'h') {
+          e.preventDefault();
+          flipPieceHorizontal(activePiece);
+        } else if (key === 'v') {
+          e.preventDefault();
+          flipPieceVertical(activePiece);
+        }
+      });
+
+      function rotatePiece(piece) {
+        let currentRot = parseInt(piece.dataset.rotation || '0');
+        let newRot = (currentRot + 90) % 360;
+        piece.dataset.rotation = newRot.toString();
+
+        applyPieceTransform(
+          piece, 
+          piece._translateX || 0, 
+          piece._translateY || 0, 
+          newRot,
+          parseInt(piece.dataset.flipX || '1'),
+          parseInt(piece.dataset.flipY || '1')
+        );
+        updateHudState(piece, 'ROTATED 90°');
+      }
+
+      function flipPieceHorizontal(piece) {
+        let currentFlipX = parseInt(piece.dataset.flipX || '1');
+        let newFlipX = currentFlipX * -1;
+        piece.dataset.flipX = newFlipX.toString();
+
+        applyPieceTransform(
+          piece, 
+          piece._translateX || 0, 
+          piece._translateY || 0, 
+          parseInt(piece.dataset.rotation || '0'),
+          newFlipX,
+          parseInt(piece.dataset.flipY || '1')
+        );
+        updateHudState(piece, 'HORIZONTALLY FLIPPED');
+      }
+
+      function flipPieceVertical(piece) {
+        let currentFlipY = parseInt(piece.dataset.flipY || '1');
+        let newFlipY = currentFlipY * -1;
+        piece.dataset.flipY = newFlipY.toString();
+
+        applyPieceTransform(
+          piece, 
+          piece._translateX || 0, 
+          piece._translateY || 0, 
+          parseInt(piece.dataset.rotation || '0'),
+          parseInt(piece.dataset.flipX || '1'),
+          newFlipY
+        );
+        updateHudState(piece, 'VERTICALLY FLIPPED');
+      }
+
+      function applyPieceTransform(piece, tx, ty, rot, fx, fy) {
+        piece._translateX = tx;
+        piece._translateY = ty;
+        piece.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${rot}deg) scale(${fx}, ${fy})`;
+      }
+
+      function updateHudState(piece, actionText) {
+        if (!hudStatus) return;
+        const name = (piece.dataset.name || 'Block').toUpperCase();
+        const rot = piece.dataset.rotation || '0';
+        const fx = piece.dataset.flipX === '-1' ? 'H-FLIPPED' : 'NORMAL-H';
+        const fy = piece.dataset.flipY === '-1' ? 'V-FLIPPED' : 'NORMAL-V';
+        hudStatus.textContent = `ACTIVE: [${name}] | ROTATION: ${rot}° | FLIP: ${fx} / ${fy} | ACTION: ${actionText}`;
+      }
+
+      // ════════════════════════════════════════════════════════════════
+      // DIRECT DOM SCROLL & PLAY ANIMATION ENGINE
+      // ════════════════════════════════════════════════════════════════
+      const btnStateA = document.getElementById('btnStateA');
+      const btnStateB = document.getElementById('btnStateB');
+      const btnPlayDOM = document.getElementById('btnPlayDOM');
+
+      const airWoo = document.querySelector('.air-wp-purple');
+      const airNext = document.querySelector('.air-nextjs');
+      const airYellow = document.querySelector('.air-amber-l');
+      const airGreen = document.querySelector('.air-green-z');
+
+      const sockWoo = document.querySelector('.docked-socket[data-name="Purple WooCommerce L-Piece"]');
+      const sockNext = document.querySelector('.docked-socket[data-name="Next.js"]');
+      const sockYellow = document.querySelector('.docked-socket[data-name="Golden Yellow L"]');
+      const sockGreen = document.querySelector('.docked-socket[data-name="Lime Green Lemon Z"]');
+
+      // User-Calibrated 2D Trajectory Keyframe Vectors (Exact Visual Calibrator Output)
+      const vectorTargets = {
+        woo:    { dX: 148,  dY: 469, rot: 0,  flipX: 1 },   // Socket 1 (Purple WooCommerce L)
+        next:   { dX: 168,  dY: 332, rot: 0,  flipX: 1 },   // Socket 2 (Next.js 1x3 Bar)
+        yellow: { dX: -540, dY: 320, rot: 90, flipX: -1 },  // Socket 3 (Golden Yellow L)
+        green:  { dX: -75,  dY: 425, rot: 0,  flipX: 1 }    // Socket 4 (Lime Green Lemon Z)
+      };
+      let isPlayingAnim = false;
+
+      function calculateVectorTargets() {
+        // Constant exact grid cell vectors, no DOM measurement needed
+      }
+
+      function updateScrollProgress(p) {
+        const progress = Math.min(1, Math.max(0, p));
+        const pct = Math.round(progress * 100);
+
+        if (btnStateA && btnStateB) {
+          btnStateA.classList.toggle('active', pct === 0);
+          btnStateB.classList.toggle('active', pct === 100);
+        }
+
+        if (!vectorTargets) calculateVectorTargets();
+
+        // WAVE 1 (0% -> 50% Scroll Progress): Next.js Bar & Golden Yellow L (Nearest Pair)
+        const tWave1 = Math.min(1, Math.max(0, progress / 0.5));
+
+        // 1. Next.js Bar (Wave 1)
+        if (airNext && vectorTargets.next) {
+          const xNext = tWave1 * vectorTargets.next.dX;
+          const yNext = tWave1 * vectorTargets.next.dY;
+          const rotNext = -16 * (1 - tWave1);
+          airNext.style.transform = `translate3d(${xNext}px, ${yNext}px, 0) rotate(${rotNext}deg)`;
+        }
+
+        // 2. Golden Yellow L-Piece (Wave 1 - Mid-air rotation past CTA zone)
+        if (airYellow && vectorTargets.yellow) {
+          const xYellow = tWave1 * vectorTargets.yellow.dX;
+          const yYellow = tWave1 * vectorTargets.yellow.dY;
+          let rotYellow = 0;
+          let flipX = 1;
+
+          if (tWave1 <= 0.40) {
+            // Mid-air spin & flip as it glides past CTA buttons (22° -> 90°)
+            const norm = tWave1 / 0.40;
+            rotYellow = 22 + (norm * 68);
+            flipX = 1 - (norm * 2);
+          } else {
+            // Settles smoothly into Socket 3 (90° -> 0°)
+            const norm = (tWave1 - 0.40) / 0.60;
+            rotYellow = 90 * (1 - norm);
+            flipX = -1 + (norm * 2);
+          }
+          airYellow.style.transform = `translate3d(${xYellow}px, ${yYellow}px, 0) rotate(${rotYellow}deg) scaleX(${flipX})`;
+        }
+
+        // WAVE 2 (50% -> 100% Scroll Progress): WooCommerce L & Lime Green Z
+        const tWave2 = Math.min(1, Math.max(0, (progress - 0.5) / 0.5));
+
+        // 3. WooCommerce Purple L-Piece (Wave 2)
+        if (airWoo && vectorTargets.woo) {
+          const xWoo = tWave2 * vectorTargets.woo.dX;
+          const yWoo = tWave2 * vectorTargets.woo.dY;
+          const rotWoo = -10 * (1 - tWave2);
+          airWoo.style.transform = `translate3d(${xWoo}px, ${yWoo}px, 0) rotate(${rotWoo}deg)`;
+        }
+
+        // 4. Lime Green Lemon Z-Piece (Wave 2)
+        if (airGreen && vectorTargets.green) {
+          const xGreen = tWave2 * vectorTargets.green.dX;
+          const yGreen = tWave2 * vectorTargets.green.dY;
+          const rotGreen = 12 * (1 - tWave2);
+          airGreen.style.transform = `translate3d(${xGreen}px, ${yGreen}px, 0) rotate(${rotGreen}deg)`;
+        }
+
+        // Handle Docked Sockets Opacity at 100%
+        const isFullyAssembled = progress >= 0.99;
+        [sockWoo, sockNext, sockYellow, sockGreen].forEach(s => {
+          if (!s) return;
+          s.style.opacity = isFullyAssembled ? '1' : '0';
+        });
+
+        if (hudStatus) {
+          if (progress === 0) {
+            hudStatus.textContent = 'STATE A (0% SCROLL): 4 AIRBORNE FLOATING BLOCKS HOVERING IN SPACE';
+          } else if (progress < 0.5) {
+            hudStatus.textContent = `📜 WAVE 1 SCROLL (${pct}%): NEXT.JS & GOLDEN YELLOW L GLIDING... MID-AIR ROTATION PAST CTA ZONE!`;
+          } else if (progress < 1.0) {
+            hudStatus.textContent = `📜 WAVE 2 SCROLL (${pct}%): WOOCOMMERCE & LIME GREEN Z DESCENDING INTO RESTING SOCKETS...`;
+          } else {
+            hudStatus.textContent = 'STATE B (100% SCROLL): ALL 4 BLOCKS DOCKED FLUSH INTO MATRIX RESTING SOCKETS!';
+          }
+        }
+      }
+
+      // Bind Page Scroll Directly to Animate DOM Blocks
+      window.addEventListener('scroll', () => {
+        if (isPlayingAnim) return;
+        const track = document.getElementById('heroScrollTrack');
+        if (!track) return;
+        const rect = track.getBoundingClientRect();
+        const winH = window.innerHeight;
+        const totalDist = rect.height - winH;
+        if (totalDist <= 0) return;
+        const scrolled = -rect.top;
+        const p = Math.min(1, Math.max(0, scrolled / totalDist));
+        updateScrollProgress(p);
+      });
+
+      // Play Direct DOM Motion Function (Smooth 2.5s Auto Play)
+      window.playDirectDOMAnimation = function() {
+        if (isPlayingAnim) return;
+        isPlayingAnim = true;
+        
+        let startVal = 0;
+        const duration = 2400; // 2.4 seconds smooth ease
+        const startTime = performance.now();
+
+        function step(now) {
+          const elapsed = now - startTime;
+          const p = Math.min(1, elapsed / duration);
+          // Smooth Easing (cubic-bezier easeInOut)
+          const easeP = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+          updateScrollProgress(easeP);
+
+          if (p < 1) {
+            requestAnimationFrame(step);
+          } else {
+            isPlayingAnim = false;
+          }
+        }
+
+        requestAnimationFrame(step);
+      };
+
+      // Window Resize Listener
+      window.addEventListener('resize', () => {
+        calculateVectorTargets();
+        updateScrollProgress(0);
+      });
+
+      // Override global setMode to update progress directly
+      window.setMode = function(mode) {
+        document.body.className = mode === '100' ? 'mode-100' : 'mode-70';
+        const targetP = mode === '100' ? 1.0 : 0.0;
+        updateScrollProgress(targetP);
+      };
+
+      // Toggle Floating Viewport Path Calibrator HUD
+      window.toggleCalibratorHUD = function() {
+        const hud = document.getElementById('floatingCalibHUD');
+        if (hud) {
+          const isHidden = hud.style.display === 'none';
+          hud.style.display = isHidden ? 'block' : 'none';
+        }
+      };
+
+      // ════════════════════════════════════════════════════════════════
+      // INTERACTIVE MOUSE DRAG & LIVE PATH CALIBRATOR ENGINE
+      // ════════════════════════════════════════════════════════════════
+      let activeDragPiece = null;
+      let dragStartX = 0, dragStartY = 0;
+      let initialPieceX = 0, initialPieceY = 0;
+
+      const liveCalibData = {
+        woo:    { dX: 148,  dY: 469, rot: 0,  flipX: 1 },
+        next:   { dX: 168,  dY: 332, rot: 0,  flipX: 1 },
+        yellow: { dX: -540, dY: 320, rot: 90, flipX: -1 },
+        green:  { dX: -75,  dY: 425, rot: 0,  flipX: 1 }
+      };
+
+      function updateLiveHUDDisplay() {
+        const hudNext = document.getElementById('hudNextVal');
+        const hudYellow = document.getElementById('hudYellowVal');
+        const hudWoo = document.getElementById('hudWooVal');
+        const hudGreen = document.getElementById('hudGreenVal');
+
+        if (hudNext) hudNext.textContent = `dX: ${Math.round(liveCalibData.next.dX)}px | dY: ${Math.round(liveCalibData.next.dY)}px | Rot: ${liveCalibData.next.rot}°`;
+        if (hudYellow) hudYellow.textContent = `dX: ${Math.round(liveCalibData.yellow.dX)}px | dY: ${Math.round(liveCalibData.yellow.dY)}px | Rot: ${liveCalibData.yellow.rot}° | Flip: ${liveCalibData.yellow.flipX}`;
+        if (hudWoo) hudWoo.textContent = `dX: ${Math.round(liveCalibData.woo.dX)}px | dY: ${Math.round(liveCalibData.woo.dY)}px | Rot: ${liveCalibData.woo.rot}°`;
+        if (hudGreen) hudGreen.textContent = `dX: ${Math.round(liveCalibData.green.dX)}px | dY: ${Math.round(liveCalibData.green.dY)}px | Rot: ${liveCalibData.green.rot}°`;
+      }
+
+      function getKeyForPiece(piece) {
+        if (piece === airNext) return 'next';
+        if (piece === airYellow) return 'yellow';
+        if (piece === airWoo) return 'woo';
+        if (piece === airGreen) return 'green';
+        return null;
+      }
+
+      [airWoo, airNext, airYellow, airGreen].forEach(piece => {
+        if (!piece) return;
+
+        piece.addEventListener('mousedown', (e) => {
+          activeDragPiece = piece;
+          dragStartX = e.clientX;
+          dragStartY = e.clientY;
+
+          const key = getKeyForPiece(piece);
+          if (key) {
+            initialPieceX = liveCalibData[key].dX;
+            initialPieceY = liveCalibData[key].dY;
+          }
+
+          document.body.style.userSelect = 'none';
+          e.preventDefault();
+        });
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!activeDragPiece) return;
+
+        const deltaX = e.clientX - dragStartX;
+        const deltaY = e.clientY - dragStartY;
+
+        const key = getKeyForPiece(activeDragPiece);
+        if (!key) return;
+
+        const newDX = initialPieceX + deltaX;
+        const newDY = initialPieceY + deltaY;
+
+        liveCalibData[key].dX = newDX;
+        liveCalibData[key].dY = newDY;
+
+        const rot = liveCalibData[key].rot || 0;
+        const flipX = liveCalibData[key].flipX || 1;
+
+        activeDragPiece.style.transform = `translate3d(${newDX}px, ${newDY}px, 0) rotate(${rot}deg) scaleX(${flipX})`;
+        updateLiveHUDDisplay();
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (activeDragPiece) {
+          activeDragPiece = null;
+          document.body.style.userSelect = '';
+        }
+      });
+
+      // Hotkey listeners: [R] to Rotate 90°, [F] to Flip Horizontally
+      window.addEventListener('keydown', (e) => {
+        if (!activeDragPiece) return;
+        const key = getKeyForPiece(activeDragPiece);
+        if (!key) return;
+
+        if (e.key === 'r' || e.key === 'R') {
+          liveCalibData[key].rot = (liveCalibData[key].rot + 90) % 360;
+        } else if (e.key === 'f' || e.key === 'F') {
+          liveCalibData[key].flipX = liveCalibData[key].flipX * -1;
+        }
+
+        const dX = liveCalibData[key].dX;
+        const dY = liveCalibData[key].dY;
+        const rot = liveCalibData[key].rot;
+        const flipX = liveCalibData[key].flipX;
+
+        activeDragPiece.style.transform = `translate3d(${dX}px, ${dY}px, 0) rotate(${rot}deg) scaleX(${flipX})`;
+        updateLiveHUDDisplay();
+      });
+
+      // Export live coordinates JSON
+      window.copyCalibratedCoordinates = function() {
+        const text = JSON.stringify(liveCalibData, null, 2);
+        navigator.clipboard.writeText(text).then(() => {
+          alert('Live calibrated trajectory keyframes copied to clipboard!\n\n' + text);
+        }).catch(() => {
+          alert('Live calibrated coordinates:\n\n' + text);
+        });
+      };
+
+      // ════════════════════════════════════════════════════════════════
+      // MAGNETIC HOVER MICRO-INTERACTION ENGINE
+      // ════════════════════════════════════════════════════════════════
+      const allPieces = document.querySelectorAll('.t-piece');
+      allPieces.forEach(piece => {
+        piece.addEventListener('mousemove', (e) => {
+          if (document.body.classList.contains('calibrator-active')) return;
+          const rect = piece.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          
+          const deltaX = (e.clientX - centerX) * 0.16; // Magnetic pull X
+          const deltaY = (e.clientY - centerY) * 0.16; // Magnetic pull Y
+
+          piece.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(1.03)`;
+          piece.style.boxShadow = '0 12px 32px rgba(0, 71, 225, 0.28)';
+          piece.style.transition = 'transform 0.1s ease-out, box-shadow 0.2s ease-out';
+          piece.style.zIndex = '999';
+        });
+
+        piece.addEventListener('mouseleave', () => {
+          if (document.body.classList.contains('calibrator-active')) return;
+          piece.style.transform = '';
+          piece.style.boxShadow = '';
+          piece.style.zIndex = '';
+          piece.style.transition = 'transform 0.4s ease-out, box-shadow 0.4s ease-out';
+        });
+      });
+
+      // Initial Setup
+      setTimeout(() => {
+        calculateVectorTargets();
+        updateScrollProgress(0);
+        updateLiveHUDDisplay();
+      }, 300);
+    });
+  
   </script>
 </body>
 </html>

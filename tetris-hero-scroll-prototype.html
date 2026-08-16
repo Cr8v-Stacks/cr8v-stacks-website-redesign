@@ -1766,6 +1766,35 @@
         });
       };
 
+      // ════════════════════════════════════════════════════════════════
+      // MAGNETIC HOVER MICRO-INTERACTION ENGINE
+      // ════════════════════════════════════════════════════════════════
+      const allPieces = document.querySelectorAll('.t-piece');
+      allPieces.forEach(piece => {
+        piece.addEventListener('mousemove', (e) => {
+          if (document.body.classList.contains('calibrator-active')) return;
+          const rect = piece.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          
+          const deltaX = (e.clientX - centerX) * 0.16; // Magnetic pull X
+          const deltaY = (e.clientY - centerY) * 0.16; // Magnetic pull Y
+
+          piece.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(1.03)`;
+          piece.style.boxShadow = '0 12px 32px rgba(0, 71, 225, 0.28)';
+          piece.style.transition = 'transform 0.1s ease-out, box-shadow 0.2s ease-out';
+          piece.style.zIndex = '999';
+        });
+
+        piece.addEventListener('mouseleave', () => {
+          if (document.body.classList.contains('calibrator-active')) return;
+          piece.style.transform = '';
+          piece.style.boxShadow = '';
+          piece.style.zIndex = '';
+          piece.style.transition = 'transform 0.4s ease-out, box-shadow 0.4s ease-out';
+        });
+      });
+
       // Initial Setup
       setTimeout(() => {
         calculateVectorTargets();
