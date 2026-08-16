@@ -654,10 +654,11 @@
   </div>
 
   <!-- ════════════════════════════════════════════════════════════════
-       MAIN HERO SECTION PREVIEW (INTERLOCKING 3D TETRIS MATRIX)
+       MAIN HERO SECTION PREVIEW (PINNED SCROLL TRACK)
        ════════════════════════════════════════════════════════════════ -->
-  <section class="hero-arena-section">
-    <div class="hero-arena-container">
+  <div class="hero-scroll-track" id="heroScrollTrack" style="height: 250vh; position: relative; margin-bottom: 2rem;">
+    <section class="hero-arena-section" style="position: sticky; top: 85px; z-index: 100;">
+      <div class="hero-arena-container">
       
       <!-- Embedded Hero Written Content Overlay (Upper-Center Space) -->
       <div class="hero-content-overlay">
@@ -935,6 +936,7 @@
 
     </div>
   </section>
+  </div>
 
   <!-- Live Matrix Coordinate HUD Status Bar -->
   <div class="matrix-hud">
@@ -1585,9 +1587,17 @@
         }
       }
 
+      let isUserScrubbing = false;
+
       // Range Scrubber Listener
       if (scrollScrubber) {
+        scrollScrubber.addEventListener('mousedown', () => { isUserScrubbing = true; });
+        scrollScrubber.addEventListener('touchstart', () => { isUserScrubbing = true; });
+        window.addEventListener('mouseup', () => { setTimeout(() => { isUserScrubbing = false; }, 200); });
+        window.addEventListener('touchend', () => { setTimeout(() => { isUserScrubbing = false; }, 200); });
+
         scrollScrubber.addEventListener('input', (e) => {
+          isUserScrubbing = true;
           const p = parseInt(e.target.value) / 100;
           updateScrollProgress(p);
         });
@@ -1600,18 +1610,18 @@
         updateScrollProgress(p);
       });
 
-      // Bind page scroll to animate as user scrolls hero section
+      // Bind page scroll to animate as user scrolls hero section track
       window.addEventListener('scroll', () => {
-        const heroSec = document.querySelector('.hero-arena-section');
-        if (!heroSec) return;
-        const rect = heroSec.getBoundingClientRect();
+        if (isUserScrubbing) return;
+        const track = document.getElementById('heroScrollTrack');
+        if (!track) return;
+        const rect = track.getBoundingClientRect();
         const winH = window.innerHeight;
-        const totalDist = rect.height;
-        const currentDist = winH - rect.top;
-        if (currentDist >= 0 && currentDist <= totalDist + winH) {
-          const p = Math.min(1, Math.max(0, currentDist / (totalDist + 300)));
-          updateScrollProgress(p);
-        }
+        const totalHeight = rect.height - winH;
+        if (totalHeight <= 0) return;
+        const scrolled = -rect.top;
+        const p = Math.min(1, Math.max(0, scrolled / totalHeight));
+        updateScrollProgress(p);
       });
 
       // Override global setMode to update scrubber smoothly
