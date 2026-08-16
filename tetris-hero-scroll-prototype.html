@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CR8V Stacks — 3D Tetris Hero System (Smooth Block Aesthetics)</title>
+  <title>CR8V Stacks — 3D Tetris Hero System</title>
   
   <!-- Brand Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +32,7 @@
       --font-mono: 'Space Mono', monospace;
       
       --u: 56px;            /* Standardized 1x1 Tetris Module Scale */
-      --block-radius: 8px;  /* SMOOTH 8PX CORNER RADIUS */
+      --block-radius: 2px;  /* STRICT 2PX CORNER RADIUS RESTORED */
     }
 
     * {
@@ -154,7 +154,7 @@
       position: relative;
       user-select: none;
       background: transparent !important; /* 100% TRANSPARENT CONTAINER BOUNDING */
-      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12));
+      filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.16));
       transition: transform 0.2s ease, filter 0.2s ease, opacity 0.3s ease;
       cursor: grab;
       touch-action: none;
@@ -169,7 +169,7 @@
     .t-piece.is-selected {
       outline: 2px dashed var(--c8-blue);
       outline-offset: 3px;
-      border-radius: 10px;
+      border-radius: 4px;
     }
 
     /* Red Collision Alert Highlight */
@@ -227,14 +227,13 @@
       position: relative;
       width: 100%;
       height: 100%;
-      border-radius: var(--block-radius, 8px);
+      border-radius: var(--block-radius, 2px);
       box-shadow: 
-        inset 1px 1px 2px rgba(255, 255, 255, 0.35),
-        inset -1px -1px 2px rgba(0, 0, 0, 0.25);
+        inset 1.5px 1.5px 3px rgba(255, 255, 255, 0.40),
+        inset -1.5px -1.5px 3px rgba(0, 0, 0, 0.32);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s ease;
     }
 
     /* Tone Classes Applied ONLY to Active Shape Sub-Cells */
@@ -244,8 +243,8 @@
       background: var(--block-light-grey); 
       color: #111111;
       box-shadow: 
-        inset 1px 1px 2px rgba(255, 255, 255, 0.85),
-        inset -1px -1px 2px rgba(0, 0, 0, 0.12);
+        inset 1.5px 1.5px 3px rgba(255, 255, 255, 0.85),
+        inset -1.5px -1.5px 3px rgba(0, 0, 0, 0.16);
     }
     .tone-purple { background: var(--block-purple); color: #FFFFFF; }
     .tone-terracotta { background: var(--block-terracotta); color: #FFFFFF; }
@@ -254,22 +253,22 @@
     .tone-lime-green { background: var(--block-lime-green); color: #FFFFFF; }
     .tone-sand-beige { background: var(--block-sand-beige); color: #111111; }
 
-    /* Ultra-Subtle Smooth Internal Seam Lines */
+    /* Internal Seam Lines */
     .t-seam-h {
       position: absolute;
-      left: 4px; right: 4px; bottom: -1px;
+      left: 2px; right: 2px; bottom: -1px;
       height: 1px;
-      background: rgba(0, 0, 0, 0.08);
-      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.16);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.16);
       z-index: 3;
       pointer-events: none;
     }
     .t-seam-v {
       position: absolute;
-      top: 4px; bottom: 4px; right: -1px;
+      top: 2px; bottom: 2px; right: -1px;
       width: 1px;
-      background: rgba(0, 0, 0, 0.08);
-      box-shadow: 1px 0 0 rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.16);
+      box-shadow: 1px 0 0 rgba(255, 255, 255, 0.16);
       z-index: 3;
       pointer-events: none;
     }
@@ -552,7 +551,7 @@
   <header class="catalog-header">
     <div class="catalog-eyebrow">// MASTER PROMPT SPECIFICATION — 3D TETRIS MODULAR HERO SYSTEM</div>
     <h1 class="catalog-h1">CR8V Stacks 3D Tetris Hero System</h1>
-    <p class="catalog-desc">Smooth Block Aesthetics: 8px Radius, Soft Lighting Bevels & Sleek Modern Surface Finish.</p>
+    <p class="catalog-desc">Exact Master Specification Restored: 2px Corner Radius & Crisp 3D Bevel Lighting.</p>
   </header>
 
   <!-- Motion Controller Bar -->
@@ -615,7 +614,7 @@
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #111; font-size: 0.72rem;">WEB DESIGN</div>
           </div>
 
-          <!-- 3. Custom Development (Base Floor Block - Cols 5-8, Row 7 - SMOOTH FINISH) -->
+          <!-- 3. Custom Development (Base Floor Block - Cols 5-8, Row 7 - WHITE TEXT) -->
           <div class="t-piece" data-name="Custom Development" data-col="5" data-row="7" style="grid-column: 5 / span 4; grid-row: 7; display:grid; grid-template-columns: repeat(4, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -627,7 +626,7 @@
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; align-items: center; justify-content: center; color: #FFFFFF;">CUSTOM DEVELOPMENT</div>
           </div>
 
-          <!-- 4. AI MVP (Base Floor Block - Cols 7-8, Rows 5-6 - SOLID 2x2 BOX - SMOOTH FINISH) -->
+          <!-- 4. AI MVP (Base Floor Block - Cols 7-8, Rows 5-6 - SOLID 2x2 BOX - WHITE TEXT) -->
           <div class="t-piece" data-name="AI MVP" data-col="7" data-row="5" style="grid-column: 7 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -639,7 +638,7 @@
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #FFFFFF;">AI MVP</div>
           </div>
 
-          <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7 - SMOOTH FINISH) -->
+          <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7 - WHITE LOGO & TEXT) -->
           <div class="t-piece" data-name="Shopify" data-col="9" data-row="7" style="grid-column: 9 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -711,7 +710,7 @@
             </div>
           </div>
 
-          <!-- 10. Claude (Base Floor Block - Col 15, Rows 6-7 - SMOOTH FINISH) -->
+          <!-- 10. Claude (Base Floor Block - Col 15, Rows 6-7 - PERFECT 56px MATRIX GRID SCALE) -->
           <div class="t-piece" data-name="Claude" data-col="15" data-row="6" style="grid-column: 15; grid-row: 6 / span 2; display:grid; grid-template-columns: var(--u); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -728,7 +727,7 @@
                THE 4 DOCKED SOCKETS (HIDDEN IN STATE A, VISIBLE IN STATE B)
                ════════════════════════════════════════════════════════════ -->
 
-          <!-- Docked Socket 1: Purple WooCommerce Flipped 2x3 L-Piece (Cols 1-2, Rows 5-7) -->
+          <!-- Docked Socket 1: Purple WooCommerce Flipped 2x3 L-Piece (Cols 1-2, Rows 5-7 - WOOCOMMERCE LIGHT NATIVE SVG LOGO WITHOUT FILTER) -->
           <div class="t-piece docked-socket" data-name="Purple WooCommerce L-Piece" data-col="1" data-row="5" style="grid-column: 1 / span 2; grid-row: 5 / span 3; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
