@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CR8V Stacks — 3D Tetris Hero System (AI MVP Solid Box Shape)</title>
+  <title>CR8V Stacks — 3D Tetris Hero System (Claude Cell Misconfiguration Fix)</title>
   
   <!-- Brand Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,12 +16,12 @@
       --block-obsidian: #141414;      /* OpenAI, Shopify, Claude */
       --block-royal-blue: #0D52E0;    /* Custom Development, Next.js, AI MVP */
       --block-light-grey: #E5E4DE;    /* Web Design, WordPress */
-      --block-purple: #5C32BD;        /* Structural Tetris Step/L Filler */
+      --block-purple: #5C32BD;        /* WooCommerce Purple Step/L Filler */
       --block-terracotta: #E85A1C;    /* Elementor */
-      --block-golden-yellow: #EAB308;/* Structural Tetris Step/L Filler */
+      --block-golden-yellow: #EAB308;/* Golden Yellow L Filler */
       --block-forest-green: #1E7D34;  /* Figma */
       --block-lime-green: #6E9C26;    /* Structural Tetris Step/L Filler */
-      --block-sand-beige: #D9C5A0;    /* Content Writing */
+      --block-sand-beige: #D9C5A0;    /* Python Sand Beige */
       
       --c8-blue: #0047E1;
       --c8-ink: #080808;
@@ -216,8 +216,8 @@
     .t-flipv-handle  { bottom: -12px; left: -12px; }
 
     .t-cell {
-      width: var(--cw, var(--u, 56px));
-      height: var(--ch, var(--u, 56px));
+      width: var(--u, 56px);
+      height: var(--u, 56px);
       position: relative;
       box-sizing: border-box;
       background: transparent;
@@ -551,7 +551,7 @@
   <header class="catalog-header">
     <div class="catalog-eyebrow">// MASTER PROMPT SPECIFICATION — 3D TETRIS MODULAR HERO SYSTEM</div>
     <h1 class="catalog-h1">CR8V Stacks 3D Tetris Hero System</h1>
-    <p class="catalog-desc">AI MVP Converted to Solid 2x2 Box Shape + Real-Time Anti-Overlap Physics Engine.</p>
+    <p class="catalog-desc">Claude Cell Misconfiguration Fix: Sub-Cells & Label Bounds Standardized to Exact Matrix Scale (56px).</p>
   </header>
 
   <!-- Motion Controller Bar -->
@@ -615,7 +615,7 @@
           </div>
 
           <!-- 3. Custom Development (Base Floor Block - Cols 5-8, Row 7) -->
-          <div class="t-piece" data-name="Custom Development" data-col="5" data-row="7" style="grid-column: 5 / span 4; grid-row: 7; display:grid; grid-template-columns: repeat(4, var(--u)); grid-template-rows: var(--ch, 76px); --ch: 76px;">
+          <div class="t-piece" data-name="Custom Development" data-col="5" data-row="7" style="grid-column: 5 / span 4; grid-row: 7; display:grid; grid-template-columns: repeat(4, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -638,17 +638,17 @@
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center;">AI MVP</div>
           </div>
 
-          <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7) -->
-          <div class="t-piece" data-name="Shopify" data-col="9" data-row="7" style="grid-column: 9 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--ch, 76px); --ch: 76px;">
+          <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7 - WHITE LOGO & WHITE TEXT) -->
+          <div class="t-piece" data-name="Shopify" data-col="9" data-row="7" style="grid-column: 9 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
             <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
             <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
             <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-obsidian"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; align-items: center; justify-content: center;">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg" alt="Shopify CDN Logo" class="t-cdn-logo">
-              <span>SHOPIFY</span>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; align-items: center; justify-content: center; color: #FFFFFF;">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg" alt="Shopify CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+              <span style="color: #FFFFFF;">SHOPIFY</span>
             </div>
           </div>
 
@@ -667,8 +667,8 @@
             <div class="t-label" style="left: 0; right: 0; bottom: 0; height: var(--u); color: #111; font-size: 0.65rem; align-items: center; justify-content: center;">WORDPRESS</div>
           </div>
 
-          <!-- 7. Content Writing (Base Floor Block - Cols 13-14, Rows 4-5 - STACKED FLUSH ON TOP OF ELEMENTOR) -->
-          <div class="t-piece" data-name="Content Writing" data-col="13" data-row="4" style="grid-column: 13 / span 2; grid-row: 4 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+          <!-- 7. Python (Base Floor Block - Cols 13-14, Rows 4-5 - SAND BEIGE BLOCK WITH PYTHON LOGO & TEXT) -->
+          <div class="t-piece" data-name="Python" data-col="13" data-row="4" style="grid-column: 13 / span 2; grid-row: 4 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -676,13 +676,13 @@
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-h"></div></div>
             <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-v"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; flex-direction: row; gap: 6px; align-items: center; justify-content: center; color: #111;">
-              <span>CONTENT</span>
-              <span>WRITING</span>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; flex-direction: column; gap: 4px; align-items: center; justify-content: center; color: #111;">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python CDN Logo" class="t-cdn-logo" style="width: 24px; height: 24px;">
+              <span>PYTHON</span>
             </div>
           </div>
 
-          <!-- 8. Elementor (Base Floor Block - Cols 13-14, Row 6) -->
+          <!-- 8. Elementor (Base Floor Block - Cols 13-14, Row 6 - TEXT REMOVED) -->
           <div class="t-piece" data-name="Elementor" data-col="13" data-row="6" style="grid-column: 13 / span 2; grid-row: 6; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -694,10 +694,9 @@
               <div class="t-seam-v"></div>
             </div>
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-terracotta"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.65rem; align-items: center; justify-content: center;">ELEMENTOR</div>
           </div>
 
-          <!-- 9. Figma (Base Floor Block - Cols 12-14, Row 7 - HORIZONTAL I-SHAPE) -->
+          <!-- 9. Figma (Base Floor Block - Cols 12-14, Row 7 - WITH FIGMA LOGO BESIDE TEXT) -->
           <div class="t-piece" data-name="Figma" data-col="12" data-row="7" style="grid-column: 12 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -705,11 +704,14 @@
             <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-forest-green"></div><div class="t-seam-v"></div></div>
             <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-forest-green"></div><div class="t-seam-v"></div></div>
             <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-forest-green"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; font-size: 0.68rem;">FIGMA</div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; align-items: center; justify-content: center; font-size: 0.68rem; color: #FFF;">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg" alt="Figma CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+              <span>FIGMA</span>
+            </div>
           </div>
 
-          <!-- 10. Claude (Base Floor Block - Col 15, Rows 6-7) -->
-          <div class="t-piece" data-name="Claude" data-col="15" data-row="6" style="grid-column: 15; grid-row: 6 / span 2; display:grid; grid-template-columns: var(--cw, 76px); grid-template-rows: repeat(2, var(--u)); --cw: 76px;">
+          <!-- 10. Claude (Base Floor Block - Col 15, Rows 6-7 - PERFECT 56px MODULE PARITY) -->
+          <div class="t-piece" data-name="Claude" data-col="15" data-row="6" style="grid-column: 15; grid-row: 6 / span 2; display:grid; grid-template-columns: var(--u); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -717,7 +719,7 @@
             <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
               <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude Verified CDN Logo" class="t-cdn-logo">
-              <span style="font-size: 0.65rem;">CLAUDE</span>
+              <span style="font-size: 0.65rem; color: #FFFFFF;">CLAUDE</span>
             </div>
           </div>
 
@@ -725,20 +727,25 @@
                THE 4 DOCKED SOCKETS (HIDDEN IN STATE A, VISIBLE IN STATE B)
                ════════════════════════════════════════════════════════════ -->
 
-          <!-- Docked Socket 1: Purple WP Flipped 2x3 L-Piece (Cols 1-2, Rows 5-7) -->
-          <div class="t-piece docked-socket" data-name="Purple WP L-Piece" data-col="1" data-row="5" style="grid-column: 1 / span 2; grid-row: 5 / span 3; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u));">
+          <!-- Docked Socket 1: Purple WooCommerce Flipped 2x3 L-Piece (Cols 1-2, Rows 5-7) -->
+          <div class="t-piece docked-socket" data-name="Purple WooCommerce L-Piece" data-col="1" data-row="5" style="grid-column: 1 / span 2; grid-row: 5 / span 3; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
             <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 1;">
-              <div class="t-shape-body tone-purple"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="WP" class="t-cdn-logo" style="filter: brightness(0) invert(1);"></div>
+              <div class="t-shape-body tone-purple">
+                <img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/woocommerce.svg" alt="WooCommerce Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+              </div>
               <div class="t-seam-h"></div>
             </div>
             <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
             <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 3;"><!-- PURE TRANSPARENT CUTOUT --></div>
+            <div class="t-label" style="left: 0; width: var(--u); top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 4px; color: #FFFFFF; font-size: 0.65rem;">
+              <span>W</span><span>O</span><span>O</span>
+            </div>
           </div>
 
           <!-- Docked Socket 2: Next.js (Col 4, Rows 5-7) -->
@@ -785,20 +792,23 @@
 
       <!-- 70% In-Motion Floating Layer (THE 4 AIRBORNE FLOATING HERO BLOCKS IN STATE A) -->
       <div class="airborne-layer">
-        <!-- 1. Airborne Flipped Purple WP L-Piece -->
-        <div class="t-piece air-wp-purple" data-name="Airborne Purple WP" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u)); display:grid;">
+        <!-- 1. Airborne Flipped Purple WooCommerce L-Piece -->
+        <div class="t-piece air-wp-purple" data-name="Airborne Purple WooCommerce" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u)); display:grid;">
           <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
           <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
           <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
           <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 1;">
-            <div class="t-shape-body tone-purple"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="WP" class="t-cdn-logo" style="filter: brightness(0) invert(1);"></div>
+            <div class="t-shape-body tone-purple"><img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/woocommerce.svg" alt="WooCommerce" class="t-cdn-logo" style="filter: brightness(0) invert(1);"></div>
             <div class="t-seam-h"></div>
           </div>
           <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 3;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-label" style="left: 0; width: var(--u); top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 4px; color: #FFFFFF; font-size: 0.65rem;">
+            <span>W</span><span>O</span><span>O</span>
+          </div>
         </div>
 
         <!-- 2. Airborne Next.js Blue 1x3 Bar -->
@@ -884,15 +894,11 @@
         <span class="piece-color-tag">Royal Blue (#0D52E0)</span>
       </div>
       <div class="piece-stage">
-        <div class="t-piece" style="grid-template-columns: repeat(4, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
-          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 3; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 4; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
-          <div class="t-cell" style="grid-column: 3; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
-          <div class="t-cell" style="grid-column: 4; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+        <div class="t-piece" style="grid-template-columns: repeat(4, var(--u, 56px)); grid-template-rows: var(--u, 56px);">
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 3; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 4; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
           <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.72rem;">CUSTOM DEVELOPMENT</div>
         </div>
       </div>
@@ -932,51 +938,45 @@
       </div>
     </div>
 
-    <!-- 5. Shopify -->
+    <!-- 5. Shopify (White Logo & Text) -->
     <div class="piece-card">
       <div class="piece-card-header">
         <span class="piece-title">5. Shopify</span>
         <span class="piece-color-tag">Obsidian (#141414)</span>
       </div>
       <div class="piece-stage">
-        <div class="t-piece" style="grid-template-columns: repeat(3, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
-          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 3; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
-          <div class="t-cell" style="grid-column: 3; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
-          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px;">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg" alt="Shopify CDN Logo" class="t-cdn-logo">
-            <span>SHOPIFY</span>
+        <div class="t-piece" style="grid-template-columns: repeat(3, var(--u, 56px)); grid-template-rows: var(--u, 56px);">
+          <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-obsidian"></div></div>
+          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; color: #FFFFFF;">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg" alt="Shopify CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+            <span style="color: #FFFFFF;">SHOPIFY</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 6. Elementor -->
+    <!-- 6. Elementor (Text Removed) -->
     <div class="piece-card">
       <div class="piece-card-header">
         <span class="piece-title">6. Elementor</span>
         <span class="piece-color-tag">Terracotta (#E85A1C)</span>
       </div>
       <div class="piece-stage">
-        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: var(--u, 56px);">
           <div class="t-cell" style="grid-column: 1; grid-row: 1;">
             <div class="t-shape-body tone-terracotta">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/elementor.svg" alt="Elementor CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
             </div>
-            <div class="t-seam-h"></div><div class="t-seam-v"></div>
+            <div class="t-seam-v"></div>
           </div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-terracotta"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-terracotta"></div><div class="t-seam-v"></div></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-terracotta"></div></div>
-          <div class="t-label" style="left: 0; right: 0; bottom: 0; height: var(--u, 56px); font-size: 0.72rem;">ELEMENTOR</div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-terracotta"></div></div>
         </div>
       </div>
     </div>
 
-    <!-- 7. Figma (Horizontal I-Shape) -->
+    <!-- 7. Figma (Horizontal I-Shape with Logo) -->
     <div class="piece-card">
       <div class="piece-card-header">
         <span class="piece-title">7. Figma (Horizontal I-Shape)</span>
@@ -987,7 +987,10 @@
           <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-forest-green"></div><div class="t-seam-v"></div></div>
           <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-forest-green"></div><div class="t-seam-v"></div></div>
           <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-forest-green"></div></div>
-          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem;">FIGMA</div>
+          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; color: #FFF; font-size: 0.68rem;">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg" alt="Figma CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+            <span>FIGMA</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1014,10 +1017,10 @@
       </div>
     </div>
 
-    <!-- 9. Content Writing -->
+    <!-- 9. Python (Sand Beige) -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">9. Content Writing</span>
+        <span class="piece-title">9. Python</span>
         <span class="piece-color-tag">Sand Beige (#D9C5A0)</span>
       </div>
       <div class="piece-stage">
@@ -1026,7 +1029,10 @@
           <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-h"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-v"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
-          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.72rem; color: #111;">CONTENT WRITING</div>
+          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; flex-direction: column; gap: 4px; color: #111;">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python CDN Logo" class="t-cdn-logo" style="width: 24px; height: 24px;">
+            <span>PYTHON</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1038,37 +1044,29 @@
         <span class="piece-color-tag">Obsidian (#141414)</span>
       </div>
       <div class="piece-stage">
-        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
-          <div class="t-cell" style="grid-column: 1; grid-row: 1;">
-            <div class="t-shape-body tone-obsidian">
-              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude Verified CDN Logo" class="t-cdn-logo">
-            </div>
-            <div class="t-seam-h"></div><div class="t-seam-v"></div>
+        <div class="t-piece" style="grid-template-columns: var(--u, 56px); grid-template-rows: repeat(2, var(--u, 56px));">
+          <div class="t-cell" style="grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
+          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
+            <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude Verified CDN Logo" class="t-cdn-logo">
+            <span style="font-size: 0.65rem; color: #FFFFFF;">CLAUDE</span>
           </div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
-          <div class="t-label" style="left: 0; right: 0; bottom: 0; height: var(--u, 56px); font-size: 0.72rem;">CLAUDE</div>
         </div>
       </div>
     </div>
 
-    <!-- 11. Relocated Docked / Airborne Accent Block Set -->
+    <!-- 11. Golden Yellow L-Piece -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">11. Relocated Docked / Airborne Accent Block Set</span>
-        <span class="piece-color-tag">Purple / Lime / Yellow</span>
+        <span class="piece-title">11. Golden Yellow L-Block</span>
+        <span class="piece-color-tag">Golden Yellow (#EAB308)</span>
       </div>
       <div class="piece-stage">
         <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
-          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 1;">
-            <div class="t-shape-body tone-purple"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="WP" class="t-cdn-logo" style="filter: brightness(0) invert(1);"></div>
-            <div class="t-seam-h"></div>
-          </div>
-          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div></div>
-          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-purple"></div></div>
-          <div class="t-label" style="left: 0; right: 0; bottom: 0; height: var(--u, 56px); font-size: 0.72rem;">RELOCATED ACCENT SET</div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
         </div>
       </div>
     </div>
