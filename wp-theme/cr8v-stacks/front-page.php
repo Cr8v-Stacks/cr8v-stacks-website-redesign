@@ -688,6 +688,76 @@ defined('ABSPATH') || exit;
       margin-bottom: 2rem !important;
     }
 
+  
+    /* 100VH HOMEPAGE HERO SECTION & TETRIS FLOOR ANCHOR RULES */
+    .c8-hero-top.c8-hero-b-standalone,
+    .c8-hero-b-standalone {
+      position: relative !important;
+      overflow: hidden !important;
+      min-height: 100vh !important;
+      height: 100vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      background-color: #FFFFFF !important;
+      background-image: none !important;
+      padding-top: 5.5rem !important;
+      padding-bottom: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    .c8-hero-top .c8-hero-in,
+    .hero-content-overlay {
+      position: relative !important;
+      z-index: 200 !important;
+      text-align: center !important;
+      pointer-events: auto !important;
+    }
+
+    .c8-hero-top .c8-hero-h1,
+    .c8-hero-in .c8-hero-h1 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem) !important;
+      line-height: 1.18 !important;
+      margin-bottom: 0.75rem !important;
+      max-width: 800px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    .c8-hero-top .c8-hero-sub,
+    .c8-hero-in .c8-hero-sub {
+      font-size: clamp(0.9rem, 1.2vw, 1rem) !important;
+      line-height: 1.5 !important;
+      max-width: 580px !important;
+      margin: 0 auto 1.25rem auto !important;
+    }
+
+    .c8-hero-top .matrix-floor-wrapper {
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      z-index: 100 !important;
+      margin: 0 !important;
+      width: 952px !important;
+      height: 392px !important;
+    }
+
+    .c8-hero-top .airborne-layer {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      pointer-events: none !important;
+      z-index: 500 !important;
+    }
+
+    .c8-hero-top .airborne-layer .t-piece {
+      pointer-events: auto !important;
+    }
+
   </style>
 </head>
 <body <?php body_class('cr8v-homepage mode-70'); ?>>
@@ -695,7 +765,7 @@ defined('ABSPATH') || exit;
 <?php get_template_part('parts/header'); ?>
 
 <main id="cr8v-main">
-          <section class="c8-hero-top c8-hero-b-standalone">
+            <section class="c8-hero-top c8-hero-b-standalone">
     <div class="c8-hero-in">
       <div class="c8-eyebrow" data-customizer="hero_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('hero_eyebrow', 'SCALE WITH AUTHORITY')); ?></div>
       <h1 class="c8-hero-h1" data-customizer="hero_headline_1"><?php echo esc_html(cr8v_mod('hero_headline_1', 'We build what your business actually runs on.')); ?></h1>
@@ -711,7 +781,7 @@ defined('ABSPATH') || exit;
       </div>
     </div>
 
-    <!-- 3D Tetris Matrix Grid Arena (Full 15 Blocks) -->
+    <!-- 3D Tetris Matrix Grid Arena -->
     <div class="matrix-floor-wrapper">
         <div class="matrix-arena" id="matrixArena">
 
