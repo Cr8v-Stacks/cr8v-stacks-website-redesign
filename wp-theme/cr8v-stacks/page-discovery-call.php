@@ -138,7 +138,7 @@ get_header();
   background: #FFFFFF;
   border: 1px solid var(--line);
   border-radius: var(--radius) !important;
-  padding: 1.75rem;
+  padding: 0;
   min-height: 420px;
   display: block;
   text-align: left;

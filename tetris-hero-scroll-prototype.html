@@ -555,17 +555,42 @@
       transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
-    .airborne-layer .t-piece {
-      pointer-events: auto;
-      z-index: 250 !important; /* ALL FLOATING AIRBORNE BLOCKS HOVER ABOVE FLOOR BLOCKS */
-      transition: transform 0.85s cubic-bezier(0.34, 1.45, 0.64, 1), top 0.85s cubic-bezier(0.34, 1.45, 0.64, 1), left 0.85s cubic-bezier(0.34, 1.45, 0.64, 1), right 0.85s cubic-bezier(0.34, 1.45, 0.64, 1), opacity 0.4s ease;
+    /* Authentic Tetris Mid-Air Adjustment & Falling Keyframe Choreography */
+    @keyframes tetrisDropWoo {
+      0%   { top: 40px; left: 30px; transform: rotate(-10deg); }
+      30%  { top: 110px; left: 20px; transform: rotate(-10deg); }
+      60%  { top: 160px; left: 10px; transform: rotate(90deg); }  /* Mid-air spin adjustment! */
+      85%  { top: 205px; left: 0px; transform: rotate(0deg); }   /* Lined up with socket! */
+      100% { top: 224px; left: 0px; transform: rotate(0deg); }   /* Touchdown into Socket 1! */
     }
 
-    /* State A Airborne Floating Coordinates (Hovering Above Floor Matrix) */
-    .air-wp-purple   { position: absolute; left: 30px;  top: 40px;  transform: rotate(-10deg); z-index: 260 !important; }
-    .air-nextjs      { position: absolute; left: 180px; top: 180px; transform: rotate(-16deg); z-index: 300 !important; } /* NEXT.JS Z-INDEX 300 > OPENAI Z-INDEX 70 */
-    .air-green-z     { position: absolute; right: 100px; top: 30px;  transform: rotate(12deg);  z-index: 260 !important; }
-    .air-amber-l     { position: absolute; right: 30px;  top: 190px; transform: rotate(22deg);  z-index: 260 !important; }
+    @keyframes tetrisDropNext {
+      0%   { top: 180px; left: 180px; transform: rotate(-16deg); }
+      30%  { top: 100px; left: 175px; transform: rotate(-16deg); }
+      65%  { top: 160px; left: 168px; transform: rotate(0deg); }  /* Mid-air orientation adjustment! */
+      100% { top: 224px; left: 168px; transform: rotate(0deg); }  /* Hard drop into Socket 2! */
+    }
+
+    @keyframes tetrisDropYellow {
+      0%   { top: 190px; right: 30px; transform: rotate(22deg); }
+      25%  { top: 90px; right: 80px; transform: rotate(22deg); }
+      55%  { top: 140px; right: 150px; transform: rotate(90deg) scaleX(-1); } /* Sees misalignment! Mid-air spin & flip! */
+      80%  { top: 195px; right: 244px; transform: rotate(0deg) scaleX(1); }   /* Aligned above Socket 3! */
+      100% { top: 224px; right: 244px; transform: rotate(0deg) scaleX(1); }   /* Soft drop touchdown into Socket 3! */
+    }
+
+    @keyframes tetrisDropGreen {
+      0%   { top: 30px; right: 100px; transform: rotate(12deg); }
+      30%  { top: 80px; right: 50px; transform: rotate(12deg); }
+      60%  { top: 125px; right: 0px; transform: rotate(-90deg); } /* Mid-air 90° rotation alignment! */
+      85%  { top: 155px; right: 0px; transform: rotate(0deg); }   /* Lined up above Socket 4! */
+      100% { top: 168px; right: 0px; transform: rotate(0deg); }   /* Final touchdown into Socket 4! */
+    }
+
+    body.mode-animating .air-wp-purple { animation: tetrisDropWoo 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards !important; }
+    body.mode-animating .air-nextjs    { animation: tetrisDropNext 1.3s cubic-bezier(0.25, 1, 0.5, 1) 0.35s forwards !important; }
+    body.mode-animating .air-amber-l   { animation: tetrisDropYellow 1.5s cubic-bezier(0.25, 1, 0.5, 1) 0.75s forwards !important; }
+    body.mode-animating .air-green-z   { animation: tetrisDropGreen 1.5s cubic-bezier(0.25, 1, 0.5, 1) 1.15s forwards !important; }
 
     @keyframes socketDockPulse {
       0% { transform: scale(1); filter: brightness(1); }
@@ -1204,79 +1229,64 @@
       if (btns[2]) btns[2].classList.add('active');
 
       resetAnimClasses();
+      
+      // Force Reflow to re-trigger Keyframe Animations cleanly
+      void document.body.offsetWidth;
       document.body.className = 'mode-70 mode-animating';
 
       const status = document.getElementById('hudStatus');
-      if (status) status.textContent = '▶ VECTOR MOTION INITIATED: MEASURING DYNAMIC GRID TARGETS...';
+      if (status) status.textContent = '▶ TETRIS ANIMATION INITIATED: 4 AIRBORNE BLOCKS DESCENDING...';
 
-      const pairs = [
-        {
-          air: document.querySelector('.air-wp-purple'),
-          socket: document.querySelector('.docked-socket[data-name="Purple WooCommerce L-Piece"]'),
-          name: 'WOOCOMMERCE L-PIECE'
-        },
-        {
-          air: document.querySelector('.air-nextjs'),
-          socket: document.querySelector('.docked-socket[data-name="Next.js"]'),
-          name: 'NEXT.JS 1x3 BAR'
-        },
-        {
-          air: document.querySelector('.air-amber-l'),
-          socket: document.querySelector('.docked-socket[data-name="Golden Yellow L"]'),
-          name: 'GOLDEN YELLOW L-PIECE'
-        },
-        {
-          air: document.querySelector('.air-green-z'),
-          socket: document.querySelector('.docked-socket[data-name="Lime Green Lemon Z"]'),
-          name: 'LIME GREEN Z-PIECE'
-        }
-      ];
+      const sWoo = document.querySelector('.docked-socket[data-name="Purple WooCommerce L-Piece"]');
+      const sNext = document.querySelector('.docked-socket[data-name="Next.js"]');
+      const sYellow = document.querySelector('.docked-socket[data-name="Golden Yellow L"]');
+      const sGreen = document.querySelector('.docked-socket[data-name="Lime Green Lemon Z"]');
 
-      // Measure exact live vectors for each pair
-      pairs.forEach(pair => {
-        if (!pair.air || !pair.socket) return;
-        
-        pair.socket.style.display = 'grid';
-        pair.socket.style.visibility = 'hidden';
+      // Step 1: WooCommerce L-Piece (0.0s - 1.3s)
+      setTimeout(() => {
+        if (status) status.textContent = '▶ [1/4] WOOCOMMERCE L-PIECE DESCENDING... MID-AIR 90° SPIN ADJUSTMENT!';
+      }, 700);
 
-        const rAir = pair.air.getBoundingClientRect();
-        const rSocket = pair.socket.getBoundingClientRect();
+      setTimeout(() => {
+        if (sWoo) { sWoo.style.opacity = '1'; sWoo.classList.add('dock-pulse-active'); }
+      }, 1300);
 
-        pair.socket.style.visibility = '';
-        pair.socket.style.display = '';
+      // Step 2: Next.js 1x3 Bar (0.35s - 1.65s)
+      setTimeout(() => {
+        if (status) status.textContent = '▶ [2/4] NEXT.JS 1x3 BAR FALLING... MID-AIR FLIP ALIGNING WITH COL 4!';
+      }, 1000);
 
-        pair.deltaX = rSocket.left - rAir.left;
-        pair.deltaY = rSocket.top - rAir.top;
+      setTimeout(() => {
+        if (sNext) { sNext.style.opacity = '1'; sNext.classList.add('dock-pulse-active'); }
+      }, 1650);
 
-        // Apply smooth transition property
-        pair.air.style.transition = 'transform 0.95s cubic-bezier(0.34, 1.45, 0.64, 1)';
-      });
+      // Step 3: Golden Yellow L-Piece (0.75s - 2.25s)
+      setTimeout(() => {
+        if (status) status.textContent = '▶ [3/4] GOLDEN YELLOW L-PIECE FALLING... SEES MISALIGNMENT! MID-AIR SPIN & FLIP ADJUSTMENT!';
+      }, 1600);
 
-      // Staggered 3D Vector Glide Sequence (Retracing Step 1 to Step 4)
-      pairs.forEach((pair, idx) => {
-        setTimeout(() => {
-          if (!pair.air) return;
-          pair.air.style.transform = `translate3d(${pair.deltaX}px, ${pair.deltaY}px, 0) rotate(0deg) scale(1)`;
-          if (status) status.textContent = `▶ [${idx + 1}/4] ${pair.name} RETRACING VECTOR DIRECTLY INTO MATRIX SOCKET...`;
+      setTimeout(() => {
+        if (sYellow) { sYellow.style.opacity = '1'; sYellow.classList.add('dock-pulse-active'); }
+      }, 2250);
 
-          // Socket pulse touchdown when block arrives
-          setTimeout(() => {
-            if (pair.socket) {
-              pair.socket.style.opacity = '1';
-              pair.socket.classList.add('dock-pulse-active');
-            }
-          }, 900);
+      // Step 4: Lime Green Lemon Z-Piece (1.15s - 2.65s)
+      setTimeout(() => {
+        if (status) status.textContent = '▶ [4/4] LIME GREEN Z-PIECE FALLING... MID-AIR 90° ROTATION ALIGNMENT!';
+      }, 2000);
 
-        }, 300 + (idx * 400));
-      });
+      setTimeout(() => {
+        if (sGreen) { sGreen.style.opacity = '1'; sGreen.classList.add('dock-pulse-active'); }
+      }, 2650);
 
-      // Final Touchdown (2600ms) -> Transition cleanly to State B 100% Assembled View
+      // Step 5: Final Assembly Complete -> Transition smoothly to State B (3000ms)
       setTimeout(() => {
         document.body.className = 'mode-100';
         resetAnimClasses();
-        if (status) status.textContent = '✔ ASSEMBLY COMPLETE! ALL 4 AIRBORNE BLOCKS RETRACED EXACT VECTORS INTO MATRIX (STATE B MATCHING SCREENSHOT).';
+        const sockets = document.querySelectorAll('.docked-socket');
+        sockets.forEach(s => s.classList.add('dock-pulse-active'));
+        if (status) status.textContent = '✔ TETRIS ASSEMBLY COMPLETE! ALL 4 BLOCKS ADJUSTED MID-AIR & DOCKED FLUSH INTO MATRIX (STATE B).';
         isAnimPlaying = false;
-      }, 2600);
+      }, 3000);
     }
 
     // ════════════════════════════════════════════════════════════════
