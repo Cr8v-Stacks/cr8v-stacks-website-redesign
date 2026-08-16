@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CR8V Stacks — 3D Tetris Hero System (Camera Lighting, Tactile Noise & Z-Index Stack)</title>
+  <title>CR8V Stacks — 3D Tetris Hero System (Rich Outer 3D Extrusion & Zero Internal Lines)</title>
   
   <!-- Brand Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -146,7 +146,7 @@
     }
 
     /* ════════════════════════════════════════════════════════════════
-       3D TETRIS PUZZLE ENGINE (DIRECTIONAL CAMERA LIGHTING & NOISE)
+       3D TETRIS PUZZLE ENGINE (RICH OUTER 3D EXTRUSION & ZERO INTERNAL LINES)
        ════════════════════════════════════════════════════════════════ */
 
     .t-piece {
@@ -154,26 +154,51 @@
       position: relative;
       user-select: none;
       background: transparent !important; /* 100% TRANSPARENT CONTAINER BOUNDING */
-      /* Coherent Global Lighting (Top-Left Studio Keylight) */
-      filter: 
-        drop-shadow(2px 3px 0px rgba(0, 0, 0, 0.32))
-        drop-shadow(3px 8px 16px rgba(0, 0, 0, 0.16));
       transition: transform 0.2s ease, filter 0.2s ease, opacity 0.3s ease;
       cursor: grab;
       touch-action: none;
       z-index: 10;
     }
 
-    /* Row Stacking Layering Hierarchy (Higher Rows Stack Above Lower Rows for natural shadow projection) */
+    /* Row Stacking Layering Hierarchy (Upper Rows Stack Above Lower Rows to Project 3D Extrusion Shadow Cleanly) */
     .t-piece[data-row="4"] { z-index: 14 !important; }
     .t-piece[data-row="5"] { z-index: 12 !important; }
     .t-piece[data-row="6"] { z-index: 10 !important; }
     .t-piece[data-row="7"] { z-index: 8 !important; }
 
+    /* Tone-Specific Rich Outer 3D Extrusions (Targeting Container Silhouette — ZERO Internal Lines) */
+    .t-piece.tone-obsidian {
+      filter: drop-shadow(2px 4px 0px #000000) drop-shadow(4px 10px 18px rgba(0, 0, 0, 0.25));
+    }
+    .t-piece.tone-royal-blue {
+      filter: drop-shadow(2px 4px 0px #062E8A) drop-shadow(4px 10px 18px rgba(0, 0, 0, 0.22));
+    }
+    .t-piece.tone-light-grey {
+      filter: drop-shadow(2px 4px 0px #B2B1A8) drop-shadow(4px 10px 18px rgba(0, 0, 0, 0.18));
+    }
+    .t-piece.tone-purple {
+      filter: drop-shadow(2px 4px 0px #381B7B) drop-shadow(4px 10px 18px rgba(0, 0, 0, 0.22));
+    }
+    .t-piece.tone-terracotta {
+      filter: drop-shadow(2px 4px 0px #9C3205) drop-shadow(4px 10px 18px rgba(0, 0, 0, 0.22));
+    }
+    .t-piece.tone-golden-yellow {
+      filter: drop-shadow(2px 4px 0px #9E7702) drop-shadow(4px 10px 18px rgba(0, 0, 0, 0.20));
+    }
+    .t-piece.tone-forest-green {
+      filter: drop-shadow(2px 4px 0px #0D481C) drop-shadow(4px 10px 18px rgba(0, 0, 0, 0.22));
+    }
+    .t-piece.tone-lime-green {
+      filter: drop-shadow(2px 4px 0px #3E5C12) drop-shadow(4px 10px 18px rgba(0, 0, 0, 0.22));
+    }
+    .t-piece.tone-sand-beige {
+      filter: drop-shadow(2px 4px 0px #99845D) drop-shadow(4px 10px 18px rgba(0, 0, 0, 0.18));
+    }
+
     .t-piece.is-dragging {
       cursor: grabbing !important;
       z-index: 100 !important;
-      filter: drop-shadow(4px 12px 28px rgba(0, 71, 225, 0.45)) brightness(1.06) !important;
+      filter: drop-shadow(4px 14px 30px rgba(0, 71, 225, 0.45)) brightness(1.06) !important;
     }
 
     .t-piece.is-selected {
@@ -238,10 +263,7 @@
       width: 100%;
       height: 100%;
       border-radius: 0px !important;
-      /* Top-Left Keylight Highlight Bevel + Bottom-Right Shading (Refined Boundary Edge Definition) */
-      box-shadow: 
-        inset 1px 1px 0px rgba(255, 255, 255, 0.22),
-        inset -1px -1px 0px rgba(0, 0, 0, 0.28) !important;
+      box-shadow: none !important; /* ZERO INTERNAL BOX LINES — 100% FLUSH UNBROKEN SURFACE */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -554,7 +576,7 @@
   <header class="catalog-header">
     <div class="catalog-eyebrow">// MASTER PROMPT SPECIFICATION — 3D TETRIS MODULAR HERO SYSTEM</div>
     <h1 class="catalog-h1">CR8V Stacks 3D Tetris Hero System</h1>
-    <p class="catalog-desc">Refined Directional Camera Lighting, Tactile Noise Finish & Natural Row Z-Index Stacking Hierarchy.</p>
+    <p class="catalog-desc">Zero Internal Sub-Cell Lines: Rich Tone-Matched Outer 3D Silhouette Extrusions Across All Blocks.</p>
   </header>
 
   <!-- Motion Controller Bar -->
@@ -591,7 +613,7 @@
         <div class="matrix-arena" id="matrixArena">
 
           <!-- 1. OpenAI (Base Floor Block - Cols 2-3, Rows 6-7) -->
-          <div class="t-piece" data-name="OpenAI" data-col="2" data-row="6" style="grid-column: 2 / span 2; grid-row: 6 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+          <div class="t-piece tone-obsidian" data-name="OpenAI" data-col="2" data-row="6" style="grid-column: 2 / span 2; grid-row: 6 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -606,7 +628,7 @@
           </div>
 
           <!-- 2. Web Design (Base Floor Block - Cols 5-6, Rows 5-6) -->
-          <div class="t-piece" data-name="Web Design" data-col="5" data-row="5" style="grid-column: 5 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+          <div class="t-piece tone-light-grey" data-name="Web Design" data-col="5" data-row="5" style="grid-column: 5 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -618,7 +640,7 @@
           </div>
 
           <!-- 3. Custom Development (Base Floor Block - Cols 5-8, Row 7) -->
-          <div class="t-piece" data-name="Custom Development" data-col="5" data-row="7" style="grid-column: 5 / span 4; grid-row: 7; display:grid; grid-template-columns: repeat(4, var(--u)); grid-template-rows: var(--u);">
+          <div class="t-piece tone-royal-blue" data-name="Custom Development" data-col="5" data-row="7" style="grid-column: 5 / span 4; grid-row: 7; display:grid; grid-template-columns: repeat(4, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -630,7 +652,7 @@
           </div>
 
           <!-- 4. AI MVP (Base Floor Block - Cols 7-8, Rows 5-6) -->
-          <div class="t-piece" data-name="AI MVP" data-col="7" data-row="5" style="grid-column: 7 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+          <div class="t-piece tone-royal-blue" data-name="AI MVP" data-col="7" data-row="5" style="grid-column: 7 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -642,7 +664,7 @@
           </div>
 
           <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7) -->
-          <div class="t-piece" data-name="Shopify" data-col="9" data-row="7" style="grid-column: 9 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
+          <div class="t-piece tone-obsidian" data-name="Shopify" data-col="9" data-row="7" style="grid-column: 9 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -656,7 +678,7 @@
           </div>
 
           <!-- 6. WordPress (Base Floor Block - Cols 11-12, Rows 5-6) -->
-          <div class="t-piece" data-name="WordPress" data-col="11" data-row="5" style="grid-column: 11 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+          <div class="t-piece tone-light-grey" data-name="WordPress" data-col="11" data-row="5" style="grid-column: 11 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -670,7 +692,7 @@
           </div>
 
           <!-- 7. Python (Base Floor Block - Cols 13-14, Rows 4-5) -->
-          <div class="t-piece" data-name="Python" data-col="13" data-row="4" style="grid-column: 13 / span 2; grid-row: 4 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+          <div class="t-piece tone-sand-beige" data-name="Python" data-col="13" data-row="4" style="grid-column: 13 / span 2; grid-row: 4 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -685,7 +707,7 @@
           </div>
 
           <!-- 8. Elementor (Base Floor Block - Cols 13-14, Row 6) -->
-          <div class="t-piece" data-name="Elementor" data-col="13" data-row="6" style="grid-column: 13 / span 2; grid-row: 6; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: var(--u);">
+          <div class="t-piece tone-terracotta" data-name="Elementor" data-col="13" data-row="6" style="grid-column: 13 / span 2; grid-row: 6; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -698,7 +720,7 @@
           </div>
 
           <!-- 9. Figma (Base Floor Block - Cols 12-14, Row 7) -->
-          <div class="t-piece" data-name="Figma" data-col="12" data-row="7" style="grid-column: 12 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
+          <div class="t-piece tone-forest-green" data-name="Figma" data-col="12" data-row="7" style="grid-column: 12 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -712,7 +734,7 @@
           </div>
 
           <!-- 10. Claude (Base Floor Block - Col 15, Rows 6-7) -->
-          <div class="t-piece" data-name="Claude" data-col="15" data-row="6" style="grid-column: 15; grid-row: 6 / span 2; display:grid; grid-template-columns: var(--u); grid-template-rows: repeat(2, var(--u));">
+          <div class="t-piece tone-obsidian" data-name="Claude" data-col="15" data-row="6" style="grid-column: 15; grid-row: 6 / span 2; display:grid; grid-template-columns: var(--u); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -725,11 +747,11 @@
           </div>
 
           <!-- ════════════════════════════════════════════════════════════
-               THE 4 DOCKED SOCKETS (DIRECTIONAL CAMERA LIGHTING)
+               THE 4 DOCKED SOCKETS (ZERO INTERNAL LINES)
                ════════════════════════════════════════════════════════════ -->
 
           <!-- Docked Socket 1: Purple WooCommerce Flipped 2x3 L-Piece -->
-          <div class="t-piece docked-socket" data-name="Purple WooCommerce L-Piece" data-col="1" data-row="5" style="grid-column: 1 / span 2; grid-row: 5 / span 3; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u));">
+          <div class="t-piece tone-purple docked-socket" data-name="Purple WooCommerce L-Piece" data-col="1" data-row="5" style="grid-column: 1 / span 2; grid-row: 5 / span 3; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -749,7 +771,7 @@
           </div>
 
           <!-- Docked Socket 2: Next.js -->
-          <div class="t-piece docked-socket" data-name="Next.js" data-col="4" data-row="5" style="grid-column: 4; grid-row: 5 / span 3; display:grid; grid-template-columns: var(--u); grid-template-rows: repeat(3, var(--u));">
+          <div class="t-piece tone-royal-blue docked-socket" data-name="Next.js" data-col="4" data-row="5" style="grid-column: 4; grid-row: 5 / span 3; display:grid; grid-template-columns: var(--u); grid-template-rows: repeat(3, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -761,7 +783,7 @@
           </div>
 
           <!-- Docked Socket 3: Golden Yellow L-Piece -->
-          <div class="t-piece docked-socket" data-name="Golden Yellow L" data-col="9" data-row="5" style="grid-column: 9 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+          <div class="t-piece tone-golden-yellow docked-socket" data-name="Golden Yellow L" data-col="9" data-row="5" style="grid-column: 9 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -772,7 +794,7 @@
           </div>
 
           <!-- Docked Socket 4: Lime Green Lemon Z-Piece -->
-          <div class="t-piece docked-socket" data-name="Lime Green Lemon Z" data-col="16" data-row="4" style="grid-column: 16 / span 2; grid-row: 4 / span 4; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(4, var(--u));">
+          <div class="t-piece tone-lime-green docked-socket" data-name="Lime Green Lemon Z" data-col="16" data-row="4" style="grid-column: 16 / span 2; grid-row: 4 / span 4; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(4, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -792,7 +814,7 @@
       <!-- 70% In-Motion Floating Layer (THE 4 AIRBORNE FLOATING HERO BLOCKS IN STATE A) -->
       <div class="airborne-layer">
         <!-- 1. Airborne Flipped Purple WooCommerce L-Piece -->
-        <div class="t-piece air-wp-purple" data-name="Airborne Purple WooCommerce" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u)); display:grid;">
+        <div class="t-piece tone-purple air-wp-purple" data-name="Airborne Purple WooCommerce" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u)); display:grid;">
           <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
           <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
           <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -810,7 +832,7 @@
         </div>
 
         <!-- 2. Airborne Next.js Blue 1x3 Bar -->
-        <div class="t-piece air-nextjs" data-name="Airborne Next.js" style="grid-template-columns: var(--u); grid-template-rows: repeat(3, var(--u)); display:grid;">
+        <div class="t-piece tone-royal-blue air-nextjs" data-name="Airborne Next.js" style="grid-template-columns: var(--u); grid-template-rows: repeat(3, var(--u)); display:grid;">
           <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
           <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
           <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -822,7 +844,7 @@
         </div>
 
         <!-- 3. Airborne Lime Green Lemon Z-Piece -->
-        <div class="t-piece air-green-z" data-name="Airborne Lime Green Z" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(4, var(--u)); display:grid;">
+        <div class="t-piece tone-lime-green air-green-z" data-name="Airborne Lime Green Z" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(4, var(--u)); display:grid;">
           <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
           <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
           <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -837,7 +859,7 @@
         </div>
 
         <!-- 4. Airborne Golden Yellow L-Piece -->
-        <div class="t-piece air-amber-l" data-name="Airborne Golden Yellow L" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u)); display:grid;">
+        <div class="t-piece tone-golden-yellow air-amber-l" data-name="Airborne Golden Yellow L" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u)); display:grid;">
           <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
           <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
           <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -870,7 +892,7 @@
         <span class="piece-color-tag">Obsidian (#141414)</span>
       </div>
       <div class="piece-stage">
-        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+        <div class="t-piece tone-obsidian" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
           <div class="t-cell" style="grid-column: 1; grid-row: 1;">
             <div class="t-shape-body tone-obsidian">
               <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/default.svg" alt="OpenAI CDN Logo" class="t-cdn-logo">
@@ -890,7 +912,7 @@
         <span class="piece-color-tag">Royal Blue (#0D52E0)</span>
       </div>
       <div class="piece-stage">
-        <div class="t-piece" style="grid-template-columns: repeat(4, var(--u, 56px)); grid-template-rows: var(--u, 56px);">
+        <div class="t-piece tone-royal-blue" style="grid-template-columns: repeat(4, var(--u, 56px)); grid-template-rows: var(--u, 56px);">
           <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
           <div class="t-cell" style="grid-column: 3; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
@@ -907,7 +929,7 @@
         <span class="piece-color-tag">Off-White (#E5E4DE)</span>
       </div>
       <div class="piece-stage">
-        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+        <div class="t-piece tone-light-grey" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
           <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
@@ -924,7 +946,7 @@
         <span class="piece-color-tag">Royal Blue (#0D52E0)</span>
       </div>
       <div class="piece-stage">
-        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+        <div class="t-piece tone-royal-blue" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
           <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
@@ -941,7 +963,7 @@
         <span class="piece-color-tag">Obsidian (#141414)</span>
       </div>
       <div class="piece-stage">
-        <div class="t-piece" style="grid-template-columns: repeat(3, var(--u, 56px)); grid-template-rows: var(--u, 56px);">
+        <div class="t-piece tone-obsidian" style="grid-template-columns: repeat(3, var(--u, 56px)); grid-template-rows: var(--u, 56px);">
           <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-obsidian"></div></div>
           <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-obsidian"></div></div>
           <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-obsidian"></div></div>
@@ -960,7 +982,7 @@
         <span class="piece-color-tag">Terracotta (#E85A1C)</span>
       </div>
       <div class="piece-stage">
-        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: var(--u, 56px);">
+        <div class="t-piece tone-terracotta" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: var(--u, 56px);">
           <div class="t-cell" style="grid-column: 1; grid-row: 1;">
             <div class="t-shape-body tone-terracotta">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/elementor.svg" alt="Elementor CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
@@ -978,7 +1000,7 @@
         <span class="piece-color-tag">Forest Green (#1E7D34)</span>
       </div>
       <div class="piece-stage">
-        <div class="t-piece" style="grid-template-columns: repeat(3, var(--u, 56px)); grid-template-rows: var(--u, 56px);">
+        <div class="t-piece tone-forest-green" style="grid-template-columns: repeat(3, var(--u, 56px)); grid-template-rows: var(--u, 56px);">
           <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-forest-green"></div></div>
           <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-forest-green"></div></div>
           <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-forest-green"></div></div>
@@ -997,7 +1019,7 @@
         <span class="piece-color-tag">Off-White (#E5E4DE)</span>
       </div>
       <div class="piece-stage">
-        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+        <div class="t-piece tone-light-grey" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
           <div class="t-cell" style="grid-column: 1; grid-row: 1;">
             <div class="t-shape-body tone-light-grey">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="WordPress CDN Logo" class="t-cdn-logo">
@@ -1018,7 +1040,7 @@
         <span class="piece-color-tag">Sand Beige (#D9C5A0)</span>
       </div>
       <div class="piece-stage">
-        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+        <div class="t-piece tone-sand-beige" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
           <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
@@ -1038,7 +1060,7 @@
         <span class="piece-color-tag">Obsidian (#141414)</span>
       </div>
       <div class="piece-stage">
-        <div class="t-piece" style="grid-template-columns: var(--u, 56px); grid-template-rows: repeat(2, var(--u, 56px));">
+        <div class="t-piece tone-obsidian" style="grid-template-columns: var(--u, 56px); grid-template-rows: repeat(2, var(--u, 56px));">
           <div class="t-cell" style="grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
           <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
           <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
@@ -1056,7 +1078,7 @@
         <span class="piece-color-tag">Golden Yellow (#EAB308)</span>
       </div>
       <div class="piece-stage">
-        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+        <div class="t-piece tone-golden-yellow" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
           <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- CUTOUT --></div>
