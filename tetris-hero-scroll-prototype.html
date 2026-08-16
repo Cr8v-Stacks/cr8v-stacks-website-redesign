@@ -159,14 +159,19 @@
       touch-action: none;
     }
 
-    /* MASTER Z-INDEX RULE: Lowest floor uses highest z-index, next floor up uses next highest, etc. */
-    .t-piece[data-row="7"] { z-index: 70 !important; }
-    .t-piece[data-row="6"] { z-index: 60 !important; }
-    .t-piece[data-row="5"] { z-index: 50 !important; }
-    .t-piece[data-row="4"] { z-index: 40 !important; }
-    .t-piece[data-row="3"] { z-index: 30 !important; }
-    .t-piece[data-row="2"] { z-index: 20 !important; }
-    .t-piece[data-row="1"] { z-index: 10 !important; }
+    /* RESTING FLOOR MATRIX Z-INDEX HIERARCHY (Upper Rows 4-5 project downwards onto Lower Rows 6-7) */
+    .t-piece[data-row="7"] { z-index: 30 !important; }
+    .t-piece[data-row="6"] { z-index: 35 !important; }
+    .t-piece[data-row="5"] { z-index: 45 !important; }
+    .t-piece[data-row="4"] { z-index: 50 !important; }
+    .t-piece[data-row="3"] { z-index: 55 !important; }
+    .t-piece[data-row="2"] { z-index: 60 !important; }
+    .t-piece[data-row="1"] { z-index: 65 !important; }
+
+    /* DOCKED SOCKETS (NEXT.JS, GOLDEN YELLOW L, LIME GREEN Z, PURPLE WOO) HAVE ELEVATED Z-INDEX OVER ADJACENT RESTING BLOCKS */
+    .t-piece.docked-socket {
+      z-index: 100 !important; /* DOCKED SOCKETS (100) > OPENAI (30), AI MVP (45), CLAUDE (30) */
+    }
 
     /* Tone-Specific Pronounced Outer 3D Extrusions + Sharp Outline Separation (ZERO Internal Lines) */
     .t-piece.tone-obsidian {
