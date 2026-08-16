@@ -547,24 +547,24 @@
     }
 
     /* Airborne Layer at 70% In-Motion Mode (FLOATING BLOCKS HAVE TOP VISUAL PRIORITY OVER RESTING FLOOR MATRIX) */
+    /* Airborne Layer at 70% In-Motion Mode */
     .airborne-layer {
       position: absolute;
       inset: 0;
       pointer-events: none;
-      z-index: 200 !important; /* ELEVATED ABOVE ALL RESTING FLOOR BLOCKS (Z-INDEX 40-70) */
+      z-index: auto !important; /* Allow individual piece z-indices to stack cleanly across layers */
       transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
     .airborne-layer .t-piece {
       pointer-events: auto;
-      z-index: 250 !important; /* ALL FLOATING AIRBORNE BLOCKS HOVER ABOVE FLOOR BLOCKS */
     }
 
-    /* State A Airborne Floating Coordinates (Hovering Above Floor Matrix) */
-    .air-wp-purple   { position: absolute; left: 30px;  top: 40px;  transform: rotate(-10deg); z-index: 260 !important; }
-    .air-nextjs      { position: absolute; left: 180px; top: 180px; transform: rotate(-16deg); z-index: 300 !important; } /* NEXT.JS Z-INDEX 300 > OPENAI Z-INDEX 70 */
-    .air-green-z     { position: absolute; right: 100px; top: 30px;  transform: rotate(12deg);  z-index: 260 !important; }
-    .air-amber-l     { position: absolute; right: 30px;  top: 190px; transform: rotate(22deg);  z-index: 260 !important; }
+    /* State A Airborne Floating Coordinates */
+    .air-wp-purple   { position: absolute; left: 30px;  top: 40px;  transform: rotate(-10deg); z-index: 100 !important; }
+    .air-nextjs      { position: absolute; left: 180px; top: 180px; transform: rotate(-16deg); z-index: 300 !important; }
+    .air-green-z     { position: absolute; right: 100px; top: 30px;  transform: rotate(12deg);  z-index: 100 !important; }
+    .air-amber-l     { position: absolute; right: 30px;  top: 190px; transform: rotate(22deg);  z-index: 100 !important; }
 
     /* ════════════════════════════════════════════════════════════════
        EXACT MASTER PROMPT DUAL-STATE RULES
@@ -814,8 +814,8 @@
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-terracotta"></div></div>
           </div>
 
-          <!-- 9. Figma (Base Floor Block - Cols 12-14, Row 7 - Row 7 Z-Index 70) -->
-          <div class="t-piece tone-forest-green" data-name="Figma" data-col="12" data-row="7" style="grid-column: 12 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
+          <!-- 9. Figma (Base Floor Block - Cols 12-14, Row 7 - Elevated Z-Index 9999 > Shopify 8000) -->
+          <div class="t-piece tone-forest-green" data-name="Figma" data-col="12" data-row="7" style="grid-column: 12 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u); position: relative; z-index: 9999 !important;">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
