@@ -127,6 +127,30 @@ add_action('wp_enqueue_scripts', function () {
     // we add it here explicitly so child-theme overrides work cleanly.
     wp_enqueue_style('cr8v-theme', get_stylesheet_uri(), ['cr8v-shared'], $v);
 
+    // Ensure Simple Booking plugin assets (CSS, JS & sbPublic localized data) are enqueued in <head> for Discovery Call page
+    if (is_page('discovery-call') || is_page_template('page-discovery-call.php')) {
+        if (function_exists('plugins_url')) {
+            wp_enqueue_style('sb-public', plugins_url('simple-booking/assets/css/public.css'), [], $v);
+            wp_enqueue_script('sb-public', plugins_url('simple-booking/assets/js/public.js'), [], $v, true);
+            wp_localize_script(
+                'sb-public',
+                'sbPublic',
+                [
+                    'ajaxUrl'      => admin_url('admin-ajax.php'),
+                    'nonce'        => wp_create_nonce('sb_public_nonce'),
+                    'siteTimezone' => function_exists('wp_timezone_string') ? wp_timezone_string() : 'UTC',
+                    'i18n'         => [
+                        'loading'       => __('Loading available times…', 'simple-booking'),
+                        'noSlots'       => __('No available times on this day. Please pick another date.', 'simple-booking'),
+                        'bookingError'  => __('Something went wrong. Please try again.', 'simple-booking'),
+                        'selectSlot'    => __('Please select a time slot.', 'simple-booking'),
+                        'hostTimeLabel' => __("Host's local time:", 'simple-booking'),
+                    ],
+                ]
+            );
+        }
+    }
+
     // Page-specific canvas / interaction scripts (loaded in footer)
     wp_enqueue_script(
         'cr8v-canvas',
@@ -142,6 +166,14 @@ add_action('wp_enqueue_scripts', function () {
         $v,
         true
     );
+});
+
+// Instruct Simple Booking plugin to load its assets on Discovery Call page template
+add_filter('sb_should_load_public_assets', function ($should_load) {
+    if (is_page('discovery-call') || is_page_template('page-discovery-call.php')) {
+        return true;
+    }
+    return $should_load;
 });
 
 

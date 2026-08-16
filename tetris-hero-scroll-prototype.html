@@ -567,12 +567,6 @@
     .air-green-z     { position: absolute; right: 100px; top: 30px;  transform: rotate(12deg);  z-index: 260 !important; }
     .air-amber-l     { position: absolute; right: 30px;  top: 190px; transform: rotate(22deg);  z-index: 260 !important; }
 
-    /* State A -> State B Assembly Animation Target Coordinates */
-    .air-wp-purple.dock-animating  { top: 224px !important; left: 0px !important; transform: rotate(0deg) scale(1) !important; }
-    .air-nextjs.dock-animating     { top: 224px !important; left: 168px !important; transform: rotate(0deg) scale(1) !important; }
-    .air-amber-l.dock-animating    { top: 224px !important; left: 448px !important; right: auto !important; transform: rotate(0deg) scale(1) !important; }
-    .air-green-z.dock-animating    { top: 168px !important; left: 840px !important; right: auto !important; transform: rotate(0deg) scale(1) !important; }
-
     @keyframes socketDockPulse {
       0% { transform: scale(1); filter: brightness(1); }
       50% { transform: scale(1.04); filter: brightness(1.35); }
@@ -1174,8 +1168,14 @@
     function resetAnimClasses() {
       const airborne = document.querySelectorAll('.airborne-layer .t-piece');
       const sockets = document.querySelectorAll('.docked-socket');
-      airborne.forEach(p => p.classList.remove('dock-animating'));
-      sockets.forEach(s => s.classList.remove('dock-pulse-active'));
+      airborne.forEach(p => {
+        p.style.transform = '';
+        p.style.transition = '';
+      });
+      sockets.forEach(s => {
+        s.classList.remove('dock-pulse-active');
+        s.style.opacity = '';
+      });
     }
 
     function setMode(mode) {
@@ -1204,45 +1204,79 @@
       if (btns[2]) btns[2].classList.add('active');
 
       resetAnimClasses();
-      document.body.className = 'mode-70';
+      document.body.className = 'mode-70 mode-animating';
 
       const status = document.getElementById('hudStatus');
-      if (status) status.textContent = '▶ ASSEMBLY ANIMATION INITIATED: HOVERING AT STATE A FLOATING ANGLES...';
+      if (status) status.textContent = '▶ VECTOR MOTION INITIATED: MEASURING DYNAMIC GRID TARGETS...';
 
-      const woo = document.querySelector('.air-wp-purple');
-      const next = document.querySelector('.air-nextjs');
-      const yellow = document.querySelector('.air-amber-l');
-      const green = document.querySelector('.air-green-z');
-      const sockets = document.querySelectorAll('.docked-socket');
+      const pairs = [
+        {
+          air: document.querySelector('.air-wp-purple'),
+          socket: document.querySelector('.docked-socket[data-name="Purple WooCommerce L-Piece"]'),
+          name: 'WOOCOMMERCE L-PIECE'
+        },
+        {
+          air: document.querySelector('.air-nextjs'),
+          socket: document.querySelector('.docked-socket[data-name="Next.js"]'),
+          name: 'NEXT.JS 1x3 BAR'
+        },
+        {
+          air: document.querySelector('.air-amber-l'),
+          socket: document.querySelector('.docked-socket[data-name="Golden Yellow L"]'),
+          name: 'GOLDEN YELLOW L-PIECE'
+        },
+        {
+          air: document.querySelector('.air-green-z'),
+          socket: document.querySelector('.docked-socket[data-name="Lime Green Lemon Z"]'),
+          name: 'LIME GREEN Z-PIECE'
+        }
+      ];
 
-      // Staggered 3D Gliding Sequence
-      setTimeout(() => {
-        if (woo) woo.classList.add('dock-animating');
-        if (status) status.textContent = '▶ [1/4] WOOCOMMERCE L-PIECE GLIDING DOWN INTO MATRIX SOCKET 1...';
-      }, 350);
+      // Measure exact live vectors for each pair
+      pairs.forEach(pair => {
+        if (!pair.air || !pair.socket) return;
+        
+        pair.socket.style.display = 'grid';
+        pair.socket.style.visibility = 'hidden';
 
-      setTimeout(() => {
-        if (next) next.classList.add('dock-animating');
-        if (status) status.textContent = '▶ [2/4] NEXT.JS 1x3 BAR GLIDING DOWN INTO MATRIX SOCKET 2...';
-      }, 750);
+        const rAir = pair.air.getBoundingClientRect();
+        const rSocket = pair.socket.getBoundingClientRect();
 
-      setTimeout(() => {
-        if (yellow) yellow.classList.add('dock-animating');
-        if (status) status.textContent = '▶ [3/4] GOLDEN YELLOW L-PIECE GLIDING DOWN INTO MATRIX SOCKET 3...';
-      }, 1150);
+        pair.socket.style.visibility = '';
+        pair.socket.style.display = '';
 
-      setTimeout(() => {
-        if (green) green.classList.add('dock-animating');
-        if (status) status.textContent = '▶ [4/4] LIME GREEN Z-PIECE GLIDING DOWN INTO MATRIX SOCKET 4...';
-      }, 1550);
+        pair.deltaX = rSocket.left - rAir.left;
+        pair.deltaY = rSocket.top - rAir.top;
 
-      // Final Touchdown -> Transition to State B with socket pulse
+        // Apply smooth transition property
+        pair.air.style.transition = 'transform 0.95s cubic-bezier(0.34, 1.45, 0.64, 1)';
+      });
+
+      // Staggered 3D Vector Glide Sequence (Retracing Step 1 to Step 4)
+      pairs.forEach((pair, idx) => {
+        setTimeout(() => {
+          if (!pair.air) return;
+          pair.air.style.transform = `translate3d(${pair.deltaX}px, ${pair.deltaY}px, 0) rotate(0deg) scale(1)`;
+          if (status) status.textContent = `▶ [${idx + 1}/4] ${pair.name} RETRACING VECTOR DIRECTLY INTO MATRIX SOCKET...`;
+
+          // Socket pulse touchdown when block arrives
+          setTimeout(() => {
+            if (pair.socket) {
+              pair.socket.style.opacity = '1';
+              pair.socket.classList.add('dock-pulse-active');
+            }
+          }, 900);
+
+        }, 300 + (idx * 400));
+      });
+
+      // Final Touchdown (2600ms) -> Transition cleanly to State B 100% Assembled View
       setTimeout(() => {
         document.body.className = 'mode-100';
-        sockets.forEach(s => s.classList.add('dock-pulse-active'));
-        if (status) status.textContent = '✔ ASSEMBLY COMPLETE! ALL 4 AIRBORNE BLOCKS DOCKED FLUSH INTO MATRIX (STATE B MATCHING SCREENSHOT).';
+        resetAnimClasses();
+        if (status) status.textContent = '✔ ASSEMBLY COMPLETE! ALL 4 AIRBORNE BLOCKS RETRACED EXACT VECTORS INTO MATRIX (STATE B MATCHING SCREENSHOT).';
         isAnimPlaying = false;
-      }, 2350);
+      }, 2600);
     }
 
     // ════════════════════════════════════════════════════════════════

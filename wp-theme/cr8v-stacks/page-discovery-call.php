@@ -138,13 +138,10 @@ get_header();
   background: #FFFFFF;
   border: 1px solid var(--line);
   border-radius: var(--radius) !important;
-  padding: 2.25rem 1.75rem;
+  padding: 1.75rem;
   min-height: 420px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  display: block;
+  text-align: left;
   position: relative;
 }
 
