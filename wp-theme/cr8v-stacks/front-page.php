@@ -648,13 +648,18 @@ defined('ABSPATH') || exit;
       <div class="hero-arena-container">
       
       <!-- Embedded Hero Written Content Overlay (Upper-Center Space) -->
-      <div class="hero-content-overlay">
-        <div class="hero-eyebrow">// CRAFTED FOR HIGH-GROWTH BRANDS</div>
-        <h1 class="hero-h1">WE BUILD DIGITAL PRODUCTS THAT SCALE BRANDS</h1>
-        <p class="hero-sub">From strategy and high-converting platforms to custom Next.js applications and AI MVP integrations — engineered for liquid performance.</p>
-        <div class="hero-ctas">
-          <a href="#contact" class="btn-primary-c8">START A PROJECT →</a>
-          <a href="#services" class="btn-secondary-c8">EXPLORE SERVICES ↓</a>
+            <div class="hero-content-overlay">
+        <div class="c8-eyebrow" data-customizer="hero_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('hero_eyebrow', 'SCALE WITH AUTHORITY')); ?></div>
+        <h1 class="c8-hero-h1" data-customizer="hero_headline_1"><?php echo esc_html(cr8v_mod('hero_headline_1', 'We build what your business actually runs on.')); ?></h1>
+        <p class="c8-hero-sub" data-customizer="hero_sub"><?php echo esc_html(cr8v_mod('hero_sub', 'Strategy, design, and liquid performance engineering — built from scratch by one team for ambitious brands.')); ?></p>
+        
+        <div class="c8-hero-ctas">
+          <a href="<?php echo esc_url(home_url(cr8v_mod('hero_cta_primary_url', '/discovery-call/'))); ?>" class="c8-btn-primary" data-customizer="hero_cta_primary_text">
+            <?php echo esc_html(cr8v_mod('hero_cta_primary_text', 'Start a Project →')); ?>
+          </a>
+          <a href="<?php echo esc_url(cr8v_mod('hero_cta_secondary_url', '#how-we-think')); ?>" class="btn-secondary" data-customizer="hero_cta_secondary_text">
+            <?php echo esc_html(cr8v_mod('hero_cta_secondary_text', 'Explore Philosophy ↓')); ?>
+          </a>
         </div>
       </div>
 
