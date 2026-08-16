@@ -1497,12 +1497,12 @@
       const sockYellow = document.querySelector('.docked-socket[data-name="Golden Yellow L"]');
       const sockGreen = document.querySelector('.docked-socket[data-name="Lime Green Lemon Z"]');
 
-      // Exact 2D Grid Cell Vector Targets (Delta X, Delta Y from State A to State B)
+      // User-Calibrated 2D Trajectory Keyframe Vectors (Exact Visual Calibrator Output)
       const vectorTargets = {
-        woo:    { dX: -30,  dY: 184 },  // Socket 1 (Row 5, Col 1)
-        next:   { dX: -12,  dY: 44  },  // Socket 2 (Row 5, Col 4)
-        yellow: { dX: -362, dY: 34  },  // Socket 3 (Row 5, Col 9)
-        green:  { dX: 100,  dY: 138 }   // Socket 4 (Row 4, Col 16)
+        woo:    { dX: 148,  dY: 469, rot: 0,  flipX: 1 },   // Socket 1 (Purple WooCommerce L)
+        next:   { dX: 168,  dY: 332, rot: 0,  flipX: 1 },   // Socket 2 (Next.js 1x3 Bar)
+        yellow: { dX: -540, dY: 320, rot: 90, flipX: -1 },  // Socket 3 (Golden Yellow L)
+        green:  { dX: -75,  dY: 425, rot: 0,  flipX: 1 }    // Socket 4 (Lime Green Lemon Z)
       };
       let isPlayingAnim = false;
 
@@ -1662,10 +1662,10 @@
       let initialPieceX = 0, initialPieceY = 0;
 
       const liveCalibData = {
-        woo:    { dX: -30,  dY: 184, rot: 0, flipX: 1 },
-        next:   { dX: -12,  dY: 44,  rot: 0, flipX: 1 },
-        yellow: { dX: -362, dY: 34,  rot: 90, flipX: -1 },
-        green:  { dX: 100,  dY: 138, rot: 0, flipX: 1 }
+        woo:    { dX: 148,  dY: 469, rot: 0,  flipX: 1 },
+        next:   { dX: 168,  dY: 332, rot: 0,  flipX: 1 },
+        yellow: { dX: -540, dY: 320, rot: 90, flipX: -1 },
+        green:  { dX: -75,  dY: 425, rot: 0,  flipX: 1 }
       };
 
       function updateLiveHUDDisplay() {
