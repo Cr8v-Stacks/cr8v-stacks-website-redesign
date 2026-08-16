@@ -1469,15 +1469,19 @@
         const measurePair = (air, sock) => {
           if (!air || !sock) return { dX: 0, dY: 0 };
           
+          const savedBodyClass = document.body.className;
           const savedAirTransform = air.style.transform;
           const savedSockTransform = sock.style.transform;
           
+          // Temporarily set body to mode-100 & clear inline transforms to measure exact State B resting targets
+          document.body.className = 'mode-100';
           air.style.transform = 'none';
           sock.style.transform = 'none';
           
           const rAir = air.getBoundingClientRect();
           const rSock = sock.getBoundingClientRect();
           
+          document.body.className = savedBodyClass;
           air.style.transform = savedAirTransform;
           sock.style.transform = savedSockTransform;
 
