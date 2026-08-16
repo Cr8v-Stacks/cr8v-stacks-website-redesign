@@ -636,6 +636,15 @@ defined('ABSPATH') || exit;
     .piece-stage { width: 100%; height: 220px; background: #F5F5F2; border-radius: 8px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
 
   
+  
+    /* REMOVE OLD BACKGROUND IMAGE FROM HERO SECTION */
+    .c8-hero-top.c8-hero-b-standalone,
+    .c8-hero-b-standalone {
+      background-color: #FFFFFF !important;
+      background-image: none !important;
+      padding-bottom: 2rem !important;
+    }
+
   </style>
 </head>
 <body <?php body_class('cr8v-homepage mode-70'); ?>>
@@ -643,7 +652,7 @@ defined('ABSPATH') || exit;
 <?php get_template_part('parts/header'); ?>
 
 <main id="cr8v-main">
-      <section class="c8-hero-top c8-hero-b-standalone">
+        <section class="c8-hero-top c8-hero-b-standalone">
     <div class="c8-hero-in">
       <div class="c8-eyebrow" data-customizer="hero_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('hero_eyebrow', 'SCALE WITH AUTHORITY')); ?></div>
       <h1 class="c8-hero-h1" data-customizer="hero_headline_1"><?php echo esc_html(cr8v_mod('hero_headline_1', 'We build what your business actually runs on.')); ?></h1>
@@ -660,8 +669,7 @@ defined('ABSPATH') || exit;
     </div>
 
     <!-- 3D Tetris Matrix Grid Arena -->
-    <!-- Bottom Floor 2D Matrix Grid Assembly Arena (17 cols x 7 rows - Exact Screenshot Matrix) -->
-      <div class="matrix-floor-wrapper">
+    <div class="matrix-floor-wrapper">
         <div class="matrix-arena" id="matrixArena">
 
           <!-- 1. OpenAI (Base Floor Block - Cols 2-3, Rows 6-7 - Row 7 Z-Index 70 > Woo) -->
@@ -670,6 +678,107 @@ defined('ABSPATH') || exit;
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
             <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
+              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/default.svg" alt="OpenAI CDN Logo" class="t-cdn-logo">
+              <span style="font-size: 0.65rem; color: #FFF;">OPENAI</span>
+            </div>
+          </div>
+
+          <!-- 2. Web Design (Base Floor Block - Cols 5-6, Rows 5-6 - Row 6 Z-Index 60) -->
+          <div class="t-piece tone-light-grey" data-name="Web Design" data-col="5" data-row="6" style="grid-column: 5 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #111; font-size: 0.72rem;">WEB DESIGN</div>
+          </div>
+
+          <!-- 3. Custom Development (Base Floor Block - Cols 5-8, Row 7 - Row 7 Z-Index 70) -->
+          <div class="t-piece tone-royal-blue" data-name="Custom Development" data-col="5" data-row="7" style="grid-column: 5 / span 4; grid-row: 7; display:grid; grid-template-columns: repeat(4, var(--u)); grid-template-rows: var(--u);">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 4;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; align-items: center; justify-content: center; color: #FFFFFF;">CUSTOM DEVELOPMENT</div>
+          </div>
+
+          <!-- 4. AI MVP (Base Floor Block - Cols 7-8, Rows 5-6 - Row 6 Z-Index 60) -->
+          <div class="t-piece tone-royal-blue" data-name="AI MVP" data-col="7" data-row="6" style="grid-column: 7 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #FFFFFF;">AI MVP</div>
+          </div>
+
+          <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7 - Row 7 Z-Index 70) -->
+          <div class="t-piece tone-obsidian" data-name="Shopify" data-col="9" data-row="7" style="grid-column: 9 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; align-items: center; justify-content: center; color: #FFFFFF;">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg" alt="Shopify CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+              <span style="color: #FFFFFF;">SHOPIFY</span>
+            </div>
+          </div>
+
+          <!-- 6. WordPress (Base Floor Block - Cols 11-12, Rows 5-6 - Row 6 Z-Index 60) -->
+          <div class="t-piece tone-light-grey" data-name="WordPress" data-col="11" data-row="6" style="grid-column: 11 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="WordPress CDN Logo" class="t-cdn-logo">
+              <span style="font-size: 0.65rem; color: #111111;">WORDPRESS</span>
+            </div>
+          </div>
+
+          <!-- 7. Python (Base Floor Block - Cols 13-14, Rows 4-5 - Row 5 Z-Index 50 < Elementor 60) -->
+          <div class="t-piece tone-sand-beige" data-name="Python" data-col="13" data-row="5" style="grid-column: 13 / span 2; grid-row: 4 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; flex-direction: column; gap: 4px; align-items: center; justify-content: center; color: #111;">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python CDN Logo" class="t-cdn-logo" style="width: 24px; height: 24px;">
+              <span>PYTHON</span>
+            </div>
+          </div>
+
+          <!-- 8. Elementor (Base Floor Block - Cols 13-14, Row 6 - Row 6 Z-Index 60 > Python 50) -->
+          <div class="t-piece tone-terracotta" data-name="Elementor" data-col="13" data-row="6" style="grid-column: 13 / span 2; grid-row: 6; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: var(--u);">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;">
+              <div class="t-shape-body tone-terracotta">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/elementor.svg" alt="Elementor CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+              </div>
+            </div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-terracotta"></div></div>
+          </div>
   </section>
 
   <!-- POST-HERO ARCHITECTURAL PAPER GRID SECTION (CREATIVE AGENCY MINDSET) -->
