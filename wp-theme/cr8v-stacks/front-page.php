@@ -637,27 +637,39 @@ defined('ABSPATH') || exit;
 
   
   
-    /* REMOVE OLD BACKGROUND IMAGE FROM HERO SECTION */
+    /* ════════════════════════════════════════════════════════════════
+       UNIFIED 100VH HERO SECTION & TETRIS FLOOR ANCHOR SYSTEM
+       ════════════════════════════════════════════════════════════════ */
     .c8-hero-top.c8-hero-b-standalone,
     .c8-hero-b-standalone {
+      position: relative !important;
+      overflow: hidden !important;
+      min-height: 100vh !important;
+      height: 100vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      align-items: center !important;
       background-color: #FFFFFF !important;
       background-image: none !important;
-      padding-bottom: 2rem !important;
+      padding-top: 5rem !important;
+      padding-bottom: 0 !important;
+      box-sizing: border-box !important;
     }
 
-  
-    /* 3D TETRIS HERO COMPACT SIZING & BACKGROUND REMOVAL */
-    .c8-hero-top.c8-hero-b-standalone,
-    .c8-hero-b-standalone {
-      background-color: #FFFFFF !important;
-      background-image: none !important;
-      padding-top: 6rem !important;
-      padding-bottom: 2rem !important;
-      min-height: auto !important;
+    .c8-hero-top .c8-hero-in,
+    .c8-hero-in {
+      position: relative !important;
+      z-index: 200 !important;
+      text-align: center !important;
+      width: 100% !important;
+      max-width: 820px !important;
+      margin: 0 auto !important;
+      padding: 0 1.5rem !important;
+      pointer-events: auto !important;
     }
 
     .c8-hero-top .c8-hero-h1,
-    .hero-content-overlay .hero-h1,
     .c8-hero-in .c8-hero-h1 {
       font-size: clamp(1.6rem, 3.2vw, 2.4rem) !important;
       line-height: 1.18 !important;
@@ -668,7 +680,6 @@ defined('ABSPATH') || exit;
     }
 
     .c8-hero-top .c8-hero-sub,
-    .hero-content-overlay .hero-sub,
     .c8-hero-in .c8-hero-sub {
       font-size: clamp(0.92rem, 1.3vw, 1.05rem) !important;
       line-height: 1.55 !important;
@@ -677,198 +688,13 @@ defined('ABSPATH') || exit;
     }
 
     .c8-hero-top .c8-eyebrow,
-    .hero-content-overlay .hero-eyebrow,
     .c8-hero-in .c8-eyebrow {
       margin-bottom: 1rem !important;
     }
 
     .c8-hero-top .c8-hero-ctas,
-    .hero-content-overlay .hero-ctas,
     .c8-hero-in .c8-hero-ctas {
-      margin-bottom: 2rem !important;
-    }
-
-  
-    /* 100VH HOMEPAGE HERO SECTION & TETRIS FLOOR ANCHOR RULES */
-    .c8-hero-top.c8-hero-b-standalone,
-    .c8-hero-b-standalone {
-      position: relative !important;
-      overflow: hidden !important;
-      min-height: 100vh !important;
-      height: 100vh !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      background-color: #FFFFFF !important;
-      background-image: none !important;
-      padding-top: 5.5rem !important;
-      padding-bottom: 0 !important;
-      box-sizing: border-box !important;
-    }
-
-    .c8-hero-top .c8-hero-in,
-    .hero-content-overlay {
-      position: relative !important;
-      z-index: 200 !important;
-      text-align: center !important;
-      pointer-events: auto !important;
-    }
-
-    .c8-hero-top .c8-hero-h1,
-    .c8-hero-in .c8-hero-h1 {
-      font-size: clamp(1.5rem, 3vw, 2.2rem) !important;
-      line-height: 1.18 !important;
-      margin-bottom: 0.75rem !important;
-      max-width: 800px !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-
-    .c8-hero-top .c8-hero-sub,
-    .c8-hero-in .c8-hero-sub {
-      font-size: clamp(0.9rem, 1.2vw, 1rem) !important;
-      line-height: 1.5 !important;
-      max-width: 580px !important;
-      margin: 0 auto 1.25rem auto !important;
-    }
-
-    .c8-hero-top .matrix-floor-wrapper {
-      position: absolute !important;
-      bottom: 0 !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      z-index: 100 !important;
-      margin: 0 !important;
-      width: 952px !important;
-      height: 392px !important;
-    }
-
-    .c8-hero-top .airborne-layer {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      pointer-events: none !important;
-      z-index: 500 !important;
-    }
-
-    .c8-hero-top .airborne-layer .t-piece {
-      pointer-events: auto !important;
-    }
-
-  
-    /* 100VH HOMEPAGE HERO SECTION, CENTERED TEXT & TETRIS ANCHOR RULES */
-    .c8-hero-top.c8-hero-b-standalone,
-    .c8-hero-b-standalone {
-      position: relative !important;
-      overflow: hidden !important;
-      min-height: 100vh !important;
-      height: 100vh !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      background-color: #FFFFFF !important;
-      background-image: none !important;
-      padding-top: 3.5rem !important;
-      padding-bottom: 0 !important;
-      box-sizing: border-box !important;
-    }
-
-    .c8-hero-top .c8-hero-in,
-    .c8-hero-in {
-      min-height: 42vh !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
-      align-items: center !important;
-      text-align: center !important;
-      padding-top: 1rem !important;
-      padding-bottom: 1rem !important;
-      margin: 0 auto !important;
-      z-index: 200 !important;
-      position: relative !important;
-    }
-
-    .c8-hero-top .c8-hero-h1,
-    .c8-hero-in .c8-hero-h1 {
-      font-size: clamp(1.5rem, 3vw, 2.3rem) !important;
-      line-height: 1.18 !important;
-      margin-bottom: 0.75rem !important;
-      max-width: 800px !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-
-    .c8-hero-top .c8-hero-sub,
-    .c8-hero-in .c8-hero-sub {
-      font-size: clamp(0.9rem, 1.2vw, 1.02rem) !important;
-      line-height: 1.5 !important;
-      max-width: 580px !important;
-      margin: 0 auto 1.25rem auto !important;
-    }
-
-    .c8-hero-top .matrix-floor-wrapper {
-      position: absolute !important;
-      bottom: 0 !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      z-index: 100 !important;
-      margin: 0 !important;
-      width: 952px !important;
-      height: 392px !important;
-    }
-
-    .c8-hero-top .airborne-layer {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      pointer-events: none !important;
-      z-index: 500 !important;
-    }
-
-    .c8-hero-top .airborne-layer .t-piece {
-      pointer-events: auto !important;
-    }
-
-  
-    /* ABSOLUTE OVERLAY TEXT POSITIONING & HUD STYLING */
-    .c8-hero-top.c8-hero-b-standalone,
-    .c8-hero-b-standalone {
-      position: relative !important;
-      overflow: hidden !important;
-      min-height: 100vh !important;
-      height: 100vh !important;
-      background-color: #FFFFFF !important;
-      background-image: none !important;
-      padding: 0 !important;
-      box-sizing: border-box !important;
-    }
-
-    .c8-hero-top .c8-hero-in,
-    .c8-hero-in {
-      position: absolute !important;
-      top: 3.5rem !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      width: 100% !important;
-      max-width: 820px !important;
-      text-align: center !important;
-      z-index: 200 !important;
-      pointer-events: none !important;
-      padding: 0 1.5rem !important;
-      margin: 0 !important;
-    }
-
-    .c8-hero-top .c8-hero-in a,
-    .c8-hero-in a,
-    .c8-hero-top .c8-hero-in button,
-    .c8-hero-in button {
-      pointer-events: auto !important;
+      margin-bottom: 1.5rem !important;
     }
 
     .c8-hero-top .matrix-floor-wrapper {
