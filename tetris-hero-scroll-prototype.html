@@ -3,25 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CR8V Stacks — Source of Truth Tetris Block Component Showcase</title>
+  <title>CR8V Stacks — 3D Tetris Hero System (AI MVP Solid Box Shape)</title>
+  
+  <!-- Brand Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Michroma&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Michroma&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      /* Muted, Studio-Grade Color Palette Extracted Directly From Reference Image */
-      --block-slate-blue: #8CAAD8;
-      --block-charcoal: #3A3C3E;
-      --block-sage-green: #94B598;
-      --block-terracotta: #D98858;
-      --block-midnight-blue: #243B54;
-      --block-sand-beige: #D9CFBD;
+      /* Studio-Grade Palette Extracted Directly From Master Prompt */
+      --block-obsidian: #141414;      /* OpenAI, Shopify, Claude */
+      --block-royal-blue: #0D52E0;    /* Custom Development, Next.js, AI MVP */
+      --block-light-grey: #E5E4DE;    /* Web Design, WordPress */
+      --block-purple: #5C32BD;        /* Structural Tetris Step/L Filler */
+      --block-terracotta: #E85A1C;    /* Elementor */
+      --block-golden-yellow: #EAB308;/* Structural Tetris Step/L Filler */
+      --block-forest-green: #1E7D34;  /* Figma */
+      --block-lime-green: #6E9C26;    /* Structural Tetris Step/L Filler */
+      --block-sand-beige: #D9C5A0;    /* Content Writing */
       
+      --c8-blue: #0047E1;
       --c8-ink: #080808;
       --c8-sub: #666666;
+      
       --font-body: 'DM Sans', sans-serif;
       --font-heading: 'Michroma', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      
+      --u: 56px;            /* Standardized 1x1 Tetris Module Scale */
+      --block-radius: 2px;  /* STRICT 2PX CORNER RADIUS */
     }
 
     * {
@@ -31,25 +42,26 @@
     }
 
     body {
-      background-color: #FAFAF8;
+      background-color: #FAFAF7;
       color: var(--c8-ink);
       font-family: var(--font-body);
-      padding: 3.5rem 2rem;
       line-height: 1.5;
+      overflow-x: hidden;
     }
 
     /* Page Header */
     .catalog-header {
-      max-width: 1000px;
-      margin: 0 auto 3rem auto;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 1.5rem 1.5rem;
       text-align: center;
     }
 
     .catalog-eyebrow {
-      font-family: var(--font-body);
-      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
       font-weight: 700;
-      color: #0047E1;
+      color: var(--c8-blue);
       letter-spacing: 0.16em;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
@@ -57,56 +69,452 @@
 
     .catalog-h1 {
       font-family: var(--font-heading);
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 700;
       text-transform: uppercase;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       color: #111111;
     }
 
     .catalog-desc {
       color: var(--c8-sub);
-      font-size: 1rem;
-      max-width: 640px;
+      font-size: 0.95rem;
+      max-width: 840px;
       margin: 0 auto;
     }
 
-    /* Reference Image Display Container */
-    .reference-preview-box {
-      max-width: 1000px;
-      margin: 0 auto 4rem auto;
+    /* Motion Controller Bar */
+    .motion-controller {
+      max-width: 1240px;
+      margin: 0 auto 1.5rem auto;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 40px;
+      padding: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .state-btn {
+      background: transparent;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 30px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .state-btn.active {
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(0, 71, 225, 0.3);
+    }
+
+    /* Source of Truth Reference Box */
+    .reference-box {
+      max-width: 1240px;
+      margin: 0 auto 2.5rem auto;
       background: #FFFFFF;
       border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 12px;
-      padding: 1.5rem;
+      padding: 1.25rem;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
       text-align: center;
     }
 
-    .reference-preview-box h2 {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
+    .reference-box h2 {
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: #555555;
-      margin-bottom: 1rem;
+      color: #666;
+      margin-bottom: 0.75rem;
     }
 
-    .reference-preview-img {
+    .reference-img {
       width: 100%;
-      max-height: 380px;
+      max-height: 360px;
       object-fit: contain;
-      border-radius: 8px;
-      background: #FFFFFF;
+      border-radius: 2px;
     }
 
-    /* Grid Gallery of Block Components */
-    .catalog-grid {
-      max-width: 1000px;
-      margin: 0 auto;
+    /* ════════════════════════════════════════════════════════════════
+       3D TETRIS PUZZLE ENGINE (COLLISION DETECTION & ANTI-OVERLAY PHYSICS)
+       ════════════════════════════════════════════════════════════════ */
+
+    .t-piece {
+      display: inline-grid;
+      position: relative;
+      user-select: none;
+      background: transparent !important; /* 100% TRANSPARENT CONTAINER BOUNDING */
+      filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.16));
+      transition: transform 0.2s ease, filter 0.2s ease, opacity 0.3s ease;
+      cursor: grab;
+      touch-action: none;
+    }
+
+    .t-piece.is-dragging {
+      cursor: grabbing !important;
+      z-index: 100 !important;
+      filter: drop-shadow(0 18px 32px rgba(0, 71, 225, 0.40)) brightness(1.05);
+    }
+
+    .t-piece.is-selected {
+      outline: 2px dashed var(--c8-blue);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* Red Collision Alert Highlight */
+    .t-piece.is-colliding {
+      outline: 2px dashed #E53935 !important;
+      outline-offset: 3px !important;
+      filter: drop-shadow(0 0 16px rgba(229, 57, 53, 0.75)) brightness(1.1) !important;
+    }
+
+    /* Floating Handle Overlay Triggers */
+    .t-handle {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 71, 225, 0.4);
+      z-index: 30;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.2s ease;
+    }
+
+    .t-piece:hover .t-handle,
+    .t-piece.is-selected .t-handle {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .t-handle:hover {
+      background: #0030A0;
+      transform: scale(1.18) !important;
+    }
+
+    .t-rotate-handle { top: -12px; right: -12px; }
+    .t-fliph-handle  { top: -12px; left: -12px; }
+    .t-flipv-handle  { bottom: -12px; left: -12px; }
+
+    .t-cell {
+      width: var(--cw, var(--u, 56px));
+      height: var(--ch, var(--u, 56px));
+      position: relative;
+      box-sizing: border-box;
+      background: transparent;
+    }
+
+    .t-shape-body {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--block-radius, 2px);
+      box-shadow: 
+        inset 1.5px 1.5px 3px rgba(255, 255, 255, 0.40),
+        inset -1.5px -1.5px 3px rgba(0, 0, 0, 0.32);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Tone Classes Applied ONLY to Active Shape Sub-Cells */
+    .tone-obsidian { background: var(--block-obsidian); color: #FFFFFF; }
+    .tone-royal-blue { background: var(--block-royal-blue); color: #FFFFFF; }
+    .tone-light-grey { 
+      background: var(--block-light-grey); 
+      color: #111111;
+      box-shadow: 
+        inset 1.5px 1.5px 3px rgba(255, 255, 255, 0.85),
+        inset -1.5px -1.5px 3px rgba(0, 0, 0, 0.16);
+    }
+    .tone-purple { background: var(--block-purple); color: #FFFFFF; }
+    .tone-terracotta { background: var(--block-terracotta); color: #FFFFFF; }
+    .tone-golden-yellow { background: var(--block-golden-yellow); color: #111111; }
+    .tone-forest-green { background: var(--block-forest-green); color: #FFFFFF; }
+    .tone-lime-green { background: var(--block-lime-green); color: #FFFFFF; }
+    .tone-sand-beige { background: var(--block-sand-beige); color: #111111; }
+
+    /* Internal Seam Lines */
+    .t-seam-h {
+      position: absolute;
+      left: 2px; right: 2px; bottom: -1px;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.16);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.16);
+      z-index: 3;
+      pointer-events: none;
+    }
+    .t-seam-v {
+      position: absolute;
+      top: 2px; bottom: 2px; right: -1px;
+      width: 1px;
+      background: rgba(0, 0, 0, 0.16);
+      box-shadow: 1px 0 0 rgba(255, 255, 255, 0.16);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* Text & Logo Label Overlay */
+    .t-label {
+      position: absolute;
+      z-index: 5;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .t-cdn-logo {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+    }
+
+    .t-cdn-logo.is-white {
+      filter: brightness(0) invert(1);
+    }
+
+    /* Live Coordinate HUD Status Bar */
+    .matrix-hud {
+      max-width: 1320px;
+      margin: -2.5rem auto 2rem auto;
+      background: #141414;
+      color: #FFFFFF;
+      border-radius: 8px;
+      padding: 0.65rem 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .hud-title { color: #888888; text-transform: uppercase; letter-spacing: 0.08em; }
+    .hud-status { color: #3D6BFF; font-weight: 700; }
+    .hud-hint { color: #AAAAAA; font-size: 0.72rem; }
+
+    /* ════════════════════════════════════════════════════════════════
+       MAIN HERO SECTION PREVIEW (HERO TEXT + INTERLOCKING PUZZLE MATRIX)
+       ════════════════════════════════════════════════════════════════ */
+    .hero-arena-section {
+      max-width: 1360px;
+      margin: 0 auto 4rem auto;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+      padding: 3rem 1.5rem;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-arena-container {
+      width: 100%;
+      height: 680px;
+      background: #FAFAF7;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Embedded Hero Written Content Overlay (Upper-Center Space) */
+    .hero-content-overlay {
+      position: absolute;
+      top: 2.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 820px;
+      text-align: center;
+      z-index: 20;
+      padding: 0 1.5rem;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      text-transform: uppercase;
+      color: var(--c8-ink);
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: #4A4A4A;
+      max-width: 640px;
+      margin: 0 auto 1.25rem auto;
+      line-height: 1.6;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      pointer-events: auto;
+    }
+
+    .btn-primary-c8 {
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary-c8:hover {
+      background: #0038C0;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary-c8 {
+      background: #FFFFFF;
+      color: var(--c8-ink);
+      border: 1px solid rgba(8, 8, 8, 0.15);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-secondary-c8:hover {
+      border-color: var(--c8-blue);
+      color: var(--c8-blue);
+      transform: translateY(-2px);
+    }
+
+    /* 2D Matrix Floor Arena (17 cols x 7 rows - Exact Screenshot Matrix) */
+    .matrix-floor-wrapper {
+      width: 100%;
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .matrix-arena {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(17, var(--u, 56px));
+      grid-template-rows: repeat(7, var(--u, 56px));
+      gap: 0;
+      position: relative;
+    }
+
+    /* Airborne Layer at 70% In-Motion Mode */
+    .airborne-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 15;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .airborne-layer .t-piece {
+      pointer-events: auto;
+    }
+
+    /* State A Airborne Floating Coordinates (Hovering Above Floor Matrix) */
+    .air-wp-purple   { position: absolute; left: 30px;  top: 40px;  transform: rotate(-10deg); }
+    .air-nextjs      { position: absolute; left: 180px; top: 180px; transform: rotate(-16deg); }
+    .air-green-z     { position: absolute; right: 100px; top: 30px;  transform: rotate(12deg); }
+    .air-amber-l     { position: absolute; right: 30px;  top: 190px; transform: rotate(22deg); }
+
+    /* ════════════════════════════════════════════════════════════════
+       EXACT MASTER PROMPT DUAL-STATE RULES
+       ════════════════════════════════════════════════════════════════ */
+    body.mode-70 .docked-socket {
+      opacity: 0 !important;
+      transform: translateY(-80px) scale(0.9) !important;
+      pointer-events: none !important;
+    }
+
+    body.mode-70 .airborne-layer {
+      display: block !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+
+    body.mode-100 .airborne-layer {
+      display: none !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    body.mode-100 .docked-socket {
+      opacity: 1 !important;
+      transform: translateY(0) scale(1) !important;
+      pointer-events: auto !important;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       ISOLATED STANDARDIZED COMPONENT CATALOG (11 ISOLATED CARDS)
+       ════════════════════════════════════════════════════════════════ */
+    .catalog-grid {
+      max-width: 1240px;
+      margin: 0 auto 4rem auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 2rem;
     }
 
@@ -131,262 +539,838 @@
       border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
 
-    .piece-title {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #111111;
-    }
-
-    .piece-color-tag {
-      font-family: var(--font-body);
-      font-size: 0.72rem;
-      color: #666666;
-      font-weight: 500;
-    }
-
-    .piece-stage {
-      width: 100%;
-      height: 180px;
-      background: #F4F4F0;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    /* ════════════════════════════════════════════════════════════════
-       3D MATTE FOAM/WOODEN BLOCK STYLING ENGINE (EXACT PARITY)
-       ════════════════════════════════════════════════════════════════ */
-    .m-block {
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.92);
-      letter-spacing: 0.02em;
-      box-shadow: 
-        inset 2px 2px 3px rgba(255, 255, 255, 0.35),
-        inset -2px -2px 3px rgba(0, 0, 0, 0.25),
-        0 10px 24px rgba(0, 0, 0, 0.12);
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Color Palette Classes */
-    .bg-slate-blue   { background: var(--block-slate-blue); color: #FFFFFF; }
-    .bg-charcoal     { background: var(--block-charcoal); color: #FFFFFF; }
-    .bg-sage-green   { background: var(--block-sage-green); color: #FFFFFF; }
-    .bg-terracotta   { background: var(--block-terracotta); color: #FFFFFF; }
-    .bg-midnight-blue{ background: var(--block-midnight-blue); color: #FFFFFF; }
-    .bg-sand-beige   { background: var(--block-sand-beige); color: #4A443B; text-shadow: none; }
+    .piece-title { font-size: 0.88rem; font-weight: 700; color: #111; }
+    .piece-color-tag { font-size: 0.72rem; color: #555; font-weight: 600; background: #F4F4F0; padding: 0.25rem 0.65rem; border-radius: 4px; }
+    .piece-stage { width: 100%; height: 220px; background: #F5F5F2; border-radius: 8px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
 
   </style>
 </head>
-<body>
+<body class="mode-70">
 
-  <!-- Page Header -->
+  <!-- Header -->
   <header class="catalog-header">
-    <div class="catalog-eyebrow">// SOURCE OF TRUTH DESIGN PARITY</div>
-    <h1 class="catalog-h1">Tetris 3D Block Texture & Palette Catalog</h1>
-    <p class="catalog-desc">Comparing the exact studio-grade color palette, soft matte 3D foam bevels, and debossed typography extracted directly from the reference mockup.</p>
+    <div class="catalog-eyebrow">// MASTER PROMPT SPECIFICATION — 3D TETRIS MODULAR HERO SYSTEM</div>
+    <h1 class="catalog-h1">CR8V Stacks 3D Tetris Hero System</h1>
+    <p class="catalog-desc">AI MVP Converted to Solid 2x2 Box Shape + Real-Time Anti-Overlap Physics Engine.</p>
   </header>
 
-  <!-- Source of Truth Reference Image Box -->
-  <div class="reference-preview-box">
-    <h2>Source of Truth Reference Image (cr8v_home_hero_bg.png)</h2>
-    <img src="assets/img/cr8v_home_hero_bg.png" alt="Source of Truth Reference" class="reference-preview-img">
+  <!-- Motion Controller Bar -->
+  <div class="motion-controller">
+    <button class="state-btn active" onclick="setMode('70')">State A: 70% In-Motion (Base Floor + 4 Floating Airborne)</button>
+    <button class="state-btn" onclick="setMode('100')">State B: 100% Fully Assembled (Exact Screenshot Match)</button>
   </div>
 
-  <!-- Component Gallery Catalog -->
-  <main class="catalog-grid">
+  <!-- Source of Truth Reference Image Box -->
+  <div class="reference-box">
+    <h2>State B Exact User Target Screenshot (input_file_0.png)</h2>
+    <img src="recreate_this_exact_design_202608151817.jpeg" alt="Source of Truth Reference" class="reference-img">
+  </div>
 
-    <!-- Card 1: Web Design -->
+  <!-- ════════════════════════════════════════════════════════════════
+       MAIN HERO SECTION PREVIEW (INTERLOCKING 3D TETRIS MATRIX)
+       ════════════════════════════════════════════════════════════════ -->
+  <section class="hero-arena-section">
+    <div class="hero-arena-container">
+      
+      <!-- Embedded Hero Written Content Overlay (Upper-Center Space) -->
+      <div class="hero-content-overlay">
+        <div class="hero-eyebrow">// CRAFTED FOR HIGH-GROWTH BRANDS</div>
+        <h1 class="hero-h1">WE BUILD DIGITAL PRODUCTS THAT SCALE BRANDS</h1>
+        <p class="hero-sub">From strategy and high-converting platforms to custom Next.js applications and AI MVP integrations — engineered for liquid performance.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary-c8">START A PROJECT →</a>
+          <a href="#services" class="btn-secondary-c8">EXPLORE SERVICES ↓</a>
+        </div>
+      </div>
+
+      <!-- Bottom Floor 2D Matrix Grid Assembly Arena (17 cols x 7 rows - Exact Screenshot Matrix) -->
+      <div class="matrix-floor-wrapper">
+        <div class="matrix-arena" id="matrixArena">
+
+          <!-- 1. OpenAI (Base Floor Block - Cols 2-3, Rows 6-7) -->
+          <div class="t-piece" data-name="OpenAI" data-col="2" data-row="6" style="grid-column: 2 / span 2; grid-row: 6 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-h"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
+              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/default.svg" alt="OpenAI CDN Logo" class="t-cdn-logo">
+              <span style="font-size: 0.65rem; color: #FFF;">OPENAI</span>
+            </div>
+          </div>
+
+          <!-- 2. Web Design (Base Floor Block - Cols 5-6, Rows 5-6) -->
+          <div class="t-piece" data-name="Web Design" data-col="5" data-row="5" style="grid-column: 5 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-h"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #111; font-size: 0.72rem;">WEB DESIGN</div>
+          </div>
+
+          <!-- 3. Custom Development (Base Floor Block - Cols 5-8, Row 7) -->
+          <div class="t-piece" data-name="Custom Development" data-col="5" data-row="7" style="grid-column: 5 / span 4; grid-row: 7; display:grid; grid-template-columns: repeat(4, var(--u)); grid-template-rows: var(--ch, 76px); --ch: 76px;">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 4;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; align-items: center; justify-content: center;">CUSTOM DEVELOPMENT</div>
+          </div>
+
+          <!-- 4. AI MVP (Base Floor Block - Cols 7-8, Rows 5-6 - SOLID 2x2 BOX) -->
+          <div class="t-piece" data-name="AI MVP" data-col="7" data-row="5" style="grid-column: 7 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-h"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center;">AI MVP</div>
+          </div>
+
+          <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7) -->
+          <div class="t-piece" data-name="Shopify" data-col="9" data-row="7" style="grid-column: 9 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--ch, 76px); --ch: 76px;">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; align-items: center; justify-content: center;">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg" alt="Shopify CDN Logo" class="t-cdn-logo">
+              <span>SHOPIFY</span>
+            </div>
+          </div>
+
+          <!-- 6. WordPress (Base Floor Block - Cols 11-12, Rows 5-6) -->
+          <div class="t-piece" data-name="WordPress" data-col="11" data-row="5" style="grid-column: 11 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;">
+              <div class="t-shape-body tone-light-grey"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="WordPress CDN Logo" class="t-cdn-logo"></div>
+              <div class="t-seam-v"></div><div class="t-seam-h"></div>
+            </div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
+            <div class="t-label" style="left: 0; right: 0; bottom: 0; height: var(--u); color: #111; font-size: 0.65rem; align-items: center; justify-content: center;">WORDPRESS</div>
+          </div>
+
+          <!-- 7. Content Writing (Base Floor Block - Cols 13-14, Rows 4-5 - STACKED FLUSH ON TOP OF ELEMENTOR) -->
+          <div class="t-piece" data-name="Content Writing" data-col="13" data-row="4" style="grid-column: 13 / span 2; grid-row: 4 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; flex-direction: row; gap: 6px; align-items: center; justify-content: center; color: #111;">
+              <span>CONTENT</span>
+              <span>WRITING</span>
+            </div>
+          </div>
+
+          <!-- 8. Elementor (Base Floor Block - Cols 13-14, Row 6) -->
+          <div class="t-piece" data-name="Elementor" data-col="13" data-row="6" style="grid-column: 13 / span 2; grid-row: 6; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: var(--u);">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;">
+              <div class="t-shape-body tone-terracotta">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/elementor.svg" alt="Elementor CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+              </div>
+              <div class="t-seam-v"></div>
+            </div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-terracotta"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.65rem; align-items: center; justify-content: center;">ELEMENTOR</div>
+          </div>
+
+          <!-- 9. Figma (Base Floor Block - Cols 12-14, Row 7 - HORIZONTAL I-SHAPE) -->
+          <div class="t-piece" data-name="Figma" data-col="12" data-row="7" style="grid-column: 12 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-forest-green"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-forest-green"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-forest-green"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; font-size: 0.68rem;">FIGMA</div>
+          </div>
+
+          <!-- 10. Claude (Base Floor Block - Col 15, Rows 6-7) -->
+          <div class="t-piece" data-name="Claude" data-col="15" data-row="6" style="grid-column: 15; grid-row: 6 / span 2; display:grid; grid-template-columns: var(--cw, 76px); grid-template-rows: repeat(2, var(--u)); --cw: 76px;">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
+            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
+              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude Verified CDN Logo" class="t-cdn-logo">
+              <span style="font-size: 0.65rem;">CLAUDE</span>
+            </div>
+          </div>
+
+          <!-- ════════════════════════════════════════════════════════════
+               THE 4 DOCKED SOCKETS (HIDDEN IN STATE A, VISIBLE IN STATE B)
+               ════════════════════════════════════════════════════════════ -->
+
+          <!-- Docked Socket 1: Purple WP Flipped 2x3 L-Piece (Cols 1-2, Rows 5-7) -->
+          <div class="t-piece docked-socket" data-name="Purple WP L-Piece" data-col="1" data-row="5" style="grid-column: 1 / span 2; grid-row: 5 / span 3; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;">
+              <div class="t-shape-body tone-purple"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="WP" class="t-cdn-logo" style="filter: brightness(0) invert(1);"></div>
+              <div class="t-seam-h"></div>
+            </div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 3;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          </div>
+
+          <!-- Docked Socket 2: Next.js (Col 4, Rows 5-7) -->
+          <div class="t-piece docked-socket" data-name="Next.js" data-col="4" data-row="5" style="grid-column: 4; grid-row: 5 / span 3; display:grid; grid-template-columns: var(--u); grid-template-rows: repeat(3, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-row: 1;">
+              <div class="t-shape-body tone-royal-blue"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nextdotjs.svg" alt="Next.js CDN Logo" class="t-cdn-logo is-white"></div>
+              <div class="t-seam-h"></div>
+            </div>
+            <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-row: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
+          </div>
+
+          <!-- Docked Socket 3: Golden Yellow L-Piece (Cols 9-10, Rows 5-6) -->
+          <div class="t-piece docked-socket" data-name="Golden Yellow L" data-col="9" data-row="5" style="grid-column: 9 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
+          </div>
+
+          <!-- Docked Socket 4: Lime Green Lemon Z-Piece (Cols 16-17, Rows 4-7) -->
+          <div class="t-piece docked-socket" data-name="Lime Green Lemon Z" data-col="16" data-row="4" style="grid-column: 16 / span 2; grid-row: 4 / span 4; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(4, var(--u));">
+            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><!-- PURE TRANSPARENT CUTOUT --></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-h"></div></div>
+            <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
+            <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 70% In-Motion Floating Layer (THE 4 AIRBORNE FLOATING HERO BLOCKS IN STATE A) -->
+      <div class="airborne-layer">
+        <!-- 1. Airborne Flipped Purple WP L-Piece -->
+        <div class="t-piece air-wp-purple" data-name="Airborne Purple WP" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;">
+            <div class="t-shape-body tone-purple"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="WP" class="t-cdn-logo" style="filter: brightness(0) invert(1);"></div>
+            <div class="t-seam-h"></div>
+          </div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 3;"><!-- PURE TRANSPARENT CUTOUT --></div>
+        </div>
+
+        <!-- 2. Airborne Next.js Blue 1x3 Bar -->
+        <div class="t-piece air-nextjs" data-name="Airborne Next.js" style="grid-template-columns: var(--u); grid-template-rows: repeat(3, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-row: 1;">
+            <div class="t-shape-body tone-royal-blue"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nextdotjs.svg" alt="Next.js" class="t-cdn-logo is-white"></div>
+            <div class="t-seam-h"></div>
+          </div>
+          <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-row: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
+        </div>
+
+        <!-- 3. Airborne Lime Green Lemon Z-Piece -->
+        <div class="t-piece air-green-z" data-name="Airborne Lime Green Z" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(4, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
+        </div>
+
+        <!-- 4. Airborne Golden Yellow L-Piece -->
+        <div class="t-piece air-amber-l" data-name="Airborne Golden Yellow L" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Live Matrix Coordinate HUD Status Bar -->
+  <div class="matrix-hud">
+    <span class="hud-title">// 3D MATRIX INTERACTION HUD</span>
+    <span class="hud-status" id="hudStatus">READY — DRAG BLOCKS, ROTATE (↺/R) OR FLIP (⇄/F, ⇅/V)</span>
+    <span class="hud-hint">KEYS: [R] ROTATE 90° | [F]/[H] FLIP HORIZONTAL | [V] FLIP VERTICAL</span>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       ISOLATED STANDARDIZED COMPONENT CATALOG (11 ISOLATED CARDS)
+       ════════════════════════════════════════════════════════════════ -->
+  <main id="catalog" class="catalog-grid">
+
+    <!-- 1. OpenAI -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">Web Design</span>
-        <span class="piece-color-tag">Soft Slate Blue (#8CAAD8)</span>
+        <span class="piece-title">1. OpenAI</span>
+        <span class="piece-color-tag">Obsidian (#141414)</span>
       </div>
       <div class="piece-stage">
-        <div class="m-block bg-slate-blue" style="width: 170px; height: 54px;">
-          Web Design
+        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;">
+            <div class="t-shape-body tone-obsidian">
+              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/default.svg" alt="OpenAI CDN Logo" class="t-cdn-logo">
+            </div>
+            <div class="t-seam-h"></div><div class="t-seam-v"></div>
+          </div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
         </div>
       </div>
     </div>
 
-    <!-- Card 2: Next.js -->
+    <!-- 2. Custom Development -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">Next.js</span>
-        <span class="piece-color-tag">Dark Charcoal Slate (#3A3C3E)</span>
+        <span class="piece-title">2. Custom Development</span>
+        <span class="piece-color-tag">Royal Blue (#0D52E0)</span>
       </div>
       <div class="piece-stage">
-        <div class="m-block bg-charcoal" style="width: 140px; height: 54px;">
-          Next.js
+        <div class="t-piece" style="grid-template-columns: repeat(4, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 3; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 4; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 3; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 4; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.72rem;">CUSTOM DEVELOPMENT</div>
         </div>
       </div>
     </div>
 
-    <!-- Card 3: Figma -->
+    <!-- 3. Web Design -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">Figma</span>
-        <span class="piece-color-tag">Muted Sage Green (#94B598)</span>
+        <span class="piece-title">3. Web Design</span>
+        <span class="piece-color-tag">Off-White (#E5E4DE)</span>
       </div>
       <div class="piece-stage">
-        <div class="m-block bg-sage-green" style="width: 140px; height: 54px;">
-          Figma
+        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-h"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
+          <div class="t-label" style="left: 0; right: 0; bottom: 0; height: var(--u, 56px); color: #111;">WEB DESIGN</div>
         </div>
       </div>
     </div>
 
-    <!-- Card 4: Elementor -->
+    <!-- 4. AI MVP (Solid 2x2 Box) -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">Elementor</span>
-        <span class="piece-color-tag">Warm Terracotta (#D98858)</span>
+        <span class="piece-title">4. AI MVP (Solid 2x2 Box)</span>
+        <span class="piece-color-tag">Royal Blue (#0D52E0)</span>
       </div>
       <div class="piece-stage">
-        <div class="m-block bg-terracotta" style="width: 120px; height: 54px;">
-          Elementor
+        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-h"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0;">AI MVP</div>
         </div>
       </div>
     </div>
 
-    <!-- Card 5: WordPress -->
+    <!-- 5. Shopify -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">WordPress</span>
-        <span class="piece-color-tag">Dark Charcoal Slate (#3A3C3E)</span>
+        <span class="piece-title">5. Shopify</span>
+        <span class="piece-color-tag">Obsidian (#141414)</span>
       </div>
       <div class="piece-stage">
-        <div class="m-block bg-charcoal" style="width: 130px; height: 54px;">
-          WordPress
+        <div class="t-piece" style="grid-template-columns: repeat(3, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 3; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 3; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
+          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px;">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg" alt="Shopify CDN Logo" class="t-cdn-logo">
+            <span>SHOPIFY</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Card 6: Custom Development -->
+    <!-- 6. Elementor -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">Custom Development</span>
-        <span class="piece-color-tag">Deep Midnight Blue (#243B54)</span>
+        <span class="piece-title">6. Elementor</span>
+        <span class="piece-color-tag">Terracotta (#E85A1C)</span>
       </div>
       <div class="piece-stage">
-        <div class="m-block bg-midnight-blue" style="width: 200px; height: 54px;">
-          Custom Development
+        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;">
+            <div class="t-shape-body tone-terracotta">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/elementor.svg" alt="Elementor CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+            </div>
+            <div class="t-seam-h"></div><div class="t-seam-v"></div>
+          </div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-terracotta"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-terracotta"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-terracotta"></div></div>
+          <div class="t-label" style="left: 0; right: 0; bottom: 0; height: var(--u, 56px); font-size: 0.72rem;">ELEMENTOR</div>
         </div>
       </div>
     </div>
 
-    <!-- Card 7: Digital Marketing -->
+    <!-- 7. Figma (Horizontal I-Shape) -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">Digital Marketing</span>
-        <span class="piece-color-tag">Deep Midnight Blue (#243B54)</span>
+        <span class="piece-title">7. Figma (Horizontal I-Shape)</span>
+        <span class="piece-color-tag">Forest Green (#1E7D34)</span>
       </div>
       <div class="piece-stage">
-        <div class="m-block bg-midnight-blue" style="width: 170px; height: 54px;">
-          Digital Marketing
+        <div class="t-piece" style="grid-template-columns: repeat(3, var(--u, 56px)); grid-template-rows: var(--u, 56px);">
+          <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-forest-green"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-forest-green"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-forest-green"></div></div>
+          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem;">FIGMA</div>
         </div>
       </div>
     </div>
 
-    <!-- Card 8: Shopify -->
+    <!-- 8. WordPress -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">Shopify</span>
-        <span class="piece-color-tag">Warm Terracotta (#D98858)</span>
+        <span class="piece-title">8. WordPress</span>
+        <span class="piece-color-tag">Off-White (#E5E4DE)</span>
       </div>
       <div class="piece-stage">
-        <div class="m-block bg-terracotta" style="width: 140px; height: 54px;">
-          Shopify
+        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;">
+            <div class="t-shape-body tone-light-grey">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="WordPress CDN Logo" class="t-cdn-logo">
+            </div>
+            <div class="t-seam-v"></div><div class="t-seam-h"></div>
+          </div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
+          <div class="t-label" style="left: 0; right: 0; bottom: 0; height: var(--u, 56px); color: #111; font-size: 0.72rem;">WORDPRESS</div>
         </div>
       </div>
     </div>
 
-    <!-- Card 9: AI MVP -->
+    <!-- 9. Content Writing -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">AI MVP</span>
-        <span class="piece-color-tag">Soft Slate Blue (#8CAAD8)</span>
+        <span class="piece-title">9. Content Writing</span>
+        <span class="piece-color-tag">Sand Beige (#D9C5A0)</span>
       </div>
       <div class="piece-stage">
-        <div class="m-block bg-slate-blue" style="width: 130px; height: 54px;">
-          AI MVP
+        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
+          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.72rem; color: #111;">CONTENT WRITING</div>
         </div>
       </div>
     </div>
 
-    <!-- Card 10: SEO -->
+    <!-- 10. Claude -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">SEO</span>
-        <span class="piece-color-tag">Muted Sand Beige (#D9CFBD)</span>
+        <span class="piece-title">10. Claude (Verified CDN)</span>
+        <span class="piece-color-tag">Obsidian (#141414)</span>
       </div>
       <div class="piece-stage">
-        <div class="m-block bg-sand-beige" style="width: 130px; height: 54px;">
-          SEO
+        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;">
+            <div class="t-shape-body tone-obsidian">
+              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude Verified CDN Logo" class="t-cdn-logo">
+            </div>
+            <div class="t-seam-h"></div><div class="t-seam-v"></div>
+          </div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
+          <div class="t-label" style="left: 0; right: 0; bottom: 0; height: var(--u, 56px); font-size: 0.72rem;">CLAUDE</div>
         </div>
       </div>
     </div>
 
-    <!-- Card 11: Web App (Floating) -->
+    <!-- 11. Relocated Docked / Airborne Accent Block Set -->
     <div class="piece-card">
       <div class="piece-card-header">
-        <span class="piece-title">Web App (Airborne)</span>
-        <span class="piece-color-tag">Soft Slate Blue (#8CAAD8)</span>
+        <span class="piece-title">11. Relocated Docked / Airborne Accent Block Set</span>
+        <span class="piece-color-tag">Purple / Lime / Yellow</span>
       </div>
       <div class="piece-stage">
-        <div class="m-block bg-slate-blue" style="width: 110px; height: 54px;">
-          Web App
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 12: API (Floating) -->
-    <div class="piece-card">
-      <div class="piece-card-header">
-        <span class="piece-title">API (Airborne)</span>
-        <span class="piece-color-tag">Dark Charcoal Slate (#3A3C3E)</span>
-      </div>
-      <div class="piece-stage">
-        <div class="m-block bg-charcoal" style="width: 70px; height: 54px;">
-          API
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 13: UX/UI (Floating) -->
-    <div class="piece-card">
-      <div class="piece-card-header">
-        <span class="piece-title">UX/UI (Airborne)</span>
-        <span class="piece-color-tag">Muted Sage Green (#94B598)</span>
-      </div>
-      <div class="piece-stage">
-        <div class="m-block bg-sage-green" style="width: 110px; height: 54px;">
-          UX/UI
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 14: E-com (Floating) -->
-    <div class="piece-card">
-      <div class="piece-card-header">
-        <span class="piece-title">E-com (Airborne)</span>
-        <span class="piece-color-tag">Warm Terracotta (#D98858)</span>
-      </div>
-      <div class="piece-stage">
-        <div class="m-block bg-terracotta" style="width: 90px; height: 54px;">
-          E-com
+        <div class="t-piece" style="grid-template-columns: repeat(2, var(--u, 56px)); grid-template-rows: repeat(2, var(--u, 56px));">
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div><div class="t-seam-h"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;">
+            <div class="t-shape-body tone-purple"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="WP" class="t-cdn-logo" style="filter: brightness(0) invert(1);"></div>
+            <div class="t-seam-h"></div>
+          </div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div><div class="t-seam-v"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-purple"></div></div>
+          <div class="t-label" style="left: 0; right: 0; bottom: 0; height: var(--u, 56px); font-size: 0.72rem;">RELOCATED ACCENT SET</div>
         </div>
       </div>
     </div>
 
   </main>
 
+  <script>
+    let activePiece = null;
+
+    function setMode(mode) {
+      document.body.className = 'mode-' + mode;
+      const btns = document.querySelectorAll('.state-btn');
+      btns.forEach(btn => btn.classList.remove('active'));
+      if (mode === '70') btns[0].classList.add('active');
+      if (mode === '100') btns[1].classList.add('active');
+      
+      const status = document.getElementById('hudStatus');
+      if (status) {
+        status.textContent = mode === '70' ? 
+          'STATE A (70% IN-MOTION): BASE FLOOR BLOCKS RESTING + 4 AIRBORNE BLOCKS FLOATING ABOVE MATRIX' : 
+          'STATE B (100% ASSEMBLED): ALL 4 AIRBORNE BLOCKS DOCKED FLUSH INTO MATRIX MATCHING SCREENSHOT (INPUT_FILE_0.PNG)';
+      }
+    }
+
+    // ════════════════════════════════════════════════════════════════
+    // REAL-TIME CELL COLLISION DETECTION & ANTI-OVERLAY ENGINE
+    // ════════════════════════════════════════════════════════════════
+    document.addEventListener('DOMContentLoaded', () => {
+      const pieces = document.querySelectorAll('.t-piece');
+      const hudStatus = document.getElementById('hudStatus');
+
+      function getOccupiedMatrix(movingPiece) {
+        const matrix = Array.from({length: 18}, () => Array(8).fill(false));
+        const mode = document.body.className.includes('mode-100') ? '100' : '70';
+        
+        pieces.forEach(p => {
+          if (p === movingPiece) return;
+          
+          if (mode === '70' && p.classList.contains('docked-socket')) return;
+          if (mode === '100' && p.closest('.airborne-layer')) return;
+          if (p.offsetWidth === 0 || p.offsetHeight === 0) return;
+
+          const style = window.getComputedStyle(p);
+          const colStart = parseInt(p.dataset.col || style.gridColumnStart || '1');
+          const rowStart = parseInt(p.dataset.row || style.gridRowStart || '1');
+
+          const dX = Math.round((p._translateX || 0) / 56);
+          const dY = Math.round((p._translateY || 0) / 56);
+
+          const finalCol = colStart + dX;
+          const finalRow = rowStart + dY;
+
+          const cells = p.querySelectorAll('.t-cell');
+          cells.forEach(cell => {
+            if (cell.querySelector('.t-shape-body')) {
+              const cellColOffset = (parseInt(cell.style.gridColumn || '1') - 1);
+              const cellRowOffset = (parseInt(cell.style.gridRow || '1') - 1);
+
+              const c = finalCol + cellColOffset;
+              const r = finalRow + cellRowOffset;
+
+              if (c >= 1 && c <= 17 && r >= 1 && r <= 7) {
+                matrix[c][r] = true;
+              }
+            }
+          });
+        });
+
+        return matrix;
+      }
+
+      function checkCollision(piece, tx, ty) {
+        const matrix = getOccupiedMatrix(piece);
+        const style = window.getComputedStyle(piece);
+        const colStart = parseInt(piece.dataset.col || style.gridColumnStart || '1');
+        const rowStart = parseInt(piece.dataset.row || style.gridRowStart || '1');
+
+        const dX = Math.round(tx / 56);
+        const dY = Math.round(ty / 56);
+
+        const targetCol = colStart + dX;
+        const targetRow = rowStart + dY;
+
+        let hasCollision = false;
+
+        const cells = piece.querySelectorAll('.t-cell');
+        cells.forEach(cell => {
+          if (cell.querySelector('.t-shape-body')) {
+            const cellColOffset = (parseInt(cell.style.gridColumn || '1') - 1);
+            const cellRowOffset = (parseInt(cell.style.gridRow || '1') - 1);
+
+            const c = targetCol + cellColOffset;
+            const r = targetRow + cellRowOffset;
+
+            if (c < 1 || c > 17 || r < 1 || r > 7 || matrix[c][r]) {
+              hasCollision = true;
+            }
+          }
+        });
+
+        return hasCollision;
+      }
+
+      pieces.forEach(piece => {
+        if (!piece.dataset.rotation) piece.dataset.rotation = '0';
+        if (!piece.dataset.flipX) piece.dataset.flipX = '1';
+        if (!piece.dataset.flipY) piece.dataset.flipY = '1';
+
+        let isDragging = false;
+        let startX, startY;
+        let currentTranslateX = 0, currentTranslateY = 0;
+        let lastValidX = 0, lastValidY = 0;
+
+        const rotateBtn = piece.querySelector('.t-rotate-handle');
+        if (rotateBtn) {
+          rotateBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            rotatePiece(piece);
+          });
+        }
+
+        const flipHBtn = piece.querySelector('.t-fliph-handle');
+        if (flipHBtn) {
+          flipHBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            flipPieceHorizontal(piece);
+          });
+        }
+
+        const flipVBtn = piece.querySelector('.t-flipv-handle');
+        if (flipVBtn) {
+          flipVBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            flipPieceVertical(piece);
+          });
+        }
+
+        piece.addEventListener('dblclick', (e) => {
+          if (e.target.classList.contains('t-handle')) return;
+          e.stopPropagation();
+          rotatePiece(piece);
+        });
+
+        piece.addEventListener('pointerdown', (e) => {
+          if (e.target.classList.contains('t-handle')) return;
+          
+          pieces.forEach(p => p.classList.remove('is-selected', 'is-colliding'));
+          piece.classList.add('is-selected');
+          activePiece = piece;
+
+          isDragging = true;
+          piece.classList.add('is-dragging');
+          piece.setPointerCapture(e.pointerId);
+
+          startX = e.clientX - currentTranslateX;
+          startY = e.clientY - currentTranslateY;
+
+          updateHudState(piece, 'DRAGGING...');
+        });
+
+        piece.addEventListener('pointermove', (e) => {
+          if (!isDragging) return;
+          currentTranslateX = e.clientX - startX;
+          currentTranslateY = e.clientY - startY;
+
+          const isColliding = checkCollision(piece, currentTranslateX, currentTranslateY);
+
+          if (isColliding) {
+            piece.classList.add('is-colliding');
+            if (hudStatus) {
+              const name = (piece.dataset.name || 'Block').toUpperCase();
+              hudStatus.textContent = `WARNING: [${name}] COLLISION DETECTED — REJECTED (SOLID BLOCK BOUNDARY)`;
+            }
+          } else {
+            piece.classList.remove('is-colliding');
+            lastValidX = currentTranslateX;
+            lastValidY = currentTranslateY;
+            updateHudState(piece, 'DRAGGING...');
+          }
+
+          applyPieceTransform(
+            piece, 
+            currentTranslateX, 
+            currentTranslateY, 
+            parseInt(piece.dataset.rotation || '0'),
+            parseInt(piece.dataset.flipX || '1'),
+            parseInt(piece.dataset.flipY || '1')
+          );
+        });
+
+        const endDrag = (e) => {
+          if (!isDragging) return;
+          isDragging = false;
+          piece.classList.remove('is-dragging');
+          try { piece.releasePointerCapture(e.pointerId); } catch(err) {}
+
+          const isColliding = checkCollision(piece, currentTranslateX, currentTranslateY);
+
+          if (isColliding) {
+            currentTranslateX = lastValidX;
+            currentTranslateY = lastValidY;
+            applyPieceTransform(
+              piece, 
+              currentTranslateX, 
+              currentTranslateY, 
+              parseInt(piece.dataset.rotation || '0'),
+              parseInt(piece.dataset.flipX || '1'),
+              parseInt(piece.dataset.flipY || '1')
+            );
+            piece.classList.remove('is-colliding');
+            if (hudStatus) {
+              const name = (piece.dataset.name || 'Block').toUpperCase();
+              hudStatus.textContent = `PHYSICS SNAP: [${name}] LANDED ON SOLID SURFACE (OVERLAP PREVENTED)`;
+            }
+          } else {
+            updateHudState(piece, 'LANDED');
+          }
+        };
+
+        piece.addEventListener('pointerup', endDrag);
+        piece.addEventListener('pointercancel', endDrag);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!activePiece) return;
+        const key = e.key.toLowerCase();
+
+        if (key === 'r' || key === ' ') {
+          e.preventDefault();
+          rotatePiece(activePiece);
+        } else if (key === 'f' || key === 'h') {
+          e.preventDefault();
+          flipPieceHorizontal(activePiece);
+        } else if (key === 'v') {
+          e.preventDefault();
+          flipPieceVertical(activePiece);
+        }
+      });
+
+      function rotatePiece(piece) {
+        let currentRot = parseInt(piece.dataset.rotation || '0');
+        let newRot = (currentRot + 90) % 360;
+        piece.dataset.rotation = newRot.toString();
+
+        applyPieceTransform(
+          piece, 
+          piece._translateX || 0, 
+          piece._translateY || 0, 
+          newRot,
+          parseInt(piece.dataset.flipX || '1'),
+          parseInt(piece.dataset.flipY || '1')
+        );
+        updateHudState(piece, 'ROTATED 90°');
+      }
+
+      function flipPieceHorizontal(piece) {
+        let currentFlipX = parseInt(piece.dataset.flipX || '1');
+        let newFlipX = currentFlipX * -1;
+        piece.dataset.flipX = newFlipX.toString();
+
+        applyPieceTransform(
+          piece, 
+          piece._translateX || 0, 
+          piece._translateY || 0, 
+          parseInt(piece.dataset.rotation || '0'),
+          newFlipX,
+          parseInt(piece.dataset.flipY || '1')
+        );
+        updateHudState(piece, 'HORIZONTALLY FLIPPED');
+      }
+
+      function flipPieceVertical(piece) {
+        let currentFlipY = parseInt(piece.dataset.flipY || '1');
+        let newFlipY = currentFlipY * -1;
+        piece.dataset.flipY = newFlipY.toString();
+
+        applyPieceTransform(
+          piece, 
+          piece._translateX || 0, 
+          piece._translateY || 0, 
+          parseInt(piece.dataset.rotation || '0'),
+          parseInt(piece.dataset.flipX || '1'),
+          newFlipY
+        );
+        updateHudState(piece, 'VERTICALLY FLIPPED');
+      }
+
+      function applyPieceTransform(piece, tx, ty, rot, fx, fy) {
+        piece._translateX = tx;
+        piece._translateY = ty;
+        piece.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${rot}deg) scale(${fx}, ${fy})`;
+      }
+
+      function updateHudState(piece, actionText) {
+        if (!hudStatus) return;
+        const name = (piece.dataset.name || 'Block').toUpperCase();
+        const rot = piece.dataset.rotation || '0';
+        const fx = piece.dataset.flipX === '-1' ? 'H-FLIPPED' : 'NORMAL-H';
+        const fy = piece.dataset.flipY === '-1' ? 'V-FLIPPED' : 'NORMAL-V';
+        hudStatus.textContent = `ACTIVE: [${name}] | ROTATION: ${rot}° | FLIP: ${fx} / ${fy} | ACTION: ${actionText}`;
+      }
+    });
+  </script>
 </body>
 </html>

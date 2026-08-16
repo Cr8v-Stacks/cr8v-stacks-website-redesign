@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CR8V Stacks — Source of Truth Tetris Block Component Showcase (Clean Recovery Backup)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Michroma&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      /* Muted, Studio-Grade Color Palette Extracted Directly From Reference Image */
+      --block-slate-blue: #8CAAD8;
+      --block-charcoal: #3A3C3E;
+      --block-sage-green: #94B598;
+      --block-terracotta: #D98858;
+      --block-midnight-blue: #243B54;
+      --block-sand-beige: #D9CFBD;
+      
+      --c8-ink: #080808;
+      --c8-sub: #666666;
+      --font-body: 'DM Sans', sans-serif;
+      --font-heading: 'Michroma', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #FAFAF8;
+      color: var(--c8-ink);
+      font-family: var(--font-body);
+      padding: 3.5rem 2rem;
+      line-height: 1.5;
+    }
+
+    /* Page Header */
+    .catalog-header {
+      max-width: 1000px;
+      margin: 0 auto 3rem auto;
+      text-align: center;
+    }
+
+    .catalog-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #0047E1;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .catalog-h1 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      color: #111111;
+    }
+
+    .catalog-desc {
+      color: var(--c8-sub);
+      font-size: 1rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* Reference Image Display Container */
+    .reference-preview-box {
+      max-width: 1000px;
+      margin: 0 auto 4rem auto;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      text-align: center;
+    }
+
+    .reference-preview-box h2 {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #555555;
+      margin-bottom: 1rem;
+    }
+
+    .reference-preview-img {
+      width: 100%;
+      max-height: 380px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #FFFFFF;
+    }
+
+    /* Grid Gallery of Block Components */
+    .catalog-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .piece-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .piece-card-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .piece-title {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #111111;
+    }
+
+    .piece-color-tag {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      color: #666666;
+      font-weight: 500;
+    }
+
+    .piece-stage {
+      width: 100%;
+      height: 180px;
+      background: #F4F4F0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       3D MATTE FOAM/WOODEN BLOCK STYLING ENGINE (EXACT PARITY)
+       ════════════════════════════════════════════════════════════════ */
+    .m-block {
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.92);
+      letter-spacing: 0.02em;
+      box-shadow: 
+        inset 2px 2px 3px rgba(255, 255, 255, 0.35),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.25),
+        0 10px 24px rgba(0, 0, 0, 0.12);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Color Palette Classes */
+    .bg-slate-blue   { background: var(--block-slate-blue); color: #FFFFFF; }
+    .bg-charcoal     { background: var(--block-charcoal); color: #FFFFFF; }
+    .bg-sage-green   { background: var(--block-sage-green); color: #FFFFFF; }
+    .bg-terracotta   { background: var(--block-terracotta); color: #FFFFFF; }
+    .bg-midnight-blue{ background: var(--block-midnight-blue); color: #FFFFFF; }
+    .bg-sand-beige   { background: var(--block-sand-beige); color: #4A443B; text-shadow: none; }
+
+  </style>
+</head>
+<body>
+
+  <!-- Page Header -->
+  <header class="catalog-header">
+    <div class="catalog-eyebrow">// CLEAN RECOVERY BACKUP</div>
+    <h1 class="catalog-h1">Tetris 3D Block Texture & Palette Catalog</h1>
+    <p class="catalog-desc">Comparing the exact studio-grade color palette, soft matte 3D foam bevels, and debossed typography extracted directly from the reference mockup.</p>
+  </header>
+
+  <!-- Source of Truth Reference Image Box -->
+  <div class="reference-preview-box">
+    <h2>Source of Truth Reference Image (recreate_this_exact_design_202608151817.jpeg)</h2>
+    <img src="recreate_this_exact_design_202608151817.jpeg" alt="Source of Truth Reference" class="reference-preview-img">
+  </div>
+
+  <!-- Component Gallery Catalog -->
+  <main class="catalog-grid">
+
+    <!-- Card 1: Web Design -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">Web Design</span>
+        <span class="piece-color-tag">Soft Slate Blue (#8CAAD8)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-slate-blue" style="width: 170px; height: 54px;">
+          Web Design
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Next.js -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">Next.js</span>
+        <span class="piece-color-tag">Dark Charcoal Slate (#3A3C3E)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-charcoal" style="width: 140px; height: 54px;">
+          Next.js
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Figma -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">Figma</span>
+        <span class="piece-color-tag">Muted Sage Green (#94B598)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-sage-green" style="width: 140px; height: 54px;">
+          Figma
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: Elementor -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">Elementor</span>
+        <span class="piece-color-tag">Warm Terracotta (#D98858)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-terracotta" style="width: 120px; height: 54px;">
+          Elementor
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: WordPress -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">WordPress</span>
+        <span class="piece-color-tag">Dark Charcoal Slate (#3A3C3E)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-charcoal" style="width: 130px; height: 54px;">
+          WordPress
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: Custom Development -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">Custom Development</span>
+        <span class="piece-color-tag">Deep Midnight Blue (#243B54)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-midnight-blue" style="width: 200px; height: 54px;">
+          Custom Development
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 7: Digital Marketing -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">Digital Marketing</span>
+        <span class="piece-color-tag">Deep Midnight Blue (#243B54)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-midnight-blue" style="width: 170px; height: 54px;">
+          Digital Marketing
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 8: Shopify -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">Shopify</span>
+        <span class="piece-color-tag">Warm Terracotta (#D98858)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-terracotta" style="width: 140px; height: 54px;">
+          Shopify
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 9: AI MVP -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">AI MVP</span>
+        <span class="piece-color-tag">Soft Slate Blue (#8CAAD8)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-slate-blue" style="width: 130px; height: 54px;">
+          AI MVP
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 10: SEO -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">SEO</span>
+        <span class="piece-color-tag">Muted Sand Beige (#D9CFBD)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-sand-beige" style="width: 130px; height: 54px;">
+          SEO
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 11: Web App (Floating) -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">Web App (Airborne)</span>
+        <span class="piece-color-tag">Soft Slate Blue (#8CAAD8)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-slate-blue" style="width: 110px; height: 54px;">
+          Web App
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 12: API (Floating) -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">API (Airborne)</span>
+        <span class="piece-color-tag">Dark Charcoal Slate (#3A3C3E)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-charcoal" style="width: 70px; height: 54px;">
+          API
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 13: UX/UI (Floating) -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">UX/UI (Airborne)</span>
+        <span class="piece-color-tag">Muted Sage Green (#94B598)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-sage-green" style="width: 110px; height: 54px;">
+          UX/UI
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 14: E-com (Floating) -->
+    <div class="piece-card">
+      <div class="piece-card-header">
+        <span class="piece-title">E-com (Airborne)</span>
+        <span class="piece-color-tag">Warm Terracotta (#D98858)</span>
+      </div>
+      <div class="piece-stage">
+        <div class="m-block bg-terracotta" style="width: 90px; height: 54px;">
+          E-com
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
