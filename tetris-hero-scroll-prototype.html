@@ -555,39 +555,39 @@
       transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
-    /* State A Airborne Floating Coordinates (Hovering Directly Above Matrix Arena Columns) */
-    .air-wp-purple   { position: absolute; left: 10px;  top: -60px; transform: rotate(-10deg); z-index: 260 !important; }
-    .air-nextjs      { position: absolute; left: 168px; top: -90px; transform: rotate(-16deg); z-index: 300 !important; } /* NEXT.JS Z-INDEX 300 > OPENAI Z-INDEX 70 */
-    .air-green-z     { position: absolute; left: 830px; top: -100px; transform: rotate(12deg); z-index: 260 !important; }
-    .air-amber-l     { position: absolute; left: 450px; top: -80px; transform: rotate(22deg);  z-index: 260 !important; }
+    /* State A Airborne Floating Coordinates (Hovering Directly Above Matrix Arena Columns in Visible Sky Space) */
+    .air-wp-purple   { position: absolute; left: 10px;  top: -100px; transform: rotate(-10deg); z-index: 260 !important; }
+    .air-nextjs      { position: absolute; left: 168px; top: -60px;  transform: rotate(-16deg); z-index: 300 !important; } /* NEXT.JS Z-INDEX 300 > OPENAI Z-INDEX 70 */
+    .air-amber-l     { position: absolute; left: 450px; top: -70px;  transform: rotate(22deg);  z-index: 260 !important; }
+    .air-green-z     { position: absolute; left: 830px; top: -100px; transform: rotate(12deg);  z-index: 260 !important; }
 
     /* Authentic Tetris Mid-Air Adjustment & Falling Keyframe Choreography */
     @keyframes tetrisDropWoo {
-      0%   { top: -60px; left: 10px; transform: rotate(-10deg); }
-      35%  { top: 100px; left: 5px; transform: rotate(-10deg); }
-      65%  { top: 165px; left: 0px; transform: rotate(90deg); }  /* Mid-air spin adjustment! */
+      0%   { top: -100px; left: 10px; transform: rotate(-10deg); }
+      35%  { top: 50px; left: 5px; transform: rotate(-10deg); }
+      65%  { top: 140px; left: 0px; transform: rotate(90deg); }  /* Mid-air spin adjustment! */
       100% { top: 224px; left: 0px; transform: rotate(0deg); }   /* Touchdown into Socket 1! */
     }
 
     @keyframes tetrisDropNext {
-      0%   { top: -90px; left: 168px; transform: rotate(-16deg); }
-      40%  { top: 110px; left: 168px; transform: rotate(-16deg); }
-      70%  { top: 170px; left: 168px; transform: rotate(0deg); }  /* Mid-air flip into vertical 1x3 bar! */
+      0%   { top: -60px; left: 168px; transform: rotate(-16deg); }
+      40%  { top: 60px; left: 168px; transform: rotate(-16deg); }
+      70%  { top: 150px; left: 168px; transform: rotate(0deg); }  /* Mid-air flip into vertical 1x3 bar! */
       100% { top: 224px; left: 168px; transform: rotate(0deg); }  /* Hard drop into Socket 2! */
     }
 
     @keyframes tetrisDropYellow {
-      0%   { top: -80px; left: 450px; transform: rotate(22deg); }
-      30%  { top: 90px; left: 450px; transform: rotate(22deg); }
-      60%  { top: 145px; left: 448px; transform: rotate(90deg) scaleX(-1); } /* Sees misalignment! Mid-air spin & flip! */
-      85%  { top: 195px; left: 448px; transform: rotate(0deg) scaleX(1); }   /* Aligned above Socket 3! */
+      0%   { top: -70px; left: 450px; transform: rotate(22deg); }
+      30%  { top: 50px; left: 450px; transform: rotate(22deg); }
+      60%  { top: 135px; left: 448px; transform: rotate(90deg) scaleX(-1); } /* Sees misalignment! Mid-air spin & flip! */
+      85%  { top: 185px; left: 448px; transform: rotate(0deg) scaleX(1); }   /* Aligned above Socket 3! */
       100% { top: 224px; left: 448px; transform: rotate(0deg) scaleX(1); }   /* Soft drop touchdown into Socket 3! */
     }
 
     @keyframes tetrisDropGreen {
       0%   { top: -100px; left: 830px; transform: rotate(12deg); }
-      35%  { top: 75px; left: 835px; transform: rotate(12deg); }
-      65%  { top: 120px; left: 840px; transform: rotate(-90deg); } /* Mid-air 90° rotation alignment! */
+      35%  { top: 40px; left: 835px; transform: rotate(12deg); }
+      65%  { top: 110px; left: 840px; transform: rotate(-90deg); } /* Mid-air 90° rotation alignment! */
       100% { top: 168px; left: 840px; transform: rotate(0deg); }   /* Final touchdown into Socket 4! */
     }
 
