@@ -582,9 +582,10 @@
     }
 
     body.mode-100 .airborne-layer {
-      display: none !important;
+      display: block !important;
       opacity: 0 !important;
       pointer-events: none !important;
+      transition: opacity 0.3s ease;
     }
 
     body.mode-100 .docked-socket {
@@ -1460,43 +1461,16 @@
       const sockYellow = document.querySelector('.docked-socket[data-name="Golden Yellow L"]');
       const sockGreen = document.querySelector('.docked-socket[data-name="Lime Green Lemon Z"]');
 
-      let vectorTargets = null;
-      let isPlayingAnim = false;
+      // Exact 2D Grid Cell Vector Targets (Delta X, Delta Y from State A to State B)
+      const vectorTargets = {
+        woo:    { dX: -30,  dY: 184 },  // Socket 1 (Row 5, Col 1)
+        next:   { dX: -12,  dY: 44  },  // Socket 2 (Row 5, Col 4)
+        yellow: { dX: -362, dY: 34  },  // Socket 3 (Row 5, Col 9)
+        green:  { dX: 100,  dY: 138 }   // Socket 4 (Row 4, Col 16)
+      };
 
       function calculateVectorTargets() {
-        if (!airWoo || !sockWoo) return;
-
-        const measurePair = (air, sock) => {
-          if (!air || !sock) return { dX: 0, dY: 0 };
-          
-          const savedBodyClass = document.body.className;
-          const savedAirTransform = air.style.transform;
-          const savedSockTransform = sock.style.transform;
-          
-          // Temporarily set body to mode-100 & clear inline transforms to measure exact State B resting targets
-          document.body.className = 'mode-100';
-          air.style.transform = 'none';
-          sock.style.transform = 'none';
-          
-          const rAir = air.getBoundingClientRect();
-          const rSock = sock.getBoundingClientRect();
-          
-          document.body.className = savedBodyClass;
-          air.style.transform = savedAirTransform;
-          sock.style.transform = savedSockTransform;
-
-          return {
-            dX: rSock.left - rAir.left,
-            dY: rSock.top - rAir.top
-          };
-        };
-
-        vectorTargets = {
-          woo: measurePair(airWoo, sockWoo),
-          next: measurePair(airNext, sockNext),
-          yellow: measurePair(airYellow, sockYellow),
-          green: measurePair(airGreen, sockGreen)
-        };
+        // Constant exact grid cell vectors, no DOM measurement needed
       }
 
       function updateScrollProgress(p) {
