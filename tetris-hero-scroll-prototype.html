@@ -535,7 +535,7 @@
       bottom: 0; left: 0; right: 0;
       display: flex;
       justify-content: center;
-      z-index: 10;
+      z-index: 500 !important; /* Elevated above airborne-layer so OpenAI, Shopify, Figma stack on top */
     }
 
     .matrix-arena {
@@ -546,13 +546,12 @@
       position: relative;
     }
 
-    /* Airborne Layer at 70% In-Motion Mode (FLOATING BLOCKS HAVE TOP VISUAL PRIORITY OVER RESTING FLOOR MATRIX) */
     /* Airborne Layer at 70% In-Motion Mode */
     .airborne-layer {
       position: absolute;
       inset: 0;
       pointer-events: none;
-      z-index: auto !important; /* Allow individual piece z-indices to stack cleanly across layers */
+      z-index: 10 !important; /* Placed below floor wrapper so OpenAI & Shopify sit on top */
       transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
@@ -561,10 +560,10 @@
     }
 
     /* State A Airborne Floating Coordinates */
-    .air-wp-purple   { position: absolute; left: 30px;  top: 40px;  transform: rotate(-10deg); z-index: 100 !important; }
-    .air-nextjs      { position: absolute; left: 180px; top: 180px; transform: rotate(-16deg); z-index: 300 !important; }
-    .air-green-z     { position: absolute; right: 100px; top: 30px;  transform: rotate(12deg);  z-index: 100 !important; }
-    .air-amber-l     { position: absolute; right: 30px;  top: 190px; transform: rotate(22deg);  z-index: 100 !important; }
+    .air-wp-purple   { position: absolute; left: 30px;  top: 40px;  transform: rotate(-10deg); }
+    .air-nextjs      { position: absolute; left: 180px; top: 180px; transform: rotate(-16deg); z-index: 600 !important; }
+    .air-green-z     { position: absolute; right: 100px; top: 30px;  transform: rotate(12deg); }
+    .air-amber-l     { position: absolute; right: 30px;  top: 190px; transform: rotate(22deg); }
 
     /* ════════════════════════════════════════════════════════════════
        EXACT MASTER PROMPT DUAL-STATE RULES
@@ -706,65 +705,8 @@
       <div class="matrix-floor-wrapper">
         <div class="matrix-arena" id="matrixArena">
 
-          <!-- 70% In-Motion Floating Blocks (State A Floating Airborne Layer) -->
-          <!-- 1. Airborne Flipped Purple WooCommerce L-Piece (Z-Index 100 < OpenAI 8000) -->
-          <div class="t-piece tone-purple air-wp-purple" data-name="Airborne Purple WooCommerce" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u)); display:grid;">
-            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
-            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
-            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 1;">
-              <div class="t-shape-body tone-purple"><img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/woocommerce-light.svg" alt="WooCommerce Light" class="t-cdn-logo"></div>
-            </div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 3;"><!-- PURE TRANSPARENT CUTOUT --></div>
-            <div class="t-label" style="left: 0; width: var(--u); top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 4px; color: #FFFFFF; font-size: 0.65rem;">
-              <span>W</span><span>O</span><span>O</span>
-            </div>
-          </div>
-
-          <!-- 2. Airborne Next.js Blue 1x3 Bar -->
-          <div class="t-piece tone-royal-blue air-nextjs" data-name="Airborne Next.js" style="grid-template-columns: var(--u); grid-template-rows: repeat(3, var(--u)); display:grid;">
-            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
-            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
-            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-row: 1;">
-              <div class="t-shape-body tone-royal-blue"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nextdotjs.svg" alt="Next.js" class="t-cdn-logo is-white"></div>
-            </div>
-            <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
-            <div class="t-cell" style="grid-row: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
-          </div>
-
-          <!-- 3. Airborne Lime Green Lemon Z-Piece -->
-          <div class="t-piece tone-lime-green air-green-z" data-name="Airborne Lime Green Z" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(4, var(--u)); display:grid;">
-            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
-            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
-            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><!-- PURE TRANSPARENT CUTOUT --></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-lime-green"></div></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-lime-green"></div></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
-          </div>
-
-          <!-- 4. Airborne Golden Yellow L-Piece (Z-Index 100 < Shopify 8000) -->
-          <div class="t-piece tone-golden-yellow air-amber-l" data-name="Airborne Golden Yellow L" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u)); display:grid;">
-            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
-            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
-            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
-          </div>
-
-          <!-- 1. OpenAI (Base Floor Block - Cols 2-3, Rows 6-7 - Elevated Z-Index 8000 > Woo L 100) -->
-          <div class="t-piece tone-obsidian" data-name="OpenAI" data-col="2" data-row="7" style="grid-column: 2 / span 2; grid-row: 6 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u)); position: relative; z-index: 8000 !important;">
+          <!-- 1. OpenAI (Base Floor Block - Cols 2-3, Rows 6-7 - Row 7 Z-Index 70 > Woo) -->
+          <div class="t-piece tone-obsidian" data-name="OpenAI" data-col="2" data-row="7" style="grid-column: 2 / span 2; grid-row: 6 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -814,8 +756,8 @@
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #FFFFFF;">AI MVP</div>
           </div>
 
-          <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7 - Elevated Z-Index 500 > Golden Yellow L) -->
-          <div class="t-piece tone-obsidian" data-name="Shopify" data-col="9" data-row="7" style="grid-column: 9 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u); position: relative; z-index: 500 !important;">
+          <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7 - Row 7 Z-Index 70) -->
+          <div class="t-piece tone-obsidian" data-name="Shopify" data-col="9" data-row="7" style="grid-column: 9 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -871,8 +813,8 @@
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-terracotta"></div></div>
           </div>
 
-          <!-- 9. Figma (Base Floor Block - Cols 12-14, Row 7 - Elevated Z-Index 9999 > Shopify 8000) -->
-          <div class="t-piece tone-forest-green" data-name="Figma" data-col="12" data-row="7" style="grid-column: 12 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u); position: relative; z-index: 9999 !important;">
+          <!-- 9. Figma (Base Floor Block - Cols 12-14, Row 7 - Row 7 Z-Index 70) -->
+          <div class="t-piece tone-forest-green" data-name="Figma" data-col="12" data-row="7" style="grid-column: 12 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
@@ -960,6 +902,65 @@
             <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
           </div>
 
+        </div>
+      </div>
+
+      <!-- 70% In-Motion Floating Layer (THE 4 AIRBORNE FLOATING HERO BLOCKS IN STATE A) -->
+      <div class="airborne-layer">
+        <!-- 1. Airborne Flipped Purple WooCommerce L-Piece -->
+        <div class="t-piece tone-purple air-wp-purple" data-name="Airborne Purple WooCommerce" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;">
+            <div class="t-shape-body tone-purple"><img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/woocommerce-light.svg" alt="WooCommerce Light" class="t-cdn-logo"></div>
+          </div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 3;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-label" style="left: 0; width: var(--u); top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 4px; color: #FFFFFF; font-size: 0.65rem;">
+            <span>W</span><span>O</span><span>O</span>
+          </div>
+        </div>
+
+        <!-- 2. Airborne Next.js Blue 1x3 Bar -->
+        <div class="t-piece tone-royal-blue air-nextjs" data-name="Airborne Next.js" style="grid-template-columns: var(--u); grid-template-rows: repeat(3, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-row: 1;">
+            <div class="t-shape-body tone-royal-blue"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nextdotjs.svg" alt="Next.js" class="t-cdn-logo is-white"></div>
+          </div>
+          <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
+          <div class="t-cell" style="grid-row: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
+        </div>
+
+        <!-- 3. Airborne Lime Green Lemon Z-Piece -->
+        <div class="t-piece tone-lime-green air-green-z" data-name="Airborne Lime Green Z" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(4, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
+        </div>
+
+        <!-- 4. Airborne Golden Yellow L-Piece -->
+        <div class="t-piece tone-golden-yellow air-amber-l" data-name="Airborne Golden Yellow L" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u)); display:grid;">
+          <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
+          <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
+          <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
+          <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
         </div>
       </div>
 
