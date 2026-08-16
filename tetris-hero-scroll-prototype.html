@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CR8V Stacks — 3D Tetris Hero System (Zero Border Radius)</title>
+  <title>CR8V Stacks — 3D Tetris Hero System (Experimental 3D Depth & Extrusion Thickness)</title>
   
   <!-- Brand Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +32,7 @@
       --font-mono: 'Space Mono', monospace;
       
       --u: 56px;            /* Standardized 1x1 Tetris Module Scale */
-      --block-radius: 0px;  /* BORDER RADIUS REMOVED ENTIRELY — ZERO CORNER RADIUS */
+      --block-radius: 0px;  /* ZERO CORNER RADIUS */
     }
 
     * {
@@ -146,7 +146,7 @@
     }
 
     /* ════════════════════════════════════════════════════════════════
-       3D TETRIS PUZZLE ENGINE (ZERO BORDER RADIUS ENFORCED)
+       3D TETRIS PUZZLE ENGINE (EXPERIMENTAL 3D DEPTH & EXTRUSION THICKNESS)
        ════════════════════════════════════════════════════════════════ */
 
     .t-piece {
@@ -154,10 +154,8 @@
       position: relative;
       user-select: none;
       background: transparent !important; /* 100% TRANSPARENT CONTAINER BOUNDING */
-      /* Unified 3D Outer Drop-Shadow & Bevel Highlight */
-      filter: 
-        drop-shadow(0 10px 18px rgba(0, 0, 0, 0.18))
-        drop-shadow(1px 1px 0px rgba(255, 255, 255, 0.35));
+      /* Realistic 3D Block Elevation & Floor Under-Shadow */
+      filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.22));
       transition: transform 0.2s ease, filter 0.2s ease, opacity 0.3s ease;
       cursor: grab;
       touch-action: none;
@@ -166,20 +164,20 @@
     .t-piece.is-dragging {
       cursor: grabbing !important;
       z-index: 100 !important;
-      filter: drop-shadow(0 18px 32px rgba(0, 71, 225, 0.40)) brightness(1.05);
+      filter: drop-shadow(0 20px 36px rgba(0, 71, 225, 0.45)) brightness(1.05);
     }
 
     .t-piece.is-selected {
       outline: 2px dashed var(--c8-blue);
-      outline-offset: 3px;
+      outline-offset: 4px;
       border-radius: 0px;
     }
 
     /* Red Collision Alert Highlight */
     .t-piece.is-colliding {
       outline: 2px dashed #E53935 !important;
-      outline-offset: 3px !important;
-      filter: drop-shadow(0 0 16px rgba(229, 57, 53, 0.75)) brightness(1.1) !important;
+      outline-offset: 4px !important;
+      filter: drop-shadow(0 0 20px rgba(229, 57, 53, 0.85)) brightness(1.1) !important;
     }
 
     /* Floating Handle Overlay Triggers */
@@ -230,34 +228,65 @@
       position: relative;
       width: 100%;
       height: 100%;
-      border-radius: 0px !important; /* ZERO BORDER RADIUS ENFORCED */
-      box-shadow: none;
+      border-radius: 0px !important;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* Tone Classes Applied ONLY to Active Shape Sub-Cells */
-    .tone-obsidian { background: var(--block-obsidian); color: #FFFFFF; }
-    .tone-royal-blue { background: var(--block-royal-blue); color: #FFFFFF; }
+    /* Tone-Specific 3D Extrusion Side Thickness & Top Highlight Bevels */
+    .tone-obsidian { 
+      background: var(--block-obsidian); 
+      color: #FFFFFF; 
+      box-shadow: inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.25), 0 6px 0 #000000;
+    }
+    .tone-royal-blue { 
+      background: var(--block-royal-blue); 
+      color: #FFFFFF; 
+      box-shadow: inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.35), 0 6px 0 #062E8A;
+    }
     .tone-light-grey { 
       background: var(--block-light-grey); 
       color: #111111;
-      box-shadow: none;
+      box-shadow: inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.85), 0 6px 0 #B2B1A8;
     }
-    .tone-purple { background: var(--block-purple); color: #FFFFFF; }
-    .tone-terracotta { background: var(--block-terracotta); color: #FFFFFF; }
-    .tone-golden-yellow { background: var(--block-golden-yellow); color: #111111; }
-    .tone-forest-green { background: var(--block-forest-green); color: #FFFFFF; }
-    .tone-lime-green { background: var(--block-lime-green); color: #FFFFFF; }
-    .tone-sand-beige { background: var(--block-sand-beige); color: #111111; }
+    .tone-purple { 
+      background: var(--block-purple); 
+      color: #FFFFFF; 
+      box-shadow: inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.35), 0 6px 0 #381B7B;
+    }
+    .tone-terracotta { 
+      background: var(--block-terracotta); 
+      color: #FFFFFF; 
+      box-shadow: inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.35), 0 6px 0 #9C3205;
+    }
+    .tone-golden-yellow { 
+      background: var(--block-golden-yellow); 
+      color: #111111; 
+      box-shadow: inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.50), 0 6px 0 #9E7702;
+    }
+    .tone-forest-green { 
+      background: var(--block-forest-green); 
+      color: #FFFFFF; 
+      box-shadow: inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.35), 0 6px 0 #0D481C;
+    }
+    .tone-lime-green { 
+      background: var(--block-lime-green); 
+      color: #FFFFFF; 
+      box-shadow: inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.35), 0 6px 0 #3E5C12;
+    }
+    .tone-sand-beige { 
+      background: var(--block-sand-beige); 
+      color: #111111; 
+      box-shadow: inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.50), 0 6px 0 #99845D;
+    }
 
     /* Internal Seam Lines REMOVED */
     .t-seam-h, .t-seam-v {
       display: none !important;
     }
 
-    /* Text & Logo Label Overlay */
+    /* Text & Logo Label Overlay (Adjusted for Top Surface Center) */
     .t-label {
       position: absolute;
       z-index: 5;
@@ -535,7 +564,7 @@
   <header class="catalog-header">
     <div class="catalog-eyebrow">// MASTER PROMPT SPECIFICATION — 3D TETRIS MODULAR HERO SYSTEM</div>
     <h1 class="catalog-h1">CR8V Stacks 3D Tetris Hero System</h1>
-    <p class="catalog-desc">Zero Border Radius: Crisp Flat-Edge 3D Modular Block Architecture.</p>
+    <p class="catalog-desc">Experimental 3D Depth: Extruded Side Thickness & Tone-Specific Shadow Bevels.</p>
   </header>
 
   <!-- Motion Controller Bar -->
@@ -571,7 +600,7 @@
       <div class="matrix-floor-wrapper">
         <div class="matrix-arena" id="matrixArena">
 
-          <!-- 1. OpenAI (Base Floor Block - Cols 2-3, Rows 6-7 - ZERO BORDER RADIUS) -->
+          <!-- 1. OpenAI (Base Floor Block - Cols 2-3, Rows 6-7) -->
           <div class="t-piece" data-name="OpenAI" data-col="2" data-row="6" style="grid-column: 2 / span 2; grid-row: 6 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -586,7 +615,7 @@
             </div>
           </div>
 
-          <!-- 2. Web Design (Base Floor Block - Cols 5-6, Rows 5-6 - ZERO BORDER RADIUS) -->
+          <!-- 2. Web Design (Base Floor Block - Cols 5-6, Rows 5-6) -->
           <div class="t-piece" data-name="Web Design" data-col="5" data-row="5" style="grid-column: 5 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -598,7 +627,7 @@
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #111; font-size: 0.72rem;">WEB DESIGN</div>
           </div>
 
-          <!-- 3. Custom Development (Base Floor Block - Cols 5-8, Row 7 - ZERO BORDER RADIUS) -->
+          <!-- 3. Custom Development (Base Floor Block - Cols 5-8, Row 7) -->
           <div class="t-piece" data-name="Custom Development" data-col="5" data-row="7" style="grid-column: 5 / span 4; grid-row: 7; display:grid; grid-template-columns: repeat(4, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -610,7 +639,7 @@
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; align-items: center; justify-content: center; color: #FFFFFF;">CUSTOM DEVELOPMENT</div>
           </div>
 
-          <!-- 4. AI MVP (Base Floor Block - Cols 7-8, Rows 5-6 - ZERO BORDER RADIUS) -->
+          <!-- 4. AI MVP (Base Floor Block - Cols 7-8, Rows 5-6) -->
           <div class="t-piece" data-name="AI MVP" data-col="7" data-row="5" style="grid-column: 7 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -622,7 +651,7 @@
             <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #FFFFFF;">AI MVP</div>
           </div>
 
-          <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7 - ZERO BORDER RADIUS) -->
+          <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7) -->
           <div class="t-piece" data-name="Shopify" data-col="9" data-row="7" style="grid-column: 9 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -636,7 +665,7 @@
             </div>
           </div>
 
-          <!-- 6. WordPress (Base Floor Block - Cols 11-12, Rows 5-6 - ZERO BORDER RADIUS) -->
+          <!-- 6. WordPress (Base Floor Block - Cols 11-12, Rows 5-6) -->
           <div class="t-piece" data-name="WordPress" data-col="11" data-row="5" style="grid-column: 11 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -650,7 +679,7 @@
             <div class="t-label" style="left: 0; right: 0; bottom: 0; height: var(--u); color: #111; font-size: 0.65rem; align-items: center; justify-content: center;">WORDPRESS</div>
           </div>
 
-          <!-- 7. Python (Base Floor Block - Cols 13-14, Rows 4-5 - ZERO BORDER RADIUS) -->
+          <!-- 7. Python (Base Floor Block - Cols 13-14, Rows 4-5) -->
           <div class="t-piece" data-name="Python" data-col="13" data-row="4" style="grid-column: 13 / span 2; grid-row: 4 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -665,7 +694,7 @@
             </div>
           </div>
 
-          <!-- 8. Elementor (Base Floor Block - Cols 13-14, Row 6 - ZERO BORDER RADIUS) -->
+          <!-- 8. Elementor (Base Floor Block - Cols 13-14, Row 6) -->
           <div class="t-piece" data-name="Elementor" data-col="13" data-row="6" style="grid-column: 13 / span 2; grid-row: 6; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -678,7 +707,7 @@
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-terracotta"></div></div>
           </div>
 
-          <!-- 9. Figma (Base Floor Block - Cols 12-14, Row 7 - ZERO BORDER RADIUS) -->
+          <!-- 9. Figma (Base Floor Block - Cols 12-14, Row 7) -->
           <div class="t-piece" data-name="Figma" data-col="12" data-row="7" style="grid-column: 12 / span 3; grid-row: 7; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -692,7 +721,7 @@
             </div>
           </div>
 
-          <!-- 10. Claude (Base Floor Block - Col 15, Rows 6-7 - ZERO BORDER RADIUS) -->
+          <!-- 10. Claude (Base Floor Block - Col 15, Rows 6-7) -->
           <div class="t-piece" data-name="Claude" data-col="15" data-row="6" style="grid-column: 15; grid-row: 6 / span 2; display:grid; grid-template-columns: var(--u); grid-template-rows: repeat(2, var(--u));">
             <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
             <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -706,7 +735,7 @@
           </div>
 
           <!-- ════════════════════════════════════════════════════════════
-               THE 4 DOCKED SOCKETS (ZERO BORDER RADIUS)
+               THE 4 DOCKED SOCKETS (3D EXTRUDED SHAPES)
                ════════════════════════════════════════════════════════════ -->
 
           <!-- Docked Socket 1: Purple WooCommerce Flipped 2x3 L-Piece -->
