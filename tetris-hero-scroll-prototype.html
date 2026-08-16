@@ -160,34 +160,31 @@
     }
 
     /* ════════════════════════════════════════════════════════════════
-       EXPLICIT MASTER Z-INDEX CHAIN (INCREMENTAL FROM LEFT TO RIGHT, FROM DOWN TO UP)
-       FORMULA: Z = (Col_Start * 10) + Row_Start
+       EXPLICIT MASTER Z-INDEX CHAIN (CUSTOM DEV, SHOPIFY & FIGMA ABOVE AI MVP, WORDPRESS & ELEMENTOR)
        ════════════════════════════════════════════════════════════════ */
-    .t-piece[data-name="Purple WooCommerce L-Piece"]  { z-index: 15 !important; }  /* Col 1, Row 5 */
+    .t-piece[data-name="Purple WooCommerce L-Piece"]  { z-index: 20 !important; }
     .t-piece[data-name="Airborne Purple WooCommerce"] { z-index: 300 !important; }
     
-    .t-piece[data-name="OpenAI"]                      { z-index: 26 !important; }  /* Col 2, Row 6 */
+    .t-piece[data-name="OpenAI"]                      { z-index: 30 !important; }
+    .t-piece[data-name="Next.js"]                     { z-index: 40 !important; } /* Next.js (40) > OpenAI (30) */
+    .t-piece[data-name="Airborne Next.js"]            { z-index: 350 !important; }
     
-    .t-piece[data-name="Next.js"]                     { z-index: 45 !important; }  /* Col 4, Row 5 > OpenAI (26) */
-    .t-piece[data-name="Airborne Next.js"]            { z-index: 350 !important; } /* Airborne Next.js (350) > Floor */
-    
-    .t-piece[data-name="Web Design"]                  { z-index: 55 !important; }  /* Col 5, Row 5 */
-    .t-piece[data-name="Custom Development"]         { z-index: 57 !important; }  /* Col 5, Row 7 > Web Design (55) */
-    
-    .t-piece[data-name="AI MVP"]                      { z-index: 75 !important; }  /* Col 7, Row 5 */
-    
-    .t-piece[data-name="Golden Yellow L"]             { z-index: 95 !important; }  /* Col 9, Row 5 > AI MVP (75) */
+    /* MIDDLE/UPPER ROW BLOCKS HELD LOW AT Z-INDEX 50 */
+    .t-piece[data-name="Web Design"]                  { z-index: 50 !important; }
+    .t-piece[data-name="AI MVP"]                      { z-index: 50 !important; }
+    .t-piece[data-name="Golden Yellow L"]             { z-index: 50 !important; }
     .t-piece[data-name="Airborne Golden Yellow L"]    { z-index: 300 !important; }
+    .t-piece[data-name="WordPress"]                   { z-index: 50 !important; }
+    .t-piece[data-name="Python"]                      { z-index: 50 !important; }
+    .t-piece[data-name="Elementor"]                   { z-index: 50 !important; }
     
-    .t-piece[data-name="Shopify"]                     { z-index: 97 !important; }  /* Col 9, Row 7 > Yellow L (95) */
-    .t-piece[data-name="WordPress"]                   { z-index: 115 !important; } /* Col 11, Row 5 */
-    .t-piece[data-name="Figma"]                       { z-index: 127 !important; } /* Col 12, Row 7 > Shopify (97) */
-    .t-piece[data-name="Python"]                      { z-index: 134 !important; } /* Col 13, Row 4 */
-    .t-piece[data-name="Elementor"]                   { z-index: 136 !important; } /* Col 13, Row 6 > Python (134) */
+    /* CUSTOM DEV, SHOPIFY, FIGMA (BOTTOM FLOOR BLOCKS) SIT HIGH ABOVE AI MVP, WORDPRESS, ELEMENTOR */
+    .t-piece[data-name="Custom Development"]         { z-index: 100 !important; } /* Custom Dev (100) > AI MVP, WP, Elementor (50) */
+    .t-piece[data-name="Shopify"]                     { z-index: 110 !important; } /* Shopify (110) > Custom Dev (100) & AI MVP, WP, Elementor (50) */
+    .t-piece[data-name="Figma"]                       { z-index: 120 !important; } /* Figma (120) > Shopify (110) & AI MVP, WP, Elementor (50) */
     
-    .t-piece[data-name="Claude"]                      { z-index: 156 !important; } /* Col 15, Row 6 */
-    
-    .t-piece[data-name="Lime Green Lemon Z"]          { z-index: 164 !important; } /* Col 16, Row 4 > Claude (156) */
+    .t-piece[data-name="Claude"]                      { z-index: 130 !important; }
+    .t-piece[data-name="Lime Green Lemon Z"]          { z-index: 140 !important; }
     .t-piece[data-name="Airborne Lime Green Z"]       { z-index: 300 !important; }
 
     /* Tone-Specific Outer 3D Extrusions + Sharp Outer Boundary Separation (ZERO Internal Lines) */
