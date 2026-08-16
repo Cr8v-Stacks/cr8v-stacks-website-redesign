@@ -159,19 +159,36 @@
       touch-action: none;
     }
 
-    /* RESTING FLOOR MATRIX Z-INDEX HIERARCHY (Upper Rows 4-5 project downwards onto Lower Rows 6-7) */
-    .t-piece[data-row="7"] { z-index: 30 !important; }
-    .t-piece[data-row="6"] { z-index: 35 !important; }
-    .t-piece[data-row="5"] { z-index: 45 !important; }
-    .t-piece[data-row="4"] { z-index: 50 !important; }
-    .t-piece[data-row="3"] { z-index: 55 !important; }
-    .t-piece[data-row="2"] { z-index: 60 !important; }
-    .t-piece[data-row="1"] { z-index: 65 !important; }
-
-    /* DOCKED SOCKETS (NEXT.JS, GOLDEN YELLOW L, LIME GREEN Z, PURPLE WOO) HAVE ELEVATED Z-INDEX OVER ADJACENT RESTING BLOCKS */
-    .t-piece.docked-socket {
-      z-index: 100 !important; /* DOCKED SOCKETS (100) > OPENAI (30), AI MVP (45), CLAUDE (30) */
-    }
+    /* ════════════════════════════════════════════════════════════════
+       EXPLICIT MASTER Z-INDEX CHAIN (ALL OVERLAPS & BLOCK RULES HARMONIZED)
+       ════════════════════════════════════════════════════════════════ */
+    .t-piece[data-name="Purple WooCommerce L-Piece"]  { z-index: 20 !important; }
+    .t-piece[data-name="Airborne Purple WooCommerce"] { z-index: 260 !important; }
+    
+    .t-piece[data-name="OpenAI"]                      { z-index: 30 !important; }
+    
+    .t-piece[data-name="Next.js"]                     { z-index: 40 !important; } /* Next.js (40) > OpenAI (30) */
+    .t-piece[data-name="Airborne Next.js"]            { z-index: 300 !important; } /* Airborne Next.js (300) > OpenAI (30) */
+    
+    .t-piece[data-name="Web Design"]                  { z-index: 45 !important; }
+    .t-piece[data-name="Custom Development"]         { z-index: 50 !important; } /* Custom Dev (50) > Web Design (45) */
+    
+    .t-piece[data-name="AI MVP"]                      { z-index: 55 !important; }
+    
+    .t-piece[data-name="Golden Yellow L"]             { z-index: 60 !important; } /* Yellow L (60) > AI MVP (55) */
+    .t-piece[data-name="Airborne Golden Yellow L"]    { z-index: 260 !important; }
+    
+    .t-piece[data-name="Shopify"]                     { z-index: 65 !important; } /* Shopify (65) > Yellow L (60) */
+    .t-piece[data-name="WordPress"]                   { z-index: 70 !important; }
+    .t-piece[data-name="Python"]                      { z-index: 75 !important; }
+    
+    .t-piece[data-name="Elementor"]                   { z-index: 80 !important; } /* Elementor (80) > Python (75) */
+    .t-piece[data-name="Figma"]                       { z-index: 85 !important; } /* Figma (85) > Elementor (80) */
+    
+    .t-piece[data-name="Claude"]                      { z-index: 88 !important; }
+    
+    .t-piece[data-name="Lime Green Lemon Z"]          { z-index: 95 !important; } /* Green Z (95) > Claude (88) */
+    .t-piece[data-name="Airborne Lime Green Z"]       { z-index: 260 !important; }
 
     /* Tone-Specific Pronounced Outer 3D Extrusions + Sharp Outline Separation (ZERO Internal Lines) */
     .t-piece.tone-obsidian {
