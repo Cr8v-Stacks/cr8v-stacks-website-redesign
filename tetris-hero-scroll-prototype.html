@@ -642,15 +642,9 @@
 
   <!-- Motion Controller Bar -->
   <div class="motion-controller" style="position: sticky; top: 10px; z-index: 9999; max-width: 1360px; margin: 1rem auto 1.5rem auto;">
-    <button class="state-btn active" id="btnStateA" onclick="setMode('70')">State A (0% Start: 4 Airborne Floating)</button>
-    
-    <div style="display: flex; align-items: center; gap: 0.75rem; background: rgba(0,0,0,0.06); padding: 0.4rem 1rem; border-radius: 6px; border: 1px solid rgba(0,0,0,0.12); box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-      <span style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: var(--c8-blue);">📜 SCROLL / SCRUB ANIMATION:</span>
-      <input type="range" id="scrollScrubber" min="0" max="100" value="0" style="width: 260px; cursor: pointer; accent-color: #0047E1;">
-      <span id="scrubVal" style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; width: 45px; color: var(--c8-ink);">0%</span>
-    </div>
-
-    <button class="state-btn" id="btnStateB" onclick="setMode('100')">State B (100% Assembled: All Docked)</button>
+    <button class="state-btn active" id="btnStateA" onclick="setMode('70')">State A: 70% In-Motion (Base Floor + 4 Floating)</button>
+    <button class="state-btn" id="btnPlayDOM" onclick="playDirectDOMAnimation()" style="background: #0047E1; color: #FFFFFF; border-color: #0047E1; font-weight: 700;">▶ Play Direct DOM Motion</button>
+    <button class="state-btn" id="btnStateB" onclick="setMode('100')">State B: 100% Fully Assembled (Exact Screenshot Match)</button>
   </div>
 
   <!-- ════════════════════════════════════════════════════════════════
@@ -1450,12 +1444,11 @@
       }
 
       // ════════════════════════════════════════════════════════════════
-      // SCROLL-DRIVEN SEQUENTIAL PAIR-BY-PAIR TETRIS ENGINE
+      // DIRECT DOM SCROLL & PLAY ANIMATION ENGINE
       // ════════════════════════════════════════════════════════════════
-      const scrollScrubber = document.getElementById('scrollScrubber');
-      const scrubVal = document.getElementById('scrubVal');
       const btnStateA = document.getElementById('btnStateA');
       const btnStateB = document.getElementById('btnStateB');
+      const btnPlayDOM = document.getElementById('btnPlayDOM');
 
       const airWoo = document.querySelector('.air-wp-purple');
       const airNext = document.querySelector('.air-nextjs');
@@ -1468,6 +1461,7 @@
       const sockGreen = document.querySelector('.docked-socket[data-name="Lime Green Lemon Z"]');
 
       let vectorTargets = null;
+      let isPlayingAnim = false;
 
       function calculateVectorTargets() {
         if (!airWoo || !sockWoo) return;
@@ -1475,7 +1469,6 @@
         const measurePair = (air, sock) => {
           if (!air || !sock) return { dX: 0, dY: 0 };
           
-          // Clear inline transforms temporarily to measure true clean delta vector
           const savedAirTransform = air.style.transform;
           const savedSockTransform = sock.style.transform;
           
@@ -1505,9 +1498,6 @@
       function updateScrollProgress(p) {
         const progress = Math.min(1, Math.max(0, p));
         const pct = Math.round(progress * 100);
-
-        if (scrollScrubber) scrollScrubber.value = pct;
-        if (scrubVal) scrubVal.textContent = pct + '%';
 
         if (btnStateA && btnStateB) {
           btnStateA.classList.toggle('active', pct === 0);
@@ -1587,49 +1577,64 @@
         }
       }
 
-      let isUserScrubbing = false;
-
-      // Range Scrubber Listener
-      if (scrollScrubber) {
-        scrollScrubber.addEventListener('mousedown', () => { isUserScrubbing = true; });
-        scrollScrubber.addEventListener('touchstart', () => { isUserScrubbing = true; });
-        window.addEventListener('mouseup', () => { setTimeout(() => { isUserScrubbing = false; }, 200); });
-        window.addEventListener('touchend', () => { setTimeout(() => { isUserScrubbing = false; }, 200); });
-
-        scrollScrubber.addEventListener('input', (e) => {
-          isUserScrubbing = true;
-          const p = parseInt(e.target.value) / 100;
-          updateScrollProgress(p);
-        });
-      }
-
-      // Window Resize Listener
-      window.addEventListener('resize', () => {
-        calculateVectorTargets();
-        const p = scrollScrubber ? parseInt(scrollScrubber.value) / 100 : 0;
-        updateScrollProgress(p);
-      });
-
-      // Bind page scroll to animate as user scrolls hero section track
+      // Bind Page Scroll Directly to Animate DOM Blocks
       window.addEventListener('scroll', () => {
-        if (isUserScrubbing) return;
+        if (isPlayingAnim) return;
         const track = document.getElementById('heroScrollTrack');
         if (!track) return;
         const rect = track.getBoundingClientRect();
         const winH = window.innerHeight;
-        const totalHeight = rect.height - winH;
-        if (totalHeight <= 0) return;
+        const totalDist = rect.height - winH;
+        if (totalDist <= 0) return;
         const scrolled = -rect.top;
-        const p = Math.min(1, Math.max(0, scrolled / totalHeight));
+        const p = Math.min(1, Math.max(0, scrolled / totalDist));
         updateScrollProgress(p);
       });
 
-      // Override global setMode to update scrubber smoothly
+      // Play Direct DOM Motion Function (Smooth 2.5s Auto Play)
+      window.playDirectDOMAnimation = function() {
+        if (isPlayingAnim) return;
+        isPlayingAnim = true;
+        
+        let startVal = 0;
+        const duration = 2400; // 2.4 seconds smooth ease
+        const startTime = performance.now();
+
+        function step(now) {
+          const elapsed = now - startTime;
+          const p = Math.min(1, elapsed / duration);
+          // Smooth Easing (cubic-bezier easeInOut)
+          const easeP = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+          updateScrollProgress(easeP);
+
+          if (p < 1) {
+            requestAnimationFrame(step);
+          } else {
+            isPlayingAnim = false;
+          }
+        }
+
+        requestAnimationFrame(step);
+      };
+
+      // Window Resize Listener
+      window.addEventListener('resize', () => {
+        calculateVectorTargets();
+        updateScrollProgress(0);
+      });
+
+      // Override global setMode to update progress directly
       window.setMode = function(mode) {
         document.body.className = mode === '100' ? 'mode-100' : 'mode-70';
         const targetP = mode === '100' ? 1.0 : 0.0;
         updateScrollProgress(targetP);
       };
+
+      // Initial Setup
+      setTimeout(() => {
+        calculateVectorTargets();
+        updateScrollProgress(0);
+      }, 300);
 
       // Initial Vector Measure
       setTimeout(() => {
