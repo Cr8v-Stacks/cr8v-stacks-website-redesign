@@ -568,6 +568,16 @@ defined('ABSPATH') || exit;
       pointer-events: auto;
     }
 
+    .t-piece {
+      transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), filter 0.25s ease !important;
+    }
+
+    .t-piece.is-dragging {
+      transition: none !important;
+      cursor: grabbing !important;
+      z-index: 9999 !important;
+    }
+
     /* State A Airborne Floating Coordinates (Shifted down 15px, +65px inward with subtle slants) */
     .air-wp-purple   { position: absolute; left: 60px;   top: 75px;  transform: rotate(-5deg); }
     .air-nextjs      { position: absolute; left: 145px;  top: 255px; transform: rotate(-8deg); z-index: 600 !important; }
@@ -4451,18 +4461,18 @@ defined('ABSPATH') || exit;
           ];
 
           pieces.forEach(item => {
-            if (!item.el) return;
+            if (!item.el || activePiece === item.el) return;
             const c = liveCalibData[item.key];
             const magX = item.el.magX || 0;
             const magY = item.el.magY || 0;
             const userOffsetX = item.el.userOffsetX || 0;
             const userOffsetY = item.el.userOffsetY || 0;
 
-            const currentDX = activePiece === item.el ? (c.dX * scrollProgress) + userOffsetX : (c.dX * scrollProgress) + (userOffsetX * (1 - scrollProgress)) + magX;
-            const currentDY = activePiece === item.el ? (c.dY * scrollProgress) + userOffsetY : (c.dY * scrollProgress) + (userOffsetY * (1 - scrollProgress)) + magY;
+            const currentDX = (c.dX * scrollProgress) + (userOffsetX * (1 - scrollProgress)) + magX;
+            const currentDY = (c.dY * scrollProgress) + (userOffsetY * (1 - scrollProgress)) + magY;
 
             const initialRot = item.initialRot || 0;
-            const currentRot = activePiece === item.el ? c.rot : initialRot * (1 - scrollProgress);
+            const currentRot = initialRot * (1 - scrollProgress);
             const flip = c.flipX || 1;
             item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${flip})`;
           });
@@ -4511,7 +4521,7 @@ defined('ABSPATH') || exit;
         // Universal Mouse Drag & Magnetic Hover Engine for ALL 15 blocks
         let activePiece = null;
         let dragStartX = 0, dragStartY = 0;
-        let initialUserOffsetX = 0, initialUserOffsetY = 0;
+        let initialTransformX = 0, initialTransformY = 0;
 
         function getKey(el) {
           if (el === airWoo) return 'woo';
@@ -4531,10 +4541,22 @@ defined('ABSPATH') || exit;
 
           piece.addEventListener('mousedown', function(e) {
             activePiece = piece;
+            piece.classList.add('is-dragging');
             dragStartX = e.clientX;
             dragStartY = e.clientY;
-            initialUserOffsetX = piece.userOffsetX || 0;
-            initialUserOffsetY = piece.userOffsetY || 0;
+
+            // Get computed live screen transform
+            const style = window.getComputedStyle(piece);
+            const matrixStr = style.transform || style.webkitTransform;
+            if (matrixStr && matrixStr !== 'none') {
+              const matrix = new WebKitCSSMatrix(matrixStr);
+              initialTransformX = matrix.m41;
+              initialTransformY = matrix.m42;
+            } else {
+              initialTransformX = 0;
+              initialTransformY = 0;
+            }
+
             document.body.style.userSelect = 'none';
             e.preventDefault();
           });
@@ -4549,18 +4571,19 @@ defined('ABSPATH') || exit;
             piece.magY = (e.clientY - centerY) * 0.15;
             piece.style.filter = 'drop-shadow(0 4px 12px rgba(0, 71, 225, 0.22)) drop-shadow(3px 7px 0px rgba(0, 71, 225, 0.30))';
             if (!getKey(piece)) {
-              piece.style.transform = `translate3d(${(piece.userOffsetX * (1 - scrollProgress)) + piece.magX}px, ${(piece.userOffsetY * (1 - scrollProgress)) + piece.magY}px, 0)`;
+              piece.style.transform = `translate3d(${piece.magX}px, ${piece.magY}px, 0)`;
             } else {
               renderPositions();
             }
           });
 
           piece.addEventListener('mouseleave', function() {
+            if (activePiece === piece) return;
             piece.magX = 0;
             piece.magY = 0;
             piece.style.filter = '';
             if (!getKey(piece)) {
-              piece.style.transform = `translate3d(${piece.userOffsetX * (1 - scrollProgress)}px, ${piece.userOffsetY * (1 - scrollProgress)}px, 0)`;
+              piece.style.transform = `translate3d(0px, 0px, 0)`;
             } else {
               renderPositions();
             }
@@ -4572,21 +4595,64 @@ defined('ABSPATH') || exit;
           const deltaX = e.clientX - dragStartX;
           const deltaY = e.clientY - dragStartY;
 
-          activePiece.userOffsetX = initialUserOffsetX + deltaX;
-          activePiece.userOffsetY = initialUserOffsetY + deltaY;
+          const currentX = initialTransformX + deltaX;
+          const currentY = initialTransformY + deltaY;
 
-          if (!getKey(activePiece)) {
-            activePiece.style.transform = `translate3d(${activePiece.userOffsetX}px, ${activePiece.userOffsetY}px, 0)`;
-          }
-          renderPositions();
+          activePiece.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
         });
 
         window.addEventListener('mouseup', function() {
           if (activePiece) {
+            const releasedPiece = activePiece;
+            releasedPiece.classList.remove('is-dragging');
+
+            const style = window.getComputedStyle(releasedPiece);
+            const matrixStr = style.transform || style.webkitTransform;
+            let endX = 0, endY = 0;
+            if (matrixStr && matrixStr !== 'none') {
+              const matrix = new WebKitCSSMatrix(matrixStr);
+              endX = matrix.m41;
+              endY = matrix.m42;
+            }
+
             activePiece = null;
             document.body.style.userSelect = '';
+
+            // If non-floating floor block, spring return back to (0,0) in grid over 400ms!
+            if (!getKey(releasedPiece)) {
+              animateFloorReturn(releasedPiece, endX, endY);
+            } else {
+              // For floating cards, update user offset relative to current scroll trajectory
+              const k = getKey(releasedPiece);
+              if (k) {
+                const c = liveCalibData[k];
+                const baseTrajectoryX = c.dX * scrollProgress;
+                const baseTrajectoryY = c.dY * scrollProgress;
+                releasedPiece.userOffsetX = endX - baseTrajectoryX;
+                releasedPiece.userOffsetY = endY - baseTrajectoryY;
+                renderPositions();
+              }
+            }
           }
         });
+
+        // Smooth 400ms Spring Return for Floor Blocks
+        function animateFloorReturn(el, startX, startY) {
+          const startTime = performance.now();
+          const duration = 400;
+          function step(now) {
+            const elapsed = now - startTime;
+            const p = Math.min(1.0, elapsed / duration);
+            const easeP = 1 - Math.pow(1 - p, 3); // Smooth cubic ease out
+            const curX = startX * (1 - easeP);
+            const curY = startY * (1 - easeP);
+            el.style.transform = `translate3d(${curX}px, ${curY}px, 0)`;
+            if (p < 1.0 && activePiece !== el) {
+              requestAnimationFrame(step);
+            }
+          }
+          requestAnimationFrame(step);
+        }
 
         // Hotkeys [R] and [F]
         window.addEventListener('keydown', function(e) {
