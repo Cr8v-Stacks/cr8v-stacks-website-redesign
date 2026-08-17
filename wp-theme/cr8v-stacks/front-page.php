@@ -643,20 +643,21 @@ defined('ABSPATH') || exit;
       }
 
       .c8-hero-top .matrix-floor-wrapper {
-        transform: translateX(-50%) scale(0.34) !important;
+        transform: translateX(-50%) scale(calc(100vw / 952px)) !important;
         transform-origin: bottom center !important;
         bottom: 0 !important;
       }
 
-      .c8-hero-top .airborne-layer {
-        transform: scale(0.42) !important;
-        transform-origin: top center !important;
+      .air-wp-purple, .air-nextjs, .air-green-z {
+        display: none !important;
       }
 
-      .air-wp-purple   { left: -60px !important; top: -15px !important; opacity: 0.9 !important; }
-      .air-nextjs      { left: -60px !important; top: 190px !important; opacity: 0.9 !important; }
-      .air-green-z     { right: -60px !important; top: -15px !important; opacity: 0.9 !important; }
-      .air-amber-l     { right: -60px !important; top: 190px !important; opacity: 0.9 !important; }
+      .air-amber-l {
+        display: grid !important;
+        left: 50% !important;
+        top: 25px !important;
+        transform: translateX(-50%) scale(0.70) !important;
+      }
     }
 
     /* ════════════════════════════════════════════════════════════════
@@ -1102,8 +1103,13 @@ defined('ABSPATH') || exit;
           <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
-          <div class="t-label" style="left: var(--u); right: 0; top: 0; bottom: var(--u); display:flex; flex-direction: column; justify-content: center; align-items: center; gap: 1px; color: #FFFFFF !important; font-size: 0.52rem; font-weight: 700; font-family: 'Michroma', sans-serif; text-transform: uppercase; text-shadow: 0 1px 3px rgba(0,0,0,0.7); pointer-events: none;">
-            <span>HEADLESS</span><span>CMS</span>
+          <!-- Vertical HEADLESS in Column 2 (Rows 1-3) -->
+          <div class="t-label" style="left: var(--u); width: var(--u); top: 0; height: calc(var(--u) * 3); display:flex; flex-direction: column; justify-content: center; align-items: center; gap: 2px; color: #FFFFFF !important; font-size: 0.58rem; font-weight: 700; font-family: 'Space Mono', monospace; text-transform: uppercase; text-shadow: 0 1px 3px rgba(0,0,0,0.7); pointer-events: none;">
+            <span>H</span><span>E</span><span>A</span><span>D</span><span>L</span><span>E</span><span>S</span><span>S</span>
+          </div>
+          <!-- Horizontal CMS in Column 1 (Row 3) -->
+          <div class="t-label" style="left: 0; width: var(--u); top: calc(var(--u) * 2); height: var(--u); display:flex; justify-content: center; align-items: center; color: #FFFFFF !important; font-size: 0.68rem; font-weight: 700; font-family: 'Space Mono', monospace; text-transform: uppercase; text-shadow: 0 1px 3px rgba(0,0,0,0.7); pointer-events: none;">
+            <span>CMS</span>
           </div>
         </div>
 
@@ -1116,7 +1122,7 @@ defined('ABSPATH') || exit;
           <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
-          <div class="t-label" style="left: 0; right: 0; top: 0; height: var(--u); display:flex; justify-content: center; align-items: center; color: #080808 !important; font-size: 0.65rem; font-weight: 700; font-family: 'Michroma', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; pointer-events: none;">
+          <div class="t-label" style="left: 0; width: calc(var(--u) * 2); top: 0; height: var(--u); display:flex; justify-content: center; align-items: center; color: #080808 !important; font-size: 0.72rem; font-weight: 700; font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; pointer-events: none;">
             <span>SEO</span>
           </div>
         </div>
@@ -4516,15 +4522,22 @@ defined('ABSPATH') || exit;
 
           // 1. Render Airborne Floating Cards
           const isMobile = window.innerWidth <= 768;
-          const mobileScaleFactor = isMobile ? 0.42 : 1.0;
 
           pieces.forEach(item => {
             if (!item.el) return;
             if (activePiece === item.el) return; // Active drag is handled directly in mousemove
 
             const c = liveCalibData[item.key];
-            const baseDX = c.dX * scrollProgress * mobileScaleFactor;
-            const baseDY = c.dY * scrollProgress * mobileScaleFactor;
+            let baseDX = c.dX * scrollProgress;
+            let baseDY = c.dY * scrollProgress;
+
+            if (isMobile) {
+              if (item.key === 'yellow') {
+                baseDX = 0;
+                baseDY = 240 * scrollProgress;
+              }
+            }
+
             const userX = (item.el.userOffsetX || 0) * (1 - scrollProgress);
             const userY = (item.el.userOffsetY || 0) * (1 - scrollProgress);
             const magX = item.el.magX || 0;
@@ -4533,7 +4546,7 @@ defined('ABSPATH') || exit;
             const currentDX = baseDX + userX + magX;
             const currentDY = baseDY + userY + magY;
 
-            const initialRot = item.initialRot || 0;
+            const initialRot = isMobile ? 0 : (item.initialRot || 0);
             const currentRot = initialRot * (1 - scrollProgress);
             const flip = c.flipX || 1;
             item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${flip})`;
