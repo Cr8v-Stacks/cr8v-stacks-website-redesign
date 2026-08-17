@@ -4498,15 +4498,10 @@ defined('ABSPATH') || exit;
 
         if (!airWoo || !airNext || !airGreen || !airYellow) return;
 
-        // Desktop and mobile use different deltas — hero height differs between
-        // portrait mobile and landscape desktop so landing distances differ.
-        const isMobile = window.innerWidth <= 768;
-        const liveCalibData = isMobile ? {
-          woo:    { dX: 38,   dY: 976, rot: 0, flipX: 1 },
-          next:   { dX: 296,  dY: 587, rot: 0, flipX: 1 },
-          yellow: { dX: -677, dY: 543, rot: 0, flipX: 1 },
-          green:  { dX: -18,  dY: 861, rot: 0, flipX: 1 }
-        } : {
+        // Both airborne-layer and matrix-floor-wrapper use transform-origin: bottom center
+        // at the same scale, so they share one coordinate system.
+        // Desktop and mobile use the SAME dX/dY values.
+        const liveCalibData = {
           woo:    { dX: 222,  dY: 482, rot: 0, flipX: 1 },
           next:   { dX: 305,  dY: 308, rot: 0, flipX: 1 },
           yellow: { dX: -531, dY: 303, rot: 0, flipX: 1 },
@@ -4523,21 +4518,24 @@ defined('ABSPATH') || exit;
           const hudYellow = document.getElementById('hudYellowVal');
           const hudGreen  = document.getElementById('hudGreenVal');
 
-          // Show effective delta = calibration base + current user drag offset
-          // This is the value that should be pasted into liveCalibData in code
-          const wX  = Math.round(liveCalibData.woo.dX    + (airWoo    ? (airWoo.userOffsetX    || 0) : 0));
-          const wY  = Math.round(liveCalibData.woo.dY    + (airWoo    ? (airWoo.userOffsetY    || 0) : 0));
-          const nX  = Math.round(liveCalibData.next.dX   + (airNext   ? (airNext.userOffsetX   || 0) : 0));
-          const nY  = Math.round(liveCalibData.next.dY   + (airNext   ? (airNext.userOffsetY   || 0) : 0));
-          const yX  = Math.round(liveCalibData.yellow.dX + (airYellow ? (airYellow.userOffsetX || 0) : 0));
-          const yY  = Math.round(liveCalibData.yellow.dY + (airYellow ? (airYellow.userOffsetY || 0) : 0));
-          const gX  = Math.round(liveCalibData.green.dX  + (airGreen  ? (airGreen.userOffsetX  || 0) : 0));
-          const gY  = Math.round(liveCalibData.green.dY  + (airGreen  ? (airGreen.userOffsetY  || 0) : 0));
+          // Effective landing delta = (base * scrollProgress) + userOffset
+          // This gives the correct value to paste into liveCalibData
+          // regardless of which scroll position you calibrate at.
+          const sp = scrollProgress;
+          const wX  = Math.round(liveCalibData.woo.dX    * sp + (airWoo    ? (airWoo.userOffsetX    || 0) : 0));
+          const wY  = Math.round(liveCalibData.woo.dY    * sp + (airWoo    ? (airWoo.userOffsetY    || 0) : 0));
+          const nX  = Math.round(liveCalibData.next.dX   * sp + (airNext   ? (airNext.userOffsetX   || 0) : 0));
+          const nY  = Math.round(liveCalibData.next.dY   * sp + (airNext   ? (airNext.userOffsetY   || 0) : 0));
+          const yX  = Math.round(liveCalibData.yellow.dX * sp + (airYellow ? (airYellow.userOffsetX || 0) : 0));
+          const yY  = Math.round(liveCalibData.yellow.dY * sp + (airYellow ? (airYellow.userOffsetY || 0) : 0));
+          const gX  = Math.round(liveCalibData.green.dX  * sp + (airGreen  ? (airGreen.userOffsetX  || 0) : 0));
+          const gY  = Math.round(liveCalibData.green.dY  * sp + (airGreen  ? (airGreen.userOffsetY  || 0) : 0));
 
-          if (hudWoo)    hudWoo.textContent    = `Woo: dX: ${wX}px | dY: ${wY}px | Rot: ${liveCalibData.woo.rot}°`;
-          if (hudNext)   hudNext.textContent   = `Next: dX: ${nX}px | dY: ${nY}px | Rot: ${liveCalibData.next.rot}°`;
-          if (hudYellow) hudYellow.textContent = `Yellow: dX: ${yX}px | dY: ${yY}px | Rot: ${liveCalibData.yellow.rot}° | Flip: ${liveCalibData.yellow.flipX}`;
-          if (hudGreen)  hudGreen.textContent  = `Green: dX: ${gX}px | dY: ${gY}px | Rot: ${liveCalibData.green.rot}°`;
+          const pct = Math.round(sp * 100);
+          if (hudWoo)    hudWoo.textContent    = `[${pct}%] Woo: dX: ${wX} | dY: ${wY} | Rot: ${liveCalibData.woo.rot}°`;
+          if (hudNext)   hudNext.textContent   = `[${pct}%] Next: dX: ${nX} | dY: ${nY} | Rot: ${liveCalibData.next.rot}°`;
+          if (hudYellow) hudYellow.textContent = `[${pct}%] Yellow: dX: ${yX} | dY: ${yY} | Flip: ${liveCalibData.yellow.flipX}`;
+          if (hudGreen)  hudGreen.textContent  = `[${pct}%] Green: dX: ${gX} | dY: ${gY} | Rot: ${liveCalibData.green.rot}°`;
         }
 
         // Unified Rendering Pipeline for ALL 15 Blocks
@@ -4748,15 +4746,18 @@ defined('ABSPATH') || exit;
         });
 
         window.copyCalibratedCoordinates = function() {
-          // Output EFFECTIVE delta = calibration base + current user drag offset
-          // These are the values to paste directly into liveCalibData in the code
+          // Correct landing delta works at ANY scroll position:
+          // dX_out = liveCalibData.dX * scrollProgress + userOffsetX
+          // At scroll=0: outputs just userOffsetX (pure delta from float)
+          // At scroll=1: outputs liveCalibData.dX + userOffsetX (full delta)
+          // At any midpoint: still correct
           const elMap = { woo: airWoo, next: airNext, yellow: airYellow, green: airGreen };
           const out = {};
           for (const k in liveCalibData) {
             const el = elMap[k];
             out[k] = {
-              dX:    Math.round(liveCalibData[k].dX + (el ? (el.userOffsetX || 0) : 0)),
-              dY:    Math.round(liveCalibData[k].dY + (el ? (el.userOffsetY || 0) : 0)),
+              dX:    Math.round(liveCalibData[k].dX * scrollProgress + (el ? (el.userOffsetX || 0) : 0)),
+              dY:    Math.round(liveCalibData[k].dY * scrollProgress + (el ? (el.userOffsetY || 0) : 0)),
               rot:   liveCalibData[k].rot,
               flipX: liveCalibData[k].flipX
             };
