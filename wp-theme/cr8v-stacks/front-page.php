@@ -649,14 +649,14 @@ defined('ABSPATH') || exit;
       }
 
       .c8-hero-top .airborne-layer {
-        transform: scale(0.70) !important;
+        transform: scale(0.48) !important;
         transform-origin: top center !important;
       }
 
-      .air-wp-purple   { left: 10px !important; top: 45px !important; }
-      .air-nextjs      { left: 10px !important; top: 180px !important; }
-      .air-green-z     { right: 10px !important; top: 45px !important; }
-      .air-amber-l     { right: 10px !important; top: 180px !important; }
+      .air-wp-purple   { left: -25px !important; top: 15px !important; opacity: 0.85 !important; }
+      .air-nextjs      { left: -25px !important; top: 220px !important; opacity: 0.85 !important; }
+      .air-green-z     { right: -25px !important; top: 15px !important; opacity: 0.85 !important; }
+      .air-amber-l     { right: -25px !important; top: 220px !important; opacity: 0.85 !important; }
     }
 
     /* ════════════════════════════════════════════════════════════════
@@ -1089,7 +1089,7 @@ defined('ABSPATH') || exit;
           <div class="t-cell" style="grid-row: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
         </div>
 
-        <!-- 3. Airborne Lime Green Lemon Z-Piece -->
+        <!-- 3. Airborne Lime Green Lemon Z-Piece (Headless CMS) -->
         <div class="t-piece tone-lime-green air-green-z" data-name="Airborne Lime Green Z" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(4, var(--u)); display:grid;">
           <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
           <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -1102,9 +1102,12 @@ defined('ABSPATH') || exit;
           <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
+          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; display:flex; flex-direction: column; justify-content: center; align-items: center; gap: 2px; color: #FFFFFF; font-size: 0.60rem; font-weight: 700; font-family: 'Space Mono', monospace; text-transform: uppercase;">
+            <span>HEADLESS</span><span>CMS</span>
+          </div>
         </div>
 
-        <!-- 4. Airborne Golden Yellow L-Piece -->
+        <!-- 4. Airborne Golden Yellow L-Piece (SEO) -->
         <div class="t-piece tone-golden-yellow air-amber-l" data-name="Airborne Golden Yellow L" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u)); display:grid;">
           <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
           <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
@@ -1113,6 +1116,9 @@ defined('ABSPATH') || exit;
           <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
+          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; display:flex; flex-direction: column; justify-content: center; align-items: center; gap: 2px; color: #FFFFFF; font-size: 0.70rem; font-weight: 700; font-family: 'Space Mono', monospace; text-transform: uppercase;">
+            <span>SEO</span>
+          </div>
         </div>
   </section>
   </div>
@@ -4509,13 +4515,16 @@ defined('ABSPATH') || exit;
           ];
 
           // 1. Render Airborne Floating Cards
+          const isMobile = window.innerWidth <= 768;
+          const mobileScaleFactor = isMobile ? 0.42 : 1.0;
+
           pieces.forEach(item => {
             if (!item.el) return;
             if (activePiece === item.el) return; // Active drag is handled directly in mousemove
 
             const c = liveCalibData[item.key];
-            const baseDX = c.dX * scrollProgress;
-            const baseDY = c.dY * scrollProgress;
+            const baseDX = c.dX * scrollProgress * mobileScaleFactor;
+            const baseDY = c.dY * scrollProgress * mobileScaleFactor;
             const userX = (item.el.userOffsetX || 0) * (1 - scrollProgress);
             const userY = (item.el.userOffsetY || 0) * (1 - scrollProgress);
             const magX = item.el.magX || 0;
