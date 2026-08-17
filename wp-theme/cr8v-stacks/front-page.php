@@ -568,11 +568,11 @@ defined('ABSPATH') || exit;
       pointer-events: auto;
     }
 
-    /* State A Airborne Floating Coordinates (Shifted down 15px with subtle slants) */
-    .air-wp-purple   { position: absolute; left: 60px;  top: 75px;  transform: rotate(-5deg); }
-    .air-nextjs      { position: absolute; left: 80px;  top: 255px; transform: rotate(-8deg); z-index: 600 !important; }
-    .air-green-z     { position: absolute; right: 60px; top: 75px;  transform: rotate(6deg); }
-    .air-amber-l     { position: absolute; right: 80px; top: 255px; transform: rotate(10deg); }
+    /* State A Airborne Floating Coordinates (Shifted down 15px, +65px inward with subtle slants) */
+    .air-wp-purple   { position: absolute; left: 60px;   top: 75px;  transform: rotate(-5deg); }
+    .air-nextjs      { position: absolute; left: 145px;  top: 255px; transform: rotate(-8deg); z-index: 600 !important; }
+    .air-green-z     { position: absolute; right: 60px;  top: 75px;  transform: rotate(6deg); }
+    .air-amber-l     { position: absolute; right: 145px; top: 255px; transform: rotate(10deg); }
 
     /* ════════════════════════════════════════════════════════════════
        STICKY HERO TRACK & PINNED VIEWPORT ASSEMBLY SYSTEM
@@ -4419,12 +4419,15 @@ defined('ABSPATH') || exit;
 
         if (!airWoo || !airNext || !airGreen || !airYellow) return;
 
+        // Compensated Base Calibrated Deltas (Offset for +15px top shift and +65px inward shifts)
         const liveCalibData = {
-          woo:    { dX: 222, dY: 497, rot: 0, flipX: 1 },
-          next:   { dX: 370, dY: 323, rot: 0, flipX: 1 },
-          yellow: { dX: -596, dY: 318, rot: 0, flipX: 1 },
-          green:  { dX: -222, dY: 444, rot: 0, flipX: 1 }
+          woo:    { dX: 222,  dY: 482, rot: 0, flipX: 1 },
+          next:   { dX: 305,  dY: 308, rot: 0, flipX: 1 },
+          yellow: { dX: -531, dY: 303, rot: 0, flipX: 1 },
+          green:  { dX: -222, dY: 429, rot: 0, flipX: 1 }
         };
+
+        let scrollProgress = 0; // 0.0 at top of page, 1.0 when fully assembled into floor
 
         function updateHUDDisplay() {
           const hudWoo = document.getElementById('hudWooVal');
@@ -4438,19 +4441,8 @@ defined('ABSPATH') || exit;
           if (hudGreen) hudGreen.textContent = `Green: dX: ${Math.round(liveCalibData.green.dX)}px | dY: ${Math.round(liveCalibData.green.dY)}px | Rot: ${liveCalibData.green.rot}°`;
         }
 
-        // Pinned Hero Track Assembly Scroll Engine: Locks scroll till end of assembly
+        // Pinned Wheel Hijack Engine: Locks mouse scroll until 100% assembled
         function renderPositions() {
-          const track = document.getElementById('c8HeroTrack');
-          let progress = 0;
-          if (track) {
-            const rect = track.getBoundingClientRect();
-            const trackScroll = -rect.top;
-            const scrollableDistance = rect.height - window.innerHeight;
-            if (scrollableDistance > 0) {
-              progress = Math.min(1.0, Math.max(0.0, trackScroll / (scrollableDistance * 0.95)));
-            }
-          }
-
           const pieces = [
             { el: airWoo, key: 'woo', initialRot: -5 },
             { el: airNext, key: 'next', initialRot: -8 },
@@ -4461,17 +4453,54 @@ defined('ABSPATH') || exit;
           pieces.forEach(item => {
             if (!item.el) return;
             const c = liveCalibData[item.key];
-            const currentDX = activePiece === item.el ? c.dX : c.dX * progress;
-            const currentDY = activePiece === item.el ? c.dY : c.dY * progress;
+            const currentDX = activePiece === item.el ? c.dX : c.dX * scrollProgress;
+            const currentDY = activePiece === item.el ? c.dY : c.dY * scrollProgress;
             const initialRot = item.initialRot || 0;
-            const currentRot = activePiece === item.el ? c.rot : initialRot * (1 - progress) + (c.rot * progress);
+            const currentRot = activePiece === item.el ? c.rot : initialRot * (1 - scrollProgress) + (c.rot * scrollProgress);
             const flip = c.flipX || 1;
             item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${flip})`;
           });
           updateHUDDisplay();
         }
 
-        window.addEventListener('scroll', renderPositions, { passive: true });
+        // True Wheel Hijack Listener
+        window.addEventListener('wheel', function(e) {
+          const windowScroll = window.scrollY || window.pageYOffset || 0;
+          if (windowScroll <= 15) {
+            if (e.deltaY > 0 && scrollProgress < 1.0) {
+              e.preventDefault();
+              scrollProgress = Math.min(1.0, scrollProgress + (e.deltaY * 0.0018));
+              renderPositions();
+            } else if (e.deltaY < 0 && scrollProgress > 0.0) {
+              e.preventDefault();
+              scrollProgress = Math.max(0.0, scrollProgress + (e.deltaY * 0.0018));
+              renderPositions();
+            }
+          }
+        }, { passive: false });
+
+        // Touch Hijack for Mobile
+        let touchStartY = 0;
+        window.addEventListener('touchstart', function(e) {
+          if (e.touches.length === 1) touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        window.addEventListener('touchmove', function(e) {
+          const windowScroll = window.scrollY || window.pageYOffset || 0;
+          if (windowScroll <= 15 && e.touches.length === 1) {
+            const deltaY = touchStartY - e.touches[0].clientY;
+            touchStartY = e.touches[0].clientY;
+            if (deltaY > 0 && scrollProgress < 1.0) {
+              e.preventDefault();
+              scrollProgress = Math.min(1.0, scrollProgress + (deltaY * 0.004));
+              renderPositions();
+            } else if (deltaY < 0 && scrollProgress > 0.0) {
+              e.preventDefault();
+              scrollProgress = Math.max(0.0, scrollProgress + (deltaY * 0.004));
+              renderPositions();
+            }
+          }
+        }, { passive: false });
 
         // Universal Mouse Drag Engine for ALL blocks
         let activePiece = null;
