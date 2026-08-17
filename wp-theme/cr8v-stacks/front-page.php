@@ -4451,7 +4451,7 @@ defined('ABSPATH') || exit;
           if (hudGreen) hudGreen.textContent = `Green: dX: ${Math.round(liveCalibData.green.dX)}px | dY: ${Math.round(liveCalibData.green.dY)}px | Rot: ${liveCalibData.green.rot}°`;
         }
 
-        // Pinned Wheel Hijack Engine & Forward Floor Trajectory
+        // Unified Rendering Pipeline for ALL 15 Blocks
         function renderPositions() {
           const pieces = [
             { el: airWoo, key: 'woo', initialRot: -5 },
@@ -4460,22 +4460,42 @@ defined('ABSPATH') || exit;
             { el: airGreen, key: 'green', initialRot: 6 }
           ];
 
+          // 1. Render Airborne Floating Cards
           pieces.forEach(item => {
-            if (!item.el || activePiece === item.el) return;
+            if (!item.el) return;
+            if (activePiece === item.el) return; // Active drag is handled directly in mousemove
+
             const c = liveCalibData[item.key];
+            const baseDX = c.dX * scrollProgress;
+            const baseDY = c.dY * scrollProgress;
+            const userX = (item.el.userOffsetX || 0) * (1 - scrollProgress);
+            const userY = (item.el.userOffsetY || 0) * (1 - scrollProgress);
             const magX = item.el.magX || 0;
             const magY = item.el.magY || 0;
-            const userOffsetX = item.el.userOffsetX || 0;
-            const userOffsetY = item.el.userOffsetY || 0;
 
-            const currentDX = (c.dX * scrollProgress) + (userOffsetX * (1 - scrollProgress)) + magX;
-            const currentDY = (c.dY * scrollProgress) + (userOffsetY * (1 - scrollProgress)) + magY;
+            const currentDX = baseDX + userX + magX;
+            const currentDY = baseDY + userY + magY;
 
             const initialRot = item.initialRot || 0;
             const currentRot = initialRot * (1 - scrollProgress);
             const flip = c.flipX || 1;
             item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${flip})`;
           });
+
+          // 2. Render Floor Grid Blocks
+          const allBlocks = document.querySelectorAll('.t-piece');
+          allBlocks.forEach(piece => {
+            if (getKey(piece) || activePiece === piece) return;
+            const userX = (piece.userOffsetX || 0) * (1 - scrollProgress);
+            const userY = (piece.userOffsetY || 0) * (1 - scrollProgress);
+            const magX = piece.magX || 0;
+            const magY = piece.magY || 0;
+
+            const currentDX = userX + magX;
+            const currentDY = userY + magY;
+            piece.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0)`;
+          });
+
           updateHUDDisplay();
         }
 
@@ -4521,7 +4541,7 @@ defined('ABSPATH') || exit;
         // Universal Mouse Drag & Magnetic Hover Engine for ALL 15 blocks
         let activePiece = null;
         let dragStartX = 0, dragStartY = 0;
-        let initialTransformX = 0, initialTransformY = 0;
+        let initialUserX = 0, initialUserY = 0;
 
         function getKey(el) {
           if (el === airWoo) return 'woo';
