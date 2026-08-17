@@ -684,6 +684,47 @@ defined('ABSPATH') || exit;
         margin-bottom: 1.25rem !important;
       }
 
+      /* ── FRUIT 1: Floor grid — complete property rewrite for mobile ────────
+         All desktop properties re-declared so nothing bleeds from desktop CSS.
+         scale(100vw / 952) fits the full grid within any viewport width.
+         transform-origin: bottom center keeps the floor pinned to the base. */
+      .c8-hero-top .matrix-floor-wrapper {
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 50% !important;
+        width: 952px !important;
+        height: 392px !important;
+        z-index: 100 !important;
+        margin: 0 !important;
+        transform: translateX(-50%) scale(calc(100vw / 952)) !important;
+        transform-origin: bottom center !important;
+      }
+
+      /* ── FRUIT 2: Airborne layer — complete property rewrite for mobile ────
+         Constrained to the SAME 952px width as the floor wrapper, centered
+         the same way, scaled identically, from the SAME bottom-center anchor.
+         This puts both containers in one shared coordinate space so the JS
+         desktop dX/dY delta values apply proportionally without JS changes. */
+      .c8-hero-top .airborne-layer {
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 50% !important;
+        right: auto !important;
+        width: 952px !important;
+        pointer-events: none !important;
+        z-index: 500 !important;
+        transform: translateX(-50%) scale(calc(100vw / 952)) !important;
+        transform-origin: bottom center !important;
+      }
+      .c8-hero-top .airborne-layer .t-piece {
+        pointer-events: auto !important;
+        cursor: grab !important;
+      }
+      .c8-hero-top .airborne-layer .t-piece:active {
+        cursor: grabbing !important;
+      }
+
     }
 
     /* ════════════════════════════════════════════════════════════════
