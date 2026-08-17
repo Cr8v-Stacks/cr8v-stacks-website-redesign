@@ -696,7 +696,7 @@ defined('ABSPATH') || exit;
         height: 392px !important;
         z-index: 100 !important;
         margin: 0 !important;
-        transform: translateX(-50%) scale(calc(100vw / 952)) !important;
+        transform: translateX(-50%) scale(var(--tetris-scale, 1)) !important;
         transform-origin: bottom center !important;
       }
 
@@ -714,7 +714,7 @@ defined('ABSPATH') || exit;
         width: 952px !important;
         pointer-events: none !important;
         z-index: 500 !important;
-        transform: translateX(-50%) scale(calc(100vw / 952)) !important;
+        transform: translateX(-50%) scale(var(--tetris-scale, 1)) !important;
         transform-origin: bottom center !important;
       }
       .c8-hero-top .airborne-layer .t-piece {
@@ -4486,6 +4486,20 @@ defined('ABSPATH') || exit;
 
 <?php get_template_part('parts/footer'); ?>
 <?php wp_footer(); ?>
+
+  <script>
+    // ── Tetris Scale — sets --tetris-scale as a unitless CSS variable ─────────────
+    // CSS calc(100vw / 952) inside scale() is invalid because 100vw is a
+    // <length>, not a <number>. JS gives us a true unitless float. ─────────
+    (function() {
+      function setTetrisScale() {
+        var s = window.innerWidth <= 768 ? (window.innerWidth / 952) : 1;
+        document.documentElement.style.setProperty('--tetris-scale', s);
+      }
+      setTetrisScale();
+      window.addEventListener('resize', setTetrisScale, { passive: true });
+    })();
+  </script>
 
   <script>
     (function() {
