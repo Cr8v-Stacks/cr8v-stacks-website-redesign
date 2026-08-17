@@ -812,23 +812,7 @@ defined('ABSPATH') || exit;
 
   
 
-    /* 3D TETRIS HOMEPAGE ANCHOR & CALIBRATOR OVERRIDES */
-    .c8-hero-top.c8-hero-b-standalone,
-    .c8-hero-b-standalone {
-      position: relative !important;
-      overflow: hidden !important;
-      min-height: 100vh !important;
-      height: 100vh !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      background-color: #FFFFFF !important;
-      background-image: none !important;
-      padding-top: 4rem !important;
-      padding-bottom: 0 !important;
-      box-sizing: border-box !important;
-    }
+
 
     .c8-hero-top .c8-hero-in,
     .c8-hero-in {
@@ -842,40 +826,8 @@ defined('ABSPATH') || exit;
       pointer-events: auto !important;
     }
 
-    .c8-hero-top.c8-hero-b-standalone,
-    .c8-hero-b-standalone {
-      min-height: 100vh !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
-      align-items: center !important;
-      padding-top: 6rem !important;
-      padding-bottom: 3rem !important;
-      text-align: center !important;
-      position: relative !important;
-      z-index: 10 !important;
-      box-sizing: border-box !important;
-      background: var(--c8-bg) !important;
-      border-bottom: 1px solid var(--c8-line) !important;
-    }
-  
-    /* 3D TETRIS HOMEPAGE ANCHOR & CALIBRATOR STYLING (NO SCROLL INTERFERENCE) */
-    .c8-hero-top.c8-hero-b-standalone,
-    .c8-hero-b-standalone {
-      position: relative !important;
-      overflow: hidden !important;
-      min-height: 100vh !important;
-      height: 100vh !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      background-color: #FFFFFF !important;
-      background-image: none !important;
-      padding-top: 5rem !important;
-      padding-bottom: 0 !important;
-      box-sizing: border-box !important;
-    }
+
+
 
     .c8-hero-h1 {
       font-family: 'Michroma', sans-serif;
@@ -925,7 +877,7 @@ defined('ABSPATH') || exit;
     <section class="c8-hero-top c8-hero-b-standalone">
 
     <!-- Live Floating Viewport Path Calibrator HUD (Locked) -->
-    <div id="floatingCalibHUD" style="display: none; position: fixed; top: 90px; right: 20px; z-index: 999999; background: #141414; color: #FFFFFF; padding: 14px 18px; border-radius: 8px; font-family: monospace; font-size: 0.75rem; box-shadow: 0 8px 30px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15);">
+    <div id="floatingCalibHUD" style="display: block; position: fixed; top: 90px; right: 20px; z-index: 999999; background: #141414; color: #FFFFFF; padding: 14px 18px; border-radius: 8px; font-family: monospace; font-size: 0.75rem; box-shadow: 0 8px 30px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15);">
       <div id="hudHeaderHandle" style="font-weight: 700; color: #3D6BFF; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: move; user-select: none;">
         <span>❖ LIVE HOMEPAGE PATH CALIBRATOR (DRAG ME)</span>
         <button onclick="document.getElementById('floatingCalibHUD').style.display='none'" style="background:none; border:none; color:#AAA; cursor:pointer; font-size:0.9rem;">✕</button>
@@ -939,6 +891,8 @@ defined('ABSPATH') || exit;
         Drag floating cards to position. Press [R] to Rotate 90°, [F] to Flip.
       </div>
     </div>
+    <!-- Mobile-friendly CAL toggle button -->
+    <button id="calibToggleBtn" onclick="(function(){var h=document.getElementById('floatingCalibHUD');h.style.display=h.style.display==='none'?'block':'none';})()" style="position: fixed; bottom: 24px; left: 20px; z-index: 999998; background: #0047E1; color: #FFF; border: none; padding: 9px 14px; border-radius: 6px; font-family: monospace; font-size: 0.7rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 14px rgba(0,71,225,0.4); letter-spacing: 0.05em;">⚙ CAL</button>
 
     <div class="c8-hero-in">
       <div class="c8-eyebrow" data-customizer="hero_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('hero_eyebrow', 'SCALE WITH AUTHORITY')); ?></div>
@@ -4754,6 +4708,14 @@ defined('ABSPATH') || exit;
             alert('Live calibrated coordinates:\n\n' + text);
           });
         };
+
+        // Toggle HUD with H key on desktop
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'h' || e.key === 'H') {
+            const hud = document.getElementById('floatingCalibHUD');
+            if (hud) hud.style.display = hud.style.display === 'none' ? 'block' : 'none';
+          }
+        });
 
         // ════════════════════════════════════════════════════════════════
         // MAKE CALIBRATOR HUD ITSELF DRAGGABLE ANYWHERE ON SCREEN
