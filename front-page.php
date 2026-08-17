@@ -660,11 +660,30 @@ defined('ABSPATH') || exit;
         height: 100vh !important;
       }
 
+      /* Complete property rewrite — all desktop props re-declared so nothing bleeds */
       .c8-hero-top.c8-hero-b-standalone,
       .c8-hero-b-standalone {
-        padding-top: 4.5rem !important;
+        position: relative !important;
+        overflow: hidden !important;
         min-height: 100vh !important;
         height: 100vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        background-color: #FFFFFF !important;
+        background-image: none !important;
+        padding-top: 8rem !important;
+        padding-bottom: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Stack CTA buttons vertically on mobile so floating cards don’t overlay them */
+      .c8-hero-ctas {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.75rem !important;
+        width: 100% !important;
       }
 
       .c8-hero-top .c8-hero-in {
@@ -876,6 +895,17 @@ defined('ABSPATH') || exit;
       font-weight: 400;
       color: #4A4A4A !important;
       margin-bottom: 2rem;
+    }
+
+    .c8-hero-ctas {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 210;
     }
 
     .c8-hero-top .c8-hero-in,
@@ -4493,7 +4523,9 @@ defined('ABSPATH') || exit;
     // <length>, not a <number>. JS gives us a true unitless float. ─────────
     (function() {
       function setTetrisScale() {
-        var s = window.innerWidth <= 768 ? (window.innerWidth / 952) : 1;
+        // Multiply by 1.15 so blocks are slightly larger than a perfect fit.
+        // The hero has overflow:hidden so any edge clipping is contained cleanly.
+        var s = window.innerWidth <= 768 ? (window.innerWidth / 952) * 1.15 : 1;
         document.documentElement.style.setProperty('--tetris-scale', s);
       }
       setTetrisScale();
