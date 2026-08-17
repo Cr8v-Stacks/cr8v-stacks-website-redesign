@@ -602,21 +602,20 @@ defined('ABSPATH') || exit;
         margin-bottom: 1.25rem !important;
       }
 
-      .c8-hero-top .matrix-floor-wrapper {
+      .c8-hero-top .matrix-floor-wrapper,
+      .c8-hero-top .airborne-layer {
+        position: absolute !important;
+        left: 50% !important;
+        bottom: 0 !important;
+        width: 952px !important;
         transform: translateX(-50%) scale(calc((100vw - 32px) / 952)) !important;
         transform-origin: bottom center !important;
-        bottom: 0 !important;
       }
 
-      .c8-hero-top .airborne-layer {
-        transform: scale(calc((100vw - 32px) / 952)) !important;
-        transform-origin: top center !important;
-      }
-
-      .air-wp-purple   { display: grid !important; left: 20px !important;  top: 45px !important; }
-      .air-nextjs      { display: grid !important; left: 145px !important; top: 180px !important; }
-      .air-green-z     { display: grid !important; right: 20px !important; top: 45px !important; }
-      .air-amber-l     { display: grid !important; right: 145px !important; top: 180px !important; }
+      .air-wp-purple   { position: absolute !important; left: 60px !important;   top: 75px !important; }
+      .air-nextjs      { position: absolute !important; left: 145px !important;  top: 255px !important; }
+      .air-green-z     { position: absolute !important; right: 60px !important;  top: 75px !important; }
+      .air-amber-l     { position: absolute !important; right: 145px !important; top: 255px !important; }
     }
 
     /* ════════════════════════════════════════════════════════════════
