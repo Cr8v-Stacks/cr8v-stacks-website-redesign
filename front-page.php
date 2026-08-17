@@ -739,6 +739,7 @@ defined('ABSPATH') || exit;
       .c8-hero-top .airborne-layer .t-piece {
         pointer-events: auto !important;
         cursor: grab !important;
+        touch-action: none !important; /* prevent browser scroll hijack during touch drag */
       }
       .c8-hero-top .airborne-layer .t-piece:active {
         cursor: grabbing !important;
@@ -4497,8 +4498,15 @@ defined('ABSPATH') || exit;
 
         if (!airWoo || !airNext || !airGreen || !airYellow) return;
 
-        // Compensated Base Calibrated Deltas (Offset for +15px top shift and +65px inward shifts)
-        const liveCalibData = {
+        // Desktop and mobile use different deltas — hero height differs between
+        // portrait mobile and landscape desktop so landing distances differ.
+        const isMobile = window.innerWidth <= 768;
+        const liveCalibData = isMobile ? {
+          woo:    { dX: 160,  dY: 897, rot: 0, flipX: 1 },
+          next:   { dX: 315,  dY: 542, rot: 0, flipX: 1 },
+          yellow: { dX: -777, dY: 530, rot: 0, flipX: 1 },
+          green:  { dX: -152, dY: 780, rot: 0, flipX: 1 }
+        } : {
           woo:    { dX: 222,  dY: 482, rot: 0, flipX: 1 },
           next:   { dX: 305,  dY: 308, rot: 0, flipX: 1 },
           yellow: { dX: -531, dY: 303, rot: 0, flipX: 1 },
@@ -4780,7 +4788,7 @@ defined('ABSPATH') || exit;
             hudContainer.style.top = (hudInitialTop + dy) + 'px';
           });
 
-          window.addEventListener('mouseup', function() {
+          window.addEventListener('pointerup', function() {
             isHudDragging = false;
           });
         }
