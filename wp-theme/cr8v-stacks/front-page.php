@@ -568,11 +568,38 @@ defined('ABSPATH') || exit;
       pointer-events: auto;
     }
 
-    /* State A Airborne Floating Coordinates */
-    .air-wp-purple   { position: absolute; left: 60px;  top: 60px; }
-    .air-nextjs      { position: absolute; left: 80px;  top: 240px; z-index: 600 !important; }
-    .air-green-z     { position: absolute; right: 60px; top: 60px; }
-    .air-amber-l     { position: absolute; right: 80px; top: 240px; }
+    /* State A Airborne Floating Coordinates (Shifted down 15px with subtle slants) */
+    .air-wp-purple   { position: absolute; left: 60px;  top: 75px;  transform: rotate(-5deg); }
+    .air-nextjs      { position: absolute; left: 80px;  top: 255px; transform: rotate(-8deg); z-index: 600 !important; }
+    .air-green-z     { position: absolute; right: 60px; top: 75px;  transform: rotate(6deg); }
+    .air-amber-l     { position: absolute; right: 80px; top: 255px; transform: rotate(10deg); }
+
+    /* ════════════════════════════════════════════════════════════════
+       STICKY HERO TRACK & PINNED VIEWPORT ASSEMBLY SYSTEM
+       ════════════════════════════════════════════════════════════════ */
+    .c8-hero-sticky-track {
+      height: 180vh;
+      position: relative;
+      background: #FFFFFF;
+    }
+
+    .c8-hero-top.c8-hero-b-standalone,
+    .c8-hero-b-standalone {
+      position: sticky !important;
+      top: 0 !important;
+      overflow: hidden !important;
+      min-height: 100vh !important;
+      height: 100vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      background-color: #FFFFFF !important;
+      background-image: none !important;
+      padding-top: 7rem !important;
+      padding-bottom: 0 !important;
+      box-sizing: border-box !important;
+    }
 
     /* ════════════════════════════════════════════════════════════════
        EXACT MASTER PROMPT DUAL-STATE RULES
@@ -797,6 +824,7 @@ defined('ABSPATH') || exit;
     }
 
   </style>
+  <div class="c8-hero-sticky-track" id="c8HeroTrack">
     <section class="c8-hero-top c8-hero-b-standalone">
 
     <!-- Live Floating Viewport Path Calibrator HUD (Locked) -->
@@ -1029,6 +1057,7 @@ defined('ABSPATH') || exit;
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
         </div>
   </section>
+  </div>
 
   <!-- POST-HERO ARCHITECTURAL PAPER GRID SECTION (CREATIVE AGENCY MINDSET) -->
   <style>
@@ -4409,17 +4438,24 @@ defined('ABSPATH') || exit;
           if (hudGreen) hudGreen.textContent = `Green: dX: ${Math.round(liveCalibData.green.dX)}px | dY: ${Math.round(liveCalibData.green.dY)}px | Rot: ${liveCalibData.green.rot}°`;
         }
 
-        // Correct Scroll Direction: Starts floating at top of page (progress=0), ends at floor (progress=1)
+        // Pinned Hero Track Assembly Scroll Engine: Locks scroll till end of assembly
         function renderPositions() {
-          const scrollY = window.scrollY || window.pageYOffset || 0;
-          const maxScroll = window.innerHeight * 0.45;
-          const progress = Math.min(1.0, Math.max(0.0, scrollY / maxScroll));
+          const track = document.getElementById('c8HeroTrack');
+          let progress = 0;
+          if (track) {
+            const rect = track.getBoundingClientRect();
+            const trackScroll = -rect.top;
+            const scrollableDistance = rect.height - window.innerHeight;
+            if (scrollableDistance > 0) {
+              progress = Math.min(1.0, Math.max(0.0, trackScroll / (scrollableDistance * 0.95)));
+            }
+          }
 
           const pieces = [
-            { el: airWoo, key: 'woo' },
-            { el: airNext, key: 'next' },
-            { el: airYellow, key: 'yellow' },
-            { el: airGreen, key: 'green' }
+            { el: airWoo, key: 'woo', initialRot: -5 },
+            { el: airNext, key: 'next', initialRot: -8 },
+            { el: airYellow, key: 'yellow', initialRot: 10 },
+            { el: airGreen, key: 'green', initialRot: 6 }
           ];
 
           pieces.forEach(item => {
@@ -4427,9 +4463,10 @@ defined('ABSPATH') || exit;
             const c = liveCalibData[item.key];
             const currentDX = activePiece === item.el ? c.dX : c.dX * progress;
             const currentDY = activePiece === item.el ? c.dY : c.dY * progress;
-            const rot = c.rot || 0;
+            const initialRot = item.initialRot || 0;
+            const currentRot = activePiece === item.el ? c.rot : initialRot * (1 - progress) + (c.rot * progress);
             const flip = c.flipX || 1;
-            item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${rot}deg) scaleX(${flip})`;
+            item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${flip})`;
           });
           updateHUDDisplay();
         }
@@ -4466,21 +4503,16 @@ defined('ABSPATH') || exit;
             e.preventDefault();
           });
 
-          // Universal Magnetic Hover Micro-Interaction
+          // Universal Magnetic Hover Micro-Interaction (Uses filter drop-shadow to match exact non-rectangular shape outline)
           piece.addEventListener('mousemove', function(e) {
             if (activePiece) return;
-            const rect = piece.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            const deltaX = (e.clientX - centerX) * 0.12;
-            const deltaY = (e.clientY - centerY) * 0.12;
-            piece.style.boxShadow = '0 12px 30px rgba(0, 71, 225, 0.35)';
-            piece.style.transition = 'box-shadow 0.2s ease';
+            piece.style.filter = 'drop-shadow(0 4px 12px rgba(0, 71, 225, 0.22)) drop-shadow(3px 7px 0px rgba(0, 71, 225, 0.30))';
+            piece.style.transition = 'filter 0.2s ease';
           });
 
           piece.addEventListener('mouseleave', function() {
             if (activePiece === piece) return;
-            piece.style.boxShadow = '';
+            piece.style.filter = '';
           });
         });
 
