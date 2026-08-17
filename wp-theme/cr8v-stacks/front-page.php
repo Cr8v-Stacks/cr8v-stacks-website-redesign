@@ -4441,7 +4441,7 @@ defined('ABSPATH') || exit;
           if (hudGreen) hudGreen.textContent = `Green: dX: ${Math.round(liveCalibData.green.dX)}px | dY: ${Math.round(liveCalibData.green.dY)}px | Rot: ${liveCalibData.green.rot}°`;
         }
 
-        // Pinned Wheel Hijack Engine: Locks mouse scroll until 100% assembled
+        // Pinned Wheel Hijack Engine & Dynamic Floor Vector Lerp
         function renderPositions() {
           const pieces = [
             { el: airWoo, key: 'woo', initialRot: -5 },
@@ -4453,10 +4453,13 @@ defined('ABSPATH') || exit;
           pieces.forEach(item => {
             if (!item.el) return;
             const c = liveCalibData[item.key];
-            const currentDX = activePiece === item.el ? c.dX : c.dX * scrollProgress;
-            const currentDY = activePiece === item.el ? c.dY : c.dY * scrollProgress;
+            const remainingFactor = 1 - scrollProgress;
+            const magX = item.el.magX || 0;
+            const magY = item.el.magY || 0;
+            const currentDX = activePiece === item.el ? c.dX : (c.dX * remainingFactor) + magX;
+            const currentDY = activePiece === item.el ? c.dY : (c.dY * remainingFactor) + magY;
             const initialRot = item.initialRot || 0;
-            const currentRot = activePiece === item.el ? c.rot : initialRot * (1 - scrollProgress) + (c.rot * scrollProgress);
+            const currentRot = activePiece === item.el ? c.rot : initialRot * remainingFactor;
             const flip = c.flipX || 1;
             item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${flip})`;
           });
@@ -4502,7 +4505,7 @@ defined('ABSPATH') || exit;
           }
         }, { passive: false });
 
-        // Universal Mouse Drag Engine for ALL blocks
+        // Universal Mouse Drag & Magnetic Hover Engine for ALL 15 blocks
         let activePiece = null;
         let dragStartX = 0, dragStartY = 0;
         let initialDX = 0, initialDY = 0;
@@ -4518,6 +4521,8 @@ defined('ABSPATH') || exit;
         const allBlocks = document.querySelectorAll('.t-piece');
         allBlocks.forEach(piece => {
           piece.style.cursor = 'grab';
+          piece.magX = 0;
+          piece.magY = 0;
 
           piece.addEventListener('mousedown', function(e) {
             activePiece = piece;
@@ -4527,34 +4532,50 @@ defined('ABSPATH') || exit;
             if (k) {
               initialDX = liveCalibData[k].dX;
               initialDY = liveCalibData[k].dY;
+            } else {
+              if (!piece.floorDX) piece.floorDX = 0;
+              if (!piece.floorDY) piece.floorDY = 0;
+              initialDX = piece.floorDX;
+              initialDY = piece.floorDY;
             }
             document.body.style.userSelect = 'none';
             e.preventDefault();
           });
 
-          // Universal Magnetic Hover Micro-Interaction (Uses filter drop-shadow to match exact non-rectangular shape outline)
+          // Magnetic Hover Micro-Interaction Physics
           piece.addEventListener('mousemove', function(e) {
             if (activePiece) return;
+            const rect = piece.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            piece.magX = (e.clientX - centerX) * 0.15;
+            piece.magY = (e.clientY - centerY) * 0.15;
             piece.style.filter = 'drop-shadow(0 4px 12px rgba(0, 71, 225, 0.22)) drop-shadow(3px 7px 0px rgba(0, 71, 225, 0.30))';
-            piece.style.transition = 'filter 0.2s ease';
+            renderPositions();
           });
 
           piece.addEventListener('mouseleave', function() {
-            if (activePiece === piece) return;
+            piece.magX = 0;
+            piece.magY = 0;
             piece.style.filter = '';
+            renderPositions();
           });
         });
 
         window.addEventListener('mousemove', function(e) {
           if (!activePiece) return;
-          const k = getKey(activePiece);
-          if (!k) return;
-
           const deltaX = e.clientX - dragStartX;
           const deltaY = e.clientY - dragStartY;
 
-          liveCalibData[k].dX = initialDX + deltaX;
-          liveCalibData[k].dY = initialDY + deltaY;
+          const k = getKey(activePiece);
+          if (k) {
+            liveCalibData[k].dX = initialDX + deltaX;
+            liveCalibData[k].dY = initialDY + deltaY;
+          } else {
+            activePiece.floorDX = initialDX + deltaX;
+            activePiece.floorDY = initialDY + deltaY;
+            activePiece.style.transform = `translate3d(${activePiece.floorDX}px, ${activePiece.floorDY}px, 0)`;
+          }
           renderPositions();
         });
 
