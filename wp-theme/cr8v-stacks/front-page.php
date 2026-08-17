@@ -4441,7 +4441,7 @@ defined('ABSPATH') || exit;
           if (hudGreen) hudGreen.textContent = `Green: dX: ${Math.round(liveCalibData.green.dX)}px | dY: ${Math.round(liveCalibData.green.dY)}px | Rot: ${liveCalibData.green.rot}°`;
         }
 
-        // Pinned Wheel Hijack Engine & Dynamic Floor Vector Lerp
+        // Pinned Wheel Hijack Engine & Forward Floor Trajectory
         function renderPositions() {
           const pieces = [
             { el: airWoo, key: 'woo', initialRot: -5 },
@@ -4453,13 +4453,16 @@ defined('ABSPATH') || exit;
           pieces.forEach(item => {
             if (!item.el) return;
             const c = liveCalibData[item.key];
-            const remainingFactor = 1 - scrollProgress;
             const magX = item.el.magX || 0;
             const magY = item.el.magY || 0;
-            const currentDX = activePiece === item.el ? c.dX : (c.dX * remainingFactor) + magX;
-            const currentDY = activePiece === item.el ? c.dY : (c.dY * remainingFactor) + magY;
+            const userOffsetX = item.el.userOffsetX || 0;
+            const userOffsetY = item.el.userOffsetY || 0;
+
+            const currentDX = activePiece === item.el ? (c.dX * scrollProgress) + userOffsetX : (c.dX * scrollProgress) + (userOffsetX * (1 - scrollProgress)) + magX;
+            const currentDY = activePiece === item.el ? (c.dY * scrollProgress) + userOffsetY : (c.dY * scrollProgress) + (userOffsetY * (1 - scrollProgress)) + magY;
+
             const initialRot = item.initialRot || 0;
-            const currentRot = activePiece === item.el ? c.rot : initialRot * remainingFactor;
+            const currentRot = activePiece === item.el ? c.rot : initialRot * (1 - scrollProgress);
             const flip = c.flipX || 1;
             item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${flip})`;
           });
@@ -4508,7 +4511,7 @@ defined('ABSPATH') || exit;
         // Universal Mouse Drag & Magnetic Hover Engine for ALL 15 blocks
         let activePiece = null;
         let dragStartX = 0, dragStartY = 0;
-        let initialDX = 0, initialDY = 0;
+        let initialUserOffsetX = 0, initialUserOffsetY = 0;
 
         function getKey(el) {
           if (el === airWoo) return 'woo';
@@ -4523,26 +4526,20 @@ defined('ABSPATH') || exit;
           piece.style.cursor = 'grab';
           piece.magX = 0;
           piece.magY = 0;
+          piece.userOffsetX = 0;
+          piece.userOffsetY = 0;
 
           piece.addEventListener('mousedown', function(e) {
             activePiece = piece;
             dragStartX = e.clientX;
             dragStartY = e.clientY;
-            const k = getKey(piece);
-            if (k) {
-              initialDX = liveCalibData[k].dX;
-              initialDY = liveCalibData[k].dY;
-            } else {
-              if (!piece.floorDX) piece.floorDX = 0;
-              if (!piece.floorDY) piece.floorDY = 0;
-              initialDX = piece.floorDX;
-              initialDY = piece.floorDY;
-            }
+            initialUserOffsetX = piece.userOffsetX || 0;
+            initialUserOffsetY = piece.userOffsetY || 0;
             document.body.style.userSelect = 'none';
             e.preventDefault();
           });
 
-          // Magnetic Hover Micro-Interaction Physics
+          // Magnetic Hover Micro-Interaction Physics for ALL 15 Blocks
           piece.addEventListener('mousemove', function(e) {
             if (activePiece) return;
             const rect = piece.getBoundingClientRect();
@@ -4551,14 +4548,22 @@ defined('ABSPATH') || exit;
             piece.magX = (e.clientX - centerX) * 0.15;
             piece.magY = (e.clientY - centerY) * 0.15;
             piece.style.filter = 'drop-shadow(0 4px 12px rgba(0, 71, 225, 0.22)) drop-shadow(3px 7px 0px rgba(0, 71, 225, 0.30))';
-            renderPositions();
+            if (!getKey(piece)) {
+              piece.style.transform = `translate3d(${(piece.userOffsetX * (1 - scrollProgress)) + piece.magX}px, ${(piece.userOffsetY * (1 - scrollProgress)) + piece.magY}px, 0)`;
+            } else {
+              renderPositions();
+            }
           });
 
           piece.addEventListener('mouseleave', function() {
             piece.magX = 0;
             piece.magY = 0;
             piece.style.filter = '';
-            renderPositions();
+            if (!getKey(piece)) {
+              piece.style.transform = `translate3d(${piece.userOffsetX * (1 - scrollProgress)}px, ${piece.userOffsetY * (1 - scrollProgress)}px, 0)`;
+            } else {
+              renderPositions();
+            }
           });
         });
 
@@ -4567,14 +4572,11 @@ defined('ABSPATH') || exit;
           const deltaX = e.clientX - dragStartX;
           const deltaY = e.clientY - dragStartY;
 
-          const k = getKey(activePiece);
-          if (k) {
-            liveCalibData[k].dX = initialDX + deltaX;
-            liveCalibData[k].dY = initialDY + deltaY;
-          } else {
-            activePiece.floorDX = initialDX + deltaX;
-            activePiece.floorDY = initialDY + deltaY;
-            activePiece.style.transform = `translate3d(${activePiece.floorDX}px, ${activePiece.floorDY}px, 0)`;
+          activePiece.userOffsetX = initialUserOffsetX + deltaX;
+          activePiece.userOffsetY = initialUserOffsetY + deltaY;
+
+          if (!getKey(activePiece)) {
+            activePiece.style.transform = `translate3d(${activePiece.userOffsetX}px, ${activePiece.userOffsetY}px, 0)`;
           }
           renderPositions();
         });
