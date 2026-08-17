@@ -569,10 +569,10 @@ defined('ABSPATH') || exit;
     }
 
     /* State A Airborne Floating Coordinates */
-    .air-wp-purple   { position: absolute; left: 30px;  top: 40px;  transform: rotate(-10deg); }
-    .air-nextjs      { position: absolute; left: 180px; top: 180px; transform: rotate(-16deg); z-index: 600 !important; }
-    .air-green-z     { position: absolute; right: 100px; top: 30px;  transform: rotate(12deg); }
-    .air-amber-l     { position: absolute; right: 30px;  top: 190px; transform: rotate(22deg); }
+    .air-wp-purple   { position: absolute; }
+    .air-nextjs      { position: absolute; z-index: 600 !important; }
+    .air-green-z     { position: absolute; }
+    .air-amber-l     { position: absolute; }
 
     /* ════════════════════════════════════════════════════════════════
        EXACT MASTER PROMPT DUAL-STATE RULES
@@ -949,72 +949,7 @@ defined('ABSPATH') || exit;
             </div>
           </div>
 
-          <!-- ════════════════════════════════════════════════════════════
-               THE 4 DOCKED SOCKETS
-               ════════════════════════════════════════════════════════════ -->
-
-          <!-- Docked Socket 1: Purple WooCommerce Flipped 2x3 L-Piece - Starts at Row 5, Z-Index 50 < OpenAI 70 -->
-          <div class="t-piece tone-purple docked-socket" data-name="Purple WooCommerce L-Piece" data-col="1" data-row="5" style="grid-column: 1 / span 2; grid-row: 5 / span 3; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u));">
-            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
-            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
-            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-purple"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 1;">
-              <div class="t-shape-body tone-purple">
-                <img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/woocommerce-light.svg" alt="WooCommerce Light Logo" class="t-cdn-logo">
-              </div>
-            </div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-purple"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 3;"><!-- PURE TRANSPARENT CUTOUT --></div>
-            <div class="t-label" style="left: 0; width: var(--u); top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 4px; color: #FFFFFF; font-size: 0.65rem;">
-              <span>W</span><span>O</span><span>O</span>
-            </div>
-          </div>
-
-          <!-- Docked Socket 2: Next.js -->
-          <div class="t-piece tone-royal-blue docked-socket" data-name="Next.js" data-col="4" data-row="5" style="grid-column: 4; grid-row: 5 / span 3; display:grid; grid-template-columns: var(--u); grid-template-rows: repeat(3, var(--u));">
-            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
-            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
-            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-row: 1;">
-              <div class="t-shape-body tone-royal-blue"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nextdotjs.svg" alt="Next.js CDN Logo" class="t-cdn-logo is-white"></div>
-            </div>
-            <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
-            <div class="t-cell" style="grid-row: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
-          </div>
-
-          <!-- Docked Socket 3: Golden Yellow L-Piece -->
-          <div class="t-piece tone-golden-yellow docked-socket" data-name="Golden Yellow L" data-col="9" data-row="5" style="grid-column: 9 / span 2; grid-row: 5 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
-            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
-            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
-            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
-          </div>
-
-          <!-- Docked Socket 4: Lime Green Lemon Z-Piece -->
-          <div class="t-piece tone-lime-green docked-socket" data-name="Lime Green Lemon Z" data-col="16" data-row="4" style="grid-column: 16 / span 2; grid-row: 4 / span 4; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(4, var(--u));">
-            <div class="t-handle t-rotate-handle" title="Rotate 90°">↺</div>
-            <div class="t-handle t-fliph-handle" title="Flip Horizontal (F)">⇄</div>
-            <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 1;"><!-- PURE TRANSPARENT CUTOUT --></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-lime-green"></div></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-lime-green"></div></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
-            <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
-            <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- 70% In-Motion Floating Layer (THE 4 AIRBORNE FLOATING HERO BLOCKS IN STATE A) -->
+          <!-- 70% In-Motion Floating Layer (THE 4 AIRBORNE FLOATING HERO BLOCKS IN STATE A) -->
       <div class="airborne-layer">
         <!-- 1. Airborne Flipped Purple WooCommerce L-Piece -->
         <div class="t-piece tone-purple air-wp-purple" data-name="Airborne Purple WooCommerce" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u)); display:grid;">
