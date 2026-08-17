@@ -878,7 +878,7 @@ defined('ABSPATH') || exit;
     <section class="c8-hero-top c8-hero-b-standalone">
 
     <!-- Live Floating Viewport Path Calibrator HUD (Locked) -->
-    <div id="floatingCalibHUD" style="display: block; position: fixed; top: 90px; right: 20px; z-index: 999999; background: #141414; color: #FFFFFF; padding: 14px 18px; border-radius: 8px; font-family: monospace; font-size: 0.75rem; box-shadow: 0 8px 30px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15);">
+    <div id="floatingCalibHUD" style="display: none; position: fixed; top: 90px; right: 20px; z-index: 999999; background: #141414; color: #FFFFFF; padding: 14px 18px; border-radius: 8px; font-family: monospace; font-size: 0.75rem; box-shadow: 0 8px 30px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15);">
       <div id="hudHeaderHandle" style="font-weight: 700; color: #3D6BFF; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: move; user-select: none;">
         <span>❖ LIVE HOMEPAGE PATH CALIBRATOR (DRAG ME)</span>
         <button onclick="document.getElementById('floatingCalibHUD').style.display='none'" style="background:none; border:none; color:#AAA; cursor:pointer; font-size:0.9rem;">✕</button>
@@ -4616,6 +4616,7 @@ defined('ABSPATH') || exit;
         }, { passive: true });
 
         window.addEventListener('touchmove', function(e) {
+          if (activePiece) return; // don't scroll while dragging a card
           const windowScroll = window.scrollY || window.pageYOffset || 0;
           if (windowScroll <= 15 && e.touches.length === 1) {
             const deltaY = touchStartY - e.touches[0].clientY;
