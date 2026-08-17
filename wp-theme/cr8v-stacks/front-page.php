@@ -4409,6 +4409,7 @@ defined('ABSPATH') || exit;
           if (hudGreen) hudGreen.textContent = `Green: dX: ${Math.round(liveCalibData.green.dX)}px | dY: ${Math.round(liveCalibData.green.dY)}px | Rot: ${liveCalibData.green.rot}°`;
         }
 
+        // Correct Scroll Direction: Starts floating at top of page (progress=0), ends at floor (progress=1)
         function renderPositions() {
           const scrollY = window.scrollY || window.pageYOffset || 0;
           const maxScroll = window.innerHeight * 0.45;
@@ -4424,18 +4425,18 @@ defined('ABSPATH') || exit;
           pieces.forEach(item => {
             if (!item.el) return;
             const c = liveCalibData[item.key];
-            const startX = activePiece === item.el ? c.dX : c.dX * (1 - progress);
-            const startY = activePiece === item.el ? c.dY : c.dY * (1 - progress);
+            const currentDX = activePiece === item.el ? c.dX : c.dX * progress;
+            const currentDY = activePiece === item.el ? c.dY : c.dY * progress;
             const rot = c.rot || 0;
             const flip = c.flipX || 1;
-            item.el.style.transform = `translate3d(${startX}px, ${startY}px, 0) rotate(${rot}deg) scaleX(${flip})`;
+            item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${rot}deg) scaleX(${flip})`;
           });
           updateHUDDisplay();
         }
 
         window.addEventListener('scroll', renderPositions, { passive: true });
 
-        // Mouse Drag Engine
+        // Universal Mouse Drag Engine for ALL blocks
         let activePiece = null;
         let dragStartX = 0, dragStartY = 0;
         let initialDX = 0, initialDY = 0;
@@ -4448,7 +4449,10 @@ defined('ABSPATH') || exit;
           return null;
         }
 
-        [airWoo, airNext, airYellow, airGreen].forEach(piece => {
+        const allBlocks = document.querySelectorAll('.t-piece');
+        allBlocks.forEach(piece => {
+          piece.style.cursor = 'grab';
+
           piece.addEventListener('mousedown', function(e) {
             activePiece = piece;
             dragStartX = e.clientX;
@@ -4460,6 +4464,23 @@ defined('ABSPATH') || exit;
             }
             document.body.style.userSelect = 'none';
             e.preventDefault();
+          });
+
+          // Universal Magnetic Hover Micro-Interaction
+          piece.addEventListener('mousemove', function(e) {
+            if (activePiece) return;
+            const rect = piece.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const deltaX = (e.clientX - centerX) * 0.12;
+            const deltaY = (e.clientY - centerY) * 0.12;
+            piece.style.boxShadow = '0 12px 30px rgba(0, 71, 225, 0.35)';
+            piece.style.transition = 'box-shadow 0.2s ease';
+          });
+
+          piece.addEventListener('mouseleave', function() {
+            if (activePiece === piece) return;
+            piece.style.boxShadow = '';
           });
         });
 
