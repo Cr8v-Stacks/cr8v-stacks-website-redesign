@@ -4502,10 +4502,10 @@ defined('ABSPATH') || exit;
         // portrait mobile and landscape desktop so landing distances differ.
         const isMobile = window.innerWidth <= 768;
         const liveCalibData = isMobile ? {
-          woo:    { dX: 160,  dY: 897, rot: 0, flipX: 1 },
-          next:   { dX: 315,  dY: 542, rot: 0, flipX: 1 },
-          yellow: { dX: -777, dY: 530, rot: 0, flipX: 1 },
-          green:  { dX: -152, dY: 780, rot: 0, flipX: 1 }
+          woo:    { dX: 106,   dY: 1312, rot: 0, flipX: 1 },
+          next:   { dX: 335,   dY: 778,  rot: 0, flipX: 1 },
+          yellow: { dX: -1025, dY: 749,  rot: 0, flipX: 1 },
+          green:  { dX: -78,   dY: 1134, rot: 0, flipX: 1 }
         } : {
           woo:    { dX: 222,  dY: 482, rot: 0, flipX: 1 },
           next:   { dX: 305,  dY: 308, rot: 0, flipX: 1 },
@@ -4664,6 +4664,7 @@ defined('ABSPATH') || exit;
             initialUserX = piece.userOffsetX || 0;
             initialUserY = piece.userOffsetY || 0;
 
+            piece.setPointerCapture(e.pointerId); // lock all pointer events to this element
             document.body.style.userSelect = 'none';
             e.preventDefault();
           });
@@ -4697,7 +4698,23 @@ defined('ABSPATH') || exit;
           activePiece.userOffsetX = initialUserX + deltaX;
           activePiece.userOffsetY = initialUserY + deltaY;
 
-          renderPositions();
+          // Directly set the dragged piece's transform every frame.
+          // renderPositions() skips activePiece (see line above that returns early),
+          // so without this the card never moves during drag — only jumps on release.
+          const k = getKey(activePiece);
+          if (k) {
+            const c = liveCalibData[k];
+            const baseDX = c.dX * scrollProgress;
+            const baseDY = c.dY * scrollProgress;
+            // Full-weight userOffset during drag so card follows pointer at any scroll level
+            const currentDX = baseDX + activePiece.userOffsetX;
+            const currentDY = baseDY + activePiece.userOffsetY;
+            const initialRotMap = { woo: -5, next: -8, yellow: 10, green: 6 };
+            const currentRot = (initialRotMap[k] || 0) * (1 - scrollProgress);
+            activePiece.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${c.flipX || 1})`;
+          }
+
+          renderPositions(); // update all OTHER pieces (mag effects etc.)
         });
 
         window.addEventListener('pointerup', function() {
