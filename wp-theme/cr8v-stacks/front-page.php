@@ -569,10 +569,10 @@ defined('ABSPATH') || exit;
     }
 
     /* State A Airborne Floating Coordinates */
-    .air-wp-purple   { position: absolute; }
-    .air-nextjs      { position: absolute; z-index: 600 !important; }
-    .air-green-z     { position: absolute; }
-    .air-amber-l     { position: absolute; }
+    .air-wp-purple   { position: absolute; left: 60px;  top: 60px; }
+    .air-nextjs      { position: absolute; left: 80px;  top: 240px; z-index: 600 !important; }
+    .air-green-z     { position: absolute; right: 60px; top: 60px; }
+    .air-amber-l     { position: absolute; right: 80px; top: 240px; }
 
     /* ════════════════════════════════════════════════════════════════
        EXACT MASTER PROMPT DUAL-STATE RULES
@@ -4369,10 +4369,10 @@ defined('ABSPATH') || exit;
         if (!airWoo || !airNext || !airGreen || !airYellow) return;
 
         const liveCalibData = {
-          woo:    { dX: 148,  dY: 469, rot: 0,  flipX: 1 },
-          next:   { dX: 168,  dY: 332, rot: 0,  flipX: 1 },
-          yellow: { dX: -540, dY: 320, rot: 90, flipX: -1 },
-          green:  { dX: -75,  dY: 425, rot: 0,  flipX: 1 }
+          woo:    { dX: 0, dY: 0, rot: 0, flipX: 1 },
+          next:   { dX: 0, dY: 0, rot: 0, flipX: 1 },
+          yellow: { dX: 0, dY: 0, rot: 0, flipX: 1 },
+          green:  { dX: 0, dY: 0, rot: 0, flipX: 1 }
         };
 
         function updateHUDDisplay() {
