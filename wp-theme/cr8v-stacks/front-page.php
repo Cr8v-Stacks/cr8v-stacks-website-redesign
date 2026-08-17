@@ -19,6 +19,687 @@ defined('ABSPATH') || exit;
 
 <main id="cr8v-main">
   <style>
+
+    :root {
+      /* Studio-Grade Palette Extracted Directly From Master Prompt */
+      --block-obsidian: #141414;      /* OpenAI, Shopify, Claude */
+      --block-royal-blue: #0D52E0;    /* Custom Development, Next.js, AI MVP */
+      --block-light-grey: #E5E4DE;    /* Web Design, WordPress */
+      --block-purple: #5C32BD;        /* WooCommerce Purple Step/L Filler */
+      --block-terracotta: #E85A1C;    /* Elementor */
+      --block-golden-yellow: #EAB308;/* Golden Yellow L Filler */
+      --block-forest-green: #1E7D34;  /* Figma */
+      --block-lime-green: #6E9C26;    /* Structural Tetris Step/L Filler */
+      --block-sand-beige: #D9C5A0;    /* Python Sand Beige */
+      
+      --c8-blue: #0047E1;
+      --c8-ink: #080808;
+      --c8-sub: #666666;
+      
+      --font-body: 'DM Sans', sans-serif;
+      --font-heading: 'Michroma', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      
+      --u: 56px;            /* Standardized 1x1 Tetris Module Scale */
+      --block-radius: 0px;  /* ZERO CORNER RADIUS */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #FAFAF7;
+      color: var(--c8-ink);
+      font-family: var(--font-body);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* Page Header */
+    .catalog-header {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .catalog-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--c8-blue);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .catalog-h1 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      color: #111111;
+    }
+
+    .catalog-desc {
+      color: var(--c8-sub);
+      font-size: 0.95rem;
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    /* Motion Controller Bar */
+    .motion-controller {
+      max-width: 1240px;
+      margin: 0 auto 1.5rem auto;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 40px;
+      padding: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .state-btn {
+      background: transparent;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 30px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .state-btn.active {
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(0, 71, 225, 0.3);
+    }
+
+    /* Source of Truth Reference Box */
+    .reference-box {
+      max-width: 1240px;
+      margin: 0 auto 2.5rem auto;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      text-align: center;
+    }
+
+    .reference-box h2 {
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #666;
+      margin-bottom: 0.75rem;
+    }
+
+    .reference-img {
+      width: 100%;
+      max-height: 360px;
+      object-fit: contain;
+      border-radius: 0px;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       3D TETRIS PUZZLE ENGINE (MASTER Z-INDEX & PRONOUNCED BLOCK SEPARATION)
+       ════════════════════════════════════════════════════════════════ */
+
+    .t-piece {
+      display: inline-grid;
+      position: relative;
+      user-select: none;
+      background: transparent !important; /* 100% TRANSPARENT CONTAINER BOUNDING */
+      transition: transform 0.2s ease, filter 0.2s ease, opacity 0.3s ease;
+      cursor: grab;
+      touch-action: none;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       EXPLICIT MASTER Z-INDEX CHAIN (CUSTOM DEV, SHOPIFY & FIGMA ABOVE AI MVP, WORDPRESS & ELEMENTOR)
+       ════════════════════════════════════════════════════════════════ */
+    .t-piece[data-name="Purple WooCommerce L-Piece"]  { z-index: 20 !important; }
+    .t-piece[data-name="Airborne Purple WooCommerce"] { z-index: 300 !important; }
+    
+    .t-piece[data-name="OpenAI"]                      { z-index: 30 !important; }
+    .t-piece[data-name="Next.js"]                     { z-index: 40 !important; } /* Next.js (40) > OpenAI (30) */
+    .t-piece[data-name="Airborne Next.js"]            { z-index: 350 !important; }
+    
+    /* MIDDLE/UPPER ROW BLOCKS HELD LOW AT Z-INDEX 50 */
+    .t-piece[data-name="Web Design"]                  { z-index: 50 !important; }
+    .t-piece[data-name="AI MVP"]                      { z-index: 50 !important; }
+    .t-piece[data-name="Golden Yellow L"]             { z-index: 50 !important; }
+    .t-piece[data-name="Airborne Golden Yellow L"]    { z-index: 300 !important; }
+    .t-piece[data-name="WordPress"]                   { z-index: 50 !important; }
+    .t-piece[data-name="Python"]                      { z-index: 50 !important; }
+    .t-piece[data-name="Elementor"]                   { z-index: 50 !important; }
+    
+    /* CUSTOM DEV, SHOPIFY, FIGMA (BOTTOM FLOOR BLOCKS) SIT HIGH ABOVE AI MVP, WORDPRESS, ELEMENTOR */
+    .t-piece[data-name="Custom Development"]         { z-index: 100 !important; } /* Custom Dev (100) > AI MVP, WP, Elementor (50) */
+    .t-piece[data-name="Shopify"]                     { z-index: 110 !important; } /* Shopify (110) > Custom Dev (100) & AI MVP, WP, Elementor (50) */
+    .t-piece[data-name="Figma"]                       { z-index: 120 !important; } /* Figma (120) > Shopify (110) & AI MVP, WP, Elementor (50) */
+    
+    .t-piece[data-name="Claude"]                      { z-index: 130 !important; }
+    .t-piece[data-name="Lime Green Lemon Z"]          { z-index: 140 !important; }
+    .t-piece[data-name="Airborne Lime Green Z"]       { z-index: 300 !important; }
+
+    /* Tone-Specific Outer 3D Extrusions + Sharp Outer Boundary Separation (ZERO Internal Lines) */
+    .t-piece.tone-obsidian {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.85))
+        drop-shadow(3px 5px 0px #000000)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.35));
+    }
+    .t-piece.tone-royal-blue {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
+        drop-shadow(3px 5px 0px #062E8A)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.30));
+    }
+    .t-piece.tone-light-grey {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.65))
+        drop-shadow(3px 5px 0px #A09F96)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.25));
+    }
+    .t-piece.tone-purple {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
+        drop-shadow(3px 5px 0px #381B7B)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.30));
+    }
+    .t-piece.tone-terracotta {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
+        drop-shadow(3px 5px 0px #9C3205)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.30));
+    }
+    .t-piece.tone-golden-yellow {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
+        drop-shadow(3px 5px 0px #8C6902)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.28));
+    }
+    .t-piece.tone-forest-green {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
+        drop-shadow(3px 5px 0px #0D481C)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.30));
+    }
+    .t-piece.tone-lime-green {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
+        drop-shadow(3px 5px 0px #3E5C12)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.30));
+    }
+    .t-piece.tone-sand-beige {
+      filter: 
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.65))
+        drop-shadow(3px 5px 0px #85724E)
+        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.25));
+    }
+
+    .t-shape-body {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 0px !important;
+      box-shadow: none !important; /* ZERO INTERNAL BOX LINES — 100% FLUSH UNBROKEN SURFACE */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .t-piece.is-dragging {
+      cursor: grabbing !important;
+      z-index: 1000 !important;
+      filter: drop-shadow(4px 14px 30px rgba(0, 71, 225, 0.45)) brightness(1.06) !important;
+    }
+
+    .t-piece.is-selected {
+      outline: 2px dashed var(--c8-blue);
+      outline-offset: 4px;
+      border-radius: 0px;
+    }
+
+    /* Red Collision Alert Highlight */
+    .t-piece.is-colliding {
+      outline: 2px dashed #E53935 !important;
+      outline-offset: 4px !important;
+      filter: drop-shadow(0 0 20px rgba(229, 57, 53, 0.85)) brightness(1.1) !important;
+    }
+
+    /* Floating Handle Overlay Triggers */
+    .t-handle {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 71, 225, 0.4);
+      z-index: 30;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.2s ease;
+    }
+
+    .t-piece:hover .t-handle,
+    .t-piece.is-selected .t-handle {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .t-handle:hover {
+      background: #0030A0;
+      transform: scale(1.18) !important;
+    }
+
+    .t-rotate-handle { top: -12px; right: -12px; }
+    .t-fliph-handle  { top: -12px; left: -12px; }
+    .t-flipv-handle  { bottom: -12px; left: -12px; }
+
+    .t-cell {
+      width: var(--u, 56px);
+      height: var(--u, 56px);
+      position: relative;
+      box-sizing: border-box;
+      background: transparent;
+    }
+
+    .t-shape-body {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 0px !important;
+      box-shadow: none !important; /* ZERO INTERNAL BOX LINES — 100% FLUSH UNBROKEN SURFACE */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* High-Performance Hardware-Accelerated Tactile Noise Overlay */
+    .t-shape-body::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.05;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Clean Seamless Color Tone Surfaces */
+    .tone-obsidian { background: var(--block-obsidian); color: #FFFFFF; }
+    .tone-royal-blue { background: var(--block-royal-blue); color: #FFFFFF; }
+    .tone-light-grey { background: var(--block-light-grey); color: #111111; }
+    .tone-purple { background: var(--block-purple); color: #FFFFFF; }
+    .tone-terracotta { background: var(--block-terracotta); color: #FFFFFF; }
+    .tone-golden-yellow { background: var(--block-golden-yellow); color: #111111; }
+    .tone-forest-green { background: var(--block-forest-green); color: #FFFFFF; }
+    .tone-lime-green { background: var(--block-lime-green); color: #FFFFFF; }
+    .tone-sand-beige { background: var(--block-sand-beige); color: #111111; }
+
+    /* Internal Seam Lines REMOVED */
+    .t-seam-h, .t-seam-v {
+      display: none !important;
+    }
+
+    /* Text & Logo Label Overlay */
+    .t-label {
+      position: absolute;
+      z-index: 5;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .t-cdn-logo {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+    }
+
+    .t-cdn-logo.is-white {
+      filter: brightness(0) invert(1);
+    }
+
+    /* Live Coordinate HUD Status Bar */
+    .matrix-hud {
+      max-width: 1320px;
+      margin: -2.5rem auto 2rem auto;
+      background: #141414;
+      color: #FFFFFF;
+      border-radius: 8px;
+      padding: 0.65rem 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .hud-title { color: #888888; text-transform: uppercase; letter-spacing: 0.08em; }
+    .hud-status { color: #3D6BFF; font-weight: 700; }
+    .hud-hint { color: #AAAAAA; font-size: 0.72rem; }
+
+    /* ════════════════════════════════════════════════════════════════
+       MAIN HERO SECTION PREVIEW (HERO TEXT + INTERLOCKING PUZZLE MATRIX)
+       ════════════════════════════════════════════════════════════════ */
+    .hero-arena-section {
+      max-width: 1360px;
+      margin: 0 auto 4rem auto;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+      padding: 3rem 1.5rem;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-arena-container {
+      width: 100%;
+      height: 680px;
+      background: #FAFAF7;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Embedded Hero Written Content Overlay (Upper-Center Space) */
+    .hero-content-overlay {
+      position: absolute;
+      top: 2.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 820px;
+      text-align: center;
+      z-index: 20;
+      padding: 0 1.5rem;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c8-blue);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      text-transform: uppercase;
+      color: var(--c8-ink);
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: #4A4A4A;
+      max-width: 640px;
+      margin: 0 auto 1.25rem auto;
+      line-height: 1.6;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      pointer-events: auto;
+    }
+
+    .btn-primary-c8 {
+      background: var(--c8-blue);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary-c8:hover {
+      background: #0038C0;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary-c8 {
+      background: #FFFFFF;
+      color: var(--c8-ink);
+      border: 1px solid rgba(8, 8, 8, 0.15);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-secondary-c8:hover {
+      border-color: var(--c8-blue);
+      color: var(--c8-blue);
+      transform: translateY(-2px);
+    }
+
+    /* 2D Matrix Floor Arena (17 cols x 7 rows - Exact Screenshot Matrix) */
+    .matrix-floor-wrapper {
+      width: 100%;
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: center;
+      z-index: 500 !important; /* Elevated above airborne-layer so OpenAI, Shopify, Figma stack on top */
+    }
+
+    .matrix-arena {
+      display: grid;
+      grid-template-columns: repeat(17, var(--u, 56px));
+      grid-template-rows: repeat(7, var(--u, 56px));
+      gap: 0;
+      position: relative;
+    }
+
+    /* Airborne Layer at 70% In-Motion Mode */
+    .airborne-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10 !important; /* Placed below floor wrapper so OpenAI & Shopify sit on top */
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .airborne-layer .t-piece {
+      pointer-events: auto;
+    }
+
+    /* State A Airborne Floating Coordinates */
+    .air-wp-purple   { position: absolute; left: 30px;  top: 40px;  transform: rotate(-10deg); }
+    .air-nextjs      { position: absolute; left: 180px; top: 180px; transform: rotate(-16deg); z-index: 600 !important; }
+    .air-green-z     { position: absolute; right: 100px; top: 30px;  transform: rotate(12deg); }
+    .air-amber-l     { position: absolute; right: 30px;  top: 190px; transform: rotate(22deg); }
+
+    /* ════════════════════════════════════════════════════════════════
+       EXACT MASTER PROMPT DUAL-STATE RULES
+       ════════════════════════════════════════════════════════════════ */
+    body.mode-70 .docked-socket {
+      opacity: 0 !important;
+      transform: translateY(-80px) scale(0.9) !important;
+      pointer-events: none !important;
+    }
+
+    body.mode-70 .airborne-layer {
+      display: block !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+
+    body.mode-100 .airborne-layer {
+      display: block !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transition: opacity 0.3s ease;
+    }
+
+    body.mode-100 .docked-socket {
+      opacity: 1 !important;
+      transform: translateY(0) scale(1) !important;
+      pointer-events: auto !important;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       ISOLATED STANDARDIZED COMPONENT CATALOG (11 ISOLATED CARDS)
+       ════════════════════════════════════════════════════════════════ */
+    .catalog-grid {
+      max-width: 1240px;
+      margin: 0 auto 4rem auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+    }
+
+    .piece-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .piece-card-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .piece-title { font-size: 0.88rem; font-weight: 700; color: #111; }
+    .piece-color-tag { font-size: 0.72rem; color: #555; font-weight: 600; background: #F4F4F0; padding: 0.25rem 0.65rem; border-radius: 4px; }
+    .piece-stage { width: 100%; height: 220px; background: #F5F5F2; border-radius: 8px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+
+  
+
+    /* 3D TETRIS HOMEPAGE ANCHOR & CALIBRATOR OVERRIDES */
+    .c8-hero-top.c8-hero-b-standalone,
+    .c8-hero-b-standalone {
+      position: relative !important;
+      overflow: hidden !important;
+      min-height: 100vh !important;
+      height: 100vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      background-color: #FFFFFF !important;
+      background-image: none !important;
+      padding-top: 4rem !important;
+      padding-bottom: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    .c8-hero-top .c8-hero-in,
+    .c8-hero-in {
+      position: relative !important;
+      z-index: 200 !important;
+      text-align: center !important;
+      width: 100% !important;
+      max-width: 820px !important;
+      margin: 1.5rem auto auto auto !important;
+      padding: 0 1.5rem !important;
+      pointer-events: auto !important;
+    }
+
+    .c8-hero-top .matrix-floor-wrapper {
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      z-index: 100 !important;
+      margin: 0 !important;
+      width: 952px !important;
+      height: 392px !important;
+    }
+
+    .c8-hero-top .airborne-layer {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      pointer-events: none !important;
+      z-index: 500 !important;
+    }
+
+    .c8-hero-top .airborne-layer .t-piece {
+      pointer-events: auto !important;
+      cursor: grab !important;
+    }
+    .c8-hero-top .airborne-layer .t-piece:active {
+      cursor: grabbing !important;
+    }
+
+
     .c8-hero-top.c8-hero-b-standalone,
     .c8-hero-b-standalone {
       min-height: 100vh !important;
