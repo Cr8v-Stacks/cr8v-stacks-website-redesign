@@ -327,12 +327,13 @@ defined('ABSPATH') || exit;
       display: none !important;
     }
 
-    /* Text & Logo Label Overlay */
+    /* ── Block Label System ───────────────────────────────────────────────────────────── */
     .t-label {
       position: absolute;
       z-index: 5;
+      left: 0; right: 0; top: 0; bottom: 0;
       font-family: 'Space Mono', monospace;
-      font-size: 0.82rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       white-space: nowrap;
@@ -343,6 +344,54 @@ defined('ABSPATH') || exit;
       align-items: center;
       justify-content: center;
       gap: 4px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Tone-based text colours — dark blocks → white, light blocks → dark */
+    .tone-obsidian .t-label,
+    .tone-royal-blue .t-label,
+    .tone-terracotta .t-label,
+    .tone-purple .t-label,
+    .tone-lime-green .t-label,
+    .tone-forest-green .t-label { color: #FFFFFF; }
+    .tone-light-grey .t-label,
+    .tone-sand-beige .t-label  { color: #111111; }
+    .tone-golden-yellow .t-label { color: #080808; }
+
+    /* Layout modifiers */
+    .t-label.is-row   { flex-direction: row; gap: 8px; }
+    .t-label.has-logo { gap: 6px; }
+
+    /* Airborne-piece specific label positions (shape-constrained, cannot be tone-generic) */
+    .t-label.air-woo-text {
+      right: auto;
+      width: var(--u);
+      font-size: 0.65rem;
+    }
+    .t-label.air-headless-text {
+      left: var(--u);
+      right: auto;
+      width: var(--u);
+      bottom: auto;
+      height: calc(var(--u) * 3);
+      font-size: 0.58rem;
+      gap: 2px;
+    }
+    .t-label.air-cms-text {
+      right: auto;
+      width: var(--u);
+      top: calc(var(--u) * 2);
+      bottom: auto;
+      height: var(--u);
+      flex-direction: row;
+    }
+    .t-label.air-seo-text {
+      right: auto;
+      width: calc(var(--u) * 2);
+      bottom: auto;
+      height: var(--u);
+      flex-direction: row;
+      letter-spacing: 0.08em;
     }
 
     .t-cdn-logo {
@@ -635,22 +684,6 @@ defined('ABSPATH') || exit;
         margin-bottom: 1.25rem !important;
       }
 
-      /* Scale the floor wrapper from its bottom-center — the anchor point */
-      .c8-hero-top .matrix-floor-wrapper {
-        transform: translateX(-50%) scale(calc((100vw - 32px) / 952)) !important;
-        transform-origin: bottom center !important;
-      }
-
-      /* Collapse airborne layer to a matching 952px container so both
-         containers share the same pre-scale coordinate space.
-         JS delta computation reads DOM rects dynamically on mobile. */
-      .c8-hero-top .airborne-layer {
-        left: 50% !important;
-        right: auto !important;
-        width: 952px !important;
-        transform: translateX(-50%) scale(calc((100vw - 32px) / 952)) !important;
-        transform-origin: bottom center !important;
-      }
     }
 
     /* ════════════════════════════════════════════════════════════════
@@ -864,9 +897,9 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
+            <div class="t-label has-logo">
               <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/default.svg" alt="OpenAI CDN Logo" class="t-cdn-logo">
-              <span style="font-size: 0.65rem; color: #FFF;">OPENAI</span>
+              <span>OPENAI</span>
             </div>
           </div>
 
@@ -879,7 +912,7 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
             <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #111; font-size: 0.72rem;">WEB DESIGN</div>
+            <div class="t-label">WEB DESIGN</div>
           </div>
 
           <!-- 3. Custom Development (Base Floor Block - Cols 5-8, Row 7 - Row 7 Z-Index 70) -->
@@ -891,7 +924,7 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
             <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
             <div class="t-cell" style="grid-column: 4;"><div class="t-shape-body tone-royal-blue"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; align-items: center; justify-content: center; color: #FFFFFF;">CUSTOM DEVELOPMENT</div>
+            <div class="t-label">CUSTOM DEVELOPMENT</div>
           </div>
 
           <!-- 4. AI MVP (Base Floor Block - Cols 7-8, Rows 5-6 - Row 6 Z-Index 60) -->
@@ -903,7 +936,7 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
             <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #FFFFFF;">AI MVP</div>
+            <div class="t-label">AI MVP</div>
           </div>
 
           <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7 - Row 7 Z-Index 70) -->
@@ -914,9 +947,9 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-obsidian"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; align-items: center; justify-content: center; color: #FFFFFF;">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg" alt="Shopify CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
-              <span style="color: #FFFFFF;">SHOPIFY</span>
+            <div class="t-label is-row">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg" alt="Shopify CDN Logo" class="t-cdn-logo is-white">
+              <span>SHOPIFY</span>
             </div>
           </div>
 
@@ -929,9 +962,9 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
             <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
+            <div class="t-label has-logo">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="WordPress CDN Logo" class="t-cdn-logo">
-              <span style="font-size: 0.65rem; color: #111111;">WORDPRESS</span>
+              <span>WORDPRESS</span>
             </div>
           </div>
 
@@ -944,8 +977,8 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div></div>
             <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; flex-direction: column; gap: 4px; align-items: center; justify-content: center; color: #111;">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python CDN Logo" class="t-cdn-logo" style="width: 24px; height: 24px;">
+            <div class="t-label has-logo">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python CDN Logo" class="t-cdn-logo">
               <span>PYTHON</span>
             </div>
           </div>
@@ -957,7 +990,7 @@ defined('ABSPATH') || exit;
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
             <div class="t-cell" style="grid-column: 1; grid-row: 1;">
               <div class="t-shape-body tone-terracotta">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/elementor.svg" alt="Elementor CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/elementor.svg" alt="Elementor CDN Logo" class="t-cdn-logo is-white">
               </div>
             </div>
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-terracotta"></div></div>
@@ -971,8 +1004,8 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-forest-green"></div></div>
             <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-forest-green"></div></div>
             <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-forest-green"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; align-items: center; justify-content: center; font-size: 0.68rem; color: #FFF;">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg" alt="Figma CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+            <div class="t-label is-row">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg" alt="Figma CDN Logo" class="t-cdn-logo is-white">
               <span>FIGMA</span>
             </div>
           </div>
@@ -984,9 +1017,9 @@ defined('ABSPATH') || exit;
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
             <div class="t-cell" style="grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
+            <div class="t-label has-logo">
               <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude Verified CDN Logo" class="t-cdn-logo">
-              <span style="font-size: 0.65rem; color: #FFFFFF;">CLAUDE</span>
+              <span>CLAUDE</span>
             </div>
           </div>
         </div>
@@ -1007,7 +1040,7 @@ defined('ABSPATH') || exit;
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 3;"><!-- PURE TRANSPARENT CUTOUT --></div>
-          <div class="t-label" style="left: 0; width: var(--u); top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 4px; color: #FFFFFF; font-size: 0.65rem;">
+          <div class="t-label air-woo-text">
             <span>W</span><span>O</span><span>O</span>
           </div>
         </div>
@@ -1038,11 +1071,11 @@ defined('ABSPATH') || exit;
           <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
           <!-- Vertical HEADLESS in Column 2 (Rows 1-3) -->
-          <div class="t-label" style="left: var(--u); width: var(--u); top: 0; height: calc(var(--u) * 3); display:flex; flex-direction: column; justify-content: center; align-items: center; gap: 2px; color: #FFFFFF !important; font-size: 0.58rem; font-weight: 700; font-family: 'Space Mono', monospace; text-transform: uppercase; text-shadow: 0 1px 3px rgba(0,0,0,0.7); pointer-events: none;">
+          <div class="t-label air-headless-text">
             <span>H</span><span>E</span><span>A</span><span>D</span><span>L</span><span>E</span><span>S</span><span>S</span>
           </div>
           <!-- Horizontal CMS in Column 1 (Row 3) -->
-          <div class="t-label" style="left: 0; width: var(--u); top: calc(var(--u) * 2); height: var(--u); display:flex; justify-content: center; align-items: center; color: #FFFFFF !important; font-size: 0.68rem; font-weight: 700; font-family: 'Space Mono', monospace; text-transform: uppercase; text-shadow: 0 1px 3px rgba(0,0,0,0.7); pointer-events: none;">
+          <div class="t-label air-cms-text">
             <span>CMS</span>
           </div>
         </div>
@@ -1056,7 +1089,7 @@ defined('ABSPATH') || exit;
           <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
-          <div class="t-label" style="left: 0; width: calc(var(--u) * 2); top: 0; height: var(--u); display:flex; justify-content: center; align-items: center; color: #080808 !important; font-size: 0.72rem; font-weight: 700; font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; pointer-events: none;">
+          <div class="t-label air-seo-text">
             <span>SEO</span>
           </div>
         </div>
@@ -4433,30 +4466,7 @@ defined('ABSPATH') || exit;
 
         let scrollProgress = 0; // 0.0 at top of page, 1.0 when fully assembled into floor
 
-        // ── MOBILE: Compute dX/dY dynamically from actual DOM positions ──────────
-        // Both airborne-layer and matrix-floor-wrapper are the same 952px CSS-scaled
-        // container on mobile, so getBoundingClientRect gives visual positions.
-        // Dividing by mobileScale converts visual px → pre-scale container px,
-        // which is the coordinate space where translate3d operates.
-        if (window.innerWidth <= 768) {
-          const mobileScale = (window.innerWidth - 32) / 952;
-          const mobileMap = [
-            { el: airWoo,    key: 'woo',    floorName: 'Purple WooCommerce L-Piece' },
-            { el: airNext,   key: 'next',   floorName: 'Next.js' },
-            { el: airYellow, key: 'yellow', floorName: 'Golden Yellow L' },
-            { el: airGreen,  key: 'green',  floorName: 'Lime Green Lemon Z' }
-          ];
-          mobileMap.forEach(function(m) {
-            const floorEl = document.querySelector('.t-piece[data-name="' + m.floorName + '"]');
-            if (!m.el || !floorEl) return;
-            const aRect = m.el.getBoundingClientRect();
-            const fRect = floorEl.getBoundingClientRect();
-            // Align top-left of airborne card to top-left of its floor socket
-            liveCalibData[m.key].dX = (fRect.left - aRect.left) / mobileScale;
-            liveCalibData[m.key].dY = (fRect.top  - aRect.top)  / mobileScale;
-          });
-        }
-        // ─────────────────────────────────────────────────────────────────────────
+
 
         function updateHUDDisplay() {
           const hudWoo = document.getElementById('hudWooVal');
