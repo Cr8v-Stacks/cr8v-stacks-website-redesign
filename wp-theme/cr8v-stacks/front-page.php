@@ -735,6 +735,26 @@ defined('ABSPATH') || exit;
       box-sizing: border-box !important;
     }
 
+    .c8-hero-h1 {
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(2rem, 4.5vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--c8-ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .c8-hero-sub {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.65;
+      font-weight: 400;
+      color: #4A4A4A !important;
+      margin-bottom: 2rem;
+    }
+
     .c8-hero-top .c8-hero-in,
     .c8-hero-in {
       position: relative !important;
@@ -4390,6 +4410,10 @@ defined('ABSPATH') || exit;
         }
 
         function renderPositions() {
+          const scrollY = window.scrollY || window.pageYOffset || 0;
+          const maxScroll = window.innerHeight * 0.45;
+          const progress = Math.min(1.0, Math.max(0.0, scrollY / maxScroll));
+
           const pieces = [
             { el: airWoo, key: 'woo' },
             { el: airNext, key: 'next' },
@@ -4400,12 +4424,16 @@ defined('ABSPATH') || exit;
           pieces.forEach(item => {
             if (!item.el) return;
             const c = liveCalibData[item.key];
+            const startX = activePiece === item.el ? c.dX : c.dX * (1 - progress);
+            const startY = activePiece === item.el ? c.dY : c.dY * (1 - progress);
             const rot = c.rot || 0;
             const flip = c.flipX || 1;
-            item.el.style.transform = `translate3d(${c.dX}px, ${c.dY}px, 0) rotate(${rot}deg) scaleX(${flip})`;
+            item.el.style.transform = `translate3d(${startX}px, ${startY}px, 0) rotate(${rot}deg) scaleX(${flip})`;
           });
           updateHUDDisplay();
         }
+
+        window.addEventListener('scroll', renderPositions, { passive: true });
 
         // Mouse Drag Engine
         let activePiece = null;
