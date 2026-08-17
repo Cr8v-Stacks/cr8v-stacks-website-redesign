@@ -948,8 +948,10 @@ defined('ABSPATH') || exit;
               <span style="font-size: 0.65rem; color: #FFFFFF;">CLAUDE</span>
             </div>
           </div>
+        </div>
+      </div>
 
-          <!-- 70% In-Motion Floating Layer (THE 4 AIRBORNE FLOATING HERO BLOCKS IN STATE A) -->
+      <!-- 70% In-Motion Floating Layer (THE 4 AIRBORNE FLOATING HERO BLOCKS IN STATE A) -->
       <div class="airborne-layer">
         <!-- 1. Airborne Flipped Purple WooCommerce L-Piece -->
         <div class="t-piece tone-purple air-wp-purple" data-name="Airborne Purple WooCommerce" style="grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u)); display:grid;">
