@@ -196,60 +196,20 @@ defined('ABSPATH') || exit;
     .t-piece[data-name="Lime Green Lemon Z"]          { z-index: 140 !important; }
     .t-piece[data-name="Airborne Lime Green Z"]       { z-index: 300 !important; }
 
-    /* Tone-Specific Outer 3D Extrusions + Sharp Outer Boundary Separation (ZERO Internal Lines) */
-    .t-piece.tone-obsidian {
-      filter: 
-        drop-shadow(0 0 1px rgba(0, 0, 0, 0.85))
-        drop-shadow(3px 5px 0px #000000)
-        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.35));
-    }
-    .t-piece.tone-royal-blue {
-      filter: 
-        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
-        drop-shadow(3px 5px 0px #062E8A)
-        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.30));
-    }
-    .t-piece.tone-light-grey {
-      filter: 
-        drop-shadow(0 0 1px rgba(0, 0, 0, 0.65))
-        drop-shadow(3px 5px 0px #A09F96)
-        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.25));
-    }
-    .t-piece.tone-purple {
-      filter: 
-        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
-        drop-shadow(3px 5px 0px #381B7B)
-        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.30));
-    }
-    .t-piece.tone-terracotta {
-      filter: 
-        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
-        drop-shadow(3px 5px 0px #9C3205)
-        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.30));
-    }
-    .t-piece.tone-golden-yellow {
-      filter: 
-        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
-        drop-shadow(3px 5px 0px #8C6902)
-        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.28));
-    }
-    .t-piece.tone-forest-green {
-      filter: 
-        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
-        drop-shadow(3px 5px 0px #0D481C)
-        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.30));
-    }
-    .t-piece.tone-lime-green {
-      filter: 
-        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
-        drop-shadow(3px 5px 0px #3E5C12)
-        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.30));
-    }
+    /* Tone-Specific Outer 3D Extrusions + Sharp Outer Boundary Separation (UNIFIED DEPTH & STYLE ACROSS ALL 15 BLOCKS) */
+    .t-piece.tone-obsidian,
+    .t-piece.tone-royal-blue,
+    .t-piece.tone-light-grey,
+    .t-piece.tone-purple,
+    .t-piece.tone-terracotta,
+    .t-piece.tone-golden-yellow,
+    .t-piece.tone-forest-green,
+    .t-piece.tone-lime-green,
     .t-piece.tone-sand-beige {
       filter: 
-        drop-shadow(0 0 1px rgba(0, 0, 0, 0.65))
-        drop-shadow(3px 5px 0px #85724E)
-        drop-shadow(5px 14px 24px rgba(0, 0, 0, 0.25));
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.75))
+        drop-shadow(3px 5px 0px rgba(0, 0, 0, 0.75))
+        drop-shadow(4px 12px 20px rgba(0, 0, 0, 0.25)) !important;
     }
 
     .t-shape-body {
@@ -643,21 +603,20 @@ defined('ABSPATH') || exit;
       }
 
       .c8-hero-top .matrix-floor-wrapper {
-        transform: translateX(-50%) scale(calc(100vw / 952px)) !important;
+        transform: translateX(-50%) scale(calc((100vw - 32px) / 952)) !important;
         transform-origin: bottom center !important;
         bottom: 0 !important;
       }
 
-      .air-wp-purple, .air-nextjs, .air-green-z {
-        display: none !important;
+      .c8-hero-top .airborne-layer {
+        transform: scale(calc((100vw - 32px) / 952)) !important;
+        transform-origin: top center !important;
       }
 
-      .air-amber-l {
-        display: grid !important;
-        left: 50% !important;
-        top: 25px !important;
-        transform: translateX(-50%) scale(0.70) !important;
-      }
+      .air-wp-purple   { display: grid !important; left: 20px !important;  top: 45px !important; }
+      .air-nextjs      { display: grid !important; left: 145px !important; top: 180px !important; }
+      .air-green-z     { display: grid !important; right: 20px !important; top: 45px !important; }
+      .air-amber-l     { display: grid !important; right: 145px !important; top: 180px !important; }
     }
 
     /* ════════════════════════════════════════════════════════════════
@@ -4522,21 +4481,15 @@ defined('ABSPATH') || exit;
 
           // 1. Render Airborne Floating Cards
           const isMobile = window.innerWidth <= 768;
+          const mobileScale = isMobile ? ((window.innerWidth - 32) / 952) : 1.0;
 
           pieces.forEach(item => {
             if (!item.el) return;
             if (activePiece === item.el) return; // Active drag is handled directly in mousemove
 
             const c = liveCalibData[item.key];
-            let baseDX = c.dX * scrollProgress;
-            let baseDY = c.dY * scrollProgress;
-
-            if (isMobile) {
-              if (item.key === 'yellow') {
-                baseDX = 0;
-                baseDY = 240 * scrollProgress;
-              }
-            }
+            const baseDX = c.dX * scrollProgress * mobileScale;
+            const baseDY = c.dY * scrollProgress * mobileScale;
 
             const userX = (item.el.userOffsetX || 0) * (1 - scrollProgress);
             const userY = (item.el.userOffsetY || 0) * (1 - scrollProgress);
@@ -4546,7 +4499,7 @@ defined('ABSPATH') || exit;
             const currentDX = baseDX + userX + magX;
             const currentDY = baseDY + userY + magY;
 
-            const initialRot = isMobile ? 0 : (item.initialRot || 0);
+            const initialRot = item.initialRot || 0;
             const currentRot = initialRot * (1 - scrollProgress);
             const flip = c.flipX || 1;
             item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${flip})`;
