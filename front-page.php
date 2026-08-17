@@ -4502,10 +4502,10 @@ defined('ABSPATH') || exit;
         // portrait mobile and landscape desktop so landing distances differ.
         const isMobile = window.innerWidth <= 768;
         const liveCalibData = isMobile ? {
-          woo:    { dX: 106,   dY: 1312, rot: 0, flipX: 1 },
-          next:   { dX: 335,   dY: 778,  rot: 0, flipX: 1 },
-          yellow: { dX: -1025, dY: 749,  rot: 0, flipX: 1 },
-          green:  { dX: -78,   dY: 1134, rot: 0, flipX: 1 }
+          woo:    { dX: 100,  dY: 560, rot: 0, flipX: 1 },
+          next:   { dX: 280,  dY: 340, rot: 0, flipX: 1 },
+          yellow: { dX: -430, dY: 320, rot: 0, flipX: 1 },
+          green:  { dX: -90,  dY: 500, rot: 0, flipX: 1 }
         } : {
           woo:    { dX: 222,  dY: 482, rot: 0, flipX: 1 },
           next:   { dX: 305,  dY: 308, rot: 0, flipX: 1 },
@@ -4695,26 +4695,31 @@ defined('ABSPATH') || exit;
           const deltaX = e.clientX - dragStartX;
           const deltaY = e.clientY - dragStartY;
 
-          activePiece.userOffsetX = initialUserX + deltaX;
-          activePiece.userOffsetY = initialUserY + deltaY;
+          // Divide by --tetris-scale: drag is measured in screen px but applied in
+          // pre-scale coordinate space. Without this, mobile drag feels sluggish
+          // and all calibration dY values get inflated by 1/scale (~2.4x on phones).
+          const scale = parseFloat(document.documentElement.style.getPropertyValue('--tetris-scale')) || 1;
+          activePiece.userOffsetX = initialUserX + deltaX / scale;
+          activePiece.userOffsetY = initialUserY + deltaY / scale;
 
-          // Directly set the dragged piece's transform every frame.
-          // renderPositions() skips activePiece (see line above that returns early),
-          // so without this the card never moves during drag — only jumps on release.
+          // Directly set transform — renderPositions() skips activePiece so
+          // without this the card never moves during drag, only jumps on release.
           const k = getKey(activePiece);
           if (k) {
             const c = liveCalibData[k];
             const baseDX = c.dX * scrollProgress;
             const baseDY = c.dY * scrollProgress;
-            // Full-weight userOffset during drag so card follows pointer at any scroll level
             const currentDX = baseDX + activePiece.userOffsetX;
             const currentDY = baseDY + activePiece.userOffsetY;
             const initialRotMap = { woo: -5, next: -8, yellow: 10, green: 6 };
             const currentRot = (initialRotMap[k] || 0) * (1 - scrollProgress);
             activePiece.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${c.flipX || 1})`;
+          } else {
+            // Floor grid card — no base animation delta, pure user offset
+            activePiece.style.transform = `translate3d(${activePiece.userOffsetX}px, ${activePiece.userOffsetY}px, 0)`;
           }
 
-          renderPositions(); // update all OTHER pieces (mag effects etc.)
+          renderPositions(); // update all OTHER pieces
         });
 
         window.addEventListener('pointerup', function() {
