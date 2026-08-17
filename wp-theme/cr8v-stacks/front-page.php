@@ -585,18 +585,17 @@ defined('ABSPATH') || exit;
     .air-amber-l     { position: absolute; right: 145px; top: 255px; transform: rotate(10deg); }
 
     /* ════════════════════════════════════════════════════════════════
-       STICKY HERO TRACK & PINNED VIEWPORT ASSEMBLY SYSTEM
+       HERO TRACK & PINNED VIEWPORT ASSEMBLY SYSTEM (ZERO WHITE GAP)
        ════════════════════════════════════════════════════════════════ */
     .c8-hero-sticky-track {
-      height: 180vh;
+      height: 100vh;
       position: relative;
       background: #FFFFFF;
     }
 
     .c8-hero-top.c8-hero-b-standalone,
     .c8-hero-b-standalone {
-      position: sticky !important;
-      top: 0 !important;
+      position: relative !important;
       overflow: hidden !important;
       min-height: 100vh !important;
       height: 100vh !important;
@@ -609,6 +608,55 @@ defined('ABSPATH') || exit;
       padding-top: 7rem !important;
       padding-bottom: 0 !important;
       box-sizing: border-box !important;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       RESPONSIVE MOBILE VIEWPORT (WIDTH <= 768px)
+       ════════════════════════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .c8-hero-sticky-track {
+        height: 100vh !important;
+      }
+
+      .c8-hero-top.c8-hero-b-standalone,
+      .c8-hero-b-standalone {
+        padding-top: 4.5rem !important;
+        min-height: 100vh !important;
+        height: 100vh !important;
+      }
+
+      .c8-hero-top .c8-hero-in {
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+      }
+
+      .c8-hero-h1 {
+        font-size: clamp(1.35rem, 5.5vw, 1.75rem) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.85rem !important;
+      }
+
+      .c8-hero-sub {
+        font-size: 0.85rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 1.25rem !important;
+      }
+
+      .c8-hero-top .matrix-floor-wrapper {
+        transform: translateX(-50%) scale(0.42) !important;
+        transform-origin: bottom center !important;
+        bottom: 0 !important;
+      }
+
+      .c8-hero-top .airborne-layer {
+        transform: scale(0.70) !important;
+        transform-origin: top center !important;
+      }
+
+      .air-wp-purple   { left: 10px !important; top: 45px !important; }
+      .air-nextjs      { left: 10px !important; top: 180px !important; }
+      .air-green-z     { right: 10px !important; top: 45px !important; }
+      .air-amber-l     { right: 10px !important; top: 180px !important; }
     }
 
     /* ════════════════════════════════════════════════════════════════
