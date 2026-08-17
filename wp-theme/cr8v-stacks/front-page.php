@@ -643,20 +643,20 @@ defined('ABSPATH') || exit;
       }
 
       .c8-hero-top .matrix-floor-wrapper {
-        transform: translateX(-50%) scale(0.42) !important;
+        transform: translateX(-50%) scale(0.34) !important;
         transform-origin: bottom center !important;
         bottom: 0 !important;
       }
 
       .c8-hero-top .airborne-layer {
-        transform: scale(0.48) !important;
+        transform: scale(0.42) !important;
         transform-origin: top center !important;
       }
 
-      .air-wp-purple   { left: -25px !important; top: 15px !important; opacity: 0.85 !important; }
-      .air-nextjs      { left: -25px !important; top: 220px !important; opacity: 0.85 !important; }
-      .air-green-z     { right: -25px !important; top: 15px !important; opacity: 0.85 !important; }
-      .air-amber-l     { right: -25px !important; top: 220px !important; opacity: 0.85 !important; }
+      .air-wp-purple   { left: -60px !important; top: -15px !important; opacity: 0.9 !important; }
+      .air-nextjs      { left: -60px !important; top: 190px !important; opacity: 0.9 !important; }
+      .air-green-z     { right: -60px !important; top: -15px !important; opacity: 0.9 !important; }
+      .air-amber-l     { right: -60px !important; top: 190px !important; opacity: 0.9 !important; }
     }
 
     /* ════════════════════════════════════════════════════════════════
@@ -1102,7 +1102,7 @@ defined('ABSPATH') || exit;
           <div class="t-cell" style="grid-column: 2; grid-row: 3;"><div class="t-shape-body tone-lime-green"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
-          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; display:flex; flex-direction: column; justify-content: center; align-items: center; gap: 2px; color: #FFFFFF; font-size: 0.60rem; font-weight: 700; font-family: 'Space Mono', monospace; text-transform: uppercase;">
+          <div class="t-label" style="left: var(--u); right: 0; top: 0; bottom: var(--u); display:flex; flex-direction: column; justify-content: center; align-items: center; gap: 1px; color: #FFFFFF !important; font-size: 0.52rem; font-weight: 700; font-family: 'Michroma', sans-serif; text-transform: uppercase; text-shadow: 0 1px 3px rgba(0,0,0,0.7); pointer-events: none;">
             <span>HEADLESS</span><span>CMS</span>
           </div>
         </div>
@@ -1116,7 +1116,7 @@ defined('ABSPATH') || exit;
           <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
-          <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; display:flex; flex-direction: column; justify-content: center; align-items: center; gap: 2px; color: #FFFFFF; font-size: 0.70rem; font-weight: 700; font-family: 'Space Mono', monospace; text-transform: uppercase;">
+          <div class="t-label" style="left: 0; right: 0; top: 0; height: var(--u); display:flex; justify-content: center; align-items: center; color: #080808 !important; font-size: 0.65rem; font-weight: 700; font-family: 'Michroma', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; pointer-events: none;">
             <span>SEO</span>
           </div>
         </div>
