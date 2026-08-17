@@ -602,21 +602,20 @@ defined('ABSPATH') || exit;
         margin-bottom: 1.25rem !important;
       }
 
-      .c8-hero-top .matrix-floor-wrapper {
-        transform: translateX(-50%) scale(calc((100vw - 32px) / 952)) !important;
-        transform-origin: bottom center !important;
-        bottom: 0 !important;
-      }
-
+      .c8-hero-top .matrix-floor-wrapper,
       .c8-hero-top .airborne-layer {
-        transform: scale(calc((100vw - 32px) / 952)) !important;
-        transform-origin: top center !important;
+        position: absolute !important;
+        left: 50% !important;
+        bottom: 0 !important;
+        width: 952px !important;
+        transform: translateX(-50%) scale(calc(100vw / 952)) !important;
+        transform-origin: bottom center !important;
       }
 
-      .air-wp-purple   { display: grid !important; left: 20px !important;  top: 45px !important; }
-      .air-nextjs      { display: grid !important; left: 145px !important; top: 180px !important; }
-      .air-green-z     { display: grid !important; right: 20px !important; top: 45px !important; }
-      .air-amber-l     { display: grid !important; right: 145px !important; top: 180px !important; }
+      .air-wp-purple   { position: absolute !important; left: 60px !important;   top: 75px !important; }
+      .air-nextjs      { position: absolute !important; left: 145px !important;  top: 255px !important; }
+      .air-green-z     { position: absolute !important; right: 60px !important;  top: 75px !important; }
+      .air-amber-l     { position: absolute !important; right: 145px !important; top: 255px !important; }
     }
 
     /* ════════════════════════════════════════════════════════════════
@@ -4480,16 +4479,13 @@ defined('ABSPATH') || exit;
           ];
 
           // 1. Render Airborne Floating Cards
-          const isMobile = window.innerWidth <= 768;
-          const mobileScale = isMobile ? ((window.innerWidth - 32) / 952) : 1.0;
-
           pieces.forEach(item => {
             if (!item.el) return;
             if (activePiece === item.el) return; // Active drag is handled directly in mousemove
 
             const c = liveCalibData[item.key];
-            const baseDX = c.dX * scrollProgress * mobileScale;
-            const baseDY = c.dY * scrollProgress * mobileScale;
+            const baseDX = c.dX * scrollProgress;
+            const baseDY = c.dY * scrollProgress;
 
             const userX = (item.el.userOffsetX || 0) * (1 - scrollProgress);
             const userY = (item.el.userOffsetY || 0) * (1 - scrollProgress);
