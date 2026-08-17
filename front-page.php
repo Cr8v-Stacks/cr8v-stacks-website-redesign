@@ -4510,15 +4510,26 @@ defined('ABSPATH') || exit;
 
 
         function updateHUDDisplay() {
-          const hudWoo = document.getElementById('hudWooVal');
-          const hudNext = document.getElementById('hudNextVal');
+          const hudWoo    = document.getElementById('hudWooVal');
+          const hudNext   = document.getElementById('hudNextVal');
           const hudYellow = document.getElementById('hudYellowVal');
-          const hudGreen = document.getElementById('hudGreenVal');
+          const hudGreen  = document.getElementById('hudGreenVal');
 
-          if (hudWoo) hudWoo.textContent = `Woo: dX: ${Math.round(liveCalibData.woo.dX)}px | dY: ${Math.round(liveCalibData.woo.dY)}px | Rot: ${liveCalibData.woo.rot}°`;
-          if (hudNext) hudNext.textContent = `Next: dX: ${Math.round(liveCalibData.next.dX)}px | dY: ${Math.round(liveCalibData.next.dY)}px | Rot: ${liveCalibData.next.rot}°`;
-          if (hudYellow) hudYellow.textContent = `Yellow: dX: ${Math.round(liveCalibData.yellow.dX)}px | dY: ${Math.round(liveCalibData.yellow.dY)}px | Rot: ${liveCalibData.yellow.rot}° | Flip: ${liveCalibData.yellow.flipX}`;
-          if (hudGreen) hudGreen.textContent = `Green: dX: ${Math.round(liveCalibData.green.dX)}px | dY: ${Math.round(liveCalibData.green.dY)}px | Rot: ${liveCalibData.green.rot}°`;
+          // Show effective delta = calibration base + current user drag offset
+          // This is the value that should be pasted into liveCalibData in code
+          const wX  = Math.round(liveCalibData.woo.dX    + (airWoo    ? (airWoo.userOffsetX    || 0) : 0));
+          const wY  = Math.round(liveCalibData.woo.dY    + (airWoo    ? (airWoo.userOffsetY    || 0) : 0));
+          const nX  = Math.round(liveCalibData.next.dX   + (airNext   ? (airNext.userOffsetX   || 0) : 0));
+          const nY  = Math.round(liveCalibData.next.dY   + (airNext   ? (airNext.userOffsetY   || 0) : 0));
+          const yX  = Math.round(liveCalibData.yellow.dX + (airYellow ? (airYellow.userOffsetX || 0) : 0));
+          const yY  = Math.round(liveCalibData.yellow.dY + (airYellow ? (airYellow.userOffsetY || 0) : 0));
+          const gX  = Math.round(liveCalibData.green.dX  + (airGreen  ? (airGreen.userOffsetX  || 0) : 0));
+          const gY  = Math.round(liveCalibData.green.dY  + (airGreen  ? (airGreen.userOffsetY  || 0) : 0));
+
+          if (hudWoo)    hudWoo.textContent    = `Woo: dX: ${wX}px | dY: ${wY}px | Rot: ${liveCalibData.woo.rot}°`;
+          if (hudNext)   hudNext.textContent   = `Next: dX: ${nX}px | dY: ${nY}px | Rot: ${liveCalibData.next.rot}°`;
+          if (hudYellow) hudYellow.textContent = `Yellow: dX: ${yX}px | dY: ${yY}px | Rot: ${liveCalibData.yellow.rot}° | Flip: ${liveCalibData.yellow.flipX}`;
+          if (hudGreen)  hudGreen.textContent  = `Green: dX: ${gX}px | dY: ${gY}px | Rot: ${liveCalibData.green.rot}°`;
         }
 
         // Unified Rendering Pipeline for ALL 15 Blocks
@@ -4539,8 +4550,12 @@ defined('ABSPATH') || exit;
             const baseDX = c.dX * scrollProgress;
             const baseDY = c.dY * scrollProgress;
 
-            const userX = (item.el.userOffsetX || 0) * (1 - scrollProgress);
-            const userY = (item.el.userOffsetY || 0) * (1 - scrollProgress);
+            // In calibration mode (HUD open), user drag applies at full weight
+            // so you can drag cards to their correct position at ANY scroll level
+            const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
+            const dragWeight = calibMode ? 1 : (1 - scrollProgress);
+            const userX = (item.el.userOffsetX || 0) * dragWeight;
+            const userY = (item.el.userOffsetY || 0) * dragWeight;
             const magX = item.el.magX || 0;
             const magY = item.el.magY || 0;
 
@@ -4630,7 +4645,8 @@ defined('ABSPATH') || exit;
           piece.userOffsetX = 0;
           piece.userOffsetY = 0;
 
-          piece.addEventListener('mousedown', function(e) {
+          piece.addEventListener('pointerdown', function(e) {
+            if (e.target.closest('.t-handle')) return;
             activePiece = piece;
             piece.classList.add('is-dragging');
             dragStartX = e.clientX;
@@ -4664,7 +4680,7 @@ defined('ABSPATH') || exit;
           });
         });
 
-        window.addEventListener('mousemove', function(e) {
+        window.addEventListener('pointermove', function(e) {
           if (!activePiece) return;
           const deltaX = e.clientX - dragStartX;
           const deltaY = e.clientY - dragStartY;
@@ -4675,7 +4691,7 @@ defined('ABSPATH') || exit;
           renderPositions();
         });
 
-        window.addEventListener('mouseup', function() {
+        window.addEventListener('pointerup', function() {
           if (activePiece) {
             const releasedPiece = activePiece;
             releasedPiece.classList.remove('is-dragging');
@@ -4701,11 +4717,24 @@ defined('ABSPATH') || exit;
         });
 
         window.copyCalibratedCoordinates = function() {
-          const text = JSON.stringify(liveCalibData, null, 2);
+          // Output EFFECTIVE delta = calibration base + current user drag offset
+          // These are the values to paste directly into liveCalibData in the code
+          const elMap = { woo: airWoo, next: airNext, yellow: airYellow, green: airGreen };
+          const out = {};
+          for (const k in liveCalibData) {
+            const el = elMap[k];
+            out[k] = {
+              dX:    Math.round(liveCalibData[k].dX + (el ? (el.userOffsetX || 0) : 0)),
+              dY:    Math.round(liveCalibData[k].dY + (el ? (el.userOffsetY || 0) : 0)),
+              rot:   liveCalibData[k].rot,
+              flipX: liveCalibData[k].flipX
+            };
+          }
+          const text = JSON.stringify(out, null, 2);
           navigator.clipboard.writeText(text).then(function() {
-            alert('Live calibrated coordinates copied to clipboard!\n\n' + text);
+            alert('Coordinates copied!\n\n' + text);
           }).catch(function() {
-            alert('Live calibrated coordinates:\n\n' + text);
+            alert('Coordinates:\n\n' + text);
           });
         };
 
@@ -4727,7 +4756,7 @@ defined('ABSPATH') || exit;
           let hudStartX = 0, hudStartY = 0;
           let hudInitialLeft = 0, hudInitialTop = 0;
 
-          hudHandle.addEventListener('mousedown', function(e) {
+          hudHandle.addEventListener('pointerdown', function(e) {
             if (e.target.tagName === 'BUTTON') return;
             isHudDragging = true;
             hudStartX = e.clientX;
@@ -4743,7 +4772,7 @@ defined('ABSPATH') || exit;
             e.preventDefault();
           });
 
-          window.addEventListener('mousemove', function(e) {
+          window.addEventListener('pointermove', function(e) {
             if (!isHudDragging) return;
             const dx = e.clientX - hudStartX;
             const dy = e.clientY - hudStartY;
