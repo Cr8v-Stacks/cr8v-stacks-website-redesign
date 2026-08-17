@@ -781,8 +781,8 @@ defined('ABSPATH') || exit;
 
     <!-- Live Floating Viewport Path Calibrator HUD -->
     <div id="floatingCalibHUD" style="position: fixed; top: 90px; right: 20px; z-index: 999999; background: #141414; color: #FFFFFF; padding: 14px 18px; border-radius: 8px; font-family: monospace; font-size: 0.75rem; box-shadow: 0 8px 30px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15);">
-      <div style="font-weight: 700; color: #3D6BFF; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-        <span>LIVE HOMEPAGE PATH CALIBRATOR</span>
+      <div id="hudHeaderHandle" style="font-weight: 700; color: #3D6BFF; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: move; user-select: none;">
+        <span>❖ LIVE HOMEPAGE PATH CALIBRATOR (DRAG ME)</span>
         <button onclick="document.getElementById('floatingCalibHUD').style.display='none'" style="background:none; border:none; color:#AAA; cursor:pointer; font-size:0.9rem;">✕</button>
       </div>
       <div id="hudWooVal" style="margin-bottom: 4px; color: #E0E0E0;">Woo: dX: 148px | dY: 469px</div>
@@ -4478,6 +4478,45 @@ defined('ABSPATH') || exit;
             alert('Live calibrated coordinates:\n\n' + text);
           });
         };
+
+        // ════════════════════════════════════════════════════════════════
+        // MAKE CALIBRATOR HUD ITSELF DRAGGABLE ANYWHERE ON SCREEN
+        // ════════════════════════════════════════════════════════════════
+        const hudContainer = document.getElementById('floatingCalibHUD');
+        const hudHandle = document.getElementById('hudHeaderHandle');
+        if (hudContainer && hudHandle) {
+          let isHudDragging = false;
+          let hudStartX = 0, hudStartY = 0;
+          let hudInitialLeft = 0, hudInitialTop = 0;
+
+          hudHandle.addEventListener('mousedown', function(e) {
+            if (e.target.tagName === 'BUTTON') return;
+            isHudDragging = true;
+            hudStartX = e.clientX;
+            hudStartY = e.clientY;
+            const rect = hudContainer.getBoundingClientRect();
+            hudInitialLeft = rect.left;
+            hudInitialTop = rect.top;
+
+            hudContainer.style.right = 'auto';
+            hudContainer.style.bottom = 'auto';
+            hudContainer.style.left = hudInitialLeft + 'px';
+            hudContainer.style.top = hudInitialTop + 'px';
+            e.preventDefault();
+          });
+
+          window.addEventListener('mousemove', function(e) {
+            if (!isHudDragging) return;
+            const dx = e.clientX - hudStartX;
+            const dy = e.clientY - hudStartY;
+            hudContainer.style.left = (hudInitialLeft + dx) + 'px';
+            hudContainer.style.top = (hudInitialTop + dy) + 'px';
+          });
+
+          window.addEventListener('mouseup', function() {
+            isHudDragging = false;
+          });
+        }
 
         renderPositions(); // Initial render
       });
