@@ -734,7 +734,7 @@ defined('ABSPATH') || exit;
         pointer-events: none !important;
         z-index: 500 !important;
         transform: translateX(-50%) scale(var(--tetris-scale, 1)) !important;
-        transform-origin: bottom center !important;
+        transform-origin: top center !important; /* Cards float at top of hero, animate DOWN toward floor */
       }
       .c8-hero-top .airborne-layer .t-piece {
         pointer-events: auto !important;
@@ -4498,15 +4498,34 @@ defined('ABSPATH') || exit;
 
         if (!airWoo || !airNext || !airGreen || !airYellow) return;
 
-        // Both airborne-layer and matrix-floor-wrapper use transform-origin: bottom center
-        // at the same scale, so they share one coordinate system.
-        // Desktop and mobile use the SAME dX/dY values.
-        const liveCalibData = {
-          woo:    { dX: 222,  dY: 482, rot: 0, flipX: 1 },
-          next:   { dX: 305,  dY: 308, rot: 0, flipX: 1 },
-          yellow: { dX: -531, dY: 303, rot: 0, flipX: 1 },
-          green:  { dX: -222, dY: 429, rot: 0, flipX: 1 }
-        };
+        // airborne-layer: transform-origin: TOP CENTER — cards float at top of hero
+        // matrix-floor-wrapper: transform-origin: BOTTOM CENTER — floor pinned to hero bottom
+        // These DIFFERENT origins make dY scale-dependent for mobile.
+        //
+        // Formula: dY_mobile = heroH/scale - cardTop - (392 - sockOffset)
+        // sockOffset (distance from floor top to landing socket, in pre-scale px):
+        //   woo:49  next:55  yellow:50  green:-4  (back-computed from desktop: dY = heroH - cardTop - 392 + sock)
+        // dX is scale-independent (horizontal centering cancels), same on both.
+        const isMobile = window.innerWidth <= 768;
+        let liveCalibData;
+        if (isMobile) {
+          const mScale = (window.innerWidth / 952) * 1.15;
+          const heroH  = document.querySelector('.c8-hero-b-standalone')?.offsetHeight || window.innerHeight;
+          const inv    = heroH / mScale; // heroH in pre-scale top-center units
+          liveCalibData = {
+            woo:    { dX: 222,  dY: Math.round(inv - 75  - 343), rot: 0, flipX: 1 }, // 392-49=343
+            next:   { dX: 305,  dY: Math.round(inv - 255 - 337), rot: 0, flipX: 1 }, // 392-55=337
+            yellow: { dX: -531, dY: Math.round(inv - 255 - 342), rot: 0, flipX: 1 }, // 392-50=342
+            green:  { dX: -222, dY: Math.round(inv - 75  - 396), rot: 0, flipX: 1 }  // 392-(-4)=396
+          };
+        } else {
+          liveCalibData = {
+            woo:    { dX: 222,  dY: 482, rot: 0, flipX: 1 },
+            next:   { dX: 305,  dY: 308, rot: 0, flipX: 1 },
+            yellow: { dX: -531, dY: 303, rot: 0, flipX: 1 },
+            green:  { dX: -222, dY: 429, rot: 0, flipX: 1 }
+          };
+        }
 
         let scrollProgress = 0; // 0.0 at top of page, 1.0 when fully assembled into floor
 
