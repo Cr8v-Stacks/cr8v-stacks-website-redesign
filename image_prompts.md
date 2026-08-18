@@ -56,8 +56,8 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 * **Subsystem 3D [Candid Studio Interaction]**: Active collaborative moments around a studio table.
 
 ### 🟢 System 4: [ORIGINAL] Workspace & Abstract Chiaroscuro Fusion
-* **Concept**: Merges a dark drafting studio space or tool concept with an abstract minimalist architectural environment where dramatic light beams cut through darkness and cast long sharp shadows.
-* **Palette**: Deep obsidian (`#080808`), Royal Blue (`#0047E1`), dark charcoal shadow gradient.
+* **Concept**: Merges a dark drafting studio space or tool concept with an abstract minimalist architectural environment where dramatic light beams cut through darkness and cast long sharp shadows across a deep obsidian floor (`#080808`).
+* **Palette**: Deep obsidian (`#080808`), Royal Blue (`#0047E1`), directional light beam highlights.
 
 ### 🟢 System 5: [ORIGINAL] Contemporary African Layered Color Patches (Rust, Amber & Deep Red)
 * **Concept**: Restrained painterly blocks and layered brush-like patches of muted brown, warm rust, burnt orange, and deep muted red integrated into selected dark architectural/silhouette areas.
@@ -74,7 +74,7 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 * **Best Aspect Ratio**: `16:9 Landscape` (widescreen banners, hero headers).
 * **Composition Rule**: Subject anchored strictly on the outer 35% flank, leaving 65% clean, open canvas across the opposite side.
 * **Full Copy-Paste Master Prompt**:
-  > *Atmospheric digital editorial illustration, 16:9 landscape aspect ratio. A 32-year-old Black African male web developer with dark skin tone, short neat black hair (no grey hair), and glasses, resting his chin thoughtfully on his hand while working at a sleek dark desk anchored strictly on the far right third of the frame. Soft royal blue (#0047E1) monitor glow and warm amber desk lamp light gently illuminate his face and sweater. The entire left 65% of the canvas is a completely clean, vast, uncluttered expanse of deep obsidian black (#080808) negative space with subtle atmospheric rim gradients for copy overlay. Natural planar depth, relaxed candid posture, moody creative agency aesthetic, no photorealism, no 3D CGI gloss, no text.*
+  > *Atmospheric digital editorial illustration, 16:9 landscape aspect ratio. A 32-year-old Black African male web developer with dark skin tone, short neat black hair (no grey hair), and glasses, resting his chin thoughtfully on his hand while working at a sleek dark desk anchored strictly on the far right third of the frame. Soft royal blue (#0047E1) monitor glow and warm amber desk lamp light gently illuminate his face and sweater. The camera overlooks a vast, clean, open studio space to his left, leaving the entire left 65% of the canvas as an uncluttered deep obsidian (#080808) surface for headline copy overlay. Natural planar depth, relaxed candid posture, moody creative agency aesthetic, no photorealism, no 3D CGI gloss, no text.*
 
 #### 🔹 Subsystem 7B: Low-Angle Floor Canvas (Subject at Top / Massive Ground Below)
 * **Best Aspect Ratio**: `3:4` or `9:16 Portrait` (vertical mobile, editorial posters).
@@ -111,6 +111,12 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 * **Composition Rule**: Subject centered vertically, with a calm wall above their head for a headline hook and a clean desk surface below their arms for subtext.
 * **Full Copy-Paste Master Prompt**:
   > *A minimalist graphic novel illustration, 3:4 vertical aspect ratio. A tight, centered medium shot of a 32-year-old Black African male creative strategist with dark skin tone, glasses, and neat black hair, leaning his chin thoughtfully on his hand in the center of the frame. Above his head, the upper 25% of the canvas is a calm, uncluttered soft slate-blue studio wall for a headline hook. Below his arms, the lower 25% of the frame is a smooth, clean dark desk surface for subtext. Lineless art style with zero black outlines, dry matte digital gouache texture, soft milky monitor highlights, natural planar depth, no photorealism, no 3D CGI gloss, no text.*
+
+#### 🔹 Subsystem 7H: The Couch Cushion & Backrest Surface Canvas (Seated In-Scene)
+* **Best Aspect Ratio**: `3:4 Portrait` (lifestyle editorial, social carousel slide).
+* **Composition Rule**: Subject seated on one side of a minimalist couch, using the wide matte fabric of the backrest or adjacent cushion as the natural text canvas.
+* **Full Copy-Paste Master Prompt**:
+  > *A minimalist graphic novel editorial illustration, 3:4 vertical aspect ratio. Mid-range perspective of a 32-year-old Black African female UI/UX designer with dark skin tone and natural textured hair, curled comfortably on the left side of a deep charcoal minimalist studio couch with her legs tucked underneath her, working on a glowing laptop on her lap. The wide, clean, smooth matte fabric of the empty couch backrest and adjacent seat cushion on the right half of the frame serve as an expansive, natural, uncluttered canvas for headline copy overlay. Soft ambient daylight streaming from a side window, lineless art style with zero black outlines, dry matte digital gouache texture, relaxed slice-of-life creative focus, no photorealism, no 3D CGI gloss, no text.*
 
 ### 🟢 System 8: Entergalactic Cinematic / Textured Brushstroke Art Style
 * **Concept**: 3D-stylized painted animation style with visible, expressive textured brushstrokes sculpting the contours of faces, clothing, and environment. No harsh outlines. Dominated by deep magenta (`#8B008B`), rich indigo (`#4B0082`), and glowing warm amber hues, with a gentle horizontal anamorphic lens flare giving a cosmic, romantic, cinematic glow. Works for any scene or direction.
