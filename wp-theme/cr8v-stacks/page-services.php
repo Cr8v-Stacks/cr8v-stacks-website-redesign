@@ -1369,7 +1369,7 @@ body {
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="<?php echo esc_url(cr8v_mod('srv_deck1_img', 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop')); ?>" alt="Strategy Deliverables" data-customizer="srv_deck1_img">
+              <img src="<?php echo esc_url(cr8v_mod('srv_deck1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_srv_deck_strategy.jpg')); ?>" alt="Strategy Deliverables" data-customizer="srv_deck1_img">
             </div>
           </div>
         </div>
@@ -1384,7 +1384,7 @@ body {
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="<?php echo esc_url(cr8v_mod('srv_deck2_img', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop')); ?>" alt="Code Deliverables" data-customizer="srv_deck2_img">
+              <img src="<?php echo esc_url(cr8v_mod('srv_deck2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_srv_deck_codebase.jpg')); ?>" alt="Code Deliverables" data-customizer="srv_deck2_img">
             </div>
           </div>
         </div>
@@ -1399,7 +1399,7 @@ body {
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="<?php echo esc_url(cr8v_mod('srv_deck3_img', 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=800&auto=format&fit=crop')); ?>" alt="Plugin Deliverables" data-customizer="srv_deck3_img">
+              <img src="<?php echo esc_url(cr8v_mod('srv_deck3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_srv_deck_plugins.jpg')); ?>" alt="Plugin Deliverables" data-customizer="srv_deck3_img">
             </div>
           </div>
         </div>
@@ -1414,7 +1414,7 @@ body {
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="<?php echo esc_url(cr8v_mod('srv_deck4_img', 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800&auto=format&fit=crop')); ?>" alt="SEO Infrastructure" data-customizer="srv_deck4_img">
+              <img src="<?php echo esc_url(cr8v_mod('srv_deck4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_srv_deck_seo.jpg')); ?>" alt="SEO Infrastructure" data-customizer="srv_deck4_img">
             </div>
           </div>
         </div>
@@ -1429,7 +1429,7 @@ body {
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="<?php echo esc_url(cr8v_mod('srv_deck5_img', 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop')); ?>" alt="Retainer Deliverables" data-customizer="srv_deck5_img">
+              <img src="<?php echo esc_url(cr8v_mod('srv_deck5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_srv_deck_retainer.jpg')); ?>" alt="Retainer Deliverables" data-customizer="srv_deck5_img">
             </div>
           </div>
         </div>
