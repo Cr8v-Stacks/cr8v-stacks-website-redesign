@@ -230,3 +230,57 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 * **File Target**: `assets/img/abstract/cr8v_about_negative_space.jpg`
 * **Written Prompt**:
   > An adult animated cinematic scene in a 3D-stylized painted art style, reminiscent of Entergalactic, 16:9 landscape aspect ratio. Framed strictly from behind (over-the-shoulder), we see the back and broad shoulders of a 32-year-old Black African agency founder in a cozy dark textured jacket with short neat black hair, with his face completely turned away and hidden from the camera. He sits at a wide, sleek dark agency desk looking forward at an illuminated curved ultra-wide monitor showing clean web design layout architecture. Outside the massive studio glass window is a sprawling, peaceful evening city skyline glowing with soft magenta (#8B008B) and rich indigo (#4B0082) lights. The lighting is dominated by deep magenta, indigo, and soft amber screen reflections, with visible, textured painterly brushstrokes mapping the contours of his jacket, hands, and desk. Gentle horizontal anamorphic lens flare across the full-bleed frame, romantic cosmic glow, rich atmospheric studio warmth, zero recognizable faces, no flat vector clipart, no text.
+
+---
+
+# 📄 PAGE: MAIN SERVICES HUB (`page-services.php`)
+
+### Overview & Visual Strategy
+* **Primary Visual Component**: **Section 4: What You Get (Interactive Folder Deck `#c8srv-services-folder-deck`)**
+* **Container Format**: 5 Stacked Tabbed Folder Cards with right-side image showcase containers (`.c8srv-folder-card-img`).
+* **Visual System**: **SaaS Product UI Micro-Illustrations (Approach B / Full-Bleed Card Architecture)** without negative space voids.
+* **Aesthetic**: Ultra-clean Framer/Dribbble UI component diagrams on clean white/off-white card containers with subtle dot-matrix patterns, delicate 1px hairline connectors, soft diffused drop shadows, and Agency Royal Blue (`#0047E1`) accents.
+
+---
+
+### Folder Deck Showcase Deliverables (01 through 05)
+
+#### 01 // Strategy — Full-Funnel Strategic Positioning & Architecture
+* **Deliverable Context**: Competitor matrix mapping, pricing scoping, customer persona profiling, and messaging frameworks.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_srv_deck_strategy.jpg`
+* **Written Prompt**:
+  > *Clean minimalist Dribbble SaaS UI product mockup, 4:3 landscape aspect ratio. An ultra-clean competitive positioning matrix diagram on a pure white card background with a subtle light grey dot-grid pattern. A 2x2 quadrant coordinate grid with delicate thin hairline axes. In the quadrants, clean floating white pill badges represent market segments, with a prominent elevated top-right Royal Blue (#0047E1) target card featuring a glowing active status badge "[Target Positioning: Blue Ocean]". Ultra-clean Figma product UI aesthetic, soft subtle drop shadows, pure white, royal blue, and slate grey palette, full-bleed card composition, zero chaotic clutter, no photorealism, no 3D CGI gloss, no mechanical machinery.*
+
+#### 02 // Engineering — High-Converting Liquid & PHP Codebase
+* **Deliverable Context**: Lightweight starter base themes, custom Gutenberg block suites, bespoke Liquid sections, and sub-1.2s performance architecture.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_srv_deck_codebase.jpg`
+* **Written Prompt**:
+  > *Clean minimalist modern developer IDE interface mockup, 4:3 landscape aspect ratio. An ultra-sleek code editor window on a clean card container with a subtle pale grey dot grid. Displaying structured, syntax-highlighted Liquid template and PHP component blocks with clean line numbers, modular file tabs "[header.liquid]" and "[section-hero.php]", and a prominent floating Royal Blue (#0047E1) performance badge reading "[Lighthouse: 100/100 | Load: 0.8s]". Ultra-clean Figma/Framer component aesthetic, soft diffused drop shadows, crisp typography syntax, full-bleed composition, zero chaotic clutter, no photorealism, no 3D CGI gloss.*
+
+#### 03 // Plugins — Proprietary Agency Plugins & API Wiring
+* **Deliverable Context**: In-house custom plugins, payment gateway wiring (Stripe, Paystack), and vector AI pipeline integrations.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_srv_deck_plugins.jpg`
+* **Written Prompt**:
+  > *Clean minimalist SaaS API integration diagram mockup, 4:3 landscape aspect ratio. An ultra-clean product wiring flowchart on a white card surface with a delicate dot-grid matrix. Multiple floating white modular plugin cards with input/output socket ports connected by thin vector hairline lines to custom payment gateway badges (Stripe, Paystack) and an AI model connector, anchored by an elevated Royal Blue (#0047E1) verified connection status pill "[Webhook 200 OK — Synced]". Modern Figma/Dribbble UI component aesthetic, soft neumorphic elevation, gentle drop shadows, full-bleed composition, no 3D CGI gloss, no photorealism.*
+
+#### 04 // Organic — Technical Schema & Semantic Keyword Infrastructure
+* **Deliverable Context**: Screaming Frog crawl auditing, entity SEO optimization, automated XML sitemaps, and canonical redirect mapping.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_srv_deck_seo.jpg`
+* **Written Prompt**:
+  > *Clean minimalist SaaS entity SEO knowledge graph mockup, 4:3 landscape aspect ratio. An ultra-clean structured data flowchart on a pure white card background with a faint light grey dot-grid pattern. Interconnected semantic keyword topic nodes branching from a primary brand core, accompanied by structured JSON-LD schema badges and an elevated Royal Blue (#0047E1) crawl health tag reading "[Schema Validated: 100% Crawl Health]". Ultra-clean Dribbble/Framer product diagram, soft diffused shadows, crisp hairline connectors, full-bleed composition, zero chaotic clutter, no photorealism, no 3D CGI gloss.*
+
+#### 05 // Retainer — Post-Launch Warranty & Active Growth Retainer
+* **Deliverable Context**: 30-day code warranty, dedicated monthly developer support hours, continuous speed auditing, and active ad campaign optimization.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_srv_deck_retainer.jpg`
+* **Written Prompt**:
+  > *Clean minimalist agency agile sprint retainer dashboard card, 4:3 landscape aspect ratio. An ultra-clean UI component on a pure white background with a subtle dot-grid texture. Featuring a clean monthly developer support progress bar, an active uptime monitoring shield badge, a 14-day sprint velocity bar chart, and an ascending conversion metric curve with a crisp Royal Blue (#0047E1) active retainer status pill "[Sprint Status: Week 2 Active]". High-craft Figma/Rive product UI aesthetic, soft subtle drop shadows, royal blue and emerald green accents, full-bleed composition, zero chaotic clutter, no photorealism, no 3D CGI gloss.*

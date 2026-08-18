@@ -297,6 +297,13 @@ defined('ABSPATH') || exit;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      transition: transform 0.12s ease-out;
+      will-change: transform;
+    }
+
+    .t-label {
+      transition: transform 0.12s ease-out;
+      will-change: transform;
     }
 
     /* High-Performance Hardware-Accelerated Tactile Noise Overlay */
@@ -327,12 +334,13 @@ defined('ABSPATH') || exit;
       display: none !important;
     }
 
-    /* Text & Logo Label Overlay */
+    /* ── Block Label System ───────────────────────────────────────────────────────────── */
     .t-label {
       position: absolute;
       z-index: 5;
-      font-family: var(--font-body);
-      font-size: 0.82rem;
+      left: 0; right: 0; top: 0; bottom: 0;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       white-space: nowrap;
@@ -343,6 +351,54 @@ defined('ABSPATH') || exit;
       align-items: center;
       justify-content: center;
       gap: 4px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Tone-based text colours — dark blocks → white, light blocks → dark */
+    .tone-obsidian .t-label,
+    .tone-royal-blue .t-label,
+    .tone-terracotta .t-label,
+    .tone-purple .t-label,
+    .tone-lime-green .t-label,
+    .tone-forest-green .t-label { color: #FFFFFF; }
+    .tone-light-grey .t-label,
+    .tone-sand-beige .t-label  { color: #111111; }
+    .tone-golden-yellow .t-label { color: #080808; }
+
+    /* Layout modifiers */
+    .t-label.is-row   { flex-direction: row; gap: 8px; }
+    .t-label.has-logo { gap: 6px; }
+
+    /* Airborne-piece specific label positions (shape-constrained, cannot be tone-generic) */
+    .t-label.air-woo-text {
+      right: auto;
+      width: var(--u);
+      font-size: 0.65rem;
+    }
+    .t-label.air-headless-text {
+      left: var(--u);
+      right: auto;
+      width: var(--u);
+      bottom: auto;
+      height: calc(var(--u) * 3);
+      font-size: 0.58rem;
+      gap: 2px;
+    }
+    .t-label.air-cms-text {
+      right: auto;
+      width: var(--u);
+      top: calc(var(--u) * 2);
+      bottom: auto;
+      height: var(--u);
+      flex-direction: row;
+    }
+    .t-label.air-seo-text {
+      right: auto;
+      width: calc(var(--u) * 2);
+      bottom: auto;
+      height: var(--u);
+      flex-direction: row;
+      letter-spacing: 0.08em;
     }
 
     .t-cdn-logo {
@@ -497,6 +553,32 @@ defined('ABSPATH') || exit;
       transform: translateY(-2px);
     }
 
+    /* Explore Philosophy CTA — ghost button with real depth */
+    .btn-secondary {
+      background: #FFFFFF;
+      color: var(--c8-ink, #080808);
+      border: 1.5px solid rgba(8, 8, 8, 0.22);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      letter-spacing: 0.01em;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--c8-blue, #0047E1);
+      color: var(--c8-blue, #0047E1);
+      box-shadow: 0 4px 16px rgba(0,71,225,0.14);
+      transform: translateY(-2px);
+    }
+
     /* 2D Matrix Floor Arena (17 cols x 7 rows - Exact Screenshot Matrix) */
     .matrix-floor-wrapper {
       width: 100%;
@@ -529,12 +611,21 @@ defined('ABSPATH') || exit;
     }
 
     .t-piece {
-      transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), filter 0.25s ease !important;
+      transition: filter 0.2s ease !important;
+      touch-action: none !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      -webkit-user-drag: none !important;
+    }
+
+    .t-piece:hover:not(.is-dragging) {
+      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.16)) drop-shadow(0 3px 8px rgba(0, 0, 0, 0.10)) !important;
     }
 
     .t-piece.is-dragging {
       transition: none !important;
       cursor: grabbing !important;
+      filter: drop-shadow(0 20px 36px rgba(0, 0, 0, 0.22)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.14)) !important;
       z-index: 9999 !important;
     }
 
@@ -543,6 +634,39 @@ defined('ABSPATH') || exit;
     .air-nextjs      { position: absolute; left: 145px;  top: 255px; transform: rotate(-8deg); z-index: 600 !important; }
     .air-green-z     { position: absolute; right: 60px;  top: 75px;  transform: rotate(6deg); }
     .air-amber-l     { position: absolute; right: 145px; top: 255px; transform: rotate(10deg); }
+
+    /* ════════════════════════════════════════════════════════════════
+       DESKTOP CANONICAL: MATRIX FLOOR WRAPPER & AIRBORNE LAYER
+       (MUST STAY ABOVE THE MOBILE QUERY — cascade order is critical)
+       ════════════════════════════════════════════════════════════════ */
+    .c8-hero-top .matrix-floor-wrapper {
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      z-index: 100 !important;
+      margin: 0 !important;
+      width: 952px !important;
+      height: 392px !important;
+    }
+
+    .c8-hero-top .airborne-layer {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      pointer-events: none !important;
+      z-index: 500 !important;
+    }
+
+    .c8-hero-top .airborne-layer .t-piece {
+      pointer-events: auto !important;
+      cursor: grab !important;
+    }
+    .c8-hero-top .airborne-layer .t-piece:active {
+      cursor: grabbing !important;
+    }
 
     /* ════════════════════════════════════════════════════════════════
        HERO TRACK & PINNED VIEWPORT ASSEMBLY SYSTEM (ZERO WHITE GAP)
@@ -578,11 +702,30 @@ defined('ABSPATH') || exit;
         height: 100vh !important;
       }
 
+      /* Complete property rewrite — all desktop props re-declared so nothing bleeds */
       .c8-hero-top.c8-hero-b-standalone,
       .c8-hero-b-standalone {
-        padding-top: 4.5rem !important;
+        position: relative !important;
+        overflow: hidden !important;
         min-height: 100vh !important;
         height: 100vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        background-color: #FFFFFF !important;
+        background-image: none !important;
+        padding-top: 7rem !important;
+        padding-bottom: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Stack CTA buttons vertically on mobile so floating cards don’t overlay them */
+      .c8-hero-ctas {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.75rem !important;
+        width: 100% !important;
       }
 
       .c8-hero-top .c8-hero-in {
@@ -602,20 +745,54 @@ defined('ABSPATH') || exit;
         margin-bottom: 1.25rem !important;
       }
 
-      .c8-hero-top .matrix-floor-wrapper,
-      .c8-hero-top .airborne-layer {
+      /* ── FRUIT 1: Floor grid — complete property rewrite for mobile ────────
+         All desktop properties re-declared so nothing bleeds from desktop CSS.
+         scale(100vw / 952) fits the full grid within any viewport width.
+         transform-origin: bottom center keeps the floor pinned to the base. */
+      .c8-hero-top .matrix-floor-wrapper {
         position: absolute !important;
-        left: 50% !important;
         bottom: 0 !important;
+        left: 50% !important;
         width: 952px !important;
-        transform: translateX(-50%) scale(calc((100vw - 32px) / 952)) !important;
+        height: 392px !important;
+        z-index: 100 !important;
+        margin: 0 !important;
+        transform: translateX(-50%) scale(var(--tetris-scale, 1)) !important;
         transform-origin: bottom center !important;
       }
 
-      .air-wp-purple   { position: absolute !important; left: 60px !important;   top: 75px !important; }
-      .air-nextjs      { position: absolute !important; left: 145px !important;  top: 255px !important; }
-      .air-green-z     { position: absolute !important; right: 60px !important;  top: 75px !important; }
-      .air-amber-l     { position: absolute !important; right: 145px !important; top: 255px !important; }
+      /* ── FRUIT 2: Airborne layer — complete property rewrite for mobile ────
+         Constrained to the SAME 952px width as the floor wrapper, centered
+         the same way, scaled identically, from the SAME bottom-center anchor.
+         This puts both containers in one shared coordinate space so the JS
+         desktop dX/dY delta values apply proportionally without JS changes. */
+      .c8-hero-top .airborne-layer {
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 50% !important;
+        right: auto !important;
+        width: 952px !important;
+        pointer-events: none !important;
+        z-index: 500 !important;
+        transform: translateX(-50%) scale(var(--tetris-scale, 1)) !important;
+        transform-origin: bottom center !important;
+      }
+      .c8-hero-top .airborne-layer .t-piece {
+        pointer-events: auto !important;
+        cursor: grab !important;
+        touch-action: none !important; /* prevent browser scroll hijack during touch drag */
+      }
+      .c8-hero-top .airborne-layer .t-piece:active {
+        cursor: grabbing !important;
+      }
+
+      /* Mobile-only starting positions for airborne cards */
+      .air-wp-purple   { top: 145px !important; }
+      .air-nextjs      { top: 325px !important; }
+      .air-green-z     { top: 145px !important; }
+      .air-amber-l     { top: 325px !important; }
+
     }
 
     /* ════════════════════════════════════════════════════════════════
@@ -684,23 +861,7 @@ defined('ABSPATH') || exit;
 
   
 
-    /* 3D TETRIS HOMEPAGE ANCHOR & CALIBRATOR OVERRIDES */
-    .c8-hero-top.c8-hero-b-standalone,
-    .c8-hero-b-standalone {
-      position: relative !important;
-      overflow: hidden !important;
-      min-height: 100vh !important;
-      height: 100vh !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      background-color: #FFFFFF !important;
-      background-image: none !important;
-      padding-top: 4rem !important;
-      padding-bottom: 0 !important;
-      box-sizing: border-box !important;
-    }
+
 
     .c8-hero-top .c8-hero-in,
     .c8-hero-in {
@@ -714,70 +875,8 @@ defined('ABSPATH') || exit;
       pointer-events: auto !important;
     }
 
-    .c8-hero-top .matrix-floor-wrapper {
-      position: absolute !important;
-      bottom: 0 !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      z-index: 100 !important;
-      margin: 0 !important;
-      width: 952px !important;
-      height: 392px !important;
-    }
-
-    .c8-hero-top .airborne-layer {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      pointer-events: none !important;
-      z-index: 500 !important;
-    }
-
-    .c8-hero-top .airborne-layer .t-piece {
-      pointer-events: auto !important;
-      cursor: grab !important;
-    }
-    .c8-hero-top .airborne-layer .t-piece:active {
-      cursor: grabbing !important;
-    }
 
 
-    .c8-hero-top.c8-hero-b-standalone,
-    .c8-hero-b-standalone {
-      min-height: 100vh !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
-      align-items: center !important;
-      padding-top: 6rem !important;
-      padding-bottom: 3rem !important;
-      text-align: center !important;
-      position: relative !important;
-      z-index: 10 !important;
-      box-sizing: border-box !important;
-      background: var(--c8-bg) !important;
-      border-bottom: 1px solid var(--c8-line) !important;
-    }
-  
-    /* 3D TETRIS HOMEPAGE ANCHOR & CALIBRATOR STYLING (NO SCROLL INTERFERENCE) */
-    .c8-hero-top.c8-hero-b-standalone,
-    .c8-hero-b-standalone {
-      position: relative !important;
-      overflow: hidden !important;
-      min-height: 100vh !important;
-      height: 100vh !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      background-color: #FFFFFF !important;
-      background-image: none !important;
-      padding-top: 5rem !important;
-      padding-bottom: 0 !important;
-      box-sizing: border-box !important;
-    }
 
     .c8-hero-h1 {
       font-family: 'Michroma', sans-serif;
@@ -799,6 +898,17 @@ defined('ABSPATH') || exit;
       margin-bottom: 2rem;
     }
 
+    .c8-hero-ctas {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 210;
+    }
+
     .c8-hero-top .c8-hero-in,
     .c8-hero-in {
       position: relative !important;
@@ -809,35 +919,6 @@ defined('ABSPATH') || exit;
       margin: 0 auto !important;
       padding: 0 1.5rem !important;
       pointer-events: auto !important;
-    }
-
-    .c8-hero-top .matrix-floor-wrapper {
-      position: absolute !important;
-      bottom: 0 !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      z-index: 100 !important;
-      margin: 0 !important;
-      width: 952px !important;
-      height: 392px !important;
-    }
-
-    .c8-hero-top .airborne-layer {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      pointer-events: none !important;
-      z-index: 500 !important;
-    }
-
-    .c8-hero-top .airborne-layer .t-piece {
-      pointer-events: auto !important;
-      cursor: grab !important;
-    }
-    .c8-hero-top .airborne-layer .t-piece:active {
-      cursor: grabbing !important;
     }
 
   </style>
@@ -859,6 +940,8 @@ defined('ABSPATH') || exit;
         Drag floating cards to position. Press [R] to Rotate 90°, [F] to Flip.
       </div>
     </div>
+    <!-- Mobile-friendly CAL toggle button -->
+    <button id="calibToggleBtn" onclick="(function(){var h=document.getElementById('floatingCalibHUD');h.style.display=h.style.display==='none'?'block':'none';})()" style="position: fixed; bottom: 24px; left: 20px; z-index: 999998; background: #0047E1; color: #FFF; border: none; padding: 9px 14px; border-radius: 6px; font-family: monospace; font-size: 0.7rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 14px rgba(0,71,225,0.4); letter-spacing: 0.05em;">⚙ CAL</button>
 
     <div class="c8-hero-in">
       <div class="c8-eyebrow" data-customizer="hero_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('hero_eyebrow', 'SCALE WITH AUTHORITY')); ?></div>
@@ -888,9 +971,9 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
+            <div class="t-label has-logo">
               <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/default.svg" alt="OpenAI CDN Logo" class="t-cdn-logo">
-              <span style="font-size: 0.65rem; color: #FFF;">OPENAI</span>
+              <span>OPENAI</span>
             </div>
           </div>
 
@@ -903,7 +986,7 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
             <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #111; font-size: 0.72rem;">WEB DESIGN</div>
+            <div class="t-label">WEB DESIGN</div>
           </div>
 
           <!-- 3. Custom Development (Base Floor Block - Cols 5-8, Row 7 - Row 7 Z-Index 70) -->
@@ -915,7 +998,7 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
             <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-royal-blue"></div></div>
             <div class="t-cell" style="grid-column: 4;"><div class="t-shape-body tone-royal-blue"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; align-items: center; justify-content: center; color: #FFFFFF;">CUSTOM DEVELOPMENT</div>
+            <div class="t-label">CUSTOM DEVELOPMENT</div>
           </div>
 
           <!-- 4. AI MVP (Base Floor Block - Cols 7-8, Rows 5-6 - Row 6 Z-Index 60) -->
@@ -927,7 +1010,7 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-royal-blue"></div></div>
             <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-royal-blue"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; color: #FFFFFF;">AI MVP</div>
+            <div class="t-label">AI MVP</div>
           </div>
 
           <!-- 5. Shopify (Base Floor Block - Cols 9-11, Row 7 - Row 7 Z-Index 70) -->
@@ -938,9 +1021,9 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-obsidian"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; align-items: center; justify-content: center; color: #FFFFFF;">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg" alt="Shopify CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
-              <span style="color: #FFFFFF;">SHOPIFY</span>
+            <div class="t-label is-row">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg" alt="Shopify CDN Logo" class="t-cdn-logo is-white">
+              <span>SHOPIFY</span>
             </div>
           </div>
 
@@ -953,9 +1036,9 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-light-grey"></div></div>
             <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-light-grey"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
+            <div class="t-label has-logo">
               <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="WordPress CDN Logo" class="t-cdn-logo">
-              <span style="font-size: 0.65rem; color: #111111;">WORDPRESS</span>
+              <span>WORDPRESS</span>
             </div>
           </div>
 
@@ -968,8 +1051,8 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-sand-beige"></div></div>
             <div class="t-cell" style="grid-column: 1; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
             <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-sand-beige"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; font-size: 0.68rem; flex-direction: column; gap: 4px; align-items: center; justify-content: center; color: #111;">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python CDN Logo" class="t-cdn-logo" style="width: 24px; height: 24px;">
+            <div class="t-label has-logo">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python CDN Logo" class="t-cdn-logo">
               <span>PYTHON</span>
             </div>
           </div>
@@ -981,7 +1064,7 @@ defined('ABSPATH') || exit;
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
             <div class="t-cell" style="grid-column: 1; grid-row: 1;">
               <div class="t-shape-body tone-terracotta">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/elementor.svg" alt="Elementor CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/elementor.svg" alt="Elementor CDN Logo" class="t-cdn-logo is-white">
               </div>
             </div>
             <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-terracotta"></div></div>
@@ -995,8 +1078,8 @@ defined('ABSPATH') || exit;
             <div class="t-cell" style="grid-column: 1;"><div class="t-shape-body tone-forest-green"></div></div>
             <div class="t-cell" style="grid-column: 2;"><div class="t-shape-body tone-forest-green"></div></div>
             <div class="t-cell" style="grid-column: 3;"><div class="t-shape-body tone-forest-green"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: row; gap: 8px; align-items: center; justify-content: center; font-size: 0.68rem; color: #FFF;">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg" alt="Figma CDN Logo" class="t-cdn-logo" style="filter: brightness(0) invert(1);">
+            <div class="t-label is-row">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg" alt="Figma CDN Logo" class="t-cdn-logo is-white">
               <span>FIGMA</span>
             </div>
           </div>
@@ -1008,9 +1091,9 @@ defined('ABSPATH') || exit;
             <div class="t-handle t-flipv-handle" title="Flip Vertical (V)">⇅</div>
             <div class="t-cell" style="grid-row: 1;"><div class="t-shape-body tone-obsidian"></div></div>
             <div class="t-cell" style="grid-row: 2;"><div class="t-shape-body tone-obsidian"></div></div>
-            <div class="t-label" style="left: 0; right: 0; top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 6px;">
+            <div class="t-label has-logo">
               <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude Verified CDN Logo" class="t-cdn-logo">
-              <span style="font-size: 0.65rem; color: #FFFFFF;">CLAUDE</span>
+              <span>CLAUDE</span>
             </div>
           </div>
         </div>
@@ -1031,7 +1114,7 @@ defined('ABSPATH') || exit;
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 3;"><div class="t-shape-body tone-purple"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 3;"><!-- PURE TRANSPARENT CUTOUT --></div>
-          <div class="t-label" style="left: 0; width: var(--u); top: 0; bottom: 0; flex-direction: column; justify-content: center; align-items: center; gap: 4px; color: #FFFFFF; font-size: 0.65rem;">
+          <div class="t-label air-woo-text">
             <span>W</span><span>O</span><span>O</span>
           </div>
         </div>
@@ -1062,11 +1145,11 @@ defined('ABSPATH') || exit;
           <div class="t-cell" style="grid-column: 1; grid-row: 4;"><div class="t-shape-body tone-lime-green"></div></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 4;"><!-- PURE TRANSPARENT CUTOUT --></div>
           <!-- Vertical HEADLESS in Column 2 (Rows 1-3) -->
-          <div class="t-label" style="left: var(--u); width: var(--u); top: 0; height: calc(var(--u) * 3); display:flex; flex-direction: column; justify-content: center; align-items: center; gap: 2px; color: #FFFFFF !important; font-size: 0.58rem; font-weight: 700; font-family: 'Space Mono', monospace; text-transform: uppercase; text-shadow: 0 1px 3px rgba(0,0,0,0.7); pointer-events: none;">
+          <div class="t-label air-headless-text">
             <span>H</span><span>E</span><span>A</span><span>D</span><span>L</span><span>E</span><span>S</span><span>S</span>
           </div>
           <!-- Horizontal CMS in Column 1 (Row 3) -->
-          <div class="t-label" style="left: 0; width: var(--u); top: calc(var(--u) * 2); height: var(--u); display:flex; justify-content: center; align-items: center; color: #FFFFFF !important; font-size: 0.68rem; font-weight: 700; font-family: 'Space Mono', monospace; text-transform: uppercase; text-shadow: 0 1px 3px rgba(0,0,0,0.7); pointer-events: none;">
+          <div class="t-label air-cms-text">
             <span>CMS</span>
           </div>
         </div>
@@ -1080,7 +1163,7 @@ defined('ABSPATH') || exit;
           <div class="t-cell" style="grid-column: 2; grid-row: 1;"><div class="t-shape-body tone-golden-yellow"></div></div>
           <div class="t-cell" style="grid-column: 1; grid-row: 2;"><!-- PURE TRANSPARENT CUTOUT --></div>
           <div class="t-cell" style="grid-column: 2; grid-row: 2;"><div class="t-shape-body tone-golden-yellow"></div></div>
-          <div class="t-label" style="left: 0; width: calc(var(--u) * 2); top: 0; height: var(--u); display:flex; justify-content: center; align-items: center; color: #080808 !important; font-size: 0.72rem; font-weight: 700; font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; pointer-events: none;">
+          <div class="t-label air-seo-text">
             <span>SEO</span>
           </div>
         </div>
@@ -1104,6 +1187,41 @@ defined('ABSPATH') || exit;
     .c8-paper-grid {
       background: rgba(255, 255, 255, 0.08) !important;
       border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      position: relative !important;
+    }
+    .c8-puzzle-tile {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 4px;
+      background: #080808;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
+      z-index: 20;
+      cursor: grab;
+      touch-action: none;
+      transition: left 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+                  top 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+                  width 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+                  height 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+      overflow: hidden;
+    }
+    .c8-puzzle-tile:active {
+      cursor: grabbing;
+    }
+    .c8-swap-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0;
+      transition: opacity 0.35s ease !important;
+      pointer-events: none;
+    }
+    .c8-swap-img.is-active-img {
+      opacity: 1;
     }
     .c8-pg-cell {
       background: #111111 !important;
@@ -3054,7 +3172,13 @@ defined('ABSPATH') || exit;
 
     /* Grid placement */
     .hww-c1 { grid-column: 1; grid-row: 1; }
-    .hww-c2 { grid-column: 2; grid-row: 1 / span 2; padding: 0; }
+    .hww-c2 { 
+      grid-column: 2; 
+      grid-row: 1 / span 2; 
+      padding: 0; 
+      border: 1px solid rgba(0, 0, 0, 0.08) !important; 
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important; 
+    }
     .hww-c3 { grid-column: 3; grid-row: 1; }
     .hww-c4 { grid-column: 4; grid-row: 1; }
     .hww-c5 { grid-column: 1; grid-row: 2; }
@@ -3063,8 +3187,11 @@ defined('ABSPATH') || exit;
     /* Visual card image */
     .hww-visual-img {
       width: 100%; height: 100%;
-      object-fit: cover; object-position: center top;
+      object-position: center top;
       display: block; transition: transform 0.5s ease;
+    }
+    .hww-c2:hover { 
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12) !important; 
     }
     .hww-c2:hover .hww-visual-img { transform: scale(1.04); }
 
@@ -4242,14 +4369,14 @@ defined('ABSPATH') || exit;
     (function() {
       function snapTile(gridEl, tileEl, cellEl, pad) {
         if (!gridEl || !tileEl || !cellEl) return;
-        var p = pad || 20;
+        var p = pad !== undefined ? pad : 20;
         var gRect = gridEl.getBoundingClientRect();
         var cRect = cellEl.getBoundingClientRect();
 
-        var left = cRect.left - gRect.left + p;
-        var top = cRect.top - gRect.top + p;
-        var width = cRect.width - (p * 2);
-        var height = cRect.height - (p * 2);
+        var left = Math.round(cRect.left - gRect.left + p);
+        var top = Math.round(cRect.top - gRect.top + p);
+        var width = Math.round(cRect.width - (p * 2));
+        var height = Math.round(cRect.height - (p * 2));
 
         tileEl.style.left = left + 'px';
         tileEl.style.top = top + 'px';
@@ -4259,10 +4386,12 @@ defined('ABSPATH') || exit;
 
       function swapImage(imgGroup, activeIdx) {
         imgGroup.forEach(function(img, i) {
-          if (i === activeIdx) {
-            img.classList.add('is-active-img');
-          } else {
-            img.classList.remove('is-active-img');
+          if (img) {
+            if (i === activeIdx) {
+              img.classList.add('is-active-img');
+            } else {
+              img.classList.remove('is-active-img');
+            }
           }
         });
       }
@@ -4278,6 +4407,8 @@ defined('ABSPATH') || exit;
       var currStateD = -1;
       var isInteractingD = false;
       var interactionTimerD = null;
+      var lPathTimeout = null;
+      var isScrollTicking = false;
 
       function getUniversalAvailableCell(rowIdx, preferredCol) {
         if (!dGrid) return null;
@@ -4303,7 +4434,7 @@ defined('ABSPATH') || exit;
       }
 
       function updateUniversalLPath() {
-        if (isInteractingD || !dGrid) return;
+        if (isInteractingD || !dGrid || !dTile) return;
 
         var r1Text = dGrid.querySelector('.c8-pg-cell[data-row="0"].is-text-card') || dGrid.children[0];
         var r2Text = dGrid.querySelector('.c8-pg-cell[data-row="1"].is-text-card') || dGrid.children[5];
@@ -4326,20 +4457,22 @@ defined('ABSPATH') || exit;
         else newState = 0;
 
         if (newState !== currStateD) {
+          clearTimeout(lPathTimeout);
           var prevState = currStateD;
           currStateD = newState;
 
           if (currStateD === 0) {
             var targetCell = getUniversalAvailableCell(0, 2);
             if (prevState === 1) {
+              // Smooth 2-leg L-path: slide left to col 1, then up into slot (0,2)
               var cMid = getUniversalAvailableCell(0, 1);
               snapTile(dGrid, dTile, cMid, 20);
-              setTimeout(function() {
+              lPathTimeout = setTimeout(function() {
                 if (currStateD === 0) {
                   snapTile(dGrid, dTile, targetCell, 20);
                   swapImage(dImgs, 0);
                 }
-              }, 250);
+              }, 360);
             } else {
               snapTile(dGrid, dTile, targetCell, 20);
               swapImage(dImgs, 0);
@@ -4348,14 +4481,15 @@ defined('ABSPATH') || exit;
           else if (currStateD === 1) {
             var targetCell = getUniversalAvailableCell(1, 1);
             if (prevState === 0) {
+              // Smooth 2-leg L-path: slide left to col 1, then drop down into slot (1,1)
               var cMid = getUniversalAvailableCell(0, 1);
               snapTile(dGrid, dTile, cMid, 20);
-              setTimeout(function() {
+              lPathTimeout = setTimeout(function() {
                 if (currStateD === 1) {
                   snapTile(dGrid, dTile, targetCell, 20);
                   swapImage(dImgs, 1);
                 }
-              }, 250);
+              }, 360);
             } else {
               snapTile(dGrid, dTile, targetCell, 20);
               swapImage(dImgs, 1);
@@ -4371,6 +4505,16 @@ defined('ABSPATH') || exit;
             snapTile(dGrid, dTile, targetCell, 20);
             swapImage(dImgs, 2);
           }
+        }
+      }
+
+      function onScrollRaf() {
+        if (!isScrollTicking) {
+          requestAnimationFrame(function() {
+            updateUniversalLPath();
+            isScrollTicking = false;
+          });
+          isScrollTicking = true;
         }
       }
 
@@ -4418,8 +4562,8 @@ defined('ABSPATH') || exit;
         });
       }
 
-      window.addEventListener('scroll', updateUniversalLPath, { passive: true });
-      window.addEventListener('resize', updateUniversalLPath, { passive: true });
+      window.addEventListener('scroll', onScrollRaf, { passive: true });
+      window.addEventListener('resize', onScrollRaf, { passive: true });
       document.addEventListener('DOMContentLoaded', updateUniversalLPath);
       window.addEventListener('load', updateUniversalLPath);
 
@@ -4438,6 +4582,22 @@ defined('ABSPATH') || exit;
 <?php wp_footer(); ?>
 
   <script>
+    // ── Tetris Scale — sets --tetris-scale as a unitless CSS variable ─────────────
+    // CSS calc(100vw / 952) inside scale() is invalid because 100vw is a
+    // <length>, not a <number>. JS gives us a true unitless float. ─────────
+    (function() {
+      function setTetrisScale() {
+        // Multiply by 1.15 so blocks are slightly larger than a perfect fit.
+        // The hero has overflow:hidden so any edge clipping is contained cleanly.
+        var s = window.innerWidth <= 768 ? (window.innerWidth / 952) * 1.15 : 1;
+        document.documentElement.style.setProperty('--tetris-scale', s);
+      }
+      setTetrisScale();
+      window.addEventListener('resize', setTetrisScale, { passive: true });
+    })();
+  </script>
+
+  <script>
     (function() {
       document.addEventListener('DOMContentLoaded', function() {
         const airWoo = document.querySelector('.air-wp-purple');
@@ -4447,8 +4607,15 @@ defined('ABSPATH') || exit;
 
         if (!airWoo || !airNext || !airGreen || !airYellow) return;
 
-        // Compensated Base Calibrated Deltas (Offset for +15px top shift and +65px inward shifts)
-        const liveCalibData = {
+        // Desktop and mobile use different deltas — hero height differs between
+        // portrait mobile and landscape desktop so landing distances differ.
+        const isMobile = window.innerWidth <= 768;
+        const liveCalibData = isMobile ? {
+          woo:    { dX: -46,  dY: 415, rot: 0, flipX: 1 },
+          next:   { dX: 24,   dY: 238, rot: 0, flipX: 1 },
+          yellow: { dX: -247, dY: 235, rot: 0, flipX: 1 },
+          green:  { dX: 61,   dY: 359, rot: 0, flipX: 1 }
+        } : {
           woo:    { dX: 222,  dY: 482, rot: 0, flipX: 1 },
           next:   { dX: 305,  dY: 308, rot: 0, flipX: 1 },
           yellow: { dX: -531, dY: 303, rot: 0, flipX: 1 },
@@ -4457,16 +4624,55 @@ defined('ABSPATH') || exit;
 
         let scrollProgress = 0; // 0.0 at top of page, 1.0 when fully assembled into floor
 
-        function updateHUDDisplay() {
-          const hudWoo = document.getElementById('hudWooVal');
-          const hudNext = document.getElementById('hudNextVal');
-          const hudYellow = document.getElementById('hudYellowVal');
-          const hudGreen = document.getElementById('hudGreenVal');
 
-          if (hudWoo) hudWoo.textContent = `Woo: dX: ${Math.round(liveCalibData.woo.dX)}px | dY: ${Math.round(liveCalibData.woo.dY)}px | Rot: ${liveCalibData.woo.rot}°`;
-          if (hudNext) hudNext.textContent = `Next: dX: ${Math.round(liveCalibData.next.dX)}px | dY: ${Math.round(liveCalibData.next.dY)}px | Rot: ${liveCalibData.next.rot}°`;
-          if (hudYellow) hudYellow.textContent = `Yellow: dX: ${Math.round(liveCalibData.yellow.dX)}px | dY: ${Math.round(liveCalibData.yellow.dY)}px | Rot: ${liveCalibData.yellow.rot}° | Flip: ${liveCalibData.yellow.flipX}`;
-          if (hudGreen) hudGreen.textContent = `Green: dX: ${Math.round(liveCalibData.green.dX)}px | dY: ${Math.round(liveCalibData.green.dY)}px | Rot: ${liveCalibData.green.rot}°`;
+
+        function updateHUDDisplay() {
+          const hudWoo    = document.getElementById('hudWooVal');
+          const hudNext   = document.getElementById('hudNextVal');
+          const hudYellow = document.getElementById('hudYellowVal');
+          const hudGreen  = document.getElementById('hudGreenVal');
+
+          // Effective delta = calibration base + current user drag offset
+          const baseWeight = scrollProgress >= 0.5 ? 1 : scrollProgress;
+          const wX  = Math.round(liveCalibData.woo.dX    * baseWeight + (airWoo    ? (airWoo.userOffsetX    || 0) : 0));
+          const wY  = Math.round(liveCalibData.woo.dY    * baseWeight + (airWoo    ? (airWoo.userOffsetY    || 0) : 0));
+          const nX  = Math.round(liveCalibData.next.dX   * baseWeight + (airNext   ? (airNext.userOffsetX   || 0) : 0));
+          const nY  = Math.round(liveCalibData.next.dY   * baseWeight + (airNext   ? (airNext.userOffsetY   || 0) : 0));
+          const yX  = Math.round(liveCalibData.yellow.dX * baseWeight + (airYellow ? (airYellow.userOffsetX || 0) : 0));
+          const yY  = Math.round(liveCalibData.yellow.dY * baseWeight + (airYellow ? (airYellow.userOffsetY || 0) : 0));
+          const gX  = Math.round(liveCalibData.green.dX  * baseWeight + (airGreen  ? (airGreen.userOffsetX  || 0) : 0));
+          const gY  = Math.round(liveCalibData.green.dY  * baseWeight + (airGreen  ? (airGreen.userOffsetY  || 0) : 0));
+
+          if (hudWoo)    hudWoo.textContent    = `Woo: dX: ${wX}px | dY: ${wY}px | Rot: ${liveCalibData.woo.rot}°`;
+          if (hudNext)   hudNext.textContent   = `Next: dX: ${nX}px | dY: ${nY}px | Rot: ${liveCalibData.next.rot}°`;
+          if (hudYellow) hudYellow.textContent = `Yellow: dX: ${yX}px | dY: ${yY}px | Rot: ${liveCalibData.yellow.rot}° | Flip: ${liveCalibData.yellow.flipX}`;
+          if (hudGreen)  hudGreen.textContent  = `Green: dX: ${gX}px | dY: ${gY}px | Rot: ${liveCalibData.green.rot}°`;
+        }
+
+        // Weight calculation function:
+        // Returns 1.0 at the scrollProgress where the block was dragged,
+        // fading smoothly to 0 as the user scrolls to 0% (sky) or 100% (floor).
+        function getDragWeight(piece) {
+          const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
+          if (calibMode) return 1.0;
+          const originS = piece.dragOriginScroll !== undefined ? piece.dragOriginScroll : 0;
+          if (originS <= 0.02) {
+            // Dragged at or near 0% (top):
+            // Stays where dropped at 0%, smoothly dissolves to 0 at 100% floor
+            return Math.max(0, 1 - scrollProgress);
+          } else if (originS >= 0.98) {
+            // Dragged at or near 100% (floor):
+            // Stays where dropped at 100%, smoothly dissolves to 0 at 0% top
+            return Math.max(0, scrollProgress);
+          } else {
+            // Dragged mid-scroll:
+            // Stays where dropped at originS, smoothly dissolves to 0 at both 0% and 100%
+            if (scrollProgress <= originS) {
+              return Math.max(0, scrollProgress / originS);
+            } else {
+              return Math.max(0, (1 - scrollProgress) / (1 - originS));
+            }
+          }
         }
 
         // Unified Rendering Pipeline for ALL 15 Blocks
@@ -4478,28 +4684,26 @@ defined('ABSPATH') || exit;
             { el: airGreen, key: 'green', initialRot: 6 }
           ];
 
-          // 1. Render Airborne Floating Cards
-          const isMobile = window.innerWidth <= 768;
-          const mobileScale = isMobile ? ((window.innerWidth - 32) / 952) : 1.0;
+          const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
 
+          // 1. Render Airborne Floating Cards
           pieces.forEach(item => {
             if (!item.el) return;
-            if (activePiece === item.el) return; // Active drag is handled directly in mousemove
+            if (activePiece === item.el) return; // Active drag is handled directly in pointermove
 
             const c = liveCalibData[item.key];
-            const baseDX = c.dX * scrollProgress * mobileScale;
-            const baseDY = c.dY * scrollProgress * mobileScale;
+            const baseDX = c.dX * scrollProgress;
+            const baseDY = c.dY * scrollProgress;
 
-            const userX = (item.el.userOffsetX || 0) * (1 - scrollProgress);
-            const userY = (item.el.userOffsetY || 0) * (1 - scrollProgress);
-            const magX = item.el.magX || 0;
-            const magY = item.el.magY || 0;
+            const weight = getDragWeight(item.el);
+            const userX = (item.el.userOffsetX || 0) * weight;
+            const userY = (item.el.userOffsetY || 0) * weight;
 
-            const currentDX = baseDX + userX + magX;
-            const currentDY = baseDY + userY + magY;
+            const currentDX = baseDX + userX;
+            const currentDY = baseDY + userY;
 
             const initialRot = item.initialRot || 0;
-            const currentRot = initialRot * (1 - scrollProgress);
+            const currentRot = calibMode ? 0 : (initialRot * (1 - scrollProgress));
             const flip = c.flipX || 1;
             item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${flip})`;
           });
@@ -4508,15 +4712,35 @@ defined('ABSPATH') || exit;
           const allBlocks = document.querySelectorAll('.t-piece');
           allBlocks.forEach(piece => {
             if (getKey(piece) || activePiece === piece) return;
-            const userX = (piece.userOffsetX || 0) * (1 - scrollProgress);
-            const userY = (piece.userOffsetY || 0) * (1 - scrollProgress);
-            const magX = piece.magX || 0;
-            const magY = piece.magY || 0;
-
-            const currentDX = userX + magX;
-            const currentDY = userY + magY;
-            piece.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0)`;
+            const weight = getDragWeight(piece);
+            const userX = (piece.userOffsetX || 0) * weight;
+            const userY = (piece.userOffsetY || 0) * weight;
+            piece.style.transform = `translate3d(${userX}px, ${userY}px, 0)`;
           });
+
+          // Auto-clear drag offsets at scroll endpoints so scrolling in the opposite
+          // direction always follows the pure, predefined canonical trajectory
+          if (!calibMode && !activePiece) {
+            if (scrollProgress <= 0.001) {
+              // At 0% top: clear any floor drag offsets so scrolling down always hits true floor sockets
+              allBlocks.forEach(piece => {
+                if (piece.dragOriginScroll !== undefined && piece.dragOriginScroll >= 0.5) {
+                  piece.userOffsetX = 0;
+                  piece.userOffsetY = 0;
+                  piece.dragOriginScroll = 0;
+                }
+              });
+            } else if (scrollProgress >= 0.999) {
+              // At 100% floor: clear any sky drag offsets so scrolling up always returns to true 0% sky
+              allBlocks.forEach(piece => {
+                if (piece.dragOriginScroll !== undefined && piece.dragOriginScroll < 0.5) {
+                  piece.userOffsetX = 0;
+                  piece.userOffsetY = 0;
+                  piece.dragOriginScroll = 1;
+                }
+              });
+            }
+          }
 
           updateHUDDisplay();
         }
@@ -4544,6 +4768,7 @@ defined('ABSPATH') || exit;
         }, { passive: true });
 
         window.addEventListener('touchmove', function(e) {
+          if (activePiece) return; // don't scroll while dragging a card
           const windowScroll = window.scrollY || window.pageYOffset || 0;
           if (windowScroll <= 15 && e.touches.length === 1) {
             const deltaY = touchStartY - e.touches[0].clientY;
@@ -4576,125 +4801,93 @@ defined('ABSPATH') || exit;
         const allBlocks = document.querySelectorAll('.t-piece');
         allBlocks.forEach(piece => {
           piece.style.cursor = 'grab';
-          piece.magX = 0;
-          piece.magY = 0;
           piece.userOffsetX = 0;
           piece.userOffsetY = 0;
+          piece.dragOriginScroll = 0;
 
-          piece.addEventListener('mousedown', function(e) {
+          const innerBodies = piece.querySelectorAll('.t-shape-body, .t-label');
+
+          function resetInnerMag() {
+            innerBodies.forEach(el => el.style.transform = '');
+          }
+
+          piece.addEventListener('pointerdown', function(e) {
+            if (e.target.closest('.t-handle')) return;
             activePiece = piece;
             piece.classList.add('is-dragging');
+            resetInnerMag();
             dragStartX = e.clientX;
             dragStartY = e.clientY;
 
-            // Get computed live screen transform
-            const style = window.getComputedStyle(piece);
-            const matrixStr = style.transform || style.webkitTransform;
-            if (matrixStr && matrixStr !== 'none') {
-              const matrix = new WebKitCSSMatrix(matrixStr);
-              initialTransformX = matrix.m41;
-              initialTransformY = matrix.m42;
-            } else {
-              initialTransformX = 0;
-              initialTransformY = 0;
-            }
+            // Start drag smoothly from current visual offset
+            const weight = getDragWeight(piece);
+            initialUserX = (piece.userOffsetX || 0) * weight;
+            initialUserY = (piece.userOffsetY || 0) * weight;
 
+            piece.setPointerCapture(e.pointerId);
             document.body.style.userSelect = 'none';
             e.preventDefault();
           });
 
-          // Magnetic Hover Micro-Interaction Physics for ALL 15 Blocks
+          // Magnetic Hover Ripple — applied exclusively to inner children (.t-shape-body, .t-label)
+          // completely decoupled from outer .t-piece drag & scroll coordinates
           piece.addEventListener('mousemove', function(e) {
             if (activePiece) return;
             const rect = piece.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            piece.magX = (e.clientX - centerX) * 0.15;
-            piece.magY = (e.clientY - centerY) * 0.15;
-            piece.style.filter = 'drop-shadow(0 4px 12px rgba(0, 71, 225, 0.22)) drop-shadow(3px 7px 0px rgba(0, 71, 225, 0.30))';
-            if (!getKey(piece)) {
-              piece.style.transform = `translate3d(${piece.magX}px, ${piece.magY}px, 0)`;
-            } else {
-              renderPositions();
-            }
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const magX = (e.clientX - cx) * 0.10;
+            const magY = (e.clientY - cy) * 0.10;
+            innerBodies.forEach(el => el.style.transform = `translate3d(${magX}px, ${magY}px, 0)`);
           });
 
           piece.addEventListener('mouseleave', function() {
             if (activePiece === piece) return;
-            piece.magX = 0;
-            piece.magY = 0;
-            piece.style.filter = '';
-            if (!getKey(piece)) {
-              piece.style.transform = `translate3d(0px, 0px, 0)`;
-            } else {
-              renderPositions();
-            }
+            resetInnerMag();
           });
         });
 
-        window.addEventListener('mousemove', function(e) {
+        window.addEventListener('pointermove', function(e) {
           if (!activePiece) return;
           const deltaX = e.clientX - dragStartX;
           const deltaY = e.clientY - dragStartY;
 
-          const currentX = initialTransformX + deltaX;
-          const currentY = initialTransformY + deltaY;
+          // Divide by --tetris-scale: drag is measured in screen px but applied in
+          // pre-scale coordinate space. Without this, mobile drag feels sluggish.
+          const scale = parseFloat(document.documentElement.style.getPropertyValue('--tetris-scale')) || 1;
+          activePiece.userOffsetX = initialUserX + deltaX / scale;
+          activePiece.userOffsetY = initialUserY + deltaY / scale;
+          activePiece.dragOriginScroll = scrollProgress;
 
-          activePiece.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
-        });
-
-        window.addEventListener('mouseup', function() {
-          if (activePiece) {
-            const releasedPiece = activePiece;
-            releasedPiece.classList.remove('is-dragging');
-
-            const style = window.getComputedStyle(releasedPiece);
-            const matrixStr = style.transform || style.webkitTransform;
-            let endX = 0, endY = 0;
-            if (matrixStr && matrixStr !== 'none') {
-              const matrix = new WebKitCSSMatrix(matrixStr);
-              endX = matrix.m41;
-              endY = matrix.m42;
-            }
-
-            activePiece = null;
-            document.body.style.userSelect = '';
-
-            // If non-floating floor block, spring return back to (0,0) in grid over 400ms!
-            if (!getKey(releasedPiece)) {
-              animateFloorReturn(releasedPiece, endX, endY);
-            } else {
-              // For floating cards, update user offset relative to current scroll trajectory
-              const k = getKey(releasedPiece);
-              if (k) {
-                const c = liveCalibData[k];
-                const baseTrajectoryX = c.dX * scrollProgress;
-                const baseTrajectoryY = c.dY * scrollProgress;
-                releasedPiece.userOffsetX = endX - baseTrajectoryX;
-                releasedPiece.userOffsetY = endY - baseTrajectoryY;
-                renderPositions();
-              }
-            }
+          // Directly set transform — instantaneous response
+          const k = getKey(activePiece);
+          const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
+          if (k) {
+            const c = liveCalibData[k];
+            const baseDX = c.dX * scrollProgress;
+            const baseDY = c.dY * scrollProgress;
+            const currentDX = baseDX + activePiece.userOffsetX;
+            const currentDY = baseDY + activePiece.userOffsetY;
+            const initialRotMap = { woo: -5, next: -8, yellow: 10, green: 6 };
+            const currentRot = calibMode ? 0 : ((initialRotMap[k] || 0) * (1 - scrollProgress));
+            activePiece.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${c.flipX || 1})`;
+          } else {
+            // Floor grid card — pure user offset
+            activePiece.style.transform = `translate3d(${activePiece.userOffsetX}px, ${activePiece.userOffsetY}px, 0)`;
           }
         });
 
-        // Smooth 400ms Spring Return for Floor Blocks
-        function animateFloorReturn(el, startX, startY) {
-          const startTime = performance.now();
-          const duration = 400;
-          function step(now) {
-            const elapsed = now - startTime;
-            const p = Math.min(1.0, elapsed / duration);
-            const easeP = 1 - Math.pow(1 - p, 3); // Smooth cubic ease out
-            const curX = startX * (1 - easeP);
-            const curY = startY * (1 - easeP);
-            el.style.transform = `translate3d(${curX}px, ${curY}px, 0)`;
-            if (p < 1.0 && activePiece !== el) {
-              requestAnimationFrame(step);
-            }
-          }
-          requestAnimationFrame(step);
+        function endDrag() {
+          if (!activePiece) return;
+          const releasedPiece = activePiece;
+          activePiece = null;
+          releasedPiece.classList.remove('is-dragging');
+          document.body.style.userSelect = '';
+          renderPositions();
         }
+
+        window.addEventListener('pointerup', endDrag);
+        window.addEventListener('pointercancel', endDrag);
 
         // Hotkeys [R] and [F]
         window.addEventListener('keydown', function(e) {
@@ -4712,13 +4905,34 @@ defined('ABSPATH') || exit;
         });
 
         window.copyCalibratedCoordinates = function() {
-          const text = JSON.stringify(liveCalibData, null, 2);
+          // Output EFFECTIVE delta = calibration base + current user drag offset
+          const elMap = { woo: airWoo, next: airNext, yellow: airYellow, green: airGreen };
+          const out = {};
+          const baseWeight = scrollProgress >= 0.5 ? 1 : scrollProgress;
+          for (const k in liveCalibData) {
+            const el = elMap[k];
+            out[k] = {
+              dX:    Math.round(liveCalibData[k].dX * baseWeight + (el ? (el.userOffsetX || 0) : 0)),
+              dY:    Math.round(liveCalibData[k].dY * baseWeight + (el ? (el.userOffsetY || 0) : 0)),
+              rot:   liveCalibData[k].rot,
+              flipX: liveCalibData[k].flipX
+            };
+          }
+          const text = JSON.stringify(out, null, 2);
           navigator.clipboard.writeText(text).then(function() {
-            alert('Live calibrated coordinates copied to clipboard!\n\n' + text);
+            alert('Coordinates copied!\n\n' + text);
           }).catch(function() {
-            alert('Live calibrated coordinates:\n\n' + text);
+            alert('Coordinates:\n\n' + text);
           });
         };
+
+        // Toggle HUD with H key on desktop
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'h' || e.key === 'H') {
+            const hud = document.getElementById('floatingCalibHUD');
+            if (hud) hud.style.display = hud.style.display === 'none' ? 'block' : 'none';
+          }
+        });
 
         // ════════════════════════════════════════════════════════════════
         // MAKE CALIBRATOR HUD ITSELF DRAGGABLE ANYWHERE ON SCREEN
@@ -4730,7 +4944,7 @@ defined('ABSPATH') || exit;
           let hudStartX = 0, hudStartY = 0;
           let hudInitialLeft = 0, hudInitialTop = 0;
 
-          hudHandle.addEventListener('mousedown', function(e) {
+          hudHandle.addEventListener('pointerdown', function(e) {
             if (e.target.tagName === 'BUTTON') return;
             isHudDragging = true;
             hudStartX = e.clientX;
@@ -4746,7 +4960,7 @@ defined('ABSPATH') || exit;
             e.preventDefault();
           });
 
-          window.addEventListener('mousemove', function(e) {
+          window.addEventListener('pointermove', function(e) {
             if (!isHudDragging) return;
             const dx = e.clientX - hudStartX;
             const dy = e.clientY - hudStartY;
@@ -4754,7 +4968,7 @@ defined('ABSPATH') || exit;
             hudContainer.style.top = (hudInitialTop + dy) + 'px';
           });
 
-          window.addEventListener('mouseup', function() {
+          window.addEventListener('pointerup', function() {
             isHudDragging = false;
           });
         }
