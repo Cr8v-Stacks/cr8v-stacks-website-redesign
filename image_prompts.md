@@ -38,7 +38,7 @@
 
 ---
 
-## 🎨 The 6 Master Visual Systems
+## 🎨 The 8 Master Visual Systems
 
 ### 🟢 System 1: High-Contrast Chiaroscuro Silhouette & Shadow Beams *(Exempt from Detailed Human Anatomy)*
 * **Concept**: Flat minimalist graphic editorial poster art featuring stylized dark silhouettes or clean architectural forms struck by bold light shafts, casting long sharp shadows across dark obsidian floors.
@@ -48,45 +48,35 @@
 * **Concept**: Playful, sophisticated flat graphic compositions, tactile Bauhaus shapes, typography glyphs, idea sparks, and kinetic vector growth momentum set in dark atmospheric spaces with crisp light beams.
 * **Palette**: Dark obsidian (`#080808`), Royal Blue (`#0047E1`), Gold (`#FFB800`), Crimson Red (`#E20025`), crisp white.
 
-### 🟢 System 3: Painterly Lofi Editorial & Atmospheric Human System
-Featuring the **2D/3D Hybrid Character Aesthetic** with three contextual subsystems:
+### 🟢 System 3: Mature Adult Lofi & Painterly Human Editorial Systems
+Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsystems:
+* **Subsystem 3A [DEFAULT ORIGINAL]**: Obsidian Agency Studio & Screen Glow (mature Black African tech founder at dark desk with royal blue screen glow).
+* **Subsystem 3B [Painterly Lineless Digital Gouache / Soft Pastel]**: Lineless graphic novel illustration with zero black outlines, soft color blocking, dry matte texture, desaturated twilight blues, milky peach screen glow, and simplified impressionistic distant lights.
+* **Subsystem 3C [Contextual Atmospheric Panoramic Backdrops]**: Soft colorful location vistas (twilight city skylines, soft peach sunrise over coastal architecture).
+* **Subsystem 3D [Candid Studio Interaction]**: Active collaborative moments around a studio table.
 
-#### 🔹 Subsystem 3A: Obsidian Agency Studio & Screen Glow
-* **Setting**: Modern creative agency studio at night. Subject in focused, candid work with dual monitors, soft Royal Blue (`#0047E1`) screen glow, and warm ambient rim light on dark obsidian (`#080808`).
-* **Palette**: Dark obsidian (`#080808`), Royal Blue (`#0047E1`), warm amber/gold desk glow.
-
-#### 🔹 Subsystem 3B: Contextual Atmospheric Panoramic Backdrops (Soft Colorful Environments)
-* **Setting**: Background color, lighting, and panoramic vistas are derived directly from the narrative location (e.g. twilight city skylines through large glass windows, soft peach sunrise over coastal architecture, hazy blue dusk rooftops).
-* **Palette**: Derived from scene location (dusk blues, soft peach/coral sunset, warm ivory sunbeams).
-
-#### 🔹 Subsystem 3C: Candid Studio Interaction & Creative Workflows
-* **Setting**: Active creative moments (sketching on tablet, reviewing prototype cards, relaxed collaborative discussion).
-
-### 🟢 System 4: Workspace & Abstract Chiaroscuro Fusion
+### 🟢 System 4: [ORIGINAL] Workspace & Abstract Chiaroscuro Fusion
 * **Concept**: Merges a dark drafting studio space or tool concept with an abstract minimalist architectural environment where dramatic light beams cut through darkness and cast long sharp shadows.
 * **Palette**: Deep obsidian (`#080808`), Royal Blue (`#0047E1`), dark charcoal shadow gradient.
 
-### 🟢 System 5: Contemporary African Layered Color Patches (Rust, Amber & Deep Red)
+### 🟢 System 5: [ORIGINAL] Contemporary African Layered Color Patches (Rust, Amber & Deep Red)
 * **Concept**: Restrained painterly blocks and layered brush-like patches of muted brown, warm rust, burnt orange, and deep muted red integrated into selected dark architectural/silhouette areas.
 * **Palette**: Deep obsidian (`#080808`), Royal Blue (`#0047E1`), muted brown, warm rust, burnt orange, deep muted red.
 
-### 🟢 System 6: Dynamic Negative Space & Social/Editorial Composition Engine
-Specifically engineered for social media posts, hero headers, blog thumbnails, and UI text overlays:
+### 🟢 System 6: [ORIGINAL] Rule-of-Thirds Negative Space Layout
+* **Concept**: Subject offset to the right or left third of the frame, leaving 50–60% clean dark obsidian (`#080808`) negative space for typography, headline text, or UI card overlays.
+* **Palette**: Dark obsidian background (`#080808`), contextual brand light accents.
 
-#### 🔹 Subsystem 6A: Left / Right Column Negative Space (Rule of 60/40)
-* **Layout**: Subject anchored on one flank (left or right 35%), leaving 65% clean, uncluttered negative space for headlines, subcopy, and CTA buttons.
-* **Camera Angle**: Medium shot or over-the-shoulder facing toward the open canvas.
+### 🟢 System 7: Universal Negative Space & Compositional Modifier Engine
+*(Can be paired with ANY primary visual system by declaring exact frame location and aspect ratio geometry)*:
+* **Subsystem 7A**: Horizontal Column Negative Space (Left / Right 60–70% clean expanse — optimized for `16:9 Landscape`).
+* **Subsystem 7B**: Vertical Upper Negative Space (Top 60–70% Headroom / Sky expanse — optimized for `3:4` or `9:16 Portrait`).
+* **Subsystem 7C**: Diagonal / Corner Quadrant Negative Space (Optimized for `1:1 Square`).
+* **Subsystem 7D**: Horizontal Center Band / Letterbox Negative Space (Central strip with open top/bottom).
+* **Subsystem 7E**: Perimeter / Island Negative Space (Central open expanse).
 
-#### 🔹 Subsystem 6B: Top & Bottom Letterbox Negative Space
-* **Layout**: Cinematic widescreen subject band across the vertical center, with generous open negative space across the top and bottom headers.
-* **Camera Angle**: Wide horizontal landscape perspective.
-
-#### 🔹 Subsystem 6C: Quadrant / Diagonal Corner Anchor
-* **Layout**: Subject nestled in the bottom-left or bottom-right corner (grounded at desk), with a vast open sky or dark atmospheric expanse extending diagonally across the top two quadrants.
-* **Camera Angle**: Low-angle shot looking slightly upward from desk height.
-
-#### 🔹 Subsystem 6D: Island / Perimeter Framing (Central Open Negative Space)
-* **Layout**: Central expanse kept completely clean for high-impact metric badges or bold typography, framed naturally by minimalist desk edges, window frames, or architectural light shafts along the borders.
+### 🟢 System 8: Entergalactic Cinematic / Textured Brushstroke Art Style
+* **Concept**: 3D-stylized painted animation style with visible, expressive textured brushstrokes sculpting the contours of faces, clothing, and environment. No harsh outlines. Dominated by deep magenta (`#8B008B`), rich indigo (`#4B0082`), and glowing warm amber hues, with a gentle horizontal anamorphic lens flare giving a cosmic, romantic, cinematic glow. Works for any scene or direction.
 
 ---
 
