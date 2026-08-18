@@ -1187,6 +1187,46 @@ defined('ABSPATH') || exit;
     .c8-paper-grid {
       background: rgba(255, 255, 255, 0.08) !important;
       border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      position: relative !important;
+    }
+    .c8-puzzle-tile {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 4px;
+      background: #080808;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
+      z-index: 20;
+      cursor: grab;
+      touch-action: none;
+      transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
+                  top 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
+                  width 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
+                  height 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      overflow: hidden;
+      will-change: left, top, width, height;
+    }
+    .c8-puzzle-tile:active {
+      cursor: grabbing;
+    }
+    .c8-swap-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0;
+      transform: scale(1.06);
+      transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1), 
+                  transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      pointer-events: none;
+      will-change: opacity, transform;
+    }
+    .c8-swap-img.is-active-img {
+      opacity: 1;
+      transform: scale(1);
     }
     .c8-pg-cell {
       background: #111111 !important;
@@ -4325,14 +4365,14 @@ defined('ABSPATH') || exit;
     (function() {
       function snapTile(gridEl, tileEl, cellEl, pad) {
         if (!gridEl || !tileEl || !cellEl) return;
-        var p = pad || 20;
+        var p = pad !== undefined ? pad : 20;
         var gRect = gridEl.getBoundingClientRect();
         var cRect = cellEl.getBoundingClientRect();
 
-        var left = cRect.left - gRect.left + p;
-        var top = cRect.top - gRect.top + p;
-        var width = cRect.width - (p * 2);
-        var height = cRect.height - (p * 2);
+        var left = Math.round(cRect.left - gRect.left + p);
+        var top = Math.round(cRect.top - gRect.top + p);
+        var width = Math.round(cRect.width - (p * 2));
+        var height = Math.round(cRect.height - (p * 2));
 
         tileEl.style.left = left + 'px';
         tileEl.style.top = top + 'px';
@@ -4342,10 +4382,12 @@ defined('ABSPATH') || exit;
 
       function swapImage(imgGroup, activeIdx) {
         imgGroup.forEach(function(img, i) {
-          if (i === activeIdx) {
-            img.classList.add('is-active-img');
-          } else {
-            img.classList.remove('is-active-img');
+          if (img) {
+            if (i === activeIdx) {
+              img.classList.add('is-active-img');
+            } else {
+              img.classList.remove('is-active-img');
+            }
           }
         });
       }
@@ -4361,6 +4403,7 @@ defined('ABSPATH') || exit;
       var currStateD = -1;
       var isInteractingD = false;
       var interactionTimerD = null;
+      var isScrollTicking = false;
 
       function getUniversalAvailableCell(rowIdx, preferredCol) {
         if (!dGrid) return null;
@@ -4386,7 +4429,7 @@ defined('ABSPATH') || exit;
       }
 
       function updateUniversalLPath() {
-        if (isInteractingD || !dGrid) return;
+        if (isInteractingD || !dGrid || !dTile) return;
 
         var r1Text = dGrid.querySelector('.c8-pg-cell[data-row="0"].is-text-card') || dGrid.children[0];
         var r2Text = dGrid.querySelector('.c8-pg-cell[data-row="1"].is-text-card') || dGrid.children[5];
@@ -4409,51 +4452,38 @@ defined('ABSPATH') || exit;
         else newState = 0;
 
         if (newState !== currStateD) {
-          var prevState = currStateD;
           currStateD = newState;
 
           if (currStateD === 0) {
             var targetCell = getUniversalAvailableCell(0, 2);
-            if (prevState === 1) {
-              var cMid = getUniversalAvailableCell(0, 1);
-              snapTile(dGrid, dTile, cMid, 20);
-              setTimeout(function() {
-                if (currStateD === 0) {
-                  snapTile(dGrid, dTile, targetCell, 20);
-                  swapImage(dImgs, 0);
-                }
-              }, 250);
-            } else {
-              snapTile(dGrid, dTile, targetCell, 20);
-              swapImage(dImgs, 0);
-            }
+            swapImage(dImgs, 0);
+            snapTile(dGrid, dTile, targetCell, 20);
           } 
           else if (currStateD === 1) {
             var targetCell = getUniversalAvailableCell(1, 1);
-            if (prevState === 0) {
-              var cMid = getUniversalAvailableCell(0, 1);
-              snapTile(dGrid, dTile, cMid, 20);
-              setTimeout(function() {
-                if (currStateD === 1) {
-                  snapTile(dGrid, dTile, targetCell, 20);
-                  swapImage(dImgs, 1);
-                }
-              }, 250);
-            } else {
-              snapTile(dGrid, dTile, targetCell, 20);
-              swapImage(dImgs, 1);
-            }
+            swapImage(dImgs, 1);
+            snapTile(dGrid, dTile, targetCell, 20);
           } 
           else if (currStateD === 2) {
             var targetCell = getUniversalAvailableCell(2, 1);
-            snapTile(dGrid, dTile, targetCell, 20);
             swapImage(dImgs, 2);
+            snapTile(dGrid, dTile, targetCell, 20);
           } 
           else if (currStateD === 3) {
             var targetCell = getUniversalAvailableCell(2, 2);
-            snapTile(dGrid, dTile, targetCell, 20);
             swapImage(dImgs, 2);
+            snapTile(dGrid, dTile, targetCell, 20);
           }
+        }
+      }
+
+      function onScrollRaf() {
+        if (!isScrollTicking) {
+          requestAnimationFrame(function() {
+            updateUniversalLPath();
+            isScrollTicking = false;
+          });
+          isScrollTicking = true;
         }
       }
 
@@ -4501,8 +4531,8 @@ defined('ABSPATH') || exit;
         });
       }
 
-      window.addEventListener('scroll', updateUniversalLPath, { passive: true });
-      window.addEventListener('resize', updateUniversalLPath, { passive: true });
+      window.addEventListener('scroll', onScrollRaf, { passive: true });
+      window.addEventListener('resize', onScrollRaf, { passive: true });
       document.addEventListener('DOMContentLoaded', updateUniversalLPath);
       window.addEventListener('load', updateUniversalLPath);
 
