@@ -4503,7 +4503,7 @@ defined('ABSPATH') || exit;
         const isMobile = window.innerWidth <= 768;
         const liveCalibData = isMobile ? {
           woo:    { dX: 38,   dY: 976, rot: 0, flipX: 1 },
-          next:   { dX: 296,  dY: 587, rot: 0, flipX: 1 },
+          next:   { dX: 20,   dY: 240, rot: 0, flipX: 1 },
           yellow: { dX: -677, dY: 543, rot: 0, flipX: 1 },
           green:  { dX: -18,  dY: 861, rot: 0, flipX: 1 }
         } : {
