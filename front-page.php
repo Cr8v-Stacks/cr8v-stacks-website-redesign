@@ -611,9 +611,14 @@ defined('ABSPATH') || exit;
       -webkit-user-drag: none !important;
     }
 
+    .t-piece:hover:not(.is-dragging) {
+      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.16)) drop-shadow(0 3px 8px rgba(0, 0, 0, 0.10)) !important;
+    }
+
     .t-piece.is-dragging {
       transition: none !important;
       cursor: grabbing !important;
+      filter: drop-shadow(0 20px 36px rgba(0, 0, 0, 0.22)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.14)) !important;
       z-index: 9999 !important;
     }
 
@@ -4750,16 +4755,7 @@ defined('ABSPATH') || exit;
             e.preventDefault();
           });
 
-          // Hover Glow — visual-only, no position attraction
-          piece.addEventListener('mousemove', function() {
-            if (activePiece) return;
-            piece.style.filter = 'drop-shadow(0 4px 12px rgba(0, 71, 225, 0.22)) drop-shadow(3px 7px 0px rgba(0, 71, 225, 0.30))';
-          });
-
-          piece.addEventListener('mouseleave', function() {
-            if (activePiece === piece) return;
-            piece.style.filter = '';
-          });
+          // Hover state handled natively by CSS for ultra-smooth 60fps rendering
         });
 
         window.addEventListener('pointermove', function(e) {
