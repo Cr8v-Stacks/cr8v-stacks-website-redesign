@@ -4578,19 +4578,27 @@ defined('ABSPATH') || exit;
 
         // Weight calculation function:
         // Returns 1.0 at the scrollProgress where the block was dragged,
-        // fading smoothly to 0 as the user scrolls to the other state.
+        // fading smoothly to 0 as the user scrolls to 0% (sky) or 100% (floor).
         function getDragWeight(piece) {
           const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
           if (calibMode) return 1.0;
           const originS = piece.dragOriginScroll !== undefined ? piece.dragOriginScroll : 0;
-          if (originS >= 0.8) {
-            // Dragged at or near the floor: 100% weight at floor (scrollProgress=1.0),
-            // smoothly fades to 0 as user scrolls up to top.
-            return scrollProgress;
+          if (originS <= 0.02) {
+            // Dragged at or near 0% (top):
+            // Stays where dropped at 0%, smoothly dissolves to 0 at 100% floor
+            return Math.max(0, 1 - scrollProgress);
+          } else if (originS >= 0.98) {
+            // Dragged at or near 100% (floor):
+            // Stays where dropped at 100%, smoothly dissolves to 0 at 0% top
+            return Math.max(0, scrollProgress);
           } else {
-            // Dragged at or before mid-scroll: 100% weight at top (scrollProgress=0.0),
-            // smoothly fades to 0 as user scrolls down to floor.
-            return 1 - scrollProgress;
+            // Dragged mid-scroll:
+            // Stays where dropped at originS, smoothly dissolves to 0 at both 0% and 100%
+            if (scrollProgress <= originS) {
+              return Math.max(0, scrollProgress / originS);
+            } else {
+              return Math.max(0, (1 - scrollProgress) / (1 - originS));
+            }
           }
         }
 
