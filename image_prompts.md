@@ -68,15 +68,42 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 * **Palette**: Dark obsidian background (`#080808`), contextual brand light accents.
 
 ### 🟢 System 7: Universal Negative Space & Compositional Modifier Engine
-*(Can be paired with ANY primary visual system by declaring exact frame location and aspect ratio geometry)*:
-* **Subsystem 7A**: Horizontal Column Negative Space (Left / Right 60–70% clean expanse — optimized for `16:9 Landscape`).
-* **Subsystem 7B**: Vertical Upper Negative Space (Top 60–70% Headroom / Sky expanse — optimized for `3:4` or `9:16 Portrait`).
-* **Subsystem 7C**: Diagonal / Corner Quadrant Negative Space (Optimized for `1:1 Square`).
-* **Subsystem 7D**: Horizontal Center Band / Letterbox Negative Space (Central strip with open top/bottom).
-* **Subsystem 7E**: Perimeter / Island Negative Space (Central open expanse).
+*(Full, complete, untruncated Master Prompts for each negative space geometry)*:
+
+#### 🔹 Subsystem 7A: Horizontal Column Negative Space (Left / Right 60–70% Expanse)
+* **Best Aspect Ratio**: `16:9 Landscape` (widescreen banners, hero headers).
+* **Composition Rule**: Subject anchored strictly on the outer 35% flank, leaving 65% clean, open canvas across the opposite side.
+* **Full Copy-Paste Master Prompt**:
+  > *Atmospheric digital editorial illustration, 16:9 landscape aspect ratio. A 32-year-old Black African male web developer with dark skin tone, short neat black hair (no grey hair), and glasses, resting his chin thoughtfully on his hand while working at a sleek dark desk anchored strictly on the far right third of the frame. Soft royal blue (#0047E1) monitor glow and warm amber desk lamp light gently illuminate his face and sweater. The entire left 65% of the canvas is a completely clean, vast, uncluttered expanse of deep obsidian black (#080808) negative space with subtle atmospheric rim gradients for copy overlay. Natural planar depth, relaxed candid posture, moody creative agency aesthetic, no photorealism, no 3D CGI gloss, no text.*
+
+#### 🔹 Subsystem 7B: Vertical Upper Negative Space (Top 60–70% Headroom / Sky Expanse)
+* **Best Aspect Ratio**: `3:4` or `9:16 Portrait` (vertical mobile, stories, posters).
+* **Composition Rule**: Subject and desk grounded strictly in the lower 30% of the frame, leaving 70% open vertical headroom.
+* **Full Copy-Paste Master Prompt**:
+  > *Atmospheric digital editorial illustration, 3:4 vertical portrait aspect ratio. Wide environmental vertical framing where a 32-year-old Black African male designer with dark skin tone and neat black hair is grounded strictly in the lower 30% of the canvas, resting his head thoughtfully on folded arms on a sleek dark desk beside a glowing laptop. Soft royal blue (#0047E1) screen light and subtle desk lamp rim lighting illuminate his shoulders. The entire upper 70% of the vertical canvas is a vast, calm, uncluttered expanse of deep obsidian black (#080808) and dusty twilight blue negative space, providing generous open headroom for headline copy overlay. Relaxed slice-of-life posture, natural depth, serene moody tone, no photorealism, no 3D CGI gloss, no text.*
+
+#### 🔹 Subsystem 7C: Diagonal / Corner Quadrant Negative Space
+* **Best Aspect Ratio**: `1:1 Square` (social feed posts, profile tiles).
+* **Composition Rule**: Subject nestled in the bottom-right or bottom-left corner, leaving the upper-opposite 70% open.
+* **Full Copy-Paste Master Prompt**:
+  > *Atmospheric digital editorial illustration, 1:1 square aspect ratio. A 32-year-old Black African female design strategist with dark skin tone and neat black hair, seated in quiet contemplation at a minimalist dark desk nestled strictly in the lower-right corner quadrant of the frame. Soft royal blue (#0047E1) and warm amber rim lighting trace her silhouette. The upper-left 70% of the canvas extends into a clean, vast, calm expanse of deep obsidian (#080808) and dusty twilight indigo negative space, creating a natural diagonal breathing room for text overlay. Rich planar depth, relaxed candid posture, moody creative studio atmosphere, no photorealism, no 3D CGI gloss, no text.*
+
+#### 🔹 Subsystem 7D: Horizontal Center Band / Letterbox Negative Space
+* **Best Aspect Ratio**: `16:9 Landscape` (cinematic banner dividers).
+* **Composition Rule**: Subject spans the middle 30% horizontal strip, leaving 35% open space above and below.
+* **Full Copy-Paste Master Prompt**:
+  > *Atmospheric digital editorial illustration, 16:9 landscape aspect ratio. Cinematic letterbox composition where a sleek minimalist desk, glowing laptop, coffee mug, and a 32-year-old Black African male creative director are arranged in a horizontal center strip across the middle third of the canvas. The top 35% and bottom 35% of the frame are completely clean, open, solid deep obsidian black (#080808) negative space. Soft royal blue (#0047E1) screen glow, crisp architectural shadows, minimal clutter, vast horizontal breathing room, natural human depth, no photorealism, no 3D CGI gloss, no text.*
+
+#### 🔹 Subsystem 7E: Perimeter / Island Negative Space (Central Open Expanse)
+* **Best Aspect Ratio**: `16:9 Landscape` or `1:1 Square` (quote cards, metric highlights).
+* **Composition Rule**: Elements frame outer borders, leaving a clean void in the center.
+* **Full Copy-Paste Master Prompt**:
+  > *Atmospheric digital editorial illustration, 16:9 landscape aspect ratio. Top-down overhead studio desk perspective where the central 60% of the canvas is completely clean, open, solid deep obsidian black (#080808) negative space for centered headline typography. The outer perimeter and corners are naturally framed by the edge of a dark laptop keyboard, a ceramic coffee mug, an architectural notebook, and subtle royal blue (#0047E1) ambient light wash along the borders. Clean minimalist layout, dry matte texture, vast central negative space, no photorealism, no 3D CGI gloss, no text.*
 
 ### 🟢 System 8: Entergalactic Cinematic / Textured Brushstroke Art Style
 * **Concept**: 3D-stylized painted animation style with visible, expressive textured brushstrokes sculpting the contours of faces, clothing, and environment. No harsh outlines. Dominated by deep magenta (`#8B008B`), rich indigo (`#4B0082`), and glowing warm amber hues, with a gentle horizontal anamorphic lens flare giving a cosmic, romantic, cinematic glow. Works for any scene or direction.
+* **Full Copy-Paste Master Prompt**:
+  > *An adult animated scene in a 3D-stylized painted art style, reminiscent of Entergalactic, [16:9 landscape / 3:4 portrait / 1:1 square] aspect ratio. A mature 32-year-old Black African creative director with rich dark skin tone and neat black hair (no grey hair), reviewing digital prototypes on a tablet at a modern studio desk. The lighting is dominated by deep magenta, rich indigo, and soft amber hues, with visible, textured brushstrokes mapping the contours of their face, clothing, and surroundings. There are no harsh outlines, and a gentle anamorphic lens flare cuts horizontally across the frame, giving the entire image a romantic, cosmic, and cinematic glow. Rich painterly depth, expressive brush textures, stylized animation aesthetic, no photorealism, no flat vector clipart, no text.*
 
 ---
 
