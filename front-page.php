@@ -546,6 +546,32 @@ defined('ABSPATH') || exit;
       transform: translateY(-2px);
     }
 
+    /* Explore Philosophy CTA — ghost button with real depth */
+    .btn-secondary {
+      background: #FFFFFF;
+      color: var(--c8-ink, #080808);
+      border: 1.5px solid rgba(8, 8, 8, 0.22);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.06);
+      letter-spacing: 0.01em;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--c8-blue, #0047E1);
+      color: var(--c8-blue, #0047E1);
+      box-shadow: 0 4px 16px rgba(0,71,225,0.14);
+      transform: translateY(-2px);
+    }
+
     /* 2D Matrix Floor Arena (17 cols x 7 rows - Exact Screenshot Matrix) */
     .matrix-floor-wrapper {
       width: 100%;
@@ -588,10 +614,10 @@ defined('ABSPATH') || exit;
     }
 
     /* State A Airborne Floating Coordinates (Shifted down 15px, +65px inward with subtle slants) */
-    .air-wp-purple   { position: absolute; left: 60px;   top: 75px;  transform: rotate(-5deg); }
-    .air-nextjs      { position: absolute; left: 145px;  top: 255px; transform: rotate(-8deg); z-index: 600 !important; }
-    .air-green-z     { position: absolute; right: 60px;  top: 75px;  transform: rotate(6deg); }
-    .air-amber-l     { position: absolute; right: 145px; top: 255px; transform: rotate(10deg); }
+    .air-wp-purple   { position: absolute; left: 60px;   top: 145px; transform: rotate(-5deg); }
+    .air-nextjs      { position: absolute; left: 145px;  top: 325px; transform: rotate(-8deg); z-index: 600 !important; }
+    .air-green-z     { position: absolute; right: 60px;  top: 145px; transform: rotate(6deg); }
+    .air-amber-l     { position: absolute; right: 145px; top: 325px; transform: rotate(10deg); }
 
     /* ════════════════════════════════════════════════════════════════
        DESKTOP CANONICAL: MATRIX FLOOR WRAPPER & AIRBORNE LAYER
@@ -673,7 +699,7 @@ defined('ABSPATH') || exit;
         align-items: center !important;
         background-color: #FFFFFF !important;
         background-image: none !important;
-        padding-top: 8rem !important;
+        padding-top: 7rem !important;
         padding-bottom: 0 !important;
         box-sizing: border-box !important;
       }
@@ -4502,10 +4528,10 @@ defined('ABSPATH') || exit;
         // portrait mobile and landscape desktop so landing distances differ.
         const isMobile = window.innerWidth <= 768;
         const liveCalibData = isMobile ? {
-          woo:    { dX: -70,  dY: 410, rot: 0, flipX: 1 },
-          next:   { dX: 20,   dY: 240, rot: 0, flipX: 1 },
-          yellow: { dX: -250, dY: 230, rot: 0, flipX: 1 },
-          green:  { dX: 64,   dY: 360, rot: 0, flipX: 1 }
+          woo:    { dX: -70,  dY: 340, rot: 0, flipX: 1 },
+          next:   { dX: 20,   dY: 170, rot: 0, flipX: 1 },
+          yellow: { dX: -250, dY: 160, rot: 0, flipX: 1 },
+          green:  { dX: 64,   dY: 290, rot: 0, flipX: 1 }
         } : {
           woo:    { dX: 222,  dY: 482, rot: 0, flipX: 1 },
           next:   { dX: 305,  dY: 308, rot: 0, flipX: 1 },
@@ -4558,10 +4584,11 @@ defined('ABSPATH') || exit;
             const baseDX = c.dX * scrollProgress;
             const baseDY = c.dY * scrollProgress;
 
-            // In calibration mode (HUD open), user drag applies at full weight
-            // so you can drag cards to their correct position at ANY scroll level
+            // In calibration mode OR when at the floor (100% scroll), user drag applies
+            // at full weight so blocks stay where dropped instead of snapping back.
             const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
-            const dragWeight = calibMode ? 1 : (1 - scrollProgress);
+            const atFloor   = scrollProgress >= 0.99;
+            const dragWeight = (calibMode || atFloor) ? 1 : (1 - scrollProgress);
             const userX = (item.el.userOffsetX || 0) * dragWeight;
             const userY = (item.el.userOffsetY || 0) * dragWeight;
             const magX = item.el.magX || 0;
@@ -4692,12 +4719,17 @@ defined('ABSPATH') || exit;
 
         window.addEventListener('pointermove', function(e) {
           if (!activePiece) return;
-          const deltaX = e.clientX - dragStartX;
-          const deltaY = e.clientY - dragStartY;
+
+          // Clamp pointer to hero bounds — blocks can't be dragged off-screen
+          const heroEl = document.querySelector('.c8-hero-b-standalone');
+          const heroRect = heroEl ? heroEl.getBoundingClientRect() : { left: 0, right: window.innerWidth, top: 0, bottom: window.innerHeight };
+          const clampedX = Math.max(heroRect.left + 10, Math.min(heroRect.right - 10, e.clientX));
+          const clampedY = Math.max(heroRect.top + 10, Math.min(heroRect.bottom - 10, e.clientY));
+          const deltaX = clampedX - dragStartX;
+          const deltaY = clampedY - dragStartY;
 
           // Divide by --tetris-scale: drag is measured in screen px but applied in
-          // pre-scale coordinate space. Without this, mobile drag feels sluggish
-          // and all calibration dY values get inflated by 1/scale (~2.4x on phones).
+          // pre-scale coordinate space. Without this, mobile drag feels sluggish.
           const scale = parseFloat(document.documentElement.style.getPropertyValue('--tetris-scale')) || 1;
           activePiece.userOffsetX = initialUserX + deltaX / scale;
           activePiece.userOffsetY = initialUserY + deltaY / scale;
