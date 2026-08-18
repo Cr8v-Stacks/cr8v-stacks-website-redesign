@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CR8V Stacks — Block Hover Interaction Lab</title>
+  <title>CR8V Stacks — Magnetic Wave Interaction Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -38,8 +38,8 @@
     }
 
     .lab-header {
-      max-width: 1200px;
-      margin: 0 auto 3rem;
+      max-width: 1000px;
+      margin: 0 auto 2.5rem;
       text-align: center;
     }
     .lab-tag {
@@ -66,85 +66,50 @@
       line-height: 1.6;
     }
 
-    .lab-grid {
-      max-width: 1240px;
+    .demo-container {
+      max-width: 1100px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .lab-card {
       background: #FFFFFF;
       border: 1px solid rgba(8, 8, 8, 0.08);
       border-radius: 8px;
-      padding: 1.75rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-      display: flex;
-      flex-direction: column;
+      padding: 2.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.04);
     }
 
-    .card-meta {
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.85rem;
-      border-bottom: 1px solid rgba(8, 8, 8, 0.06);
-    }
-    .card-badge {
+    .demo-instructions {
+      text-align: center;
+      margin-bottom: 2rem;
       font-family: var(--font-mono);
-      font-size: 0.7rem;
-      font-weight: 700;
+      font-size: 0.8rem;
       color: var(--c8-blue);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 0.4rem;
-    }
-    .card-name {
-      font-family: var(--font-heading);
-      font-size: 1rem;
-      color: var(--c8-ink);
-      margin-bottom: 0.4rem;
-    }
-    .card-desc {
-      font-size: 0.82rem;
-      color: #666;
-      line-height: 1.5;
     }
 
-    .stage-area {
-      flex: 1;
-      min-height: 240px;
+    .matrix-arena-preview {
+      display: grid;
+      grid-template-columns: repeat(12, var(--u));
+      grid-template-rows: repeat(4, var(--u));
+      gap: 0;
+      position: relative;
+      margin: 0 auto;
+      width: fit-content;
       background: #F4F4F0;
+      padding: 1.5rem;
       border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      perspective: 800px;
     }
 
-    /* Common Block Geometry */
-    .demo-piece {
-      cursor: pointer;
+    .t-piece {
+      position: relative;
+      cursor: grab;
       user-select: none;
-      position: relative;
-      display: inline-block;
+      transition: filter 0.2s ease;
+      touch-action: none;
     }
-
-    .t-grid-2x2 {
-      display: grid;
-      grid-template-columns: repeat(2, var(--u));
-      grid-template-rows: repeat(2, var(--u));
-    }
-    .t-grid-3x2 {
-      display: grid;
-      grid-template-columns: repeat(2, var(--u));
-      grid-template-rows: repeat(3, var(--u));
-    }
-    .t-grid-4x1 {
-      display: grid;
-      grid-template-columns: repeat(4, var(--u));
-      grid-template-rows: var(--u);
+    .t-piece.is-dragging {
+      cursor: grabbing !important;
+      z-index: 9999 !important;
+      filter: drop-shadow(0 20px 36px rgba(0,0,0,0.22)) drop-shadow(0 6px 14px rgba(0,0,0,0.14)) !important;
     }
 
     .t-cell {
@@ -172,8 +137,11 @@
 
     .tone-obsidian { background: var(--block-obsidian); color: #FFF; }
     .tone-royal-blue { background: var(--block-royal-blue); color: #FFF; }
+    .tone-light-grey { background: var(--block-light-grey); color: #111; }
     .tone-purple { background: var(--block-purple); color: #FFF; }
+    .tone-terracotta { background: var(--block-terracotta); color: #FFF; }
     .tone-golden-yellow { background: var(--block-golden-yellow); color: #080808; }
+    .tone-forest-green { background: var(--block-forest-green); color: #FFF; }
 
     .t-label {
       position: absolute;
@@ -182,290 +150,207 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 4px;
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       z-index: 10;
       pointer-events: none;
     }
+    .t-label.is-row {
+      flex-direction: row;
+      gap: 8px;
+    }
     .t-cdn-logo {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       object-fit: contain;
     }
-
-    /* ═════════════════════════════════════════════════════════════════
-       EFFECT 1: 3D CURSOR-TRACKING TILT & SPECULAR GLARE (LINEAR STYLE)
-       ═════════════════════════════════════════════════════════════════ */
-    .fx-tilt-card {
-      transition: filter 0.25s ease;
-      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.08));
-    }
-    .fx-tilt-inner {
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.15s ease-out;
-      position: relative;
-    }
-    .fx-glare {
-      position: absolute;
-      inset: 0;
-      border-radius: 4px;
-      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%);
-      opacity: 0;
-      pointer-events: none;
-      z-index: 12;
-      transition: opacity 0.2s ease;
-      mix-blend-mode: overlay;
-    }
-    .fx-tilt-card:hover .fx-glare {
-      opacity: 1;
-    }
-    .fx-tilt-card:hover {
-      filter: drop-shadow(0 18px 32px rgba(0,0,0,0.18)) drop-shadow(0 4px 10px rgba(0,0,0,0.12));
-    }
-
-    /* ═════════════════════════════════════════════════════════════════
-       EFFECT 2: TACTILE SPRING POP & MICRO-LEVITATION (TOY / ARCADE)
-       ═════════════════════════════════════════════════════════════════ */
-    .fx-spring-card {
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
-      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.08));
-      transform-origin: center center;
-    }
-    .fx-spring-card:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 20px 36px rgba(0,0,0,0.18)) drop-shadow(0 6px 12px rgba(0,0,0,0.12));
-    }
-    .fx-spring-card .t-label {
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .fx-spring-card:hover .t-label {
-      transform: translateY(-2px);
-    }
-
-    /* ═════════════════════════════════════════════════════════════════
-       EFFECT 3: SPECULAR SHIMMER SWEEP (HIGH-TECH SPECULAR GLEAM)
-       ═════════════════════════════════════════════════════════════════ */
-    .fx-shimmer-card {
-      transition: filter 0.25s ease, transform 0.25s ease;
-      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.08));
-      position: relative;
-    }
-    .fx-shimmer-card:hover {
-      transform: translateY(-4px);
-      filter: drop-shadow(0 18px 30px rgba(0,0,0,0.16)) drop-shadow(0 4px 10px rgba(0,0,0,0.10));
-    }
-    .fx-shimmer-sheen {
-      position: absolute;
-      inset: -50%;
-      background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.4) 48%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.4) 52%, transparent 65%);
-      transform: translateX(-100%) rotate(25deg);
-      pointer-events: none;
-      z-index: 15;
-      transition: transform 0.75s ease;
-    }
-    .fx-shimmer-card:hover .fx-shimmer-sheen {
-      transform: translateX(100%) rotate(25deg);
-    }
-
-    /* ═════════════════════════════════════════════════════════════════
-       EFFECT 4: KINETIC HYBRID (SPRING LIFT + 3D TILT + GLARE)
-       ═════════════════════════════════════════════════════════════════ */
-    .fx-hybrid-card {
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
-      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.08));
-    }
-    .fx-hybrid-card:hover {
-      transform: scale(1.04);
-      filter: drop-shadow(0 20px 38px rgba(0,0,0,0.20)) drop-shadow(0 6px 14px rgba(0,0,0,0.14));
-    }
-    .fx-hybrid-inner {
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.15s ease-out;
-      position: relative;
-    }
-
-    .footer-note {
-      text-align: center;
-      margin-top: 3rem;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: #777;
+    .t-cdn-logo.is-white {
+      filter: brightness(0) invert(1);
     }
   </style>
 </head>
 <body>
 
   <header class="lab-header">
-    <div class="lab-tag">// CR8V STACKS INTERACTION LAB</div>
-    <h1 class="lab-title">Block Hover Experience Showcase</h1>
-    <p class="lab-sub">Hover and glide your cursor over each block below to experience 4 different interaction styles. None of these affect drag or scroll physics.</p>
+    <div class="lab-tag">// TACTILE INTERACTION LAB</div>
+    <h1 class="lab-title">Pure Magnetic Wave &amp; Ripple Lab</h1>
+    <p class="lab-sub">Glide your cursor smoothly across the assembled blocks below. Notice how each block subtly leans toward your cursor in real time, creating an organic tactile wave—and test dragging any piece freely.</p>
   </header>
 
-  <main class="lab-grid">
-
-    <!-- Option 1 -->
-    <div class="lab-card">
-      <div class="card-meta">
-        <div class="card-badge">Option 01</div>
-        <h2 class="card-name">3D Parallax Tilt &amp; Specular Glare</h2>
-        <p class="card-desc">Tilts in 3D toward your cursor with a dynamic specular spotlight that follows mouse coordinates.</p>
-      </div>
-      <div class="stage-area" id="stage1">
-        <div class="demo-piece fx-tilt-card" id="tiltPiece">
-          <div class="fx-tilt-inner" id="tiltInner">
-            <div class="fx-glare" id="tiltGlare"></div>
-            <div class="t-grid-2x2 tone-obsidian">
-              <div class="t-cell"><div class="t-shape-body tone-obsidian"></div></div>
-              <div class="t-cell"><div class="t-shape-body tone-obsidian"></div></div>
-              <div class="t-cell"><div class="t-shape-body tone-obsidian"></div></div>
-              <div class="t-cell"><div class="t-shape-body tone-obsidian"></div></div>
-              <div class="t-label">
-                <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/default.svg" alt="OpenAI" class="t-cdn-logo">
-                <span>OPENAI</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="demo-container">
+    <div class="demo-instructions">
+      ✦ Glide mouse across the cluster for the magnetic wave • Click &amp; drag any block to test zero-conflict drag ✦
     </div>
 
-    <!-- Option 2 -->
-    <div class="lab-card">
-      <div class="card-meta">
-        <div class="card-badge">Option 02</div>
-        <h2 class="card-name">Tactile Spring Pop &amp; Micro-Lift</h2>
-        <p class="card-desc">Bounces with an elastic spring scale (1.05x) and a floating icon lift, casting a deep contact shadow.</p>
-      </div>
-      <div class="stage-area">
-        <div class="demo-piece fx-spring-card">
-          <div class="t-grid-3x2 tone-purple">
-            <div class="t-cell"><div class="t-shape-body tone-purple"></div></div>
-            <div class="t-cell"><div class="t-shape-body tone-purple"></div></div>
-            <div class="t-cell"><div class="t-shape-body tone-purple"></div></div>
-            <div class="t-cell"><div class="t-shape-body tone-purple"></div></div>
-            <div class="t-cell"><div class="t-shape-body tone-purple"></div></div>
-            <div class="t-cell"><div class="t-shape-body tone-purple"></div></div>
-            <div class="t-label">
-              <img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/woocommerce-light.svg" alt="WooCommerce" class="t-cdn-logo">
-              <span>WOOCOMMERCE</span>
-            </div>
-          </div>
+    <div class="matrix-arena-preview" id="previewArena">
+
+      <!-- 1. OpenAI (2x2) -->
+      <div class="t-piece tone-obsidian" style="grid-column: 1 / span 2; grid-row: 3 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+        <div class="t-cell"><div class="t-shape-body tone-obsidian"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-obsidian"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-obsidian"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-obsidian"></div></div>
+        <div class="t-label">
+          <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/default.svg" alt="OpenAI" class="t-cdn-logo">
+          <span>OPENAI</span>
         </div>
       </div>
-    </div>
 
-    <!-- Option 3 -->
-    <div class="lab-card">
-      <div class="card-meta">
-        <div class="card-badge">Option 03</div>
-        <h2 class="card-name">Specular Shimmer Sweep</h2>
-        <p class="card-desc">Lifts slightly (-4px) with a crisp diagonal light beam that sweeps across the block surface on hover.</p>
+      <!-- 2. Web Design (2x2) -->
+      <div class="t-piece tone-light-grey" style="grid-column: 3 / span 2; grid-row: 2 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+        <div class="t-cell"><div class="t-shape-body tone-light-grey"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-light-grey"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-light-grey"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-light-grey"></div></div>
+        <div class="t-label"><span>WEB DESIGN</span></div>
       </div>
-      <div class="stage-area">
-        <div class="demo-piece fx-shimmer-card">
-          <div class="fx-shimmer-sheen"></div>
-          <div class="t-grid-4x1 tone-royal-blue">
-            <div class="t-cell"><div class="t-shape-body tone-royal-blue"></div></div>
-            <div class="t-cell"><div class="t-shape-body tone-royal-blue"></div></div>
-            <div class="t-cell"><div class="t-shape-body tone-royal-blue"></div></div>
-            <div class="t-cell"><div class="t-shape-body tone-royal-blue"></div></div>
-            <div class="t-label">
-              <span>CUSTOM DEVELOPMENT</span>
-            </div>
-          </div>
+
+      <!-- 3. Custom Dev (4x1) -->
+      <div class="t-piece tone-royal-blue" style="grid-column: 3 / span 4; grid-row: 4; display:grid; grid-template-columns: repeat(4, var(--u)); grid-template-rows: var(--u);">
+        <div class="t-cell"><div class="t-shape-body tone-royal-blue"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-royal-blue"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-royal-blue"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-royal-blue"></div></div>
+        <div class="t-label"><span>CUSTOM DEV</span></div>
+      </div>
+
+      <!-- 4. AI MVP (2x2) -->
+      <div class="t-piece tone-royal-blue" style="grid-column: 5 / span 2; grid-row: 2 / span 2; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(2, var(--u));">
+        <div class="t-cell"><div class="t-shape-body tone-royal-blue"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-royal-blue"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-royal-blue"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-royal-blue"></div></div>
+        <div class="t-label"><span>AI MVP</span></div>
+      </div>
+
+      <!-- 5. Shopify (3x1) -->
+      <div class="t-piece tone-obsidian" style="grid-column: 7 / span 3; grid-row: 4; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
+        <div class="t-cell"><div class="t-shape-body tone-obsidian"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-obsidian"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-obsidian"></div></div>
+        <div class="t-label is-row">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg" alt="Shopify" class="t-cdn-logo is-white">
+          <span>SHOPIFY</span>
         </div>
       </div>
-    </div>
 
-    <!-- Option 4 -->
-    <div class="lab-card">
-      <div class="card-meta">
-        <div class="card-badge">Option 04</div>
-        <h2 class="card-name">Kinetic Hybrid</h2>
-        <p class="card-desc">Combines spring expansion (1.04x), 3D perspective tilt, and interactive surface light tracking.</p>
+      <!-- 6. WooCommerce L-Piece (2x3) -->
+      <div class="t-piece tone-purple" style="grid-column: 7 / span 2; grid-row: 1 / span 3; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u));">
+        <div class="t-cell"><div class="t-shape-body tone-purple"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-purple"><img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/woocommerce-light.svg" alt="Woo" class="t-cdn-logo"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-purple"></div></div>
+        <div class="t-cell"></div>
+        <div class="t-cell"><div class="t-shape-body tone-purple"></div></div>
+        <div class="t-cell"></div>
       </div>
-      <div class="stage-area" id="stage4">
-        <div class="demo-piece fx-hybrid-card" id="hybridPiece">
-          <div class="fx-hybrid-inner" id="hybridInner">
-            <div class="fx-glare" id="hybridGlare"></div>
-            <div class="t-grid-2x2 tone-golden-yellow">
-              <div class="t-cell"><div class="t-shape-body tone-golden-yellow"></div></div>
-              <div class="t-cell"><div class="t-shape-body tone-golden-yellow"></div></div>
-              <div class="t-cell"><div class="t-shape-body tone-golden-yellow"></div></div>
-              <div class="t-cell"><div class="t-shape-body tone-golden-yellow"></div></div>
-              <div class="t-label">
-                <span>BRAND STRATEGY</span>
-              </div>
-            </div>
-          </div>
+
+      <!-- 7. Figma (3x1) -->
+      <div class="t-piece tone-forest-green" style="grid-column: 10 / span 3; grid-row: 4; display:grid; grid-template-columns: repeat(3, var(--u)); grid-template-rows: var(--u);">
+        <div class="t-cell"><div class="t-shape-body tone-forest-green"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-forest-green"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-forest-green"></div></div>
+        <div class="t-label is-row">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg" alt="Figma" class="t-cdn-logo is-white">
+          <span>FIGMA</span>
         </div>
       </div>
+
+      <!-- 8. Amber L-Piece (2x3) -->
+      <div class="t-piece tone-golden-yellow" style="grid-column: 10 / span 2; grid-row: 1 / span 3; display:grid; grid-template-columns: repeat(2, var(--u)); grid-template-rows: repeat(3, var(--u));">
+        <div class="t-cell"></div>
+        <div class="t-cell"><div class="t-shape-body tone-golden-yellow"></div></div>
+        <div class="t-cell"></div>
+        <div class="t-cell"><div class="t-shape-body tone-golden-yellow"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-golden-yellow"></div></div>
+        <div class="t-cell"><div class="t-shape-body tone-golden-yellow"></div></div>
+      </div>
+
     </div>
-
-  </main>
-
-  <footer class="footer-note">
-    CR8V STACKS — Visual Interaction Showcase File (Open in browser to test live)
-  </footer>
+  </div>
 
   <script>
-    // 3D Parallax Tilt Logic for Option 1
-    const stage1 = document.getElementById('stage1');
-    const tiltInner = document.getElementById('tiltInner');
-    const tiltGlare = document.getElementById('tiltGlare');
+    (function() {
+      const allPieces = document.querySelectorAll('.t-piece');
+      let activePiece = null;
+      let dragStartX = 0, dragStartY = 0;
+      let initialUserX = 0, initialUserY = 0;
 
-    if (stage1 && tiltInner && tiltGlare) {
-      stage1.addEventListener('mousemove', (e) => {
-        const rect = tiltInner.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const cx = rect.width / 2;
-        const cy = rect.height / 2;
+      function renderPiece(piece) {
+        if (piece === activePiece) return;
+        const uX = piece.userX || 0;
+        const uY = piece.userY || 0;
+        const mX = piece.magX || 0;
+        const mY = piece.magY || 0;
+        piece.style.transform = `translate3d(${uX + mX}px, ${uY + mY}px, 0)`;
+      }
 
-        const rotX = ((y - cy) / cy) * -14;
-        const rotY = ((x - cx) / cx) * 14;
+      allPieces.forEach(piece => {
+        piece.userX = 0;
+        piece.userY = 0;
+        piece.magX = 0;
+        piece.magY = 0;
 
-        tiltInner.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-        tiltGlare.style.background = `radial-gradient(circle at ${(x / rect.width) * 100}% ${(y / rect.height) * 100}%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 65%)`;
+        piece.addEventListener('pointerdown', (e) => {
+          activePiece = piece;
+          piece.classList.add('is-dragging');
+          piece.magX = 0;
+          piece.magY = 0;
+          dragStartX = e.clientX;
+          dragStartY = e.clientY;
+          initialUserX = piece.userX || 0;
+          initialUserY = piece.userY || 0;
+          piece.setPointerCapture(e.pointerId);
+          document.body.style.userSelect = 'none';
+          e.preventDefault();
+        });
+
+        // ✦ PURE ISOLATED MAGNETIC ATTRACTION ✦
+        piece.addEventListener('mousemove', (e) => {
+          if (activePiece) return;
+          const rect = piece.getBoundingClientRect();
+          const cx = rect.left + rect.width / 2;
+          const cy = rect.top + rect.height / 2;
+          // Smooth 12% magnetic follow factor
+          piece.magX = (e.clientX - cx) * 0.12;
+          piece.magY = (e.clientY - cy) * 0.12;
+          piece.style.filter = 'drop-shadow(0 14px 26px rgba(0,0,0,0.14)) drop-shadow(0 3px 8px rgba(0,0,0,0.08))';
+          renderPiece(piece);
+        });
+
+        piece.addEventListener('mouseleave', () => {
+          if (activePiece === piece) return;
+          piece.magX = 0;
+          piece.magY = 0;
+          piece.style.filter = '';
+          renderPiece(piece);
+        });
       });
 
-      stage1.addEventListener('mouseleave', () => {
-        tiltInner.style.transform = 'rotateX(0deg) rotateY(0deg)';
-      });
-    }
-
-    // 3D Parallax Tilt Logic for Option 4
-    const stage4 = document.getElementById('stage4');
-    const hybridInner = document.getElementById('hybridInner');
-    const hybridGlare = document.getElementById('hybridGlare');
-
-    if (stage4 && hybridInner && hybridGlare) {
-      stage4.addEventListener('mousemove', (e) => {
-        const rect = hybridInner.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const cx = rect.width / 2;
-        const cy = rect.height / 2;
-
-        const rotX = ((y - cy) / cy) * -10;
-        const rotY = ((x - cx) / cx) * 10;
-
-        hybridInner.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-        hybridGlare.style.background = `radial-gradient(circle at ${(x / rect.width) * 100}% ${(y / rect.height) * 100}%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 65%)`;
+      window.addEventListener('pointermove', (e) => {
+        if (!activePiece) return;
+        const dx = e.clientX - dragStartX;
+        const dy = e.clientY - dragStartY;
+        activePiece.userX = initialUserX + dx;
+        activePiece.userY = initialUserY + dy;
+        activePiece.style.transform = `translate3d(${activePiece.userX}px, ${activePiece.userY}px, 0)`;
       });
 
-      stage4.addEventListener('mouseleave', () => {
-        hybridInner.style.transform = 'rotateX(0deg) rotateY(0deg)';
-      });
-    }
+      function endDrag() {
+        if (!activePiece) return;
+        const p = activePiece;
+        activePiece = null;
+        p.classList.remove('is-dragging');
+        document.body.style.userSelect = '';
+        renderPiece(p);
+      }
+
+      window.addEventListener('pointerup', endDrag);
+      window.addEventListener('pointercancel', endDrag);
+    })();
   </script>
 </body>
 </html>
