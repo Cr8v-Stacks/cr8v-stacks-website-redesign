@@ -4534,10 +4534,10 @@ defined('ABSPATH') || exit;
         // portrait mobile and landscape desktop so landing distances differ.
         const isMobile = window.innerWidth <= 768;
         const liveCalibData = isMobile ? {
-          woo:    { dX: -70,  dY: 340, rot: 0, flipX: 1 },
-          next:   { dX: 20,   dY: 170, rot: 0, flipX: 1 },
+          woo:    { dX: -50,  dY: 337, rot: 0, flipX: 1 },
+          next:   { dX: 24,   dY: 160, rot: 0, flipX: 1 },
           yellow: { dX: -250, dY: 160, rot: 0, flipX: 1 },
-          green:  { dX: 64,   dY: 290, rot: 0, flipX: 1 }
+          green:  { dX: 62,   dY: 285, rot: 0, flipX: 1 }
         } : {
           woo:    { dX: 222,  dY: 482, rot: 0, flipX: 1 },
           next:   { dX: 305,  dY: 308, rot: 0, flipX: 1 },
@@ -4693,6 +4693,18 @@ defined('ABSPATH') || exit;
             dragStartX = e.clientX;
             dragStartY = e.clientY;
 
+            // Clear magnetic hover residual so it doesn't cause a jolt on release
+            piece.magX = 0;
+            piece.magY = 0;
+            piece.style.filter = '';
+
+            // At 100% scroll dragWeight=0, so any mid-scroll residual userOffset is
+            // invisible but still stored. Reset it so initialUserX starts clean.
+            if (scrollProgress >= 0.99) {
+              piece.userOffsetX = 0;
+              piece.userOffsetY = 0;
+            }
+
             initialUserX = piece.userOffsetX || 0;
             initialUserY = piece.userOffsetY || 0;
 
@@ -4765,8 +4777,15 @@ defined('ABSPATH') || exit;
             // base values, so trajectory still works cleanly from 0→100%.
             const k = getKey(releasedPiece);
             if (k && scrollProgress >= 0.99) {
+              // Airborne card at floor: bake drag into liveCalibData so it stays put.
+              // Trajectory from 0→100% is updated, scroll-back still works cleanly.
               liveCalibData[k].dX += (releasedPiece.userOffsetX || 0);
               liveCalibData[k].dY += (releasedPiece.userOffsetY || 0);
+              releasedPiece.userOffsetX = 0;
+              releasedPiece.userOffsetY = 0;
+            } else if (!k && scrollProgress >= 0.99) {
+              // Floor grid block at 100% scroll: dragWeight=0 so the offset is invisible.
+              // Clear it so it doesn't haunt the scroll-back animation.
               releasedPiece.userOffsetX = 0;
               releasedPiece.userOffsetY = 0;
             }
