@@ -4645,6 +4645,30 @@ defined('ABSPATH') || exit;
             piece.style.transform = `translate3d(${userX}px, ${userY}px, 0)`;
           });
 
+          // Auto-clear drag offsets at scroll endpoints so scrolling in the opposite
+          // direction always follows the pure, predefined canonical trajectory
+          if (!calibMode && !activePiece) {
+            if (scrollProgress <= 0.001) {
+              // At 0% top: clear any floor drag offsets so scrolling down always hits true floor sockets
+              allBlocks.forEach(piece => {
+                if (piece.dragOriginScroll !== undefined && piece.dragOriginScroll >= 0.5) {
+                  piece.userOffsetX = 0;
+                  piece.userOffsetY = 0;
+                  piece.dragOriginScroll = 0;
+                }
+              });
+            } else if (scrollProgress >= 0.999) {
+              // At 100% floor: clear any sky drag offsets so scrolling up always returns to true 0% sky
+              allBlocks.forEach(piece => {
+                if (piece.dragOriginScroll !== undefined && piece.dragOriginScroll < 0.5) {
+                  piece.userOffsetX = 0;
+                  piece.userOffsetY = 0;
+                  piece.dragOriginScroll = 1;
+                }
+              });
+            }
+          }
+
           updateHUDDisplay();
         }
 
