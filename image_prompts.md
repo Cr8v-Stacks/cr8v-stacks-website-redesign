@@ -1,14 +1,17 @@
 # CR8V Stacks — Master Image Prompt Engineering & Section Audit Registry
-*Last updated: 2026-08-13*
+*Last updated: 2026-08-18*
 
 ## 🎨 Master Representation & System Directives
 
-1. **System-First Visual Rule**:
-   - The visual system rules (lighting, color spectrum, negative space, shadow play, rendering texture) dictate the visual identity of every asset.
-   - Subjects do **NOT** always have to be human. Image concepts can be literal interpretations of a section (e.g., UI layout wireframe canvas, terminal code blocks, AI pipeline, brand architecture map, SEO keyword web) or abstract architecture/tools, provided they strictly follow one of the 5 Master Visual Systems.
-2. **Cultural & Character Representation Directive**:
-   - Whenever human subjects ARE depicted, they MUST explicitly feature **mature Black African adults (28–35 age range) with dark skin tones** (e.g. `mature 30-year-old Black African adult male/female founder/developer/strategist with dark skin tone`).
-   - Absolutely NO teenage, kid, or flat generic drawing appearances.
+1. **System-First & Content-Tallying Visual Rule**:
+   - The visual system rules (lighting, chiaroscuro contrast, color spectrum, negative space, shadow play, rendering texture) dictate the visual identity of every asset.
+   - **Do NOT default to human subjects.** Image concepts must primarily be creative, fun, sophisticated literal or conceptual interpretations of the section content (e.g. tactile Bauhaus design blocks, glowing neural pathways, kinetic growth machines, interactive UI wireframe canvases, terminal code structures, search graph networks, conversion funnels).
+   - Humans are **ONLY used where strictly necessary** (e.g. founder bio or specific client testimonial contexts).
+
+2. **Cultural & Character Representation Directive (When Humans Are Used)**:
+   - When human subjects ARE depicted, they MUST explicitly feature **mature Black African adults (28–35 age range) with dark skin tones** (e.g. `mature 30-year-old Black African adult male/female founder/developer/strategist with dark skin tone`).
+   - Absolutely NO teenage, kid, or flat generic drawing appearances. Professional, sleek, dark moody aesthetic only.
+
 3. **Logo Secondary Color Rotation**:
    - Multi-card image clusters (e.g. Services Deep Dive 01–06) rotate light accents through the logo palette:
      1. Website Design: **Royal Blue** (`#0047E1`)
@@ -26,16 +29,16 @@
 * **Concept**: Minimalist graphic editorial poster art featuring stylized dark silhouettes or clean architectural forms struck by bold light shafts, casting long sharp shadows across dark obsidian floors.
 * **Palette**: Dark obsidian (`#080808`), Royal Blue (`#0047E1`), Crimson Red (`#E20025`), Gold (`#FFB800`).
 
-### 🟢 System 2: Mature Adult Lofi + Solid Stylized Silhouette Background
-* **Concept**: Mature Black African adult characters or central section subjects set against **solid stylized silhouette backgrounds** (simplified dark shapes and monitor/tool outlines) for high visual contrast.
-* **Palette**: Dark obsidian charcoal (`#080808`), Royal Blue (`#0047E1`) screen glow, warm accent rim light.
+### 🟢 System 2: Tactile Geometric / Kinetic Editorial Abstraction (Fun & Playful)
+* **Concept**: Playful, sophisticated 3D tactile compositions, floating geometric glyphs, neural gears, and kinetic growth mechanisms set in dark atmospheric spaces with crisp light beams.
+* **Palette**: Dark obsidian (`#080808`), Royal Blue (`#0047E1`), Gold (`#FFB800`), Crimson Red (`#E20025`), crisp white.
 
 ### 🟢 System 3: Rule-of-Thirds Negative Space Layout (Social & Overlay Ready)
-* **Concept**: Subject (human or conceptual form) offset to the right or left third of the frame, leaving 50–60% clean dark obsidian (`#080808`) negative space for typography or UI overlays.
+* **Concept**: Subject offset to the right or left third of the frame, leaving 50–60% clean dark obsidian (`#080808`) negative space for typography or UI overlays.
 * **Palette**: Dark obsidian background (`#080808`), contextual brand light accents.
 
 ### 🟢 System 4: Workspace & Abstract Chiaroscuro Fusion
-* **Concept**: Merges a dark workspace or section subject with an abstract minimalist architectural space where dramatic light beams cut through darkness and cast long sharp shadows.
+* **Concept**: Merges a dark workspace or tool subject with an abstract minimalist architectural space where dramatic light beams cut through darkness and cast long sharp shadows.
 * **Palette**: Deep obsidian (`#080808`), Royal Blue (`#0047E1`), dark charcoal shadow gradient.
 
 ### 🟢 System 5: Contemporary African Layered Color Patches (Rust, Amber & Deep Red)
@@ -46,20 +49,33 @@
 
 ## 📁 Full Section-by-Section Image Prompt Audit Registry
 
-### 1. CREATIVE AGENCY MINDSET (`#how-we-think`)
-* **Aspect Ratio**: 3:4 Vertical
-* **System**: System 2 (Mature Adult Lofi + Solid Silhouette Background)
+### 1. CREATIVE AGENCY MINDSET (`#how-we-think` / Paper Grid)
+* **Section Headline**: `How We Think & Create`
+* **Section Subheadline**: `Design is our primary focus, supported by AI as a creative partner and built-in growth systems.`
+
+#### Row 1 — Design-Led Brand & Visual Systems
+* **Card Content**: *"Design is our primary foundation. We craft distinct visual identities, digital products, and brand systems that make your business instantly memorable."*
+* **Aspect Ratio**: `3:4` Vertical
+* **System**: System 2 (Tactile Geometric / Kinetic Editorial Abstraction — Fun & Playful)
 * **File Target**: `assets/img/abstract/cr8v_mindset_design_system.jpg`
 * **Written Prompt**:
-  > Graphic lofi digital editorial illustration, 3:4 vertical aspect ratio. A mature 30-year-old Black African male design director with dark skin tone and glasses, sitting thoughtfully at a sleek dark desk at night. Soft royal blue (#0047E1) glow reflecting on his face and workspace. Solid dark stylized minimalist silhouette background shapes (#080808) creating high-contrast graphic pop. Mature adult facial features, sleek professional aesthetic, dark moody tone, no teenage look, no clutter, no photorealism.
+  > Fun, vibrant minimalist graphic editorial illustration, 3:4 vertical aspect ratio. Playful geometric composition of floating tactile design system blocks, typography glyphs, abstract Bauhaus-inspired shapes, and color swatches in high-contrast Royal Blue (#0047E1) and crisp white on a deep obsidian black (#080808) floor. Crisp directional lighting casting sharp architectural shadows, modern creative agency poster art style, sleek and energetic, clean dark negative space, no photorealism, no text.
 
+#### Row 2 — AI as Our Creative Partner
+* **Card Content**: *"We leverage AI as a high-speed creative partner—accelerating research, rapid prototyping, and workflow iteration so we can ship elevated design faster."*
+* **Aspect Ratio**: `3:4` Vertical
+* **System**: System 2 (Tactile Geometric / Kinetic Editorial Abstraction — Fun & Playful)
 * **File Target**: `assets/img/abstract/cr8v_mindset_ai_partner.jpg`
 * **Written Prompt**:
-  > Graphic lofi digital editorial illustration, 3:4 vertical aspect ratio. A mature 30-year-old Black African male AI engineer with dark skin tone reviewing glowing blue and gold algorithm nodes on a tablet screen at night. Soft royal blue (#0047E1) light with golden highlights (#FFB800) casting ambient glow. Solid dark stylized minimalist silhouette background (#080808). Mature adult features, clean geometric composition, dark moody aesthetic, no photorealism.
+  > Fun, vibrant minimalist graphic editorial illustration, 3:4 vertical aspect ratio. Playful geometric composition of glowing neural circuit nodes, floating neon cubes, abstract interlocking polygon gears, and luminous data pathways in Royal Blue (#0047E1), glowing golden yellow (#FFB800), and crisp white accents on a deep obsidian black (#080808) floor. Directional lighting casting long sharp graphic shadows, energetic creative agency poster art style, sleek and modern, vast dark negative space, no photorealism, no text.
 
+#### Row 3 — Built-In Growth Engine
+* **Card Content**: *"Stunning design means nothing if it doesn't scale. Our brand systems are built to convert, capture market share, and drive long-term business momentum."*
+* **Aspect Ratio**: `3:4` Vertical
+* **System**: System 2 (Tactile Geometric / Kinetic Editorial Abstraction — Fun & Playful)
 * **File Target**: `assets/img/abstract/cr8v_mindset_growth_engine.jpg`
 * **Written Prompt**:
-  > Graphic lofi digital editorial illustration, 3:4 vertical aspect ratio. A mature 32-year-old Black African female growth strategist with dark skin tone analyzing crimson red (#E20025) and royal blue (#0047E1) performance data metrics on a dark display. Solid dark stylized minimalist silhouette background shapes (#080808). Mature adult features, dark moody atmosphere, high-contrast graphic pop, no photorealism.
+  > Fun, vibrant minimalist graphic editorial illustration, 3:4 vertical aspect ratio. Playful kinetic composition of an abstract growth machine, ascending geometric staircase ramps, dynamic momentum arrows, interlocking tactile gears, and metric graph bars in bold Crimson Red (#E20025), Royal Blue (#0047E1), and crisp white on a deep obsidian black (#080808) floor. Crisp directional light beams casting long dramatic shadows, modern creative technology poster art style, sleek and energetic, vast dark negative space, no photorealism, no text.
 
 ---
 
