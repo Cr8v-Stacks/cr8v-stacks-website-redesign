@@ -4534,10 +4534,10 @@ defined('ABSPATH') || exit;
         // portrait mobile and landscape desktop so landing distances differ.
         const isMobile = window.innerWidth <= 768;
         const liveCalibData = isMobile ? {
-          woo:    { dX: -50,  dY: 337, rot: 0, flipX: 1 },
-          next:   { dX: 24,   dY: 160, rot: 0, flipX: 1 },
-          yellow: { dX: -250, dY: 160, rot: 0, flipX: 1 },
-          green:  { dX: 62,   dY: 285, rot: 0, flipX: 1 }
+          woo:    { dX: -100, dY: 752, rot: 0, flipX: 1 },
+          next:   { dX: 37,   dY: 401, rot: 0, flipX: 1 },
+          yellow: { dX: -496, dY: 388, rot: 0, flipX: 1 },
+          green:  { dX: 133,  dY: 650, rot: 0, flipX: 1 }
         } : {
           woo:    { dX: 222,  dY: 482, rot: 0, flipX: 1 },
           next:   { dX: 305,  dY: 308, rot: 0, flipX: 1 },
@@ -4581,6 +4581,8 @@ defined('ABSPATH') || exit;
             { el: airGreen, key: 'green', initialRot: 6 }
           ];
 
+          const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
+
           // 1. Render Airborne Floating Cards
           pieces.forEach(item => {
             if (!item.el) return;
@@ -4590,12 +4592,18 @@ defined('ABSPATH') || exit;
             const baseDX = c.dX * scrollProgress;
             const baseDY = c.dY * scrollProgress;
 
-            // In calibration mode (HUD open), user drag applies at full weight
-            // so cards can be positioned at any scroll level for calibration.
-            const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
-            const dragWeight = calibMode ? 1 : (1 - scrollProgress);
-            const userX = (item.el.userOffsetX || 0) * dragWeight;
-            const userY = (item.el.userOffsetY || 0) * dragWeight;
+            let userX = 0, userY = 0;
+            if (calibMode) {
+              userX = item.el.userOffsetX || 0;
+              userY = item.el.userOffsetY || 0;
+            } else {
+              const skyX = item.el.skyOffsetX || 0;
+              const skyY = item.el.skyOffsetY || 0;
+              const floorX = item.el.floorOffsetX || 0;
+              const floorY = item.el.floorOffsetY || 0;
+              userX = skyX * (1 - scrollProgress) + floorX * scrollProgress;
+              userY = skyY * (1 - scrollProgress) + floorY * scrollProgress;
+            }
 
             const currentDX = baseDX + userX;
             const currentDY = baseDY + userY;
@@ -4606,12 +4614,22 @@ defined('ABSPATH') || exit;
             item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${flip})`;
           });
 
-          // 2. Render Floor Grid Blocks — scroll pulls dragged blocks back into floor sockets
+          // 2. Render Floor Grid Blocks
           const allBlocks = document.querySelectorAll('.t-piece');
           allBlocks.forEach(piece => {
             if (getKey(piece) || activePiece === piece) return;
-            const userX = (piece.userOffsetX || 0) * (1 - scrollProgress);
-            const userY = (piece.userOffsetY || 0) * (1 - scrollProgress);
+            let userX = 0, userY = 0;
+            if (calibMode) {
+              userX = piece.userOffsetX || 0;
+              userY = piece.userOffsetY || 0;
+            } else {
+              const skyX = piece.skyOffsetX || 0;
+              const skyY = piece.skyOffsetY || 0;
+              const floorX = piece.floorOffsetX || 0;
+              const floorY = piece.floorOffsetY || 0;
+              userX = skyX * (1 - scrollProgress) + floorX * scrollProgress;
+              userY = skyY * (1 - scrollProgress) + floorY * scrollProgress;
+            }
             piece.style.transform = `translate3d(${userX}px, ${userY}px, 0)`;
           });
 
@@ -4678,6 +4696,10 @@ defined('ABSPATH') || exit;
           piece.magY = 0;
           piece.userOffsetX = 0;
           piece.userOffsetY = 0;
+          piece.skyOffsetX = 0;
+          piece.skyOffsetY = 0;
+          piece.floorOffsetX = 0;
+          piece.floorOffsetY = 0;
 
           piece.addEventListener('pointerdown', function(e) {
             if (e.target.closest('.t-handle')) return;
@@ -4716,6 +4738,14 @@ defined('ABSPATH') || exit;
           activePiece.userOffsetX = initialUserX + deltaX / scale;
           activePiece.userOffsetY = initialUserY + deltaY / scale;
 
+          if (scrollProgress >= 0.5) {
+            activePiece.floorOffsetX = activePiece.userOffsetX;
+            activePiece.skyOffsetX = 0;
+          } else {
+            activePiece.skyOffsetX = activePiece.userOffsetX;
+            activePiece.floorOffsetX = 0;
+          }
+
           // Directly set transform — renderPositions() skips activePiece so
           // without this the card never moves during drag, only jumps on release.
           const k = getKey(activePiece);
@@ -4742,15 +4772,6 @@ defined('ABSPATH') || exit;
             activePiece = null;
             releasedPiece.classList.remove('is-dragging');
             document.body.style.userSelect = '';
-
-            const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
-            if (!calibMode && scrollProgress >= 0.99) {
-              // At 100% floor scroll, dragging is interactive play.
-              // Reset offset on release so it does not pollute the 0% initial float state on scroll up.
-              releasedPiece.userOffsetX = 0;
-              releasedPiece.userOffsetY = 0;
-            }
-
             renderPositions();
           }
         });
