@@ -100,6 +100,18 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 * **Full Copy-Paste Master Prompt**:
   > *A minimalist graphic novel editorial illustration, 3:4 vertical aspect ratio. A sleek minimalist wooden desk facing a calm, matte textured studio wall. The composition is framed along the edges by subtle environmental props: a delicate minimalist pendant lamp dropping slightly into the top edge, a small potted green plant on the desk’s left corner, and a clean minimalist calendar card pinned to the upper right wall. The vast central area of the wall is completely clean, open, calm negative space with a soft wash of warm morning sunlight. Lineless art style with zero black outlines, dry matte gouache texture, peaceful slice-of-life creative atmosphere, no photorealism, no 3D CGI gloss, no text.*
 
+#### 🔹 Subsystem 7F: Floor-to-Ceiling Window Vista (Open Skyline Negative Space)
+* **Best Aspect Ratio**: `3:4 Portrait` or `16:9 Landscape` (carousel quotes, story covers).
+* **Composition Rule**: Camera looks past the subject’s shoulder toward a tall window, where the simplified twilight sky and distant city lights fill the upper 65% as clean negative space.
+* **Full Copy-Paste Master Prompt**:
+  > *A minimalist graphic novel illustration, 3:4 vertical aspect ratio. A 32-year-old Black African male designer with dark skin tone and neat black hair, resting his head on folded arms on a sleek wooden desk in the lower third of the canvas. The camera looks past his shoulder toward a massive floor-to-ceiling studio window. The entire upper 65% of the frame is a vast, calm, uncluttered expanse of dusky twilight blue sky and a simplified, flat impressionistic pattern of distant city window lights, providing clean negative space for typography. Lineless art style with zero black outlines, dry matte gouache and pastel texture, soft milky peach monitor glow, serene slice-of-life mood, no photorealism, no 3D CGI gloss, no text.*
+
+#### 🔹 Subsystem 7G: Centered Close-Up with Dual Vertical Zones (Top Hook + Bottom Subtext)
+* **Best Aspect Ratio**: `3:4 Portrait` (carousel swipe covers, key takeaway cards).
+* **Composition Rule**: Subject centered vertically, with a calm wall above their head for a headline hook and a clean desk surface below their arms for subtext.
+* **Full Copy-Paste Master Prompt**:
+  > *A minimalist graphic novel illustration, 3:4 vertical aspect ratio. A tight, centered medium shot of a 32-year-old Black African male creative strategist with dark skin tone, glasses, and neat black hair, leaning his chin thoughtfully on his hand in the center of the frame. Above his head, the upper 25% of the canvas is a calm, uncluttered soft slate-blue studio wall for a headline hook. Below his arms, the lower 25% of the frame is a smooth, clean dark desk surface for subtext. Lineless art style with zero black outlines, dry matte digital gouache texture, soft milky monitor highlights, natural planar depth, no photorealism, no 3D CGI gloss, no text.*
+
 ### 🟢 System 8: Entergalactic Cinematic / Textured Brushstroke Art Style
 * **Concept**: 3D-stylized painted animation style with visible, expressive textured brushstrokes sculpting the contours of faces, clothing, and environment. No harsh outlines. Dominated by deep magenta (`#8B008B`), rich indigo (`#4B0082`), and glowing warm amber hues, with a gentle horizontal anamorphic lens flare giving a cosmic, romantic, cinematic glow. Works for any scene or direction.
 * **Full Copy-Paste Master Prompt**:
