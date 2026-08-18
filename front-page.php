@@ -4534,10 +4534,10 @@ defined('ABSPATH') || exit;
         // portrait mobile and landscape desktop so landing distances differ.
         const isMobile = window.innerWidth <= 768;
         const liveCalibData = isMobile ? {
-          woo:    { dX: -50,  dY: 337, rot: 0, flipX: 1 },
-          next:   { dX: 24,   dY: 160, rot: 0, flipX: 1 },
-          yellow: { dX: -250, dY: 160, rot: 0, flipX: 1 },
-          green:  { dX: 62,   dY: 285, rot: 0, flipX: 1 }
+          woo:    { dX: -46,  dY: 415, rot: 0, flipX: 1 },
+          next:   { dX: 24,   dY: 238, rot: 0, flipX: 1 },
+          yellow: { dX: -247, dY: 235, rot: 0, flipX: 1 },
+          green:  { dX: 61,   dY: 359, rot: 0, flipX: 1 }
         } : {
           woo:    { dX: 222,  dY: 482, rot: 0, flipX: 1 },
           next:   { dX: 305,  dY: 308, rot: 0, flipX: 1 },
