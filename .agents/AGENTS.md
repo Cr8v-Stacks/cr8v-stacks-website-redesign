@@ -31,3 +31,10 @@
   - Testimonials (`#testimonials`) uses `#FFFFFF` Pure White light canvas base with `#F2F2F0` surface lift quote cards.
   - Pre-Footer CTA (`#contact` / `parts/footer.php`) uses `#FFFFFF` Light base canvas with **Paper Grid UI** (`.c8-paper-grid` blueprint slot container) before transitioning to dark footer bar.
 
+## 5. Creative Agency Visual Style & Image Directives (LOCKED RULE)
+- **Flat Graphic Editorial Style Only**: All generated visuals MUST use flat, minimalist graphic editorial poster art aesthetics with rich chiaroscuro shadows on dark obsidian (`#080808`).
+- **NO 3D Renders**: Strictly prohibit 3D isometric CGI rendering, glossy 3D spheres/cylinders, or photorealistic modeling.
+- **NO Cold Mechanical Machinery**: Do NOT use cold robot parts, literal computer motherboards, mechanical gears, cogs, or circuit hardware tropes.
+- **Content-Tallying & Creative Domain Interpretation**: Images must interpret the **creative intent and human/studio synergy** of each section (e.g. tactile Bauhaus shapes, typography glyphs, idea sparks, origami wireframe morphing, kinetic growth trajectories, fluid audience funnels) rather than literal machine hardware.
+- **Human Representation (Optional & Restricted)**: Do NOT default to human subjects. Only include people where strictly required (e.g. founder bio). When depicted, characters MUST strictly be mature Black African adults (28–35 age range) with dark skin tones in a sleek, professional, dark moody setting.
+

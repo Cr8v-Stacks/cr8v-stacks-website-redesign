@@ -5,7 +5,7 @@
 
 1. **System-First & Content-Tallying Visual Rule**:
    - The visual system rules (lighting, chiaroscuro contrast, color spectrum, negative space, shadow play, rendering texture) dictate the visual identity of every asset.
-   - **Do NOT default to human subjects.** Image concepts must primarily be creative, fun, sophisticated literal or conceptual interpretations of the section content (e.g. tactile Bauhaus design blocks, glowing neural pathways, kinetic growth machines, interactive UI wireframe canvases, terminal code structures, search graph networks, conversion funnels).
+   - **Do NOT default to human subjects.** Image concepts must primarily be creative, fun, sophisticated literal or conceptual interpretations of the section content (e.g. tactile Bauhaus design blocks, ideation sparks, origami wireframe morphing, kinetic growth trajectories, interactive UI wireframe canvases, terminal code structures, search graph networks, conversion funnels).
    - Humans are **ONLY used where strictly necessary** (e.g. founder bio or specific client testimonial contexts).
 
 2. **Cultural & Character Representation Directive (When Humans Are Used)**:
@@ -21,16 +21,21 @@
      5. SEO & Content: **Royal Blue** (`#0047E1`)
      6. Digital Marketing: **Crimson Red** (`#E20025`)
 
+4. **NO 3D RENDERS & NO COLD MACHINERY DIRECTIVE (LOCKED RULE)**:
+   - **NO 3D Renders**: Strictly prohibit 3D CGI rendering, glossy 3D spheres/cylinders, or photorealistic modeling. Use **flat/2D minimalist graphic editorial poster art** with rich directional lighting and sharp shadows.
+   - **NO Cold Mechanical Machinery**: Strictly avoid cold robot hardware, mechanical cogs/gears, or literal computer motherboard/circuit board tropes.
+   - **Creative Domain Synergy**: Visuals must interpret the **creative craft, ideation spark, and human/studio design synergy** of each section.
+
 ---
 
 ## 🎨 The 5 Master Visual Systems
 
 ### 🟢 System 1: High-Contrast Chiaroscuro Silhouette & Shadow Beams
-* **Concept**: Minimalist graphic editorial poster art featuring stylized dark silhouettes or clean architectural forms struck by bold light shafts, casting long sharp shadows across dark obsidian floors.
+* **Concept**: Flat minimalist graphic editorial poster art featuring stylized dark silhouettes or clean architectural forms struck by bold light shafts, casting long sharp shadows across dark obsidian floors.
 * **Palette**: Dark obsidian (`#080808`), Royal Blue (`#0047E1`), Crimson Red (`#E20025`), Gold (`#FFB800`).
 
-### 🟢 System 2: Tactile Geometric / Kinetic Editorial Abstraction (Fun & Playful)
-* **Concept**: Playful, sophisticated 3D tactile compositions, floating geometric glyphs, neural gears, and kinetic growth mechanisms set in dark atmospheric spaces with crisp light beams.
+### 🟢 System 2: Flat Tactile Geometric & Creative Studio Abstraction (Fun & Playful)
+* **Concept**: Playful, sophisticated flat graphic compositions, tactile Bauhaus shapes, typography glyphs, idea sparks, and kinetic vector growth momentum set in dark atmospheric spaces with crisp light beams.
 * **Palette**: Dark obsidian (`#080808`), Royal Blue (`#0047E1`), Gold (`#FFB800`), Crimson Red (`#E20025`), crisp white.
 
 ### 🟢 System 3: Rule-of-Thirds Negative Space Layout (Social & Overlay Ready)
@@ -38,7 +43,7 @@
 * **Palette**: Dark obsidian background (`#080808`), contextual brand light accents.
 
 ### 🟢 System 4: Workspace & Abstract Chiaroscuro Fusion
-* **Concept**: Merges a dark workspace or tool subject with an abstract minimalist architectural space where dramatic light beams cut through darkness and cast long sharp shadows.
+* **Concept**: Merges a dark drafting studio space or tool concept with an abstract minimalist architectural environment where dramatic light beams cut through darkness and cast long sharp shadows.
 * **Palette**: Deep obsidian (`#080808`), Royal Blue (`#0047E1`), dark charcoal shadow gradient.
 
 ### 🟢 System 5: Contemporary African Layered Color Patches (Rust, Amber & Deep Red)
@@ -56,87 +61,95 @@
 #### Row 1 — Design-Led Brand & Visual Systems
 * **Card Content**: *"Design is our primary foundation. We craft distinct visual identities, digital products, and brand systems that make your business instantly memorable."*
 * **Aspect Ratio**: `3:4` Vertical
-* **System**: System 2 (Tactile Geometric / Kinetic Editorial Abstraction — Fun & Playful)
+* **System**: System 2 (Flat Tactile Geometric & Creative Studio Abstraction — Fun & Playful)
 * **File Target**: `assets/img/abstract/cr8v_mindset_design_system.jpg`
 * **Written Prompt**:
-  > Fun, vibrant minimalist graphic editorial illustration, 3:4 vertical aspect ratio. Playful geometric composition of floating tactile design system blocks, typography glyphs, abstract Bauhaus-inspired shapes, and color swatches in high-contrast Royal Blue (#0047E1) and crisp white on a deep obsidian black (#080808) floor. Crisp directional lighting casting sharp architectural shadows, modern creative agency poster art style, sleek and energetic, clean dark negative space, no photorealism, no text.
+  > Fun, vibrant flat graphic editorial illustration, 3:4 vertical aspect ratio. Playful 2D geometric composition of tactile design system blocks, typography glyphs, abstract Bauhaus-inspired shapes, and color swatches in high-contrast Royal Blue (#0047E1) and crisp white on a deep obsidian black (#080808) floor. Crisp directional lighting casting sharp architectural graphic shadows, modern creative agency poster art style, sleek and energetic, clean dark negative space, flat graphic aesthetic, no 3D rendering, no machinery, no photorealism, no text.
 
 #### Row 2 — AI as Our Creative Partner
 * **Card Content**: *"We leverage AI as a high-speed creative partner—accelerating research, rapid prototyping, and workflow iteration so we can ship elevated design faster."*
 * **Aspect Ratio**: `3:4` Vertical
-* **System**: System 2 (Tactile Geometric / Kinetic Editorial Abstraction — Fun & Playful)
+* **System**: System 2 (Flat Tactile Geometric & Creative Studio Abstraction — Fun & Playful)
 * **File Target**: `assets/img/abstract/cr8v_mindset_ai_partner.jpg`
 * **Written Prompt**:
-  > Fun, vibrant minimalist graphic editorial illustration, 3:4 vertical aspect ratio. Playful geometric composition of glowing neural circuit nodes, floating neon cubes, abstract interlocking polygon gears, and luminous data pathways in Royal Blue (#0047E1), glowing golden yellow (#FFB800), and crisp white accents on a deep obsidian black (#080808) floor. Directional lighting casting long sharp graphic shadows, energetic creative agency poster art style, sleek and modern, vast dark negative space, no photorealism, no text.
+  > Fun, vibrant minimalist graphic editorial illustration, 3:4 vertical aspect ratio. A playful artistic co-creation scene: a glowing golden yellow (#FFB800) idea spark and digital stylus beam illuminating a minimalist drafting canvas, causing flat wireframe sketches and origami paper folds to dynamically morph and float upward into graphic Royal Blue (#0047E1) design blocks, crisp geometric ribbons, and polished typography chips. Directional lighting casting long sharp graphic shadows on a deep obsidian black (#080808) floor, modern creative studio poster art style, flat graphic aesthetic, playful, imaginative, sleek and energetic, vast dark negative space, no 3D rendering, no machinery, no cogs or gears, no photorealism, no text.
 
 #### Row 3 — Built-In Growth Engine
 * **Card Content**: *"Stunning design means nothing if it doesn't scale. Our brand systems are built to convert, capture market share, and drive long-term business momentum."*
 * **Aspect Ratio**: `3:4` Vertical
-* **System**: System 2 (Tactile Geometric / Kinetic Editorial Abstraction — Fun & Playful)
+* **System**: System 2 (Flat Tactile Geometric & Creative Studio Abstraction — Fun & Playful)
 * **File Target**: `assets/img/abstract/cr8v_mindset_growth_engine.jpg`
 * **Written Prompt**:
-  > Fun, vibrant minimalist graphic editorial illustration, 3:4 vertical aspect ratio. Playful kinetic composition of an abstract growth machine, ascending geometric staircase ramps, dynamic momentum arrows, interlocking tactile gears, and metric graph bars in bold Crimson Red (#E20025), Royal Blue (#0047E1), and crisp white on a deep obsidian black (#080808) floor. Crisp directional light beams casting long dramatic shadows, modern creative technology poster art style, sleek and energetic, vast dark negative space, no photorealism, no text.
+  > Fun, vibrant flat graphic editorial illustration, 3:4 vertical aspect ratio. Playful kinetic composition of an abstract growth architecture: ascending geometric staircase planes, dynamic vector momentum arrows, rising metric graph bars, and bold geometric trajectory lines in Crimson Red (#E20025), Royal Blue (#0047E1), and crisp white on a deep obsidian black (#080808) floor. Crisp directional light beams casting long sharp shadows, modern creative technology poster art style, sleek and energetic, vast dark negative space, flat 2D graphic aesthetic, no 3D rendering, no mechanical gears or cogs, no photorealism, no text.
 
 ---
 
 ### 2. WHAT WE ACTUALLY DO — SERVICES DEEP DIVE (`#services-deep-dive`)
+* **Section Headline**: `Services Built for Execution`
+* **Section Subheadline**: `End-to-end technical execution across design, full-stack engineering, and organic acquisition systems.`
 
 #### 01 — Website Design
-* **Aspect Ratio**: 16:9 Landscape (Accordion Visual) & Thumbnail
+* **Content Focus**: Bespoke UI/UX design, design systems, performance architecture.
+* **Aspect Ratio**: `16:9` Landscape
 * **System**: System 1 (High-Contrast Chiaroscuro Silhouette)
 * **Color Accent**: Royal Blue (`#0047E1`)
 * **File Target**: `assets/img/abstract/cr8v_home_sdv_webdesign.jpg`
 * **Written Prompt**:
-  > Minimalist high-contrast graphic editorial illustration, 16:9 landscape aspect ratio. An abstract digital wireframe layout canvas and dark workspace struck by a sharp beam of royal blue (#0047E1) light casting long dramatic shadows across a deep obsidian floor (#080808). High contrast chiaroscuro shadow play, graphic poster art style, deep moody dark atmosphere, clean negative space, no photorealism, no text.
+  > Minimalist high-contrast flat graphic editorial illustration, 16:9 landscape aspect ratio. An abstract digital wireframe layout canvas and dark creative workspace struck by a sharp beam of royal blue (#0047E1) light casting long dramatic shadows across a deep obsidian floor (#080808). High contrast chiaroscuro shadow play, flat graphic poster art style, deep moody dark atmosphere, clean negative space, no 3D rendering, no machinery, no photorealism, no text.
 
 #### 02 — Custom Development
-* **Aspect Ratio**: 16:9 Landscape
+* **Content Focus**: Liquid performance engineering, full-stack architecture, custom web applications.
+* **Aspect Ratio**: `16:9` Landscape
 * **System**: System 1 (High-Contrast Chiaroscuro Silhouette)
 * **Color Accent**: Crimson Red (`#E20025`)
 * **File Target**: `assets/img/abstract/cr8v_home_sdv_customdev.jpg`
 * **Written Prompt**:
-  > Minimalist high-contrast graphic editorial illustration, 16:9 landscape aspect ratio. A dark developer terminal interface and architectural code blocks struck by a dramatic crimson red (#E20025) light beam casting sharp long shadows across an obsidian black (#080808) floor. High-contrast chiaroscuro, graphic editorial aesthetic, deep dark atmosphere, no photorealism.
+  > Minimalist high-contrast flat graphic editorial illustration, 16:9 landscape aspect ratio. A sleek typography code syntax canvas and architectural code structure blocks struck by a dramatic crimson red (#E20025) light beam casting sharp long shadows across an obsidian black (#080808) floor. High-contrast chiaroscuro, graphic editorial aesthetic, deep dark atmosphere, flat graphic style, no 3D rendering, no computer hardware, no photorealism, no text.
 
 #### 03 — AI MVP Products
-* **Aspect Ratio**: 16:9 Landscape
+* **Content Focus**: OpenAI & Claude orchestration, vector search indexes, rapid MVP shipping.
+* **Aspect Ratio**: `16:9` Landscape
 * **System**: System 1 (High-Contrast Chiaroscuro Silhouette)
 * **Color Accent**: Warm Yellow / Gold (`#FFB800`)
 * **File Target**: `assets/img/abstract/cr8v_home_sdv_aimvp.jpg`
 * **Written Prompt**:
-  > Minimalist high-contrast graphic editorial illustration, 16:9 landscape aspect ratio. Abstract neural data node architecture illuminated by a warm gold (#FFB800) light beam slicing through deep darkness, casting long sharp shadows across a dark obsidian ground (#080808). Graphic poster art style, high contrast, clean negative space, no photorealism.
+  > Minimalist high-contrast flat graphic editorial illustration, 16:9 landscape aspect ratio. Abstract modular application prototype blocks and luminous vector node architecture illuminated by a warm gold (#FFB800) light beam slicing through deep darkness, casting long sharp shadows across a dark obsidian ground (#080808). Graphic poster art style, flat 2D graphic aesthetic, high contrast, clean negative space, no 3D rendering, no circuit boards, no photorealism, no text.
 
 #### 04 — Brand Strategy
-* **Aspect Ratio**: 16:9 Landscape
+* **Content Focus**: Market positioning, competitor analysis matrix, brand architecture.
+* **Aspect Ratio**: `16:9` Landscape
 * **System**: System 4 (Workspace & Abstract Chiaroscuro Fusion)
 * **Color Accent**: Warm White / Ivory (`#F5F5F0`)
 * **File Target**: `assets/img/abstract/cr8v_home_sdv_brandstrategy.jpg`
 * **Written Prompt**:
-  > Atmospheric digital editorial illustration, 16:9 landscape. Abstract geometric brand identity positioning blocks and competitor matrix architectural forms on a dark surface, illuminated by a crisp ivory white (#F5F5F0) beam cutting through a deep obsidian environment (#080808). Long sharp shadows, cinematic chiaroscuro, moody lofi atmosphere, clean geometric shapes, vast negative space, premium technology-editorial aesthetic, no photorealism, no text.
+  > Atmospheric flat digital editorial illustration, 16:9 landscape. Abstract geometric brand identity positioning blocks and competitor matrix architectural forms on a dark drafting surface, illuminated by a crisp ivory white (#F5F5F0) beam cutting through a deep obsidian environment (#080808). Long sharp shadows, cinematic chiaroscuro, moody lofi atmosphere, clean geometric shapes, vast negative space, premium technology-editorial aesthetic, flat graphic style, no 3D rendering, no photorealism, no text.
 
 #### 05 — SEO & Content
-* **Aspect Ratio**: 16:9 Landscape
+* **Content Focus**: Semantic keyword mapping, entity SEO, structured content models.
+* **Aspect Ratio**: `16:9` Landscape
 * **System**: System 1 (High-Contrast Chiaroscuro Silhouette)
 * **Color Accent**: Royal Blue (`#0047E1`)
 * **File Target**: `assets/img/abstract/cr8v_home_sdv_seocontent.jpg`
 * **Written Prompt**:
-  > Minimalist high-contrast graphic editorial illustration, 16:9 landscape aspect ratio. Abstract semantic keyword tree nodes and search graph architecture struck by a royal blue (#0047E1) light shaft casting long dark shadows across an obsidian surface (#080808). High contrast chiaroscuro, graphic poster style, deep dark atmosphere, clean negative space, no photorealism.
+  > Minimalist high-contrast flat graphic editorial illustration, 16:9 landscape aspect ratio. Abstract semantic keyword tree pathways and search graph network architecture struck by a royal blue (#0047E1) light shaft casting long dark shadows across an obsidian surface (#080808). High contrast chiaroscuro, flat graphic poster style, deep dark atmosphere, clean negative space, no 3D rendering, no photorealism, no text.
 
 #### 06 — Digital Marketing
-* **Aspect Ratio**: 16:9 Landscape
+* **Content Focus**: Multi-channel acquisition funnels, growth engine metrics, conversion tracking.
+* **Aspect Ratio**: `16:9` Landscape
 * **System**: System 5 (Contemporary African Layered Color Patches)
 * **Color Accent**: Crimson Red (`#E20025`)
 * **File Target**: `assets/img/abstract/cr8v_home_sdv_digimkt.jpg`
 * **Written Prompt**:
-  > Atmospheric minimalist digital editorial illustration, 16:9 landscape. Abstract campaign acquisition funnel forms illuminated by crimson red (#E20025) light. Within dark silhouette areas, restrained painterly blocks and layered brush-like patches of burnt orange, warm rust, and deep muted red are integrated into the deep obsidian (#080808) background. High contrast chiaroscuro, graphic editorial style, clean geometric forms, premium contemporary African visual aesthetic, no photorealism, no text.
+  > Atmospheric minimalist flat digital editorial illustration, 16:9 landscape. Abstract fluid acquisition funnel ribbons and conversion vectors illuminated by crimson red (#E20025) light. Within dark silhouette areas, restrained painterly blocks and layered brush-like patches of burnt orange, warm rust, and deep muted red are integrated into the deep obsidian (#080808) background. High contrast chiaroscuro, flat graphic editorial style, clean geometric forms, premium contemporary African visual aesthetic, no 3D rendering, no photorealism, no text.
 
 ---
 
 ### 3. HOW WE WORK (`#how-we-work`)
-* **Aspect Ratio**: 3:4 Vertical / Bento C2
+* **Aspect Ratio**: `3:4` Vertical / Bento C2
 * **System**: System 1 (High-Contrast Chiaroscuro Beam)
 * **File Target**: `assets/img/abstract/cr8v_hww_chiaroscuro_beam.jpg`
 * **Written Prompt**:
-  > Minimalist high-contrast graphic editorial illustration, 3:4 portrait aspect ratio. A dramatic royal blue (#0047E1) light beam cutting diagonally through a deep obsidian (#080808) minimalist space, casting long sharp geometric shadows across the floor. High contrast chiaroscuro shadow play, graphic poster art style, moody dark tone, clean negative space, no photorealism.
+  > Minimalist high-contrast graphic editorial illustration, 3:4 portrait aspect ratio. A dramatic royal blue (#0047E1) light beam cutting diagonally through a deep obsidian (#080808) minimalist space, casting long sharp geometric shadows across the floor. High contrast chiaroscuro shadow play, graphic poster art style, moody dark tone, clean negative space, flat graphic aesthetic, no 3D rendering, no photorealism, no text.
 
 ---
 
