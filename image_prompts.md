@@ -225,9 +225,8 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 ---
 
 ### 4. ABOUT CR8V STACKS (`#about-us`)
-* **Aspect Ratio**: `16:9` Landscape
-* **System**: System 8 (Entergalactic Cinematic Art Style) & System 7A (Horizontal Column Negative Space)
-* **Camera Angle / Perspective**: Perspective B (3/4 Medium Profile)
+* **Aspect Ratio**: `16:9` Landscape | Full-Bleed Creative Studio
+* **System**: System 8 (Entergalactic Cinematic Art Style — Anonymous Studio Presence)
 * **File Target**: `assets/img/abstract/cr8v_about_negative_space.jpg`
 * **Written Prompt**:
-  > An adult animated scene in a 3D-stylized painted art style, reminiscent of Entergalactic, 16:9 landscape aspect ratio. On the right third of the frame, a 32-year-old Black African agency founder with rich dark skin tone, short neat black hair (no grey hair), and glasses sits thoughtfully at a sleek dark agency workstation. The lighting is dominated by deep magenta (#8B008B), rich indigo (#4B0082), and soft glowing warm amber monitor reflections, with visible, textured painterly brushstrokes mapping the contours of his face, sweater, and hands. The entire left 60% of the canvas is a clean, calm, deep indigo and obsidian expanse of negative space for story copy overlay. Gentle horizontal anamorphic lens flare across the frame, romantic cosmic glow, rich painterly depth, expressive animation aesthetic, no photorealism, no flat vector clipart, no text.
+  > An adult animated cinematic scene in a 3D-stylized painted art style, reminiscent of Entergalactic, 16:9 landscape aspect ratio. Framed strictly from behind (over-the-shoulder), we see the back and broad shoulders of a 32-year-old Black African agency founder in a cozy dark textured jacket with short neat black hair, with his face completely turned away and hidden from the camera. He sits at a wide, sleek dark agency desk looking forward at an illuminated curved ultra-wide monitor showing clean web design layout architecture. Outside the massive studio glass window is a sprawling, peaceful evening city skyline glowing with soft magenta (#8B008B) and rich indigo (#4B0082) lights. The lighting is dominated by deep magenta, indigo, and soft amber screen reflections, with visible, textured painterly brushstrokes mapping the contours of his jacket, hands, and desk. Gentle horizontal anamorphic lens flare across the full-bleed frame, romantic cosmic glow, rich atmospheric studio warmth, zero recognizable faces, no flat vector clipart, no text.
