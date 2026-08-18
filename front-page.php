@@ -1200,12 +1200,11 @@ defined('ABSPATH') || exit;
       z-index: 20;
       cursor: grab;
       touch-action: none;
-      transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
-                  top 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
-                  width 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
-                  height 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      transition: left 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+                  top 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+                  width 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+                  height 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
       overflow: hidden;
-      will-change: left, top, width, height;
     }
     .c8-puzzle-tile:active {
       cursor: grabbing;
@@ -1218,15 +1217,11 @@ defined('ABSPATH') || exit;
       object-fit: cover;
       display: block;
       opacity: 0;
-      transform: scale(1.06);
-      transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1), 
-                  transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      transition: opacity 0.35s ease !important;
       pointer-events: none;
-      will-change: opacity, transform;
     }
     .c8-swap-img.is-active-img {
       opacity: 1;
-      transform: scale(1);
     }
     .c8-pg-cell {
       background: #111111 !important;
@@ -4403,6 +4398,7 @@ defined('ABSPATH') || exit;
       var currStateD = -1;
       var isInteractingD = false;
       var interactionTimerD = null;
+      var lPathTimeout = null;
       var isScrollTicking = false;
 
       function getUniversalAvailableCell(rowIdx, preferredCol) {
@@ -4452,27 +4448,53 @@ defined('ABSPATH') || exit;
         else newState = 0;
 
         if (newState !== currStateD) {
+          clearTimeout(lPathTimeout);
+          var prevState = currStateD;
           currStateD = newState;
 
           if (currStateD === 0) {
             var targetCell = getUniversalAvailableCell(0, 2);
-            swapImage(dImgs, 0);
-            snapTile(dGrid, dTile, targetCell, 20);
+            if (prevState === 1) {
+              // Smooth 2-leg L-path: slide left to col 1, then up into slot (0,2)
+              var cMid = getUniversalAvailableCell(0, 1);
+              snapTile(dGrid, dTile, cMid, 20);
+              lPathTimeout = setTimeout(function() {
+                if (currStateD === 0) {
+                  snapTile(dGrid, dTile, targetCell, 20);
+                  swapImage(dImgs, 0);
+                }
+              }, 360);
+            } else {
+              snapTile(dGrid, dTile, targetCell, 20);
+              swapImage(dImgs, 0);
+            }
           } 
           else if (currStateD === 1) {
             var targetCell = getUniversalAvailableCell(1, 1);
-            swapImage(dImgs, 1);
-            snapTile(dGrid, dTile, targetCell, 20);
+            if (prevState === 0) {
+              // Smooth 2-leg L-path: slide left to col 1, then drop down into slot (1,1)
+              var cMid = getUniversalAvailableCell(0, 1);
+              snapTile(dGrid, dTile, cMid, 20);
+              lPathTimeout = setTimeout(function() {
+                if (currStateD === 1) {
+                  snapTile(dGrid, dTile, targetCell, 20);
+                  swapImage(dImgs, 1);
+                }
+              }, 360);
+            } else {
+              snapTile(dGrid, dTile, targetCell, 20);
+              swapImage(dImgs, 1);
+            }
           } 
           else if (currStateD === 2) {
             var targetCell = getUniversalAvailableCell(2, 1);
-            swapImage(dImgs, 2);
             snapTile(dGrid, dTile, targetCell, 20);
+            swapImage(dImgs, 2);
           } 
           else if (currStateD === 3) {
             var targetCell = getUniversalAvailableCell(2, 2);
-            swapImage(dImgs, 2);
             snapTile(dGrid, dTile, targetCell, 20);
+            swapImage(dImgs, 2);
           }
         }
       }

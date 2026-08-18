@@ -1129,12 +1129,11 @@ a .art-author-bio {
       z-index: 20;
       cursor: grab;
       touch-action: none;
-      transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
-                  top 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
-                  width 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
-                  height 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      transition: left 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+                  top 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+                  width 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+                  height 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
       overflow: hidden;
-      will-change: left, top, width, height;
     }
     .c8-puzzle-tile:active {
       cursor: grabbing;
@@ -1148,15 +1147,11 @@ a .art-author-bio {
       object-fit: cover;
       display: block;
       opacity: 0;
-      transform: scale(1.06);
-      transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1), 
-                  transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      transition: opacity 0.35s ease !important;
       pointer-events: none;
-      will-change: opacity, transform;
     }
     .c8-swap-img.is-active-img {
       opacity: 1;
-      transform: scale(1);
     }
 
     @media (max-width: 900px) {
