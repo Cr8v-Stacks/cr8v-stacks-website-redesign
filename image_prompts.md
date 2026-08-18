@@ -8,11 +8,21 @@
    - **Do NOT default to human subjects.** Image concepts must primarily be creative, fun, sophisticated literal or conceptual interpretations of the section content (e.g. tactile Bauhaus design blocks, ideation sparks, origami wireframe morphing, kinetic growth trajectories, interactive UI wireframe canvases, terminal code structures, search graph networks, conversion funnels).
    - Humans are **ONLY used where strictly necessary** (e.g. founder bio or specific client testimonial contexts).
 
-2. **Cultural & Character Representation Directive (When Humans Are Used)**:
-   - When human subjects ARE depicted, they MUST explicitly feature **mature Black African adults (28–35 age range) with dark skin tones** (e.g. `mature 30-year-old Black African adult male/female founder/developer/strategist with dark skin tone`).
-   - Absolutely NO teenage, kid, or flat generic drawing appearances. Professional, sleek, dark moody aesthetic only.
+2. **Universal Mainstay: 2D/3D Hybrid Character Aesthetic ("Painterly Lofi Editorial")**:
+   - **Character Profile**: When humans ARE depicted, they MUST feature a **mature Black African adult, 30–33 age range (around 32 years old)** with rich dark skin tone, short neat black hair (**strictly NO grey hair**), and sleek contemporary styling.
+   - **Stylistic Identity**: A sophisticated blend of 2D illustrated linework and subtle 3D volumetric light (reminiscent of high-end Makoto Shinkai anime editorial art / Korean digital webtoon illustration). Soft painterly cel-shading, semi-matte skin surfaces, clean line definition.
+   - **Natural Posture & Candid Emotion**: Relaxed, authentic postures (leaning over a desk, resting head on folded arms, holding a coffee mug looking out a window, reviewing notes on a tablet, unposed moments).
+   - **Strict Prohibitions**: NO 3D CGI plastic mannequin renders, NO uncanny photorealism, NO child-like cartoons, NO flat generic clipart.
 
-3. **Logo Secondary Color Rotation**:
+3. **Dynamic Camera Perspectives & Lens Variety**:
+   Never lock human or workspace prompts into a single repetitive angle. Actively rotate perspectives:
+   - *Perspective A*: Over-the-shoulder focus looking toward workspace or vista.
+   - *Perspective B*: 3/4 Medium profile shot with soft atmospheric rim light.
+   - *Perspective C*: Wide contextual establishing shot revealing the full environment.
+   - *Perspective D*: High-angle / isometric drafting view looking down at desk.
+   - *Perspective E*: Low-angle shot looking upward from desk level toward subject and sky.
+
+4. **Logo Secondary Color Rotation**:
    - Multi-card image clusters (e.g. Services Deep Dive 01–06) rotate light accents through the logo palette:
      1. Website Design: **Royal Blue** (`#0047E1`)
      2. Custom Development: **Crimson Red** (`#E20025`)
@@ -21,16 +31,16 @@
      5. SEO & Content: **Royal Blue** (`#0047E1`)
      6. Digital Marketing: **Crimson Red** (`#E20025`)
 
-4. **NO 3D RENDERS & NO COLD MACHINERY DIRECTIVE (LOCKED RULE)**:
+5. **NO 3D RENDERS & NO COLD MACHINERY DIRECTIVE (LOCKED RULE)**:
    - **NO 3D Renders**: Strictly prohibit 3D CGI rendering, glossy 3D spheres/cylinders, or photorealistic modeling. Use **flat/2D minimalist graphic editorial poster art** with rich directional lighting and sharp shadows.
    - **NO Cold Mechanical Machinery**: Strictly avoid cold robot hardware, mechanical cogs/gears, or literal computer motherboard/circuit board tropes.
    - **Creative Domain Synergy**: Visuals must interpret the **creative craft, ideation spark, and human/studio design synergy** of each section.
 
 ---
 
-## 🎨 The 5 Master Visual Systems
+## 🎨 The 6 Master Visual Systems
 
-### 🟢 System 1: High-Contrast Chiaroscuro Silhouette & Shadow Beams
+### 🟢 System 1: High-Contrast Chiaroscuro Silhouette & Shadow Beams *(Exempt from Detailed Human Anatomy)*
 * **Concept**: Flat minimalist graphic editorial poster art featuring stylized dark silhouettes or clean architectural forms struck by bold light shafts, casting long sharp shadows across dark obsidian floors.
 * **Palette**: Dark obsidian (`#080808`), Royal Blue (`#0047E1`), Crimson Red (`#E20025`), Gold (`#FFB800`).
 
@@ -38,9 +48,19 @@
 * **Concept**: Playful, sophisticated flat graphic compositions, tactile Bauhaus shapes, typography glyphs, idea sparks, and kinetic vector growth momentum set in dark atmospheric spaces with crisp light beams.
 * **Palette**: Dark obsidian (`#080808`), Royal Blue (`#0047E1`), Gold (`#FFB800`), Crimson Red (`#E20025`), crisp white.
 
-### 🟢 System 3: Rule-of-Thirds Negative Space Layout (Social & Overlay Ready)
-* **Concept**: Subject offset to the right or left third of the frame, leaving 50–60% clean dark obsidian (`#080808`) negative space for typography or UI overlays.
-* **Palette**: Dark obsidian background (`#080808`), contextual brand light accents.
+### 🟢 System 3: Painterly Lofi Editorial & Atmospheric Human System
+Featuring the **2D/3D Hybrid Character Aesthetic** with three contextual subsystems:
+
+#### 🔹 Subsystem 3A: Obsidian Agency Studio & Screen Glow
+* **Setting**: Modern creative agency studio at night. Subject in focused, candid work with dual monitors, soft Royal Blue (`#0047E1`) screen glow, and warm ambient rim light on dark obsidian (`#080808`).
+* **Palette**: Dark obsidian (`#080808`), Royal Blue (`#0047E1`), warm amber/gold desk glow.
+
+#### 🔹 Subsystem 3B: Contextual Atmospheric Panoramic Backdrops (Soft Colorful Environments)
+* **Setting**: Background color, lighting, and panoramic vistas are derived directly from the narrative location (e.g. twilight city skylines through large glass windows, soft peach sunrise over coastal architecture, hazy blue dusk rooftops).
+* **Palette**: Derived from scene location (dusk blues, soft peach/coral sunset, warm ivory sunbeams).
+
+#### 🔹 Subsystem 3C: Candid Studio Interaction & Creative Workflows
+* **Setting**: Active creative moments (sketching on tablet, reviewing prototype cards, relaxed collaborative discussion).
 
 ### 🟢 System 4: Workspace & Abstract Chiaroscuro Fusion
 * **Concept**: Merges a dark drafting studio space or tool concept with an abstract minimalist architectural environment where dramatic light beams cut through darkness and cast long sharp shadows.
@@ -50,9 +70,25 @@
 * **Concept**: Restrained painterly blocks and layered brush-like patches of muted brown, warm rust, burnt orange, and deep muted red integrated into selected dark architectural/silhouette areas.
 * **Palette**: Deep obsidian (`#080808`), Royal Blue (`#0047E1`), muted brown, warm rust, burnt orange, deep muted red.
 
----
+### 🟢 System 6: Dynamic Negative Space & Social/Editorial Composition Engine
+Specifically engineered for social media posts, hero headers, blog thumbnails, and UI text overlays:
 
-## 📁 Full Section-by-Section Image Prompt Audit Registry
+#### 🔹 Subsystem 6A: Left / Right Column Negative Space (Rule of 60/40)
+* **Layout**: Subject anchored on one flank (left or right 35%), leaving 65% clean, uncluttered negative space for headlines, subcopy, and CTA buttons.
+* **Camera Angle**: Medium shot or over-the-shoulder facing toward the open canvas.
+
+#### 🔹 Subsystem 6B: Top & Bottom Letterbox Negative Space
+* **Layout**: Cinematic widescreen subject band across the vertical center, with generous open negative space across the top and bottom headers.
+* **Camera Angle**: Wide horizontal landscape perspective.
+
+#### 🔹 Subsystem 6C: Quadrant / Diagonal Corner Anchor
+* **Layout**: Subject nestled in the bottom-left or bottom-right corner (grounded at desk), with a vast open sky or dark atmospheric expanse extending diagonally across the top two quadrants.
+* **Camera Angle**: Low-angle shot looking slightly upward from desk height.
+
+#### 🔹 Subsystem 6D: Island / Perimeter Framing (Central Open Negative Space)
+* **Layout**: Central expanse kept completely clean for high-impact metric badges or bold typography, framed naturally by minimalist desk edges, window frames, or architectural light shafts along the borders.
+
+---
 
 ### 1. CREATIVE AGENCY MINDSET (`#how-we-think` / Paper Grid)
 * **Section Headline**: `How We Think & Create`
@@ -154,8 +190,9 @@
 ---
 
 ### 4. ABOUT CR8V STACKS (`#about-us`)
-* **Aspect Ratio**: 16:9 Landscape
-* **System**: System 3 (Rule-of-Thirds Negative Space Layout)
+* **Aspect Ratio**: `16:9` Landscape
+* **System**: System 3 (Subsystem 3A — Obsidian Studio Workstation) & System 6 (Subsystem 6A — Left/Right Column Negative Space)
+* **Camera Angle / Perspective**: Perspective B (3/4 Medium Profile with soft rim lighting)
 * **File Target**: `assets/img/abstract/cr8v_about_negative_space.jpg`
 * **Written Prompt**:
-  > Atmospheric graphic digital editorial illustration, 16:9 landscape aspect ratio. A mature 30-year-old Black African male agency founder with dark skin tone sitting thoughtfully at a minimalist desk on the right third of the frame. The left 60% of the canvas is clean, vast deep obsidian black (#080808) negative space for text overlay. Soft royal blue (#0047E1) rim light, mature adult features, stylized silhouette background, moody dark aesthetic, no photorealism.
+  > Painterly lofi digital editorial illustration, 16:9 landscape aspect ratio. A 32-year-old Black African male agency founder with dark skin tone and neat black hair (no grey hair), wearing casual dark clothing and glasses, resting his head thoughtfully on his hand at a sleek dark desk on the right third of the frame. Soft royal blue (#0047E1) monitor glow and warm amber desk lamp light gently illuminating his face and shoulders. The left 60% of the canvas is a clean, vast deep obsidian black (#080808) negative space for copy overlay. Modern creative studio setting, stylized 2D/3D hybrid anime editorial aesthetic, soft painterly cel-shading, relaxed candid posture, moody atmosphere, no 3D CGI gloss, no photorealism, no text.
