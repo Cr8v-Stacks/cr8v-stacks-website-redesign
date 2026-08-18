@@ -297,6 +297,13 @@ defined('ABSPATH') || exit;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      transition: transform 0.12s ease-out;
+      will-change: transform;
+    }
+
+    .t-label {
+      transition: transform 0.12s ease-out;
+      will-change: transform;
     }
 
     /* High-Performance Hardware-Accelerated Tactile Noise Overlay */
@@ -4737,11 +4744,17 @@ defined('ABSPATH') || exit;
           piece.userOffsetY = 0;
           piece.dragOriginScroll = 0;
 
+          const innerBodies = piece.querySelectorAll('.t-shape-body, .t-label');
+
+          function resetInnerMag() {
+            innerBodies.forEach(el => el.style.transform = '');
+          }
+
           piece.addEventListener('pointerdown', function(e) {
             if (e.target.closest('.t-handle')) return;
             activePiece = piece;
             piece.classList.add('is-dragging');
-            piece.style.filter = '';
+            resetInnerMag();
             dragStartX = e.clientX;
             dragStartY = e.clientY;
 
@@ -4755,7 +4768,22 @@ defined('ABSPATH') || exit;
             e.preventDefault();
           });
 
-          // Hover state handled natively by CSS for ultra-smooth 60fps rendering
+          // Magnetic Hover Ripple — applied exclusively to inner children (.t-shape-body, .t-label)
+          // completely decoupled from outer .t-piece drag & scroll coordinates
+          piece.addEventListener('mousemove', function(e) {
+            if (activePiece) return;
+            const rect = piece.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const magX = (e.clientX - cx) * 0.10;
+            const magY = (e.clientY - cy) * 0.10;
+            innerBodies.forEach(el => el.style.transform = `translate3d(${magX}px, ${magY}px, 0)`);
+          });
+
+          piece.addEventListener('mouseleave', function() {
+            if (activePiece === piece) return;
+            resetInnerMag();
+          });
         });
 
         window.addEventListener('pointermove', function(e) {
