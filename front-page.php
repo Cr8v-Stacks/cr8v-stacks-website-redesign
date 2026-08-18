@@ -605,6 +605,10 @@ defined('ABSPATH') || exit;
 
     .t-piece {
       transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), filter 0.25s ease !important;
+      touch-action: none !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      -webkit-user-drag: none !important;
     }
 
     .t-piece.is-dragging {
@@ -4767,15 +4771,17 @@ defined('ABSPATH') || exit;
           renderPositions(); // update all OTHER pieces
         });
 
-        window.addEventListener('pointerup', function() {
-          if (activePiece) {
-            const releasedPiece = activePiece;
-            activePiece = null;
-            releasedPiece.classList.remove('is-dragging');
-            document.body.style.userSelect = '';
-            renderPositions();
-          }
-        });
+        function endDrag() {
+          if (!activePiece) return;
+          const releasedPiece = activePiece;
+          activePiece = null;
+          releasedPiece.classList.remove('is-dragging');
+          document.body.style.userSelect = '';
+          renderPositions();
+        }
+
+        window.addEventListener('pointerup', endDrag);
+        window.addEventListener('pointercancel', endDrag);
 
         // Hotkeys [R] and [F]
         window.addEventListener('keydown', function(e) {
