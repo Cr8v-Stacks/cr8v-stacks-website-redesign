@@ -189,11 +189,11 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 #### 04 — Brand Strategy
 * **Content Focus**: Market positioning, competitor analysis matrix, brand architecture.
 * **Aspect Ratio**: `16:9` Landscape
-* **System**: System 4 (Workspace & Abstract Chiaroscuro Fusion)
+* **System**: System 1 (High-Contrast Chiaroscuro Silhouette)
 * **Color Accent**: Warm White / Ivory (`#F5F5F0`)
 * **File Target**: `assets/img/abstract/cr8v_home_sdv_brandstrategy.jpg`
 * **Written Prompt**:
-  > Atmospheric flat digital editorial illustration, 16:9 landscape. Abstract geometric brand identity positioning blocks and competitor matrix architectural forms on a dark drafting surface, illuminated by a crisp ivory white (#F5F5F0) beam cutting through a deep obsidian environment (#080808). Long sharp shadows, cinematic chiaroscuro, moody lofi atmosphere, clean geometric shapes, vast negative space, premium technology-editorial aesthetic, flat graphic style, no 3D rendering, no photorealism, no text.
+  > Minimalist high-contrast flat graphic editorial illustration, 16:9 landscape aspect ratio. Abstract geometric brand positioning matrix planes and monolithic identity blocks on a dark architectural drafting surface, struck by a crisp ivory white (#F5F5F0) directional light beam slicing through deep darkness, casting long sharp geometric shadows across an obsidian black floor (#080808). High contrast chiaroscuro shadow play, flat graphic poster style, vast clean negative space, no 3D rendering, no photorealism, no text.
 
 #### 05 — SEO & Content
 * **Content Focus**: Semantic keyword mapping, entity SEO, structured content models.
@@ -207,27 +207,27 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 #### 06 — Digital Marketing
 * **Content Focus**: Multi-channel acquisition funnels, growth engine metrics, conversion tracking.
 * **Aspect Ratio**: `16:9` Landscape
-* **System**: System 5 (Contemporary African Layered Color Patches)
+* **System**: System 1 (High-Contrast Chiaroscuro Silhouette)
 * **Color Accent**: Crimson Red (`#E20025`)
 * **File Target**: `assets/img/abstract/cr8v_home_sdv_digimkt.jpg`
 * **Written Prompt**:
-  > Atmospheric minimalist flat digital editorial illustration, 16:9 landscape. Abstract fluid acquisition funnel ribbons and conversion vectors illuminated by crimson red (#E20025) light. Within dark silhouette areas, restrained painterly blocks and layered brush-like patches of burnt orange, warm rust, and deep muted red are integrated into the deep obsidian (#080808) background. High contrast chiaroscuro, flat graphic editorial style, clean geometric forms, premium contemporary African visual aesthetic, no 3D rendering, no photorealism, no text.
+  > Minimalist high-contrast flat graphic editorial illustration, 16:9 landscape aspect ratio. Abstract fluid acquisition funnel ribbons, conversion trajectory vectors, and growth metric architecture illuminated by a bold crimson red (#E20025) directional light shaft slicing through deep darkness, casting razor-sharp graphic shadows across a deep obsidian floor (#080808). High contrast chiaroscuro, flat graphic poster art style, sleek and energetic, vast clean negative space, no 3D rendering, no photorealism, no text.
 
 ---
 
 ### 3. HOW WE WORK (`#how-we-work`)
 * **Aspect Ratio**: `3:4` Vertical / Bento C2
-* **System**: System 1 (High-Contrast Chiaroscuro Beam)
+* **System**: System 1 (High-Contrast Chiaroscuro Vector Architecture)
 * **File Target**: `assets/img/abstract/cr8v_hww_chiaroscuro_beam.jpg`
 * **Written Prompt**:
-  > Minimalist high-contrast graphic editorial illustration, 3:4 portrait aspect ratio. A dramatic royal blue (#0047E1) light beam cutting diagonally through a deep obsidian (#080808) minimalist space, casting long sharp geometric shadows across the floor. High contrast chiaroscuro shadow play, graphic poster art style, moody dark tone, clean negative space, flat graphic aesthetic, no 3D rendering, no photorealism, no text.
+  > Minimalist high-contrast graphic editorial illustration, 3:4 portrait aspect ratio. An elegant abstract 4-step agile workflow architecture: floating translucent UI workflow step cards, delicate geometric pathway connectors, and crisp linear trajectory ribbons connecting discovery to execution, struck by a dramatic royal blue (#0047E1) directional light shaft slicing diagonally across a deep obsidian minimalist space (#080808). Long sharp architectural shadows, high-craft Framer-style vector illustration, graphic poster aesthetic, deep moody dark atmosphere, vast clean negative space, no 3D rendering, no machinery, no photorealism, no text.
 
 ---
 
 ### 4. ABOUT CR8V STACKS (`#about-us`)
 * **Aspect Ratio**: `16:9` Landscape
-* **System**: System 3 (Subsystem 3A — Obsidian Studio Workstation) & System 6 (Subsystem 6A — Left/Right Column Negative Space)
-* **Camera Angle / Perspective**: Perspective B (3/4 Medium Profile with soft rim lighting)
+* **System**: System 8 (Entergalactic Cinematic Art Style) & System 7A (Horizontal Column Negative Space)
+* **Camera Angle / Perspective**: Perspective B (3/4 Medium Profile)
 * **File Target**: `assets/img/abstract/cr8v_about_negative_space.jpg`
 * **Written Prompt**:
-  > Painterly lofi digital editorial illustration, 16:9 landscape aspect ratio. A 32-year-old Black African male agency founder with dark skin tone and neat black hair (no grey hair), wearing casual dark clothing and glasses, resting his head thoughtfully on his hand at a sleek dark desk on the right third of the frame. Soft royal blue (#0047E1) monitor glow and warm amber desk lamp light gently illuminating his face and shoulders. The left 60% of the canvas is a clean, vast deep obsidian black (#080808) negative space for copy overlay. Modern creative studio setting, stylized 2D/3D hybrid anime editorial aesthetic, soft painterly cel-shading, relaxed candid posture, moody atmosphere, no 3D CGI gloss, no photorealism, no text.
+  > An adult animated scene in a 3D-stylized painted art style, reminiscent of Entergalactic, 16:9 landscape aspect ratio. On the right third of the frame, a 32-year-old Black African agency founder with rich dark skin tone, short neat black hair (no grey hair), and glasses sits thoughtfully at a sleek dark agency workstation. The lighting is dominated by deep magenta (#8B008B), rich indigo (#4B0082), and soft glowing warm amber monitor reflections, with visible, textured painterly brushstrokes mapping the contours of his face, sweater, and hands. The entire left 60% of the canvas is a clean, calm, deep indigo and obsidian expanse of negative space for story copy overlay. Gentle horizontal anamorphic lens flare across the frame, romantic cosmic glow, rich painterly depth, expressive animation aesthetic, no photorealism, no flat vector clipart, no text.
