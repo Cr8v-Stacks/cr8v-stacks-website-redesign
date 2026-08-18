@@ -284,3 +284,91 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 * **File Target**: `assets/img/abstract/cr8v_srv_deck_retainer.jpg`
 * **Written Prompt**:
   > *Clean minimalist agency agile sprint retainer dashboard card, 4:3 landscape aspect ratio. An ultra-clean UI component on a pure white background with a subtle dot-grid texture. Featuring a clean monthly developer support progress bar, an active uptime monitoring shield badge, a 14-day sprint velocity bar chart, and an ascending conversion metric curve with a crisp Royal Blue (#0047E1) active retainer status pill "[Sprint Status: Week 2 Active]". High-craft Figma/Rive product UI aesthetic, soft subtle drop shadows, royal blue and emerald green accents, full-bleed composition, zero chaotic clutter, no photorealism, no 3D CGI gloss.*
+
+---
+
+# 📄 PAGE: WEB DESIGN & UX SERVICE PAGE (`page-service-web-design.php`)
+
+### Overview & Visual Strategy
+* **Suite 1: Deliverables Folder Deck (`.c8srv-folder-deck`)**: 5 Deliverable Showcase Cards (`4:3` Landscape) using **Approach B: SaaS Product UI Micro-Illustrations (Full-Bleed Architecture)**.
+* **Suite 2: How We Approach It (`.c8isv-approach-outer`)**: 4 Process Stage Cards (`4:3` Landscape) using **System 1: High-Contrast Architectural Chiaroscuro & Directional Beams with Logo Color Rotation**.
+
+---
+
+### Suite 1: Deliverables Folder Deck (01 through 05)
+
+#### 01 // Strategy & UX — User Flow & Layout Blueprint
+* **Deliverable Context**: Information architecture, visual hierarchy mapping, user journey decision nodes.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_wd_deck_blueprint.jpg`
+* **Written Prompt**:
+  > *Clean minimalist Dribbble SaaS UI product mockup, 4:3 landscape aspect ratio. An ultra-clean information architecture user flow diagram on a pure white card background with a faint light grey dot-grid pattern. Multiple floating white wireframe layout cards connected by thin hairline vector lines, showing a streamlined user journey from landing page to conversion goal. Anchored by an elevated Royal Blue (#0047E1) active step badge reading "[Wireframe Approved: 2026 Architecture]". High-craft Figma UI aesthetic, soft subtle drop shadows, pure white and slate grey palette, full-bleed card composition, zero phantom text, no 3D CGI gloss, no photorealism.*
+
+#### 02 // Visual UI — High-Fidelity Interface Design
+* **Deliverable Context**: Typography hierarchy, color swatches, bespoke UI buttons, cards & modal design.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_wd_deck_ui.jpg`
+* **Written Prompt**:
+  > *Clean minimalist modern UI design system component library mockup, 4:3 landscape aspect ratio. An ultra-clean design token showcase on a white card surface with a subtle dot-grid texture. Featuring curated typography hierarchy cards, royal blue (#0047E1) and charcoal color swatch pills, tactile interactive button states (default, hover, active), and a floating UI modal card. Elevated Figma component sheet aesthetic, soft diffused drop shadows, crisp vector precision, full-bleed composition, zero messy clutter, no photorealism, no 3D CGI gloss.*
+
+#### 03 // Multi-Platform — Custom CMS & Platform Buildout
+* **Deliverable Context**: WordPress, Elementor, Shopify, and WooCommerce multi-stack platform integration.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_wd_deck_platform.jpg`
+* **Written Prompt**:
+  > *Clean minimalist SaaS platform architecture diagram, 4:3 landscape aspect ratio. An ultra-clean CMS stack wiring card on a pure white background with a delicate dot-grid matrix. Showing clean modular cards for WordPress, Elementor, Shopify, and WooCommerce connected by thin hairline lines to a central custom theme engine, anchored by an elevated Royal Blue (#0047E1) deployment status pill "[Platform Stack: 100% Native Build]". Modern Figma/Dribbble UI component aesthetic, soft neumorphic elevation, gentle drop shadows, full-bleed composition, no 3D CGI gloss, no photorealism.*
+
+#### 04 // Performance — Core Web Vitals & Technical SEO
+* **Deliverable Context**: Sub-1.2s load speeds, GTmetrix performance gauge, clean semantic HTML architecture.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_wd_deck_speed.jpg`
+* **Written Prompt**:
+  > *Clean minimalist SaaS performance speed dashboard card, 4:3 landscape aspect ratio. An ultra-clean Core Web Vitals inspection card on a pure white background with a faint dot grid. Featuring a prominent circular performance gauge score "[100/100 PageSpeed]", metric status bars for LCP (0.6s) and FID (8ms) in crisp emerald green, and a Royal Blue (#0047E1) optimization tag reading "[Core Web Vitals: Passing 2026]". Ultra-clean Framer/Rive UI component aesthetic, soft subtle drop shadows, full-bleed composition, zero phantom text, no photorealism, no 3D CGI gloss.*
+
+#### 05 // Autonomy — Drag-and-Drop Admin Autonomy
+* **Deliverable Context**: Visual block inserter, intuitive custom field controls, zero-code client editing.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_wd_deck_admin.jpg`
+* **Written Prompt**:
+  > *Clean minimalist CMS visual block editor interface mockup, 4:3 landscape aspect ratio. An ultra-clean backend admin dashboard window on a pure white card with a subtle dot-grid pattern. Showing an intuitive drag-and-drop block inserter panel with modular layout blocks, clean visual toggle switches, and an elevated Royal Blue (#0047E1) status badge "[Zero-Code Client Autonomy]". Modern Figma product UI aesthetic, soft diffused drop shadows, crisp interface elements, full-bleed composition, zero chaotic clutter, no photorealism, no 3D CGI gloss.*
+
+---
+
+### Suite 2: How We Approach It (Process Stages 01 through 04)
+
+#### Stage 01: Discover — Audits, Competitors & Conversion Targets
+* **Accent**: Warm Ivory / White (`#F5F5F0`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_wd_proc_discover.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. An abstract brand positioning audit canvas, competitor analysis matrix planes, and conversion target nodes on a dark drafting surface, struck by a crisp ivory white (#F5F5F0) directional light beam slicing through deep darkness, casting long sharp geometric shadows across an obsidian black floor (#080808). High contrast chiaroscuro shadow play, modern agency poster style, clean negative space, no 3D rendering, no photorealism, no text.*
+
+#### Stage 02: Design — Figma Wireframes & High-Fidelity Styling
+* **Accent**: Royal Blue (`#0047E1`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_wd_proc_design.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Sleek abstract Figma wireframe layout planes, typography glyph monoliths, and component design tokens struck by a sharp Royal Blue (#0047E1) light shaft casting long dramatic shadows across a deep obsidian floor (#080808). High contrast chiaroscuro, graphic editorial aesthetic, deep moody dark atmosphere, flat graphic style, no 3D rendering, no machinery, no photorealism, no text.*
+
+#### Stage 03: Engineering — Clean Code CMS Implementation
+* **Accent**: Crimson Red (`#E20025`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_wd_proc_engineering.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. A sleek typography code syntax canvas, modular CMS block bricks, and full-stack architecture planes struck by a dramatic crimson red (#E20025) light beam casting sharp long shadows across an obsidian black (#080808) floor. High-contrast chiaroscuro, graphic editorial aesthetic, deep dark atmosphere, flat graphic style, no 3D rendering, no computer hardware, no photorealism, no text.*
+
+#### Stage 04: Audit & Launch — Core Web Vitals, 301s & Go-Live
+* **Accent**: Golden Yellow / Warm Gold (`#FFB800`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_wd_proc_launch.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Abstract performance speed dial architecture, 100/100 Core Web Vitals validation nodes, and ascending launch trajectory ribbons illuminated by a warm gold (#FFB800) light beam slicing through deep darkness, casting razor-sharp shadows across a dark obsidian ground (#080808). Graphic poster art style, flat 2D graphic aesthetic, high contrast, clean negative space, no 3D rendering, no circuit boards, no photorealism, no text.*
