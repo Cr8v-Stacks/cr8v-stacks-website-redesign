@@ -604,7 +604,7 @@ defined('ABSPATH') || exit;
     }
 
     .t-piece {
-      transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), filter 0.25s ease !important;
+      transition: filter 0.2s ease !important;
       touch-action: none !important;
       user-select: none !important;
       -webkit-user-select: none !important;
@@ -4576,6 +4576,24 @@ defined('ABSPATH') || exit;
           if (hudGreen)  hudGreen.textContent  = `Green: dX: ${gX}px | dY: ${gY}px | Rot: ${liveCalibData.green.rot}°`;
         }
 
+        // Weight calculation function:
+        // Returns 1.0 at the scrollProgress where the block was dragged,
+        // fading smoothly to 0 as the user scrolls to the other state.
+        function getDragWeight(piece) {
+          const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
+          if (calibMode) return 1.0;
+          const originS = piece.dragOriginScroll !== undefined ? piece.dragOriginScroll : 0;
+          if (originS >= 0.8) {
+            // Dragged at or near the floor: 100% weight at floor (scrollProgress=1.0),
+            // smoothly fades to 0 as user scrolls up to top.
+            return scrollProgress;
+          } else {
+            // Dragged at or before mid-scroll: 100% weight at top (scrollProgress=0.0),
+            // smoothly fades to 0 as user scrolls down to floor.
+            return 1 - scrollProgress;
+          }
+        }
+
         // Unified Rendering Pipeline for ALL 15 Blocks
         function renderPositions() {
           const pieces = [
@@ -4590,24 +4608,15 @@ defined('ABSPATH') || exit;
           // 1. Render Airborne Floating Cards
           pieces.forEach(item => {
             if (!item.el) return;
-            if (activePiece === item.el) return; // Active drag is handled directly in mousemove
+            if (activePiece === item.el) return; // Active drag is handled directly in pointermove
 
             const c = liveCalibData[item.key];
             const baseDX = c.dX * scrollProgress;
             const baseDY = c.dY * scrollProgress;
 
-            let userX = 0, userY = 0;
-            if (calibMode) {
-              userX = item.el.userOffsetX || 0;
-              userY = item.el.userOffsetY || 0;
-            } else {
-              const skyX = item.el.skyOffsetX || 0;
-              const skyY = item.el.skyOffsetY || 0;
-              const floorX = item.el.floorOffsetX || 0;
-              const floorY = item.el.floorOffsetY || 0;
-              userX = skyX * (1 - scrollProgress) + floorX * scrollProgress;
-              userY = skyY * (1 - scrollProgress) + floorY * scrollProgress;
-            }
+            const weight = getDragWeight(item.el);
+            const userX = (item.el.userOffsetX || 0) * weight;
+            const userY = (item.el.userOffsetY || 0) * weight;
 
             const currentDX = baseDX + userX;
             const currentDY = baseDY + userY;
@@ -4622,18 +4631,9 @@ defined('ABSPATH') || exit;
           const allBlocks = document.querySelectorAll('.t-piece');
           allBlocks.forEach(piece => {
             if (getKey(piece) || activePiece === piece) return;
-            let userX = 0, userY = 0;
-            if (calibMode) {
-              userX = piece.userOffsetX || 0;
-              userY = piece.userOffsetY || 0;
-            } else {
-              const skyX = piece.skyOffsetX || 0;
-              const skyY = piece.skyOffsetY || 0;
-              const floorX = piece.floorOffsetX || 0;
-              const floorY = piece.floorOffsetY || 0;
-              userX = skyX * (1 - scrollProgress) + floorX * scrollProgress;
-              userY = skyY * (1 - scrollProgress) + floorY * scrollProgress;
-            }
+            const weight = getDragWeight(piece);
+            const userX = (piece.userOffsetX || 0) * weight;
+            const userY = (piece.userOffsetY || 0) * weight;
             piece.style.transform = `translate3d(${userX}px, ${userY}px, 0)`;
           });
 
@@ -4696,14 +4696,9 @@ defined('ABSPATH') || exit;
         const allBlocks = document.querySelectorAll('.t-piece');
         allBlocks.forEach(piece => {
           piece.style.cursor = 'grab';
-          piece.magX = 0;
-          piece.magY = 0;
           piece.userOffsetX = 0;
           piece.userOffsetY = 0;
-          piece.skyOffsetX = 0;
-          piece.skyOffsetY = 0;
-          piece.floorOffsetX = 0;
-          piece.floorOffsetY = 0;
+          piece.dragOriginScroll = 0;
 
           piece.addEventListener('pointerdown', function(e) {
             if (e.target.closest('.t-handle')) return;
@@ -4712,8 +4707,12 @@ defined('ABSPATH') || exit;
             piece.style.filter = '';
             dragStartX = e.clientX;
             dragStartY = e.clientY;
-            initialUserX = piece.userOffsetX || 0;
-            initialUserY = piece.userOffsetY || 0;
+
+            // Start drag smoothly from current visual offset
+            const weight = getDragWeight(piece);
+            initialUserX = (piece.userOffsetX || 0) * weight;
+            initialUserY = (piece.userOffsetY || 0) * weight;
+
             piece.setPointerCapture(e.pointerId);
             document.body.style.userSelect = 'none';
             e.preventDefault();
@@ -4741,17 +4740,9 @@ defined('ABSPATH') || exit;
           const scale = parseFloat(document.documentElement.style.getPropertyValue('--tetris-scale')) || 1;
           activePiece.userOffsetX = initialUserX + deltaX / scale;
           activePiece.userOffsetY = initialUserY + deltaY / scale;
+          activePiece.dragOriginScroll = scrollProgress;
 
-          if (scrollProgress >= 0.5) {
-            activePiece.floorOffsetX = activePiece.userOffsetX;
-            activePiece.skyOffsetX = 0;
-          } else {
-            activePiece.skyOffsetX = activePiece.userOffsetX;
-            activePiece.floorOffsetX = 0;
-          }
-
-          // Directly set transform — renderPositions() skips activePiece so
-          // without this the card never moves during drag, only jumps on release.
+          // Directly set transform — instantaneous response
           const k = getKey(activePiece);
           const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
           if (k) {
@@ -4764,11 +4755,9 @@ defined('ABSPATH') || exit;
             const currentRot = calibMode ? 0 : ((initialRotMap[k] || 0) * (1 - scrollProgress));
             activePiece.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${c.flipX || 1})`;
           } else {
-            // Floor grid card — no base animation delta, pure user offset
+            // Floor grid card — pure user offset
             activePiece.style.transform = `translate3d(${activePiece.userOffsetX}px, ${activePiece.userOffsetY}px, 0)`;
           }
-
-          renderPositions(); // update all OTHER pieces
         });
 
         function endDrag() {
