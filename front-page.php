@@ -4596,11 +4596,9 @@ defined('ABSPATH') || exit;
             const dragWeight = calibMode ? 1 : (1 - scrollProgress);
             const userX = (item.el.userOffsetX || 0) * dragWeight;
             const userY = (item.el.userOffsetY || 0) * dragWeight;
-            const magX = item.el.magX || 0;
-            const magY = item.el.magY || 0;
 
-            const currentDX = baseDX + userX + magX;
-            const currentDY = baseDY + userY + magY;
+            const currentDX = baseDX + userX;
+            const currentDY = baseDY + userY;
 
             const initialRot = item.initialRot || 0;
             const currentRot = initialRot * (1 - scrollProgress);
@@ -4608,18 +4606,13 @@ defined('ABSPATH') || exit;
             item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${flip})`;
           });
 
-          // 2. Render Floor Grid Blocks
+          // 2. Render Floor Grid Blocks — freely draggable, no scroll fade
           const allBlocks = document.querySelectorAll('.t-piece');
           allBlocks.forEach(piece => {
             if (getKey(piece) || activePiece === piece) return;
-            const userX = (piece.userOffsetX || 0) * (1 - scrollProgress);
-            const userY = (piece.userOffsetY || 0) * (1 - scrollProgress);
-            const magX = piece.magX || 0;
-            const magY = piece.magY || 0;
-
-            const currentDX = userX + magX;
-            const currentDY = userY + magY;
-            piece.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0)`;
+            const userX = piece.userOffsetX || 0;
+            const userY = piece.userOffsetY || 0;
+            piece.style.transform = `translate3d(${userX}px, ${userY}px, 0)`;
           });
 
           updateHUDDisplay();
@@ -4690,47 +4683,35 @@ defined('ABSPATH') || exit;
             if (e.target.closest('.t-handle')) return;
             activePiece = piece;
             piece.classList.add('is-dragging');
+            piece.style.filter = '';
             dragStartX = e.clientX;
             dragStartY = e.clientY;
 
-            // Clear magnetic hover residual so it doesn't cause a jolt on release
-            piece.magX = 0;
-            piece.magY = 0;
-            piece.style.filter = '';
-
-            // At 100% scroll dragWeight=0, so any mid-scroll residual userOffset is
-            // invisible but still stored. Reset it so initialUserX starts clean.
+            // At 100% scroll dragWeight=0 for airborne cards, so any residual userOffset
+            // from a mid-scroll drag is invisible but still stored. Reset it here so
+            // initialUserX starts clean and the floor bake is accurate.
             if (scrollProgress >= 0.99) {
-              piece.userOffsetX = 0;
-              piece.userOffsetY = 0;
+              const k = getKey(piece);
+              if (k) { piece.userOffsetX = 0; piece.userOffsetY = 0; }
             }
 
             initialUserX = piece.userOffsetX || 0;
             initialUserY = piece.userOffsetY || 0;
 
-            piece.setPointerCapture(e.pointerId); // lock all pointer events to this element
+            piece.setPointerCapture(e.pointerId);
             document.body.style.userSelect = 'none';
             e.preventDefault();
           });
 
-          // Magnetic Hover Micro-Interaction Physics for ALL 15 Blocks
-          piece.addEventListener('mousemove', function(e) {
+          // Hover Glow — visual-only, no position attraction
+          piece.addEventListener('mousemove', function() {
             if (activePiece) return;
-            const rect = piece.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            piece.magX = (e.clientX - centerX) * 0.15;
-            piece.magY = (e.clientY - centerY) * 0.15;
             piece.style.filter = 'drop-shadow(0 4px 12px rgba(0, 71, 225, 0.22)) drop-shadow(3px 7px 0px rgba(0, 71, 225, 0.30))';
-            renderPositions();
           });
 
           piece.addEventListener('mouseleave', function() {
             if (activePiece === piece) return;
-            piece.magX = 0;
-            piece.magY = 0;
             piece.style.filter = '';
-            renderPositions();
           });
         });
 
@@ -4772,20 +4753,12 @@ defined('ABSPATH') || exit;
             releasedPiece.classList.remove('is-dragging');
             document.body.style.userSelect = '';
 
-            // At 100% scroll (floor): bake the drag offset into liveCalibData so the
-            // block stays where dropped. On scroll-back the animation uses the updated
-            // base values, so trajectory still works cleanly from 0→100%.
+            // Airborne card at 100% scroll: bake drag into liveCalibData so it stays put.
+            // Trajectory is updated so scroll-back still animates correctly.
             const k = getKey(releasedPiece);
             if (k && scrollProgress >= 0.99) {
-              // Airborne card at floor: bake drag into liveCalibData so it stays put.
-              // Trajectory from 0→100% is updated, scroll-back still works cleanly.
               liveCalibData[k].dX += (releasedPiece.userOffsetX || 0);
               liveCalibData[k].dY += (releasedPiece.userOffsetY || 0);
-              releasedPiece.userOffsetX = 0;
-              releasedPiece.userOffsetY = 0;
-            } else if (!k && scrollProgress >= 0.99) {
-              // Floor grid block at 100% scroll: dragWeight=0 so the offset is invisible.
-              // Clear it so it doesn't haunt the scroll-back animation.
               releasedPiece.userOffsetX = 0;
               releasedPiece.userOffsetY = 0;
             }
