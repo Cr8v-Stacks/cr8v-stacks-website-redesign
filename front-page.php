@@ -4686,18 +4686,8 @@ defined('ABSPATH') || exit;
             piece.style.filter = '';
             dragStartX = e.clientX;
             dragStartY = e.clientY;
-
-            // At 100% scroll dragWeight=0 for airborne cards, so any residual userOffset
-            // from a mid-scroll drag is invisible but still stored. Reset it here so
-            // initialUserX starts clean and the floor bake is accurate.
-            if (scrollProgress >= 0.99) {
-              const k = getKey(piece);
-              if (k) { piece.userOffsetX = 0; piece.userOffsetY = 0; }
-            }
-
             initialUserX = piece.userOffsetX || 0;
             initialUserY = piece.userOffsetY || 0;
-
             piece.setPointerCapture(e.pointerId);
             document.body.style.userSelect = 'none';
             e.preventDefault();
@@ -4753,15 +4743,17 @@ defined('ABSPATH') || exit;
             releasedPiece.classList.remove('is-dragging');
             document.body.style.userSelect = '';
 
-            // Airborne card at 100% scroll: bake drag into liveCalibData so it stays put.
-            // Trajectory is updated so scroll-back still animates correctly.
             const k = getKey(releasedPiece);
-            if (k && scrollProgress >= 0.99) {
-              liveCalibData[k].dX += (releasedPiece.userOffsetX || 0);
-              liveCalibData[k].dY += (releasedPiece.userOffsetY || 0);
+            if (!k) {
+              // Floor grid block: always snaps back to grid position.
+              // Drag is live during the drag only — on release it returns to the floor.
               releasedPiece.userOffsetX = 0;
               releasedPiece.userOffsetY = 0;
             }
+            // Airborne cards: dragWeight = (1-scrollProgress) naturally fades any
+            // drag offset to 0 as scroll increases. At 100% scroll dragWeight=0 so
+            // the card snaps back to its calibrated floor position on release.
+            // No baking needed — dragging at floor is just "playing."
 
             renderPositions();
           }
