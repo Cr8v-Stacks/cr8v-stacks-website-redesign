@@ -4606,12 +4606,12 @@ defined('ABSPATH') || exit;
             item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${flip})`;
           });
 
-          // 2. Render Floor Grid Blocks — freely draggable, no scroll fade
+          // 2. Render Floor Grid Blocks — scroll pulls dragged blocks back into floor sockets
           const allBlocks = document.querySelectorAll('.t-piece');
           allBlocks.forEach(piece => {
             if (getKey(piece) || activePiece === piece) return;
-            const userX = piece.userOffsetX || 0;
-            const userY = piece.userOffsetY || 0;
+            const userX = (piece.userOffsetX || 0) * (1 - scrollProgress);
+            const userY = (piece.userOffsetY || 0) * (1 - scrollProgress);
             piece.style.transform = `translate3d(${userX}px, ${userY}px, 0)`;
           });
 
@@ -4743,17 +4743,13 @@ defined('ABSPATH') || exit;
             releasedPiece.classList.remove('is-dragging');
             document.body.style.userSelect = '';
 
-            const k = getKey(releasedPiece);
-            if (!k) {
-              // Floor grid block: always snaps back to grid position.
-              // Drag is live during the drag only — on release it returns to the floor.
+            const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
+            if (!calibMode && scrollProgress >= 0.99) {
+              // At 100% floor scroll, dragging is interactive play.
+              // Reset offset on release so it does not pollute the 0% initial float state on scroll up.
               releasedPiece.userOffsetX = 0;
               releasedPiece.userOffsetY = 0;
             }
-            // Airborne cards: dragWeight = (1-scrollProgress) naturally fades any
-            // drag offset to 0 as scroll increases. At 100% scroll dragWeight=0 so
-            // the card snaps back to its calibrated floor position on release.
-            // No baking needed — dragging at floor is just "playing."
 
             renderPositions();
           }
