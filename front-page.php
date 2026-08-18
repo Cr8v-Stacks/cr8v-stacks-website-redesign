@@ -4534,10 +4534,10 @@ defined('ABSPATH') || exit;
         // portrait mobile and landscape desktop so landing distances differ.
         const isMobile = window.innerWidth <= 768;
         const liveCalibData = isMobile ? {
-          woo:    { dX: -100, dY: 752, rot: 0, flipX: 1 },
-          next:   { dX: 37,   dY: 401, rot: 0, flipX: 1 },
-          yellow: { dX: -496, dY: 388, rot: 0, flipX: 1 },
-          green:  { dX: 133,  dY: 650, rot: 0, flipX: 1 }
+          woo:    { dX: -50,  dY: 337, rot: 0, flipX: 1 },
+          next:   { dX: 24,   dY: 160, rot: 0, flipX: 1 },
+          yellow: { dX: -250, dY: 160, rot: 0, flipX: 1 },
+          green:  { dX: 62,   dY: 285, rot: 0, flipX: 1 }
         } : {
           woo:    { dX: 222,  dY: 482, rot: 0, flipX: 1 },
           next:   { dX: 305,  dY: 308, rot: 0, flipX: 1 },
@@ -4555,16 +4555,16 @@ defined('ABSPATH') || exit;
           const hudYellow = document.getElementById('hudYellowVal');
           const hudGreen  = document.getElementById('hudGreenVal');
 
-          // Show effective delta = calibration base + current user drag offset
-          // This is the value that should be pasted into liveCalibData in code
-          const wX  = Math.round(liveCalibData.woo.dX    + (airWoo    ? (airWoo.userOffsetX    || 0) : 0));
-          const wY  = Math.round(liveCalibData.woo.dY    + (airWoo    ? (airWoo.userOffsetY    || 0) : 0));
-          const nX  = Math.round(liveCalibData.next.dX   + (airNext   ? (airNext.userOffsetX   || 0) : 0));
-          const nY  = Math.round(liveCalibData.next.dY   + (airNext   ? (airNext.userOffsetY   || 0) : 0));
-          const yX  = Math.round(liveCalibData.yellow.dX + (airYellow ? (airYellow.userOffsetX || 0) : 0));
-          const yY  = Math.round(liveCalibData.yellow.dY + (airYellow ? (airYellow.userOffsetY || 0) : 0));
-          const gX  = Math.round(liveCalibData.green.dX  + (airGreen  ? (airGreen.userOffsetX  || 0) : 0));
-          const gY  = Math.round(liveCalibData.green.dY  + (airGreen  ? (airGreen.userOffsetY  || 0) : 0));
+          // Effective delta = calibration base + current user drag offset
+          const baseWeight = scrollProgress >= 0.5 ? 1 : scrollProgress;
+          const wX  = Math.round(liveCalibData.woo.dX    * baseWeight + (airWoo    ? (airWoo.userOffsetX    || 0) : 0));
+          const wY  = Math.round(liveCalibData.woo.dY    * baseWeight + (airWoo    ? (airWoo.userOffsetY    || 0) : 0));
+          const nX  = Math.round(liveCalibData.next.dX   * baseWeight + (airNext   ? (airNext.userOffsetX   || 0) : 0));
+          const nY  = Math.round(liveCalibData.next.dY   * baseWeight + (airNext   ? (airNext.userOffsetY   || 0) : 0));
+          const yX  = Math.round(liveCalibData.yellow.dX * baseWeight + (airYellow ? (airYellow.userOffsetX || 0) : 0));
+          const yY  = Math.round(liveCalibData.yellow.dY * baseWeight + (airYellow ? (airYellow.userOffsetY || 0) : 0));
+          const gX  = Math.round(liveCalibData.green.dX  * baseWeight + (airGreen  ? (airGreen.userOffsetX  || 0) : 0));
+          const gY  = Math.round(liveCalibData.green.dY  * baseWeight + (airGreen  ? (airGreen.userOffsetY  || 0) : 0));
 
           if (hudWoo)    hudWoo.textContent    = `Woo: dX: ${wX}px | dY: ${wY}px | Rot: ${liveCalibData.woo.rot}°`;
           if (hudNext)   hudNext.textContent   = `Next: dX: ${nX}px | dY: ${nY}px | Rot: ${liveCalibData.next.rot}°`;
@@ -4609,7 +4609,7 @@ defined('ABSPATH') || exit;
             const currentDY = baseDY + userY;
 
             const initialRot = item.initialRot || 0;
-            const currentRot = initialRot * (1 - scrollProgress);
+            const currentRot = calibMode ? 0 : (initialRot * (1 - scrollProgress));
             const flip = c.flipX || 1;
             item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${flip})`;
           });
@@ -4749,6 +4749,7 @@ defined('ABSPATH') || exit;
           // Directly set transform — renderPositions() skips activePiece so
           // without this the card never moves during drag, only jumps on release.
           const k = getKey(activePiece);
+          const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
           if (k) {
             const c = liveCalibData[k];
             const baseDX = c.dX * scrollProgress;
@@ -4756,7 +4757,7 @@ defined('ABSPATH') || exit;
             const currentDX = baseDX + activePiece.userOffsetX;
             const currentDY = baseDY + activePiece.userOffsetY;
             const initialRotMap = { woo: -5, next: -8, yellow: 10, green: 6 };
-            const currentRot = (initialRotMap[k] || 0) * (1 - scrollProgress);
+            const currentRot = calibMode ? 0 : ((initialRotMap[k] || 0) * (1 - scrollProgress));
             activePiece.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${c.flipX || 1})`;
           } else {
             // Floor grid card — no base animation delta, pure user offset
@@ -4793,14 +4794,14 @@ defined('ABSPATH') || exit;
 
         window.copyCalibratedCoordinates = function() {
           // Output EFFECTIVE delta = calibration base + current user drag offset
-          // These are the values to paste directly into liveCalibData in the code
           const elMap = { woo: airWoo, next: airNext, yellow: airYellow, green: airGreen };
           const out = {};
+          const baseWeight = scrollProgress >= 0.5 ? 1 : scrollProgress;
           for (const k in liveCalibData) {
             const el = elMap[k];
             out[k] = {
-              dX:    Math.round(liveCalibData[k].dX + (el ? (el.userOffsetX || 0) : 0)),
-              dY:    Math.round(liveCalibData[k].dY + (el ? (el.userOffsetY || 0) : 0)),
+              dX:    Math.round(liveCalibData[k].dX * baseWeight + (el ? (el.userOffsetX || 0) : 0)),
+              dY:    Math.round(liveCalibData[k].dY * baseWeight + (el ? (el.userOffsetY || 0) : 0)),
               rot:   liveCalibData[k].rot,
               flipX: liveCalibData[k].flipX
             };
