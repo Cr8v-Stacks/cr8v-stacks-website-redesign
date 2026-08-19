@@ -177,7 +177,7 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
 @media(max-width:1100px){.c8hdr-root .c8-hbg{display:flex!important;}}
 
 /* ── Mega Menu Backdrop ── */
-.c8hdr-root .c8-mega-back{position:fixed!important;top:68px!important;left:0!important;right:0!important;bottom:0!important;background:rgba(8,8,8,0.25)!important;z-index:9400!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .25s ease,visibility .25s ease!important;}
+.c8hdr-root .c8-mega-back{position:fixed!important;top:0px!important;left:0!important;right:0!important;bottom:0!important;background:rgba(8,8,8,0.25)!important;z-index:9400!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .25s ease,visibility .25s ease!important;}
 .c8hdr-root .c8-mega-back.c8-show{opacity:1!important;visibility:visible!important;pointer-events:auto!important;}
 
 /* ── Mega Menu Shell ── */

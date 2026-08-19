@@ -292,7 +292,7 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
 
 /* ── Mega Backdrop & Floating Card Shell ── */
 .c8bm-root .c8bm-mega-back {
-  position:fixed!important;top:68px!important;left:0!important;right:0!important;bottom:0!important;
+  position:fixed!important;top:0px!important;left:0!important;right:0!important;bottom:0!important;
   background:rgba(8,8,8,0.25)!important;z-index:9400!important;
   opacity:0!important;visibility:hidden!important;pointer-events:none!important;
   transition:opacity .25s ease,visibility .25s ease!important;
