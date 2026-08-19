@@ -822,7 +822,7 @@ get_header();
               <span class="sdv-item-title" data-customizer="abt_srv1_title" data-customizer-url="abt_srv1_link"><?php echo esc_html(cr8v_mod('abt_srv1_title', 'Website Design')); ?></span>
               <span class="sdv-item-tag tag-build" data-customizer="abt_srv1_tag"><?php echo esc_html(cr8v_mod('abt_srv1_tag', 'Build Layer')); ?></span>
               <div class="sdv-item-thumb">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_duch_apartments.jpg'); ?>" alt="Website Design Preview">
+                <img src="<?php echo esc_url(cr8v_mod('abt_srv1_thumb', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.webp')); ?>" alt="Website Design Preview" data-customizer="abt_srv1_thumb">
               </div>
               <span class="sdv-item-chevron">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -848,7 +848,7 @@ get_header();
                   </div>
                 </div>
                 <div class="sdv-panel-visual">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.webp'); ?>" alt="Website Design Work">
+                  <img src="<?php echo esc_url(cr8v_mod('abt_srv1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.webp')); ?>" alt="Website Design Work" data-customizer="abt_srv1_img">
                   <span class="sdv-panel-visual-label sdv-badge-blue">Capability Layer</span>
                 </div>
               </div>
@@ -862,7 +862,7 @@ get_header();
               <span class="sdv-item-title" data-customizer="abt_srv2_title" data-customizer-url="abt_srv2_link"><?php echo esc_html(cr8v_mod('abt_srv2_title', 'Custom Software & APIs')); ?></span>
               <span class="sdv-item-tag tag-build" data-customizer="abt_srv2_tag"><?php echo esc_html(cr8v_mod('abt_srv2_tag', 'Build Layer')); ?></span>
               <div class="sdv-item-thumb">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_mkenny.jpg'); ?>" alt="Custom Software Preview">
+                <img src="<?php echo esc_url(cr8v_mod('abt_srv2_thumb', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.webp')); ?>" alt="Custom Software Preview" data-customizer="abt_srv2_thumb">
               </div>
               <span class="sdv-item-chevron">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -886,7 +886,7 @@ get_header();
                   </div>
                 </div>
                 <div class="sdv-panel-visual">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.webp'); ?>" alt="Custom Development Work">
+                  <img src="<?php echo esc_url(cr8v_mod('abt_srv2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.webp')); ?>" alt="Custom Development Work" data-customizer="abt_srv2_img">
                   <span class="sdv-panel-visual-label sdv-badge-red">Capability Layer</span>
                 </div>
               </div>
@@ -900,7 +900,7 @@ get_header();
               <span class="sdv-item-title" data-customizer="abt_srv3_title" data-customizer-url="abt_srv3_link"><?php echo esc_html(cr8v_mod('abt_srv3_title', 'AI Product MVPs')); ?></span>
               <span class="sdv-item-tag tag-build" data-customizer="abt_srv3_tag"><?php echo esc_html(cr8v_mod('abt_srv3_tag', 'Build Layer')); ?></span>
               <div class="sdv-item-thumb">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/ai_wp_tree_workflow.jpg'); ?>" alt="AI MVP Preview">
+                <img src="<?php echo esc_url(cr8v_mod('abt_srv3_thumb', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.webp')); ?>" alt="AI MVP Preview" data-customizer="abt_srv3_thumb">
               </div>
               <span class="sdv-item-chevron">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -924,7 +924,7 @@ get_header();
                   </div>
                 </div>
                 <div class="sdv-panel-visual">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.webp'); ?>" alt="AI MVP Build">
+                  <img src="<?php echo esc_url(cr8v_mod('abt_srv3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.webp')); ?>" alt="AI MVP Build" data-customizer="abt_srv3_img">
                   <span class="sdv-panel-visual-label sdv-badge-gold">Capability Layer</span>
                 </div>
               </div>
@@ -938,7 +938,7 @@ get_header();
               <span class="sdv-item-title" data-customizer="abt_srv4_title" data-customizer-url="abt_srv4_link"><?php echo esc_html(cr8v_mod('abt_srv4_title', 'Brand Strategy & Voice')); ?></span>
               <span class="sdv-item-tag tag-growth" data-customizer="abt_srv4_tag"><?php echo esc_html(cr8v_mod('abt_srv4_tag', 'Growth Layer')); ?></span>
               <div class="sdv-item-thumb">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg'); ?>" alt="Brand Strategy Preview">
+                <img src="<?php echo esc_url(cr8v_mod('abt_srv4_thumb', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_brandstrategy.webp')); ?>" alt="Brand Strategy Preview" data-customizer="abt_srv4_thumb">
               </div>
               <span class="sdv-item-chevron">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -962,7 +962,7 @@ get_header();
                   </div>
                 </div>
                 <div class="sdv-panel-visual">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_brandstrategy.webp'); ?>" alt="Brand Strategy Work">
+                  <img src="<?php echo esc_url(cr8v_mod('abt_srv4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_brandstrategy.webp')); ?>" alt="Brand Strategy Work" data-customizer="abt_srv4_img">
                   <span class="sdv-panel-visual-label sdv-badge-white">Capability Layer</span>
                 </div>
               </div>
@@ -976,7 +976,7 @@ get_header();
               <span class="sdv-item-title" data-customizer="abt_srv5_title" data-customizer-url="abt_srv5_link"><?php echo esc_html(cr8v_mod('abt_srv5_title', 'SEO & Entity Search')); ?></span>
               <span class="sdv-item-tag tag-growth" data-customizer="abt_srv5_tag"><?php echo esc_html(cr8v_mod('abt_srv5_tag', 'Growth Layer')); ?></span>
               <div class="sdv-item-thumb">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_process_layers.jpg'); ?>" alt="SEO Preview">
+                <img src="<?php echo esc_url(cr8v_mod('abt_srv5_thumb', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_seocontent.webp')); ?>" alt="SEO Preview" data-customizer="abt_srv5_thumb">
               </div>
               <span class="sdv-item-chevron">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -1000,8 +1000,46 @@ get_header();
                   </div>
                 </div>
                 <div class="sdv-panel-visual">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_seocontent.webp'); ?>" alt="SEO Architecture Work">
+                  <img src="<?php echo esc_url(cr8v_mod('abt_srv5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_seocontent.webp')); ?>" alt="SEO Architecture Work" data-customizer="abt_srv5_img">
                   <span class="sdv-panel-visual-label sdv-badge-blue">Capability Layer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 06 — Digital Marketing -->
+          <div class="sdv-item" id="sdv-digital-marketing">
+            <button class="sdv-item-trigger" aria-expanded="false" data-sdv-toggle="sdv-digital-marketing">
+              <span class="sdv-item-num">06</span>
+              <span class="sdv-item-title" data-customizer="abt_srv6_title" data-customizer-url="abt_srv6_link"><?php echo esc_html(cr8v_mod('abt_srv6_title', 'Digital Marketing')); ?></span>
+              <span class="sdv-item-tag tag-growth" data-customizer="abt_srv6_tag"><?php echo esc_html(cr8v_mod('abt_srv6_tag', 'Growth Layer')); ?></span>
+              <div class="sdv-item-thumb">
+                <img src="<?php echo esc_url(cr8v_mod('abt_srv6_thumb', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_digimkt.webp')); ?>" alt="Digital Marketing Preview" data-customizer="abt_srv6_thumb">
+              </div>
+              <span class="sdv-item-chevron">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="sdv-panel">
+              <div class="sdv-panel-inner">
+                <div class="sdv-panel-content">
+                  <div class="sdv-panel-spacer"></div>
+                  <div class="sdv-panel-desc" data-customizer="abt_srv6_desc">
+                    <?php echo esc_html(cr8v_mod('abt_srv6_desc', 'Multi-channel campaigns and lead acquisition retainers built on strategic brand positioning to scale traffic, conversions, and high-ticket inquiries.')); ?>
+                  </div>
+                  <div class="sdv-panel-right">
+                    <div class="sdv-deliverable-row">Paid Social &amp; Search Campaign Management</div>
+                    <div class="sdv-deliverable-row">Email Autoresponders &amp; Nurture Sequences</div>
+                    <div class="sdv-deliverable-row">Conversion Rate Audits</div>
+                    <a href="<?php echo esc_url(home_url(cr8v_mod('abt_srv6_link', '/services/digital-marketing/'))); ?>" class="sdv-panel-cta">
+                      Explore Digital Marketing
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="sdv-panel-visual">
+                  <img src="<?php echo esc_url(cr8v_mod('abt_srv6_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_digimkt.webp')); ?>" alt="Digital Marketing Campaign Work" data-customizer="abt_srv6_img">
+                  <span class="sdv-panel-visual-label sdv-badge-red">Capability Layer</span>
                 </div>
               </div>
             </div>
@@ -1053,7 +1091,7 @@ get_header();
 
           <!-- C2: Stacks visual (tall image card) -->
           <div class="hww-card hww-c2">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_stacks_visual.jpg'); ?>" alt="CR8V Stacks Visual Architecture" class="hww-visual-img">
+            <img src="<?php echo esc_url(cr8v_mod('abt_plr_c2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_hww_chiaroscuro_beam.webp')); ?>" alt="CR8V Stacks Visual Architecture" class="hww-visual-img" data-customizer="abt_plr_c2_img">
           </div>
 
                     <!-- C3: Conversion Velocity (blue card) -->

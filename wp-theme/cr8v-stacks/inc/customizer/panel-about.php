@@ -77,23 +77,44 @@ defined('ABSPATH') || exit;
     _cr8v_text($wp_customize, 'abt_srv1_title', 'cr8v_abt_services', 'Service 1 Title', 'Website Design');
     _cr8v_text($wp_customize, 'abt_srv1_tag',   'cr8v_abt_services', 'Service 1 Tag', 'Build Layer');
     _cr8v_text($wp_customize, 'abt_srv1_link',  'cr8v_abt_services', 'Service 1 Link', '/services/web-design/');
+    _cr8v_img($wp_customize, 'abt_srv1_thumb', 'cr8v_abt_services', 'Service 1 Tab Thumbnail', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.webp');
+    _cr8v_img($wp_customize, 'abt_srv1_img',   'cr8v_abt_services', 'Service 1 Panel Visual', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.webp');
     _cr8v_textarea($wp_customize, 'abt_srv1_desc', 'cr8v_abt_services', 'Service 1 Description', 'High-converting digital experiences engineered for speed, search authority, and seamless user conversions.');
+    
     _cr8v_text($wp_customize, 'abt_srv2_title', 'cr8v_abt_services', 'Service 2 Title', 'Custom Software & APIs');
     _cr8v_text($wp_customize, 'abt_srv2_tag',   'cr8v_abt_services', 'Service 2 Tag', 'Build Layer');
     _cr8v_text($wp_customize, 'abt_srv2_link',  'cr8v_abt_services', 'Service 2 Link', '/services/custom-dev/');
+    _cr8v_img($wp_customize, 'abt_srv2_thumb', 'cr8v_abt_services', 'Service 2 Tab Thumbnail', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.webp');
+    _cr8v_img($wp_customize, 'abt_srv2_img',   'cr8v_abt_services', 'Service 2 Panel Visual', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.webp');
     _cr8v_textarea($wp_customize, 'abt_srv2_desc', 'cr8v_abt_services', 'Service 2 Description', 'Bespoke web applications, internal tools, custom API integrations, and scalable PHP/JS architectures.');
+    
     _cr8v_text($wp_customize, 'abt_srv3_title', 'cr8v_abt_services', 'Service 3 Title', 'AI Product MVPs');
     _cr8v_text($wp_customize, 'abt_srv3_tag',   'cr8v_abt_services', 'Service 3 Tag', 'Build Layer');
     _cr8v_text($wp_customize, 'abt_srv3_link',  'cr8v_abt_services', 'Service 3 Link', '/services/ai-mvp/');
+    _cr8v_img($wp_customize, 'abt_srv3_thumb', 'cr8v_abt_services', 'Service 3 Tab Thumbnail', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.webp');
+    _cr8v_img($wp_customize, 'abt_srv3_img',   'cr8v_abt_services', 'Service 3 Panel Visual', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.webp');
     _cr8v_textarea($wp_customize, 'abt_srv3_desc', 'cr8v_abt_services', 'Service 3 Description', 'Production-grade AI applications, LLM workflow integrations, and rapid prototype platforms.');
+    
     _cr8v_text($wp_customize, 'abt_srv4_title', 'cr8v_abt_services', 'Service 4 Title', 'Brand Strategy & Voice');
     _cr8v_text($wp_customize, 'abt_srv4_tag',   'cr8v_abt_services', 'Service 4 Tag', 'Growth Layer');
     _cr8v_text($wp_customize, 'abt_srv4_link',  'cr8v_abt_services', 'Service 4 Link', '/services/brand-strategy/');
+    _cr8v_img($wp_customize, 'abt_srv4_thumb', 'cr8v_abt_services', 'Service 4 Tab Thumbnail', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_brandstrategy.webp');
+    _cr8v_img($wp_customize, 'abt_srv4_img',   'cr8v_abt_services', 'Service 4 Panel Visual', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_brandstrategy.webp');
     _cr8v_textarea($wp_customize, 'abt_srv4_desc', 'cr8v_abt_services', 'Service 4 Description', 'Market positioning, competitor teardowns, value proposition frameworks, and pricing scoping.');
+    
     _cr8v_text($wp_customize, 'abt_srv5_title', 'cr8v_abt_services', 'Service 5 Title', 'SEO & Entity Search');
     _cr8v_text($wp_customize, 'abt_srv5_tag',   'cr8v_abt_services', 'Service 5 Tag', 'Growth Layer');
     _cr8v_text($wp_customize, 'abt_srv5_link',  'cr8v_abt_services', 'Service 5 Link', '/services/seo-content/');
+    _cr8v_img($wp_customize, 'abt_srv5_thumb', 'cr8v_abt_services', 'Service 5 Tab Thumbnail', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_seocontent.webp');
+    _cr8v_img($wp_customize, 'abt_srv5_img',   'cr8v_abt_services', 'Service 5 Panel Visual', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_seocontent.webp');
     _cr8v_textarea($wp_customize, 'abt_srv5_desc', 'cr8v_abt_services', 'Service 5 Description', 'Technical search architecture, Schema JSON-LD entity mapping, Core Web Vitals optimization.');
+    
+    _cr8v_text($wp_customize, 'abt_srv6_title', 'cr8v_abt_services', 'Service 6 Title', 'Digital Marketing');
+    _cr8v_text($wp_customize, 'abt_srv6_tag',   'cr8v_abt_services', 'Service 6 Tag', 'Growth Layer');
+    _cr8v_text($wp_customize, 'abt_srv6_link',  'cr8v_abt_services', 'Service 6 Link', '/services/digital-marketing/');
+    _cr8v_img($wp_customize, 'abt_srv6_thumb', 'cr8v_abt_services', 'Service 6 Tab Thumbnail', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_digimkt.webp');
+    _cr8v_img($wp_customize, 'abt_srv6_img',   'cr8v_abt_services', 'Service 6 Panel Visual', get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_digimkt.webp');
+    _cr8v_textarea($wp_customize, 'abt_srv6_desc', 'cr8v_abt_services', 'Service 6 Description', 'Multi-channel campaigns and lead acquisition retainers built on strategic brand positioning.');
 
     // ── 5. PILLARS OF GROWTH BENTO GRID ──
     _cr8v_section($wp_customize, 'cr8v_abt_pillars', '5. Pillars of Growth Bento Grid', 'cr8v_about_panel', 50);
@@ -106,7 +127,7 @@ defined('ABSPATH') || exit;
     _cr8v_text($wp_customize, 'abt_plr_c1_p2', 'cr8v_abt_pillars', 'Card 1 Pillar 2', 'Web Architecture');
     _cr8v_text($wp_customize, 'abt_plr_c1_p3', 'cr8v_abt_pillars', 'Card 1 Pillar 3', 'Digital Marketing');
     _cr8v_text($wp_customize, 'abt_plr_c1_p4', 'cr8v_abt_pillars', 'Card 1 Pillar 4', 'Entity SEO Dominance');
-    _cr8v_img($wp_customize, 'abt_plr_c2_img', 'cr8v_abt_pillars', 'Card 2 Visual Image', get_template_directory_uri() . '/assets/img/hww_stacks_visual.jpg');
+    _cr8v_img($wp_customize, 'abt_plr_c2_img', 'cr8v_abt_pillars', 'Card 2 Visual Image', get_template_directory_uri() . '/assets/img/abstract/cr8v_hww_chiaroscuro_beam.webp');
     _cr8v_text($wp_customize, 'abt_plr_c3_label', 'cr8v_abt_pillars', 'Card 3 Label', 'Conversion Velocity');
     _cr8v_text($wp_customize, 'abt_plr_c3_num', 'cr8v_abt_pillars', 'Card 3 Metric', '+184% Conversion Lift');
     _cr8v_textarea($wp_customize, 'abt_plr_c3_sub', 'cr8v_abt_pillars', 'Card 3 Description', 'Engineered user paths and friction-free UI architectures that turn passive visitors into active high-ticket client inquiries.');
