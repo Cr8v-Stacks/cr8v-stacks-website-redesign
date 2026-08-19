@@ -334,7 +334,7 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
   content: '' !important;
   position: absolute !important;
   inset: 0 !important;
-  background: radial-gradient(circle at 85% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 55%), radial-gradient(circle at 10% 90%, rgba(0, 56, 192, 0.2) 0%, transparent 50%) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E") !important;
   pointer-events: none !important;
   z-index: 0 !important;
 }
@@ -482,7 +482,7 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
   padding-left: 5px !important;
 }
 
-/* Mobile Drawer Footer with Royal Blue Radial Atmosphere Glow */
+/* Mobile Drawer Footer with Solid Obsidian Black & SVG Texture */
 .c8hdr-root .c8-md-foot {
   padding: 1.1rem 1.25rem 1.5rem !important;
   border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -495,7 +495,7 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
   content: '' !important;
   position: absolute !important;
   inset: 0 !important;
-  background: radial-gradient(circle at 85% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 55%), radial-gradient(circle at 10% 90%, rgba(0, 56, 192, 0.2) 0%, transparent 50%) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E") !important;
   pointer-events: none !important;
   z-index: 0 !important;
 }

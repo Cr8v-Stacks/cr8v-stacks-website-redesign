@@ -42,6 +42,7 @@ if (!function_exists('cr8v_render_blog_mega_recent_reads')) {
         $count = max(2, $count); // Enforce Rule of Two (minimum 2 items, matching left column height)
         
         $cat_ids = [];
+        $primary_slug = $category_slugs[0] ?? 'insights';
         foreach ($category_slugs as $slug) {
             $term = get_category_by_slug($slug) ?: get_term_by('slug', $slug, 'category');
             if ($term && !is_wp_error($term)) {
@@ -49,6 +50,10 @@ if (!function_exists('cr8v_render_blog_mega_recent_reads')) {
             }
         }
 
+        $used_post_ids = [];
+        $posts_found   = [];
+
+        // Tier 1: Target Category Query (Randomized recent published posts)
         $args = [
             'post_type'      => 'post',
             'post_status'    => 'publish',
@@ -61,14 +66,23 @@ if (!function_exists('cr8v_render_blog_mega_recent_reads')) {
         }
 
         $query = new WP_Query($args);
-        $posts_found = [];
         if ($query->have_posts()) {
             while ($query->have_posts()) {
                 $query->the_post();
+                $post_id   = get_the_ID();
                 $post_cats = get_the_category();
                 $tag_name  = !empty($post_cats) ? $post_cats[0]->name : 'Insights';
+                $raw_title = trim(get_the_title());
+                
+                // Guard against blank titles / auto drafts
+                if (empty($raw_title) || strtolower($raw_title) === 'auto draft' || strtolower($raw_title) === 'untitled') {
+                    $content_snippet = wp_trim_words(wp_strip_all_tags(get_the_content()), 7, '...');
+                    $raw_title = !empty($content_snippet) ? $content_snippet : ($tag_name . ' Strategic Architecture');
+                }
+
+                $used_post_ids[] = $post_id;
                 $posts_found[] = [
-                    'title' => get_the_title(),
+                    'title' => $raw_title,
                     'url'   => get_permalink(),
                     'tag'   => $tag_name,
                 ];
@@ -76,12 +90,13 @@ if (!function_exists('cr8v_render_blog_mega_recent_reads')) {
             wp_reset_postdata();
         }
 
-        // Fill remaining slots if category has fewer posts published
+        // Tier 2: Backfill from general published articles if target category has fewer posts
         if (count($posts_found) < $count) {
             $fallback_args = [
                 'post_type'      => 'post',
                 'post_status'    => 'publish',
                 'posts_per_page' => $count - count($posts_found),
+                'post__not_in'   => $used_post_ids,
                 'orderby'        => 'date',
                 'order'          => 'DESC',
                 'no_found_rows'  => true,
@@ -90,10 +105,19 @@ if (!function_exists('cr8v_render_blog_mega_recent_reads')) {
             if ($fallback_query->have_posts()) {
                 while ($fallback_query->have_posts()) {
                     $fallback_query->the_post();
+                    $post_id   = get_the_ID();
                     $post_cats = get_the_category();
-                    $tag_name  = !empty($post_cats) ? $post_cats[0]->name : 'Guide';
+                    $tag_name  = !empty($post_cats) ? $post_cats[0]->name : 'Playbook';
+                    $raw_title = trim(get_the_title());
+
+                    if (empty($raw_title) || strtolower($raw_title) === 'auto draft' || strtolower($raw_title) === 'untitled') {
+                        $content_snippet = wp_trim_words(wp_strip_all_tags(get_the_content()), 7, '...');
+                        $raw_title = !empty($content_snippet) ? $content_snippet : ($tag_name . ' Execution Guide');
+                    }
+
+                    $used_post_ids[] = $post_id;
                     $posts_found[] = [
-                        'title' => get_the_title(),
+                        'title' => $raw_title,
                         'url'   => get_permalink(),
                         'tag'   => $tag_name,
                     ];
@@ -102,18 +126,45 @@ if (!function_exists('cr8v_render_blog_mega_recent_reads')) {
             }
         }
 
-        // Default fallbacks for clean initial render
-        $default_fallbacks = [
-            ['title' => 'Elevate Brand Status With In-Depth Positioning Research', 'url' => home_url('/blog/'), 'tag' => 'Strategy'],
-            ['title' => '5 Reasons Your Company Should Utilize A HubSpot Agency', 'url' => home_url('/blog/'), 'tag' => 'Marketing'],
-            ['title' => 'Sub-Second Page Performance & High-Converting UX Architecture', 'url' => home_url('/blog/'), 'tag' => 'Web Design'],
-            ['title' => 'Modern E-Commerce Conversion Optimization Benchmarks', 'url' => home_url('/blog/'), 'tag' => 'E-Commerce'],
+        // Tier 3: Curated Editorial Deck (Category-tailored fallback library)
+        $curated_decks = [
+            'brand-strategy' => [
+                ['title' => 'Elevate Brand Status With In-Depth Market Positioning Research', 'url' => home_url('/category/brand-strategy/'), 'tag' => 'Brand Strategy'],
+                ['title' => 'The High-Value Architecture of Category-Dominant Design Systems', 'url' => home_url('/category/brand-strategy/'), 'tag' => 'Positioning'],
+                ['title' => 'Brand Asset Guidelines for Scaling Enterprise Organizations', 'url' => home_url('/category/brand-strategy/'), 'tag' => 'Identity'],
+                ['title' => 'Establishing Premium Pricing Power Through Visual Cohesion', 'url' => home_url('/category/brand-strategy/'), 'tag' => 'Strategy'],
+            ],
+            'digital-marketing' => [
+                ['title' => 'Omnichannel Funnel Velocity & High-Converting Paid Acquisition', 'url' => home_url('/category/digital-marketing/'), 'tag' => 'Growth'],
+                ['title' => '5 Reasons High-Growth Companies Migrate to Dedicated Agency Retainers', 'url' => home_url('/category/digital-marketing/'), 'tag' => 'Marketing'],
+                ['title' => 'Lifecycle Email Automation Sequences That Maximize LTV', 'url' => home_url('/category/digital-marketing/'), 'tag' => 'Automation'],
+                ['title' => 'Attribution Modeling for Modern Multi-Touch Buyer Journeys', 'url' => home_url('/category/digital-marketing/'), 'tag' => 'Analytics'],
+            ],
+            'content-creation' => [
+                ['title' => 'Entity SEO Optimization & Semantic Content Network Structures', 'url' => home_url('/category/content-creation/'), 'tag' => 'SEO Content'],
+                ['title' => 'High-Authority Thought Leadership Editorial Frameworks', 'url' => home_url('/category/content-creation/'), 'tag' => 'Editorial'],
+                ['title' => 'Content Repurposing Systems for Multi-Platform Distribution', 'url' => home_url('/category/content-creation/'), 'tag' => 'Strategy'],
+                ['title' => 'Writing For Conversion: Micro-Copy and Landing Page Hooks', 'url' => home_url('/category/content-creation/'), 'tag' => 'Copywriting'],
+            ],
+            'web-design' => [
+                ['title' => 'Liquid Performance Engineering & Sub-Second Web Architecture', 'url' => home_url('/category/web-design/'), 'tag' => 'Web Design'],
+                ['title' => 'Figma to Custom WordPress: Clean Code Without Builder Bloat', 'url' => home_url('/category/web-design/'), 'tag' => 'Engineering'],
+                ['title' => 'Modern E-Commerce Conversion Optimization Benchmarks', 'url' => home_url('/category/web-design/'), 'tag' => 'E-Commerce'],
+                ['title' => 'Micro-Interactions and Kinetic Scroll Experiences That Convert', 'url' => home_url('/category/web-design/'), 'tag' => 'UI/UX'],
+            ],
+            'business-productivity' => [
+                ['title' => 'High-Velocity Sprint Retainers vs. Slow In-House Hiring', 'url' => home_url('/category/business-productivity/'), 'tag' => 'Productivity'],
+                ['title' => 'API-First Automation Pipelines That Remove Team Bottlenecks', 'url' => home_url('/category/business-productivity/'), 'tag' => 'Operations'],
+                ['title' => 'Streamlining Digital Product Roadmaps for Rapid Execution', 'url' => home_url('/category/business-productivity/'), 'tag' => 'Agile'],
+                ['title' => 'Tech Stack Modernization: Eliminating Technical Debt in 2026', 'url' => home_url('/category/business-productivity/'), 'tag' => 'Architecture'],
+            ],
         ];
 
-        $i = 0;
-        while (count($posts_found) < $count && isset($default_fallbacks[$i])) {
-            $posts_found[] = $default_fallbacks[$i];
-            $i++;
+        $curated_pool = $curated_decks[$primary_slug] ?? $curated_decks['brand-strategy'];
+        $deck_idx = 0;
+        while (count($posts_found) < $count && isset($curated_pool[$deck_idx])) {
+            $posts_found[] = $curated_pool[$deck_idx];
+            $deck_idx++;
         }
 
         echo '<div class="c8bm-mcol">';

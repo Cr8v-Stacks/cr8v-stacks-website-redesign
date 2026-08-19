@@ -228,53 +228,89 @@ $is_tag = is_tag();
   border-color: var(--c8-blue);
 }
 
-/* AMBIENT MESH GRADIENT NON-IMAGE FALLBACK CARDS */
+/* ── HYBRID ENTERGALACTIC & BAUHAUS EDITORIAL POSTER FALLBACK ── */
 .card-fallback-canvas {
-  width: 100%; height: 100%; min-height: 190px;
+  width: 100%; height: 100%; min-height: 200px;
   border-radius: 4px !important;
-  padding: 1.6rem 1.4rem;
+  padding: 1.4rem 1.25rem;
   display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
+  align-items: center; justify-content: space-between;
   text-align: center;
   position: relative; overflow: hidden;
   box-sizing: border-box;
+  background: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.card-fallback-canvas:hover {
+  border-color: rgba(0, 71, 225, 0.4);
+}
+.card-fallback-canvas::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+  pointer-events: none;
+  z-index: 1;
+}
+.card-fallback-canvas::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
 }
 
-.card-fallback-canvas.is-light {
-  background: linear-gradient(135deg, #E0F2FE 0%, #F0F9FF 45%, #EDE9FE 100%);
-  color: #080808; border: 1px solid rgba(8, 8, 8, 0.08);
-}
-.card-fallback-canvas.is-light .fallback-brand-icon {
-  width: 22px; height: 22px; color: #080808; margin-bottom: 0.9rem; stroke-width: 2.2;
-}
-.card-fallback-canvas.is-light .fallback-title {
-  font-family: var(--font-heading); font-size: 0.9rem; font-weight: 700;
-  color: #080808; text-transform: uppercase; line-height: 1.35;
-  margin-bottom: 0.9rem; max-width: 90%; letter-spacing: -0.01em;
-}
-.card-fallback-canvas.is-light .fallback-cat {
-  font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700;
-  color: #080808; letter-spacing: 0.14em; text-transform: uppercase;
-}
-
+/* Variant A: Chiaroscuro Cobalt Orbit */
+.card-fallback-canvas.is-variant-a,
 .card-fallback-canvas.is-dark {
-  background: 
-    radial-gradient(circle at 90% 10%, rgba(99, 102, 241, 0.4) 0%, transparent 60%),
-    radial-gradient(circle at 10% 90%, rgba(14, 165, 233, 0.3) 0%, transparent 60%),
-    linear-gradient(135deg, #070A12 0%, #0F172A 50%, #1E1B4B 100%);
-  color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.1);
+  background: radial-gradient(circle at 80% 20%, rgba(0, 71, 225, 0.28) 0%, transparent 60%),
+              radial-gradient(circle at 20% 90%, rgba(0, 56, 192, 0.15) 0%, transparent 50%),
+              #080808;
 }
-.card-fallback-canvas.is-dark .fallback-brand-icon {
-  width: 22px; height: 22px; color: #FFFFFF; margin-bottom: 0.9rem; stroke-width: 2.2;
+
+/* Variant B: Entergalactic Indigo Atmosphere */
+.card-fallback-canvas.is-variant-b,
+.card-fallback-canvas.is-light {
+  background: radial-gradient(circle at 85% 15%, rgba(139, 0, 139, 0.22) 0%, transparent 55%),
+              radial-gradient(circle at 15% 85%, rgba(75, 0, 130, 0.25) 0%, transparent 50%),
+              radial-gradient(circle at 50% 50%, rgba(0, 71, 225, 0.18) 0%, transparent 65%),
+              #080808;
 }
-.card-fallback-canvas.is-dark .fallback-title {
-  font-family: var(--font-heading); font-size: 0.9rem; font-weight: 700;
-  color: #FFFFFF; text-transform: uppercase; line-height: 1.35;
-  margin-bottom: 0.9rem; max-width: 90%; letter-spacing: -0.01em;
+
+.card-fallback-canvas .fallback-top {
+  position: relative; z-index: 2; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
 }
-.card-fallback-canvas.is-dark .fallback-cat {
-  font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700;
-  color: #A0B4FF; letter-spacing: 0.14em; text-transform: uppercase;
+.card-fallback-canvas .fallback-cat {
+  font-family: var(--font-mono); font-size: 8px; font-weight: 700;
+  color: #4A9EFF; letter-spacing: 0.18em; text-transform: uppercase;
+  background: rgba(0, 71, 225, 0.15); border: 1px solid rgba(0, 71, 225, 0.3);
+  padding: 3px 8px; border-radius: 4px;
+}
+.card-fallback-canvas .fallback-brand-icon {
+  width: 18px; height: 18px; color: #0047E1; stroke-width: 2.2;
+}
+
+.card-fallback-canvas .fallback-center {
+  position: relative; z-index: 2; padding: 0.6rem 0;
+}
+.card-fallback-canvas .fallback-title {
+  font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700;
+  color: #FAFAF7; text-transform: uppercase; line-height: 1.35;
+  letter-spacing: 0.01em; margin: 0 auto;
+}
+
+.card-fallback-canvas .fallback-foot {
+  position: relative; z-index: 2; width: 100%;
+  font-family: var(--font-mono); font-size: 7.5px; font-weight: 700;
+  color: rgba(250, 250, 247, 0.35); letter-spacing: 0.22em; text-transform: uppercase;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.card-fallback-canvas .fallback-foot::before {
+  content: ''; width: 10px; height: 1px; background: rgba(250, 250, 247, 0.25);
 }
 
 .card-title { font-family: var(--font-heading) !important; font-size: 0.95rem !important; font-weight: 700; color: var(--c8-ink); line-height: 1.4; text-transform: uppercase; margin: 0; }
@@ -349,14 +385,21 @@ $is_tag = is_tag();
               <?php if ($has_thumb) : ?>
                 <img src="<?php the_post_thumbnail_url('medium_large'); ?>" alt="<?php the_title_attribute(); ?>" class="card-img">
               <?php else :
-                $variant_class = ($post_idx % 2 === 0) ? 'is-dark' : 'is-light';
+                $variant_class = ($post_idx % 2 === 0) ? 'is-variant-a' : 'is-variant-b';
               ?>
                 <div class="card-fallback-canvas <?php echo $variant_class; ?>">
-                  <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                  </svg>
-                  <div class="fallback-title"><?php the_title(); ?></div>
-                  <div class="fallback-cat"><?php echo esc_html($primary_cat); ?></div>
+                  <div class="fallback-top">
+                    <span class="fallback-cat"><?php echo esc_html($primary_cat); ?></span>
+                    <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                  </div>
+                  <div class="fallback-center">
+                    <div class="fallback-title"><?php the_title(); ?></div>
+                  </div>
+                  <div class="fallback-foot">
+                    <span>CR8V STACKS ARCHIVE</span>
+                  </div>
                 </div>
               <?php endif; ?>
             </a>
