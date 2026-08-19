@@ -460,3 +460,91 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 * **File Target**: `assets/img/abstract/cr8v_cdev_proc_launch.jpg`
 * **Written Prompt**:
   > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Abstract cloud server deployment pods, container orchestration geometry, and ascending production velocity vectors illuminated by a warm gold (#FFB800) light beam slicing through deep darkness, casting razor-sharp shadows across a dark obsidian ground (#080808). Graphic poster art style, flat 2D graphic aesthetic, high contrast, clean negative space, no 3D rendering, no circuit boards, no photorealism, no text.*
+
+---
+
+# 📄 PAGE: AI MVP PRODUCTS & LLM ORCHESTRATION (`page-service-ai-mvp.php`)
+
+### Overview & Visual Strategy
+* **Suite 1: Deliverables Folder Deck (`.c8srv-folder-deck`)**: 5 Deliverable Showcase Cards (`4:3` Landscape) using **Approach B: SaaS Product UI Micro-Illustrations (Full-Bleed Architecture)** with timeless status indicators and zero year stamps.
+* **Suite 2: How We Approach It (`.c8isv-approach-outer`)**: 4 Process Stage Cards (`4:3` Landscape) using **System 1: High-Contrast Architectural Chiaroscuro & Directional Beams with Logo Color Rotation**.
+
+---
+
+### Suite 1: Deliverables Folder Deck (01 through 05)
+
+#### 01 // Interface — Next.js AI Product Front-End
+* **Deliverable Context**: Responsive Chat UI, streaming text responses, and document upload interfaces built with Next.js and Tailwind.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_aimvp_deck_interface.jpg`
+* **Written Prompt**:
+  > *Clean minimalist modern AI chat application interface mockup, 4:3 landscape aspect ratio. An ultra-sleek Next.js AI workspace layout on a pure white card with a faint light grey dot-grid pattern. Showing clean streaming token chat response bubbles, a document PDF upload dropzone, and a responsive sidebar with an elevated Royal Blue (#0047E1) active model badge reading "[Model Active: Streaming 120 tok/s]". Clean Figma/Framer component aesthetic, soft subtle drop shadows, pure white, royal blue, and slate grey palette, full-bleed card composition, zero phantom text, no 3D CGI gloss, no photorealism.*
+
+#### 02 // Models — OpenAI & Claude LLM Wiring
+* **Deliverable Context**: Connecting GPT-4o and Anthropic Claude APIs with system prompt engineering and token usage optimizations.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_aimvp_deck_models.jpg`
+* **Written Prompt**:
+  > *Clean minimalist SaaS LLM foundation model orchestrator card mockup, 4:3 landscape aspect ratio. An ultra-clean AI model selector interface on a pure white card with a subtle dot grid. Showing active model toggles for OpenAI GPT-4o and Anthropic Claude 3.5, structured system prompt injection parameters, temperature sliders, and an elevated Royal Blue (#0047E1) verification tag reading "[Model Router: Latency 85ms]". Crisp typography syntax, soft diffused drop shadows, full-bleed composition, zero chaotic clutter, no photorealism, no 3D CGI gloss.*
+
+#### 03 // Vector DB — Pinecone & Qdrant Vector Pipelines
+* **Deliverable Context**: Embedding unstructured PDF, text, and database data for similarity search and ground truth generation.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_aimvp_deck_vectordb.jpg`
+* **Written Prompt**:
+  > *Clean minimalist SaaS vector database embedding diagram mockup, 4:3 landscape aspect ratio. An ultra-clean Pinecone and Qdrant similarity search architecture card on a pure white background with a subtle dot grid. Showing high-dimensional vector cluster nodes, document chunking data blocks, and semantic nearest-neighbor connector lines, anchored by an elevated Royal Blue (#0047E1) accuracy badge reading "[Cosine Similarity: 0.98 Match]". Modern Figma/Dribbble UI component aesthetic, soft neumorphic elevation, gentle drop shadows, full-bleed composition, no 3D CGI gloss, no photorealism.*
+
+#### 04 // Monetization — Stripe Token Billing & Auth
+* **Deliverable Context**: Integrating Clerk/Supabase user auth and Stripe usage-based pricing models for token consumption.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_aimvp_deck_billing.jpg`
+* **Written Prompt**:
+  > *Clean minimalist SaaS token monetization and auth dashboard card mockup, 4:3 landscape aspect ratio. An ultra-clean Stripe usage-based billing interface on a pure white card with a faint dot-grid pattern. Showing a real-time token consumption progress bar, user authentication status pills, and subscription tier cards, anchored by an elevated Royal Blue (#0047E1) status tag reading "[Stripe Metering: Active Subscription]". High-craft Figma/Rive product UI aesthetic, soft subtle drop shadows, emerald green and royal blue accents, full-bleed composition, zero phantom text, no 3D CGI gloss.*
+
+#### 05 // Hosting — Vercel & Supabase Cloud Deployment
+* **Deliverable Context**: Zero-downtime deployment setup on Vercel with automated CI/CD and Supabase database backend.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_aimvp_deck_deployment.jpg`
+* **Written Prompt**:
+  > *Clean minimalist SaaS cloud deployment card mockup, 4:3 landscape aspect ratio. An ultra-clean Vercel Edge and Supabase database architecture window on a pure white card background with a delicate dot grid. Showing automated serverless edge function execution paths, database sync status pills, and an elevated Royal Blue (#0047E1) deployment status badge reading "[Vercel Edge: Production Deployed]". Modern Figma product UI aesthetic, soft diffused drop shadows, full-bleed composition, zero messy clutter, no 3D CGI gloss, no photorealism.*
+
+---
+
+### Suite 2: How We Approach It (Process Stages 01 through 04)
+
+#### Stage 01: Scope — Prompts, Wireframes & Model Selection
+* **Accent**: Warm Ivory / White (`#F5F5F0`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_aimvp_proc_scope.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Abstract AI product specification blueprints, foundation model evaluation matrices, and prompt wireframe nodes on a dark drafting surface, struck by a crisp ivory white (#F5F5F0) directional light beam slicing through deep darkness, casting long sharp geometric shadows across an obsidian black floor (#080808). High contrast chiaroscuro shadow play, modern agency poster style, clean negative space, no 3D rendering, no photorealism, no text.*
+
+#### Stage 02: Pipeline — Embeddings, RAG & Vector Search
+* **Accent**: Royal Blue (`#0047E1`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_aimvp_proc_pipeline.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Sleek abstract vector embedding cluster monoliths, RAG knowledge retrieval planes, and semantic search trajectory ribbons struck by a sharp Royal Blue (#0047E1) light shaft casting long dramatic geometric shadows across a deep obsidian floor (#080808). High contrast chiaroscuro, graphic editorial aesthetic, deep moody dark atmosphere, flat graphic style, no 3D rendering, no machinery, no photorealism, no text.*
+
+#### Stage 03: Interface — Next.js, Streaming & Stripe Auth
+* **Accent**: Crimson Red (`#E20025`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_aimvp_proc_interface.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Next.js streaming interface planes, token rate metering cards, and API subscription blocks struck by a dramatic crimson red (#E20025) light beam casting sharp long shadows across an obsidian black (#080808) floor. High-contrast chiaroscuro, graphic editorial aesthetic, deep dark atmosphere, flat graphic style, no 3D rendering, no computer hardware, no photorealism, no text.*
+
+#### Stage 04: Launch — Vercel, Live Demo & Analytics
+* **Accent**: Golden Yellow / Warm Gold (`#FFB800`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_aimvp_proc_launch.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Abstract serverless edge deployment nodes, live AI product demo badges, and ascending production velocity vectors illuminated by a warm gold (#FFB800) light beam slicing through deep darkness, casting razor-sharp shadows across a dark obsidian ground (#080808). Graphic poster art style, flat 2D graphic aesthetic, high contrast, clean negative space, no 3D rendering, no circuit boards, no photorealism, no text.*
