@@ -226,8 +226,8 @@ get_header();
             <a href="<?php echo esc_url(cr8v_mod('shp_deck1_cta_url', home_url('/contact/'))); ?>" class="c8srv-explore" data-customizer="shp_deck1_cta_text"><?php echo esc_html(cr8v_mod('shp_deck1_cta_text', 'Discuss storefront →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
-            <div class="c8srv-folder-card-img">
-              <img src="<?php echo esc_url(cr8v_mod('shp_deck1_img', 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800&auto=format&fit=crop')); ?>" alt="Shopify custom store design" data-customizer="shp_deck1_img">
+            <div class="c8srv-folder-card-img" data-customizer="shp_deck1_img">
+              <img src="<?php echo esc_url(cr8v_mod('shp_deck1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_shp_deck_theme.jpg')); ?>" alt="Shopify custom store design" data-customizer="shp_deck1_img">
             </div>
           </div>
         </div>
@@ -241,8 +241,8 @@ get_header();
             <a href="<?php echo esc_url(cr8v_mod('shp_deck2_cta_url', home_url('/contact/'))); ?>" class="c8srv-explore" data-customizer="shp_deck2_cta_text"><?php echo esc_html(cr8v_mod('shp_deck2_cta_text', 'Discuss cart →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
-            <div class="c8srv-folder-card-img">
-              <img src="<?php echo esc_url(cr8v_mod('shp_deck2_img', 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop')); ?>" alt="Shopify cart and checkout integration" data-customizer="shp_deck2_img">
+            <div class="c8srv-folder-card-img" data-customizer="shp_deck2_img">
+              <img src="<?php echo esc_url(cr8v_mod('shp_deck2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_shp_deck_cart.jpg')); ?>" alt="Shopify cart and checkout integration" data-customizer="shp_deck2_img">
             </div>
           </div>
         </div>
@@ -256,8 +256,8 @@ get_header();
             <a href="<?php echo esc_url(cr8v_mod('shp_deck3_cta_url', home_url('/contact/'))); ?>" class="c8srv-explore" data-customizer="shp_deck3_cta_text"><?php echo esc_html(cr8v_mod('shp_deck3_cta_text', 'Discuss performance →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
-            <div class="c8srv-folder-card-img">
-              <img src="<?php echo esc_url(cr8v_mod('shp_deck3_img', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop')); ?>" alt="Shopify speed and SEO engineering" data-customizer="shp_deck3_img">
+            <div class="c8srv-folder-card-img" data-customizer="shp_deck3_img">
+              <img src="<?php echo esc_url(cr8v_mod('shp_deck3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_shp_deck_speed.jpg')); ?>" alt="Shopify speed and SEO engineering" data-customizer="shp_deck3_img">
             </div>
           </div>
         </div>
@@ -271,8 +271,8 @@ get_header();
             <a href="<?php echo esc_url(cr8v_mod('shp_deck4_cta_url', home_url('/contact/'))); ?>" class="c8srv-explore" data-customizer="shp_deck4_cta_text"><?php echo esc_html(cr8v_mod('shp_deck4_cta_text', 'Discuss wholesaling →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
-            <div class="c8srv-folder-card-img">
-              <img src="<?php echo esc_url(cr8v_mod('shp_deck4_img', 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop')); ?>" alt="Shopify Plus Operations Scale" data-customizer="shp_deck4_img">
+            <div class="c8srv-folder-card-img" data-customizer="shp_deck4_img">
+              <img src="<?php echo esc_url(cr8v_mod('shp_deck4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_shp_deck_plus.jpg')); ?>" alt="Shopify Plus Operations Scale" data-customizer="shp_deck4_img">
             </div>
           </div>
         </div>
@@ -286,8 +286,8 @@ get_header();
             <a href="<?php echo esc_url(cr8v_mod('shp_deck5_cta_url', home_url('/contact/?model=project&service=shopify'))); ?>" class="c8srv-explore" data-customizer="shp_deck5_cta_text"><?php echo esc_html(cr8v_mod('shp_deck5_cta_text', 'Discuss launch QA →')); ?></a>
           </div>
           <div class="c8srv-folder-card-right">
-            <div class="c8srv-folder-card-img">
-              <img src="<?php echo esc_url(cr8v_mod('shp_deck5_img', 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop')); ?>" alt="Store Launch QA and Training" data-customizer="shp_deck5_img">
+            <div class="c8srv-folder-card-img" data-customizer="shp_deck5_img">
+              <img src="<?php echo esc_url(cr8v_mod('shp_deck5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_shp_deck_launch.jpg')); ?>" alt="Store Launch QA and Training" data-customizer="shp_deck5_img">
             </div>
           </div>
         </div>
@@ -313,8 +313,8 @@ get_header();
           <div class="c8isv-approach-col-name" data-customizer="shp_proc1_name"><?php echo esc_html(cr8v_mod('shp_proc1_name', 'Discover')); ?></div>
           <div class="c8isv-approach-col-tags" data-customizer="shp_proc1_tags"><?php echo esc_html(cr8v_mod('shp_proc1_tags', 'Audit · Apps · Catalog')); ?></div>
           <div class="c8isv-approach-col-desc" data-customizer="shp_proc1_desc"><?php echo esc_html(cr8v_mod('shp_proc1_desc', 'Catalog mapping, Shopify app audits, and performance baselines. We identify which slow apps can be hardcoded and what features need custom Liquid layout setup.')); ?></div>
-          <div class="c8isv-approach-col-img">
-            <img src="<?php echo esc_url(cr8v_mod('shp_proc1_img', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop')); ?>" alt="Discovery audit stage" data-customizer="shp_proc1_img">
+          <div class="c8isv-approach-col-img" data-customizer="shp_proc1_img">
+            <img src="<?php echo esc_url(cr8v_mod('shp_proc1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_shp_proc_discover.jpg')); ?>" alt="Discovery audit stage" data-customizer="shp_proc1_img">
           </div>
         </div>
       </div>
@@ -326,8 +326,8 @@ get_header();
           <div class="c8isv-approach-col-name" data-customizer="shp_proc2_name"><?php echo esc_html(cr8v_mod('shp_proc2_name', 'Design')); ?></div>
           <div class="c8isv-approach-col-tags" data-customizer="shp_proc2_tags"><?php echo esc_html(cr8v_mod('shp_proc2_tags', 'UX · Layout · Branding')); ?></div>
           <div class="c8isv-approach-col-desc" data-customizer="shp_proc2_desc"><?php echo esc_html(cr8v_mod('shp_proc2_desc', 'AJAX cart drawer flows, responsive product page UX, custom checkout branding, and navigation hierarchies. Every pixel is custom-designed before coding begins.')); ?></div>
-          <div class="c8isv-approach-col-img">
-            <img src="<?php echo esc_url(cr8v_mod('shp_proc2_img', 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop')); ?>" alt="Store UX design stage" data-customizer="shp_proc2_img">
+          <div class="c8isv-approach-col-img" data-customizer="shp_proc2_img">
+            <img src="<?php echo esc_url(cr8v_mod('shp_proc2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_shp_proc_design.jpg')); ?>" alt="Store UX design stage" data-customizer="shp_proc2_img">
           </div>
         </div>
       </div>
@@ -339,8 +339,8 @@ get_header();
           <div class="c8isv-approach-col-name" data-customizer="shp_proc3_name"><?php echo esc_html(cr8v_mod('shp_proc3_name', 'Build')); ?></div>
           <div class="c8isv-approach-col-tags" data-customizer="shp_proc3_tags"><?php echo esc_html(cr8v_mod('shp_proc3_tags', 'Liquid · CLI · API')); ?></div>
           <div class="c8isv-approach-col-desc" data-customizer="shp_proc3_desc"><?php echo esc_html(cr8v_mod('shp_proc3_desc', 'Custom theme development using Shopify CLI and native JSON templates. AJAX scripts for cart drawers and native Shopify API connections are coded without slow plug-and-play apps.')); ?></div>
-          <div class="c8isv-approach-col-img">
-            <img src="<?php echo esc_url(cr8v_mod('shp_proc3_img', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop')); ?>" alt="Custom Liquid theme coding stage" data-customizer="shp_proc3_img">
+          <div class="c8isv-approach-col-img" data-customizer="shp_proc3_img">
+            <img src="<?php echo esc_url(cr8v_mod('shp_proc3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_shp_proc_build.jpg')); ?>" alt="Custom Liquid theme coding stage" data-customizer="shp_proc3_img">
           </div>
         </div>
       </div>
@@ -352,8 +352,8 @@ get_header();
           <div class="c8isv-approach-col-name" data-customizer="shp_proc4_name"><?php echo esc_html(cr8v_mod('shp_proc4_name', 'Launch')); ?></div>
           <div class="c8isv-approach-col-tags" data-customizer="shp_proc4_tags"><?php echo esc_html(cr8v_mod('shp_proc4_tags', 'Speed · SEO · Handover')); ?></div>
           <div class="c8isv-approach-col-desc" data-customizer="shp_proc4_desc"><?php echo esc_html(cr8v_mod('shp_proc4_desc', 'Speed optimization, 301 URL redirect maps, structured SEO metadata schema setup, and standard admin training. We launch your new custom Shopify store with zero downtime.')); ?></div>
-          <div class="c8isv-approach-col-img">
-            <img src="<?php echo esc_url(cr8v_mod('shp_proc4_img', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop')); ?>" alt="Shopify storefront speed and launch stage" data-customizer="shp_proc4_img">
+          <div class="c8isv-approach-col-img" data-customizer="shp_proc4_img">
+            <img src="<?php echo esc_url(cr8v_mod('shp_proc4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_shp_proc_launch.jpg')); ?>" alt="Shopify storefront speed and launch stage" data-customizer="shp_proc4_img">
           </div>
         </div>
       </div>

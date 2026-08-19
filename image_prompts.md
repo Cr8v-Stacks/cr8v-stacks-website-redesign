@@ -1349,3 +1349,254 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 * **File Target**: `assets/img/abstract/cr8v_seo_proc_scale.jpg`
 * **Written Prompt**:
   > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Ascending organic rank velocity trajectories, SERP position tracking charts, and compounding traffic vectors illuminated by a warm gold (#FFB800) light beam slicing through deep darkness, casting razor-sharp shadows across a dark obsidian ground (#080808). Graphic poster art style, flat 2D graphic aesthetic, high contrast, clean negative space, no 3D rendering, no circuit boards, no photorealism, no text.*
+
+---
+
+# 📄 PAGE: DIGITAL MARKETING & PAID ACQUISITION (`page-service-digital-marketing.php`)
+
+### Overview & Visual Strategy
+* **Suite 1: Deliverables Folder Deck (`.c8srv-folder-deck`)**: 5 Deliverable Showcase Cards (`4:3` Landscape) using the Master Service Illustration System (Strictly NO titles stamped on canvas).
+* **Suite 2: How We Approach It (`.c8isv-approach-outer`)**: 4 Process Stage Cards (`4:3` Landscape) using System 1: High-Contrast Architectural Chiaroscuro & Directional Beams.
+
+---
+
+### Suite 1: Deliverables Folder Deck (01 through 05)
+
+#### 01 // Audit — Technical SEO & Crawl Budget Audit
+* **Deliverable Context**: Deep technical inspection resolving indexing issues, canonical tags, 404 redirects, and sitemap XML schemas.
+* **Composition**: Framed + Mid-Zoom (No title bar)
+* **File Target**: `assets/img/abstract/cr8v_mktg_deck_audit.jpg`
+* **Permitted Text Only**: “Crawl Health”, “HTTP 200: 98.4%”, “Redirects: 301 OK”, “Crawl Budget: Optimal”, “Index Status: 100%”, “Passed”
+* **Written Prompt**:
+  > Create a premium high-tech visual representing an enterprise search engine crawl budget and indexation inspection report deliverable created by a technical growth engineer.
+  >
+  > **Canvas:** 4:3 landscape, conceptual working grid 1600 × 1200 px.
+  >
+  > **COMPOSITION:** Use the framed composition system. Place one dominant centered white analysis surface with rounded corners, subtle 1 px border, and soft ambient shadow against a solid cool-gray #F3F5F7 background with a faint outer dot texture. No title or header bar at top of canvas.
+  >
+  > **PRIMARY ARTIFACT:** Inside the surface, design a clean server crawl response table showing HTTP 200 status distribution bar, canonical verification tags, and XML sitemap health indicators.
+  >
+  > A single blue-violet badge reading "Passed" highlights the optimal crawl efficiency score.
+  >
+  > **PERMITTED TEXT ONLY:**
+  > “Crawl Health”
+  > “HTTP 200: 98.4%”
+  > “Redirects: 301 OK”
+  > “Crawl Budget: Optimal”
+  > “Index Status: 100%”
+  > “Passed”
+  >
+  > **FRAMING:** Mid-zoom with 35% quiet negative space surrounding the card.
+  >
+  > **ANTI-SLOP / QUALITY CONTROL:** Do not add titles, category headings, or main header bars at the top of the canvas. Create a restrained, highly art-directed composition. Do not fill empty space with decorative objects. Do not add floating cards unless they serve a clear functional purpose. Do not add random charts, graphs, badges, icons, circles, arrows, connectors, metrics, percentages, dashboards, widgets or interface elements. Do not create symmetrical template-like infographic layouts. Do not use generic AI imagery, lightbulbs, magnifying glasses, targets, puzzle pieces, abstract blobs, holograms, neural networks or decorative 3D objects. Do not use excessive gradients, neon glow, glassmorphism, excessive shadows or ornamental effects. Every visible element must communicate the actual professional work being represented. Prioritize one strong visual idea, substantial negative space, precise geometry, restrained UI, sophisticated hierarchy and exceptional rendering quality.
+  >
+  > **RENDERING QUALITY:** Premium high-tech product-design interface, comparable to an exceptionally polished Figma-designed SaaS product and a high-end brand consultancy presentation. Extremely precise geometry, crisp vector-like edges, sophisticated information architecture, refined spacing, consistent 8-point spacing logic, subtle 1 px borders, soft ambient occlusion, broad feathered shadows, physically plausible layer separation, delicate tonal hierarchy, restrained blue-violet highlights, clean white surfaces, exceptionally polished UI details, high-resolution rendering, no visual artifacts, no sloppy alignment, no inconsistent component sizing, no amateur infographic aesthetic. The result should feel expensive, intentional and professionally art-directed.
+  >
+  > **TEXT CONTROL:** Only the explicitly specified text may appear as readable typography. Do not invent any additional words, titles, numbers, dates, percentages, names, labels, placeholder copy, lorem ipsum, browser text, fake UI text or decorative typography. Unspecified text areas must remain completely blank or use simple non-letter horizontal lines to represent text. Never hallucinate written content.
+  >
+  > No spiders, no webs, no robot bugs, no people, no 3D.
+
+#### 02 // Mapping — Semantic Keyword Intent Mapping
+* **Deliverable Context**: Targeting high-intent commercial keywords and grouping queries into logical URL structures.
+* **Composition**: Open Composition + Close-Mid Zoom (No title bar)
+* **File Target**: `assets/img/abstract/cr8v_mktg_deck_mapping.jpg`
+* **Permitted Text Only**: “Commercial Intent”, “Tier 1 Keywords”, “Search Volume: 24.5K”, “SERP #1 Target”, “High Priority”
+* **Written Prompt**:
+  > Create a premium high-tech visual representing a commercial keyword intent grouping spec sheet developed by an enterprise acquisition strategist.
+  >
+  > **Canvas:** 4:3 landscape, conceptual working grid 1600 × 1200 px.
+  >
+  > **COMPOSITION:** Use an open composition. The main keyword mapping surface occupies the central canvas area against a solid cool-gray #F3F5F7 background with a faint outer dot texture. No title header at top of canvas.
+  >
+  > **PRIMARY ARTIFACT:** Design a pristine matrix showing commercial keyword clusters grouped by intent tiers with search volume progress bars.
+  >
+  > The primary Tier 1 cluster features a blue-violet tag reading "High Priority".
+  >
+  > **PERMITTED TEXT ONLY:**
+  > “Commercial Intent”
+  > “Tier 1 Keywords”
+  > “Search Volume: 24.5K”
+  > “SERP #1 Target”
+  > “High Priority”
+  >
+  > **FRAMING:** Close-mid zoom with generous quiet margins.
+  >
+  > **ANTI-SLOP & RENDERING QUALITY & TEXT CONTROL:** Verbatim house blocks apply. No binoculars, no targets, no arrows, no people, no 3D.
+
+#### 03 // Clusters — Pillar-Cluster Content Production
+* **Deliverable Context**: Authoring authoritative, in-depth blog posts and landing pages designed to establish topical dominance.
+* **Composition**: Framed + Full View (No title bar)
+* **File Target**: `assets/img/abstract/cr8v_mktg_deck_clusters.jpg`
+* **Permitted Text Only**: “Authority Pillar”, “Cluster Article A”, “Cluster Article B”, “Cluster Article C”, “Internal Link Graph”, “Topical Rank: #1”
+* **Written Prompt**:
+  > Create a premium high-tech visual representing an acquisition-focused topical content cluster map engineered by a content director.
+  >
+  > **Canvas:** 4:3 landscape, conceptual working grid 1600 × 1200 px.
+  >
+  > **COMPOSITION:** Framed composition system. One dominant white content architecture surface centered against a cool-gray #F3F5F7 background. No title header at top of canvas.
+  >
+  > **PRIMARY ARTIFACT:** Display a central Authority Pillar hub connected to three child cluster article nodes with clean linking lines and a blue-violet status tag reading "Topical Rank: #1".
+  >
+  > **PERMITTED TEXT ONLY:**
+  > “Authority Pillar”
+  > “Cluster Article A”
+  > “Cluster Article B”
+  > “Cluster Article C”
+  > “Internal Link Graph”
+  > “Topical Rank: #1”
+  >
+  > **ANTI-SLOP & RENDERING QUALITY & TEXT CONTROL:** Verbatim house blocks apply. No books, no tree branches, no people, no 3D.
+
+#### 04 // Schema — JSON-LD Structured Data Schema
+* **Deliverable Context**: Configuring rich snippet schemas (Organization, Article, Product, FAQ) for search result visibility.
+* **Composition**: Open Composition + Mid View (No title bar)
+* **File Target**: `assets/img/abstract/cr8v_mktg_deck_schema.jpg`
+* **Permitted Text Only**: “JSON-LD Schema”, “@context: schema.org”, “@type: Organization”, “@type: Product”, “Rich Snippet: Active”, “Validated”
+* **Written Prompt**:
+  > Create a premium high-tech visual representing an enterprise JSON-LD structured data graph created by a search architect.
+  >
+  > **Canvas:** 4:3 landscape, conceptual working grid 1600 × 1200 px.
+  >
+  > **COMPOSITION:** Open composition against a cool-gray #F3F5F7 background with a faint dot grid. No title header at top of canvas.
+  >
+  > **PRIMARY ARTIFACT:** Design a pristine structured data graph card with clean schema property nodes (@context, @type) and a blue-violet badge reading "Validated".
+  >
+  > **PERMITTED TEXT ONLY:**
+  > “JSON-LD Schema”
+  > “@context: schema.org”
+  > “@type: Organization”
+  > “@type: Product”
+  > “Rich Snippet: Active”
+  > “Validated”
+  >
+  > **ANTI-SLOP & RENDERING QUALITY & TEXT CONTROL:** Verbatim house blocks apply. No matrix neon code rain, no glowing cyber spheres, no people, no 3D.
+
+#### 05 // Funnels — CRO Landing Page Optimization
+* **Deliverable Context**: Optimizing lead magnets, call-to-action buttons, and form UX to maximize visitor conversion rates.
+* **Composition**: Open Layered Composition + Mid-Zoom (No title bar)
+* **File Target**: `assets/img/abstract/cr8v_mktg_deck_funnels.jpg`
+* **Permitted Text Only**: “Conversion Funnel”, “Opt-in Rate: 14.8%”, “Checkout CVR: 4.2%”, “+184% Lift”, “Winning Variant”
+* **Written Prompt**:
+  > Create a premium high-tech visual representing an enterprise CRO landing page conversion funnel report created by a conversion rate optimization director.
+  >
+  > **Canvas:** 4:3 landscape, conceptual working grid 1600 × 1200 px.
+  >
+  > **COMPOSITION:** Open layered composition on a solid cool-gray #F3F5F7 background. No title header at top of canvas.
+  >
+  > The primary funnel card sits centered, with a small split-test variant chip overlapping the lower right.
+  >
+  > **PRIMARY ARTIFACT:** The main card displays clean step-by-step conversion funnel drop-off bars with an oversized bold metric reading "+184% Lift". The secondary chip displays "Winning Variant" in a blue-violet tag.
+  >
+  > **PERMITTED TEXT ONLY:**
+  > “Conversion Funnel”
+  > “Opt-in Rate: 14.8%”
+  > “Checkout CVR: 4.2%”
+  > “+184% Lift”
+  > “Winning Variant”
+  >
+  > **ANTI-SLOP & RENDERING QUALITY & TEXT CONTROL:** Verbatim house blocks apply. No oil funnels, no dollar signs, no people, no 3D.
+
+---
+
+### Suite 2: How We Approach It (Process Stages 01 through 04)
+
+* **Stage 01: Audit** (`cr8v_mktg_proc_audit.jpg`): Warm Ivory (`#F5F5F0`) light beam striking technical SEO audit dossiers on an obsidian black (`#080808`) surface.
+* **Stage 02: Strategy** (`cr8v_mktg_proc_strategy.jpg`): Royal Blue (`#0047E1`) light shaft slicing through keyword silo prisms and funnel trajectory planes.
+* **Stage 03: Execution** (`cr8v_mktg_proc_execution.jpg`): Crimson Red (`#E20025`) light beam striking content cluster publishing sheets and schema monoliths.
+* **Stage 04: Growth** (`cr8v_mktg_proc_growth.jpg`): Warm Gold (`#FFB800`) light beam illuminating upward compounding conversion trajectories.
+
+---
+
+# 📄 PAGE: E-COMMERCE ARCHITECTURE (`page-service-ecommerce.php`)
+
+### Overview & Visual Strategy
+* **Suite 1: Deliverables Folder Deck (`.c8srv-folder-deck`)**: 5 Deliverable Showcase Cards (`4:3` Landscape) using the Master Service Illustration System (Strictly NO titles stamped on canvas).
+* **Suite 2: How We Approach It (`.c8isv-approach-outer`)**: 4 Process Stage Cards (`4:3` Landscape) using System 1: High-Contrast Architectural Chiaroscuro & Directional Beams.
+
+---
+
+### Suite 1: Deliverables Folder Deck (01 through 05)
+
+#### 01 // Storefront — Bespoke E-Commerce Storefront
+* **File Target**: `assets/img/abstract/cr8v_ecom_deck_storefront.jpg`
+* **Permitted Text Only**: “Product Grid”, “Collection Layout”, “Quick View”, “Add to Bag”, “Live Storefront”
+* **Prompt**: Framed composition of a clean modular e-commerce product detail and collection layout container with crisp boundaries, price tags, and blue-violet "Live Storefront" badge. No shopping cart clipart, no 3D rendered boxes.
+
+#### 02 // Cart — AJAX Slide Cart & Upsell Engine
+* **File Target**: `assets/img/abstract/cr8v_ecom_deck_cart.jpg`
+* **Permitted Text Only**: “Slide Cart Drawer”, “Free Shipping: Unlocked”, “Order Subtotal”, “One-Click Add”, “Native AJAX”
+* **Prompt**: Layered composition showing a slide-out cart drawer surface with a free shipping threshold progress bar and dynamic cross-sell add-on chips highlighted with a blue-violet "Native AJAX" tag.
+
+#### 03 // Gateways — Multi-Currency Payment Gateways
+* **File Target**: `assets/img/abstract/cr8v_ecom_deck_gateways.jpg`
+* **Permitted Text Only**: “Payment Gateways”, “Stripe API”, “Apple Pay”, “Paystack”, “Encrypted SSL”, “100% Verified”
+* **Prompt**: Open composition matrix showing secure payment API gateway chips with status green/blue verification indicators and a blue-violet "100% Verified" badge.
+
+#### 04 // Speed — Sub-1.2s Core Web Vitals Optimization
+* **File Target**: `assets/img/abstract/cr8v_ecom_deck_speed.jpg`
+* **Permitted Text Only**: “Core Web Vitals”, “Load Time: 0.9s”, “Redis Cache: Hit”, “Performance: 99/100”, “Sub-1.2s”
+* **Prompt**: High-tech performance dashboard showing sub-second page load times, Redis cache hit rates, and a 99/100 performance score chip.
+
+#### 05 // Tracking — Server-Side Meta CAPI & GA4 Analytics
+* **File Target**: `assets/img/abstract/cr8v_ecom_deck_tracking.jpg`
+* **Permitted Text Only**: “Server-Side CAPI”, “Match Quality: 9.4/10”, “Purchase Events”, “GA4 E-commerce”, “100% Accurate”
+* **Prompt**: Layered analytics card displaying server-side conversion tracking event flows with event match quality score of 9.4/10 and blue-violet "100% Accurate" tag.
+
+---
+
+### Suite 2: How We Approach It (Process Stages 01 through 04)
+* **Stage 01: UX & Flow** (`cr8v_ecom_proc_ux.jpg`): Warm Ivory (`#F5F5F0`) light beam striking e-commerce checkout wireframe blueprints on obsidian black (`#080808`).
+* **Stage 02: Theme Code** (`cr8v_ecom_proc_theme.jpg`): Royal Blue (`#0047E1`) light beam slicing through modular storefront code sheets and slide cart components.
+* **Stage 03: Checkout** (`cr8v_ecom_proc_checkout.jpg`): Crimson Red (`#E20025`) light beam striking payment gateway connection prisms and automated tax matrices.
+* **Stage 04: Launch** (`cr8v_ecom_proc_launch.jpg`): Warm Gold (`#FFB800`) light beam illuminating live store deployment and server-side tracking analytics vectors.
+
+---
+
+# 📄 PAGE: SHOPIFY LIQUID ENGINEERING (`page-service-shopify.php`)
+
+### Suite 1: Deliverables Folder Deck (01 through 05)
+* **01 // Theme (`cr8v_shp_deck_theme.jpg`)**: Custom Liquid theme architecture sheet showing JSON templates and modular section components.
+* **02 // AJAX Cart (`cr8v_shp_deck_cart.jpg`)**: App-free AJAX slide-out cart drawer with dynamic bundle discounts and instant checkout triggers.
+* **03 // Performance (`cr8v_shp_deck_speed.jpg`)**: Native Liquid speed optimization sheet showing zero app script bloat and sub-1s render metrics.
+* **04 // Scale (`cr8v_shp_deck_plus.jpg`)**: Shopify Plus multi-currency and B2B wholesale pricing tier matrix.
+* **05 // Launch (`cr8v_shp_deck_launch.jpg`)**: End-to-end launch QA checklist and 301 URL redirect migration map.
+
+### Suite 2: Process Stages 01 through 04
+* **Stage 01: Discover** (`cr8v_shp_proc_discover.jpg`): Warm Ivory (`#F5F5F0`)
+* **Stage 02: Design** (`cr8v_shp_proc_design.jpg`): Royal Blue (`#0047E1`)
+* **Stage 03: Build** (`cr8v_shp_proc_build.jpg`): Crimson Red (`#E20025`)
+* **Stage 04: Launch** (`cr8v_shp_proc_launch.jpg`): Warm Gold (`#FFB800`)
+
+---
+
+# 📄 PAGE: WOOCOMMERCE CONTROL & OPTIMIZATION (`page-service-woocommerce.php`)
+
+### Suite 1: Deliverables Folder Deck (01 through 05)
+* **01 // Setup (`cr8v_wc_deck_setup.jpg`)**: WooCommerce core configuration sheet with shipping zones and tax rules.
+* **02 // Checkout (`cr8v_wc_deck_checkout.jpg`)**: High-converting one-page checkout layout with multi-gateway API connectors.
+* **03 // Catalog (`cr8v_wc_deck_catalog.jpg`)**: Structured variable product matrix with inventory synchronization attributes.
+* **04 // Speed (`cr8v_wc_deck_speed.jpg`)**: Redis object caching and database indexing performance scorecard.
+* **05 // Launch (`cr8v_wc_deck_launch.jpg`)**: Store launch QA protocol and staff admin management interface.
+
+### Suite 2: Process Stages 01 through 04
+* **Stage 01: Discover** (`cr8v_wc_proc_discover.jpg`): Warm Ivory (`#F5F5F0`)
+* **Stage 02: Design** (`cr8v_wc_proc_design.jpg`): Royal Blue (`#0047E1`)
+* **Stage 03: Build** (`cr8v_wc_proc_build.jpg`): Crimson Red (`#E20025`)
+* **Stage 04: Launch** (`cr8v_wc_proc_launch.jpg`): Warm Gold (`#FFB800`)
+
+---
+
+# 📄 PAGE: WORDPRESS & CUSTOM GUTENBERG (`page-service-wordpress.php`)
+
+### Suite 1: Deliverables Folder Deck (01 through 05)
+* **01 // Theme (`cr8v_wp_deck_theme.jpg`)**: Bespoke PHP theme codebase structure with clean component templates.
+* **02 // Blocks (`cr8v_wp_deck_blocks.jpg`)**: Custom Gutenberg block library modular palette with live editing controls.
+* **03 // Fields (`cr8v_wp_deck_fields.jpg`)**: ACF Pro custom field group schemas with flexible content layouts.
+* **04 // Speed (`cr8v_wp_deck_speed.jpg`)**: Core Web Vitals speed optimization dashboard with 100/100 score.
+* **05 // Security (`cr8v_wp_deck_security.jpg`)**: Security hardening protocol with rate-limiting and automated cloud backups.
+
+### Suite 2: Process Stages 01 through 04
+* **Stage 01: Audit** (`cr8v_wp_proc_audit.jpg`): Warm Ivory (`#F5F5F0`)
+* **Stage 02: Architecture** (`cr8v_wp_proc_architecture.jpg`): Royal Blue (`#0047E1`)
+* **Stage 03: Block Suite** (`cr8v_wp_proc_blocks.jpg`): Crimson Red (`#E20025`)
+* **Stage 04: Optimization** (`cr8v_wp_proc_optimization.jpg`): Warm Gold (`#FFB800`)

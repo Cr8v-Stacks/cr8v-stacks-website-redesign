@@ -280,8 +280,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss theme builds →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Bespoke PHP Theme Development">
+          <div class="c8srv-folder-card-img" data-customizer="wp_folder1_img">
+            <img src="<?php echo esc_url(cr8v_mod('wp_folder1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_deck_theme.jpg')); ?>" alt="Bespoke PHP Theme Development" data-customizer="wp_folder1_img">
           </div>
         </div>
       </div>
@@ -295,8 +295,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss block libraries →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Custom Gutenberg Block Library">
+          <div class="c8srv-folder-card-img" data-customizer="wp_folder2_img">
+            <img src="<?php echo esc_url(cr8v_mod('wp_folder2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_deck_blocks.jpg')); ?>" alt="Custom Gutenberg Block Library" data-customizer="wp_folder2_img">
           </div>
         </div>
       </div>
@@ -310,8 +310,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss custom fields →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="ACF Pro Content Schemas">
+          <div class="c8srv-folder-card-img" data-customizer="wp_folder3_img">
+            <img src="<?php echo esc_url(cr8v_mod('wp_folder3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_deck_fields.jpg')); ?>" alt="ACF Pro Content Schemas" data-customizer="wp_folder3_img">
           </div>
         </div>
       </div>
@@ -325,8 +325,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss speed tuning →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Core Web Vitals Speed Optimization">
+          <div class="c8srv-folder-card-img" data-customizer="wp_folder4_img">
+            <img src="<?php echo esc_url(cr8v_mod('wp_folder4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_deck_speed.jpg')); ?>" alt="Core Web Vitals Speed Optimization" data-customizer="wp_folder4_img">
           </div>
         </div>
       </div>
@@ -340,8 +340,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss security protocols →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Security Hardening & Maintenance">
+          <div class="c8srv-folder-card-img" data-customizer="wp_folder5_img">
+            <img src="<?php echo esc_url(cr8v_mod('wp_folder5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_deck_security.jpg')); ?>" alt="Security Hardening & Maintenance" data-customizer="wp_folder5_img">
           </div>
         </div>
       </div>
@@ -368,8 +368,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="wp_app1_name"><?php echo esc_html(cr8v_mod('wp_app1_name', 'Audit')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="wp_app1_tags"><?php echo wp_kses_post(cr8v_mod('wp_app1_tags', 'Database &middot; Plugins &middot;<br>Performance')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="wp_app1_desc"><?php echo wp_kses_post(cr8v_mod('wp_app1_desc', 'We audit existing WordPress installations, evaluate plugin overhead, and map custom theme requirements.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" alt="WordPress Audit stage">
+        <div class="c8isv-approach-col-img" data-customizer="wp_app1_img">
+          <img src="<?php echo esc_url(cr8v_mod('wp_app1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_proc_audit.jpg')); ?>" alt="WordPress Audit stage" data-customizer="wp_app1_img">
         </div>
       </div>
     </div>
@@ -381,8 +381,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="wp_app2_name"><?php echo esc_html(cr8v_mod('wp_app2_name', 'Architecture')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="wp_app2_tags"><?php echo wp_kses_post(cr8v_mod('wp_app2_tags', 'PHP Theme &middot; CPT &middot;<br>ACF Schemas')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="wp_app2_desc"><?php echo wp_kses_post(cr8v_mod('wp_app2_desc', 'We engineer the custom theme base, register Custom Post Types, and build ACF Pro field schemas.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop" alt="WordPress Architecture stage">
+        <div class="c8isv-approach-col-img" data-customizer="wp_app2_img">
+          <img src="<?php echo esc_url(cr8v_mod('wp_app2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_proc_architecture.jpg')); ?>" alt="WordPress Architecture stage" data-customizer="wp_app2_img">
         </div>
       </div>
     </div>
@@ -394,8 +394,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="wp_app3_name"><?php echo esc_html(cr8v_mod('wp_app3_name', 'Block Suite')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="wp_app3_tags"><?php echo wp_kses_post(cr8v_mod('wp_app3_tags', 'Gutenberg &middot; UI Components &middot;<br>CSS Modules')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="wp_app3_desc"><?php echo wp_kses_post(cr8v_mod('wp_app3_desc', 'We construct modular Gutenberg blocks and wire them into front-end CSS design tokens.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="WordPress Block Suite stage">
+        <div class="c8isv-approach-col-img" data-customizer="wp_app3_img">
+          <img src="<?php echo esc_url(cr8v_mod('wp_app3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_proc_blocks.jpg')); ?>" alt="WordPress Block Suite stage" data-customizer="wp_app3_img">
         </div>
       </div>
     </div>
@@ -407,8 +407,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="wp_app4_name"><?php echo esc_html(cr8v_mod('wp_app4_name', 'Optimization')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="wp_app4_tags"><?php echo wp_kses_post(cr8v_mod('wp_app4_tags', 'Web Vitals &middot; Security &middot;<br>Launch')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="wp_app4_desc"><?php echo wp_kses_post(cr8v_mod('wp_app4_desc', 'We run full speed benchmarks, harden security configurations, and deploy to your live production host.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="WordPress Optimization stage">
+        <div class="c8isv-approach-col-img" data-customizer="wp_app4_img">
+          <img src="<?php echo esc_url(cr8v_mod('wp_app4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_proc_optimization.jpg')); ?>" alt="WordPress Optimization stage" data-customizer="wp_app4_img">
         </div>
       </div>
     </div>

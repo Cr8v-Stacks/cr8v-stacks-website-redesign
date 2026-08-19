@@ -254,8 +254,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss technical audits →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Technical SEO & Crawl Budget Audit">
+          <div class="c8srv-folder-card-img" data-customizer="mktg_folder1_img">
+            <img src="<?php echo esc_url(cr8v_mod('mktg_folder1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_mktg_deck_audit.jpg')); ?>" alt="Technical SEO & Crawl Budget Audit" data-customizer="mktg_folder1_img">
           </div>
         </div>
       </div>
@@ -268,8 +268,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss keyword mapping →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Semantic Keyword Intent Mapping">
+          <div class="c8srv-folder-card-img" data-customizer="mktg_folder2_img">
+            <img src="<?php echo esc_url(cr8v_mod('mktg_folder2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_mktg_deck_mapping.jpg')); ?>" alt="Semantic Keyword Intent Mapping" data-customizer="mktg_folder2_img">
           </div>
         </div>
       </div>
@@ -282,8 +282,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss content clusters →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Pillar-Cluster Content Production">
+          <div class="c8srv-folder-card-img" data-customizer="mktg_folder3_img">
+            <img src="<?php echo esc_url(cr8v_mod('mktg_folder3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_mktg_deck_clusters.jpg')); ?>" alt="Pillar-Cluster Content Production" data-customizer="mktg_folder3_img">
           </div>
         </div>
       </div>
@@ -296,8 +296,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss schema markup →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="JSON-LD Structured Data Schema">
+          <div class="c8srv-folder-card-img" data-customizer="mktg_folder4_img">
+            <img src="<?php echo esc_url(cr8v_mod('mktg_folder4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_mktg_deck_schema.jpg')); ?>" alt="JSON-LD Structured Data Schema" data-customizer="mktg_folder4_img">
           </div>
         </div>
       </div>
@@ -310,8 +310,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss conversion funnels →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="CRO Landing Page Optimization">
+          <div class="c8srv-folder-card-img" data-customizer="mktg_folder5_img">
+            <img src="<?php echo esc_url(cr8v_mod('mktg_folder5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_mktg_deck_funnels.jpg')); ?>" alt="CRO Landing Page Optimization" data-customizer="mktg_folder5_img">
           </div>
         </div>
       </div>
@@ -334,8 +334,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="mktg_app1_name"><?php echo esc_html(cr8v_mod('mktg_app1_name', 'Audit')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="mktg_app1_tags"><?php echo wp_kses_post(cr8v_mod('mktg_app1_tags', 'Crawl Health &middot; Backlinks &middot;<br>Competitors')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="mktg_app1_desc"><?php echo wp_kses_post(cr8v_mod('mktg_app1_desc', 'We analyze your domain’s technical health, crawl errors, backlink profile, and competitor gaps.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" alt="Audit stage">
+        <div class="c8isv-approach-col-img" data-customizer="mktg_app1_img">
+          <img src="<?php echo esc_url(cr8v_mod('mktg_app1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_mktg_proc_audit.jpg')); ?>" alt="Audit stage" data-customizer="mktg_app1_img">
         </div>
       </div>
     </div>
@@ -346,8 +346,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="mktg_app2_name"><?php echo esc_html(cr8v_mod('mktg_app2_name', 'Strategy')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="mktg_app2_tags"><?php echo wp_kses_post(cr8v_mod('mktg_app2_tags', 'Keyword Map &middot; Siloes &middot;<br>Pillars')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="mktg_app2_desc"><?php echo wp_kses_post(cr8v_mod('mktg_app2_desc', 'We construct a semantic keyword matrix and map high-converting pillar-cluster content funnels.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop" alt="Strategy stage">
+        <div class="c8isv-approach-col-img" data-customizer="mktg_app2_img">
+          <img src="<?php echo esc_url(cr8v_mod('mktg_app2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_mktg_proc_strategy.jpg')); ?>" alt="Strategy stage" data-customizer="mktg_app2_img">
         </div>
       </div>
     </div>
@@ -358,8 +358,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="mktg_app3_name"><?php echo esc_html(cr8v_mod('mktg_app3_name', 'Execution')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="mktg_app3_tags"><?php echo wp_kses_post(cr8v_mod('mktg_app3_tags', 'Content &middot; Schema &middot;<br>On-Page SEO')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="mktg_app3_desc"><?php echo wp_kses_post(cr8v_mod('mktg_app3_desc', 'We publish optimized content clusters, deploy JSON-LD schemas, and optimize on-page signals.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Execution stage">
+        <div class="c8isv-approach-col-img" data-customizer="mktg_app3_img">
+          <img src="<?php echo esc_url(cr8v_mod('mktg_app3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_mktg_proc_execution.jpg')); ?>" alt="Execution stage" data-customizer="mktg_app3_img">
         </div>
       </div>
     </div>
@@ -370,8 +370,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="mktg_app4_name"><?php echo esc_html(cr8v_mod('mktg_app4_name', 'Growth')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="mktg_app4_tags"><?php echo wp_kses_post(cr8v_mod('mktg_app4_tags', 'Rankings &middot; CRO &middot;<br>Monthly Retainer')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="mktg_app4_desc"><?php echo wp_kses_post(cr8v_mod('mktg_app4_desc', 'We track keyword position movements, refine landing page CRO, and scale organic lead volume monthly.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Growth stage">
+        <div class="c8isv-approach-col-img" data-customizer="mktg_app4_img">
+          <img src="<?php echo esc_url(cr8v_mod('mktg_app4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_mktg_proc_growth.jpg')); ?>" alt="Growth stage" data-customizer="mktg_app4_img">
         </div>
       </div>
     </div>

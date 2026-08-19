@@ -254,8 +254,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss online storefronts →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Bespoke E-Commerce Storefront">
+          <div class="c8srv-folder-card-img" data-customizer="ecom_folder1_img">
+            <img src="<?php echo esc_url(cr8v_mod('ecom_folder1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_ecom_deck_storefront.jpg')); ?>" alt="Bespoke E-Commerce Storefront" data-customizer="ecom_folder1_img">
           </div>
         </div>
       </div>
@@ -268,8 +268,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss cart drawers →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="AJAX Slide Cart & Upsell Engine">
+          <div class="c8srv-folder-card-img" data-customizer="ecom_folder2_img">
+            <img src="<?php echo esc_url(cr8v_mod('ecom_folder2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_ecom_deck_cart.jpg')); ?>" alt="AJAX Slide Cart & Upsell Engine" data-customizer="ecom_folder2_img">
           </div>
         </div>
       </div>
@@ -282,8 +282,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss payment gateways →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Multi-Currency Payment Gateways">
+          <div class="c8srv-folder-card-img" data-customizer="ecom_folder3_img">
+            <img src="<?php echo esc_url(cr8v_mod('ecom_folder3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_ecom_deck_gateways.jpg')); ?>" alt="Multi-Currency Payment Gateways" data-customizer="ecom_folder3_img">
           </div>
         </div>
       </div>
@@ -296,8 +296,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss speed tuning →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Sub-1.2s Core Web Vitals Optimization">
+          <div class="c8srv-folder-card-img" data-customizer="ecom_folder4_img">
+            <img src="<?php echo esc_url(cr8v_mod('ecom_folder4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_ecom_deck_speed.jpg')); ?>" alt="Sub-1.2s Core Web Vitals Optimization" data-customizer="ecom_folder4_img">
           </div>
         </div>
       </div>
@@ -310,8 +310,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss analytics setup →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Server-Side Meta CAPI & GA4 Analytics">
+          <div class="c8srv-folder-card-img" data-customizer="ecom_folder5_img">
+            <img src="<?php echo esc_url(cr8v_mod('ecom_folder5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_ecom_deck_tracking.jpg')); ?>" alt="Server-Side Meta CAPI & GA4 Analytics" data-customizer="ecom_folder5_img">
           </div>
         </div>
       </div>
@@ -334,8 +334,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="ecom_app1_name"><?php echo esc_html(cr8v_mod('ecom_app1_name', 'UX & Flow')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="ecom_app1_tags"><?php echo wp_kses_post(cr8v_mod('ecom_app1_tags', 'Cart UX &middot; PDP Specs &middot;<br>Funnels')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="ecom_app1_desc"><?php echo wp_kses_post(cr8v_mod('ecom_app1_desc', 'We map product detail pages, checkout funnels, and cart upsell paths to maximize conversion rate.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" alt="UX & Flow stage">
+        <div class="c8isv-approach-col-img" data-customizer="ecom_app1_img">
+          <img src="<?php echo esc_url(cr8v_mod('ecom_app1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_ecom_proc_ux.jpg')); ?>" alt="UX & Flow stage" data-customizer="ecom_app1_img">
         </div>
       </div>
     </div>
@@ -346,8 +346,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="ecom_app2_name"><?php echo esc_html(cr8v_mod('ecom_app2_name', 'Theme Code')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="ecom_app2_tags"><?php echo wp_kses_post(cr8v_mod('ecom_app2_tags', 'Liquid / PHP &middot; Cart &middot;<br>Filtering')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="ecom_app2_desc"><?php echo wp_kses_post(cr8v_mod('ecom_app2_desc', 'We engineer the bespoke storefront theme, build the native slide cart, and wire product filters.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop" alt="Theme Code stage">
+        <div class="c8isv-approach-col-img" data-customizer="ecom_app2_img">
+          <img src="<?php echo esc_url(cr8v_mod('ecom_app2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_ecom_proc_theme.jpg')); ?>" alt="Theme Code stage" data-customizer="ecom_app2_img">
         </div>
       </div>
     </div>
@@ -358,8 +358,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="ecom_app3_name"><?php echo esc_html(cr8v_mod('ecom_app3_name', 'Checkout')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="ecom_app3_tags"><?php echo wp_kses_post(cr8v_mod('ecom_app3_tags', 'Gateways &middot; Shipping &middot;<br>Taxes')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="ecom_app3_desc"><?php echo wp_kses_post(cr8v_mod('ecom_app3_desc', 'We configure payment gateways, automated shipping rates, tax rules, and order confirmation flows.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Checkout stage">
+        <div class="c8isv-approach-col-img" data-customizer="ecom_app3_img">
+          <img src="<?php echo esc_url(cr8v_mod('ecom_app3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_ecom_proc_checkout.jpg')); ?>" alt="Checkout stage" data-customizer="ecom_app3_img">
         </div>
       </div>
     </div>
@@ -370,8 +370,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="ecom_app4_name"><?php echo esc_html(cr8v_mod('ecom_app4_name', 'Launch')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="ecom_app4_tags"><?php echo wp_kses_post(cr8v_mod('ecom_app4_tags', 'Speed Audit &middot; CAPI &middot;<br>Live Store')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="ecom_app4_desc"><?php echo wp_kses_post(cr8v_mod('ecom_app4_desc', 'We conduct end-to-end checkout load testing, verify server-side CAPI tracking, and push your store live.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Launch stage">
+        <div class="c8isv-approach-col-img" data-customizer="ecom_app4_img">
+          <img src="<?php echo esc_url(cr8v_mod('ecom_app4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_ecom_proc_launch.jpg')); ?>" alt="Launch stage" data-customizer="ecom_app4_img">
         </div>
       </div>
     </div>
