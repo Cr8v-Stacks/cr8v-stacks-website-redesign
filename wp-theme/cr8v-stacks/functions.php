@@ -128,6 +128,15 @@ add_action('template_redirect', function () {
         'page-web-design.php',
         'page-service-shopify.php',
         'page-shopify.php',
+        'page-service-seo-content.php',
+        'page-service-brand-identity.php',
+        'page-service-brand-strategy.php',
+        'page-service-digital-marketing.php',
+        'page-service-ecommerce.php',
+        'page-service-woocommerce.php',
+        'page-service-wordpress.php',
+        'page-service-custom-dev.php',
+        'page-service-ai-mvp.php',
     ];
     foreach ($templates_no_autop as $t) {
         if (is_page_template($t)) {
