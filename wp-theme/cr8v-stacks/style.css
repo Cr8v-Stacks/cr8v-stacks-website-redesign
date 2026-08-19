@@ -13948,7 +13948,14 @@ body {
 .c8srv-root .c8srv-pricing-section {
   padding: 6rem 0 !important;
   position: relative !important;
-  z-index: 2 !important;
+  z-index: 5 !important;
+  background: #FFFFFF !important;
+  display: block !important;
+}
+@media (max-width: 900px) {
+  .c8srv-root .c8srv-pricing-section {
+    padding: 0 !important;
+  }
 }
 .c8srv-root .c8srv-pricing-split {
   display: grid !important;

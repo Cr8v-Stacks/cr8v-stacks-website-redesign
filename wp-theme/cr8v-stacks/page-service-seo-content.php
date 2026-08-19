@@ -577,7 +577,7 @@ get_header();
 <!-- ══════════════════════════════════════════
      SECTION: PRICING MODELS & PROJECT ESTIMATOR
      ══════════════════════════════════════════ -->
-<div class="c8srv-pricing-section" id="pricing-scope" style="padding: 6rem 0 !important; position: relative !important; z-index: 5 !important; background: #FFFFFF !important; display: block !important;">
+<div class="c8srv-pricing-section" id="pricing-scope">
   <div class="c8isv-wrap" style="text-align: left !important;">
     <div class="c8isv-label c8srv-reveal" style="justify-content: flex-start !important; margin-left: 0 !important; margin-right: auto !important; text-align: left !important;" data-customizer="seo_pricing_label"><?php echo esc_html(cr8v_mod('seo_pricing_label', 'PRICING MODELS')); ?></div>
     <h2 class="c8isv-section-title c8srv-reveal" style="text-align: left !important; margin-left: 0 !important;"><span data-customizer="seo_pricing_h2_part1"><?php echo esc_html(cr8v_mod('seo_pricing_h2_part1', 'HOW WE ')); ?></span><span class="c8isv-serif" data-customizer="seo_pricing_h2_serif"><?php echo esc_html(cr8v_mod('seo_pricing_h2_serif', 'WORK TOGETHER')); ?></span></h2>

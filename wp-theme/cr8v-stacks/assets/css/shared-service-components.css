@@ -58,7 +58,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
 @media (max-width: 1100px) {
   .c8isv-wrap, .c8srv-wrap {
     padding: 3rem 1.25rem !important;
-    margin-top: 120px !important;
+    margin-top: 70px !important;
   }
 }
 
@@ -1478,9 +1478,16 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
 #pricing-scope {
   padding: 6rem 0 !important;
   position: relative !important;
-  z-index: 2 !important;
+  z-index: 5 !important;
   background: #FFFFFF !important;
   display: block !important;
+}
+
+@media (max-width: 900px) {
+  .c8isv-pricing-section, .c8srv-pricing-section,
+  #pricing-scope {
+    padding: 0 !important;
+  }
 }
 
 .c8isv-pricing-section .c8isv-section-title,
@@ -1860,10 +1867,16 @@ button.c8isv-est-choice.is-active,
   margin-left: 50% !important;
   transform: translateX(-50%) !important;
   background: #FFFFFF !important; /* Pure White Canvas Base */
-  padding: 6rem 0 !important;
+  padding: 6rem 0 0 !important;
   position: relative !important;
   z-index: 2 !important;
   overflow: clip !important;
+}
+
+@media (max-width: 900px) {
+  .c8isv-testi-outer, .c8srv-testi-outer {
+    padding: 3rem 0 0 !important;
+  }
 }
 
 .c8isv-testi-inner, .c8srv-testi-inner {

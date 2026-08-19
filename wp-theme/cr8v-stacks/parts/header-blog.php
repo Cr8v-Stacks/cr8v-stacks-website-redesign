@@ -306,11 +306,33 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
 
 /* ── Primary Desktop Nav Links ── */
 .c8bm-root .c8bm-pnav {
-  display:flex!important;align-items:center!important;gap:2px!important;
-  background:#F3F2EC!important;padding:4px!important;height:46px!important;
-  border-radius:4px!important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 2px !important;
+  background: #F3F2EC !important;
+  padding: 4px !important;
+  height: 46px !important;
+  border-radius: 4px !important;
+  list-style: none !important;
+  list-style-type: none !important;
+  margin: 0 !important;
 }
-.c8bm-root .c8bm-pnav-item {position:static!important;}
+.c8bm-root .c8bm-pnav-item {
+  position: static !important;
+  list-style: none !important;
+  list-style-type: none !important;
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.c8bm-root .c8bm-pnav-item::marker,
+.c8bm-root li::marker {
+  display: none !important;
+  content: "" !important;
+  font-size: 0 !important;
+  color: transparent !important;
+}
 .c8bm-root .c8bm-pnav-link {
   display:flex!important;align-items:center!important;gap:4px!important;
   font-size:12.5px!important;font-weight:500!important;color:#080808!important;
