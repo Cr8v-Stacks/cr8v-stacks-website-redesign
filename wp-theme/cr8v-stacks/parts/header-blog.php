@@ -66,8 +66,9 @@ defined('ABSPATH') || exit;
 
 .c8bm-root, .c8bm-root * {box-sizing:border-box!important;}
 .c8bm-root a {text-decoration:none!important;color:inherit!important;}
-.c8bm-root ul {list-style:none!important;margin:0!important;padding:0!important;}
-.c8bm-root button {font-family:'Michroma',sans-serif!important/* ── Header Shell — Starts Full-Width, Compresses into Floating Bar on Scroll ── */
+.c8bm-root button {font-family:'Michroma',sans-serif!important;}
+
+/* ── Header Shell — Starts Full-Width, Compresses into Floating Bar on Scroll ── */
 .c8bm-root .c8bm-header {
   position: fixed !important;
   top: 0 !important;
