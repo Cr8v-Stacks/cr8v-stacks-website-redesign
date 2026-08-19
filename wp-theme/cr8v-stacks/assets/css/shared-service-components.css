@@ -58,7 +58,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
 @media (max-width: 1100px) {
   .c8isv-wrap, .c8srv-wrap {
     padding: 3rem 1.25rem !important;
-    margin-top: 70px !important;
+    margin-top: 90px !important;
   }
 }
 
