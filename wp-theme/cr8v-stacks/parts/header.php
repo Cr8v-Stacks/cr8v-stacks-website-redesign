@@ -286,19 +286,245 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
 }
 
 /* ── Mobile Drawer ── */
-.c8hdr-root .c8-md-overlay{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;background:rgba(8,8,8,0.5)!important;backdrop-filter:blur(4px)!important;z-index:9600!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .25s ease,visibility .25s ease!important;}
-.c8hdr-root .c8-md-overlay.c8-show{opacity:1!important;visibility:visible!important;pointer-events:auto!important;}
-.c8hdr-root .c8-md-drawer{position:fixed!important;top:0!important;right:0!important;bottom:0!important;width:min(420px,100vw)!important;background:#FFFFFF!important;z-index:9700!important;display:flex!important;flex-direction:column!important;transform:translateX(100%)!important;transition:transform .3s cubic-bezier(.4,0,.2,1)!important;box-shadow:-8px 0 40px rgba(8,8,8,0.15)!important;border-left:1px solid rgba(8,8,8,0.08)!important;}
-.c8hdr-root .c8-md-drawer.c8-open{transform:translateX(0)!important;}
-.c8hdr-root .c8-md-head{height:68px!important;padding:0 1.25rem!important;display:flex!important;align-items:center!important;justify-content:space-between!important;border-bottom:1px solid rgba(8,8,8,0.06)!important;flex-shrink:0!important;}
-.c8hdr-root .c8-md-close{width:36px!important;height:36px!important;border-radius:4px!important;background:#F2F2F0!important;border:none!important;cursor:pointer!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:16px!important;color:#080808!important;transition:background .2s!important;}
-.c8hdr-root .c8-md-close:hover{background:#E5E5E0!important;}
+.c8hdr-root .c8-md-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(8, 8, 8, 0.5) !important;
+  backdrop-filter: blur(4px) !important;
+  z-index: 9600 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity .25s ease, visibility .25s ease !important;
+}
+.c8hdr-root .c8-md-overlay.c8-show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+.c8hdr-root .c8-md-drawer {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: min(420px, 100vw) !important;
+  background: #FAFAF7 !important;
+  z-index: 9700 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transform: translateX(100%) !important;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1) !important;
+  box-shadow: -8px 0 40px rgba(8, 8, 8, 0.15) !important;
+  border-left: 1px solid rgba(8, 8, 8, 0.08) !important;
+  overflow: hidden !important;
+}
+.c8hdr-root .c8-md-drawer.c8-open { transform: translateX(0) !important; }
 
-.c8hdr-root .c8-md-body{flex:1!important;overflow-y:auto!important;background:#FFFFFF!important;position:relative!important;}
-.c8hdr-root .c8-md-body::before{content:''!important;position:absolute!important;inset:0!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")!important;pointer-events:none!important;z-index:0!important;}
-.c8hdr-root .c8-md-section-label{font-family:'Space Mono',monospace!important;font-size:9px!important;font-weight:700!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#0047E1!important;padding:1.1rem 1.25rem .5rem!important;display:flex!important;align-items:center!important;gap:8px!important;position:relative!important;z-index:1!important;}
-.c8hdr-root .c8-md-section-label::before{content:''!important;width:14px!important;height:1px!important;background:#0047E1!important;display:block!important;flex-shrink:0!important;}
-.c8hdr-root .c8-md-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important;padding:6px 1.25rem 1rem!important;position:relative!important;z-index:1!important;}
+.c8hdr-root .c8-md-hero {
+  background: #080808 !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding-bottom: 1.25rem !important;
+}
+.c8hdr-root .c8-md-hero::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: radial-gradient(circle at 85% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 55%), radial-gradient(circle at 10% 90%, rgba(0, 56, 192, 0.2) 0%, transparent 50%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+.c8hdr-root .c8-md-hero-bar {
+  height: 60px !important;
+  padding: 0 1.25rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+.c8hdr-root .c8-md-hero-logo-img {
+  display: block !important;
+  height: 38px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+.c8hdr-root .c8-md-close {
+  width: 34px !important;
+  height: 34px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  border-radius: 4px !important;
+  transition: background .2s, border-color .2s !important;
+}
+.c8hdr-root .c8-md-close:hover {
+  background: #0047E1 !important;
+  border-color: #0047E1 !important;
+}
+.c8hdr-root .c8-md-hero-label {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 9px !important;
+  letter-spacing: .3em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  padding: 1.1rem 1.25rem 0 !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.c8hdr-root .c8-md-body {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  background: #FAFAF7 !important;
+}
+.c8hdr-root .c8-md-section-label {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 9px !important;
+  letter-spacing: .32em !important;
+  text-transform: uppercase !important;
+  color: #0047E1 !important;
+  padding: 1.1rem 1.25rem .5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-weight: 700 !important;
+}
+.c8hdr-root .c8-md-section-label::before {
+  content: '' !important;
+  width: 14px !important;
+  height: 1px !important;
+  background: #0047E1 !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+.c8hdr-root .c8-md-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+  padding: 6px 1.25rem 1rem !important;
+}
+.c8hdr-root .c8-md-card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  padding: 12px 10px !important;
+  background: #F4F3EE !important;
+  border: 1px solid rgba(8, 8, 8, 0.06) !important;
+  border-radius: 4px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: background .2s, border-color .2s, transform .2s !important;
+}
+.c8hdr-root .c8-md-card:hover {
+  background: rgba(0, 71, 225, 0.05) !important;
+  border-color: rgba(0, 71, 225, 0.25) !important;
+  transform: translateX(3px) !important;
+}
+.c8hdr-root .c8-md-card-ico {
+  width: 26px !important;
+  height: 26px !important;
+  background: #EEF3FF !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 4px !important;
+  transition: background .2s !important;
+}
+.c8hdr-root .c8-md-card:hover .c8-md-card-ico { background: #0047E1 !important; }
+.c8hdr-root .c8-md-card-ico svg {
+  width: 12px !important;
+  height: 12px !important;
+  stroke: #0047E1 !important;
+  stroke-width: 1.75 !important;
+  fill: none !important;
+  transition: stroke .2s !important;
+}
+.c8hdr-root .c8-md-card:hover .c8-md-card-ico svg { stroke: #FFFFFF !important; }
+.c8hdr-root .c8-md-card-name {
+  font-family: 'Michroma', sans-serif !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  color: #080808 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .01em !important;
+  transition: color .2s !important;
+}
+.c8hdr-root .c8-md-card:hover .c8-md-card-name { color: #0047E1 !important; }
+
+.c8hdr-root .c8-md-plain-links { padding: 4px 1.25rem 8px !important; }
+.c8hdr-root .c8-md-plain-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 12px 0 !important;
+  border-bottom: 1px solid rgba(8, 8, 8, 0.06) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: #080808 !important;
+  transition: color .15s, padding-left .15s !important;
+}
+.c8hdr-root .c8-md-plain-link:hover {
+  color: #0047E1 !important;
+  padding-left: 5px !important;
+}
+
+/* Mobile Drawer Footer with Royal Blue Radial Atmosphere Glow */
+.c8hdr-root .c8-md-foot {
+  padding: 1.1rem 1.25rem 1.5rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: #080808 !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.c8hdr-root .c8-md-foot::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: radial-gradient(circle at 85% 15%, rgba(0, 71, 225, 0.45) 0%, transparent 55%), radial-gradient(circle at 10% 90%, rgba(0, 56, 192, 0.2) 0%, transparent 50%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+.c8hdr-root .c8-md-cta {
+  position: relative !important;
+  z-index: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  height: 48px !important;
+  background: #0047E1 !important;
+  color: #FAFAF7 !important;
+  font-family: 'Michroma', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: .04em !important;
+  text-transform: uppercase !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  transition: background .2s !important;
+}
+.c8hdr-root .c8-md-cta:hover { background: #0038C0 !important; }
+
+@media (max-width: 1200px) {
+  .c8hdr-root .c8-mega-grid-services { grid-template-columns: 1fr 1fr 1fr !important; }
+  .c8hdr-root .c8-mega-grid-tools { grid-template-columns: 1fr 1.2fr !important; }
+}
 </style>
 
 <!-- ── Desktop Backdrop ── -->
