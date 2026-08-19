@@ -342,12 +342,7 @@ $subtitle = cr8v_mod('blog_subtitle', 'Technical breakdowns, platform engineerin
 
 .card-fallback-canvas .fallback-top {
   position: relative; z-index: 2; width: 100%;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.card-fallback-canvas .fallback-cat {
-  font-family: var(--font-mono); font-size: 8px; font-weight: 700;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  padding: 3px 8px; border-radius: 4px;
+  display: flex; align-items: center; justify-content: flex-end;
 }
 .card-fallback-canvas .fallback-brand-icon {
   width: 18px; height: 18px; stroke-width: 2.2;
@@ -479,7 +474,6 @@ $subtitle = cr8v_mod('blog_subtitle', 'Technical breakdowns, platform engineerin
               ?>
                 <div class="card-fallback-canvas <?php echo $variant_class; ?>">
                   <div class="fallback-top">
-                    <span class="fallback-cat"><?php echo esc_html($primary_cat); ?></span>
                     <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                     </svg>

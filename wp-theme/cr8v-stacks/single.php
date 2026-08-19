@@ -570,13 +570,7 @@ body.single-post {
 
 .card-fallback-canvas .fallback-top {
   position: relative; z-index: 2; width: 100%;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.card-fallback-canvas .fallback-cat {
-  font-family: var(--font-mono); font-size: 7.5px; font-weight: 700;
-  color: #FAFAF7; letter-spacing: 0.2em; text-transform: uppercase;
-  background: rgba(0, 71, 225, 0.25); border: 1px solid rgba(0, 71, 225, 0.45);
-  padding: 2px 7px; border-radius: 4px; text-decoration: none !important;
+  display: flex; align-items: center; justify-content: flex-end;
 }
 .card-fallback-canvas .fallback-brand-icon {
   width: 16px; height: 16px; color: #0047E1; stroke-width: 2.2;
@@ -855,7 +849,6 @@ body.single-post {
                 ?>
                   <div class="card-fallback-canvas <?php echo $variant_class; ?>">
                     <div class="fallback-top">
-                      <span class="fallback-cat"><?php echo esc_html($r_cat_name); ?></span>
                       <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                       </svg>
@@ -888,7 +881,6 @@ body.single-post {
               <a href="<?php echo esc_url(home_url('/category/content-creation/')); ?>" style="display: block; width: 100%; height: 100%;">
                 <div class="card-fallback-canvas is-variant-cobalt">
                   <div class="fallback-top">
-                    <span class="fallback-cat">ENTITY SEO</span>
                     <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                     </svg>
@@ -916,7 +908,6 @@ body.single-post {
               <a href="<?php echo esc_url(home_url('/services/ai-mvp/')); ?>" style="display: block; width: 100%; height: 100%;">
                 <div class="card-fallback-canvas is-variant-crimson">
                   <div class="fallback-top">
-                    <span class="fallback-cat">AI MVPS</span>
                     <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                     </svg>
@@ -944,7 +935,6 @@ body.single-post {
               <a href="<?php echo esc_url(home_url('/services/web-design/')); ?>" style="display: block; width: 100%; height: 100%;">
                 <div class="card-fallback-canvas is-variant-amber">
                   <div class="fallback-top">
-                    <span class="fallback-cat">DESIGN</span>
                     <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                     </svg>
