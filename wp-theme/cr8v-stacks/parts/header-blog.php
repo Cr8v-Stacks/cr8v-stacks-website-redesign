@@ -282,6 +282,7 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
   box-shadow:none!important;
 }
 .c8bm-root .c8bm-btn-cta:hover::before { left:180%!important; }
+.c8bm-root .c8bm-header.c8bm-scrolled .c8bm-btn-cta { display: none !important; }
 @media (max-width:1100px){ .c8bm-root .c8bm-btn-cta {display:none!important;} }
 
 .c8bm-root .c8bm-hbg {display:none!important;flex-direction:column!important;gap:5px!important;padding:10px!important;cursor:pointer!important;background:none!important;border:none!important;}
