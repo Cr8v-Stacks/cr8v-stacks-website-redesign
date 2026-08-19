@@ -434,25 +434,54 @@ body.single-post {
 .card-img-container { aspect-ratio: 16 / 10; width: 100%; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-bottom: 1rem; position: relative; }
 .card-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* AMBIENT MESH GRADIENT NON-IMAGE FALLBACK CARDS */
+/* ── SYSTEM 1: HIGH-CONTRAST CHIAROSCURO SILHOUETTE & SHADOW BEAMS ── */
 .card-fallback-canvas {
   width: 100%; height: 100%; min-height: 160px;
   border-radius: 4px !important;
-  padding: 1.25rem 1rem;
+  padding: 1.1rem 1rem;
   display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
+  align-items: center; justify-content: space-between;
   text-align: center;
   position: relative; overflow: hidden;
   box-sizing: border-box;
+  background: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.card-fallback-canvas:hover {
+  border-color: #0047E1;
+  box-shadow: 0 12px 30px rgba(0, 71, 225, 0.18);
+}
+.card-fallback-canvas::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 71, 225, 0.40) 0%, rgba(0, 71, 225, 0.12) 30%, transparent 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+.card-fallback-canvas::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent 32%, rgba(255, 255, 255, 0.07) 48%, rgba(0, 71, 225, 0.25) 50%, rgba(255, 255, 255, 0.07) 52%, transparent 68%),
+              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
 }
 
+/* Variant A: Top-Left to Bottom-Right 45° Chiaroscuro Beam */
+.card-fallback-canvas.is-variant-a,
+.card-fallback-canvas.is-dark {
+  background: linear-gradient(135deg, rgba(0, 71, 225, 0.35) 0%, rgba(0, 71, 225, 0.08) 35%, #080808 70%), #080808;
+}
+
+/* Variant B: Top-Right to Bottom-Left 225° Chiaroscuro Shadow Track */
+.card-fallback-canvas.is-variant-b,
 .card-fallback-canvas.is-light {
-  background: linear-gradient(135deg, #E0F2FE 0%, #F0F9FF 45%, #EDE9FE 100%);
-  color: #080808; border: 1px solid rgba(8, 8, 8, 0.08);
+  background: linear-gradient(225deg, rgba(61, 107, 255, 0.32) 0%, rgba(0, 71, 225, 0.06) 40%, #080808 75%), #080808;
 }
-.card-fallback-canvas.is-light .fallback-brand-icon {
-  width: 20px; height: 20px; color: #080808; margin-bottom: 0.65rem; stroke-width: 2;
-}
+
 .card-fallback-canvas, .card-fallback-canvas *, .fallback-title, .fallback-cat, .card-title, .card-title a,
 .art-author-name, .art-author-bio, .art-author-link,
 .art-back-btn, .cta-card-btn, .art-meta-author-link {
@@ -470,31 +499,39 @@ body.single-post {
   height: 100%;
 }
 
-.card-fallback-canvas.is-light .fallback-title {
-  font-family: var(--font-heading); font-size: 0.78rem; font-weight: 700;
-  color: #080808; text-transform: uppercase; line-height: 1.35;
-  margin-bottom: 0.65rem; max-width: 90%; text-decoration: none !important;
+.card-fallback-canvas .fallback-top {
+  position: relative; z-index: 2; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
 }
-.card-fallback-canvas.is-light .fallback-cat {
-  font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700;
-  color: #080808; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none !important;
+.card-fallback-canvas .fallback-cat {
+  font-family: var(--font-mono); font-size: 7.5px; font-weight: 700;
+  color: #FAFAF7; letter-spacing: 0.2em; text-transform: uppercase;
+  background: rgba(0, 71, 225, 0.25); border: 1px solid rgba(0, 71, 225, 0.45);
+  padding: 2px 7px; border-radius: 4px; text-decoration: none !important;
+}
+.card-fallback-canvas .fallback-brand-icon {
+  width: 16px; height: 16px; color: #0047E1; stroke-width: 2.2;
 }
 
-.card-fallback-canvas.is-dark {
-  background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #312E81 100%);
-  color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.1);
+.card-fallback-canvas .fallback-center {
+  position: relative; z-index: 2; padding: 0.4rem 0;
 }
-.card-fallback-canvas.is-dark .fallback-brand-icon {
-  width: 20px; height: 20px; color: #FFFFFF; margin-bottom: 0.65rem; stroke-width: 2;
+.card-fallback-canvas .fallback-title {
+  font-family: var(--font-heading); font-size: 0.8rem; font-weight: 700;
+  color: #FAFAF7; text-transform: uppercase; line-height: 1.35;
+  letter-spacing: 0.02em; margin: 0 auto;
+  text-decoration: none !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
-.card-fallback-canvas.is-dark .fallback-title {
-  font-family: var(--font-heading); font-size: 0.78rem; font-weight: 700;
-  color: #FFFFFF; text-transform: uppercase; line-height: 1.35;
-  margin-bottom: 0.65rem; max-width: 90%; text-decoration: none !important;
+
+.card-fallback-canvas .fallback-foot {
+  position: relative; z-index: 2; width: 100%;
+  font-family: var(--font-mono); font-size: 7px; font-weight: 700;
+  color: rgba(250, 250, 247, 0.45); letter-spacing: 0.25em; text-transform: uppercase;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
 }
-.card-fallback-canvas.is-dark .fallback-cat {
-  font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700;
-  color: #A0B4FF; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none !important;
+.card-fallback-canvas .fallback-foot::before {
+  content: '—'; color: #0047E1; font-weight: 700;
 }
 
 .card-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; line-height: 1.35; margin: 0; }
@@ -744,15 +781,21 @@ body.single-post {
                 <?php if ($has_thumb) : ?>
                   <img src="<?php the_post_thumbnail_url('medium_large'); ?>" alt="<?php the_title_attribute(); ?>" class="card-img">
                 <?php else :
-                  $variant_class = ($related_idx % 2 === 0) ? 'is-dark' : 'is-light';
+                  $variant_class = ($related_idx % 2 === 0) ? 'is-variant-a' : 'is-variant-b';
                 ?>
-                  <!-- AMBIENT MESH GRADIENT NON-IMAGE FALLBACK CARD -->
                   <div class="card-fallback-canvas <?php echo $variant_class; ?>">
-                    <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                    <div class="fallback-title"><?php the_title(); ?></div>
-                    <div class="fallback-cat"><?php echo esc_html($r_cat_name); ?></div>
+                    <div class="fallback-top">
+                      <span class="fallback-cat"><?php echo esc_html($r_cat_name); ?></span>
+                      <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                      </svg>
+                    </div>
+                    <div class="fallback-center">
+                      <div class="fallback-title"><?php the_title(); ?></div>
+                    </div>
+                    <div class="fallback-foot">
+                      <span>CR8V STACKS ARCHIVE</span>
+                    </div>
                   </div>
                 <?php endif; ?>
               </a>
@@ -772,9 +815,24 @@ body.single-post {
               <span class="card-category-pill">ENTITY SEO</span>
             </div>
             <div class="card-img-container">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/ai_wp_tree_workflow.jpg'); ?>" alt="Entity SEO Architecture" class="card-img">
+              <a href="<?php echo esc_url(home_url('/category/content-creation/')); ?>" style="display: block; width: 100%; height: 100%;">
+                <div class="card-fallback-canvas is-variant-a">
+                  <div class="fallback-top">
+                    <span class="fallback-cat">ENTITY SEO</span>
+                    <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                  </div>
+                  <div class="fallback-center">
+                    <div class="fallback-title">Entity SEO Architecture: Indexing For Authority</div>
+                  </div>
+                  <div class="fallback-foot">
+                    <span>CR8V STACKS ARCHIVE</span>
+                  </div>
+                </div>
+              </a>
             </div>
-            <h2 class="card-title"><a href="#">Entity SEO Architecture: Indexing For Authority</a></h2>
+            <h2 class="card-title"><a href="<?php echo esc_url(home_url('/category/content-creation/')); ?>">Entity SEO Architecture: Indexing For Authority</a></h2>
           </div>
         </article>
 
@@ -785,9 +843,24 @@ body.single-post {
               <span class="card-category-pill">AI MVPS</span>
             </div>
             <div class="card-img-container">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/c4_tools_bg.jpg'); ?>" alt="AI Platforms" class="card-img">
+              <a href="<?php echo esc_url(home_url('/services/ai-mvp/')); ?>" style="display: block; width: 100%; height: 100%;">
+                <div class="card-fallback-canvas is-variant-b">
+                  <div class="fallback-top">
+                    <span class="fallback-cat">AI MVPS</span>
+                    <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                  </div>
+                  <div class="fallback-center">
+                    <div class="fallback-title">Architecting Custom AI Dashboards For Handover</div>
+                  </div>
+                  <div class="fallback-foot">
+                    <span>CR8V STACKS ARCHIVE</span>
+                  </div>
+                </div>
+              </a>
             </div>
-            <h2 class="card-title"><a href="#">Architecting Custom AI Dashboards For Handover</a></h2>
+            <h2 class="card-title"><a href="<?php echo esc_url(home_url('/services/ai-mvp/')); ?>">Architecting Custom AI Dashboards For Handover</a></h2>
           </div>
         </article>
 
@@ -798,9 +871,24 @@ body.single-post {
               <span class="card-category-pill">DESIGN</span>
             </div>
             <div class="card-img-container">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/services_visual_montage.jpg'); ?>" alt="UI Micro-Animations" class="card-img">
+              <a href="<?php echo esc_url(home_url('/services/web-design/')); ?>" style="display: block; width: 100%; height: 100%;">
+                <div class="card-fallback-canvas is-variant-a">
+                  <div class="fallback-top">
+                    <span class="fallback-cat">DESIGN</span>
+                    <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                  </div>
+                  <div class="fallback-center">
+                    <div class="fallback-title">Micro-Animations That Convert: Designing For Retention</div>
+                  </div>
+                  <div class="fallback-foot">
+                    <span>CR8V STACKS ARCHIVE</span>
+                  </div>
+                </div>
+              </a>
             </div>
-            <h2 class="card-title"><a href="#">Micro-Animations That Convert: Designing For Retention</a></h2>
+            <h2 class="card-title"><a href="<?php echo esc_url(home_url('/services/web-design/')); ?>">Micro-Animations That Convert: Designing For Retention</a></h2>
           </div>
         </article>
       <?php endif; ?>

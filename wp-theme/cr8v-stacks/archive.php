@@ -228,7 +228,7 @@ $is_tag = is_tag();
   border-color: var(--c8-blue);
 }
 
-/* ── HYBRID ENTERGALACTIC & BAUHAUS EDITORIAL POSTER FALLBACK ── */
+/* ── SYSTEM 1: HIGH-CONTRAST CHIAROSCURO SILHOUETTE & SHADOW BEAMS ── */
 .card-fallback-canvas {
   width: 100%; height: 100%; min-height: 200px;
   border-radius: 4px !important;
@@ -239,18 +239,18 @@ $is_tag = is_tag();
   position: relative; overflow: hidden;
   box-sizing: border-box;
   background: #080808;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 .card-fallback-canvas:hover {
-  border-color: rgba(0, 71, 225, 0.4);
+  border-color: #0047E1;
+  box-shadow: 0 12px 30px rgba(0, 71, 225, 0.18);
 }
 .card-fallback-canvas::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 16px 16px;
+  background: linear-gradient(135deg, rgba(0, 71, 225, 0.40) 0%, rgba(0, 71, 225, 0.12) 30%, transparent 65%);
   pointer-events: none;
   z-index: 1;
 }
@@ -258,26 +258,22 @@ $is_tag = is_tag();
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background: linear-gradient(45deg, transparent 32%, rgba(255, 255, 255, 0.07) 48%, rgba(0, 71, 225, 0.25) 50%, rgba(255, 255, 255, 0.07) 52%, transparent 68%),
+              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 1;
 }
 
-/* Variant A: Chiaroscuro Cobalt Orbit */
+/* Variant A: Top-Left to Bottom-Right 45° Chiaroscuro Beam */
 .card-fallback-canvas.is-variant-a,
 .card-fallback-canvas.is-dark {
-  background: radial-gradient(circle at 80% 20%, rgba(0, 71, 225, 0.28) 0%, transparent 60%),
-              radial-gradient(circle at 20% 90%, rgba(0, 56, 192, 0.15) 0%, transparent 50%),
-              #080808;
+  background: linear-gradient(135deg, rgba(0, 71, 225, 0.35) 0%, rgba(0, 71, 225, 0.08) 35%, #080808 70%), #080808;
 }
 
-/* Variant B: Entergalactic Indigo Atmosphere */
+/* Variant B: Top-Right to Bottom-Left 225° Chiaroscuro Shadow Track */
 .card-fallback-canvas.is-variant-b,
 .card-fallback-canvas.is-light {
-  background: radial-gradient(circle at 85% 15%, rgba(139, 0, 139, 0.22) 0%, transparent 55%),
-              radial-gradient(circle at 15% 85%, rgba(75, 0, 130, 0.25) 0%, transparent 50%),
-              radial-gradient(circle at 50% 50%, rgba(0, 71, 225, 0.18) 0%, transparent 65%),
-              #080808;
+  background: linear-gradient(225deg, rgba(61, 107, 255, 0.32) 0%, rgba(0, 71, 225, 0.06) 40%, #080808 75%), #080808;
 }
 
 .card-fallback-canvas .fallback-top {
@@ -286,8 +282,8 @@ $is_tag = is_tag();
 }
 .card-fallback-canvas .fallback-cat {
   font-family: var(--font-mono); font-size: 8px; font-weight: 700;
-  color: #4A9EFF; letter-spacing: 0.18em; text-transform: uppercase;
-  background: rgba(0, 71, 225, 0.15); border: 1px solid rgba(0, 71, 225, 0.3);
+  color: #FAFAF7; letter-spacing: 0.2em; text-transform: uppercase;
+  background: rgba(0, 71, 225, 0.25); border: 1px solid rgba(0, 71, 225, 0.45);
   padding: 3px 8px; border-radius: 4px;
 }
 .card-fallback-canvas .fallback-brand-icon {
@@ -300,17 +296,18 @@ $is_tag = is_tag();
 .card-fallback-canvas .fallback-title {
   font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700;
   color: #FAFAF7; text-transform: uppercase; line-height: 1.35;
-  letter-spacing: 0.01em; margin: 0 auto;
+  letter-spacing: 0.02em; margin: 0 auto;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .card-fallback-canvas .fallback-foot {
   position: relative; z-index: 2; width: 100%;
   font-family: var(--font-mono); font-size: 7.5px; font-weight: 700;
-  color: rgba(250, 250, 247, 0.35); letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(250, 250, 247, 0.45); letter-spacing: 0.25em; text-transform: uppercase;
   display: flex; align-items: center; justify-content: center; gap: 6px;
 }
 .card-fallback-canvas .fallback-foot::before {
-  content: ''; width: 10px; height: 1px; background: rgba(250, 250, 247, 0.25);
+  content: '—'; color: #0047E1; font-weight: 700;
 }
 
 .card-title { font-family: var(--font-heading) !important; font-size: 0.95rem !important; font-weight: 700; color: var(--c8-ink); line-height: 1.4; text-transform: uppercase; margin: 0; }
