@@ -554,52 +554,52 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 # 📄 PAGE: BRAND STRATEGY & POSITIONING (`page-service-brand-strategy.php`)
 
 ### Overview & Visual Strategy
-* **Suite 1: Deliverables Folder Deck (`.c8srv-folder-deck`)**: 5 Deliverable Showcase Cards (`4:3` Landscape) using **Ultra-Minimal Swiss Graphic Restraint** — spacious layouts, razor-sharp alignment, maximum negative space, and single focal points to completely avoid visual clutter or AI slop.
-* **Suite 2: How We Approach It (`.c8isv-approach-outer`)**: 4 Process Stage Cards (`4:3` Landscape) using **Minimalist Solitary Chiaroscuro Monoliths** with high-contrast directional light beams on obsidian black (`#080808`).
+* **Suite 1: Deliverables Folder Deck (`.c8srv-folder-deck`)**: 5 Deliverable Showcase Cards (`4:3` Landscape) using **Approach B: Strategy Matrix & Architecture UI Micro-Illustrations (Full-Bleed Architecture)** with timeless status indicators and zero year stamps.
+* **Suite 2: How We Approach It (`.c8isv-approach-outer`)**: 4 Process Stage Cards (`4:3` Landscape) using **System 1: High-Contrast Architectural Chiaroscuro & Directional Beams with Logo Color Rotation**.
 
 ---
 
-### Suite 1: Deliverables Folder Deck (01 through 05)
+### Suite 1: Deliverables Folder Deck (01 through 05) — Focused Hero Components
 
 #### 01 // Positioning — Market Positioning Framework
-* **Deliverable Context**: Category claim and market positioning framework.
+* **Deliverable Context**: Comprehensive competitive audit establishing your brand’s category claim and unique market stance.
 * **Aspect Ratio**: `4:3` Landscape
-* **System**: Minimalist Swiss Graphic Restraint
+* **System**: Strategy Matrix Micro-Illustration (Approach B — Single Hero Component Focus)
 * **File Target**: `assets/img/abstract/cr8v_brstr_deck_positioning.jpg`
 * **Written Prompt**:
-  > *Minimalist Swiss graphic design layout, 4:3 landscape aspect ratio. A clean, spacious 2x2 coordinate crosshair matrix centered on a pure white surface. A single crisp Royal Blue (#0047E1) solid dot positioned in the top-right quadrant, accompanied by a small, clean label badge "[Category Claim]". Vast white breathing room, refined razor-thin grey axis lines, soft subtle drop shadow, premium agency minimalism, zero visual clutter, no text walls, no 3D rendering.*
+  > *Clean modern brand positioning interface card mockup, 4:3 landscape aspect ratio, macro crop focal point. A single high-end strategy card on an off-white background with generous negative space. Focused on one bold quadrant intersection marked by a sharp thin blue axis line and a single elevated Royal Blue (#0047E1) pill tag reading "[Category Monopoly]". Minimalist Linear app UI aesthetic, soft subtle drop shadow, refined typography, zero visual clutter, no multiple competing cards, no 3D CGI gloss, no photorealism.*
 
 #### 02 // Personas — Ideal Customer Profile (ICP) Guide
-* **Deliverable Context**: Ideal customer profile archetype and buyer persona.
+* **Deliverable Context**: Detailed buyer persona profiles mapping key pain points, decision criteria, and objection handling.
 * **Aspect Ratio**: `4:3` Landscape
-* **System**: Minimalist Swiss Graphic Restraint
+* **System**: Strategy Matrix Micro-Illustration (Approach B — Single Hero Component Focus)
 * **File Target**: `assets/img/abstract/cr8v_brstr_deck_personas.jpg`
 * **Written Prompt**:
-  > *Minimalist Swiss editorial profile card, 4:3 landscape aspect ratio. A single elegant customer archetype card on a pure white background. Featuring an abstract minimalist circular avatar silhouette on the left, and three widely-spaced horizontal grey structural wireframe bars on the right, anchored by a single small Royal Blue (#0047E1) badge "[Primary ICP]". Maximum breathing room, refined generous white space, subtle border, no tiny text, no messy charts, no 3D rendering.*
+  > *Clean modern buyer persona profile card mockup, 4:3 landscape aspect ratio, side-view hero card layout. A single elegant user archetype panel on a crisp white surface with ample breathing room. Showing a minimalist circular monochrome avatar glyph, a clean bold title "Enterprise Buyer", and a single Royal Blue (#0047E1) pill badge reading "[Core ICP: Decision Maker]". High-craft Figma design system component, soft ambient shadow, generous white space, zero tiny lists, no clutter, no 3D CGI gloss.*
 
 #### 03 // Messaging — Core Value Messaging Matrix
-* **Deliverable Context**: Structured value proposition and messaging hierarchy.
+* **Deliverable Context**: Structured headlines, sub-headlines, elevator pitches, and brand narrative scripts for marketing copy.
 * **Aspect Ratio**: `4:3` Landscape
-* **System**: Minimalist Swiss Graphic Restraint
+* **System**: Strategy Matrix Micro-Illustration (Approach B — Single Hero Component Focus)
 * **File Target**: `assets/img/abstract/cr8v_brstr_deck_messaging.jpg`
 * **Written Prompt**:
-  > *Minimalist Swiss typography hierarchy sheet, 4:3 landscape aspect ratio. A clean editorial layout on a pure white card. One bold, elegant display headline wireframe bar at the top, two widely-spaced clean body baseline rules beneath it, and a small elevated Royal Blue (#0047E1) pill tag in the corner reading "[Value Script]". Calm and uncluttered, vast white negative space, razor-sharp alignment, no busy icons, no 3D rendering.*
+  > *Clean modern editorial headline testing card mockup, 4:3 landscape aspect ratio, close-up macro focus. A single pristine typography showcase card on a white surface with abundant negative space. Displaying one bold, perfectly spaced display headline "High-Impact Brand Narrative" paired with a single Royal Blue (#0047E1) status tag reading "[Core Script: Approved]". Sleek Swiss typography layout, generous line-height, soft drop shadow, zero wall of text, no tiny icons, no 3D CGI gloss.*
 
 #### 04 // Architecture — Brand Portfolio Architecture
-* **Deliverable Context**: Master brand hierarchy and sub-tier relationship mapping.
+* **Deliverable Context**: Mapping product naming conventions, sub-brand structures, and service tier hierarchies.
 * **Aspect Ratio**: `4:3` Landscape
-* **System**: Minimalist Swiss Graphic Restraint
+* **System**: Strategy Matrix Micro-Illustration (Approach B — Single Hero Component Focus)
 * **File Target**: `assets/img/abstract/cr8v_brstr_deck_architecture.jpg`
 * **Written Prompt**:
-  > *Minimalist brand portfolio hierarchy diagram, 4:3 landscape aspect ratio. A clean geometric system on a pure white canvas. One primary master brand rectangle at the top connected by a single crisp vertical hairline to two clean sub-brand rectangles below, with one highlighted in solid Royal Blue (#0047E1) reading "[Sub-Brand]". Expansive white breathing room, ultra-clean geometry, no complex trees, no messy icons, no 3D rendering.*
+  > *Clean modern brand architecture hierarchy diagram mockup, 4:3 landscape aspect ratio. A minimal three-node brand relationship tree on a pure white surface with plenty of breathing room. One top master brand card connecting via thin clean line to two elegant sub-product pills below, accented with a single Royal Blue (#0047E1) badge reading "[Master Brand]". Pristine Figma vector UI style, airy layout, subtle elevation, zero dense flowcharts, no visual noise, no 3D CGI gloss.*
 
 #### 05 // Sales — Sales Enablement & Pitch Messaging
-* **Deliverable Context**: Executive pitch narrative and deal acceleration metrics.
+* **Deliverable Context**: Aligning sales pitch decks, email outreach sequences, and proposal templates with brand strategy.
 * **Aspect Ratio**: `4:3` Landscape
-* **System**: Minimalist Swiss Graphic Restraint
+* **System**: Strategy Matrix Micro-Illustration (Approach B — Single Hero Component Focus)
 * **File Target**: `assets/img/abstract/cr8v_brstr_deck_sales.jpg`
 * **Written Prompt**:
-  > *Minimalist pitch deck slide card mockup, 4:3 landscape aspect ratio. An ultra-clean presentation slide frame on a pure white surface. A large bold typographic metric highlight "[+340%]" paired with a single elegant upward Royal Blue (#0047E1) trajectory vector curve. Vast negative space, confident Swiss graphic restraint, subtle diffused shadow, no cluttered dashboard widgets, no text walls, no 3D rendering.*
+  > *Clean modern keynote pitch deck slide card mockup, 4:3 landscape aspect ratio, angled perspective crop. A single floating presentation slide on a clean background with generous negative space. Featuring one prominent, oversized bold metric reading "+340%" with a small clean subtext "Deal Velocity" and a solid Royal Blue (#0047E1) bottom accent line. High-craft executive slide aesthetic, soft diffused shadow, singular focal point, zero dense charts, no clutter, no 3D CGI gloss.*
 
 ---
 
@@ -608,31 +608,31 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 #### Stage 01: Audit — Competitors, Customers & Interviews
 * **Accent**: Warm Ivory / White (`#F5F5F0`)
 * **Aspect Ratio**: `4:3` Landscape
-* **System**: Minimalist Solitary Chiaroscuro Monolith
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
 * **File Target**: `assets/img/abstract/cr8v_brstr_proc_audit.jpg`
 * **Written Prompt**:
-  > *Minimalist graphic editorial chiaroscuro art, 4:3 landscape aspect ratio. A single pristine open research folio resting on an obsidian black surface (#080808), struck by a single sharp beam of ivory-white light (#F5F5F0) slicing through deep shadow, casting a long crisp geometric shadow. Bold graphic poster art, vast dark negative space, high contrast, zero clutter, no text, no 3D CGI rendering, no photorealism.*
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Market research binders, competitor category matrices, and customer interview transcript sheets on a dark studio drafting table, struck by a crisp ivory white (#F5F5F0) directional light beam slicing through deep darkness, casting long sharp geometric shadows across an obsidian black floor (#080808). High contrast chiaroscuro shadow play, modern agency poster style, clean negative space, no 3D rendering, no photorealism, no text.*
 
 #### Stage 02: Positioning — Category Claim, Edge & ICP
 * **Accent**: Royal Blue (`#0047E1`)
 * **Aspect Ratio**: `4:3` Landscape
-* **System**: Minimalist Solitary Chiaroscuro Monolith
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
 * **File Target**: `assets/img/abstract/cr8v_brstr_proc_positioning.jpg`
 * **Written Prompt**:
-  > *Minimalist graphic editorial chiaroscuro art, 4:3 landscape aspect ratio. A single geometric coordinate cube standing solitary on an obsidian black surface (#080808), illuminated by a single sharp Royal Blue (#0047E1) directional light shaft casting a long razor-sharp shadow. Pure graphic restraint, deep atmospheric darkness, high contrast shadow play, zero clutter, no text, no 3D rendering.*
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Abstract geometric category positioning pillars, market coordinate planes, and strategic claim monoliths struck by a sharp Royal Blue (#0047E1) light shaft casting long dramatic geometric shadows across a deep obsidian floor (#080808). High contrast chiaroscuro, graphic editorial aesthetic, deep moody dark atmosphere, flat graphic style, no 3D rendering, no machinery, no photorealism, no text.*
 
 #### Stage 03: Messaging — Headlines, Elevator Pitch & Copy Rules
 * **Accent**: Crimson Red (`#E20025`)
 * **Aspect Ratio**: `4:3` Landscape
-* **System**: Minimalist Solitary Chiaroscuro Monolith
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
 * **File Target**: `assets/img/abstract/cr8v_brstr_proc_messaging.jpg`
 * **Written Prompt**:
-  > *Minimalist graphic editorial chiaroscuro art, 4:3 landscape aspect ratio. A single monolithic typography sculpture standing on an obsidian black plane (#080808), illuminated by a sharp crimson red (#E20025) directional light beam casting a long dramatic geometric shadow. Bold graphic minimalism, deep dark mood, clean negative space, no clutter, no text, no 3D CGI gloss.*
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Editorial headline typography blocks, narrative script planes, and brand tone monoliths struck by a dramatic crimson red (#E20025) light beam casting sharp long shadows across an obsidian black (#080808) floor. High-contrast chiaroscuro, graphic editorial aesthetic, deep dark atmosphere, flat graphic style, no 3D rendering, no computer hardware, no photorealism, no text.*
 
 #### Stage 04: Alignment — Sales Deck, Web Spec & Implementation
 * **Accent**: Golden Yellow / Warm Gold (`#FFB800`)
 * **Aspect Ratio**: `4:3` Landscape
-* **System**: Minimalist Solitary Chiaroscuro Monolith
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
 * **File Target**: `assets/img/abstract/cr8v_brstr_proc_alignment.jpg`
 * **Written Prompt**:
-  > *Minimalist graphic editorial chiaroscuro art, 4:3 landscape aspect ratio. A single sleek ascending trajectory plane hovering slightly above an obsidian black ground (#080808), struck by a crisp warm gold (#FFB800) directional light beam casting a razor-sharp shadow. Graphic poster art style, expansive dark negative space, high contrast, zero clutter, no text, no 3D rendering.*
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Master strategy blueprints, executive pitch presentation slides, and team alignment trajectory vectors illuminated by a warm gold (#FFB800) light beam slicing through deep darkness, casting razor-sharp shadows across a dark obsidian ground (#080808). Graphic poster art style, flat 2D graphic aesthetic, high contrast, clean negative space, no 3D rendering, no circuit boards, no photorealism, no text.*
