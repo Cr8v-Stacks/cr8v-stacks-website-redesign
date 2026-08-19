@@ -884,3 +884,241 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 * **File Target**: `assets/img/abstract/cr8v_brstr_proc_alignment.jpg`
 * **Written Prompt**:
   > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Master strategy blueprints, executive pitch presentation slides, and team alignment trajectory vectors illuminated by a warm gold (#FFB800) light beam slicing through deep darkness, casting razor-sharp shadows across a dark obsidian ground (#080808). Graphic poster art style, flat 2D graphic aesthetic, high contrast, clean negative space, no 3D rendering, no circuit boards, no photorealism, no text.*
+
+---
+
+# 📄 PAGE: BRAND IDENTITY DESIGN (`page-service-brand-identity.php`)
+
+### Overview & Visual Strategy
+* **Suite 1: Deliverables Folder Deck (`.c8srv-folder-deck`)**: 5 Deliverable Showcase Cards (`4:3` Landscape) using the Master Service Illustration System.
+* **Suite 2: How We Approach It (`.c8isv-approach-outer`)**: 4 Process Stage Cards (`4:3` Landscape) using System 1: High-Contrast Architectural Chiaroscuro & Directional Beams.
+
+---
+
+### Suite 1: Deliverables Folder Deck (01 through 05)
+
+#### 01 // Logomark — Primary & Secondary Vector Logomarks
+* **Deliverable Context**: Bespoke vector logo design delivered in SVG, EPS, PNG, and PDF formats with dark/light background variants.
+* **Composition**: Framed + Mid-Zoom
+* **File Target**: `assets/img/abstract/cr8v_brind_deck_logomark.jpg`
+* **Permitted Text Only**: “Logomark Construction”, “Vector Grid”, “Master Glyph”, “Clearspace: 24px”, “Primary Mark”, “Dark Mode”, “Light Mode”, “Approved”
+* **Written Prompt**:
+  > Create a premium high-tech **Primary & Secondary Vector Logomarks** visual representing an actual vector logomark construction deliverable created by a professional brand identity designer.
+  >
+  > **Canvas:** 4:3 landscape, conceptual working grid 1600 × 1200 px.
+  >
+  > **COMPOSITION:** Use the framed composition system. Place one dominant centered white strategic-analysis surface with rounded corners, a subtle 1px cool-gray border, and a broad soft ambient shadow, framed by generous quiet background space on all sides against a solid cool-gray #F3F5F7 background with a faint outer dot texture.
+  >
+  > **PRIMARY ARTIFACT:** Inside the white surface, create one sophisticated vector logomark construction blueprint. The dominant central area displays a clean geometric vector glyph framed by thin precision bezier construction lines, circular radius guides, and geometric alignment axis markers.
+  >
+  > The mark is rendered in crisp charcoal vector lines with a single blue-violet highlighted node representing anchor point precision.
+  >
+  > Beneath the master glyph, show two minimal secondary variant chips: one displaying the mark in dark mode and one in light mode.
+  >
+  > **PERMITTED TEXT ONLY:**
+  > “Logomark Construction”
+  > “Vector Grid”
+  > “Master Glyph”
+  > “Clearspace: 24px”
+  > “Primary Mark”
+  > “Dark Mode”
+  > “Light Mode”
+  > “Approved”
+  >
+  > **FRAMING:** Mid-zoom. The complete construction board is visible with generous whitespace around the central vector mark.
+  >
+  > **ANTI-SLOP / QUALITY CONTROL:** Create a restrained, highly art-directed composition. Do not fill empty space with decorative objects. Do not add floating cards unless they serve a clear functional purpose. Do not add random charts, graphs, badges, icons, circles, arrows, connectors, metrics, percentages, dashboards, widgets or interface elements. Do not create symmetrical template-like infographic layouts. Do not use generic AI imagery, lightbulbs, magnifying glasses, targets, puzzle pieces, abstract blobs, holograms, neural networks or decorative 3D objects. Do not use excessive gradients, neon glow, glassmorphism, excessive shadows or ornamental effects. Every visible element must communicate the actual professional work being represented. Prioritize one strong visual idea, substantial negative space, precise geometry, restrained UI, sophisticated hierarchy and exceptional rendering quality.
+  >
+  > **RENDERING QUALITY:** Premium high-tech product-design interface, comparable to an exceptionally polished Figma-designed SaaS product and a high-end brand consultancy presentation. Extremely precise geometry, crisp vector-like edges, sophisticated information architecture, refined spacing, consistent 8-point spacing logic, subtle 1 px borders, soft ambient occlusion, broad feathered shadows, physically plausible layer separation, delicate tonal hierarchy, restrained blue-violet highlights, clean white surfaces, exceptionally polished UI details, high-resolution rendering, no visual artifacts, no sloppy alignment, no inconsistent component sizing, no amateur infographic aesthetic. The result should feel expensive, intentional and professionally art-directed.
+  >
+  > **TEXT CONTROL:** Only the explicitly specified text may appear as readable typography. Do not invent any additional words, numbers, dates, percentages, names, labels, placeholder copy, lorem ipsum, browser text, fake UI text or decorative typography. Unspecified text areas must remain completely blank or use simple non-letter horizontal lines to represent text. Never hallucinate written content.
+  >
+  > No people, no stock imagery, no 3D.
+
+#### 02 // Palette — Color System & Design Tokens
+* **Deliverable Context**: HEX, RGB, HSL, and Pantone color specs crafted for consistent display on screens and print.
+* **Composition**: Open Composition + Close-Mid Zoom
+* **File Target**: `assets/img/abstract/cr8v_brind_deck_palette.jpg`
+* **Permitted Text Only**: “Color System”, “Design Tokens”, “Primary: #0047E1”, “Obsidian: #080808”, “Canvas: #FFFFFF”, “Surface: #F3F5F7”, “Contrast: 12.4:1”, “WCAG AAA”, “Active Token”
+* **Written Prompt**:
+  > Create a premium high-tech **Color System & Design Tokens** visual representing an actual brand color architecture and token spec sheet created by a professional design system engineer.
+  >
+  > **Canvas:** 4:3 landscape, conceptual working grid 1600 × 1200 px.
+  >
+  > **COMPOSITION:** Use an open composition. The main color spec surface occupies the central canvas area, positioned slightly above center, framed by generous quiet background space on all sides against a cool-gray #F3F5F7 background with a faint outer dot texture.
+  >
+  > **PRIMARY ARTIFACT:** Design a pristine color token matrix containing four primary architectural color swatches: Obsidian Black, Royal Blue, Pure White, and Cool Gray.
+  >
+  > Each swatch displays a clean rectangular color tile with crisp hairline borders, its token label, hex value, and a small WCAG contrast rating indicator.
+  >
+  > The Royal Blue swatch has a refined blue-violet active ring and an "Active Token" badge as the sole visual accent.
+  >
+  > **PERMITTED TEXT ONLY:**
+  > “Color System”
+  > “Design Tokens”
+  > “Primary: #0047E1”
+  > “Obsidian: #080808”
+  > “Canvas: #FFFFFF”
+  > “Surface: #F3F5F7”
+  > “Contrast: 12.4:1”
+  > “WCAG AAA”
+  > “Active Token”
+  >
+  > **FRAMING:** Close-mid zoom. The four color token blocks are clearly inspectable with ample negative space around the panel.
+  >
+  > **ANTI-SLOP / QUALITY CONTROL:** Create a restrained, highly art-directed composition. Do not fill empty space with decorative objects. Do not add floating cards unless they serve a clear functional purpose. Do not add random charts, graphs, badges, icons, circles, arrows, connectors, metrics, percentages, dashboards, widgets or interface elements. Do not create symmetrical template-like infographic layouts. Do not use generic AI imagery, lightbulbs, magnifying glasses, targets, puzzle pieces, abstract blobs, holograms, neural networks or decorative 3D objects. Do not use excessive gradients, neon glow, glassmorphism, excessive shadows or ornamental effects. Every visible element must communicate the actual professional work being represented. Prioritize one strong visual idea, substantial negative space, precise geometry, restrained UI, sophisticated hierarchy and exceptional rendering quality.
+  >
+  > **RENDERING QUALITY:** Premium high-tech product-design interface, comparable to an exceptionally polished Figma-designed SaaS product and a high-end brand consultancy presentation. Extremely precise geometry, crisp vector-like edges, sophisticated information architecture, refined spacing, consistent 8-point spacing logic, subtle 1 px borders, soft ambient occlusion, broad feathered shadows, physically plausible layer separation, delicate tonal hierarchy, restrained blue-violet highlights, clean white surfaces, exceptionally polished UI details, high-resolution rendering, no visual artifacts, no sloppy alignment, no inconsistent component sizing, no amateur infographic aesthetic. The result should feel expensive, intentional and professionally art-directed.
+  >
+  > **TEXT CONTROL:** Only the explicitly specified text may appear as readable typography. Do not invent any additional words, numbers, dates, percentages, names, labels, placeholder copy, lorem ipsum, browser text, fake UI text or decorative typography. Unspecified text areas must remain completely blank or use simple non-letter horizontal lines to represent text. Never hallucinate written content.
+  >
+  > No paint splatters, no rainbow color wheels, no artistic brushes, no people, no 3D.
+
+#### 03 // Type — Typography System & Font Pairing
+* **Deliverable Context**: Harmonious display font pairings, body copy guidelines, and web font web-safe fallbacks.
+* **Composition**: Open Composition + Wider/Full View
+* **File Target**: `assets/img/abstract/cr8v_brind_deck_typography.jpg`
+* **Permitted Text Only**: “Typography System”, “Display Serif”, “Grotesque Sans”, “Mono Space”, “Heading 1: 48px”, “Body Regular: 16px”, “Tracking: -0.02em”, “Approved Pairing”
+* **Written Prompt**:
+  > Create a premium high-tech **Typography System & Font Pairing** visual representing an actual typographic hierarchy spec sheet developed by a professional brand designer.
+  >
+  > **Canvas:** 4:3 landscape, conceptual working grid 1600 × 1200 px.
+  >
+  > **COMPOSITION:** Use an open composition with one dominant white typographic workbench surface positioned slightly above center, leaving generous quiet space around it on a cool-gray #F3F5F7 background with a faint dot pattern.
+  >
+  > **PRIMARY ARTIFACT:** Create a clean typographic specimen hierarchy.
+  >
+  > At the top is a large, perfectly kerned serif display specimen showing a single elegant character set paired with its type spec metadata label.
+  >
+  > Beneath it are two clean hierarchy tiers: Grotesque Sans body scale and Monospace technical metadata tags.
+  >
+  > One blue-violet tag reading "Approved Pairing" serves as the sole focal accent.
+  >
+  > **PERMITTED TEXT ONLY:**
+  > “Typography System”
+  > “Display Serif”
+  > “Grotesque Sans”
+  > “Mono Space”
+  > “Heading 1: 48px”
+  > “Body Regular: 16px”
+  > “Tracking: -0.02em”
+  > “Approved Pairing”
+  >
+  > **FRAMING:** Full/mid view. The complete typographic specimen structure is visible with generous margins.
+  >
+  > **ANTI-SLOP / QUALITY CONTROL:** Create a restrained, highly art-directed composition. Do not fill empty space with decorative objects. Do not add floating cards unless they serve a clear functional purpose. Do not add random charts, graphs, badges, icons, circles, arrows, connectors, metrics, percentages, dashboards, widgets or interface elements. Do not create symmetrical template-like infographic layouts. Do not use generic AI imagery, lightbulbs, magnifying glasses, targets, puzzle pieces, abstract blobs, holograms, neural networks or decorative 3D objects. Do not use excessive gradients, neon glow, glassmorphism, excessive shadows or ornamental effects. Every visible element must communicate the actual professional work being represented. Prioritize one strong visual idea, substantial negative space, precise geometry, restrained UI, sophisticated hierarchy and exceptional rendering quality.
+  >
+  > **RENDERING QUALITY:** Premium high-tech product-design interface, comparable to an exceptionally polished Figma-designed SaaS product and a high-end brand consultancy presentation. Extremely precise geometry, crisp vector-like edges, sophisticated information architecture, refined spacing, consistent 8-point spacing logic, subtle 1 px borders, soft ambient occlusion, broad feathered shadows, physically plausible layer separation, delicate tonal hierarchy, restrained blue-violet highlights, clean white surfaces, exceptionally polished UI details, high-resolution rendering, no visual artifacts, no sloppy alignment, no inconsistent component sizing, no amateur infographic aesthetic. The result should feel expensive, intentional and professionally art-directed.
+  >
+  > **TEXT CONTROL:** Only the explicitly specified text may appear as readable typography. Do not invent any additional words, numbers, dates, percentages, names, labels, placeholder copy, lorem ipsum, browser text, fake UI text or decorative typography. Unspecified text areas must remain completely blank or use simple non-letter horizontal lines to represent text. Never hallucinate written content.
+  >
+  > No alphabet soup letters scattered around, no calligraphy pens, no printing presses, no people, no 3D.
+
+#### 04 // Social — Social Media Asset Suite
+* **Deliverable Context**: Profile avatars, banner templates, and social post graphics formatted for LinkedIn, Twitter, and Instagram.
+* **Composition**: Open Layered Composition + Mid-Zoom
+* **File Target**: `assets/img/abstract/cr8v_brind_deck_social.jpg`
+* **Permitted Text Only**: “Social Asset Suite”, “Profile Avatar”, “Banner: 1584x396”, “Post: 1080x1080”, “Brand Motif”, “Approved Format”
+* **Written Prompt**:
+  > Create a premium high-tech **Social Media Asset Suite** visual representing coordinated digital brand assets created by a professional visual designer.
+  >
+  > **Canvas:** 4:3 landscape, conceptual working grid 1600 × 1200 px.
+  >
+  > **COMPOSITION:** Use an open layered composition on a cool-gray #F3F5F7 background with a faint outer dot grid.
+  >
+  > The primary social post card sits centered, with a wide banner asset surface positioned slightly above-behind, and a circular profile avatar token subtly overlapping the lower left.
+  >
+  > **PRIMARY ARTIFACT:** The central post template is a crisp white square UI container displaying clean graphic layout boundaries, abstract placeholder bars, and a subtle blue-violet brand accent tag.
+  >
+  > The three social formats share the identical brand visual motif, demonstrating cross-platform consistency.
+  >
+  > **PERMITTED TEXT ONLY:**
+  > “Social Asset Suite”
+  > “Profile Avatar”
+  > “Banner: 1584x396”
+  > “Post: 1080x1080”
+  > “Brand Motif”
+  > “Approved Format”
+  >
+  > **FRAMING:** Mid-zoom. The three social assets form a tight, organized system with 35% quiet negative space around the composition.
+  >
+  > **ANTI-SLOP / QUALITY CONTROL:** Create a restrained, highly art-directed composition. Do not fill empty space with decorative objects. Do not add floating cards unless they serve a clear functional purpose. Do not add random charts, graphs, badges, icons, circles, arrows, connectors, metrics, percentages, dashboards, widgets or interface elements. Do not create symmetrical template-like infographic layouts. Do not use generic AI imagery, lightbulbs, magnifying glasses, targets, puzzle pieces, abstract blobs, holograms, neural networks or decorative 3D objects. Do not use excessive gradients, neon glow, glassmorphism, excessive shadows or ornamental effects. Every visible element must communicate the actual professional work being represented. Prioritize one strong visual idea, substantial negative space, precise geometry, restrained UI, sophisticated hierarchy and exceptional rendering quality.
+  >
+  > **RENDERING QUALITY:** Premium high-tech product-design interface, comparable to an exceptionally polished Figma-designed SaaS product and a high-end brand consultancy presentation. Extremely precise geometry, crisp vector-like edges, sophisticated information architecture, refined spacing, consistent 8-point spacing logic, subtle 1 px borders, soft ambient occlusion, broad feathered shadows, physically plausible layer separation, delicate tonal hierarchy, restrained blue-violet highlights, clean white surfaces, exceptionally polished UI details, high-resolution rendering, no visual artifacts, no sloppy alignment, no inconsistent component sizing, no amateur infographic aesthetic. The result should feel expensive, intentional and professionally art-directed.
+  >
+  > **TEXT CONTROL:** Only the explicitly specified text may appear as readable typography. Do not invent any additional words, numbers, dates, percentages, names, labels, placeholder copy, lorem ipsum, browser text, fake UI text or decorative typography. Unspecified text areas must remain completely blank or use simple non-letter horizontal lines to represent text. Never hallucinate written content.
+  >
+  > No smartphones, no social like thumbs, no hearts, no people, no 3D.
+
+#### 05 // Book — Brand Guidelines Specification Book
+* **Deliverable Context**: A detailed brand PDF manual specifying clear space rules, improper uses, and design standards.
+* **Composition**: Framed + Full View
+* **File Target**: `assets/img/abstract/cr8v_brind_deck_guidelines.jpg`
+* **Permitted Text Only**: “Brand Guidelines Book”, “Clear Space Rules”, “Minimum Size”, “Do Not Rotate”, “Do Not Distort”, “Scale: 100%”, “Specification Manual”
+* **Written Prompt**:
+  > Create a premium high-tech **Brand Guidelines Specification Book** visual representing an actual master brand manual deliverable created by a brand identity director.
+  >
+  > **Canvas:** 4:3 landscape, conceptual working grid 1600 × 1200 px.
+  >
+  > **COMPOSITION:** Use the framed composition system. Place one dominant centered white manual spread surface with rounded corners, subtle border, and soft ambient occlusion shadow against a solid cool-gray #F3F5F7 background with a faint dot grid.
+  >
+  > **PRIMARY ARTIFACT:** Inside the surface, create an editorial brand guideline manual page showing clear space rules and logo usage standards.
+  >
+  > The center displays the primary logomark inside a dashed bounding box with thin blue-violet dimension calipers marking the clearspace margin.
+  >
+  > On the lower section, two small rule chips demonstrate improper logo usage with subtle exclusion indicators.
+  >
+  > **PERMITTED TEXT ONLY:**
+  > “Brand Guidelines Book”
+  > “Clear Space Rules”
+  > “Minimum Size”
+  > “Do Not Rotate”
+  > “Do Not Distort”
+  > “Scale: 100%”
+  > “Specification Manual”
+  >
+  > **FRAMING:** Full view. The complete manual page layout is visible with generous quiet space around the primary white surface.
+  >
+  > **ANTI-SLOP / QUALITY CONTROL:** Create a restrained, highly art-directed composition. Do not fill empty space with decorative objects. Do not add floating cards unless they serve a clear functional purpose. Do not add random charts, graphs, badges, icons, circles, arrows, connectors, metrics, percentages, dashboards, widgets or interface elements. Do not create symmetrical template-like infographic layouts. Do not use generic AI imagery, lightbulbs, magnifying glasses, targets, puzzle pieces, abstract blobs, holograms, neural networks or decorative 3D objects. Do not use excessive gradients, neon glow, glassmorphism, excessive shadows or ornamental effects. Every visible element must communicate the actual professional work being represented. Prioritize one strong visual idea, substantial negative space, precise geometry, restrained UI, sophisticated hierarchy and exceptional rendering quality.
+  >
+  > **RENDERING QUALITY:** Premium high-tech product-design interface, comparable to an exceptionally polished Figma-designed SaaS product and a high-end brand consultancy presentation. Extremely precise geometry, crisp vector-like edges, sophisticated information architecture, refined spacing, consistent 8-point spacing logic, subtle 1 px borders, soft ambient occlusion, broad feathered shadows, physically plausible layer separation, delicate tonal hierarchy, restrained blue-violet highlights, clean white surfaces, exceptionally polished UI details, high-resolution rendering, no visual artifacts, no sloppy alignment, no inconsistent component sizing, no amateur infographic aesthetic. The result should feel expensive, intentional and professionally art-directed.
+  >
+  > **TEXT CONTROL:** Only the explicitly specified text may appear as readable typography. Do not invent any additional words, numbers, dates, percentages, names, labels, placeholder copy, lorem ipsum, browser text, fake UI text or decorative typography. Unspecified text areas must remain completely blank or use simple non-letter horizontal lines to represent text. Never hallucinate written content.
+  >
+  > No physical printed book with turned pages, no desk coffee cups, no stationery clutter, no people, no 3D.
+
+---
+
+### Suite 2: How We Approach It (Process Stages 01 through 04)
+
+#### Stage 01: Research — Competitors, Moodboards & Attributes
+* **Accent**: Warm Ivory / White (`#F5F5F0`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_brind_proc_research.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Visual moodboards, competitor aesthetic teardown sheets, and brand attribute swatches on a dark drafting desk, struck by a crisp ivory white (#F5F5F0) directional light beam slicing through deep darkness, casting long sharp geometric shadows across an obsidian black floor (#080808). High contrast chiaroscuro, modern agency poster style, clean negative space, no 3D rendering, no photorealism, no text.*
+
+#### Stage 02: Logomark — Sketches, Vectors & Refinement
+* **Accent**: Royal Blue (`#0047E1`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_brind_proc_logomark.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Abstract geometric vector logo bezier curves, compass geometry arcs, and draft sketching planes struck by a sharp Royal Blue (#0047E1) light shaft casting dramatic geometric shadows across an obsidian black floor (#080808). High contrast chiaroscuro, graphic editorial aesthetic, deep moody dark atmosphere, flat graphic style, no 3D rendering, no machinery, no photorealism, no text.*
+
+#### Stage 03: System — Color, Typography & Asset Kit
+* **Accent**: Crimson Red (`#E20025`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_brind_proc_system.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Design token swatches, typography scale monoliths, and digital component planes struck by a dramatic crimson red (#E20025) light beam casting sharp long shadows across an obsidian black (#080808) floor. High-contrast chiaroscuro, graphic editorial aesthetic, deep dark atmosphere, flat graphic style, no 3D rendering, no computer hardware, no photorealism, no text.*
+
+#### Stage 04: Handoff — PDF Guidelines, SVGs & Asset Pack
+* **Accent**: Golden Yellow / Warm Gold (`#FFB800`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_brind_proc_handoff.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Master brand guideline books, vector export packages, and asset delivery folders illuminated by a warm gold (#FFB800) light beam slicing through deep darkness, casting razor-sharp shadows across a dark obsidian ground (#080808). Graphic poster art style, flat 2D graphic aesthetic, high contrast, clean negative space, no 3D rendering, no circuit boards, no photorealism, no text.*

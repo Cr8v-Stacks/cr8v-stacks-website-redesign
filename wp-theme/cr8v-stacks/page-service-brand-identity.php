@@ -254,8 +254,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss logomark design →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Primary & Secondary Vector Logomarks">
+          <div class="c8srv-folder-card-img" data-customizer="brind_folder1_img">
+            <img src="<?php echo esc_url(cr8v_mod('brind_folder1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brind_deck_logomark.jpg')); ?>" alt="Primary & Secondary Vector Logomarks" data-customizer="brind_folder1_img">
           </div>
         </div>
       </div>
@@ -268,8 +268,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss color systems →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Color System & Design Tokens">
+          <div class="c8srv-folder-card-img" data-customizer="brind_folder2_img">
+            <img src="<?php echo esc_url(cr8v_mod('brind_folder2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brind_deck_palette.jpg')); ?>" alt="Color System & Design Tokens" data-customizer="brind_folder2_img">
           </div>
         </div>
       </div>
@@ -282,8 +282,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss typography →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Typography System & Font Pairing">
+          <div class="c8srv-folder-card-img" data-customizer="brind_folder3_img">
+            <img src="<?php echo esc_url(cr8v_mod('brind_folder3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brind_deck_typography.jpg')); ?>" alt="Typography System & Font Pairing" data-customizer="brind_folder3_img">
           </div>
         </div>
       </div>
@@ -296,8 +296,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss social assets →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Social Media Asset Suite">
+          <div class="c8srv-folder-card-img" data-customizer="brind_folder4_img">
+            <img src="<?php echo esc_url(cr8v_mod('brind_folder4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brind_deck_social.jpg')); ?>" alt="Social Media Asset Suite" data-customizer="brind_folder4_img">
           </div>
         </div>
       </div>
@@ -310,8 +310,8 @@ defined('ABSPATH') || exit;
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8srv-explore">Discuss brand manuals →</a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Brand Guidelines Specification Book">
+          <div class="c8srv-folder-card-img" data-customizer="brind_folder5_img">
+            <img src="<?php echo esc_url(cr8v_mod('brind_folder5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brind_deck_guidelines.jpg')); ?>" alt="Brand Guidelines Specification Book" data-customizer="brind_folder5_img">
           </div>
         </div>
       </div>
@@ -334,8 +334,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="brind_app1_name"><?php echo esc_html(cr8v_mod('brind_app1_name', 'Research')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="brind_app1_tags"><?php echo wp_kses_post(cr8v_mod('brind_app1_tags', 'Competitors &middot; Moodboards &middot;<br>Attributes')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="brind_app1_desc"><?php echo wp_kses_post(cr8v_mod('brind_app1_desc', 'We analyze your market space, compile visual moodboards, and align on brand attributes.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" alt="Research stage">
+        <div class="c8isv-approach-col-img" data-customizer="brind_app1_img">
+          <img src="<?php echo esc_url(cr8v_mod('brind_app1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brind_proc_research.jpg')); ?>" alt="Research stage" data-customizer="brind_app1_img">
         </div>
       </div>
     </div>
@@ -346,8 +346,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="brind_app2_name"><?php echo esc_html(cr8v_mod('brind_app2_name', 'Logomark')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="brind_app2_tags"><?php echo wp_kses_post(cr8v_mod('brind_app2_tags', 'Sketches &middot; Vectors &middot;<br>Refinement')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="brind_app2_desc"><?php echo wp_kses_post(cr8v_mod('brind_app2_desc', 'We sketch concept directions, refine vector paths, and present 3 distinct logo directions.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop" alt="Logomark stage">
+        <div class="c8isv-approach-col-img" data-customizer="brind_app2_img">
+          <img src="<?php echo esc_url(cr8v_mod('brind_app2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brind_proc_logomark.jpg')); ?>" alt="Logomark stage" data-customizer="brind_app2_img">
         </div>
       </div>
     </div>
@@ -358,8 +358,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="brind_app3_name"><?php echo esc_html(cr8v_mod('brind_app3_name', 'System')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="brind_app3_tags"><?php echo wp_kses_post(cr8v_mod('brind_app3_tags', 'Colors &middot; Type &middot;<br>Mockups')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="brind_app3_desc"><?php echo wp_kses_post(cr8v_mod('brind_app3_desc', 'We construct the full color palette tokens, typography rules, and real-world brand mockups.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="System stage">
+        <div class="c8isv-approach-col-img" data-customizer="brind_app3_img">
+          <img src="<?php echo esc_url(cr8v_mod('brind_app3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brind_proc_system.jpg')); ?>" alt="System stage" data-customizer="brind_app3_img">
         </div>
       </div>
     </div>
@@ -370,8 +370,8 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-name" data-customizer="brind_app4_name"><?php echo esc_html(cr8v_mod('brind_app4_name', 'Handoff')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="brind_app4_tags"><?php echo wp_kses_post(cr8v_mod('brind_app4_tags', 'PDF Guidelines &middot; SVGs &middot;<br>Asset Pack')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="brind_app4_desc"><?php echo wp_kses_post(cr8v_mod('brind_app4_desc', 'We deliver the master brand guideline PDF along with organized SVG, EPS, and PNG vector asset packages.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Handoff stage">
+        <div class="c8isv-approach-col-img" data-customizer="brind_app4_img">
+          <img src="<?php echo esc_url(cr8v_mod('brind_app4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brind_proc_handoff.jpg')); ?>" alt="Handoff stage" data-customizer="brind_app4_img">
         </div>
       </div>
     </div>
