@@ -372,3 +372,91 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 * **File Target**: `assets/img/abstract/cr8v_wd_proc_launch.jpg`
 * **Written Prompt**:
   > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Abstract performance speed dial architecture, 100/100 Core Web Vitals validation nodes, and ascending launch trajectory ribbons illuminated by a warm gold (#FFB800) light beam slicing through deep darkness, casting razor-sharp shadows across a dark obsidian ground (#080808). Graphic poster art style, flat 2D graphic aesthetic, high contrast, clean negative space, no 3D rendering, no circuit boards, no photorealism, no text.*
+
+---
+
+# 📄 PAGE: CUSTOM SOFTWARE & FULL-STACK DEVELOPMENT (`page-service-custom-dev.php`)
+
+### Overview & Visual Strategy
+* **Suite 1: Deliverables Folder Deck (`.c8srv-folder-deck`)**: 5 Deliverable Showcase Cards (`4:3` Landscape) using **Approach B: SaaS Product UI Micro-Illustrations (Full-Bleed Architecture)** with timeless status indicators and zero year stamps.
+* **Suite 2: How We Approach It (`.c8isv-approach-outer`)**: 4 Process Stage Cards (`4:3` Landscape) using **System 1: High-Contrast Architectural Chiaroscuro & Directional Beams with Logo Color Rotation**.
+
+---
+
+### Suite 1: Deliverables Folder Deck (01 through 05)
+
+#### 01 // Frontend — Reactive Single Page Applications
+* **Deliverable Context**: Ultra-fast React or Vue front-ends with state management and dynamic client-side rendering.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_cdev_deck_frontend.jpg`
+* **Written Prompt**:
+  > *Clean minimalist modern developer UI component mockup, 4:3 landscape aspect ratio. An ultra-sleek React dashboard layout on a pure white card with a faint light grey dot-grid pattern. Showing modular UI state cards, reactive component trees, and client-side data binding controls with an elevated Royal Blue (#0047E1) active component badge reading "[React SPA: 60 FPS Render]". Clean Figma/Framer component aesthetic, soft subtle drop shadows, pure white, royal blue, and slate grey palette, full-bleed card composition, zero phantom text, no 3D CGI gloss, no photorealism.*
+
+#### 02 // API — REST & GraphQL Backend APIs
+* **Deliverable Context**: Secure Node.js or Python API architectures with JWT authentication and rate limiting.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_cdev_deck_api.jpg`
+* **Written Prompt**:
+  > *Clean minimalist SaaS API endpoint documentation card mockup, 4:3 landscape aspect ratio. An ultra-clean Postman/Swagger interface card on a pure white surface with a subtle dot grid. Showing structured REST and GraphQL route paths with HTTP status tags (GET, POST 200 OK), JWT token authentication badges, and an elevated Royal Blue (#0047E1) verified connection tag reading "[API Gateway: 45ms Latency]". Crisp typography syntax, soft diffused drop shadows, full-bleed composition, zero chaotic clutter, no photorealism, no 3D CGI gloss.*
+
+#### 03 // Database — Relational Database Engineering
+* **Deliverable Context**: Optimized PostgreSQL and MySQL database models with automated migration scripts.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_cdev_deck_database.jpg`
+* **Written Prompt**:
+  > *Clean minimalist database ERD schema diagram mockup, 4:3 landscape aspect ratio. An ultra-clean PostgreSQL relational table architecture on a pure white card with a subtle dot grid. Showing interconnected database table entities with foreign key link lines, indexed column badges, and an elevated Royal Blue (#0047E1) migration tag reading "[Schema Migration: PostgreSQL Synced]". Modern Figma/Dribbble UI component aesthetic, soft neumorphic elevation, gentle drop shadows, full-bleed composition, no 3D CGI gloss, no photorealism.*
+
+#### 04 // DevOps — Docker & Cloud Infrastructure
+* **Deliverable Context**: AWS/DigitalOcean server provisioning, SSL certificates, and containerized Docker environments.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_cdev_deck_devops.jpg`
+* **Written Prompt**:
+  > *Clean minimalist SaaS cloud deployment infrastructure diagram, 4:3 landscape aspect ratio. An ultra-clean DevOps architecture card on a pure white card background with a faint light grey dot-grid pattern. Showing containerized Docker service nodes, AWS cloud hosting clusters, and SSL certificate encryption badges connected by thin vector lines, anchored by an elevated Royal Blue (#0047E1) uptime badge reading "[Cloud Uptime: 99.99%]". Ultra-clean Dribbble/Framer product diagram, soft diffused shadows, full-bleed composition, zero phantom text, no 3D CGI gloss, no photorealism.*
+
+#### 05 // Testing — Automated QA & Unit Testing
+* **Deliverable Context**: Integration tests, end-to-end Cypress user flows, and continuous security vulnerability scans.
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: SaaS UI Product Micro-Illustration (Approach B)
+* **File Target**: `assets/img/abstract/cr8v_cdev_deck_qa.jpg`
+* **Written Prompt**:
+  > *Clean minimalist automated test runner dashboard card mockup, 4:3 landscape aspect ratio. An ultra-clean Cypress E2E test execution interface on a pure white background with a subtle dot grid. Featuring a clean suite pass rate bar "[100% Tests Passing: 142/142]", green checkmark status pills for integration and unit flows, and an elevated Royal Blue (#0047E1) test status badge "[CI/CD Pipeline: All Checks Passed]". High-craft Figma/Rive product UI aesthetic, soft subtle drop shadows, emerald green and royal blue accents, full-bleed composition, zero phantom text, no 3D CGI gloss.*
+
+---
+
+### Suite 2: How We Approach It (Process Stages 01 through 04)
+
+#### Stage 01: Discovery — Specifications, Wireframes & API Mapping
+* **Accent**: Warm Ivory / White (`#F5F5F0`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_cdev_proc_discovery.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Technical system architecture blueprints, user flow nodes, and API specification matrices on a dark engineering drafting table, struck by a crisp ivory white (#F5F5F0) directional light beam slicing through deep darkness, casting long sharp geometric shadows across an obsidian black floor (#080808). High contrast chiaroscuro shadow play, modern agency poster style, clean negative space, no 3D rendering, no photorealism, no text.*
+
+#### Stage 02: Architecture — Database Schema, Security & Microservices
+* **Accent**: Royal Blue (`#0047E1`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_cdev_proc_architecture.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Abstract relational database schema cubes, microservice topology planes, and encrypted security nodes struck by a sharp Royal Blue (#0047E1) light shaft casting long dramatic geometric shadows across a deep obsidian floor (#080808). High contrast chiaroscuro, graphic editorial aesthetic, deep moody dark atmosphere, flat graphic style, no 3D rendering, no machinery, no photorealism, no text.*
+
+#### Stage 03: Engineering — React Views, Node/Python APIs & CI/CD
+* **Accent**: Crimson Red (`#E20025`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_cdev_proc_engineering.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Modular code syntax monoliths, Git version commit trees, and reactive application layout planes struck by a dramatic crimson red (#E20025) light beam casting sharp long shadows across an obsidian black (#080808) floor. High-contrast chiaroscuro, graphic editorial aesthetic, deep dark atmosphere, flat graphic style, no 3D rendering, no computer hardware, no photorealism, no text.*
+
+#### Stage 04: Deployment — Docker Staging, Load Testing & Cloud Go-Live
+* **Accent**: Golden Yellow / Warm Gold (`#FFB800`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_cdev_proc_launch.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Abstract cloud server deployment pods, container orchestration geometry, and ascending production velocity vectors illuminated by a warm gold (#FFB800) light beam slicing through deep darkness, casting razor-sharp shadows across a dark obsidian ground (#080808). Graphic poster art style, flat 2D graphic aesthetic, high contrast, clean negative space, no 3D rendering, no circuit boards, no photorealism, no text.*
