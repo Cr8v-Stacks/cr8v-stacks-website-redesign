@@ -108,9 +108,8 @@ get_header();
         
         <!-- Right Side Hero Visual: Transparent Animated Logo Video -->
         <div class="c8isv-anim-container" id="c8isv-anim-wrapper" style="display: flex; align-items: center; justify-content: center; background: transparent; border: none; box-shadow: none;">
-          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 440px; height: auto; display: block; object-fit: contain; background: transparent;">
+          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 440px; height: auto; display: block; object-fit: contain; background: transparent;" poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2_poster.webp'); ?>">
             <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.webm'); ?>" type="video/webm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.gif'); ?>" alt="Cr8v Stacks Animated Logo Visual" style="width: 100%; max-width: 440px; height: auto; display: block;">
           </video>
         </div>
       </div>
@@ -245,7 +244,7 @@ get_header();
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img" data-customizer="wc_deck1_img">
-              <img src="<?php echo esc_url(cr8v_mod('wc_deck1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_deck_setup.jpg')); ?>" alt="WooCommerce storefront setup" data-customizer="wc_deck1_img">
+              <img src="<?php echo esc_url(cr8v_mod('wc_deck1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_deck_setup.webp')); ?>" alt="WooCommerce storefront setup" data-customizer="wc_deck1_img">
             </div>
           </div>
         </div>
@@ -260,7 +259,7 @@ get_header();
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img" data-customizer="wc_deck2_img">
-              <img src="<?php echo esc_url(cr8v_mod('wc_deck2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_deck_checkout.jpg')); ?>" alt="WooCommerce payment checkout integration" data-customizer="wc_deck2_img">
+              <img src="<?php echo esc_url(cr8v_mod('wc_deck2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_deck_checkout.webp')); ?>" alt="WooCommerce payment checkout integration" data-customizer="wc_deck2_img">
             </div>
           </div>
         </div>
@@ -275,7 +274,7 @@ get_header();
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img" data-customizer="wc_deck3_img">
-              <img src="<?php echo esc_url(cr8v_mod('wc_deck3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_deck_catalog.jpg')); ?>" alt="WooCommerce catalog management" data-customizer="wc_deck3_img">
+              <img src="<?php echo esc_url(cr8v_mod('wc_deck3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_deck_catalog.webp')); ?>" alt="WooCommerce catalog management" data-customizer="wc_deck3_img">
             </div>
           </div>
         </div>
@@ -290,7 +289,7 @@ get_header();
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img" data-customizer="wc_deck4_img">
-              <img src="<?php echo esc_url(cr8v_mod('wc_deck4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_deck_speed.jpg')); ?>" alt="WooCommerce speed tuning" data-customizer="wc_deck4_img">
+              <img src="<?php echo esc_url(cr8v_mod('wc_deck4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_deck_speed.webp')); ?>" alt="WooCommerce speed tuning" data-customizer="wc_deck4_img">
             </div>
           </div>
         </div>
@@ -305,7 +304,7 @@ get_header();
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img" data-customizer="wc_deck5_img">
-              <img src="<?php echo esc_url(cr8v_mod('wc_deck5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_deck_launch.jpg')); ?>" alt="WooCommerce launch QA" data-customizer="wc_deck5_img">
+              <img src="<?php echo esc_url(cr8v_mod('wc_deck5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_deck_launch.webp')); ?>" alt="WooCommerce launch QA" data-customizer="wc_deck5_img">
             </div>
           </div>
         </div>
@@ -331,7 +330,7 @@ get_header();
           <div class="c8isv-approach-col-tags" data-customizer="wc_proc1_tags"><?php echo esc_html(cr8v_mod('wc_proc1_tags', 'Audit · Gateways · Catalog')); ?></div>
           <div class="c8isv-approach-col-desc" data-customizer="wc_proc1_desc"><?php echo esc_html(cr8v_mod('wc_proc1_desc', 'Product catalog auditing, payment gateway mapping, and technical hosting evaluation to select optimal server configurations.')); ?></div>
           <div class="c8isv-approach-col-img" data-customizer="wc_proc1_img">
-            <img src="<?php echo esc_url(cr8v_mod('wc_proc1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_proc_discover.jpg')); ?>" alt="Discovery audit stage" data-customizer="wc_proc1_img">
+            <img src="<?php echo esc_url(cr8v_mod('wc_proc1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_proc_discover.webp')); ?>" alt="Discovery audit stage" data-customizer="wc_proc1_img">
           </div>
         </div>
       </div>
@@ -344,7 +343,7 @@ get_header();
           <div class="c8isv-approach-col-tags" data-customizer="wc_proc2_tags"><?php echo esc_html(cr8v_mod('wc_proc2_tags', 'UX · Cart · Mobile')); ?></div>
           <div class="c8isv-approach-col-desc" data-customizer="wc_proc2_desc"><?php echo esc_html(cr8v_mod('wc_proc2_desc', 'Single-product layouts, shop archive filtering UX, mobile checkout drawers, and cart upsell design wireframing.')); ?></div>
           <div class="c8isv-approach-col-img" data-customizer="wc_proc2_img">
-            <img src="<?php echo esc_url(cr8v_mod('wc_proc2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_proc_design.jpg')); ?>" alt="Store UX design stage" data-customizer="wc_proc2_img">
+            <img src="<?php echo esc_url(cr8v_mod('wc_proc2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_proc_design.webp')); ?>" alt="Store UX design stage" data-customizer="wc_proc2_img">
           </div>
         </div>
       </div>
@@ -357,7 +356,7 @@ get_header();
           <div class="c8isv-approach-col-tags" data-customizer="wc_proc3_tags"><?php echo esc_html(cr8v_mod('wc_proc3_tags', 'PHP · WooCommerce · API')); ?></div>
           <div class="c8isv-approach-col-desc" data-customizer="wc_proc3_desc"><?php echo esc_html(cr8v_mod('wc_proc3_desc', 'Custom PHP theme coding, custom WooCommerce checkout hooks, gateway SDK wiring, and plugin audit to eliminate slow code.')); ?></div>
           <div class="c8isv-approach-col-img" data-customizer="wc_proc3_img">
-            <img src="<?php echo esc_url(cr8v_mod('wc_proc3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_proc_build.jpg')); ?>" alt="Custom PHP theme coding stage" data-customizer="wc_proc3_img">
+            <img src="<?php echo esc_url(cr8v_mod('wc_proc3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_proc_build.webp')); ?>" alt="Custom PHP theme coding stage" data-customizer="wc_proc3_img">
           </div>
         </div>
       </div>
@@ -370,7 +369,7 @@ get_header();
           <div class="c8isv-approach-col-tags" data-customizer="wc_proc4_tags"><?php echo esc_html(cr8v_mod('wc_proc4_tags', 'Speed · Caching · Handover')); ?></div>
           <div class="c8isv-approach-col-desc" data-customizer="wc_proc4_desc"><?php echo esc_html(cr8v_mod('wc_proc4_desc', 'Redis object caching configuration, database optimization, order testing, 301 URL redirects, and staff dashboard training.')); ?></div>
           <div class="c8isv-approach-col-img" data-customizer="wc_proc4_img">
-            <img src="<?php echo esc_url(cr8v_mod('wc_proc4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_proc_launch.jpg')); ?>" alt="WooCommerce speed and launch stage" data-customizer="wc_proc4_img">
+            <img src="<?php echo esc_url(cr8v_mod('wc_proc4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wc_proc_launch.webp')); ?>" alt="WooCommerce speed and launch stage" data-customizer="wc_proc4_img">
           </div>
         </div>
       </div>

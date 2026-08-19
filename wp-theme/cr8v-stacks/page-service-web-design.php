@@ -92,9 +92,8 @@ get_header();
       
       <!-- Right Side Hero Visual: Transparent Animated Logo Video -->
       <div class="c8isv-anim-container" id="c8isv-anim-wrapper" style="display: flex; align-items: center; justify-content: center; background: transparent; border: none; box-shadow: none;">
-        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 440px; height: auto; display: block; object-fit: contain; background: transparent;">
+        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 440px; height: auto; display: block; object-fit: contain; background: transparent;" poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2_poster.webp'); ?>">
           <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.webm'); ?>" type="video/webm">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.gif'); ?>" alt="Cr8v Stacks Animated Logo Visual" style="width: 100%; max-width: 440px; height: auto; display: block;">
         </video>
       </div>
     </div>
@@ -223,7 +222,7 @@ get_header();
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="swd_deck1_img">
-            <img src="<?php echo esc_url(cr8v_mod('swd_deck1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_deck_blueprint.jpg')); ?>" alt="User Flow & Layout Blueprint">
+            <img src="<?php echo esc_url(cr8v_mod('swd_deck1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_deck_blueprint.webp')); ?>" alt="User Flow & Layout Blueprint">
           </div>
         </div>
       </div>
@@ -238,7 +237,7 @@ get_header();
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="swd_deck2_img">
-            <img src="<?php echo esc_url(cr8v_mod('swd_deck2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_deck_ui.jpg')); ?>" alt="High-Fidelity Interface Design">
+            <img src="<?php echo esc_url(cr8v_mod('swd_deck2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_deck_ui.webp')); ?>" alt="High-Fidelity Interface Design">
           </div>
         </div>
       </div>
@@ -253,7 +252,7 @@ get_header();
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="swd_deck3_img">
-            <img src="<?php echo esc_url(cr8v_mod('swd_deck3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_deck_platform.jpg')); ?>" alt="Custom CMS & Platform Buildout">
+            <img src="<?php echo esc_url(cr8v_mod('swd_deck3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_deck_platform.webp')); ?>" alt="Custom CMS & Platform Buildout">
           </div>
         </div>
       </div>
@@ -268,7 +267,7 @@ get_header();
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="swd_deck4_img">
-            <img src="<?php echo esc_url(cr8v_mod('swd_deck4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_deck_speed.jpg')); ?>" alt="Core Web Vitals & Technical SEO">
+            <img src="<?php echo esc_url(cr8v_mod('swd_deck4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_deck_speed.webp')); ?>" alt="Core Web Vitals & Technical SEO">
           </div>
         </div>
       </div>
@@ -283,7 +282,7 @@ get_header();
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="swd_deck5_img">
-            <img src="<?php echo esc_url(cr8v_mod('swd_deck5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_deck_admin.jpg')); ?>" alt="Drag-and-Drop Admin Autonomy">
+            <img src="<?php echo esc_url(cr8v_mod('swd_deck5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_deck_admin.webp')); ?>" alt="Drag-and-Drop Admin Autonomy">
           </div>
         </div>
       </div>
@@ -310,7 +309,7 @@ get_header();
         <div class="c8isv-approach-col-tags" data-customizer="swd_proc1_tags"><?php echo esc_html(cr8v_mod('swd_proc1_tags', 'Audits · Competitors · Goals')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="swd_proc1_desc"><?php echo wp_kses_post(cr8v_mod('swd_proc1_desc', 'We audit your brand positioning, study competitive landscapes, and map conversion targets before designing layouts. We understand your users before creating visuals.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="swd_proc1_img">
-          <img src="<?php echo esc_url(cr8v_mod('swd_proc1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_proc_discover.jpg')); ?>" alt="Web Design Discovery stage">
+          <img src="<?php echo esc_url(cr8v_mod('swd_proc1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_proc_discover.webp')); ?>" alt="Web Design Discovery stage">
         </div>
       </div>
     </div>
@@ -323,7 +322,7 @@ get_header();
         <div class="c8isv-approach-col-tags" data-customizer="swd_proc2_tags"><?php echo esc_html(cr8v_mod('swd_proc2_tags', 'UX · Figma · Styling')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="swd_proc2_desc"><?php echo wp_kses_post(cr8v_mod('swd_proc2_desc', 'We craft custom Figma wireframes and high-fidelity interface mockups, pairing typography and brand colors for maximum visual credibility.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="swd_proc2_img">
-          <img src="<?php echo esc_url(cr8v_mod('swd_proc2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_proc_design.jpg')); ?>" alt="Web Design Figma design stage">
+          <img src="<?php echo esc_url(cr8v_mod('swd_proc2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_proc_design.webp')); ?>" alt="Web Design Figma design stage">
         </div>
       </div>
     </div>
@@ -336,7 +335,7 @@ get_header();
         <div class="c8isv-approach-col-tags" data-customizer="swd_proc3_tags"><?php echo esc_html(cr8v_mod('swd_proc3_tags', 'WordPress · Shopify · WooCommerce')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="swd_proc3_desc"><?php echo wp_kses_post(cr8v_mod('swd_proc3_desc', 'We build the live website across your target CMS (WordPress, Elementor, Shopify, WooCommerce, or Custom React/PHP) with clean code.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="swd_proc3_img">
-          <img src="<?php echo esc_url(cr8v_mod('swd_proc3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_proc_engineering.jpg')); ?>" alt="Web Design component system setup stage">
+          <img src="<?php echo esc_url(cr8v_mod('swd_proc3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_proc_engineering.webp')); ?>" alt="Web Design component system setup stage">
         </div>
       </div>
     </div>
@@ -348,7 +347,7 @@ get_header();
         <div class="c8isv-approach-col-tags" data-customizer="swd_proc4_tags"><?php echo esc_html(cr8v_mod('swd_proc4_tags', 'Speed · SEO 301s · Go Live')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="swd_proc4_desc"><?php echo wp_kses_post(cr8v_mod('swd_proc4_desc', 'We run Core Web Vitals speed tests, audit mobile responsiveness, set up SEO 301 redirects, and execute a tested live launch.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="swd_proc4_img">
-          <img src="<?php echo esc_url(cr8v_mod('swd_proc4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_proc_launch.jpg')); ?>" alt="Web Design visual signoff stage">
+          <img src="<?php echo esc_url(cr8v_mod('swd_proc4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wd_proc_launch.webp')); ?>" alt="Web Design visual signoff stage">
         </div>
       </div>
     </div>

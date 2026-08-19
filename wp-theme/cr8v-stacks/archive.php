@@ -302,9 +302,8 @@ $is_tag = is_tag();
       <?php endif; ?>
     </div>
     <div class="archive-hero-visual">
-      <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback>
+      <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_poster.webp'); ?>">
         <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.webm'); ?>" type="video/webm">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.gif'); ?>" alt="Cr8v Stacks Archive Logo Visual">
       </video>
     </div>
   </header>

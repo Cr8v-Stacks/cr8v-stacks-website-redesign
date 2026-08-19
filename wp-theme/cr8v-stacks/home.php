@@ -326,9 +326,8 @@ $subtitle = cr8v_mod('blog_subtitle', 'Technical breakdowns, platform engineerin
       <p class="blog-sub" data-customizer="blog_subtitle"><?php echo esc_html($subtitle); ?></p>
     </div>
     <div class="blog-hero-visual">
-      <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback>
+      <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_poster.webp'); ?>">
         <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.webm'); ?>" type="video/webm">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.gif'); ?>" alt="Cr8v Stacks Blog Logo Visual">
       </video>
     </div>
   </div>

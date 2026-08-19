@@ -143,9 +143,8 @@ defined('ABSPATH') || exit;
       
       <!-- Right Side Hero Visual: Transparent Animated Logo Video -->
       <div class="c8isv-anim-container" id="c8isv-anim-wrapper" style="display: flex; align-items: center; justify-content: center; background: transparent; border: none; box-shadow: none;">
-        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 440px; height: auto; display: block; object-fit: contain; background: transparent;">
+        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 440px; height: auto; display: block; object-fit: contain; background: transparent;" poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2_poster.webp'); ?>">
           <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.webm'); ?>" type="video/webm">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.gif'); ?>" alt="Cr8v Stacks Animated Logo Visual" style="width: 100%; max-width: 440px; height: auto; display: block;">
         </video>
       </div>
     </div>
@@ -263,7 +262,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="cdev_folder1_img">
-            <img src="<?php echo esc_url(cr8v_mod('cdev_folder1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_deck_frontend.jpg')); ?>" alt="Reactive Single Page Applications" data-customizer="cdev_folder1_img">
+            <img src="<?php echo esc_url(cr8v_mod('cdev_folder1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_deck_frontend.webp')); ?>" alt="Reactive Single Page Applications" data-customizer="cdev_folder1_img">
           </div>
         </div>
       </div>
@@ -277,7 +276,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="cdev_folder2_img">
-            <img src="<?php echo esc_url(cr8v_mod('cdev_folder2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_deck_api.jpg')); ?>" alt="REST & GraphQL Backend APIs" data-customizer="cdev_folder2_img">
+            <img src="<?php echo esc_url(cr8v_mod('cdev_folder2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_deck_api.webp')); ?>" alt="REST & GraphQL Backend APIs" data-customizer="cdev_folder2_img">
           </div>
         </div>
       </div>
@@ -291,7 +290,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="cdev_folder3_img">
-            <img src="<?php echo esc_url(cr8v_mod('cdev_folder3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_deck_database.jpg')); ?>" alt="Relational Database Engineering" data-customizer="cdev_folder3_img">
+            <img src="<?php echo esc_url(cr8v_mod('cdev_folder3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_deck_database.webp')); ?>" alt="Relational Database Engineering" data-customizer="cdev_folder3_img">
           </div>
         </div>
       </div>
@@ -305,7 +304,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="cdev_folder4_img">
-            <img src="<?php echo esc_url(cr8v_mod('cdev_folder4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_deck_devops.jpg')); ?>" alt="Docker & Cloud Infrastructure" data-customizer="cdev_folder4_img">
+            <img src="<?php echo esc_url(cr8v_mod('cdev_folder4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_deck_devops.webp')); ?>" alt="Docker & Cloud Infrastructure" data-customizer="cdev_folder4_img">
           </div>
         </div>
       </div>
@@ -319,7 +318,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="cdev_folder5_img">
-            <img src="<?php echo esc_url(cr8v_mod('cdev_folder5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_deck_qa.jpg')); ?>" alt="Automated QA & Unit Testing" data-customizer="cdev_folder5_img">
+            <img src="<?php echo esc_url(cr8v_mod('cdev_folder5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_deck_qa.webp')); ?>" alt="Automated QA & Unit Testing" data-customizer="cdev_folder5_img">
           </div>
         </div>
       </div>
@@ -343,7 +342,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="cdev_app1_tags"><?php echo wp_kses_post(cr8v_mod('cdev_app1_tags', 'Specs &middot; Wireframes &middot;<br>API Mapping')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="cdev_app1_desc"><?php echo wp_kses_post(cr8v_mod('cdev_app1_desc', 'We define system requirements, map user flows, and architect API specifications before writing code.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="cdev_app1_img">
-          <img src="<?php echo esc_url(cr8v_mod('cdev_app1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_proc_discovery.jpg')); ?>" alt="Discovery stage" data-customizer="cdev_app1_img">
+          <img src="<?php echo esc_url(cr8v_mod('cdev_app1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_proc_discovery.webp')); ?>" alt="Discovery stage" data-customizer="cdev_app1_img">
         </div>
       </div>
     </div>
@@ -355,7 +354,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="cdev_app2_tags"><?php echo wp_kses_post(cr8v_mod('cdev_app2_tags', 'Database &middot; Security &middot;<br>Microservices')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="cdev_app2_desc"><?php echo wp_kses_post(cr8v_mod('cdev_app2_desc', 'We construct database schemas, design API authentication paths, and set up Docker dev environments.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="cdev_app2_img">
-          <img src="<?php echo esc_url(cr8v_mod('cdev_app2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_proc_architecture.jpg')); ?>" alt="Architecture stage" data-customizer="cdev_app2_img">
+          <img src="<?php echo esc_url(cr8v_mod('cdev_app2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_proc_architecture.webp')); ?>" alt="Architecture stage" data-customizer="cdev_app2_img">
         </div>
       </div>
     </div>
@@ -367,7 +366,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="cdev_app3_tags"><?php echo wp_kses_post(cr8v_mod('cdev_app3_tags', 'React &middot; Node &middot;<br>CI/CD')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="cdev_app3_desc"><?php echo wp_kses_post(cr8v_mod('cdev_app3_desc', 'We build reactive front-end views, connect API endpoints, and execute unit test suites.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="cdev_app3_img">
-          <img src="<?php echo esc_url(cr8v_mod('cdev_app3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_proc_engineering.jpg')); ?>" alt="Engineering stage" data-customizer="cdev_app3_img">
+          <img src="<?php echo esc_url(cr8v_mod('cdev_app3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_proc_engineering.webp')); ?>" alt="Engineering stage" data-customizer="cdev_app3_img">
         </div>
       </div>
     </div>
@@ -379,7 +378,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="cdev_app4_tags"><?php echo wp_kses_post(cr8v_mod('cdev_app4_tags', 'AWS Cloud &middot; QA &middot;<br>Handoff')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="cdev_app4_desc"><?php echo wp_kses_post(cr8v_mod('cdev_app4_desc', 'We deploy to cloud servers, run end-to-end load tests, and hand over fully documented source code.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="cdev_app4_img">
-          <img src="<?php echo esc_url(cr8v_mod('cdev_app4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_proc_launch.jpg')); ?>" alt="Deployment stage" data-customizer="cdev_app4_img">
+          <img src="<?php echo esc_url(cr8v_mod('cdev_app4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_cdev_proc_launch.webp')); ?>" alt="Deployment stage" data-customizer="cdev_app4_img">
         </div>
       </div>
     </div>

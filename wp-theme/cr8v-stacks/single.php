@@ -641,9 +641,8 @@ body.single-post {
         <div class="cta-trust-label"><?php echo esc_html(cr8v_mod('sidebar_cta_trust_label', 'ENGINEERED ON MODERN STACKS')); ?></div>
 
         <div class="cta-illustration">
-          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; height: auto; display: block; background: transparent;">
+          <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; height: auto; display: block; background: transparent;" poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_poster.webp'); ?>">
             <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.webm'); ?>" type="video/webm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim.gif'); ?>" alt="Cr8v Stacks Logo Visual">
           </video>
         </div>
 

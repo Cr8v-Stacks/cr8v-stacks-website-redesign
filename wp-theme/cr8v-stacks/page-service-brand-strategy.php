@@ -143,9 +143,8 @@ defined('ABSPATH') || exit;
       
       <!-- Right Side Hero Visual: Transparent Animated Logo Video -->
       <div class="c8isv-anim-container" id="c8isv-anim-wrapper" style="display: flex; align-items: center; justify-content: center; background: transparent; border: none; box-shadow: none;">
-        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 440px; height: auto; display: block; object-fit: contain; background: transparent;">
+        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 440px; height: auto; display: block; object-fit: contain; background: transparent;" poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2_poster.webp'); ?>">
           <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.webm'); ?>" type="video/webm">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.gif'); ?>" alt="Cr8v Stacks Animated Logo Visual" style="width: 100%; max-width: 440px; height: auto; display: block;">
         </video>
       </div>
     </div>
@@ -255,7 +254,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="brstr_folder1_img">
-            <img src="<?php echo esc_url(cr8v_mod('brstr_folder1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_deck_positioning.jpg')); ?>" alt="Market Positioning Framework" data-customizer="brstr_folder1_img">
+            <img src="<?php echo esc_url(cr8v_mod('brstr_folder1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_deck_positioning.webp')); ?>" alt="Market Positioning Framework" data-customizer="brstr_folder1_img">
           </div>
         </div>
       </div>
@@ -269,7 +268,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="brstr_folder2_img">
-            <img src="<?php echo esc_url(cr8v_mod('brstr_folder2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_deck_personas.jpg')); ?>" alt="Ideal Customer Profile (ICP) Guide" data-customizer="brstr_folder2_img">
+            <img src="<?php echo esc_url(cr8v_mod('brstr_folder2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_deck_personas.webp')); ?>" alt="Ideal Customer Profile (ICP) Guide" data-customizer="brstr_folder2_img">
           </div>
         </div>
       </div>
@@ -283,7 +282,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="brstr_folder3_img">
-            <img src="<?php echo esc_url(cr8v_mod('brstr_folder3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_deck_messaging.jpg')); ?>" alt="Core Value Messaging Matrix" data-customizer="brstr_folder3_img">
+            <img src="<?php echo esc_url(cr8v_mod('brstr_folder3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_deck_messaging.webp')); ?>" alt="Core Value Messaging Matrix" data-customizer="brstr_folder3_img">
           </div>
         </div>
       </div>
@@ -297,7 +296,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="brstr_folder4_img">
-            <img src="<?php echo esc_url(cr8v_mod('brstr_folder4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_deck_architecture.jpg')); ?>" alt="Brand Portfolio Architecture" data-customizer="brstr_folder4_img">
+            <img src="<?php echo esc_url(cr8v_mod('brstr_folder4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_deck_architecture.webp')); ?>" alt="Brand Portfolio Architecture" data-customizer="brstr_folder4_img">
           </div>
         </div>
       </div>
@@ -311,7 +310,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="brstr_folder5_img">
-            <img src="<?php echo esc_url(cr8v_mod('brstr_folder5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_deck_sales.jpg')); ?>" alt="Sales Enablement & Pitch Messaging" data-customizer="brstr_folder5_img">
+            <img src="<?php echo esc_url(cr8v_mod('brstr_folder5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_deck_sales.webp')); ?>" alt="Sales Enablement & Pitch Messaging" data-customizer="brstr_folder5_img">
           </div>
         </div>
       </div>
@@ -335,7 +334,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="brstr_app1_tags"><?php echo wp_kses_post(cr8v_mod('brstr_app1_tags', 'Competitors &middot; Customers &middot;<br>Interviews')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="brstr_app1_desc"><?php echo wp_kses_post(cr8v_mod('brstr_app1_desc', 'We interview stakeholders, analyze competitor marketing claims, and survey customer buying signals.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="brstr_app1_img">
-          <img src="<?php echo esc_url(cr8v_mod('brstr_app1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_proc_audit.jpg')); ?>" alt="Audit stage" data-customizer="brstr_app1_img">
+          <img src="<?php echo esc_url(cr8v_mod('brstr_app1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_proc_audit.webp')); ?>" alt="Audit stage" data-customizer="brstr_app1_img">
         </div>
       </div>
     </div>
@@ -347,7 +346,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="brstr_app2_tags"><?php echo wp_kses_post(cr8v_mod('brstr_app2_tags', 'Category Claim &middot; Edge &middot;<br>ICP')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="brstr_app2_desc"><?php echo wp_kses_post(cr8v_mod('brstr_app2_desc', 'We define your primary brand category claim and construct ideal buyer profile personas.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="brstr_app2_img">
-          <img src="<?php echo esc_url(cr8v_mod('brstr_app2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_proc_positioning.jpg')); ?>" alt="Positioning stage" data-customizer="brstr_app2_img">
+          <img src="<?php echo esc_url(cr8v_mod('brstr_app2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_proc_positioning.webp')); ?>" alt="Positioning stage" data-customizer="brstr_app2_img">
         </div>
       </div>
     </div>
@@ -359,7 +358,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="brstr_app3_tags"><?php echo wp_kses_post(cr8v_mod('brstr_app3_tags', 'Headlines &middot; Elevator Pitch &middot;<br>Copy Rules')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="brstr_app3_desc"><?php echo wp_kses_post(cr8v_mod('brstr_app3_desc', 'We write the master brand messaging matrix including web headlines, value statements, and elevator copy.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="brstr_app3_img">
-          <img src="<?php echo esc_url(cr8v_mod('brstr_app3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_proc_messaging.jpg')); ?>" alt="Messaging stage" data-customizer="brstr_app3_img">
+          <img src="<?php echo esc_url(cr8v_mod('brstr_app3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_proc_messaging.webp')); ?>" alt="Messaging stage" data-customizer="brstr_app3_img">
         </div>
       </div>
     </div>
@@ -371,7 +370,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="brstr_app4_tags"><?php echo wp_kses_post(cr8v_mod('brstr_app4_tags', 'Sales Deck &middot; Web Spec &middot;<br>Implementation')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="brstr_app4_desc"><?php echo wp_kses_post(cr8v_mod('brstr_app4_desc', 'We deliver the master strategy blueprint and run alignment workshops with your sales and marketing leads.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="brstr_app4_img">
-          <img src="<?php echo esc_url(cr8v_mod('brstr_app4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_proc_alignment.jpg')); ?>" alt="Alignment stage" data-customizer="brstr_app4_img">
+          <img src="<?php echo esc_url(cr8v_mod('brstr_app4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_brstr_proc_alignment.webp')); ?>" alt="Alignment stage" data-customizer="brstr_app4_img">
         </div>
       </div>
     </div>

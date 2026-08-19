@@ -1198,9 +1198,8 @@ body {
 
       <!-- Right Side Hero Visual: Transparent Animated Logo Video -->
       <div class="c8srv-anim-container" id="c8srv-anim-wrapper" style="display: flex; align-items: center; justify-content: center; background: transparent; border: none; box-shadow: none;">
-        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 520px; height: auto; display: block; object-fit: contain; background: transparent;">
+        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 520px; height: auto; display: block; object-fit: contain; background: transparent;" poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2_poster.webp'); ?>">
           <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.webm'); ?>" type="video/webm">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.gif'); ?>" alt="Cr8v Stacks Animated Logo Visual" style="width: 100%; max-width: 520px; height: auto; display: block;">
         </video>
       </div>
     </div>
@@ -1369,7 +1368,7 @@ body {
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="<?php echo esc_url(cr8v_mod('srv_deck1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_srv_deck_strategy.jpg')); ?>" alt="Strategy Deliverables" data-customizer="srv_deck1_img">
+              <img src="<?php echo esc_url(cr8v_mod('srv_deck1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_srv_deck_strategy.webp')); ?>" alt="Strategy Deliverables" data-customizer="srv_deck1_img">
             </div>
           </div>
         </div>
@@ -1384,7 +1383,7 @@ body {
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="<?php echo esc_url(cr8v_mod('srv_deck2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_srv_deck_codebase.jpg')); ?>" alt="Code Deliverables" data-customizer="srv_deck2_img">
+              <img src="<?php echo esc_url(cr8v_mod('srv_deck2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_srv_deck_codebase.webp')); ?>" alt="Code Deliverables" data-customizer="srv_deck2_img">
             </div>
           </div>
         </div>
@@ -1399,7 +1398,7 @@ body {
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="<?php echo esc_url(cr8v_mod('srv_deck3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_srv_deck_plugins.jpg')); ?>" alt="Plugin Deliverables" data-customizer="srv_deck3_img">
+              <img src="<?php echo esc_url(cr8v_mod('srv_deck3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_srv_deck_plugins.webp')); ?>" alt="Plugin Deliverables" data-customizer="srv_deck3_img">
             </div>
           </div>
         </div>
@@ -1414,7 +1413,7 @@ body {
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="<?php echo esc_url(cr8v_mod('srv_deck4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_srv_deck_seo.jpg')); ?>" alt="SEO Infrastructure" data-customizer="srv_deck4_img">
+              <img src="<?php echo esc_url(cr8v_mod('srv_deck4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_srv_deck_seo.webp')); ?>" alt="SEO Infrastructure" data-customizer="srv_deck4_img">
             </div>
           </div>
         </div>
@@ -1429,7 +1428,7 @@ body {
           </div>
           <div class="c8srv-folder-card-right">
             <div class="c8srv-folder-card-img">
-              <img src="<?php echo esc_url(cr8v_mod('srv_deck5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_srv_deck_retainer.jpg')); ?>" alt="Retainer Deliverables" data-customizer="srv_deck5_img">
+              <img src="<?php echo esc_url(cr8v_mod('srv_deck5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_srv_deck_retainer.webp')); ?>" alt="Retainer Deliverables" data-customizer="srv_deck5_img">
             </div>
           </div>
         </div>

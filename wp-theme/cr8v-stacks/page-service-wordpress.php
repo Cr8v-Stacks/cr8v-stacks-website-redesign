@@ -147,9 +147,8 @@ defined('ABSPATH') || exit;
       
       <!-- Right Side Hero Visual: Transparent Animated Logo Video -->
       <div class="c8isv-anim-container" id="c8isv-anim-wrapper" style="display: flex; align-items: center; justify-content: center; background: transparent; border: none; box-shadow: none;">
-        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 440px; height: auto; display: block; object-fit: contain; background: transparent;">
+        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 440px; height: auto; display: block; object-fit: contain; background: transparent;" poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2_poster.webp'); ?>">
           <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.webm'); ?>" type="video/webm">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.gif'); ?>" alt="Cr8v Stacks Animated Logo Visual" style="width: 100%; max-width: 440px; height: auto; display: block;">
         </video>
       </div>
     </div>
@@ -281,7 +280,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="wp_folder1_img">
-            <img src="<?php echo esc_url(cr8v_mod('wp_folder1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_deck_theme.jpg')); ?>" alt="Bespoke PHP Theme Development" data-customizer="wp_folder1_img">
+            <img src="<?php echo esc_url(cr8v_mod('wp_folder1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_deck_theme.webp')); ?>" alt="Bespoke PHP Theme Development" data-customizer="wp_folder1_img">
           </div>
         </div>
       </div>
@@ -296,7 +295,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="wp_folder2_img">
-            <img src="<?php echo esc_url(cr8v_mod('wp_folder2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_deck_blocks.jpg')); ?>" alt="Custom Gutenberg Block Library" data-customizer="wp_folder2_img">
+            <img src="<?php echo esc_url(cr8v_mod('wp_folder2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_deck_blocks.webp')); ?>" alt="Custom Gutenberg Block Library" data-customizer="wp_folder2_img">
           </div>
         </div>
       </div>
@@ -311,7 +310,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="wp_folder3_img">
-            <img src="<?php echo esc_url(cr8v_mod('wp_folder3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_deck_fields.jpg')); ?>" alt="ACF Pro Content Schemas" data-customizer="wp_folder3_img">
+            <img src="<?php echo esc_url(cr8v_mod('wp_folder3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_deck_fields.webp')); ?>" alt="ACF Pro Content Schemas" data-customizer="wp_folder3_img">
           </div>
         </div>
       </div>
@@ -326,7 +325,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="wp_folder4_img">
-            <img src="<?php echo esc_url(cr8v_mod('wp_folder4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_deck_speed.jpg')); ?>" alt="Core Web Vitals Speed Optimization" data-customizer="wp_folder4_img">
+            <img src="<?php echo esc_url(cr8v_mod('wp_folder4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_deck_speed.webp')); ?>" alt="Core Web Vitals Speed Optimization" data-customizer="wp_folder4_img">
           </div>
         </div>
       </div>
@@ -341,7 +340,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="wp_folder5_img">
-            <img src="<?php echo esc_url(cr8v_mod('wp_folder5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_deck_security.jpg')); ?>" alt="Security Hardening & Maintenance" data-customizer="wp_folder5_img">
+            <img src="<?php echo esc_url(cr8v_mod('wp_folder5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_deck_security.webp')); ?>" alt="Security Hardening & Maintenance" data-customizer="wp_folder5_img">
           </div>
         </div>
       </div>
@@ -369,7 +368,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="wp_app1_tags"><?php echo wp_kses_post(cr8v_mod('wp_app1_tags', 'Database &middot; Plugins &middot;<br>Performance')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="wp_app1_desc"><?php echo wp_kses_post(cr8v_mod('wp_app1_desc', 'We audit existing WordPress installations, evaluate plugin overhead, and map custom theme requirements.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="wp_app1_img">
-          <img src="<?php echo esc_url(cr8v_mod('wp_app1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_proc_audit.jpg')); ?>" alt="WordPress Audit stage" data-customizer="wp_app1_img">
+          <img src="<?php echo esc_url(cr8v_mod('wp_app1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_proc_audit.webp')); ?>" alt="WordPress Audit stage" data-customizer="wp_app1_img">
         </div>
       </div>
     </div>
@@ -382,7 +381,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="wp_app2_tags"><?php echo wp_kses_post(cr8v_mod('wp_app2_tags', 'PHP Theme &middot; CPT &middot;<br>ACF Schemas')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="wp_app2_desc"><?php echo wp_kses_post(cr8v_mod('wp_app2_desc', 'We engineer the custom theme base, register Custom Post Types, and build ACF Pro field schemas.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="wp_app2_img">
-          <img src="<?php echo esc_url(cr8v_mod('wp_app2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_proc_architecture.jpg')); ?>" alt="WordPress Architecture stage" data-customizer="wp_app2_img">
+          <img src="<?php echo esc_url(cr8v_mod('wp_app2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_proc_architecture.webp')); ?>" alt="WordPress Architecture stage" data-customizer="wp_app2_img">
         </div>
       </div>
     </div>
@@ -395,7 +394,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="wp_app3_tags"><?php echo wp_kses_post(cr8v_mod('wp_app3_tags', 'Gutenberg &middot; UI Components &middot;<br>CSS Modules')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="wp_app3_desc"><?php echo wp_kses_post(cr8v_mod('wp_app3_desc', 'We construct modular Gutenberg blocks and wire them into front-end CSS design tokens.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="wp_app3_img">
-          <img src="<?php echo esc_url(cr8v_mod('wp_app3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_proc_blocks.jpg')); ?>" alt="WordPress Block Suite stage" data-customizer="wp_app3_img">
+          <img src="<?php echo esc_url(cr8v_mod('wp_app3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_proc_blocks.webp')); ?>" alt="WordPress Block Suite stage" data-customizer="wp_app3_img">
         </div>
       </div>
     </div>
@@ -408,7 +407,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="wp_app4_tags"><?php echo wp_kses_post(cr8v_mod('wp_app4_tags', 'Web Vitals &middot; Security &middot;<br>Launch')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="wp_app4_desc"><?php echo wp_kses_post(cr8v_mod('wp_app4_desc', 'We run full speed benchmarks, harden security configurations, and deploy to your live production host.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="wp_app4_img">
-          <img src="<?php echo esc_url(cr8v_mod('wp_app4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_proc_optimization.jpg')); ?>" alt="WordPress Optimization stage" data-customizer="wp_app4_img">
+          <img src="<?php echo esc_url(cr8v_mod('wp_app4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_wp_proc_optimization.webp')); ?>" alt="WordPress Optimization stage" data-customizer="wp_app4_img">
         </div>
       </div>
     </div>

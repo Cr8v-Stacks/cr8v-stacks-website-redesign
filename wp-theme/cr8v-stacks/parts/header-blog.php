@@ -8,22 +8,6 @@
  * - Dynamic Category Counters (Real-time REST API + Fallback)
  * - Brand-Colored Category Accordion Drawer Layout for Mobile
  */
-if (!function_exists('cr8v_get_cat_post_count')) {
-    function cr8v_get_cat_post_count(string $slug): int {
-        $term = get_category_by_slug($slug) ?: get_term_by('slug', $slug, 'category');
-        if (!$term || is_wp_error($term)) return 0;
-
-        $query = new WP_Query([
-            'post_type'      => 'post',
-            'post_status'    => 'publish',
-            'cat'            => $term->term_id,
-            'posts_per_page' => 1,
-            'fields'         => 'ids',
-        ]);
-        return (int) $query->found_posts;
-    }
-}
-
 if (!function_exists('cr8v_render_cat_sublink')) {
     function cr8v_render_cat_sublink(string $preferred_slug, string $fallback_label, array $alt_slugs = []): void {
         $term = get_category_by_slug($preferred_slug) ?: get_term_by('slug', $preferred_slug, 'category');
@@ -42,19 +26,111 @@ if (!function_exists('cr8v_render_cat_sublink')) {
         if ($term && !is_wp_error($term)) {
             $url   = get_category_link($term->term_id);
             $label = $term->name;
-            $slug  = $term->slug;
-            $count = cr8v_get_cat_post_count($slug);
         } else {
             $url   = home_url('/category/' . $preferred_slug . '/');
             $label = $fallback_label;
-            $slug  = $preferred_slug;
-            $count = 0;
         }
 
         echo '<a href="' . esc_url($url) . '" class="c8bm-sublink">'
              . esc_html($label) 
-             . ' <span class="c8bm-count" data-cat-slug="' . esc_attr($slug) . '">' . intval($count) . '</span>'
              . '</a>';
+    }
+}
+
+if (!function_exists('cr8v_render_blog_mega_recent_reads')) {
+    function cr8v_render_blog_mega_recent_reads(array $category_slugs, int $count = 2): void {
+        $count = max(2, $count); // Enforce Rule of Two (minimum 2 items, matching left column height)
+        
+        $cat_ids = [];
+        foreach ($category_slugs as $slug) {
+            $term = get_category_by_slug($slug) ?: get_term_by('slug', $slug, 'category');
+            if ($term && !is_wp_error($term)) {
+                $cat_ids[] = $term->term_id;
+            }
+        }
+
+        $args = [
+            'post_type'      => 'post',
+            'post_status'    => 'publish',
+            'posts_per_page' => $count,
+            'orderby'        => 'rand',
+            'no_found_rows'  => true,
+        ];
+        if (!empty($cat_ids)) {
+            $args['category__in'] = $cat_ids;
+        }
+
+        $query = new WP_Query($args);
+        $posts_found = [];
+        if ($query->have_posts()) {
+            while ($query->have_posts()) {
+                $query->the_post();
+                $post_cats = get_the_category();
+                $tag_name  = !empty($post_cats) ? $post_cats[0]->name : 'Insights';
+                $posts_found[] = [
+                    'title' => get_the_title(),
+                    'url'   => get_permalink(),
+                    'tag'   => $tag_name,
+                ];
+            }
+            wp_reset_postdata();
+        }
+
+        // Fill remaining slots if category has fewer posts published
+        if (count($posts_found) < $count) {
+            $fallback_args = [
+                'post_type'      => 'post',
+                'post_status'    => 'publish',
+                'posts_per_page' => $count - count($posts_found),
+                'orderby'        => 'date',
+                'order'          => 'DESC',
+                'no_found_rows'  => true,
+            ];
+            $fallback_query = new WP_Query($fallback_args);
+            if ($fallback_query->have_posts()) {
+                while ($fallback_query->have_posts()) {
+                    $fallback_query->the_post();
+                    $post_cats = get_the_category();
+                    $tag_name  = !empty($post_cats) ? $post_cats[0]->name : 'Guide';
+                    $posts_found[] = [
+                        'title' => get_the_title(),
+                        'url'   => get_permalink(),
+                        'tag'   => $tag_name,
+                    ];
+                }
+                wp_reset_postdata();
+            }
+        }
+
+        // Default fallbacks for clean initial render
+        $default_fallbacks = [
+            ['title' => 'Elevate Brand Status With In-Depth Positioning Research', 'url' => home_url('/blog/'), 'tag' => 'Strategy'],
+            ['title' => '5 Reasons Your Company Should Utilize A HubSpot Agency', 'url' => home_url('/blog/'), 'tag' => 'Marketing'],
+            ['title' => 'Sub-Second Page Performance & High-Converting UX Architecture', 'url' => home_url('/blog/'), 'tag' => 'Web Design'],
+            ['title' => 'Modern E-Commerce Conversion Optimization Benchmarks', 'url' => home_url('/blog/'), 'tag' => 'E-Commerce'],
+        ];
+
+        $i = 0;
+        while (count($posts_found) < $count && isset($default_fallbacks[$i])) {
+            $posts_found[] = $default_fallbacks[$i];
+            $i++;
+        }
+
+        echo '<div class="c8bm-mcol">';
+        echo '<div class="c8bm-mcol-eyebrow">// RECENT READS</div>';
+        $num = 1;
+        foreach ($posts_found as $p) {
+            $num_str = str_pad((string)$num, 2, '0', STR_PAD_LEFT);
+            echo '<a href="' . esc_url($p['url']) . '" class="c8bm-post-item">';
+            echo '<div class="c8bm-post-num">' . esc_html($num_str) . '</div>';
+            echo '<div>';
+            echo '<div class="c8bm-post-tag">' . esc_html($p['tag']) . '</div>';
+            echo '<div class="c8bm-post-title">' . esc_html($p['title']) . '</div>';
+            echo '</div>';
+            echo '</a>';
+            $num++;
+        }
+        echo '</div>';
     }
 }
 
@@ -616,17 +692,7 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
         </div>
       </div>
 
-      <div class="c8bm-mcol">
-        <div class="c8bm-mcol-eyebrow">// RECENT READS</div>
-        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
-          <div class="c8bm-post-num">01</div>
-          <div><div class="c8bm-post-tag">Strategy</div><div class="c8bm-post-title">Elevate Brand Status With In-Depth Positioning Research</div></div>
-        </a>
-        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
-          <div class="c8bm-post-num">02</div>
-          <div><div class="c8bm-post-tag">Marketing</div><div class="c8bm-post-title">5 Reasons Your Company Should Utilize A HubSpot Agency</div></div>
-        </a>
-      </div>
+      <?php cr8v_render_blog_mega_recent_reads(['business-marketing', 'brand-strategy', 'marketing', 'strategy'], 2); ?>
     </div>
   </div>
 </div>
@@ -654,17 +720,7 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
         </div>
       </div>
 
-      <div class="c8bm-mcol">
-        <div class="c8bm-mcol-eyebrow">// RECENT READS</div>
-        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
-          <div class="c8bm-post-num">01</div>
-          <div><div class="c8bm-post-tag">Ecommerce</div><div class="c8bm-post-title">Key Advantages of Hiring a Professional Web Design Company</div></div>
-        </a>
-        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
-          <div class="c8bm-post-num">02</div>
-          <div><div class="c8bm-post-tag">Ecommerce</div><div class="c8bm-post-title">Things You Should Know About Temu Shopping App</div></div>
-        </a>
-      </div>
+      <?php cr8v_render_blog_mega_recent_reads(['ecommerce-hub', 'small-business-hub', 'business', 'ecommerce'], 2); ?>
     </div>
   </div>
 </div>
@@ -692,17 +748,7 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
         </div>
       </div>
 
-      <div class="c8bm-mcol">
-        <div class="c8bm-mcol-eyebrow">// RECENT READS</div>
-        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
-          <div class="c8bm-post-num">01</div>
-          <div><div class="c8bm-post-tag">SEO</div><div class="c8bm-post-title">DIY SEO for Small Businesses: Ultimate Ranking Guide</div></div>
-        </a>
-        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
-          <div class="c8bm-post-num">02</div>
-          <div><div class="c8bm-post-tag">Writing</div><div class="c8bm-post-title">The Psychological Effects of Propaganda in Advertising</div></div>
-        </a>
-      </div>
+      <?php cr8v_render_blog_mega_recent_reads(['blogging', 'content-writing', 'content'], 2); ?>
     </div>
   </div>
 </div>
@@ -732,17 +778,7 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
         </div>
       </div>
 
-      <div class="c8bm-mcol">
-        <div class="c8bm-mcol-eyebrow">// RECENT READS</div>
-        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
-          <div class="c8bm-post-num">01</div>
-          <div><div class="c8bm-post-tag">SEO</div><div class="c8bm-post-title">What Is SEO – All You Need To Know</div></div>
-        </a>
-        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
-          <div class="c8bm-post-num">02</div>
-          <div><div class="c8bm-post-tag">Strategy</div><div class="c8bm-post-title">Temu Marketing Strategy and Business Model</div></div>
-        </a>
-      </div>
+      <?php cr8v_render_blog_mega_recent_reads(['email-marketing', 'sem', 'seo', 'social-media-management', 'digital-marketing'], 4); ?>
     </div>
   </div>
 </div>
@@ -770,17 +806,7 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
         </div>
       </div>
 
-      <div class="c8bm-mcol">
-        <div class="c8bm-mcol-eyebrow">// RECENT READS</div>
-        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
-          <div class="c8bm-post-num">01</div>
-          <div><div class="c8bm-post-tag">Web Design</div><div class="c8bm-post-title">Key Advantages of Hiring a Professional Web Design Company</div></div>
-        </a>
-        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8bm-post-item">
-          <div class="c8bm-post-num">02</div>
-          <div><div class="c8bm-post-tag">Web Design</div><div class="c8bm-post-title">Sub-Second Page Performance Guide</div></div>
-        </a>
-      </div>
+      <?php cr8v_render_blog_mega_recent_reads(['ecommerce-website', 'website-design', 'web-design'], 2); ?>
     </div>
   </div>
 </div>
@@ -824,7 +850,7 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
               ]);
               $has_subs = !empty($sub_cats) && !is_wp_error($sub_cats);
               $top_link = get_category_link($top_cat->term_id);
-              $top_count = cr8v_get_cat_post_count($top_cat->slug);
+              $top_count = (int) $top_cat->count;
       ?>
           <?php if ($has_subs) : ?>
             <div class="c8bm-bd-cat-item" onclick="c8bmToggleCat(this)" style="cursor: pointer;">
@@ -844,7 +870,7 @@ body.admin-bar .c8bm-root .c8bm-drawer, body.admin-bar .c8bm-root .c8bm-drawer-o
               <a href="<?php echo esc_url($top_link); ?>" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.8rem; color: #FAFAF7; font-weight: 700; text-decoration: none; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 4px;">View All <?php echo esc_html($top_cat->name); ?> (<?php echo $top_count; ?>) →</a>
               <?php foreach ($sub_cats as $sub_item) :
                   $sub_link = get_category_link($sub_item->term_id);
-                  $sub_count = cr8v_get_cat_post_count($sub_item->slug);
+                  $sub_count = (int) $sub_item->count;
               ?>
               <a href="<?php echo esc_url($sub_link); ?>" style="display: flex; align-items: center; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 0.78rem; color: #A0B4FF; text-decoration: none; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">
                 <span>↳ <?php echo esc_html($sub_item->name); ?></span>

@@ -30,74 +30,6 @@ add_action('after_setup_theme', function () {
         'footer-col-3'   => __('Footer — Resources Links', 'cr8v-stacks'),
     ]);
 
-    // Backend: Automatically populate & assign Mobile Drawer menu if unassigned
-    $locations = get_theme_mod('nav_menu_locations');
-    if (empty($locations['mobile-drawer'])) {
-        $menu_name = 'Mobile Drawer Navigation';
-        $menu_exists = wp_get_nav_menu_object($menu_name);
-
-        if (!$menu_exists) {
-            $menu_id = wp_create_nav_menu($menu_name);
-            if (!is_wp_error($menu_id)) {
-                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Home', 'menu-item-url' => home_url('/'), 'menu-item-status' => 'publish']);
-                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Services', 'menu-item-url' => home_url('/services/'), 'menu-item-status' => 'publish']);
-                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Case Studies', 'menu-item-url' => home_url('/case-studies/'), 'menu-item-status' => 'publish']);
-                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Scope Estimator', 'menu-item-url' => home_url('/discovery-call/'), 'menu-item-status' => 'publish']);
-                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Dev Playground', 'menu-item-url' => home_url('/#dev-playground'), 'menu-item-status' => 'publish']);
-                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'About', 'menu-item-url' => home_url('/about/'), 'menu-item-status' => 'publish']);
-                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Blog', 'menu-item-url' => home_url('/blog/'), 'menu-item-status' => 'publish']);
-                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Contact Us', 'menu-item-url' => home_url('/contact/'), 'menu-item-status' => 'publish']);
-            }
-        } else {
-            $menu_id = $menu_exists->term_id;
-        }
-
-        if (isset($menu_id) && !is_wp_error($menu_id)) {
-            $locations['mobile-drawer'] = $menu_id;
-            set_theme_mod('nav_menu_locations', $locations);
-        }
-    }
-
-    // Programmatically ensure core WP pages exist in DB with correct templates
-    $core_pages = [
-        'contact' => [
-            'title'    => 'Contact Us',
-            'template' => 'page-contact.php',
-        ],
-        'about' => [
-            'title'    => 'About Us',
-            'template' => 'page-about.php',
-        ],
-        'services' => [
-            'title'    => 'Services',
-            'template' => 'page-services.php',
-        ],
-        'discovery-call' => [
-            'title'    => 'Discovery Call',
-            'template' => 'page-discovery-call.php',
-        ],
-        'blog' => [
-            'title'    => 'Blog',
-            'template' => '',
-        ],
-    ];
-
-    foreach ($core_pages as $slug => $data) {
-        $page_obj = get_page_by_path($slug);
-        if (!$page_obj) {
-            $new_id = wp_insert_post([
-                'post_title'   => $data['title'],
-                'post_name'    => $slug,
-                'post_status'  => 'publish',
-                'post_type'    => 'page',
-                'post_content' => '',
-            ]);
-            if ($new_id && !is_wp_error($new_id) && !empty($data['template'])) {
-                update_post_meta($new_id, '_wp_page_template', $data['template']);
-            }
-        }
-    }
-
     // Image sizes
     add_image_size('cr8v-hero',       1920, 1080, true);
     add_image_size('cr8v-card',        800,  500, true);
@@ -109,7 +41,7 @@ add_action('after_setup_theme', function () {
 /* ─── 2. ENQUEUE SCRIPTS & STYLES ────────────────────────────── */
 add_action('wp_enqueue_scripts', function () {
     $uri = get_template_directory_uri();
-    $v   = time(); // Cache buster for live development updates
+    $v   = '1.0.2'; // Production asset version for optimal browser caching
 
     // Google Fonts
     wp_enqueue_style(
@@ -123,8 +55,6 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('cr8v-shared', $uri . '/assets/css/shared-service-components.css', ['cr8v-fonts'], $v);
 
     // Theme stylesheet — design tokens, global resets, typography
-    // WordPress automatically enqueues style.css for the active theme;
-    // we add it here explicitly so child-theme overrides work cleanly.
     wp_enqueue_style('cr8v-theme', get_stylesheet_uri(), ['cr8v-shared'], $v);
 
     // Ensure Simple Booking plugin assets (CSS, JS & sbPublic localized data) are enqueued in <head> for Discovery Call page
@@ -212,11 +142,33 @@ add_action('template_redirect', function () {
 });
 
 
-/* ─── 5. PERMALINK FLUSH ON THEME ACTIVATION ─────────────────── */
+/* ─── 5. PERMALINK FLUSH & CORE PAGE CREATOR ON THEME ACTIVATION ─── */
 add_action('after_switch_theme', function () {
     cr8v_register_case_study_cpt(); // defined in inc/cpt-case-studies.php
     cr8v_register_business_talk_cpt(); // defined in inc/cpt-business-talk.php
     flush_rewrite_rules();
+
+    // Auto-setup mobile drawer menu and core pages once on theme activation
+    $locations = get_theme_mod('nav_menu_locations');
+    if (empty($locations['mobile-drawer'])) {
+        $menu_name = 'Mobile Drawer Navigation';
+        $menu_exists = wp_get_nav_menu_object($menu_name);
+        if (!$menu_exists) {
+            $menu_id = wp_create_nav_menu($menu_name);
+            if (!is_wp_error($menu_id)) {
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Home', 'menu-item-url' => home_url('/'), 'menu-item-status' => 'publish']);
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Services', 'menu-item-url' => home_url('/services/'), 'menu-item-status' => 'publish']);
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Case Studies', 'menu-item-url' => home_url('/case-studies/'), 'menu-item-status' => 'publish']);
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Scope Estimator', 'menu-item-url' => home_url('/discovery-call/'), 'menu-item-status' => 'publish']);
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Dev Playground', 'menu-item-url' => home_url('/#dev-playground'), 'menu-item-status' => 'publish']);
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'About', 'menu-item-url' => home_url('/about/'), 'menu-item-status' => 'publish']);
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Blog', 'menu-item-url' => home_url('/blog/'), 'menu-item-status' => 'publish']);
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Contact Us', 'menu-item-url' => home_url('/contact/'), 'menu-item-status' => 'publish']);
+                $locations['mobile-drawer'] = $menu_id;
+                set_theme_mod('nav_menu_locations', $locations);
+            }
+        }
+    }
 });
 
 /* ─── PRE_GET_POSTS LOOP COUNT & DATE ORDER OVERRIDE FOR BLOG GRID ───────── */
@@ -425,6 +377,18 @@ add_filter('template_include', function ($template) {
         // Brand Strategy
         if (in_array($slug, ['brand-strategy', 'brand-positioning'], true) || is_page_template('page-brand-strategy.php') || is_page_template('page-service-brand-strategy.php')) {
             $t = locate_template('page-service-brand-strategy.php');
+            if ($t) return $t;
+        }
+
+        // WooCommerce Development
+        if (in_array($slug, ['woocommerce', 'woocommerce-development', 'woo-development'], true) || is_page_template('page-woocommerce.php') || is_page_template('page-service-woocommerce.php')) {
+            $t = locate_template('page-service-woocommerce.php');
+            if ($t) return $t;
+        }
+
+        // SEO & Content Strategy
+        if (in_array($slug, ['seo-content', 'seo-and-content', 'search-engine-optimization', 'seo'], true) || is_page_template('page-seo-content.php') || is_page_template('page-service-seo-content.php')) {
+            $t = locate_template('page-service-seo-content.php');
             if ($t) return $t;
         }
 

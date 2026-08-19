@@ -143,9 +143,8 @@ defined('ABSPATH') || exit;
       
       <!-- Right Side Hero Visual: Transparent Animated Logo Video -->
       <div class="c8isv-anim-container" id="c8isv-anim-wrapper" style="display: flex; align-items: center; justify-content: center; background: transparent; border: none; box-shadow: none;">
-        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 440px; height: auto; display: block; object-fit: contain; background: transparent;">
+        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback style="width: 100%; max-width: 440px; height: auto; display: block; object-fit: contain; background: transparent;" poster="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2_poster.webp'); ?>">
           <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.webm'); ?>" type="video/webm">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/cr8v_logo_anim_style2.gif'); ?>" alt="Cr8v Stacks Animated Logo Visual" style="width: 100%; max-width: 440px; height: auto; display: block;">
         </video>
       </div>
     </div>
@@ -255,7 +254,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="aimvp_folder1_img">
-            <img src="<?php echo esc_url(cr8v_mod('aimvp_folder1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_deck_interface.jpg')); ?>" alt="Next.js AI Product Front-End" data-customizer="aimvp_folder1_img">
+            <img src="<?php echo esc_url(cr8v_mod('aimvp_folder1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_deck_interface.webp')); ?>" alt="Next.js AI Product Front-End" data-customizer="aimvp_folder1_img">
           </div>
         </div>
       </div>
@@ -269,7 +268,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="aimvp_folder2_img">
-            <img src="<?php echo esc_url(cr8v_mod('aimvp_folder2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_deck_models.jpg')); ?>" alt="OpenAI & Claude LLM Wiring" data-customizer="aimvp_folder2_img">
+            <img src="<?php echo esc_url(cr8v_mod('aimvp_folder2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_deck_models.webp')); ?>" alt="OpenAI & Claude LLM Wiring" data-customizer="aimvp_folder2_img">
           </div>
         </div>
       </div>
@@ -283,7 +282,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="aimvp_folder3_img">
-            <img src="<?php echo esc_url(cr8v_mod('aimvp_folder3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_deck_vectordb.jpg')); ?>" alt="Pinecone & Qdrant Vector Pipelines" data-customizer="aimvp_folder3_img">
+            <img src="<?php echo esc_url(cr8v_mod('aimvp_folder3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_deck_vectordb.webp')); ?>" alt="Pinecone & Qdrant Vector Pipelines" data-customizer="aimvp_folder3_img">
           </div>
         </div>
       </div>
@@ -297,7 +296,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="aimvp_folder4_img">
-            <img src="<?php echo esc_url(cr8v_mod('aimvp_folder4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_deck_billing.jpg')); ?>" alt="Stripe Token Billing & Auth" data-customizer="aimvp_folder4_img">
+            <img src="<?php echo esc_url(cr8v_mod('aimvp_folder4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_deck_billing.webp')); ?>" alt="Stripe Token Billing & Auth" data-customizer="aimvp_folder4_img">
           </div>
         </div>
       </div>
@@ -311,7 +310,7 @@ defined('ABSPATH') || exit;
         </div>
         <div class="c8srv-folder-card-right">
           <div class="c8srv-folder-card-img" data-customizer="aimvp_folder5_img">
-            <img src="<?php echo esc_url(cr8v_mod('aimvp_folder5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_deck_deployment.jpg')); ?>" alt="Vercel & Supabase Cloud Deployment" data-customizer="aimvp_folder5_img">
+            <img src="<?php echo esc_url(cr8v_mod('aimvp_folder5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_deck_deployment.webp')); ?>" alt="Vercel & Supabase Cloud Deployment" data-customizer="aimvp_folder5_img">
           </div>
         </div>
       </div>
@@ -335,7 +334,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="aimvp_app1_tags"><?php echo wp_kses_post(cr8v_mod('aimvp_app1_tags', 'Prompts &middot; Wireframes &middot;<br>Model Selection')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="aimvp_app1_desc"><?php echo wp_kses_post(cr8v_mod('aimvp_app1_desc', 'We map core AI product features, select optimal LLM foundation models, and design wireframes.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="aimvp_app1_img">
-          <img src="<?php echo esc_url(cr8v_mod('aimvp_app1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_proc_scope.jpg')); ?>" alt="Scope stage" data-customizer="aimvp_app1_img">
+          <img src="<?php echo esc_url(cr8v_mod('aimvp_app1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_proc_scope.webp')); ?>" alt="Scope stage" data-customizer="aimvp_app1_img">
         </div>
       </div>
     </div>
@@ -347,7 +346,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="aimvp_app2_tags"><?php echo wp_kses_post(cr8v_mod('aimvp_app2_tags', 'Embeddings &middot; RAG &middot;<br>Vector Search')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="aimvp_app2_desc"><?php echo wp_kses_post(cr8v_mod('aimvp_app2_desc', 'We construct vector database indexes, write system prompts, and build RAG document retrieval pipelines.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="aimvp_app2_img">
-          <img src="<?php echo esc_url(cr8v_mod('aimvp_app2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_proc_pipeline.jpg')); ?>" alt="Pipeline stage" data-customizer="aimvp_app2_img">
+          <img src="<?php echo esc_url(cr8v_mod('aimvp_app2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_proc_pipeline.webp')); ?>" alt="Pipeline stage" data-customizer="aimvp_app2_img">
         </div>
       </div>
     </div>
@@ -359,7 +358,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="aimvp_app3_tags"><?php echo wp_kses_post(cr8v_mod('aimvp_app3_tags', 'Next.js &middot; Streaming &middot;<br>Stripe Auth')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="aimvp_app3_desc"><?php echo wp_kses_post(cr8v_mod('aimvp_app3_desc', 'We build responsive Next.js front-end components with token streaming and Stripe subscription metering.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="aimvp_app3_img">
-          <img src="<?php echo esc_url(cr8v_mod('aimvp_app3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_proc_interface.jpg')); ?>" alt="Interface stage" data-customizer="aimvp_app3_img">
+          <img src="<?php echo esc_url(cr8v_mod('aimvp_app3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_proc_interface.webp')); ?>" alt="Interface stage" data-customizer="aimvp_app3_img">
         </div>
       </div>
     </div>
@@ -371,7 +370,7 @@ defined('ABSPATH') || exit;
         <div class="c8isv-approach-col-tags" data-customizer="aimvp_app4_tags"><?php echo wp_kses_post(cr8v_mod('aimvp_app4_tags', 'Vercel &middot; Live Demo &middot;<br>Analytics')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="aimvp_app4_desc"><?php echo wp_kses_post(cr8v_mod('aimvp_app4_desc', 'We deploy to production cloud hosting, verify API token limits, and deliver your live AI product demo.')); ?></div>
         <div class="c8isv-approach-col-img" data-customizer="aimvp_app4_img">
-          <img src="<?php echo esc_url(cr8v_mod('aimvp_app4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_proc_launch.jpg')); ?>" alt="Launch stage" data-customizer="aimvp_app4_img">
+          <img src="<?php echo esc_url(cr8v_mod('aimvp_app4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_aimvp_proc_launch.webp')); ?>" alt="Launch stage" data-customizer="aimvp_app4_img">
         </div>
       </div>
     </div>

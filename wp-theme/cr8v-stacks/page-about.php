@@ -848,7 +848,7 @@ get_header();
                   </div>
                 </div>
                 <div class="sdv-panel-visual">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.jpg'); ?>" alt="Website Design Work">
+                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.webp'); ?>" alt="Website Design Work">
                   <span class="sdv-panel-visual-label sdv-badge-blue">Capability Layer</span>
                 </div>
               </div>
@@ -886,7 +886,7 @@ get_header();
                   </div>
                 </div>
                 <div class="sdv-panel-visual">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.jpg'); ?>" alt="Custom Development Work">
+                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.webp'); ?>" alt="Custom Development Work">
                   <span class="sdv-panel-visual-label sdv-badge-red">Capability Layer</span>
                 </div>
               </div>
@@ -924,7 +924,7 @@ get_header();
                   </div>
                 </div>
                 <div class="sdv-panel-visual">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.jpg'); ?>" alt="AI MVP Build">
+                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.webp'); ?>" alt="AI MVP Build">
                   <span class="sdv-panel-visual-label sdv-badge-gold">Capability Layer</span>
                 </div>
               </div>
@@ -962,7 +962,7 @@ get_header();
                   </div>
                 </div>
                 <div class="sdv-panel-visual">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_brandstrategy.jpg'); ?>" alt="Brand Strategy Work">
+                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_brandstrategy.webp'); ?>" alt="Brand Strategy Work">
                   <span class="sdv-panel-visual-label sdv-badge-white">Capability Layer</span>
                 </div>
               </div>
@@ -1000,7 +1000,7 @@ get_header();
                   </div>
                 </div>
                 <div class="sdv-panel-visual">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_seocontent.jpg'); ?>" alt="SEO Architecture Work">
+                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_seocontent.webp'); ?>" alt="SEO Architecture Work">
                   <span class="sdv-panel-visual-label sdv-badge-blue">Capability Layer</span>
                 </div>
               </div>
