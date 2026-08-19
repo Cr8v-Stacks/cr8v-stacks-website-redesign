@@ -438,10 +438,11 @@ body.single-post {
 .card-fallback-canvas {
   width: 100%; height: 100%; min-height: 160px;
   border-radius: 4px !important;
-  padding: 1.1rem 1rem;
+  padding: 1.4rem 1.1rem;
   display: flex; flex-direction: column;
-  align-items: center; justify-content: space-between;
+  align-items: center; justify-content: center;
   text-align: center;
+  gap: 0.75rem;
   position: relative; overflow: hidden;
   box-sizing: border-box;
   background: #080808;
@@ -475,20 +476,10 @@ body.single-post {
 .card-fallback-canvas.is-dark::before {
   background: linear-gradient(45deg, transparent 32%, rgba(255, 255, 255, 0.07) 48%, rgba(0, 71, 225, 0.25) 50%, rgba(255, 255, 255, 0.07) 52%, transparent 68%);
 }
-.card-fallback-canvas.is-variant-cobalt .fallback-cat,
-.card-fallback-canvas.is-variant-a .fallback-cat,
-.card-fallback-canvas.is-dark .fallback-cat {
-  background: rgba(0, 71, 225, 0.25); border: 1px solid rgba(0, 71, 225, 0.5); color: #FAFAF7;
-}
 .card-fallback-canvas.is-variant-cobalt .fallback-brand-icon,
 .card-fallback-canvas.is-variant-a .fallback-brand-icon,
 .card-fallback-canvas.is-dark .fallback-brand-icon {
   color: #0047E1;
-}
-.card-fallback-canvas.is-variant-cobalt .fallback-foot::before,
-.card-fallback-canvas.is-variant-a .fallback-foot::before,
-.card-fallback-canvas.is-dark .fallback-foot::before {
-  content: '—'; color: #0047E1; font-weight: 700;
 }
 .card-fallback-canvas.is-variant-cobalt:hover,
 .card-fallback-canvas.is-variant-a:hover,
@@ -504,14 +495,8 @@ body.single-post {
 .card-fallback-canvas.is-variant-crimson::before {
   background: linear-gradient(45deg, transparent 32%, rgba(255, 255, 255, 0.07) 48%, rgba(226, 0, 37, 0.25) 50%, rgba(255, 255, 255, 0.07) 52%, transparent 68%);
 }
-.card-fallback-canvas.is-variant-crimson .fallback-cat {
-  background: rgba(226, 0, 37, 0.25); border: 1px solid rgba(226, 0, 37, 0.5); color: #FAFAF7;
-}
 .card-fallback-canvas.is-variant-crimson .fallback-brand-icon {
   color: #E20025;
-}
-.card-fallback-canvas.is-variant-crimson .fallback-foot::before {
-  content: '—'; color: #E20025; font-weight: 700;
 }
 .card-fallback-canvas.is-variant-crimson:hover {
   border-color: #E20025;
@@ -529,20 +514,10 @@ body.single-post {
 .card-fallback-canvas.is-light::before {
   background: linear-gradient(45deg, transparent 32%, rgba(255, 255, 255, 0.07) 48%, rgba(255, 184, 0, 0.22) 50%, rgba(255, 255, 255, 0.07) 52%, transparent 68%);
 }
-.card-fallback-canvas.is-variant-amber .fallback-cat,
-.card-fallback-canvas.is-variant-b .fallback-cat,
-.card-fallback-canvas.is-light .fallback-cat {
-  background: rgba(255, 184, 0, 0.22); border: 1px solid rgba(255, 184, 0, 0.45); color: #FAFAF7;
-}
 .card-fallback-canvas.is-variant-amber .fallback-brand-icon,
 .card-fallback-canvas.is-variant-b .fallback-brand-icon,
 .card-fallback-canvas.is-light .fallback-brand-icon {
   color: #FFB800;
-}
-.card-fallback-canvas.is-variant-amber .fallback-foot::before,
-.card-fallback-canvas.is-variant-b .fallback-foot::before,
-.card-fallback-canvas.is-light .fallback-foot::before {
-  content: '—'; color: #FFB800; font-weight: 700;
 }
 .card-fallback-canvas.is-variant-amber:hover,
 .card-fallback-canvas.is-variant-b:hover,
@@ -570,14 +545,14 @@ body.single-post {
 
 .card-fallback-canvas .fallback-top {
   position: relative; z-index: 2; width: 100%;
-  display: flex; align-items: center; justify-content: flex-end;
+  display: flex; align-items: center; justify-content: center;
 }
 .card-fallback-canvas .fallback-brand-icon {
-  width: 16px; height: 16px; color: #0047E1; stroke-width: 2.2;
+  width: 22px; height: 22px; stroke-width: 2.2;
 }
 
 .card-fallback-canvas .fallback-center {
-  position: relative; z-index: 2; padding: 0.4rem 0;
+  position: relative; z-index: 2; padding: 0;
 }
 .card-fallback-canvas .fallback-title {
   font-family: var(--font-heading); font-size: 0.8rem; font-weight: 700;
@@ -856,9 +831,6 @@ body.single-post {
                     <div class="fallback-center">
                       <div class="fallback-title"><?php the_title(); ?></div>
                     </div>
-                    <div class="fallback-foot">
-                      <span>CR8V STACKS ARCHIVE</span>
-                    </div>
                   </div>
                 <?php endif; ?>
               </a>
@@ -888,9 +860,6 @@ body.single-post {
                   <div class="fallback-center">
                     <div class="fallback-title">Entity SEO Architecture: Indexing For Authority</div>
                   </div>
-                  <div class="fallback-foot">
-                    <span>CR8V STACKS ARCHIVE</span>
-                  </div>
                 </div>
               </a>
             </div>
@@ -915,9 +884,6 @@ body.single-post {
                   <div class="fallback-center">
                     <div class="fallback-title">Architecting Custom AI Dashboards For Handover</div>
                   </div>
-                  <div class="fallback-foot">
-                    <span>CR8V STACKS ARCHIVE</span>
-                  </div>
                 </div>
               </a>
             </div>
@@ -941,9 +907,6 @@ body.single-post {
                   </div>
                   <div class="fallback-center">
                     <div class="fallback-title">Micro-Animations That Convert: Designing For Retention</div>
-                  </div>
-                  <div class="fallback-foot">
-                    <span>CR8V STACKS ARCHIVE</span>
                   </div>
                 </div>
               </a>
