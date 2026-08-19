@@ -255,8 +255,8 @@ get_header();
           <a href="<?php echo esc_url(cr8v_mod('seo_deck1_cta_url', home_url('/contact/'))); ?>" class="c8srv-explore" data-customizer="seo_deck1_cta_text"><?php echo esc_html(cr8v_mod('seo_deck1_cta_text', 'Discuss keyword mapping →')); ?></a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="<?php echo esc_url(cr8v_mod('seo_deck1_img', 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop')); ?>" alt="Semantic Keyword & SERP Mapping" data-customizer="seo_deck1_img">
+          <div class="c8srv-folder-card-img" data-customizer="seo_deck1_img">
+            <img src="<?php echo esc_url(cr8v_mod('seo_deck1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_seo_deck_mapping.jpg')); ?>" alt="Semantic Keyword & SERP Mapping" data-customizer="seo_deck1_img">
           </div>
         </div>
       </div>
@@ -270,8 +270,8 @@ get_header();
           <a href="<?php echo esc_url(cr8v_mod('seo_deck2_cta_url', home_url('/contact/'))); ?>" class="c8srv-explore" data-customizer="seo_deck2_cta_text"><?php echo esc_html(cr8v_mod('seo_deck2_cta_text', 'Discuss technical SEO →')); ?></a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="<?php echo esc_url(cr8v_mod('seo_deck2_img', 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop')); ?>" alt="Technical Crawl & Speed Optimization" data-customizer="seo_deck2_img">
+          <div class="c8srv-folder-card-img" data-customizer="seo_deck2_img">
+            <img src="<?php echo esc_url(cr8v_mod('seo_deck2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_seo_deck_technical.jpg')); ?>" alt="Technical Crawl & Speed Optimization" data-customizer="seo_deck2_img">
           </div>
         </div>
       </div>
@@ -285,8 +285,8 @@ get_header();
           <a href="<?php echo esc_url(cr8v_mod('seo_deck3_cta_url', home_url('/contact/'))); ?>" class="c8srv-explore" data-customizer="seo_deck3_cta_text"><?php echo esc_html(cr8v_mod('seo_deck3_cta_text', 'Discuss JSON-LD schema →')); ?></a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="<?php echo esc_url(cr8v_mod('seo_deck3_img', 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop')); ?>" alt="Entity SEO & JSON-LD Schema" data-customizer="seo_deck3_img">
+          <div class="c8srv-folder-card-img" data-customizer="seo_deck3_img">
+            <img src="<?php echo esc_url(cr8v_mod('seo_deck3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_seo_deck_schema.jpg')); ?>" alt="Entity SEO & JSON-LD Schema" data-customizer="seo_deck3_img">
           </div>
         </div>
       </div>
@@ -300,8 +300,8 @@ get_header();
           <a href="<?php echo esc_url(cr8v_mod('seo_deck4_cta_url', home_url('/contact/'))); ?>" class="c8srv-explore" data-customizer="seo_deck4_cta_text"><?php echo esc_html(cr8v_mod('seo_deck4_cta_text', 'Discuss content clusters →')); ?></a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="<?php echo esc_url(cr8v_mod('seo_deck4_img', 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop')); ?>" alt="Topical Authority Content Clusters" data-customizer="seo_deck4_img">
+          <div class="c8srv-folder-card-img" data-customizer="seo_deck4_img">
+            <img src="<?php echo esc_url(cr8v_mod('seo_deck4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_seo_deck_clusters.jpg')); ?>" alt="Topical Authority Content Clusters" data-customizer="seo_deck4_img">
           </div>
         </div>
       </div>
@@ -315,8 +315,8 @@ get_header();
           <a href="<?php echo esc_url(cr8v_mod('seo_deck5_cta_url', home_url('/contact/'))); ?>" class="c8srv-explore" data-customizer="seo_deck5_cta_text"><?php echo esc_html(cr8v_mod('seo_deck5_cta_text', 'Discuss rank tracking →')); ?></a>
         </div>
         <div class="c8srv-folder-card-right">
-          <div class="c8srv-folder-card-img">
-            <img src="<?php echo esc_url(cr8v_mod('seo_deck5_img', 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop')); ?>" alt="Google Search Console & Rank Audits" data-customizer="seo_deck5_img">
+          <div class="c8srv-folder-card-img" data-customizer="seo_deck5_img">
+            <img src="<?php echo esc_url(cr8v_mod('seo_deck5_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_seo_deck_analytics.jpg')); ?>" alt="Google Search Console & Rank Audits" data-customizer="seo_deck5_img">
           </div>
         </div>
       </div>
@@ -342,8 +342,8 @@ get_header();
         <div class="c8isv-approach-col-name" data-customizer="seo_proc1_name"><?php echo esc_html(cr8v_mod('seo_proc1_name', 'Audit')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="seo_proc1_tags"><?php echo esc_html(cr8v_mod('seo_proc1_tags', 'Crawl · Keywords · Competitors')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="seo_proc1_desc"><?php echo wp_kses_post(cr8v_mod('seo_proc1_desc', 'We audit existing site health, analyze competitor backlink profiles, and map high-intent commercial keywords.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="<?php echo esc_url(cr8v_mod('seo_proc1_img', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop')); ?>" alt="SEO Audit stage" data-customizer="seo_proc1_img">
+        <div class="c8isv-approach-col-img" data-customizer="seo_proc1_img">
+          <img src="<?php echo esc_url(cr8v_mod('seo_proc1_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_seo_proc_audit.jpg')); ?>" alt="SEO Audit stage" data-customizer="seo_proc1_img">
         </div>
       </div>
     </div>
@@ -355,8 +355,8 @@ get_header();
         <div class="c8isv-approach-col-name" data-customizer="seo_proc2_name"><?php echo esc_html(cr8v_mod('seo_proc2_name', 'Structure')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="seo_proc2_tags"><?php echo esc_html(cr8v_mod('seo_proc2_tags', 'URL Hierarchy · Schema · Core Web Vitals')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="seo_proc2_desc"><?php echo wp_kses_post(cr8v_mod('seo_proc2_desc', 'We re-architect site URL hierarchies, implement JSON-LD Schema markup, and optimize Core Web Vitals speed.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="<?php echo esc_url(cr8v_mod('seo_proc2_img', 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop')); ?>" alt="SEO structure & schema stage" data-customizer="seo_proc2_img">
+        <div class="c8isv-approach-col-img" data-customizer="seo_proc2_img">
+          <img src="<?php echo esc_url(cr8v_mod('seo_proc2_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_seo_proc_structure.jpg')); ?>" alt="SEO structure & schema stage" data-customizer="seo_proc2_img">
         </div>
       </div>
     </div>
@@ -368,8 +368,8 @@ get_header();
         <div class="c8isv-approach-col-name" data-customizer="seo_proc3_name"><?php echo esc_html(cr8v_mod('seo_proc3_name', 'Produce')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="seo_proc3_tags"><?php echo esc_html(cr8v_mod('seo_proc3_tags', 'Topical Clusters · Guides · Internal Links')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="seo_proc3_desc"><?php echo wp_kses_post(cr8v_mod('seo_proc3_desc', 'We engineer in-depth topical content clusters, publish buyer guides, and build strategic internal links.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="<?php echo esc_url(cr8v_mod('seo_proc3_img', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop')); ?>" alt="SEO content production stage" data-customizer="seo_proc3_img">
+        <div class="c8isv-approach-col-img" data-customizer="seo_proc3_img">
+          <img src="<?php echo esc_url(cr8v_mod('seo_proc3_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_seo_proc_produce.jpg')); ?>" alt="SEO content production stage" data-customizer="seo_proc3_img">
         </div>
       </div>
     </div>
@@ -381,8 +381,8 @@ get_header();
         <div class="c8isv-approach-col-name" data-customizer="seo_proc4_name"><?php echo esc_html(cr8v_mod('seo_proc4_name', 'Amplify')); ?></div>
         <div class="c8isv-approach-col-tags" data-customizer="seo_proc4_tags"><?php echo esc_html(cr8v_mod('seo_proc4_tags', 'Rank Tracking · Authority · Optimization')); ?></div>
         <div class="c8isv-approach-col-desc" data-customizer="seo_proc4_desc"><?php echo wp_kses_post(cr8v_mod('seo_proc4_desc', 'We monitor daily SERP rankings, earn authoritative backlinks, and refresh content to maintain top positions.')); ?></div>
-        <div class="c8isv-approach-col-img">
-          <img src="<?php echo esc_url(cr8v_mod('seo_proc4_img', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop')); ?>" alt="SEO rank tracking amplification stage" data-customizer="seo_proc4_img">
+        <div class="c8isv-approach-col-img" data-customizer="seo_proc4_img">
+          <img src="<?php echo esc_url(cr8v_mod('seo_proc4_img', get_template_directory_uri() . '/assets/img/abstract/cr8v_seo_proc_scale.jpg')); ?>" alt="SEO rank tracking amplification stage" data-customizer="seo_proc4_img">
         </div>
       </div>
     </div>

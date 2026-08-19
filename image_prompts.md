@@ -1122,3 +1122,230 @@ Featuring the **2D/3D Hybrid Character Aesthetic** with four contextual subsyste
 * **File Target**: `assets/img/abstract/cr8v_brind_proc_handoff.jpg`
 * **Written Prompt**:
   > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Master brand guideline books, vector export packages, and asset delivery folders illuminated by a warm gold (#FFB800) light beam slicing through deep darkness, casting razor-sharp shadows across a dark obsidian ground (#080808). Graphic poster art style, flat 2D graphic aesthetic, high contrast, clean negative space, no 3D rendering, no circuit boards, no photorealism, no text.*
+
+---
+
+# 📄 PAGE: SEO & CONTENT STRATEGY (`page-service-seo-content.php`)
+
+### Overview & Visual Strategy
+* **Suite 1: Deliverables Folder Deck (`.c8srv-folder-deck`)**: 5 Deliverable Showcase Cards (`4:3` Landscape) using the Master Service Illustration System (Strictly NO main titles stamped on images).
+* **Suite 2: How We Approach It (`.c8isv-approach-outer`)**: 4 Process Stage Cards (`4:3` Landscape) using System 1: High-Contrast Architectural Chiaroscuro & Directional Beams.
+
+---
+
+### Suite 1: Deliverables Folder Deck (01 through 05)
+
+#### 01 // Architecture — Semantic Keyword & SERP Mapping
+* **Deliverable Context**: Discovering high-value commercial keywords, mapping intent tiers, and structuring site URL hierarchies.
+* **Composition**: Framed + Mid-Zoom (No title bar)
+* **File Target**: `assets/img/abstract/cr8v_seo_deck_mapping.jpg`
+* **Permitted Text Only**: “Intent Tier”, “Commercial”, “Informational”, “Transactional”, “KD: 24”, “Volume: 18.2K”, “SERP Rank #1”, “Priority Keyword”
+* **Written Prompt**:
+  > Create a premium high-tech visual representing an actual semantic keyword research and SERP intent mapping deliverable created by an enterprise SEO architect.
+  >
+  > **Canvas:** 4:3 landscape, conceptual working grid 1600 × 1200 px.
+  >
+  > **COMPOSITION:** Use the framed composition system. Place one dominant centered white strategic-analysis surface with rounded corners, subtle border, and soft ambient shadow against a solid cool-gray #F3F5F7 background with a faint outer dot texture. No main title or header bar at the top of the canvas.
+  >
+  > **PRIMARY ARTIFACT:** Inside the white surface, create a clean semantic keyword intent table. Display three structured rows representing Informational, Commercial, and Transactional search intent with search volume bars, keyword difficulty badges, and SERP rank indicators.
+  >
+  > The primary Commercial keyword row has a refined royal blue / blue-violet active highlight tag reading "Priority Keyword".
+  >
+  > **PERMITTED TEXT ONLY:**
+  > “Intent Tier”
+  > “Commercial”
+  > “Informational”
+  > “Transactional”
+  > “KD: 24”
+  > “Volume: 18.2K”
+  > “SERP Rank #1”
+  > “Priority Keyword”
+  >
+  > **FRAMING:** Mid-zoom. The complete intent table is clearly legible with generous quiet margin around the white card.
+  >
+  > **ANTI-SLOP / QUALITY CONTROL:** Do not add titles, category headings, or main header bars at the top of the canvas. Create a restrained, highly art-directed composition. Do not fill empty space with decorative objects. Do not add floating cards unless they serve a clear functional purpose. Do not add random charts, graphs, badges, icons, circles, arrows, connectors, metrics, percentages, dashboards, widgets or interface elements. Do not create symmetrical template-like infographic layouts. Do not use generic AI imagery, lightbulbs, magnifying glasses, targets, puzzle pieces, abstract blobs, holograms, neural networks or decorative 3D objects. Do not use excessive gradients, neon glow, glassmorphism, excessive shadows or ornamental effects. Every visible element must communicate the actual professional work being represented. Prioritize one strong visual idea, substantial negative space, precise geometry, restrained UI, sophisticated hierarchy and exceptional rendering quality.
+  >
+  > **RENDERING QUALITY:** Premium high-tech product-design interface, comparable to an exceptionally polished Figma-designed SaaS product and a high-end brand consultancy presentation. Extremely precise geometry, crisp vector-like edges, sophisticated information architecture, refined spacing, consistent 8-point spacing logic, subtle 1 px borders, soft ambient occlusion, broad feathered shadows, physically plausible layer separation, delicate tonal hierarchy, restrained blue-violet highlights, clean white surfaces, exceptionally polished UI details, high-resolution rendering, no visual artifacts, no sloppy alignment, no inconsistent component sizing, no amateur infographic aesthetic. The result should feel expensive, intentional and professionally art-directed.
+  >
+  > **TEXT CONTROL:** Only the explicitly specified text may appear as readable typography. Do not invent any additional words, titles, numbers, dates, percentages, names, labels, placeholder copy, lorem ipsum, browser text, fake UI text or decorative typography. Unspecified text areas must remain completely blank or use simple non-letter horizontal lines to represent text. Never hallucinate written content.
+  >
+  > No magnifying glasses, no globe icons, no people, no 3D.
+
+#### 02 // Technical — Technical Crawl & Speed Optimization
+* **Deliverable Context**: Eliminating crawl budget waste, fixing indexation errors, and configuring Core Web Vitals performance.
+* **Composition**: Open Composition + Close-Mid Zoom (No title bar)
+* **File Target**: `assets/img/abstract/cr8v_seo_deck_technical.jpg`
+* **Permitted Text Only**: “Core Web Vitals”, “LCP: 0.8s”, “FID: 12ms”, “CLS: 0.01”, “Crawl Status: 200 OK”, “Indexed: 100%”, “Passed”
+* **Written Prompt**:
+  > Create a premium high-tech visual representing an actual Core Web Vitals technical audit deliverable created by a performance SEO engineer.
+  >
+  > **Canvas:** 4:3 landscape, conceptual working grid 1600 × 1200 px.
+  >
+  > **COMPOSITION:** Use an open composition. The main technical audit surface occupies the central canvas area against a cool-gray #F3F5F7 background with a faint outer dot texture. No title header at top of canvas.
+  >
+  > **PRIMARY ARTIFACT:** Design a pristine technical audit card displaying three Core Web Vitals metrics: LCP, FID, and CLS with subtle speed gauges and a crawl indexation status bar showing "Crawl Status: 200 OK" and "Indexed: 100%".
+  >
+  > A single blue-violet badge reading "Passed" highlights the perfect performance score.
+  >
+  > **PERMITTED TEXT ONLY:**
+  > “Core Web Vitals”
+  > “LCP: 0.8s”
+  > “FID: 12ms”
+  > “CLS: 0.01”
+  > “Crawl Status: 200 OK”
+  > “Indexed: 100%”
+  > “Passed”
+  >
+  > **FRAMING:** Close-mid zoom. The technical inspection metrics are crisp and easily readable with 35% quiet background space.
+  >
+  > **ANTI-SLOP / QUALITY CONTROL:** Do not add titles, category headings, or main header bars at the top of the canvas. Create a restrained, highly art-directed composition. Do not fill empty space with decorative objects. Do not add floating cards unless they serve a clear functional purpose. Do not add random charts, graphs, badges, icons, circles, arrows, connectors, metrics, percentages, dashboards, widgets or interface elements. Do not create symmetrical template-like infographic layouts. Do not use generic AI imagery, lightbulbs, magnifying glasses, targets, puzzle pieces, abstract blobs, holograms, neural networks or decorative 3D objects. Do not use excessive gradients, neon glow, glassmorphism, excessive shadows or ornamental effects. Every visible element must communicate the actual professional work being represented. Prioritize one strong visual idea, substantial negative space, precise geometry, restrained UI, sophisticated hierarchy and exceptional rendering quality.
+  >
+  > **RENDERING QUALITY:** Premium high-tech product-design interface, comparable to an exceptionally polished Figma-designed SaaS product and a high-end brand consultancy presentation. Extremely precise geometry, crisp vector-like edges, sophisticated information architecture, refined spacing, consistent 8-point spacing logic, subtle 1 px borders, soft ambient occlusion, broad feathered shadows, physically plausible layer separation, delicate tonal hierarchy, restrained blue-violet highlights, clean white surfaces, exceptionally polished UI details, high-resolution rendering, no visual artifacts, no sloppy alignment, no inconsistent component sizing, no amateur infographic aesthetic. The result should feel expensive, intentional and professionally art-directed.
+  >
+  > **TEXT CONTROL:** Only the explicitly specified text may appear as readable typography. Do not invent any additional words, titles, numbers, dates, percentages, names, labels, placeholder copy, lorem ipsum, browser text, fake UI text or decorative typography. Unspecified text areas must remain completely blank or use simple non-letter horizontal lines to represent text. Never hallucinate written content.
+  >
+  > No speedometer clipart, no gears, no robot spiders, no people, no 3D.
+
+#### 03 // Schema — Entity SEO & JSON-LD Schema
+* **Deliverable Context**: Building rich snippet schema for Organization, Product, FAQ, Article, and Local Business entities.
+* **Composition**: Open Composition + Wider/Full View (No title bar)
+* **File Target**: `assets/img/abstract/cr8v_seo_deck_schema.jpg`
+* **Permitted Text Only**: “Entity Schema”, “Organization”, “Product”, “Service”, “Article”, “JSON-LD Graph”, “@type”, “Valid Schema”
+* **Written Prompt**:
+  > Create a premium high-tech visual representing an actual JSON-LD entity schema relationship graph developed by a technical SEO architect.
+  >
+  > **Canvas:** 4:3 landscape, conceptual working grid 1600 × 1200 px.
+  >
+  > **COMPOSITION:** Use an open composition with one dominant white schema surface positioned slightly above center, leaving generous quiet gray space around it against a solid cool-gray #F3F5F7 background with a faint dot pattern. No title header at top of canvas.
+  >
+  > **PRIMARY ARTIFACT:** Create a clean structured entity graph. At the center is a primary "Organization" node connecting via thin blue-violet hairline connectors to three child entity nodes: "Product", "Service", and "Article".
+  >
+  > The Organization node features a blue-violet tag reading "Valid Schema".
+  >
+  > **PERMITTED TEXT ONLY:**
+  > “Entity Schema”
+  > “Organization”
+  > “Product”
+  > “Service”
+  > “Article”
+  > “JSON-LD Graph”
+  > “@type”
+  > “Valid Schema”
+  >
+  > **FRAMING:** Full/mid view. The complete entity relationship structure is visible with generous margins.
+  >
+  > **ANTI-SLOP / QUALITY CONTROL:** Do not add titles, category headings, or main header bars at the top of the canvas. Create a restrained, highly art-directed composition. Do not fill empty space with decorative objects. Do not add floating cards unless they serve a clear functional purpose. Do not add random charts, graphs, badges, icons, circles, arrows, connectors, metrics, percentages, dashboards, widgets or interface elements. Do not create symmetrical template-like infographic layouts. Do not use generic AI imagery, lightbulbs, magnifying glasses, targets, puzzle pieces, abstract blobs, holograms, neural networks or decorative 3D objects. Do not use excessive gradients, neon glow, glassmorphism, excessive shadows or ornamental effects. Every visible element must communicate the actual professional work being represented. Prioritize one strong visual idea, substantial negative space, precise geometry, restrained UI, sophisticated hierarchy and exceptional rendering quality.
+  >
+  > **RENDERING QUALITY:** Premium high-tech product-design interface, comparable to an exceptionally polished Figma-designed SaaS product and a high-end brand consultancy presentation. Extremely precise geometry, crisp vector-like edges, sophisticated information architecture, refined spacing, consistent 8-point spacing logic, subtle 1 px borders, soft ambient occlusion, broad feathered shadows, physically plausible layer separation, delicate tonal hierarchy, restrained blue-violet highlights, clean white surfaces, exceptionally polished UI details, high-resolution rendering, no visual artifacts, no sloppy alignment, no inconsistent component sizing, no amateur infographic aesthetic. The result should feel expensive, intentional and professionally art-directed.
+  >
+  > **TEXT CONTROL:** Only the explicitly specified text may appear as readable typography. Do not invent any additional words, titles, numbers, dates, percentages, names, labels, placeholder copy, lorem ipsum, browser text, fake UI text or decorative typography. Unspecified text areas must remain completely blank or use simple non-letter horizontal lines to represent text. Never hallucinate written content.
+  >
+  > No glowing network cyberspace visuals, no circuit boards, no people, no 3D.
+
+#### 04 // Content — Topical Authority Content Clusters
+* **Deliverable Context**: Writing in-depth buyer guides, industry comparison pages, and hub-and-spoke article structures.
+* **Composition**: Framed + Full View (No title bar)
+* **File Target**: `assets/img/abstract/cr8v_seo_deck_clusters.jpg`
+* **Permitted Text Only**: “Topical Hub”, “Pillar Guide”, “Sub-topic 1”, “Sub-topic 2”, “Sub-topic 3”, “Sub-topic 4”, “Internal Link”, “Topical Authority”
+* **Written Prompt**:
+  > Create a premium high-tech visual representing a hub-and-spoke topical content cluster architecture engineered by an enterprise content strategist.
+  >
+  > **Canvas:** 4:3 landscape, conceptual working grid 1600 × 1200 px.
+  >
+  > **COMPOSITION:** Use the framed composition system. Place one dominant centered white strategic content card with rounded corners, subtle border, and broad diffuse shadow against a solid cool-gray #F3F5F7 background with a faint dot grid. No title header at top of canvas.
+  >
+  > **PRIMARY ARTIFACT:** Inside the surface, create a hub-and-spoke content architecture diagram. In the center sits a prominent "Pillar Guide" node connecting outward via thin clean lines to four supporting sub-topic articles: "Sub-topic 1", "Sub-topic 2", "Sub-topic 3", "Sub-topic 4".
+  >
+  > The Pillar Guide node has a refined blue-violet badge reading "Topical Authority".
+  >
+  > **PERMITTED TEXT ONLY:**
+  > “Topical Hub”
+  > “Pillar Guide”
+  > “Sub-topic 1”
+  > “Sub-topic 2”
+  > “Sub-topic 3”
+  > “Sub-topic 4”
+  > “Internal Link”
+  > “Topical Authority”
+  >
+  > **FRAMING:** Full view. The entire topical cluster map is visible with ample negative space.
+  >
+  > **ANTI-SLOP / QUALITY CONTROL:** Do not add titles, category headings, or main header bars at the top of the canvas. Create a restrained, highly art-directed composition. Do not fill empty space with decorative objects. Do not add floating cards unless they serve a clear functional purpose. Do not add random charts, graphs, badges, icons, circles, arrows, connectors, metrics, percentages, dashboards, widgets or interface elements. Do not create symmetrical template-like infographic layouts. Do not use generic AI imagery, lightbulbs, magnifying glasses, targets, puzzle pieces, abstract blobs, holograms, neural networks or decorative 3D objects. Do not use excessive gradients, neon glow, glassmorphism, excessive shadows or ornamental effects. Every visible element must communicate the actual professional work being represented. Prioritize one strong visual idea, substantial negative space, precise geometry, restrained UI, sophisticated hierarchy and exceptional rendering quality.
+  >
+  > **RENDERING QUALITY:** Premium high-tech product-design interface, comparable to an exceptionally polished Figma-designed SaaS product and a high-end brand consultancy presentation. Extremely precise geometry, crisp vector-like edges, sophisticated information architecture, refined spacing, consistent 8-point spacing logic, subtle 1 px borders, soft ambient occlusion, broad feathered shadows, physically plausible layer separation, delicate tonal hierarchy, restrained blue-violet highlights, clean white surfaces, exceptionally polished UI details, high-resolution rendering, no visual artifacts, no sloppy alignment, no inconsistent component sizing, no amateur infographic aesthetic. The result should feel expensive, intentional and professionally art-directed.
+  >
+  > **TEXT CONTROL:** Only the explicitly specified text may appear as readable typography. Do not invent any additional words, titles, numbers, dates, percentages, names, labels, placeholder copy, lorem ipsum, browser text, fake UI text or decorative typography. Unspecified text areas must remain completely blank or use simple non-letter horizontal lines to represent text. Never hallucinate written content.
+  >
+  > No tree leaves, no literal tree trunks, no books, no people, no 3D.
+
+#### 05 // Analytics — Google Search Console & Rank Audits
+* **Deliverable Context**: Continuous rank position tracking, backlink audits, and organic revenue attribution dashboards.
+* **Composition**: Open Layered Composition + Mid-Zoom (No title bar)
+* **File Target**: `assets/img/abstract/cr8v_seo_deck_analytics.jpg`
+* **Permitted Text Only**: “Organic Impressions”, “+280%”, “Average Position: 2.1”, “Clicks: 42.8K”, “CTR: 6.4%”, “Rank Tracking”
+* **Written Prompt**:
+  > Create a premium high-tech visual representing an enterprise Google Search Console organic rank growth dashboard created by an SEO director.
+  >
+  > **Canvas:** 4:3 landscape, conceptual working grid 1600 × 1200 px.
+  >
+  > **COMPOSITION:** Use an open layered composition on a solid cool-gray #F3F5F7 background with a faint outer dot texture. No title header at top of canvas.
+  >
+  > The primary organic velocity card sits centered, with a small ranking position summary card subtly overlapping the lower right.
+  >
+  > **PRIMARY ARTIFACT:** The main analytics card features an upward-trending organic impressions curve with a single oversized bold metric reading "+280%" and supporting data points: "Clicks: 42.8K" and "CTR: 6.4%".
+  >
+  > The overlapping secondary card displays "Average Position: 2.1" with a clean blue-violet status tag reading "Rank Tracking".
+  >
+  > **PERMITTED TEXT ONLY:**
+  > “Organic Impressions”
+  > “+280%”
+  > “Average Position: 2.1”
+  > “Clicks: 42.8K”
+  > “CTR: 6.4%”
+  > “Rank Tracking”
+  >
+  > **FRAMING:** Mid-zoom. The growth curve and metrics are crisp and easily readable with 35% quiet background space.
+  >
+  > **ANTI-SLOP / QUALITY CONTROL:** Do not add titles, category headings, or main header bars at the top of the canvas. Create a restrained, highly art-directed composition. Do not fill empty space with decorative objects. Do not add floating cards unless they serve a clear functional purpose. Do not add random charts, graphs, badges, icons, circles, arrows, connectors, metrics, percentages, dashboards, widgets or interface elements. Do not create symmetrical template-like infographic layouts. Do not use generic AI imagery, lightbulbs, magnifying glasses, targets, puzzle pieces, abstract blobs, holograms, neural networks or decorative 3D objects. Do not use excessive gradients, neon glow, glassmorphism, excessive shadows or ornamental effects. Every visible element must communicate the actual professional work being represented. Prioritize one strong visual idea, substantial negative space, precise geometry, restrained UI, sophisticated hierarchy and exceptional rendering quality.
+  >
+  > **RENDERING QUALITY:** Premium high-tech product-design interface, comparable to an exceptionally polished Figma-designed SaaS product and a high-end brand consultancy presentation. Extremely precise geometry, crisp vector-like edges, sophisticated information architecture, refined spacing, consistent 8-point spacing logic, subtle 1 px borders, soft ambient occlusion, broad feathered shadows, physically plausible layer separation, delicate tonal hierarchy, restrained blue-violet highlights, clean white surfaces, exceptionally polished UI details, high-resolution rendering, no visual artifacts, no sloppy alignment, no inconsistent component sizing, no amateur infographic aesthetic. The result should feel expensive, intentional and professionally art-directed.
+  >
+  > **TEXT CONTROL:** Only the explicitly specified text may appear as readable typography. Do not invent any additional words, titles, numbers, dates, percentages, names, labels, placeholder copy, lorem ipsum, browser text, fake UI text or decorative typography. Unspecified text areas must remain completely blank or use simple non-letter horizontal lines to represent text. Never hallucinate written content.
+  >
+  > No dollar signs, no coins, no upward rocket ships, no people, no 3D.
+
+---
+
+### Suite 2: How We Approach It (Process Stages 01 through 04)
+
+#### Stage 01: Audit — Crawl, Keywords & Competitors
+* **Accent**: Warm Ivory / White (`#F5F5F0`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_seo_proc_audit.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Technical crawl audit logs, keyword ranking matrices, and competitor backlink dossiers on a dark drafting desk, struck by a crisp ivory white (#F5F5F0) directional light beam slicing through deep darkness, casting long sharp geometric shadows across an obsidian black floor (#080808). High contrast chiaroscuro shadow play, modern agency poster style, clean negative space, no 3D rendering, no photorealism, no text.*
+
+#### Stage 02: Structure — URL Hierarchy, Schema & Core Web Vitals
+* **Accent**: Royal Blue (`#0047E1`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_seo_proc_structure.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Abstract URL hierarchy towers, JSON-LD entity schema prisms, and Core Web Vitals speed monoliths struck by a sharp Royal Blue (#0047E1) light shaft casting dramatic geometric shadows across an obsidian black floor (#080808). High contrast chiaroscuro, graphic editorial aesthetic, deep moody dark atmosphere, flat graphic style, no 3D rendering, no machinery, no photorealism, no text.*
+
+#### Stage 03: Produce — Topical Clusters, Guides & Internal Links
+* **Accent**: Crimson Red (`#E20025`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_seo_proc_produce.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Topical authority content cluster hubs, editorial article sheets, and internal link connection planes struck by a dramatic crimson red (#E20025) light beam casting sharp long shadows across an obsidian black (#080808) floor. High-contrast chiaroscuro, graphic editorial aesthetic, deep dark atmosphere, flat graphic style, no 3D rendering, no computer hardware, no photorealism, no text.*
+
+#### Stage 04: Amplify — Rank Tracking, Authority & Optimization
+* **Accent**: Golden Yellow / Warm Gold (`#FFB800`)
+* **Aspect Ratio**: `4:3` Landscape
+* **System**: System 1 (High-Contrast Architectural Chiaroscuro)
+* **File Target**: `assets/img/abstract/cr8v_seo_proc_scale.jpg`
+* **Written Prompt**:
+  > *Minimalist high-contrast flat graphic editorial illustration, 4:3 landscape aspect ratio. Ascending organic rank velocity trajectories, SERP position tracking charts, and compounding traffic vectors illuminated by a warm gold (#FFB800) light beam slicing through deep darkness, casting razor-sharp shadows across a dark obsidian ground (#080808). Graphic poster art style, flat 2D graphic aesthetic, high contrast, clean negative space, no 3D rendering, no circuit boards, no photorealism, no text.*
