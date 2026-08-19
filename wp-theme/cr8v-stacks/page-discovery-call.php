@@ -66,8 +66,8 @@ get_header();
   position: absolute;
   top: 2.25rem;
   right: 2.25rem;
-  width: 82px;
-  height: 82px;
+  width: 152px;
+  height: 152px;
   border: 1.5px dashed rgba(8,8,8,0.32);
   border-radius: 50%;
   display: flex;
@@ -79,7 +79,7 @@ get_header();
 .c8dc-stamp span {
   display: block;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 18px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--blue);
@@ -202,6 +202,12 @@ get_header();
   .c8dc-bottom-grid { grid-template-columns: 1fr; }
   .c8dc-tear { margin: 2rem -2rem; }
   .c8dc-stamp { display: none; }
+  .c8dc-booking-card {
+    background: transparent !important;
+    border: none !important;
+    min-height: auto !important;
+    padding: 0 !important;
+  }
 }
 </style>
 

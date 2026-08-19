@@ -434,7 +434,7 @@ body.single-post {
 .card-img-container { aspect-ratio: 16 / 10; width: 100%; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-bottom: 1rem; position: relative; }
 .card-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* ── SYSTEM 1: HIGH-CONTRAST CHIAROSCURO SILHOUETTE & SHADOW BEAMS ── */
+/* ── SYSTEM 1: HIGH-CONTRAST CHIAROSCURO SILHOUETTE & SHADOW BEAMS (3-COLOR ROTATION) ── */
 .card-fallback-canvas {
   width: 100%; height: 100%; min-height: 160px;
   border-radius: 4px !important;
@@ -448,15 +448,10 @@ body.single-post {
   border: 1px solid rgba(255, 255, 255, 0.12);
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.card-fallback-canvas:hover {
-  border-color: #0047E1;
-  box-shadow: 0 12px 30px rgba(0, 71, 225, 0.18);
-}
 .card-fallback-canvas::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0, 71, 225, 0.40) 0%, rgba(0, 71, 225, 0.12) 30%, transparent 65%);
   pointer-events: none;
   z-index: 1;
 }
@@ -464,22 +459,96 @@ body.single-post {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(45deg, transparent 32%, rgba(255, 255, 255, 0.07) 48%, rgba(0, 71, 225, 0.25) 50%, rgba(255, 255, 255, 0.07) 52%, transparent 68%),
-              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
 }
 
-/* Variant A: Top-Left to Bottom-Right 45° Chiaroscuro Beam */
+/* ── COLOR 1: COBALT / ROYAL BLUE (#0047E1) ── */
+.card-fallback-canvas.is-variant-cobalt,
 .card-fallback-canvas.is-variant-a,
 .card-fallback-canvas.is-dark {
-  background: linear-gradient(135deg, rgba(0, 71, 225, 0.35) 0%, rgba(0, 71, 225, 0.08) 35%, #080808 70%), #080808;
+  background: linear-gradient(135deg, rgba(0, 71, 225, 0.40) 0%, rgba(0, 71, 225, 0.08) 35%, #080808 70%), #080808;
+}
+.card-fallback-canvas.is-variant-cobalt::before,
+.card-fallback-canvas.is-variant-a::before,
+.card-fallback-canvas.is-dark::before {
+  background: linear-gradient(45deg, transparent 32%, rgba(255, 255, 255, 0.07) 48%, rgba(0, 71, 225, 0.25) 50%, rgba(255, 255, 255, 0.07) 52%, transparent 68%);
+}
+.card-fallback-canvas.is-variant-cobalt .fallback-cat,
+.card-fallback-canvas.is-variant-a .fallback-cat,
+.card-fallback-canvas.is-dark .fallback-cat {
+  background: rgba(0, 71, 225, 0.25); border: 1px solid rgba(0, 71, 225, 0.5); color: #FAFAF7;
+}
+.card-fallback-canvas.is-variant-cobalt .fallback-brand-icon,
+.card-fallback-canvas.is-variant-a .fallback-brand-icon,
+.card-fallback-canvas.is-dark .fallback-brand-icon {
+  color: #0047E1;
+}
+.card-fallback-canvas.is-variant-cobalt .fallback-foot::before,
+.card-fallback-canvas.is-variant-a .fallback-foot::before,
+.card-fallback-canvas.is-dark .fallback-foot::before {
+  content: '—'; color: #0047E1; font-weight: 700;
+}
+.card-fallback-canvas.is-variant-cobalt:hover,
+.card-fallback-canvas.is-variant-a:hover,
+.card-fallback-canvas.is-dark:hover {
+  border-color: #0047E1;
+  box-shadow: 0 12px 30px rgba(0, 71, 225, 0.22);
 }
 
-/* Variant B: Top-Right to Bottom-Left 225° Chiaroscuro Shadow Track */
+/* ── COLOR 2: CRIMSON / FLAME RED (#E20025) ── */
+.card-fallback-canvas.is-variant-crimson {
+  background: linear-gradient(135deg, rgba(226, 0, 37, 0.38) 0%, rgba(226, 0, 37, 0.08) 35%, #080808 70%), #080808;
+}
+.card-fallback-canvas.is-variant-crimson::before {
+  background: linear-gradient(45deg, transparent 32%, rgba(255, 255, 255, 0.07) 48%, rgba(226, 0, 37, 0.25) 50%, rgba(255, 255, 255, 0.07) 52%, transparent 68%);
+}
+.card-fallback-canvas.is-variant-crimson .fallback-cat {
+  background: rgba(226, 0, 37, 0.25); border: 1px solid rgba(226, 0, 37, 0.5); color: #FAFAF7;
+}
+.card-fallback-canvas.is-variant-crimson .fallback-brand-icon {
+  color: #E20025;
+}
+.card-fallback-canvas.is-variant-crimson .fallback-foot::before {
+  content: '—'; color: #E20025; font-weight: 700;
+}
+.card-fallback-canvas.is-variant-crimson:hover {
+  border-color: #E20025;
+  box-shadow: 0 12px 30px rgba(226, 0, 37, 0.22);
+}
+
+/* ── COLOR 3: AMBER / GOLD (#FFB800) ── */
+.card-fallback-canvas.is-variant-amber,
 .card-fallback-canvas.is-variant-b,
 .card-fallback-canvas.is-light {
-  background: linear-gradient(225deg, rgba(61, 107, 255, 0.32) 0%, rgba(0, 71, 225, 0.06) 40%, #080808 75%), #080808;
+  background: linear-gradient(135deg, rgba(255, 184, 0, 0.35) 0%, rgba(255, 184, 0, 0.07) 35%, #080808 70%), #080808;
+}
+.card-fallback-canvas.is-variant-amber::before,
+.card-fallback-canvas.is-variant-b::before,
+.card-fallback-canvas.is-light::before {
+  background: linear-gradient(45deg, transparent 32%, rgba(255, 255, 255, 0.07) 48%, rgba(255, 184, 0, 0.22) 50%, rgba(255, 255, 255, 0.07) 52%, transparent 68%);
+}
+.card-fallback-canvas.is-variant-amber .fallback-cat,
+.card-fallback-canvas.is-variant-b .fallback-cat,
+.card-fallback-canvas.is-light .fallback-cat {
+  background: rgba(255, 184, 0, 0.22); border: 1px solid rgba(255, 184, 0, 0.45); color: #FAFAF7;
+}
+.card-fallback-canvas.is-variant-amber .fallback-brand-icon,
+.card-fallback-canvas.is-variant-b .fallback-brand-icon,
+.card-fallback-canvas.is-light .fallback-brand-icon {
+  color: #FFB800;
+}
+.card-fallback-canvas.is-variant-amber .fallback-foot::before,
+.card-fallback-canvas.is-variant-b .fallback-foot::before,
+.card-fallback-canvas.is-light .fallback-foot::before {
+  content: '—'; color: #FFB800; font-weight: 700;
+}
+.card-fallback-canvas.is-variant-amber:hover,
+.card-fallback-canvas.is-variant-b:hover,
+.card-fallback-canvas.is-light:hover {
+  border-color: #FFB800;
+  box-shadow: 0 12px 30px rgba(255, 184, 0, 0.22);
 }
 
 .card-fallback-canvas, .card-fallback-canvas *, .fallback-title, .fallback-cat, .card-title, .card-title a,
@@ -781,7 +850,8 @@ body.single-post {
                 <?php if ($has_thumb) : ?>
                   <img src="<?php the_post_thumbnail_url('medium_large'); ?>" alt="<?php the_title_attribute(); ?>" class="card-img">
                 <?php else :
-                  $variant_class = ($related_idx % 2 === 0) ? 'is-variant-a' : 'is-variant-b';
+                  $c_mod = $related_idx % 3;
+                  $variant_class = ($c_mod === 0) ? 'is-variant-cobalt' : (($c_mod === 1) ? 'is-variant-crimson' : 'is-variant-amber');
                 ?>
                   <div class="card-fallback-canvas <?php echo $variant_class; ?>">
                     <div class="fallback-top">
@@ -816,7 +886,7 @@ body.single-post {
             </div>
             <div class="card-img-container">
               <a href="<?php echo esc_url(home_url('/category/content-creation/')); ?>" style="display: block; width: 100%; height: 100%;">
-                <div class="card-fallback-canvas is-variant-a">
+                <div class="card-fallback-canvas is-variant-cobalt">
                   <div class="fallback-top">
                     <span class="fallback-cat">ENTITY SEO</span>
                     <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -844,7 +914,7 @@ body.single-post {
             </div>
             <div class="card-img-container">
               <a href="<?php echo esc_url(home_url('/services/ai-mvp/')); ?>" style="display: block; width: 100%; height: 100%;">
-                <div class="card-fallback-canvas is-variant-b">
+                <div class="card-fallback-canvas is-variant-crimson">
                   <div class="fallback-top">
                     <span class="fallback-cat">AI MVPS</span>
                     <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -872,7 +942,7 @@ body.single-post {
             </div>
             <div class="card-img-container">
               <a href="<?php echo esc_url(home_url('/services/web-design/')); ?>" style="display: block; width: 100%; height: 100%;">
-                <div class="card-fallback-canvas is-variant-a">
+                <div class="card-fallback-canvas is-variant-amber">
                   <div class="fallback-top">
                     <span class="fallback-cat">DESIGN</span>
                     <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">

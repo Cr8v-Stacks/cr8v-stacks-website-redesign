@@ -40,8 +40,8 @@ $form_label = cr8v_mod('contact_form_label', 'FILL OUT THE PROJECT FORM BELOW');
 .c8ct-card::before { bottom:-10px; left:20px; right:20px; background:rgba(255,255,255,.08); }
 .c8ct-card::after { bottom:-20px; left:32px; right:32px; background:rgba(255,255,255,.045); }
 
-.c8ct-stamp { position:absolute; top:2.75rem; right:2.75rem; width:78px; height:78px; border:1.5px dashed rgba(8,8,8,.32); border-radius:50%; display:flex; align-items:center; justify-content:center; transform:rotate(-9deg); text-align:center; }
-.c8ct-stamp span { display: block; font-family: 'Space Mono', monospace !important; font-size: 8.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); line-height: 1.5; font-weight: 700; }
+.c8ct-stamp { position:absolute; top:2.75rem; right:2.75rem; width:152px; height:152px; border:1.5px dashed rgba(8,8,8,.32); border-radius:50%; display:flex; align-items:center; justify-content:center; transform:rotate(-9deg); text-align:center; }
+.c8ct-stamp span { display: block; font-family: 'Space Mono', monospace !important; font-size: 18px; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); line-height: 1.35; font-weight: 700; }
 
 .c8ct-tag { font-family: 'Space Mono', monospace !important; font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--blue); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; font-weight: 700; }
 .c8ct-tag::before { content:''; width:16px; height:1px; background:var(--blue); }
