@@ -237,14 +237,53 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
 .c8hdr-root .c8-svc2-desc{font-family:'DM Sans',sans-serif!important;font-size:11px!important;color:#6B6B6B!important;}
 
 /* Toolkit mega items */
-.c8hdr-root .c8-tool-row{display:flex!important;align-items:flex-start!important;gap:14px!important;padding:12px 14px!important;border-radius:4px!important;transition:background .15s!important;}
-.c8hdr-root .c8-tool-row:hover{background:#F3F2EC!important;}
-.c8hdr-root .c8-tool-ico{width:34px!important;height:34px!important;background:#EEF3FF!important;border-radius:4px!important;display:flex!important;align-items:center!important;justify-content:center!important;flex-shrink:0!important;transition:background .2s!important;}
-.c8hdr-root .c8-tool-row:hover .c8-tool-ico{background:#0047E1!important;}
-.c8hdr-root .c8-tool-ico svg{width:16px!important;height:16px!important;stroke:#0047E1!important;stroke-width:1.75!important;fill:none!important;transition:stroke .2s!important;}
-.c8hdr-root .c8-tool-row:hover .c8-tool-ico svg{stroke:#FFFFFF!important;}
-.c8hdr-root .c8-tool-name{font-family:'Michroma',sans-serif!important;font-size:11.5px!important;font-weight:700!important;color:#080808!important;margin-bottom:3px!important;text-transform:uppercase!important;letter-spacing:.02em!important;}
-.c8hdr-root .c8-tool-desc{font-family:'DM Sans',sans-serif!important;font-size:11.5px!important;color:#6B6B6B!important;line-height:1.5!important;}
+.c8hdr-root .c8-tool2-list{display:flex!important;flex-direction:column!important;gap:4px!important;}
+.c8hdr-root .c8-tool2-row{display:flex!important;align-items:flex-start!important;gap:14px!important;padding:12px 10px!important;border-radius:4px!important;transition:background .15s!important;border-bottom:1px solid rgba(8,8,8,0.05)!important;text-decoration:none!important;}
+.c8hdr-root .c8-tool2-row:last-child{border-bottom:none!important;}
+.c8hdr-root .c8-tool2-row:hover{background:#F3F2EC!important;}
+.c8hdr-root .c8-tool2-ico{width:32px!important;height:32px!important;background:#EEF3FF!important;border-radius:4px!important;display:flex!important;align-items:center!important;justify-content:center!important;flex-shrink:0!important;margin-top:2px!important;transition:background .2s!important;}
+.c8hdr-root .c8-tool2-row:hover .c8-tool2-ico{background:#0047E1!important;}
+.c8hdr-root .c8-tool2-ico svg{width:13px!important;height:13px!important;stroke:#0047E1!important;stroke-width:1.75!important;fill:none!important;transition:stroke .2s!important;}
+.c8hdr-root .c8-tool2-row:hover .c8-tool2-ico svg{stroke:#FFFFFF!important;}
+.c8hdr-root .c8-tool2-name{font-family:'DM Sans',sans-serif!important;font-size:13px!important;font-weight:600!important;color:#080808!important;margin-bottom:3px!important;}
+.c8hdr-root .c8-tool2-desc{font-family:'DM Sans',sans-serif!important;font-size:11.5px!important;color:#6B6B6B!important;line-height:1.5!important;margin-bottom:4px!important;}
+.c8hdr-root .c8-tool2-link{font-family:'Space Mono',monospace!important;font-size:9.5px!important;font-weight:700!important;color:#0047E1!important;}
+
+/* Option 3: Full-Width Mega Menu Bottom Navigation Bar */
+.c8hdr-root .c8-mega-bar{
+  margin-top: 0 !important;
+  padding: 1rem 2.2rem !important;
+  border-top: 1px solid rgba(8,8,8,0.06) !important;
+  background: #FAF9F5 !important;
+  text-align: center !important;
+}
+.c8hdr-root .c8-mega-bar-link{
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  color: #0047E1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  padding: 0.65rem 1.75rem !important;
+  background: rgba(0, 71, 225, 0.05) !important;
+  border-radius: 4px !important;
+  transition: all 0.25s ease !important;
+  text-decoration: none !important;
+}
+.c8hdr-root .c8-mega-bar-link:hover{
+  background: #0047E1 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px) !important;
+}
+.c8hdr-root .c8-mega-bar-arr{
+  transition: transform 0.2s ease !important;
+}
+.c8hdr-root .c8-mega-bar-link:hover .c8-mega-bar-arr{
+  transform: translateX(4px) !important;
+}
 
 /* ── Mobile Drawer ── */
 .c8hdr-root .c8-md-overlay{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;background:rgba(8,8,8,0.5)!important;backdrop-filter:blur(4px)!important;z-index:9600!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .25s ease,visibility .25s ease!important;}
