@@ -925,24 +925,6 @@ defined('ABSPATH') || exit;
   <div class="c8-hero-sticky-track" id="c8HeroTrack">
     <section class="c8-hero-top c8-hero-b-standalone">
 
-    <!-- Live Floating Viewport Path Calibrator HUD (Locked) -->
-    <div id="floatingCalibHUD" style="display: none; position: fixed; top: 90px; right: 20px; z-index: 999999; background: #141414; color: #FFFFFF; padding: 14px 18px; border-radius: 8px; font-family: monospace; font-size: 0.75rem; box-shadow: 0 8px 30px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15);">
-      <div id="hudHeaderHandle" style="font-weight: 700; color: #3D6BFF; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: move; user-select: none;">
-        <span>❖ LIVE HOMEPAGE PATH CALIBRATOR (DRAG ME)</span>
-        <button onclick="document.getElementById('floatingCalibHUD').style.display='none'" style="background:none; border:none; color:#AAA; cursor:pointer; font-size:0.9rem;">✕</button>
-      </div>
-      <div id="hudWooVal" style="margin-bottom: 4px; color: #E0E0E0;">Woo: dX: 148px | dY: 469px</div>
-      <div id="hudNextVal" style="margin-bottom: 4px; color: #E0E0E0;">Next: dX: 168px | dY: 332px</div>
-      <div id="hudYellowVal" style="margin-bottom: 4px; color: #E0E0E0;">Yellow: dX: -540px | dY: 320px</div>
-      <div id="hudGreenVal" style="margin-bottom: 8px; color: #E0E0E0;">Green: dX: -75px | dY: 425px</div>
-      <button onclick="copyCalibratedCoordinates()" style="width: 100%; background: #0047E1; color: #FFF; border: none; padding: 6px 10px; border-radius: 4px; font-family: monospace; font-size: 0.72rem; font-weight: 700; cursor: pointer; margin-bottom: 8px;">📋 COPY COORDINATES</button>
-      <div style="font-size: 0.68rem; color: #888888; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 6px;">
-        Drag floating cards to position. Press [R] to Rotate 90°, [F] to Flip.
-      </div>
-    </div>
-    <!-- Mobile-friendly CAL toggle button -->
-    <button id="calibToggleBtn" onclick="(function(){var h=document.getElementById('floatingCalibHUD');h.style.display=h.style.display==='none'?'block':'none';})()" style="position: fixed; bottom: 24px; left: 20px; z-index: 999998; background: #0047E1; color: #FFF; border: none; padding: 9px 14px; border-radius: 6px; font-family: monospace; font-size: 0.7rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 14px rgba(0,71,225,0.4); letter-spacing: 0.05em;">⚙ CAL</button>
-
     <div class="c8-hero-in">
       <div class="c8-eyebrow" data-customizer="hero_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('hero_eyebrow', 'SCALE WITH AUTHORITY')); ?></div>
       <h1 class="c8-hero-h1" data-customizer="hero_headline_1"><?php echo esc_html(cr8v_mod('hero_headline_1', 'We build what your business actually runs on.')); ?></h1>
@@ -4626,35 +4608,10 @@ defined('ABSPATH') || exit;
 
 
 
-        function updateHUDDisplay() {
-          const hudWoo    = document.getElementById('hudWooVal');
-          const hudNext   = document.getElementById('hudNextVal');
-          const hudYellow = document.getElementById('hudYellowVal');
-          const hudGreen  = document.getElementById('hudGreenVal');
-
-          // Effective delta = calibration base + current user drag offset
-          const baseWeight = scrollProgress >= 0.5 ? 1 : scrollProgress;
-          const wX  = Math.round(liveCalibData.woo.dX    * baseWeight + (airWoo    ? (airWoo.userOffsetX    || 0) : 0));
-          const wY  = Math.round(liveCalibData.woo.dY    * baseWeight + (airWoo    ? (airWoo.userOffsetY    || 0) : 0));
-          const nX  = Math.round(liveCalibData.next.dX   * baseWeight + (airNext   ? (airNext.userOffsetX   || 0) : 0));
-          const nY  = Math.round(liveCalibData.next.dY   * baseWeight + (airNext   ? (airNext.userOffsetY   || 0) : 0));
-          const yX  = Math.round(liveCalibData.yellow.dX * baseWeight + (airYellow ? (airYellow.userOffsetX || 0) : 0));
-          const yY  = Math.round(liveCalibData.yellow.dY * baseWeight + (airYellow ? (airYellow.userOffsetY || 0) : 0));
-          const gX  = Math.round(liveCalibData.green.dX  * baseWeight + (airGreen  ? (airGreen.userOffsetX  || 0) : 0));
-          const gY  = Math.round(liveCalibData.green.dY  * baseWeight + (airGreen  ? (airGreen.userOffsetY  || 0) : 0));
-
-          if (hudWoo)    hudWoo.textContent    = `Woo: dX: ${wX}px | dY: ${wY}px | Rot: ${liveCalibData.woo.rot}°`;
-          if (hudNext)   hudNext.textContent   = `Next: dX: ${nX}px | dY: ${nY}px | Rot: ${liveCalibData.next.rot}°`;
-          if (hudYellow) hudYellow.textContent = `Yellow: dX: ${yX}px | dY: ${yY}px | Rot: ${liveCalibData.yellow.rot}° | Flip: ${liveCalibData.yellow.flipX}`;
-          if (hudGreen)  hudGreen.textContent  = `Green: dX: ${gX}px | dY: ${gY}px | Rot: ${liveCalibData.green.rot}°`;
-        }
-
         // Weight calculation function:
         // Returns 1.0 at the scrollProgress where the block was dragged,
         // fading smoothly to 0 as the user scrolls to 0% (sky) or 100% (floor).
         function getDragWeight(piece) {
-          const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
-          if (calibMode) return 1.0;
           const originS = piece.dragOriginScroll !== undefined ? piece.dragOriginScroll : 0;
           if (originS <= 0.02) {
             // Dragged at or near 0% (top):
@@ -4684,8 +4641,6 @@ defined('ABSPATH') || exit;
             { el: airGreen, key: 'green', initialRot: 6 }
           ];
 
-          const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
-
           // 1. Render Airborne Floating Cards
           pieces.forEach(item => {
             if (!item.el) return;
@@ -4703,7 +4658,7 @@ defined('ABSPATH') || exit;
             const currentDY = baseDY + userY;
 
             const initialRot = item.initialRot || 0;
-            const currentRot = calibMode ? 0 : (initialRot * (1 - scrollProgress));
+            const currentRot = initialRot * (1 - scrollProgress);
             const flip = c.flipX || 1;
             item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${flip})`;
           });
@@ -4720,7 +4675,7 @@ defined('ABSPATH') || exit;
 
           // Auto-clear drag offsets at scroll endpoints so scrolling in the opposite
           // direction always follows the pure, predefined canonical trajectory
-          if (!calibMode && !activePiece) {
+          if (!activePiece) {
             if (scrollProgress <= 0.001) {
               // At 0% top: clear any floor drag offsets so scrolling down always hits true floor sockets
               allBlocks.forEach(piece => {
@@ -4741,8 +4696,6 @@ defined('ABSPATH') || exit;
               });
             }
           }
-
-          updateHUDDisplay();
         }
 
         // True Wheel Hijack Listener
@@ -4861,7 +4814,6 @@ defined('ABSPATH') || exit;
 
           // Directly set transform — instantaneous response
           const k = getKey(activePiece);
-          const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
           if (k) {
             const c = liveCalibData[k];
             const baseDX = c.dX * scrollProgress;
@@ -4869,7 +4821,7 @@ defined('ABSPATH') || exit;
             const currentDX = baseDX + activePiece.userOffsetX;
             const currentDY = baseDY + activePiece.userOffsetY;
             const initialRotMap = { woo: -5, next: -8, yellow: 10, green: 6 };
-            const currentRot = calibMode ? 0 : ((initialRotMap[k] || 0) * (1 - scrollProgress));
+            const currentRot = (initialRotMap[k] || 0) * (1 - scrollProgress);
             activePiece.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${c.flipX || 1})`;
           } else {
             // Floor grid card — pure user offset
@@ -4888,90 +4840,6 @@ defined('ABSPATH') || exit;
 
         window.addEventListener('pointerup', endDrag);
         window.addEventListener('pointercancel', endDrag);
-
-        // Hotkeys [R] and [F]
-        window.addEventListener('keydown', function(e) {
-          if (!activePiece) return;
-          const k = getKey(activePiece);
-          if (!k) return;
-
-          if (e.key === 'r' || e.key === 'R') {
-            liveCalibData[k].rot = (liveCalibData[k].rot + 90) % 360;
-            renderPositions();
-          } else if (e.key === 'f' || e.key === 'F') {
-            liveCalibData[k].flipX = liveCalibData[k].flipX * -1;
-            renderPositions();
-          }
-        });
-
-        window.copyCalibratedCoordinates = function() {
-          // Output EFFECTIVE delta = calibration base + current user drag offset
-          const elMap = { woo: airWoo, next: airNext, yellow: airYellow, green: airGreen };
-          const out = {};
-          const baseWeight = scrollProgress >= 0.5 ? 1 : scrollProgress;
-          for (const k in liveCalibData) {
-            const el = elMap[k];
-            out[k] = {
-              dX:    Math.round(liveCalibData[k].dX * baseWeight + (el ? (el.userOffsetX || 0) : 0)),
-              dY:    Math.round(liveCalibData[k].dY * baseWeight + (el ? (el.userOffsetY || 0) : 0)),
-              rot:   liveCalibData[k].rot,
-              flipX: liveCalibData[k].flipX
-            };
-          }
-          const text = JSON.stringify(out, null, 2);
-          navigator.clipboard.writeText(text).then(function() {
-            alert('Coordinates copied!\n\n' + text);
-          }).catch(function() {
-            alert('Coordinates:\n\n' + text);
-          });
-        };
-
-        // Toggle HUD with H key on desktop
-        document.addEventListener('keydown', function(e) {
-          if (e.key === 'h' || e.key === 'H') {
-            const hud = document.getElementById('floatingCalibHUD');
-            if (hud) hud.style.display = hud.style.display === 'none' ? 'block' : 'none';
-          }
-        });
-
-        // ════════════════════════════════════════════════════════════════
-        // MAKE CALIBRATOR HUD ITSELF DRAGGABLE ANYWHERE ON SCREEN
-        // ════════════════════════════════════════════════════════════════
-        const hudContainer = document.getElementById('floatingCalibHUD');
-        const hudHandle = document.getElementById('hudHeaderHandle');
-        if (hudContainer && hudHandle) {
-          let isHudDragging = false;
-          let hudStartX = 0, hudStartY = 0;
-          let hudInitialLeft = 0, hudInitialTop = 0;
-
-          hudHandle.addEventListener('pointerdown', function(e) {
-            if (e.target.tagName === 'BUTTON') return;
-            isHudDragging = true;
-            hudStartX = e.clientX;
-            hudStartY = e.clientY;
-            const rect = hudContainer.getBoundingClientRect();
-            hudInitialLeft = rect.left;
-            hudInitialTop = rect.top;
-
-            hudContainer.style.right = 'auto';
-            hudContainer.style.bottom = 'auto';
-            hudContainer.style.left = hudInitialLeft + 'px';
-            hudContainer.style.top = hudInitialTop + 'px';
-            e.preventDefault();
-          });
-
-          window.addEventListener('pointermove', function(e) {
-            if (!isHudDragging) return;
-            const dx = e.clientX - hudStartX;
-            const dy = e.clientY - hudStartY;
-            hudContainer.style.left = (hudInitialLeft + dx) + 'px';
-            hudContainer.style.top = (hudInitialTop + dy) + 'px';
-          });
-
-          window.addEventListener('pointerup', function() {
-            isHudDragging = false;
-          });
-        }
 
         renderPositions(); // Initial render
       });
