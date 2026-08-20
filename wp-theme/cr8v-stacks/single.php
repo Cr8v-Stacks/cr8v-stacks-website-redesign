@@ -16,7 +16,8 @@ if (have_posts()) : while (have_posts()) : the_post();
   $raw_cats = get_the_category();
   $cats = cr8v_sort_categories_hierarchically($raw_cats);
   $primary_cat = $cats ? $cats[0]->name : 'RESOURCE';
-  $thumb_url = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : get_template_directory_uri() . '/assets/img/hww_workflow_visual.jpg';
+  $has_featured_thumb = has_post_thumbnail();
+  $thumb_url = $has_featured_thumb ? get_the_post_thumbnail_url(get_the_ID(), 'full') : '';
   $post_url = get_permalink();
   $post_title = get_the_title();
   $read_time = cr8v_reading_time(get_the_ID());
@@ -562,14 +563,26 @@ body.single-post {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-.card-fallback-canvas .fallback-foot {
-  position: relative; z-index: 2; width: 100%;
-  font-family: var(--font-mono); font-size: 7px; font-weight: 700;
-  color: rgba(250, 250, 247, 0.45); letter-spacing: 0.25em; text-transform: uppercase;
-  display: flex; align-items: center; justify-content: center; gap: 6px;
+/* Hero Featured Image Fallback Canvas */
+.art-featured-fallback {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  padding: 2.5rem 2rem !important;
+  gap: 1.25rem !important;
+  border: none !important;
+  border-radius: 0 !important;
 }
-.card-fallback-canvas .fallback-foot::before {
-  content: '—'; color: #0047E1; font-weight: 700;
+.art-featured-fallback .fallback-brand-icon {
+  width: 36px !important;
+  height: 36px !important;
+  stroke-width: 2 !important;
+}
+.art-featured-fallback .fallback-title {
+  font-size: clamp(1.1rem, 2.5vw, 1.85rem) !important;
+  max-width: 820px !important;
+  letter-spacing: 0.03em !important;
+  line-height: 1.35 !important;
 }
 
 .card-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; line-height: 1.35; margin: 0; }
@@ -768,7 +781,23 @@ body.single-post {
       <?php endif; ?>
 
       <div class="art-featured-box">
-        <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php echo esc_attr($post_title); ?>" class="art-featured-img">
+        <?php if ($has_featured_thumb) : ?>
+          <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php echo esc_attr($post_title); ?>" class="art-featured-img">
+        <?php else :
+          $post_id_mod = get_the_ID() % 3;
+          $hero_variant = ($post_id_mod === 0) ? 'is-variant-cobalt' : (($post_id_mod === 1) ? 'is-variant-crimson' : 'is-variant-amber');
+        ?>
+          <div class="card-fallback-canvas art-featured-fallback <?php echo $hero_variant; ?>">
+            <div class="fallback-top">
+              <svg class="fallback-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <div class="fallback-center">
+              <div class="fallback-title"><?php echo esc_html($post_title); ?></div>
+            </div>
+          </div>
+        <?php endif; ?>
       </div>
 
       <!-- Dynamic Post Content -->
