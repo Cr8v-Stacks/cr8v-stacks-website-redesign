@@ -3679,16 +3679,16 @@ defined('ABSPATH') || exit;
 
           <div class="wwa-stats">
             <div class="wwa-stat">
-              <div class="wwa-stat-num">5+</div>
-              <div class="wwa-stat-label">Years Building</div>
+              <div class="wwa-stat-num" data-customizer="wwa_s1_num"><?php echo esc_html(cr8v_mod("wwa_s1_num", "8+")); ?></div>
+              <div class="wwa-stat-label" data-customizer="wwa_s1_lbl"><?php echo esc_html(cr8v_mod("wwa_s1_lbl", "Years Building")); ?></div>
             </div>
             <div class="wwa-stat">
-              <div class="wwa-stat-num">3</div>
-              <div class="wwa-stat-label">Continents Served</div>
+              <div class="wwa-stat-num" data-customizer="wwa_s2_num"><?php echo esc_html(cr8v_mod("wwa_s2_num", "3")); ?></div>
+              <div class="wwa-stat-label" data-customizer="wwa_s2_lbl"><?php echo esc_html(cr8v_mod("wwa_s2_lbl", "Continents Served")); ?></div>
             </div>
             <div class="wwa-stat">
-              <div class="wwa-stat-num">100%</div>
-              <div class="wwa-stat-label">Client Ownership</div>
+              <div class="wwa-stat-num" data-customizer="wwa_s3_num"><?php echo esc_html(cr8v_mod("wwa_s3_num", "100%")); ?></div>
+              <div class="wwa-stat-label" data-customizer="wwa_s3_lbl"><?php echo esc_html(cr8v_mod("wwa_s3_lbl", "Client Ownership")); ?></div>
             </div>
           </div>
         </div>

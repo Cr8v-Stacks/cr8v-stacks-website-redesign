@@ -201,12 +201,12 @@ defined('ABSPATH') || exit;
     _cr8v_text($wp_customize, 'wwa_f3_title', 'cr8v_wwa', 'Feature 3 Title', 'You Own Everything');
     _cr8v_textarea($wp_customize, 'wwa_f3_body', 'cr8v_wwa', 'Feature 3 Description', 'Clean code, documented architectures, and 100% ownership from launch day.');
 
-    _cr8v_text($wp_customize, 'wwa_s1_num', 'cr8v_wwa', 'Bottom Stat 1 Number', '100%');
-    _cr8v_text($wp_customize, 'wwa_s1_lbl', 'cr8v_wwa', 'Bottom Stat 1 Label', 'Client Ownership');
-    _cr8v_text($wp_customize, 'wwa_s2_num', 'cr8v_wwa', 'Bottom Stat 2 Number', '0');
-    _cr8v_text($wp_customize, 'wwa_s2_lbl', 'cr8v_wwa', 'Bottom Stat 2 Label', 'SaaS Lock-in');
-    _cr8v_text($wp_customize, 'wwa_s3_num', 'cr8v_wwa', 'Bottom Stat 3 Number', '24/7');
-    _cr8v_text($wp_customize, 'wwa_s3_lbl', 'cr8v_wwa', 'Bottom Stat 3 Label', 'Monitoring & SLA Support');
+    _cr8v_text($wp_customize, 'wwa_s1_num', 'cr8v_wwa', 'Bottom Stat 1 Number', '8+');
+    _cr8v_text($wp_customize, 'wwa_s1_lbl', 'cr8v_wwa', 'Bottom Stat 1 Label', 'Years Building');
+    _cr8v_text($wp_customize, 'wwa_s2_num', 'cr8v_wwa', 'Bottom Stat 2 Number', '3');
+    _cr8v_text($wp_customize, 'wwa_s2_lbl', 'cr8v_wwa', 'Bottom Stat 2 Label', 'Continents Served');
+    _cr8v_text($wp_customize, 'wwa_s3_num', 'cr8v_wwa', 'Bottom Stat 3 Number', '100%');
+    _cr8v_text($wp_customize, 'wwa_s3_lbl', 'cr8v_wwa', 'Bottom Stat 3 Label', 'Client Ownership');
 
     // 8. TESTIMONIALS (#testimonials)
     _cr8v_section($wp_customize, 'cr8v_testimonials', '8. Testimonials Section', 'cr8v_homepage', 80);
