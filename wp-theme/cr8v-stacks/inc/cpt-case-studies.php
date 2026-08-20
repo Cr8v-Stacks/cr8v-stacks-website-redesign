@@ -68,3 +68,11 @@ function cr8v_register_case_study_cpt(): void {
         'show_admin_column' => true,
     ]);
 }
+
+// ── Additional Flexible Rewrite Rules ─────────────────────
+add_action('init', function () {
+    add_rewrite_rule('^case-studies/([^/]+)/?$', 'index.php?case_study=$matches[1]', 'top');
+    add_rewrite_rule('^case-study/([^/]+)/?$', 'index.php?case_study=$matches[1]', 'top');
+    add_rewrite_rule('^portfolio/([^/]+)/?$', 'index.php?case_study=$matches[1]', 'top');
+}, 20);
+
