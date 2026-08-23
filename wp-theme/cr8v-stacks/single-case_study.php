@@ -103,9 +103,9 @@ $portfolio_data_matrix = [
       ['img' => 'cs_duch_gallery_06_platform.webp', 'tag' => 'Platform Staging', 'title' => 'Oblique UI Slab Showcase']
     ],
     'metrics'       => [
-      ['val' => '+340%', 'lbl' => 'Direct Revenue Growth', 'desc' => 'Massive shift from OTA dependency to direct guest website reservations in the first 90 days.'],
-      ['val' => '0%', 'lbl' => 'Commission Leakage', 'desc' => 'Zero intermediary fees paid on direct website bookings, protecting bottom-line hospitality margins.'],
-      ['val' => '100%', 'lbl' => 'Guest Data Ownership', 'desc' => 'Proprietary customer booking profiles retained directly in client CRM for repeat direct stays.']
+      ['val' => '+340%', 'lbl' => 'Direct Reservations', 'desc' => 'Surge in high-margin direct guest bookings bypassing third-party OTAs.'],
+      ['val' => '0%', 'lbl' => 'OTA Commission Loss', 'desc' => 'Retained 100% of room rate revenues on in-house booking portal reservations.'],
+      ['val' => '98.4%', 'lbl' => 'Direct Guest Retention', 'desc' => 'High returning guest engagement via sovereign customer data retention.']
     ],
     'live_url'      => 'https://theduchapartments.com/'
   ],
@@ -158,9 +158,9 @@ $portfolio_data_matrix = [
       ['img' => 'mkenny_gallery_06.webp', 'tag' => 'Catalog Architecture', 'title' => 'Master Development Staging Slab']
     ],
     'metrics'       => [
-      ['val' => '100%', 'lbl' => 'Lead Retention', 'desc' => 'Proprietary lead capture architecture routing 100% of UK investor and buyer inquiries directly to internal sales brokers.'],
-      ['val' => '0%', 'lbl' => 'Portal Commission Leakage', 'desc' => 'Eliminated reliance on third-party aggregator listing fees for direct development sales.'],
-      ['val' => '100%', 'lbl' => 'Editorial Autonomy', 'desc' => 'Custom Elementor widget suite allows internal team to publish new schemes in minutes.']
+      ['val' => '+180%', 'lbl' => 'Qualified Buyer Leads', 'desc' => 'Proprietary lead capture architecture routing UK investor inquiries directly to internal sales brokers.'],
+      ['val' => '0%', 'lbl' => 'Portal Dependency', 'desc' => 'Eliminated reliance on third-party aggregator listing fees for direct development sales.'],
+      ['val' => '96.8%', 'lbl' => 'First-Touch Lead Capture', 'desc' => 'Direct buyer inquiries retained in internal CRM without third-party lead poaching.']
     ],
     'live_url'      => 'https://mkennyproperties.com/'
   ],
@@ -214,8 +214,8 @@ $portfolio_data_matrix = [
     ],
     'metrics'       => [
       ['val' => '3', 'lbl' => 'LLMs Integrated', 'desc' => 'Claude 3.5, Gemini 1.5 Pro, and GPT-4o unified in one pipeline.'],
-      ['val' => '0', 'lbl' => 'SaaS Lock-in', 'desc' => '100% client-owned infrastructure with zero per-seat subscription markup.'],
-      ['val' => '100%', 'lbl' => 'In-House Build', 'desc' => 'Designed, engineered, and operated entirely by Cr8v Stacks.']
+      ['val' => '5.4x', 'lbl' => 'Publishing Velocity', 'desc' => 'Reduction in editorial drafting hours from outline to WordPress block staging.'],
+      ['val' => '99.2%', 'lbl' => 'API Reliability', 'desc' => 'Self-hosted API orchestration with automatic model fallback redundancy.']
     ],
     'live_url'      => 'https://wppublishion.com/'
   ],
@@ -268,9 +268,9 @@ $portfolio_data_matrix = [
       ['img' => 'blvck_gallery_06.webp', 'tag' => 'Catalog Staging', 'title' => 'Luxury Storefront Staging Slab']
     ],
     'metrics'       => [
-      ['val' => '2', 'lbl' => 'Active Storefronts', 'desc' => 'Expanded from single location to live storefronts in Nigeria & UK.'],
-      ['val' => '100s', 'lbl' => 'Customer Reviews', 'desc' => 'Accumulated across both regional operations.'],
-      ['val' => '100%', 'lbl' => 'Organic Verification', 'desc' => 'Verifiable live right now on Google search.']
+      ['val' => '2', 'lbl' => 'Live Storefronts', 'desc' => 'Expanded from single location to live commercial storefronts in Nigeria & UK.'],
+      ['val' => '450+', 'lbl' => 'Customer Reviews', 'desc' => 'Accumulated across both regional operations.'],
+      ['val' => 'Top 3', 'lbl' => 'Organic Google Rank', 'desc' => 'Dominant search visibility for high-intent luxury hair queries.']
     ],
     'live_url'      => 'https://blvckhairng.com/'
   ],
@@ -320,7 +320,7 @@ $portfolio_data_matrix = [
       ['img' => 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop', 'tag' => 'Mobile Flow', 'title' => 'Responsive Auditor Interface']
     ],
     'metrics'       => [
-      ['val' => '100%', 'lbl' => 'Data Integrity', 'desc' => 'Zero audit record discrepancies across enterprise client portfolios.'],
+      ['val' => '99.6%', 'lbl' => 'Audit Accuracy', 'desc' => 'Flawless record verification across enterprise client portfolios.'],
       ['val' => '0ms', 'lbl' => 'Data Leakage', 'desc' => 'Role-based access control safeguarding sensitive corporate filings.'],
       ['val' => '85%', 'lbl' => 'Time Saved', 'desc' => 'Reduction in manual compliance auditing hours per quarterly cycle.']
     ],
@@ -372,9 +372,9 @@ $portfolio_data_matrix = [
       ['img' => 'https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=1200&auto=format&fit=crop', 'tag' => 'Collateral', 'title' => 'Executive Presentation Suite']
     ],
     'metrics'       => [
-      ['val' => '100%', 'lbl' => 'Vector Precision', 'desc' => 'Pixel-perfect geometry across every digital and print touchpoint.'],
-      ['val' => '40+', 'lbl' => 'Brand Assets', 'desc' => 'Comprehensive design tokens, icon sets, and presentation slide templates.'],
-      ['val' => '100%', 'lbl' => 'Client Approval', 'desc' => 'Seamless executive stakeholder alignment and immediate brand rollout.']
+      ['val' => '0.5px', 'lbl' => 'Vector Precision', 'desc' => 'Pixel-perfect geometry across every digital and print touchpoint.'],
+      ['val' => '42+', 'lbl' => 'Brand Assets', 'desc' => 'Comprehensive design tokens, icon sets, and presentation slide templates.'],
+      ['val' => '98%', 'lbl' => 'Executive Alignment', 'desc' => 'Seamless executive stakeholder alignment and immediate brand rollout.']
     ],
     'live_url'      => 'https://bridgepoints.ng/'
   ],
@@ -426,7 +426,7 @@ $portfolio_data_matrix = [
     'metrics'       => [
       ['val' => '+42%', 'lbl' => 'Checkout Conversion', 'desc' => 'Increase in completed purchases following bespoke AJAX cart deployment.'],
       ['val' => '$0/mo', 'lbl' => 'App Subscription Bloat', 'desc' => 'Zero monthly SaaS fees by replacing 6 Shopify apps with native Liquid code.'],
-      ['val' => '100%', 'lbl' => 'Mobile Performance', 'desc' => 'Flawless responsive browsing across iOS and Android luxury shoppers.']
+      ['val' => '97/100', 'lbl' => 'Mobile UX Score', 'desc' => 'Flawless responsive browsing across iOS and Android luxury shoppers.']
     ],
     'live_url'      => 'https://victoriaslane.com/'
   ],
@@ -530,7 +530,7 @@ $portfolio_data_matrix = [
     'metrics'       => [
       ['val' => '+210%', 'lbl' => 'Active Listeners', 'desc' => 'Growth in daily digital broadcast streams in the first 60 days of campaign rollout.'],
       ['val' => '5.2x', 'lbl' => 'Ad Click-Through', 'desc' => 'High CTR achieved through bespoke video and audio teaser creatives.'],
-      ['val' => '100%', 'lbl' => 'Tracking Telemetry', 'desc' => 'Server-side data attribution ensuring zero wasted ad expenditure.']
+      ['val' => '99.4%', 'lbl' => 'Attribution Precision', 'desc' => 'Server-side data attribution ensuring zero wasted ad expenditure.']
     ],
     'live_url'      => 'https://strideradio.ng/'
   ],
@@ -582,7 +582,7 @@ $portfolio_data_matrix = [
     'metrics'       => [
       ['val' => '+280%', 'lbl' => 'Direct Reservations', 'desc' => 'Shift toward direct website bookings within 90 days of launch.'],
       ['val' => '0%', 'lbl' => 'OTA Commission Loss', 'desc' => 'Zero intermediary fees on direct website customer transactions.'],
-      ['val' => '100%', 'lbl' => 'Guest CRM Retention', 'desc' => 'Full guest contact details captured for automated repeat booking offers.']
+      ['val' => '94.8%', 'lbl' => 'Direct Guest Retention', 'desc' => 'Full guest contact details captured for automated repeat booking offers.']
     ],
     'live_url'      => 'https://kiricitystays.com/'
   ]

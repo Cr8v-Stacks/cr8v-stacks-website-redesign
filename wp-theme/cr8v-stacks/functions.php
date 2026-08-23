@@ -336,7 +336,7 @@ add_filter('template_include', function ($template) {
                 $target_post = get_page_by_path($uri_slug, OBJECT, ['case_study', 'page', 'post'])
                             ?: get_page_by_path('portfolio/' . $uri_slug, OBJECT, ['case_study', 'page', 'post']);
             }
-            if ($target_post instanceof WP_Post) {
+            if ($target_post instanceof WP_Post && !empty($target_post->ID)) {
                 $wp_query->post = $target_post;
                 $wp_query->posts = [$target_post];
                 $wp_query->post_count = 1;
@@ -344,41 +344,16 @@ add_filter('template_include', function ($template) {
                 $wp_query->queried_object_id = $target_post->ID;
                 $GLOBALS['post'] = $target_post;
                 $wp_query->is_singular = true;
+                $wp_query->is_single = true;
             } else {
-                $dummy = new stdClass();
-                $dummy->ID = 0;
-                $dummy->post_author = 1;
-                $dummy->post_date = current_time('mysql');
-                $dummy->post_date_gmt = current_time('mysql', 1);
-                $dummy->post_content = '';
-                $dummy->post_title = ucwords(str_replace(['-', '_'], ' ', $uri_slug));
-                $dummy->post_excerpt = '';
-                $dummy->post_status = 'publish';
-                $dummy->comment_status = 'closed';
-                $dummy->ping_status = 'closed';
-                $dummy->post_password = '';
-                $dummy->post_name = $uri_slug;
-                $dummy->to_ping = '';
-                $dummy->pinged = '';
-                $dummy->post_modified = current_time('mysql');
-                $dummy->post_modified_gmt = current_time('mysql', 1);
-                $dummy->post_content_filtered = '';
-                $dummy->post_parent = 0;
-                $dummy->guid = home_url('/portfolio/' . $uri_slug . '/');
-                $dummy->menu_order = 0;
-                $dummy->post_type = 'case_study';
-                $dummy->post_mime_type = '';
-                $dummy->comment_count = 0;
-                $dummy->filter = 'raw';
-                
-                $dummy_post = new WP_Post($dummy);
-                $wp_query->post = $dummy_post;
-                $wp_query->posts = [$dummy_post];
-                $wp_query->post_count = 1;
-                $wp_query->queried_object = $dummy_post;
-                $wp_query->queried_object_id = 0;
-                $GLOBALS['post'] = $dummy_post;
-                $wp_query->is_singular = true;
+                // For virtual routes that do not have a database post:
+                // Do NOT set is_single or is_page to true, which triggers get_permalink() on null in core link-template.php
+                $wp_query->is_404 = false;
+                $wp_query->is_single = false;
+                $wp_query->is_page = false;
+                $wp_query->is_singular = false;
+                $wp_query->is_archive = false;
+                $wp_query->post_count = 0;
             }
         }
         status_header(200);
