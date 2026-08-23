@@ -26,27 +26,27 @@ $uri_slug  = !empty($uri_parts) ? end($uri_parts) : '';
 $query_var_name = get_query_var('case_study') ?: get_query_var('name') ?: get_query_var('pagename') ?: '';
 
 // Resolve active case study key
-$active_slug = 'the-duch-apartments'; // default fallback
-$all_slug_checks = [$post_slug, $uri_slug, $raw_uri, $post_title, $query_var_name];
+$matched_slug = null;
+$all_slug_checks = array_filter([$post_slug, $uri_slug, $raw_uri, $post_title, $query_var_name]);
 
 $slug_match_rules = [
-  'the-duch-apartments'    => ['duch', 'the-duch', 'the-duch-apartments'],
-  'mkenny-properties'      => ['mkenny', 'mkenny-properties', 'mkennyproperties'],
-  'wp-publishion-ai'       => ['wp-publishion', 'publishion', 'wp-publishion-ai'],
-  'blvck-hair-ng'          => ['blvck', 'blvck-hair', 'blvck-hair-ng', 'blvckhair'],
+  'the-duch-apartments'    => ['the-duch-apartments', 'duch-apartments', 'the-duch', 'duch'],
+  'mkenny-properties'      => ['mkenny-properties', 'mkennyproperties', 'mkenny'],
+  'wp-publishion-ai'       => ['wp-publishion-ai', 'wp-publishion', 'publishion'],
+  'blvck-hair-ng'          => ['blvck-hair-ng', 'blvck-hair', 'blvckhair', 'blvck'],
   'bridgepoint-compliance' => ['bridgepoint-compliance', 'bridgepoint-consulting', 'compliance-analysis'],
   'bridgepoint-advisory'   => ['bridgepoint-advisory', 'bridgepoint-brand', 'bridgepoints'],
   'victorias-lane'         => ['victorias-lane', 'victoria-lane', 'victoriaslane'],
-  'sweetermen-ng'          => ['sweetermen', 'sweetermen-ng'],
-  'stride-plus-media'      => ['stride', 'stride-plus', 'stride-plus-media', 'strideradio'],
-  'kiri-city-stays'        => ['kiri', 'kiri-city', 'kiri-city-stays', 'kiricitystays'],
+  'sweetermen-ng'          => ['sweetermen-ng', 'sweetermen'],
+  'stride-plus-media'      => ['stride-plus-media', 'stride-plus', 'strideradio', 'stride'],
+  'kiri-city-stays'        => ['kiri-city-stays', 'kiri-city', 'kiricitystays', 'kiri'],
 ];
 
 foreach ($slug_match_rules as $canonical_key => $patterns) {
   foreach ($patterns as $pat) {
     foreach ($all_slug_checks as $check_str) {
       if (!empty($check_str) && stripos($check_str, $pat) !== false) {
-        $active_slug = $canonical_key;
+        $matched_slug = $canonical_key;
         break 3;
       }
     }
@@ -277,10 +277,12 @@ $portfolio_data_matrix = [
 ];
 
 // Helper to locate theme image safely
-function cr8v_cs_img_src($filename, $fallback = 'case_study_duch_apartments.webp') {
+function cr8v_cs_img_src($filename, $fallback = '') {
+  if (empty($filename)) return '';
+  if (filter_var($filename, FILTER_VALIDATE_URL)) return $filename;
   $theme_dir = get_template_directory();
   $theme_uri = get_template_directory_uri();
-  if (!empty($filename) && file_exists($theme_dir . '/assets/img/case_studies/' . $filename)) {
+  if (file_exists($theme_dir . '/assets/img/case_studies/' . $filename)) {
     return $theme_uri . '/assets/img/case_studies/' . esc_attr($filename);
   }
   if (!empty($fallback) && file_exists($theme_dir . '/assets/img/case_studies/' . $fallback)) {
@@ -289,8 +291,45 @@ function cr8v_cs_img_src($filename, $fallback = 'case_study_duch_apartments.webp
   return $theme_uri . '/assets/img/case_studies/' . esc_attr($filename);
 }
 
-// Fallback for remaining slugs
-$active_data = $portfolio_data_matrix[$active_slug] ?? $portfolio_data_matrix['the-duch-apartments'];
+// Fallback for unconfigured or dynamic slugs — NEVER DUMP DUCH DATA ON OTHER POSTS
+if ($matched_slug && isset($portfolio_data_matrix[$matched_slug])) {
+  $active_data = $portfolio_data_matrix[$matched_slug];
+} else {
+  $active_data = [
+    'client_name'   => get_the_title(),
+    'industry'      => 'Portfolio // Case Study',
+    'headline_main' => get_the_title(),
+    'headline_serif'=> '',
+    'lead'          => has_excerpt() ? get_the_excerpt() : '',
+    'pills'         => [],
+    'meta_services' => get_post_meta(get_the_ID(), 'case_study_services', true) ?: 'Design & Engineering',
+    'meta_stack'    => get_post_meta(get_the_ID(), 'case_study_stack', true) ?: 'WordPress',
+    'meta_link_url' => get_post_meta(get_the_ID(), 'case_study_link_url', true) ?: '',
+    'meta_link_text'=> get_post_meta(get_the_ID(), 'case_study_link_text', true) ?: '',
+    'hero_img'      => get_the_post_thumbnail_url(get_the_ID(), 'full') ?: '',
+    'overview_title'=> '',
+    'overview_p1'   => '',
+    'overview_p2'   => '',
+    'overview_items'=> [],
+    'asset_01_meta' => '',
+    'asset_01_title'=> '',
+    'asset_01_desc' => '',
+    'asset_01_img'  => '',
+    'asset_02_meta' => '',
+    'asset_02_title'=> '',
+    'asset_02_desc' => '',
+    'asset_02_img'  => '',
+    'asset_03_meta' => '',
+    'asset_03_title'=> '',
+    'asset_03_desc' => '',
+    'asset_03_points'=> [],
+    'asset_03_img'  => '',
+    'gallery_header'=> '',
+    'gallery'       => [],
+    'metrics'       => [],
+    'live_url'      => get_post_meta(get_the_ID(), 'case_study_live_url', true) ?: ''
+  ];
+}
 
 get_header();
 ?>
@@ -583,151 +622,196 @@ get_header();
     </div>
   </section>
 
-  <!-- Section 2: Scroll-Grow Media -->
-  <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
-    <div class="c8cs-main-img-box" id="c8cs-grow-target">
-      <img src="<?php echo cr8v_cs_img_src($active_data['hero_img'], 'case_study_duch_apartments.webp'); ?>" alt="<?php echo esc_attr($active_data['client_name']); ?> case study hero showcase">
-    </div>
-  </div>
-
-  <!-- Section 3: Strategic Overview -->
-  <section class="c8cs-wrap">
-    <div class="c8cs-split-section">
-      <div class="c8cs-split-left">
-        <div class="c8cs-label">Overview</div>
-        <h2 class="c8cs-split-title"><?php echo wp_kses_post($active_data['overview_title']); ?></h2>
-        <div class="c8cs-body-content">
-          <p><?php echo esc_html($active_data['overview_p1']); ?></p>
-          <p><?php echo esc_html($active_data['overview_p2']); ?></p>
-        </div>
-      </div>
-
-      <div class="c8cs-split-right">
-        <?php foreach ($active_data['overview_items'] as $item): ?>
-          <div class="fylla-value-item">
-            <div class="fylla-value-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
-            <div>
-              <h3 class="fylla-value-h3"><?php echo esc_html($item['title']); ?></h3>
-              <p class="fylla-value-desc"><?php echo esc_html($item['desc']); ?></p>
-            </div>
-          </div>
-        <?php endforeach; ?>
+  <!-- Section 2: Scroll-Grow Media (Conditional) -->
+  <?php if (!empty($active_data['hero_img'])): ?>
+    <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
+      <div class="c8cs-main-img-box" id="c8cs-grow-target">
+        <img src="<?php echo cr8v_cs_img_src($active_data['hero_img']); ?>" alt="<?php echo esc_attr($active_data['client_name']); ?> case study hero showcase">
       </div>
     </div>
-  </section>
+  <?php endif; ?>
 
-  <!-- Section 4: Core Technical Deliverables (2-Up Grid) -->
-  <section class="c8cs-deliverables-section">
-    <div class="c8cs-wrap">
-      <div class="c8cs-deliverables-box">
-        <div class="c8cs-deliverables-header">
-          <div class="c8cs-label">Design &amp; Engineering</div>
-          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Core Technical Deliverables</h2>
-        </div>
-
-        <div class="c8cs-deliverables-grid">
-          <!-- Asset 01 -->
-          <div class="c8cs-deliverable-card">
-            <div>
-              <div class="c8cs-deliverable-meta"><?php echo esc_html($active_data['asset_01_meta']); ?></div>
-              <h3 class="c8cs-deliverable-title"><?php echo esc_html($active_data['asset_01_title']); ?></h3>
-              <p class="c8cs-deliverable-desc"><?php echo esc_html($active_data['asset_01_desc']); ?></p>
-            </div>
-            <div class="c8cs-deliverable-img-box">
-              <img src="<?php echo cr8v_cs_img_src($active_data['asset_01_img'], 'duch_asset_01_design_system.webp'); ?>" alt="<?php echo esc_attr($active_data['asset_01_title']); ?>">
-            </div>
-          </div>
-
-          <!-- Asset 02 -->
-          <div class="c8cs-deliverable-card">
-            <div>
-              <div class="c8cs-deliverable-meta"><?php echo esc_html($active_data['asset_02_meta']); ?></div>
-              <h3 class="c8cs-deliverable-title"><?php echo esc_html($active_data['asset_02_title']); ?></h3>
-              <p class="c8cs-deliverable-desc"><?php echo esc_html($active_data['asset_02_desc']); ?></p>
-            </div>
-            <div class="c8cs-deliverable-img-box">
-              <img src="<?php echo cr8v_cs_img_src($active_data['asset_02_img'], 'duch_asset_02_experience.webp'); ?>" alt="<?php echo esc_attr($active_data['asset_02_title']); ?>">
-            </div>
+  <!-- Section 3: Strategic Overview (Conditional) -->
+  <?php if (!empty($active_data['overview_items']) || !empty($active_data['overview_p1'])): ?>
+    <section class="c8cs-wrap">
+      <div class="c8cs-split-section">
+        <div class="c8cs-split-left">
+          <div class="c8cs-label">Overview</div>
+          <h2 class="c8cs-split-title"><?php echo wp_kses_post($active_data['overview_title'] ?: 'The Strategic Challenge'); ?></h2>
+          <div class="c8cs-body-content">
+            <?php if (!empty($active_data['overview_p1'])): ?><p><?php echo esc_html($active_data['overview_p1']); ?></p><?php endif; ?>
+            <?php if (!empty($active_data['overview_p2'])): ?><p><?php echo esc_html($active_data['overview_p2']); ?></p><?php endif; ?>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Section 5: Sovereignty Architecture Split (3:4) -->
-  <section class="c8cs-sovereignty-section">
-    <div class="c8cs-wrap">
-      <div class="c8cs-sovereignty-box">
-        <div class="c8cs-sovereignty-split">
-          <!-- Left: Narrative -->
-          <div class="c8cs-sovereignty-left">
-            <div class="c8cs-deliverable-meta"><?php echo esc_html($active_data['asset_03_meta']); ?></div>
-            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 1.25rem;"><?php echo esc_html($active_data['asset_03_title']); ?></h2>
-            <p style="font-size: 15px; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.5rem; font-weight: 300;"><?php echo esc_html($active_data['asset_03_desc']); ?></p>
-            <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;">
-              <?php foreach ($active_data['asset_03_points'] as $idx => $pt): ?>
-                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
-                  <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">0<?php echo $idx + 1; ?></span>
-                  <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;"><?php echo esc_html($pt); ?></span>
-                </div>
-              <?php endforeach; ?>
-            </div>
-          </div>
-
-          <!-- Right: 3:4 Native Vertical Asset -->
-          <div class="c8cs-sovereignty-right">
-            <div class="c8cs-sovereignty-img-box">
-              <img src="<?php echo cr8v_cs_img_src($active_data['asset_03_img'], 'duch_asset_03_ecosystem.webp'); ?>" alt="<?php echo esc_attr($active_data['asset_03_title']); ?>">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 6: Pure Visual Gallery Stream -->
-  <section class="c8cs-stream-section">
-    <div class="c8cs-wrap">
-      <div class="c8cs-stream-box">
-        <div class="c8cs-stream-header">
-          <div class="c8cs-label">Visual Gallery</div>
-          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;"><?php echo esc_html($active_data['gallery_header']); ?></h2>
-        </div>
-
-        <div class="c8cs-stream-grid">
-          <?php foreach ($active_data['gallery'] as $gItem): ?>
-            <div class="c8cs-stream-cell">
-              <div class="c8cs-stream-img-box">
-                <img src="<?php echo cr8v_cs_img_src($gItem['img'], 'cs_duch_gallery_01_laptop.webp'); ?>" alt="<?php echo esc_attr($gItem['title']); ?>">
+        <div class="c8cs-split-right">
+          <?php foreach ($active_data['overview_items'] as $item): ?>
+            <div class="fylla-value-item">
+              <div class="fylla-value-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
               </div>
-              <div class="c8cs-stream-cell-info">
-                <span class="c8cs-stream-cell-tag"><?php echo esc_html($gItem['tag']); ?></span>
-                <h3 class="c8cs-stream-cell-title"><?php echo esc_html($gItem['title']); ?></h3>
+              <div>
+                <h3 class="fylla-value-h3"><?php echo esc_html($item['title']); ?></h3>
+                <p class="fylla-value-desc"><?php echo esc_html($item['desc']); ?></p>
               </div>
             </div>
           <?php endforeach; ?>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  <?php endif; ?>
 
-  <!-- Section 7: Outcomes Metrics Matrix -->
-  <section class="c8cs-metrics-bg">
-    <div class="c8cs-wrap">
-      <div class="c8cs-metrics-outer-box">
-        <div class="c8cs-metrics-header">
-          <div class="c8cs-label">Impact</div>
-          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Measured Outcomes &amp; System Performance</h2>
+  <!-- Section 4: Core Technical Deliverables (Conditional) -->
+  <?php if (!empty($active_data['asset_01_title']) || !empty($active_data['asset_02_title'])): ?>
+    <section class="c8cs-deliverables-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-deliverables-box">
+          <div class="c8cs-deliverables-header">
+            <div class="c8cs-label">Design &amp; Engineering</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Core Technical Deliverables</h2>
+          </div>
+
+          <div class="c8cs-deliverables-grid">
+            <?php if (!empty($active_data['asset_01_title'])): ?>
+              <div class="c8cs-deliverable-card">
+                <div>
+                  <div class="c8cs-deliverable-meta"><?php echo esc_html($active_data['asset_01_meta']); ?></div>
+                  <h3 class="c8cs-deliverable-title"><?php echo esc_html($active_data['asset_01_title']); ?></h3>
+                  <p class="c8cs-deliverable-desc"><?php echo esc_html($active_data['asset_01_desc']); ?></p>
+                </div>
+                <?php if (!empty($active_data['asset_01_img'])): ?>
+                  <div class="c8cs-deliverable-img-box">
+                    <img src="<?php echo cr8v_cs_img_src($active_data['asset_01_img']); ?>" alt="<?php echo esc_attr($active_data['asset_01_title']); ?>">
+                  </div>
+                <?php endif; ?>
+              </div>
+            <?php endif; ?>
+
+            <?php if (!empty($active_data['asset_02_title'])): ?>
+              <div class="c8cs-deliverable-card">
+                <div>
+                  <div class="c8cs-deliverable-meta"><?php echo esc_html($active_data['asset_02_meta']); ?></div>
+                  <h3 class="c8cs-deliverable-title"><?php echo esc_html($active_data['asset_02_title']); ?></h3>
+                  <p class="c8cs-deliverable-desc"><?php echo esc_html($active_data['asset_02_desc']); ?></p>
+                </div>
+                <?php if (!empty($active_data['asset_02_img'])): ?>
+                  <div class="c8cs-deliverable-img-box">
+                    <img src="<?php echo cr8v_cs_img_src($active_data['asset_02_img']); ?>" alt="<?php echo esc_attr($active_data['asset_02_title']); ?>">
+                  </div>
+                <?php endif; ?>
+              </div>
+            <?php endif; ?>
+          </div>
         </div>
+      </div>
+    </section>
+  <?php endif; ?>
 
-        <div class="c8cs-metrics-grid">
-          <?php foreach ($active_data['metrics'] as $mIdx => $m): ?>
-            <div class="c8cs-metric-card">
-              <div class="c8cs-metric-val"><?php echo esc_html($m['val']); ?></div>
-              <div class="c8cs-metric-lbl"><?php echo esc_html($m['lbl']); ?></div>
-              <p class="c8cs-metric-desc" <?php if ($mIdx === count($active_data['metrics']) - 1) echo 'style="margin-bottom: 1.5rem;"'; ?>><?php echo esc_html($m['desc']); ?></p>
+  <!-- Section 5: Sovereignty Architecture Split (Conditional) -->
+  <?php if (!empty($active_data['asset_03_title'])): ?>
+    <section class="c8cs-sovereignty-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-sovereignty-box">
+          <div class="c8cs-sovereignty-split">
+            <div class="c8cs-sovereignty-left">
+              <div class="c8cs-deliverable-meta"><?php echo esc_html($active_data['asset_03_meta']); ?></div>
+              <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 1.25rem;"><?php echo esc_html($active_data['asset_03_title']); ?></h2>
+              <p style="font-size: 15px; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.5rem; font-weight: 300;"><?php echo esc_html($active_data['asset_03_desc']); ?></p>
+              <?php if (!empty($active_data['asset_03_points'])): ?>
+                <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;">
+                  <?php foreach ($active_data['asset_03_points'] as $idx => $pt): ?>
+                    <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                      <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">0<?php echo $idx + 1; ?></span>
+                      <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;"><?php echo esc_html($pt); ?></span>
+                    </div>
+                  <?php endforeach; ?>
+                </div>
+              <?php endif; ?>
+            </div>
+
+            <?php if (!empty($active_data['asset_03_img'])): ?>
+              <div class="c8cs-sovereignty-right">
+                <div class="c8cs-sovereignty-img-box">
+                  <img src="<?php echo cr8v_cs_img_src($active_data['asset_03_img']); ?>" alt="<?php echo esc_attr($active_data['asset_03_title']); ?>">
+                </div>
+              </div>
+            <?php endif; ?>
+          </div>
+        </div>
+      </div>
+    </section>
+  <?php endif; ?>
+
+  <!-- Section 6: Pure Visual Gallery Stream (Conditional) -->
+  <?php if (!empty($active_data['gallery'])): ?>
+    <section class="c8cs-stream-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-stream-box">
+          <div class="c8cs-stream-header">
+            <div class="c8cs-label">Visual Gallery</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;"><?php echo esc_html($active_data['gallery_header'] ?: 'Production Gallery'); ?></h2>
+          </div>
+
+          <div class="c8cs-stream-grid">
+            <?php foreach ($active_data['gallery'] as $gItem): ?>
+              <div class="c8cs-stream-cell">
+                <div class="c8cs-stream-img-box">
+                  <img src="<?php echo cr8v_cs_img_src($gItem['img']); ?>" alt="<?php echo esc_attr($gItem['title']); ?>">
+                </div>
+                <div class="c8cs-stream-cell-info">
+                  <span class="c8cs-stream-cell-tag"><?php echo esc_html($gItem['tag']); ?></span>
+                  <h3 class="c8cs-stream-cell-title"><?php echo esc_html($gItem['title']); ?></h3>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </div>
+    </section>
+  <?php endif; ?>
+
+  <!-- Section 7: Outcomes Metrics Matrix (Conditional) -->
+  <?php if (!empty($active_data['metrics'])): ?>
+    <section class="c8cs-metrics-bg">
+      <div class="c8cs-wrap">
+        <div class="c8cs-metrics-outer-box">
+          <div class="c8cs-metrics-header">
+            <div class="c8cs-label">Impact</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Measured Outcomes &amp; System Performance</h2>
+          </div>
+
+          <div class="c8cs-metrics-grid">
+            <?php foreach ($active_data['metrics'] as $mIdx => $m): ?>
+              <div class="c8cs-metric-card">
+                <div class="c8cs-metric-val"><?php echo esc_html($m['val']); ?></div>
+                <div class="c8cs-metric-lbl"><?php echo esc_html($m['lbl']); ?></div>
+                <p class="c8cs-metric-desc" <?php if ($mIdx === count($active_data['metrics']) - 1 && !empty($active_data['live_url'])) echo 'style="margin-bottom: 1.5rem;"'; ?>><?php echo esc_html($m['desc']); ?></p>
+                
+                <?php if ($mIdx === count($active_data['metrics']) - 1 && !empty($active_data['live_url'])): ?>
+                  <a href="<?php echo esc_url($active_data['live_url']); ?>" target="_blank" rel="noopener" class="c8cs-status-badge">
+                    <div class="c8cs-status-lbl">Production Verification</div>
+                    <div class="c8cs-status-val">
+                      <span class="c8cs-checkmark-circle">&#10003;</span>
+                      <span>Visit Live Site &rarr;</span>
+                    </div>
+                  </a>
+                <?php endif; ?>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </div>
+    </section>
+  <?php endif; ?>
+
+  <!-- Standard Post Content Fallback for unconfigured cases -->
+  <?php if (empty($matched_slug) && have_posts()): ?>
+    <div class="c8cs-wrap">
+      <div class="c8cs-standard-body">
+        <?php while (have_posts()) : the_post(); the_content(); endwhile; ?>
+      </div>
+    </div>
+  <?php endif; ?>
               
               <?php if ($mIdx === count($active_data['metrics']) - 1): ?>
                 <a href="<?php echo esc_url($active_data['live_url']); ?>" target="_blank" rel="noopener" class="c8cs-status-badge">
