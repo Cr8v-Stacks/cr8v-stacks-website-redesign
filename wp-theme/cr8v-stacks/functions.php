@@ -304,50 +304,37 @@ add_filter('template_include', function ($template) {
         if ($t) return $t;
     }
 
-    // Comprehensive Case Studies Map & Aliases
-    $case_study_routes = [
-        'page-case-study-duch.php' => [
-            'the-duch-apartments', 'duch-apartments', 'the-duch', 'duch', 'vanguard-architecture'
-        ],
-        'page-case-study-mkenny.php' => [
-            'mkenny-properties', 'mkenny', 'mkennyproperties', 'mkenny-real-estate'
-        ],
-        'page-case-study-bridgepoint.php' => [
-            'bridgepoint-compliance', 'bridgepoint-consulting', 'bridgepoint', 'apex-logistics'
-        ],
-        'page-case-study-bridgepoint-brand.php' => [
-            'bridgepoint-advisory', 'bridgepoint-brand', 'bridgepoints'
-        ],
-        'page-case-study-blvck-hair.php' => [
-            'blvck-hair-ng', 'blvck-hair', 'blvckhair', 'luxe-apparel'
-        ],
-        'page-case-study-victorias-lane.php' => [
-            'victorias-lane', 'victoria-lane', 'victoriaslane'
-        ],
-        'page-case-study-kiri-city.php' => [
-            'kiri-city-stays', 'kiri-city', 'kiricitystays'
-        ],
-        'page-case-study-stride.php' => [
-            'stride-plus-media', 'stride-plus', 'stride', 'strideradio', 'fintech-growth'
-        ],
-        'page-case-study-sweetermen.php' => [
-            'sweetermen-ng', 'sweetermen'
-        ],
-        'page-case-study-wp-publishion.php' => [
-            'wp-publishion-ai', 'wp-publishion', 'cognitive-ai'
-        ],
+    // Universal Case Study Router — All portfolio / case study URLs use single-case_study.php
+    $all_case_study_slugs = [
+        'the-duch-apartments', 'duch-apartments', 'the-duch', 'duch',
+        'mkenny-properties', 'mkenny', 'mkennyproperties', 'mkenny-real-estate',
+        'wp-publishion-ai', 'wp-publishion', 'publishion',
+        'blvck-hair-ng', 'blvck-hair', 'blvckhair',
+        'bridgepoint-compliance', 'bridgepoint-consulting', 'bridgepoint',
+        'bridgepoint-advisory', 'bridgepoint-brand', 'bridgepoints',
+        'victorias-lane', 'victoria-lane', 'victoriaslane',
+        'sweetermen-ng', 'sweetermen',
+        'stride-plus-media', 'stride-plus', 'stride', 'strideradio',
+        'kiri-city-stays', 'kiri-city', 'kiricitystays'
     ];
 
-    foreach ($case_study_routes as $tpl_file => $slug_aliases) {
-        if (in_array($slug, $slug_aliases, true) || in_array($uri_slug, $slug_aliases, true) || is_page_template($tpl_file)) {
-            if ($wp_query) {
-                $wp_query->is_404 = false;
-                $wp_query->is_single = true;
-            }
-            status_header(200);
-            $t = locate_template($tpl_file);
-            if ($t) return $t;
+    $is_case_study_url = in_array($slug, $all_case_study_slugs, true) 
+        || in_array($uri_slug, $all_case_study_slugs, true) 
+        || ($first_seg === 'case-studies' && count($uri_parts) >= 2)
+        || ($first_seg === 'case-study' && count($uri_parts) >= 2)
+        || ($first_seg === 'portfolio' && count($uri_parts) >= 2)
+        || is_singular('case_study')
+        || is_page_template('single-case_study.php')
+        || (isset($uri_parts[0]) && $uri_parts[0] === 'portfolio' && isset($uri_parts[1]) && in_array($uri_parts[1], $all_case_study_slugs, true));
+
+    if ($is_case_study_url) {
+        if ($wp_query) {
+            $wp_query->is_404 = false;
+            $wp_query->is_single = true;
         }
+        status_header(200);
+        $t = locate_template('single-case_study.php');
+        if ($t) return $t;
     }
 
     if (is_singular('case_study')) {

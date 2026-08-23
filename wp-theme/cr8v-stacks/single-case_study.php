@@ -2,7 +2,7 @@
 /**
  * Universal Single Case Study Controller Template
  * Framework: Dynamic Data-Driven 7-Section Master Blueprint
- * Parity Reference: Case Studies/the-duch-apartments.html & page-case-study-duch.php (100% Exact Parity)
+ * Parity Reference: Case Studies/the-duch-apartments.html (100% Exact Parity)
  */
 defined('ABSPATH') || exit;
 
@@ -30,16 +30,16 @@ $active_slug = 'the-duch-apartments'; // default fallback
 $all_slug_checks = [$post_slug, $uri_slug, $raw_uri, $post_title, $query_var_name];
 
 $slug_match_rules = [
-  'the-duch-apartments' => ['duch', 'the-duch', 'the-duch-apartments'],
-  'mkenny-properties'   => ['mkenny', 'mkenny-properties', 'mkennyproperties'],
-  'wp-publishion-ai'    => ['wp-publishion', 'publishion', 'wp-publishion-ai'],
-  'blvck-hair-ng'       => ['blvck', 'blvck-hair', 'blvck-hair-ng', 'blvckhair'],
-  'bridgepoint-compliance' => ['bridgepoint-compliance', 'bridgepoint-consulting'],
+  'the-duch-apartments'    => ['duch', 'the-duch', 'the-duch-apartments'],
+  'mkenny-properties'      => ['mkenny', 'mkenny-properties', 'mkennyproperties'],
+  'wp-publishion-ai'       => ['wp-publishion', 'publishion', 'wp-publishion-ai'],
+  'blvck-hair-ng'          => ['blvck', 'blvck-hair', 'blvck-hair-ng', 'blvckhair'],
+  'bridgepoint-compliance' => ['bridgepoint-compliance', 'bridgepoint-consulting', 'compliance-analysis'],
   'bridgepoint-advisory'   => ['bridgepoint-advisory', 'bridgepoint-brand', 'bridgepoints'],
-  'victorias-lane'      => ['victorias-lane', 'victoria-lane', 'victoriaslane'],
-  'sweetermen-ng'       => ['sweetermen', 'sweetermen-ng'],
-  'stride-plus-media'   => ['stride', 'stride-plus', 'stride-plus-media', 'strideradio'],
-  'kiri-city-stays'     => ['kiri', 'kiri-city', 'kiri-city-stays', 'kiricitystays'],
+  'victorias-lane'         => ['victorias-lane', 'victoria-lane', 'victoriaslane'],
+  'sweetermen-ng'          => ['sweetermen', 'sweetermen-ng'],
+  'stride-plus-media'      => ['stride', 'stride-plus', 'stride-plus-media', 'strideradio'],
+  'kiri-city-stays'        => ['kiri', 'kiri-city', 'kiri-city-stays', 'kiricitystays'],
 ];
 
 foreach ($slug_match_rules as $canonical_key => $patterns) {
@@ -95,12 +95,12 @@ $portfolio_data_matrix = [
     'asset_03_img'  => 'duch_asset_03_ecosystem.webp',
     'gallery_header'=> 'Platform Showcase & Production Gallery',
     'gallery'       => [
-      ['img' => 'duch_gallery_01.webp', 'tag' => 'Live Interface', 'title' => 'Responsive Suite Catalog'],
-      ['img' => 'duch_gallery_02.webp', 'tag' => 'Macro Interaction', 'title' => 'Room Suite Card Detail'],
-      ['img' => 'duch_gallery_03.webp', 'tag' => 'Workstation Staging', 'title' => 'Studio Review & Responsive Tablet'],
-      ['img' => 'duch_gallery_04.webp', 'tag' => 'Atmosphere', 'title' => 'Luxury Penthouse Living Space'],
-      ['img' => 'duch_gallery_05.webp', 'tag' => 'Engine Detail', 'title' => 'Dual-Month Availability Calendar'],
-      ['img' => 'duch_gallery_06.webp', 'tag' => 'Platform Staging', 'title' => 'Oblique UI Slab Showcase']
+      ['img' => 'cs_duch_gallery_01_laptop.webp', 'tag' => 'Live Interface', 'title' => 'Responsive Suite Catalog'],
+      ['img' => 'cs_duch_gallery_02_macro.webp', 'tag' => 'Macro Interaction', 'title' => 'Room Suite Card Detail'],
+      ['img' => 'cs_duch_gallery_05_calendar.webp', 'tag' => 'Engine Detail', 'title' => 'Dual-Month Availability Calendar'],
+      ['img' => 'cs_duch_gallery_04_living.webp', 'tag' => 'Atmosphere', 'title' => 'Luxury Penthouse Living Space'],
+      ['img' => 'cs_duch_gallery_03_workspace.webp', 'tag' => 'Workstation Staging', 'title' => 'Studio Review & Responsive Tablet'],
+      ['img' => 'cs_duch_gallery_06_platform.webp', 'tag' => 'Platform Staging', 'title' => 'Oblique UI Slab Showcase']
     ],
     'metrics'       => [
       ['val' => '+340%', 'lbl' => 'Direct Revenue Growth', 'desc' => 'Massive shift from OTA dependency to direct guest website reservations in the first 90 days.'],
@@ -121,7 +121,7 @@ $portfolio_data_matrix = [
     'meta_stack'    => 'WordPress · Elementor · Custom PHP · UK Property Schema',
     'meta_link_url' => 'https://mkennyproperties.com/',
     'meta_link_text'=> 'mkennyproperties.com ↗',
-    'hero_img'      => 'cs_mkenny_hero_landscape.webp',
+    'hero_img'      => 'case_study_mkenny_properties.webp',
     'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
     'overview_p1'   => 'Mkenny Properties required a scalable digital development portfolio to showcase active residential schemes (such as 6 Short Avenue, Manchester and Cromwell Road, Stretford) to UK property investors and home buyers without generic real estate plugin bloat.',
     'overview_p2'   => 'We engineered a bespoke WordPress development catalog: modular Elementor listing widgets, sub-second AJAX taxonomy facet filtering across Manchester locations, property status flags (Completed, Ongoing, Investment Highlight), and automated direct broker dispatch.',
@@ -144,7 +144,7 @@ $portfolio_data_matrix = [
     'asset_03_desc' => 'Rather than relying on third-party property portal aggregators that charge exorbitant listing fees and divert UK buyer leads to competing developments, we architected an independent WordPress property catalog pipeline that keeps all buyer data and direct inquiries proprietary to Mkenny.',
     'asset_03_points'=> [
       'Custom Post Type & ACF Schema: Clean property data architecture supporting floor plans, tenure, and development stages.',
-      'Cached WP_Query Optimization: Sub-120ms database response times across high-density image catalogs.',
+      'Cached WP_Query Optimization: Instantaneous database response times across high-density image catalogs.',
       'Automated Broker Routing: Dynamic pre-filled WhatsApp lead dispatch connecting prospective buyers directly to the assigned development manager.'
     ],
     'asset_03_img'  => 'mkenny_asset_03_ecosystem.webp',
@@ -163,8 +163,131 @@ $portfolio_data_matrix = [
       ['val' => '100%', 'lbl' => 'Editorial Autonomy', 'desc' => 'Custom Elementor widget suite allows internal team to publish new schemes in minutes.']
     ],
     'live_url'      => 'https://mkennyproperties.com/'
+  ],
+
+  'wp-publishion-ai' => [
+    'client_name'   => 'WP Publishion AI',
+    'industry'      => 'AI MVP // Autonomous Multi-LLM Content Engine',
+    'headline_main' => 'WP Publishion AI: Autonomous Editorial &',
+    'headline_serif'=> 'Multi-LLM Engine',
+    'lead'          => 'WP Publishion AI is our proprietary AI-powered WordPress publishing application, architected to automate fact-verified, SEO-optimized editorial drafting directly within WordPress core via Claude 3.5, Gemini 1.5 Pro, and OpenAI.',
+    'pills'         => ['AI MVP', 'Multi-LLM Pipeline', 'WordPress REST API', 'Brave Search API'],
+    'meta_services' => 'AI System Architecture, Full-Stack SaaS Engineering',
+    'meta_stack'    => 'WordPress · Python · Claude / OpenAI / Gemini APIs',
+    'meta_link_url' => 'https://wppublishion.com/',
+    'meta_link_text'=> 'wppublishion.com ↗',
+    'hero_img'      => 'case_study_wp_publishion.webp',
+    'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
+    'overview_p1'   => 'Publishers and agencies struggle with generic AI content that hallucinates facts, lacks structured schema markup, and requires extensive manual copy-pasting into CMS workflows.',
+    'overview_p2'   => 'We built WP Publishion AI from the ground up: an autonomous multi-LLM orchestration pipeline with integrated Brave Search fact-checking, automated internal linking, and direct REST API block editor publishing.',
+    'overview_items'=> [
+      ['title' => '01 / Multi-LLM Orchestration', 'desc' => 'Integrated Claude 3.5 Sonnet, OpenAI GPT-4o, and Gemini 1.5 Pro with automatic fallback routing.'],
+      ['title' => '02 / Real-Time Fact Verification', 'desc' => 'Connected Brave Search API to verify claims and insert live citations prior to publication.'],
+      ['title' => '03 / Native WordPress Core Bridge', 'desc' => 'Direct Gutenberg block generation eliminating all external SaaS copy-pasting.'],
+      ['title' => '04 / Automated Schema & Entities', 'desc' => 'Generates Article, FAQPage, and Entity JSON-LD schemas automatically.'],
+    ],
+    'asset_01_meta' => 'Design System // Asset 01',
+    'asset_01_title'=> 'AI Telemetry & Model Token Spec',
+    'asset_01_desc' => 'Modular developer interface tokens, model status indicators (Claude, GPT, Gemini), and prompt parameter control components.',
+    'asset_01_img'  => 'wp_publishion_asset_01_design_system.webp',
+    'asset_02_meta' => 'Experience // Asset 02',
+    'asset_02_title'=> 'Real-Time Fact Engine & Editor',
+    'asset_02_desc' => 'Live drafting canvas with automated claim validation, citation injections, and readability telemetry.',
+    'asset_02_img'  => 'wp_publishion_asset_02_experience.webp',
+    'asset_03_meta' => 'Ecosystem Velocity // Asset 03',
+    'asset_03_title'=> 'Proprietary Content Sovereignty Pipeline',
+    'asset_03_desc' => '100% in-house AI engine eliminating subscription lock-in and keeping all training data and editorial content proprietary.',
+    'asset_03_points'=> [
+      'Zero SaaS Dependency: Self-hosted API orchestration with private key management.',
+      'Instant Block Generation: 1-click publishing directly to WordPress draft queues.',
+      'Automated Semantic SEO: Pre-configured entity graphs and structured metadata.'
+    ],
+    'asset_03_img'  => 'wp_publishion_asset_03_ecosystem.webp',
+    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'gallery'       => [
+      ['img' => 'publishion_gallery_01.webp', 'tag' => 'Editor Workspace', 'title' => 'Multi-LLM Drafting Canvas'],
+      ['img' => 'publishion_gallery_02.webp', 'tag' => 'Verification', 'title' => 'Live Search Fact Checker'],
+      ['img' => 'publishion_gallery_03.webp', 'tag' => 'API Pipeline', 'title' => 'REST API Webhook Telemetry'],
+      ['img' => 'publishion_gallery_04.webp', 'tag' => 'CMS Integration', 'title' => 'Gutenberg Block Injection'],
+      ['img' => 'publishion_gallery_05.webp', 'tag' => 'Model Routing', 'title' => 'LLM Parameter Controls'],
+      ['img' => 'publishion_gallery_06.webp', 'tag' => 'Telemetry', 'title' => 'System Execution Staging Slab']
+    ],
+    'metrics'       => [
+      ['val' => '3', 'lbl' => 'LLMs Integrated', 'desc' => 'Claude 3.5, Gemini 1.5 Pro, and GPT-4o unified in one pipeline.'],
+      ['val' => '0', 'lbl' => 'SaaS Lock-in', 'desc' => '100% client-owned infrastructure with zero per-seat subscription markup.'],
+      ['val' => '100%', 'lbl' => 'In-House Build', 'desc' => 'Designed, engineered, and operated entirely by Cr8v Stacks.']
+    ],
+    'live_url'      => 'https://wppublishion.com/'
+  ],
+
+  'blvck-hair-ng' => [
+    'client_name'   => 'BLVCK Hair NG',
+    'industry'      => 'E-Commerce // Luxury Hair Extensions & Organic Search Domination',
+    'headline_main' => 'BLVCK Hair NG: Luxury Storefront &',
+    'headline_serif'=> 'Entity SEO Engine',
+    'lead'          => 'BLVCK Hair NG is a luxury hair extension brand that scaled from early-stage organic search presence to running active commercial storefronts across Nigeria and the United Kingdom. We engineered high-converting Shopify Liquid templates, Paystack integration, and organic SEO authority.',
+    'pills'         => ['Shopify Liquid', 'Entity SEO', 'Paystack Multi-Currency', 'E-Commerce UX'],
+    'meta_services' => 'Shopify Engineering, Entity SEO & Conversion Design',
+    'meta_stack'    => 'Shopify · Liquid · Paystack · Schema JSON-LD',
+    'meta_link_url' => 'https://blvckhairng.com/',
+    'meta_link_text'=> 'blvckhairng.com ↗',
+    'hero_img'      => 'case_study_blvck_hair.webp',
+    'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
+    'overview_p1'   => 'BLVCK Hair NG needed to expand from a single local boutique into an international luxury direct-to-consumer brand with dominant search visibility for high-intent hair extension queries.',
+    'overview_p2'   => 'We engineered a bespoke Shopify Liquid storefront with instant slide-out cart drawers, seamless Paystack multi-currency checkout, structured Product JSON-LD schema, and high-velocity mobile UX.',
+    'overview_items'=> [
+      ['title' => '01 / Bespoke Shopify Liquid Storefront', 'desc' => 'Engineered high-performance templates tailored for luxury product photography and mobile shoppers.'],
+      ['title' => '02 / Entity SEO & Keyword Mapping', 'desc' => 'Mapped competitive search terms to category hubs, capturing high-intent organic buyer traffic.'],
+      ['title' => '03 / Frictionless Checkout Pipeline', 'desc' => 'Integrated Paystack and international payment gateways with automated SMS/email order tracking.'],
+      ['title' => '04 / Multi-Store International Scale', 'desc' => 'Architected dual-storefront currency localization supporting Nigerian and UK shoppers.'],
+    ],
+    'asset_01_meta' => 'Design System // Asset 01',
+    'asset_01_title'=> 'Luxury Fashion Design System & Tokens',
+    'asset_01_desc' => 'Editorial typography tokens, jet black and champagne gold color ramps, and product badge components.',
+    'asset_01_img'  => 'blvck_asset_01_design_system.webp',
+    'asset_02_meta' => 'Experience // Asset 02',
+    'asset_02_title'=> 'Slide-Out Cart & Bundle Builder',
+    'asset_02_desc' => 'Instant slide-out cart drawer with dynamic bundle upsells and 1-click Paystack checkout.',
+    'asset_02_img'  => 'blvck_asset_02_experience.webp',
+    'asset_03_meta' => 'Ecosystem Velocity // Asset 03',
+    'asset_03_title'=> 'Organic Acquisition Sovereignty',
+    'asset_03_desc' => 'Building long-term organic search equity that generates continuous buyer traffic without continuous ad spend.',
+    'asset_03_points'=> [
+      '2 Live Storefronts: Operating in Nigeria and the UK.',
+      '100s of Verified Customer Reviews: Building strong social proof and brand equity.',
+      'Top 3 Search Rankings: Outranking competitors for luxury hair extension keywords.'
+    ],
+    'asset_03_img'  => 'blvck_asset_03_ecosystem.webp',
+    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'gallery'       => [
+      ['img' => 'blvck_gallery_01.webp', 'tag' => 'Mobile UX', 'title' => 'Responsive Product Showcase'],
+      ['img' => 'blvck_gallery_02.webp', 'tag' => 'Product Detail', 'title' => 'Custom Bundle Builder'],
+      ['img' => 'blvck_gallery_03.webp', 'tag' => 'Checkout', 'title' => 'Paystack Instant Payment'],
+      ['img' => 'blvck_gallery_04.webp', 'tag' => 'Brand Review', 'title' => 'Social Proof Matrix'],
+      ['img' => 'blvck_gallery_05.webp', 'tag' => 'Search Growth', 'title' => 'Organic Visibility Chart'],
+      ['img' => 'blvck_gallery_06.webp', 'tag' => 'Catalog Staging', 'title' => 'Luxury Storefront Staging Slab']
+    ],
+    'metrics'       => [
+      ['val' => '2', 'lbl' => 'Active Storefronts', 'desc' => 'Expanded from single location to live storefronts in Nigeria & UK.'],
+      ['val' => '100s', 'lbl' => 'Customer Reviews', 'desc' => 'Accumulated across both regional operations.'],
+      ['val' => '100%', 'lbl' => 'Organic Verification', 'desc' => 'Verifiable live right now on Google search.']
+    ],
+    'live_url'      => 'https://blvckhairng.com/'
   ]
 ];
+
+// Helper to locate theme image safely
+function cr8v_cs_img_src($filename, $fallback = 'case_study_duch_apartments.webp') {
+  $theme_dir = get_template_directory();
+  $theme_uri = get_template_directory_uri();
+  if (!empty($filename) && file_exists($theme_dir . '/assets/img/case_studies/' . $filename)) {
+    return $theme_uri . '/assets/img/case_studies/' . esc_attr($filename);
+  }
+  if (!empty($fallback) && file_exists($theme_dir . '/assets/img/case_studies/' . $fallback)) {
+    return $theme_uri . '/assets/img/case_studies/' . esc_attr($fallback);
+  }
+  return $theme_uri . '/assets/img/case_studies/' . esc_attr($filename);
+}
 
 // Fallback for remaining slugs
 $active_data = $portfolio_data_matrix[$active_slug] ?? $portfolio_data_matrix['the-duch-apartments'];
@@ -226,7 +349,7 @@ get_header();
 
   .fylla-pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; margin-bottom: 2.5rem; }
   .fylla-pill {
-    border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.35rem 0.85rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700; border-radius: 4px !important; text-transform: uppercase;
+    border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.4rem 0.9rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700; border-radius: 4px !important; text-transform: uppercase;
   }
 
   .c8cs-hero { padding-top: 7rem; padding-bottom: 4rem; position: relative; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
@@ -463,7 +586,7 @@ get_header();
   <!-- Section 2: Scroll-Grow Media -->
   <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
     <div class="c8cs-main-img-box" id="c8cs-grow-target">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/<?php echo esc_attr($active_data['hero_img']); ?>" alt="<?php echo esc_attr($active_data['client_name']); ?> case study hero showcase">
+      <img src="<?php echo cr8v_cs_img_src($active_data['hero_img'], 'case_study_duch_apartments.webp'); ?>" alt="<?php echo esc_attr($active_data['client_name']); ?> case study hero showcase">
     </div>
   </div>
 
@@ -513,7 +636,7 @@ get_header();
               <p class="c8cs-deliverable-desc"><?php echo esc_html($active_data['asset_01_desc']); ?></p>
             </div>
             <div class="c8cs-deliverable-img-box">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/<?php echo esc_attr($active_data['asset_01_img']); ?>" alt="<?php echo esc_attr($active_data['asset_01_title']); ?>">
+              <img src="<?php echo cr8v_cs_img_src($active_data['asset_01_img'], 'duch_asset_01_design_system.webp'); ?>" alt="<?php echo esc_attr($active_data['asset_01_title']); ?>">
             </div>
           </div>
 
@@ -525,7 +648,7 @@ get_header();
               <p class="c8cs-deliverable-desc"><?php echo esc_html($active_data['asset_02_desc']); ?></p>
             </div>
             <div class="c8cs-deliverable-img-box">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/<?php echo esc_attr($active_data['asset_02_img']); ?>" alt="<?php echo esc_attr($active_data['asset_02_title']); ?>">
+              <img src="<?php echo cr8v_cs_img_src($active_data['asset_02_img'], 'duch_asset_02_experience.webp'); ?>" alt="<?php echo esc_attr($active_data['asset_02_title']); ?>">
             </div>
           </div>
         </div>
@@ -556,7 +679,7 @@ get_header();
           <!-- Right: 3:4 Native Vertical Asset -->
           <div class="c8cs-sovereignty-right">
             <div class="c8cs-sovereignty-img-box">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/<?php echo esc_attr($active_data['asset_03_img']); ?>" alt="<?php echo esc_attr($active_data['asset_03_title']); ?>">
+              <img src="<?php echo cr8v_cs_img_src($active_data['asset_03_img'], 'duch_asset_03_ecosystem.webp'); ?>" alt="<?php echo esc_attr($active_data['asset_03_title']); ?>">
             </div>
           </div>
         </div>
@@ -577,7 +700,7 @@ get_header();
           <?php foreach ($active_data['gallery'] as $gItem): ?>
             <div class="c8cs-stream-cell">
               <div class="c8cs-stream-img-box">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/<?php echo esc_attr($gItem['img']); ?>" alt="<?php echo esc_attr($gItem['title']); ?>">
+                <img src="<?php echo cr8v_cs_img_src($gItem['img'], 'cs_duch_gallery_01_laptop.webp'); ?>" alt="<?php echo esc_attr($gItem['title']); ?>">
               </div>
               <div class="c8cs-stream-cell-info">
                 <span class="c8cs-stream-cell-tag"><?php echo esc_html($gItem['tag']); ?></span>
@@ -624,37 +747,34 @@ get_header();
 
   <!-- Section 8: Related Projects Matrix -->
   <section class="c8cs-related-paper-outer">
-    <div class="c8cs-related-matrix-box">
-      <div class="c8cs-related-matrix-header">
-        <div class="c8cs-label">Selected Work</div>
-        <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Explore Related Case Studies</h2>
-      </div>
+    <div class="c8cs-wrap">
+      <div class="c8cs-related-matrix-box">
+        <div class="c8cs-related-matrix-header">
+          <div class="c8cs-label">Selected Work</div>
+          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Explore Related Case Studies</h2>
+        </div>
 
-      <div class="c8cs-related-matrix-grid">
-        <?php
-        $related_keys = ['the-duch-apartments', 'mkenny-properties'];
-        foreach ($related_keys as $rKey):
-          if ($rKey === $active_slug) continue;
-          $rData = $portfolio_data_matrix[$rKey] ?? null;
-          if (!$rData) continue;
-        ?>
-          <a href="<?php echo esc_url(home_url('/portfolio/' . $rKey . '/')); ?>" class="c8cs-related-cell">
-            <div>
-              <div class="c8cs-related-cell-tag"><?php echo esc_html($rData['industry']); ?></div>
-              <h3 class="c8cs-related-cell-title"><?php echo esc_html($rData['client_name']); ?></h3>
-              <p class="c8cs-related-cell-desc"><?php echo esc_html(wp_trim_words($rData['lead'], 18)); ?></p>
-            </div>
-            <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
-          </a>
-        <?php endforeach; ?>
-        <a href="<?php echo esc_url(home_url('/portfolio/bridgepoint-compliance/')); ?>" class="c8cs-related-cell">
-          <div>
-            <div class="c8cs-related-cell-tag">02 / Custom Dev</div>
-            <h3 class="c8cs-related-cell-title">Bridgepoint Advisory</h3>
-            <p class="c8cs-related-cell-desc">Bespoke compliance analysis web application built with zero template bloat and custom SQL queries.</p>
-          </div>
-          <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
-        </a>
+        <div class="c8cs-related-matrix-grid">
+          <?php
+          $related_keys = ['the-duch-apartments', 'mkenny-properties', 'wp-publishion-ai', 'blvck-hair-ng'];
+          $rendered = 0;
+          foreach ($related_keys as $rKey):
+            if ($rKey === $active_slug) continue;
+            if ($rendered >= 3) break;
+            $rData = $portfolio_data_matrix[$rKey] ?? null;
+            if (!$rData) continue;
+            $rendered++;
+          ?>
+            <a href="<?php echo esc_url(home_url('/portfolio/' . $rKey . '/')); ?>" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag"><?php echo esc_html($rData['industry']); ?></div>
+                <h3 class="c8cs-related-cell-title"><?php echo esc_html($rData['client_name']); ?></h3>
+                <p class="c8cs-related-cell-desc"><?php echo esc_html(wp_trim_words($rData['lead'], 18)); ?></p>
+              </div>
+              <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
+            </a>
+          <?php endforeach; ?>
+        </div>
       </div>
     </div>
   </section>
