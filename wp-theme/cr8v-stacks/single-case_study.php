@@ -812,22 +812,6 @@ get_header();
       </div>
     </div>
   <?php endif; ?>
-              
-              <?php if ($mIdx === count($active_data['metrics']) - 1): ?>
-                <a href="<?php echo esc_url($active_data['live_url']); ?>" target="_blank" rel="noopener" class="c8cs-status-badge">
-                  <div class="c8cs-status-lbl">Production Verification</div>
-                  <div class="c8cs-status-val">
-                    <span class="c8cs-checkmark-circle">&#10003;</span>
-                    <span>Visit Live Site &rarr;</span>
-                  </div>
-                </a>
-              <?php endif; ?>
-            </div>
-          <?php endforeach; ?>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Section 8: Related Projects Matrix -->
   <section class="c8cs-related-paper-outer">
