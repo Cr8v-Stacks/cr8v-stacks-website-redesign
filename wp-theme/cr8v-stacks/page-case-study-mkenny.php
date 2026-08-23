@@ -34,11 +34,26 @@ get_header();
   .c8cs-label::before { content: '// '; color: var(--c8-blue); font-weight: 700; }
 
   .c8cs-headline {
-    font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: 0.02em; line-height: 1.15; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 1.75rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 5vw, 2.6rem);
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--c8-ink);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    max-width: 1000px;
   }
-  .c8cs-serif { font-family: 'Georgia', serif; font-style: italic; text-transform: none; font-weight: 400; color: var(--c8-blue); }
+  .c8cs-serif { font-family: var(--font-body); font-style: italic; text-transform: none; font-weight: 400; color: var(--c8-blue); }
 
-  .c8cs-lead { font-size: clamp(1rem, 1.4vw, 1.15rem); font-weight: 300; color: var(--c8-sub); max-width: 860px; margin-bottom: 2.5rem; line-height: 1.7; }
+  .c8cs-lead {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--c8-sub);
+    max-width: 860px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
 
   .fylla-pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; margin-bottom: 2rem; }
   .fylla-pill {
