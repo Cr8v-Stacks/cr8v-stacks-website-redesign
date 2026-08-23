@@ -328,7 +328,58 @@ add_filter('template_include', function ($template) {
     if ($is_cs) {
         if ($wp_query) {
             $wp_query->is_404 = false;
-            $wp_query->is_single = true;
+            $target_post = null;
+            if (!empty($post_id)) {
+                $target_post = get_post($post_id);
+            }
+            if (!$target_post) {
+                $target_post = get_page_by_path($uri_slug, OBJECT, ['case_study', 'page', 'post'])
+                            ?: get_page_by_path('portfolio/' . $uri_slug, OBJECT, ['case_study', 'page', 'post']);
+            }
+            if ($target_post instanceof WP_Post) {
+                $wp_query->post = $target_post;
+                $wp_query->posts = [$target_post];
+                $wp_query->post_count = 1;
+                $wp_query->queried_object = $target_post;
+                $wp_query->queried_object_id = $target_post->ID;
+                $GLOBALS['post'] = $target_post;
+                $wp_query->is_singular = true;
+            } else {
+                $dummy = new stdClass();
+                $dummy->ID = 0;
+                $dummy->post_author = 1;
+                $dummy->post_date = current_time('mysql');
+                $dummy->post_date_gmt = current_time('mysql', 1);
+                $dummy->post_content = '';
+                $dummy->post_title = ucwords(str_replace(['-', '_'], ' ', $uri_slug));
+                $dummy->post_excerpt = '';
+                $dummy->post_status = 'publish';
+                $dummy->comment_status = 'closed';
+                $dummy->ping_status = 'closed';
+                $dummy->post_password = '';
+                $dummy->post_name = $uri_slug;
+                $dummy->to_ping = '';
+                $dummy->pinged = '';
+                $dummy->post_modified = current_time('mysql');
+                $dummy->post_modified_gmt = current_time('mysql', 1);
+                $dummy->post_content_filtered = '';
+                $dummy->post_parent = 0;
+                $dummy->guid = home_url('/portfolio/' . $uri_slug . '/');
+                $dummy->menu_order = 0;
+                $dummy->post_type = 'case_study';
+                $dummy->post_mime_type = '';
+                $dummy->comment_count = 0;
+                $dummy->filter = 'raw';
+                
+                $dummy_post = new WP_Post($dummy);
+                $wp_query->post = $dummy_post;
+                $wp_query->posts = [$dummy_post];
+                $wp_query->post_count = 1;
+                $wp_query->queried_object = $dummy_post;
+                $wp_query->queried_object_id = 0;
+                $GLOBALS['post'] = $dummy_post;
+                $wp_query->is_singular = true;
+            }
         }
         status_header(200);
         $t = locate_template('single-case_study.php');
