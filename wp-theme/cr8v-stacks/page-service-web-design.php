@@ -168,7 +168,7 @@ get_header();
       </div>
       <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
         <div class="c8isv-portfolio-img" data-customizer="swd_work_cs_img">
-          <img src="<?php echo esc_url(cr8v_mod('swd_work_cs_img', 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop')); ?>" alt="The Duch Apartments — built by Cr8v Stacks">
+          <img src="<?php echo esc_url(cr8v_mod('swd_work_cs_img', get_template_directory_uri() . '/assets/img/case_studies/cs_duch_hero_vertical.webp')); ?>" alt="The Duch Apartments — built by Cr8v Stacks">
         </div>
         <div class="c8isv-portfolio-info">
           <span class="c8isv-portfolio-client" data-customizer="swd_work_cs_client"><?php echo esc_html(cr8v_mod('swd_work_cs_client', 'Case Study — The Duch Apartments')); ?></span>

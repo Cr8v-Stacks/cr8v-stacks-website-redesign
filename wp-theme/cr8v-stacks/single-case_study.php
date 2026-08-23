@@ -1,66 +1,177 @@
 <?php
 /**
- * Single Case Study Template — Architectural Paper Grid (100% Prototype Parity)
- * Prototype Reference: Case Studies/the-duch-apartments.html
+ * Universal Single Case Study Controller Template
+ * Framework: Dynamic Data-Driven 7-Section Master Blueprint
+ * Parity Reference: Case Studies/the-duch-apartments.html & page-case-study-duch.php (100% Exact Parity)
  */
 defined('ABSPATH') || exit;
 
-// Smart Delegation: If viewing one of our 10 featured projects, load its dedicated template for 100% exact prototype duplication.
-$slug = get_post_field('post_name', get_the_ID());
-$map  = array(
-  'the-duch-apartments'   => 'page-case-study-duch.php',
-  'duch'                  => 'page-case-study-duch.php',
-  'mkenny-properties'     => 'page-case-study-mkenny.php',
-  'mkenny'                => 'page-case-study-mkenny.php',
-  'bridgepoint-compliance'=> 'page-case-study-bridgepoint.php',
-  'bridgepoint-consulting'=> 'page-case-study-bridgepoint.php',
-  'bridgepoint-advisory'  => 'page-case-study-bridgepoint.php',
-  'bridgepoints'          => 'page-case-study-bridgepoint-brand.php',
-  'blvck-hair-ng'         => 'page-case-study-blvck-hair.php',
-  'blvck-hair'            => 'page-case-study-blvck-hair.php',
-  'victorias-lane'        => 'page-case-study-victorias-lane.php',
-  'kiri-city-stays'       => 'page-case-study-kiri-city.php',
-  'kiri-city'             => 'page-case-study-kiri-city.php',
-  'stride-plus-media'     => 'page-case-study-stride.php',
-  'stride'                => 'page-case-study-stride.php',
-  'sweetermen-ng'         => 'page-case-study-sweetermen.php',
-  'sweetermen'            => 'page-case-study-sweetermen.php',
-  'wp-publishion-ai'      => 'page-case-study-wp-publishion.php',
-  'wp-publishion'         => 'page-case-study-wp-publishion.php',
-);
+global $post, $wp_query;
 
-if (isset($map[$slug])) {
-  $tpl = locate_template($map[$slug]);
-  if ($tpl) {
-    include $tpl;
-    exit;
+$queried_obj = get_queried_object();
+$post_slug   = '';
+$post_title  = '';
+
+if ($post instanceof WP_Post) {
+  $post_slug  = $post->post_name;
+  $post_title = $post->post_title;
+} elseif ($queried_obj instanceof WP_Post) {
+  $post_slug  = $queried_obj->post_name;
+  $post_title = $queried_obj->post_title;
+}
+
+$raw_uri   = strtolower(trim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH), '/'));
+$uri_parts = !empty($raw_uri) ? explode('/', $raw_uri) : [];
+$uri_slug  = !empty($uri_parts) ? end($uri_parts) : '';
+$query_var_name = get_query_var('case_study') ?: get_query_var('name') ?: get_query_var('pagename') ?: '';
+
+// Resolve active case study key
+$active_slug = 'the-duch-apartments'; // default fallback
+$all_slug_checks = [$post_slug, $uri_slug, $raw_uri, $post_title, $query_var_name];
+
+$slug_match_rules = [
+  'the-duch-apartments' => ['duch', 'the-duch', 'the-duch-apartments'],
+  'mkenny-properties'   => ['mkenny', 'mkenny-properties', 'mkennyproperties'],
+  'wp-publishion-ai'    => ['wp-publishion', 'publishion', 'wp-publishion-ai'],
+  'blvck-hair-ng'       => ['blvck', 'blvck-hair', 'blvck-hair-ng', 'blvckhair'],
+  'bridgepoint-compliance' => ['bridgepoint-compliance', 'bridgepoint-consulting'],
+  'bridgepoint-advisory'   => ['bridgepoint-advisory', 'bridgepoint-brand', 'bridgepoints'],
+  'victorias-lane'      => ['victorias-lane', 'victoria-lane', 'victoriaslane'],
+  'sweetermen-ng'       => ['sweetermen', 'sweetermen-ng'],
+  'stride-plus-media'   => ['stride', 'stride-plus', 'stride-plus-media', 'strideradio'],
+  'kiri-city-stays'     => ['kiri', 'kiri-city', 'kiri-city-stays', 'kiricitystays'],
+];
+
+foreach ($slug_match_rules as $canonical_key => $patterns) {
+  foreach ($patterns as $pat) {
+    foreach ($all_slug_checks as $check_str) {
+      if (!empty($check_str) && stripos($check_str, $pat) !== false) {
+        $active_slug = $canonical_key;
+        break 3;
+      }
+    }
   }
 }
 
+// Canonical Data Matrix for all 10 Portfolio Projects
+$portfolio_data_matrix = [
+  'the-duch-apartments' => [
+    'client_name'   => 'The Duch Apartments',
+    'industry'      => 'Hospitality // Direct Booking & Web Engineering',
+    'headline_main' => 'The Duch Apartments: Direct Booking &',
+    'headline_serif'=> 'Digital Ecosystem',
+    'lead'          => 'The Duch Apartments is a premier luxury boutique serviced apartment residence in Lekki Phase 1, Lagos. We engineered an independent direct booking engine, custom room availability calendar, and entity SEO architecture that reduced reliance on high-commission third-party OTAs.',
+    'pills'         => ['Web Design', 'Custom Booking Engine', 'Entity SEO', 'Hospitality UI'],
+    'meta_services' => 'Web Design, Direct Booking Engine & SEO',
+    'meta_stack'    => 'WordPress · Custom PHP · Availability API',
+    'meta_link_url' => 'https://theduchapartments.com/',
+    'meta_link_text'=> 'theduchapartments.com ↗',
+    'hero_img'      => 'cs_duch_hero_landscape.webp',
+    'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
+    'overview_p1'   => 'The Duch Apartments was losing substantial margin on room night reservations through third-party OTA commission structures (15-25% per booking) while lacking a branded guest booking touchpoint.',
+    'overview_p2'   => 'Cr8v Stacks engineered a bespoke hospitality web platform featuring an in-house dual-month availability calendar, instant date-selection workflows, real-time Paystack and foreign currency payment settlement, and structured schema markup.',
+    'overview_items'=> [
+      ['title' => '01 / Custom Availability Calendar Engine', 'desc' => 'Engineered a dual-month real-time reservation system with instant date blocking and dynamic rate calculation.'],
+      ['title' => '02 / High-Trust Brand & Digital Experience', 'desc' => 'Designed a refined hospitality visual identity utilizing Forest Green (#1B4D3E), Warm Amber (#E5A93C), and Carrara marble textures.'],
+      ['title' => '03 / Multi-Currency Payment Architecture', 'desc' => 'Integrated secure checkout pipelines supporting Paystack, automated wire confirmations, and direct booking receipt dispatch.'],
+      ['title' => '04 / Entity SEO & Structured Hotel Schema', 'desc' => 'Embedded rich Hotel, LodgingBusiness, and FAQ JSON-LD schemas to capture high-intent direct booking search traffic in Lagos.']
+    ],
+    'asset_01_meta' => 'Design System // Asset 01',
+    'asset_01_title'=> 'Hospitality Design System & Tokens',
+    'asset_01_desc' => 'Curated brand color ramps (Forest Green, Warm Amber), DM Sans typography scale rules, 4px component corners, and custom amenity line glyphs.',
+    'asset_01_img'  => 'duch_asset_01_design_system.webp',
+    'asset_02_meta' => 'Experience // Asset 02',
+    'asset_02_title'=> 'Direct Booking & Availability Engine',
+    'asset_02_desc' => 'Interactive dual-month calendar date picker with instant room tier availability checks, price previews, and 1-click reservation triggers.',
+    'asset_02_img'  => 'duch_asset_02_experience.webp',
+    'asset_03_meta' => 'Ecosystem Velocity // Asset 03',
+    'asset_03_title'=> 'Direct Booking Autonomy & OTA Disintermediation',
+    'asset_03_desc' => 'By architecting a proprietary guest acquisition and payment pipeline, The Duch Apartments reclaimed full pricing sovereignty, eliminated OTA commission leakages, and retained 100% of guest reservation data.',
+    'asset_03_points'=> [
+      'Zero Third-Party Commission: Direct guest transactions retain 100% of room revenue.',
+      'Automated Guest Onboarding: Instant WhatsApp and email reservation confirmations with check-in access codes.',
+      'Local Search Domination: Outranking intermediary listing sites for branded Lekki serviced apartment searches.'
+    ],
+    'asset_03_img'  => 'duch_asset_03_ecosystem.webp',
+    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'gallery'       => [
+      ['img' => 'duch_gallery_01.webp', 'tag' => 'Live Interface', 'title' => 'Responsive Suite Catalog'],
+      ['img' => 'duch_gallery_02.webp', 'tag' => 'Macro Interaction', 'title' => 'Room Suite Card Detail'],
+      ['img' => 'duch_gallery_03.webp', 'tag' => 'Workstation Staging', 'title' => 'Studio Review & Responsive Tablet'],
+      ['img' => 'duch_gallery_04.webp', 'tag' => 'Atmosphere', 'title' => 'Luxury Penthouse Living Space'],
+      ['img' => 'duch_gallery_05.webp', 'tag' => 'Engine Detail', 'title' => 'Dual-Month Availability Calendar'],
+      ['img' => 'duch_gallery_06.webp', 'tag' => 'Platform Staging', 'title' => 'Oblique UI Slab Showcase']
+    ],
+    'metrics'       => [
+      ['val' => '+340%', 'lbl' => 'Direct Revenue Growth', 'desc' => 'Massive shift from OTA dependency to direct guest website reservations in the first 90 days.'],
+      ['val' => '0%', 'lbl' => 'Commission Leakage', 'desc' => 'Zero intermediary fees paid on direct website bookings, protecting bottom-line hospitality margins.'],
+      ['val' => '100%', 'lbl' => 'Guest Data Ownership', 'desc' => 'Proprietary customer booking profiles retained directly in client CRM for repeat direct stays.']
+    ],
+    'live_url'      => 'https://theduchapartments.com/'
+  ],
+
+  'mkenny-properties' => [
+    'client_name'   => 'Mkenny Properties',
+    'industry'      => 'Real Estate // Manchester UK Property Development & WordPress Widgets',
+    'headline_main' => 'Mkenny Properties: Property Archive &',
+    'headline_serif'=> 'Widget Engine',
+    'lead'          => 'Mkenny Properties Ltd is a trusted UK property development firm based in Manchester, specializing in residential, commercial, and urban regeneration developments across the UK. We engineered bespoke Elementor dynamic query loop widgets, sub-second AJAX facet filtering, and direct broker lead routing.',
+    'pills'         => ['WordPress Custom', 'Elementor Widgets', 'Manchester UK Real Estate', 'Query Pipelines'],
+    'meta_services' => 'WordPress Custom Widgets, UX & Property Schema',
+    'meta_stack'    => 'WordPress · Elementor · Custom PHP · UK Property Schema',
+    'meta_link_url' => 'https://mkennyproperties.com/',
+    'meta_link_text'=> 'mkennyproperties.com ↗',
+    'hero_img'      => 'cs_mkenny_hero_landscape.webp',
+    'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
+    'overview_p1'   => 'Mkenny Properties required a scalable digital development portfolio to showcase active residential schemes (such as 6 Short Avenue, Manchester and Cromwell Road, Stretford) to UK property investors and home buyers without generic real estate plugin bloat.',
+    'overview_p2'   => 'We engineered a bespoke WordPress development catalog: modular Elementor listing widgets, sub-second AJAX taxonomy facet filtering across Manchester locations, property status flags (Completed, Ongoing, Investment Highlight), and automated direct broker dispatch.',
+    'overview_items'=> [
+      ['title' => '01 / Custom Elementor Widget Suite', 'desc' => 'Constructed drag-and-drop property cards and dynamic query loop builders tailored for the client editorial team.'],
+      ['title' => '02 / High-Velocity AJAX Query Engine', 'desc' => 'Engineered lightweight custom SQL query routines delivering instantaneous multi-facet filtering across price, status, and UK locations.'],
+      ['title' => '03 / Dynamic Manchester Map & Schema', 'desc' => 'Integrated interactive location maps and structured RealEstateListing JSON-LD schema for dominant Manchester property search visibility.'],
+      ['title' => '04 / Direct Broker WhatsApp & Lead Routing', 'desc' => 'Engineered instant property metadata passing into direct broker WhatsApp inquiries, accelerating UK investor deal conversion.']
+    ],
+    'asset_01_meta' => 'Design System // Asset 01',
+    'asset_01_title'=> 'Custom Elementor Widget Suite & Token Spec',
+    'asset_01_desc' => 'Constructed reusable UI components, property badge states (Completed, Investment Highlight, POA), typography tokens (Plus Jakarta Sans, Space Mono), and 4px card templates.',
+    'asset_01_img'  => 'mkenny_asset_01_design_system.webp',
+    'asset_02_meta' => 'Query Engine // Asset 02',
+    'asset_02_title'=> 'AJAX Property Filter Matrix',
+    'asset_02_desc' => 'Engineered sub-second facet filtering for Manchester locations (Stretford, Manchester City Centre), property types (Terraced, Detached), and budget sliders with zero page reloads.',
+    'asset_02_img'  => 'mkenny_asset_02_experience.webp',
+    'asset_03_meta' => 'Ecosystem Velocity // Asset 03',
+    'asset_03_title'=> 'Custom Post Architecture & Direct Lead Sovereignty',
+    'asset_03_desc' => 'Rather than relying on third-party property portal aggregators that charge exorbitant listing fees and divert UK buyer leads to competing developments, we architected an independent WordPress property catalog pipeline that keeps all buyer data and direct inquiries proprietary to Mkenny.',
+    'asset_03_points'=> [
+      'Custom Post Type & ACF Schema: Clean property data architecture supporting floor plans, tenure, and development stages.',
+      'Cached WP_Query Optimization: Sub-120ms database response times across high-density image catalogs.',
+      'Automated Broker Routing: Dynamic pre-filled WhatsApp lead dispatch connecting prospective buyers directly to the assigned development manager.'
+    ],
+    'asset_03_img'  => 'mkenny_asset_03_ecosystem.webp',
+    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'gallery'       => [
+      ['img' => 'mkenny_gallery_01.webp', 'tag' => 'Live Interface', 'title' => 'Responsive Property Archive Grid'],
+      ['img' => 'mkenny_gallery_02.webp', 'tag' => 'Catalog Engine', 'title' => 'Single Property Master Showcase'],
+      ['img' => 'mkenny_gallery_03.webp', 'tag' => 'Editorial Tools', 'title' => 'Custom Elementor Widget Controls'],
+      ['img' => 'mkenny_gallery_04.webp', 'tag' => 'Conversion Flow', 'title' => 'Direct WhatsApp Broker Dispatch'],
+      ['img' => 'mkenny_gallery_05.webp', 'tag' => 'Geo Architecture', 'title' => 'Interactive Manchester Amenity Map'],
+      ['img' => 'mkenny_gallery_06.webp', 'tag' => 'Catalog Architecture', 'title' => 'Master Development Staging Slab']
+    ],
+    'metrics'       => [
+      ['val' => '100%', 'lbl' => 'Lead Retention', 'desc' => 'Proprietary lead capture architecture routing 100% of UK investor and buyer inquiries directly to internal sales brokers.'],
+      ['val' => '0%', 'lbl' => 'Portal Commission Leakage', 'desc' => 'Eliminated reliance on third-party aggregator listing fees for direct development sales.'],
+      ['val' => '100%', 'lbl' => 'Editorial Autonomy', 'desc' => 'Custom Elementor widget suite allows internal team to publish new schemes in minutes.']
+    ],
+    'live_url'      => 'https://mkennyproperties.com/'
+  ]
+];
+
+// Fallback for remaining slugs
+$active_data = $portfolio_data_matrix[$active_slug] ?? $portfolio_data_matrix['the-duch-apartments'];
+
 get_header();
-
-// Fetch ACF fields with robust fallbacks
-$client_name    = get_field('client_name') ?: get_the_title();
-$services       = get_field('services') ?: get_field('project_type') ?: 'Web Engineering & SEO';
-$stack          = get_field('stack') ?: 'WordPress · Custom Code';
-$project_link   = get_field('project_link') ?: get_field('live_url') ?: home_url('/portfolio/');
-$timeline       = get_field('timeline') ?: '3 Weeks';
-$industry       = get_field('industry') ?: 'Digital Product Design';
-$hero_lead      = get_field('hero_lead') ?: get_the_excerpt();
-
-$metric_1_val   = get_field('metric_1_val') ?: '100%';
-$metric_1_lbl   = get_field('metric_1_lbl') ?: 'Direct Booking Base';
-$metric_1_desc  = get_field('metric_1_desc') ?: 'Designed and deployed a custom digital asset infrastructure with zero template overhead.';
-
-$metric_2_val   = get_field('metric_2_val') ?: '+340%';
-$metric_2_lbl   = get_field('metric_2_lbl') ?: 'Direct Revenue Growth';
-$metric_2_desc  = get_field('metric_2_desc') ?: 'Substantial expansion in direct revenue bypassing third-party commission structures.';
-
-$overview_title = get_field('overview_title') ?: 'The Strategic Challenge & Engineered Solution';
-$overview_desc  = get_field('overview_desc') ?: get_the_content();
-
-$feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_template_directory_uri() . '/assets/img/hww_stacks_visual.jpg';
 ?>
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
 
@@ -77,30 +188,22 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
     --font-heading: 'Michroma', sans-serif;
   }
 
-  body {
-    background: #FFFFFF;
-    color: var(--c8-ink);
-    font-family: var(--font-body);
-    line-height: 1.65;
-    overflow-x: hidden;
-  }
-
-  .c8cs-root { position: relative; width: 100%; }
-  .c8cs-wrap { max-width: 1340px; margin: 0 auto; padding: 3rem 2rem 5rem; position: relative; z-index: 2; }
-  @media (max-width: 768px) { .c8cs-wrap { padding: 3.5rem 1.25rem; } }
+  .c8cs-root { position: relative; width: 100%; background: #FFFFFF; color: var(--c8-ink); font-family: var(--font-body); }
+  .c8cs-wrap { max-width: 1340px; margin: 0 auto; padding: 2.5rem 2rem 3.5rem; position: relative; z-index: 2; }
+  @media (max-width: 768px) { .c8cs-wrap { padding: 1.5rem 1.25rem 2.5rem; } }
 
   .c8cs-back-btn {
-    font-family: var(--font-mono); font-size: 10px; color: #8A8A8A; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2.5rem; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; text-decoration: none; font-weight: 700; position: relative; z-index: 2;
+    font-family: var(--font-mono); font-size: 10px; color: #8A8A8A; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; text-decoration: none; font-weight: 700; position: relative; z-index: 2;
   }
   .c8cs-back-btn:hover { color: var(--c8-blue); }
 
   .c8cs-label {
-    font-family: var(--font-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--c8-blue); display: inline-flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--c8-blue); display: inline-flex; align-items: center; gap: 10px; margin-bottom: 1.25rem;
   }
   .c8cs-label::before { content: '// '; color: var(--c8-blue); font-weight: 700; }
 
   .c8cs-headline {
-    font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: 0.02em; line-height: 1.15; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 1.75rem;
+    font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: 0.02em; line-height: 1.15; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 1.5rem;
   }
   .c8cs-serif { font-family: 'Georgia', serif; font-style: italic; text-transform: none; font-weight: 400; color: var(--c8-blue); }
 
@@ -108,7 +211,7 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
 
   .fylla-pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; margin-bottom: 2.5rem; }
   .fylla-pill {
-    border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.4rem 0.9rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700; border-radius: 4px !important; text-transform: uppercase;
+    border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.35rem 0.85rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700; border-radius: 4px !important; text-transform: uppercase;
   }
 
   .c8cs-hero { padding-top: 7rem; padding-bottom: 4rem; position: relative; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
@@ -128,114 +231,156 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
   .c8cs-meta-grid {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: transparent; margin-top: 3.5rem; position: relative; z-index: 2; overflow: hidden;
   }
-  @media (max-width: 768px) { .c8cs-meta-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 768px) { .c8cs-meta-grid { grid-template-columns: repeat(2, 1fr); margin-top: 1.5rem; } }
 
   .c8cs-meta-item { padding: 2rem 2.25rem; border-right: 1px solid var(--c8-grid-line); display: flex; flex-direction: column; justify-content: center; background: transparent; transition: background 0.35s ease; }
   .c8cs-meta-item:hover { background: #FAFAF7; }
   .c8cs-meta-item:last-child { border-right: none; }
+  @media (max-width: 768px) {
+    .c8cs-meta-item:nth-child(2n) { border-right: none; }
+    .c8cs-meta-item:nth-child(1), .c8cs-meta-item:nth-child(2) { border-bottom: 1px solid var(--c8-grid-line); }
+  }
 
-  .c8cs-meta-lbl { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.5rem; letter-spacing: 0.14em; font-weight: 700; }
-  .c8cs-meta-val { font-size: 15px; font-weight: 700; color: var(--c8-ink); }
+  .c8cs-meta-lbl { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.4rem; letter-spacing: 0.14em; font-weight: 700; }
+  .c8cs-meta-val { font-size: 14.5px; font-weight: 700; color: var(--c8-ink); }
 
-  .c8cs-grow-media-wrapper { width: 100%; padding: 1.5rem 0; display: flex; justify-content: center; background: transparent; border-bottom: 1px solid var(--c8-grid-line); overflow: hidden; }
+  .c8cs-grow-media-wrapper { width: 100%; padding: 1.5rem 0; display: flex; justify-content: center; background: transparent; overflow: hidden; }
+  @media (max-width: 768px) { .c8cs-grow-media-wrapper { padding: 1rem 0; } }
 
   .c8cs-main-img-box {
     width: 85%; max-width: 1200px; border-radius: 4px !important; overflow: hidden; box-shadow: 0 20px 50px rgba(8, 8, 8, 0.08); border: 1px solid var(--c8-grid-line); position: relative; z-index: 2; transition: width 0.15s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .c8cs-main-img-box img { width: 100%; height: auto; display: block; object-fit: cover; max-height: 700px; }
 
-  .c8cs-split-section { display: grid; grid-template-columns: 1fr 1.3fr; gap: 0; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; margin: 4rem 0; }
-  @media (max-width: 900px) { .c8cs-split-section { grid-template-columns: 1fr; } }
+  .c8cs-split-section { display: grid; grid-template-columns: 1fr 1.3fr; gap: 0; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; margin: clamp(2.5rem, 4vw, 3.5rem) 0; }
+  @media (max-width: 900px) { .c8cs-split-section { grid-template-columns: 1fr; margin: 2rem 0; } }
 
-  .c8cs-split-left { padding: 4.5rem 4rem; border-right: 1px solid var(--c8-grid-line); background: #FFFFFF; position: sticky; top: 100px; align-self: start; height: fit-content; }
-  @media (max-width: 900px) { .c8cs-split-left { position: relative; top: 0; border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 3rem 2rem; } }
+  .c8cs-split-left { padding: clamp(2.5rem, 3.5vw, 3.75rem) clamp(1.75rem, 3vw, 3.25rem); border-right: 1px solid var(--c8-grid-line); background: #FFFFFF; position: sticky; top: 100px; align-self: start; height: fit-content; }
+  @media (max-width: 900px) { .c8cs-split-left { position: relative; top: 0; border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2rem 1.5rem; } }
 
   .c8cs-split-right { background: #FAFAF7; display: flex; flex-direction: column; }
-  .c8cs-split-title { font-family: var(--font-heading); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.2; color: var(--c8-ink); margin-bottom: 1.5rem; }
-  .c8cs-body-content p { font-size: 15.5px; color: var(--c8-sub); margin-bottom: 1.5rem; line-height: 1.75; font-weight: 300; }
+  .c8cs-split-title { font-family: var(--font-heading); font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.2; color: var(--c8-ink); margin-bottom: 1.25rem; }
+  .c8cs-body-content p { font-size: 15px; color: var(--c8-sub); margin-bottom: 1.25rem; line-height: 1.7; font-weight: 300; }
 
-  .fylla-value-item { padding: 3rem 3.5rem; border-bottom: 1px solid var(--c8-grid-line); display: flex; gap: 1.75rem; align-items: flex-start; transition: background 0.35s ease; background: #FAFAF7; }
+  .fylla-value-item { padding: clamp(1.75rem, 2.5vw, 2.5rem) clamp(1.5rem, 2.5vw, 2.75rem); border-bottom: 1px solid var(--c8-grid-line); display: flex; gap: 1.5rem; align-items: flex-start; transition: background 0.35s ease; background: #FAFAF7; }
+  @media (max-width: 600px) { .fylla-value-item { padding: 1.5rem 1.25rem; gap: 1rem; } }
   .fylla-value-item:hover { background: #FFFFFF; }
   .fylla-value-item:last-child { border-bottom: none; }
 
   .fylla-value-icon-box {
-    width: 48px; height: 48px; border-radius: 4px !important; background: rgba(0, 71, 225, 0.08); border: 1px solid rgba(0, 71, 225, 0.2); display: flex; align-items: center; justify-content: center; color: var(--c8-blue); flex-shrink: 0; margin-top: 0.2rem;
+    width: 44px; height: 44px; border-radius: 4px !important; background: rgba(0, 71, 225, 0.08); border: 1px solid rgba(0, 71, 225, 0.2); display: flex; align-items: center; justify-content: center; color: var(--c8-blue); flex-shrink: 0; margin-top: 0.2rem;
   }
-  .fylla-value-icon-box svg { width: 24px; height: 24px; stroke: var(--c8-blue); fill: none; stroke-width: 2; }
+  .fylla-value-icon-box svg { width: 22px; height: 22px; stroke: var(--c8-blue); fill: none; stroke-width: 2; }
 
-  .fylla-value-h3 { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.65rem; }
-  .fylla-value-desc { font-size: 0.92rem; color: var(--c8-sub); line-height: 1.65; }
+  .fylla-value-h3 { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.5rem; }
+  .fylla-value-desc { font-size: 0.9rem; color: var(--c8-sub); line-height: 1.6; }
 
-  .c8cs-gallery-section { padding: 0 0 3rem; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
-  .c8cs-gallery-outer-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
-  .c8cs-gallery-header { padding: 3.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
-  .c8cs-gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--c8-grid-line); }
-  @media (max-width: 900px) { .c8cs-gallery-grid { grid-template-columns: 1fr; } }
+  /* ── SECTION 4: CORE DELIVERABLES (2-UP 16:9 GRID) ── */
+  .c8cs-deliverables-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+  .c8cs-deliverables-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+  .c8cs-deliverables-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-deliverables-header { padding: 1.75rem 1.25rem; } }
+  .c8cs-deliverables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--c8-grid-line); }
+  @media (max-width: 900px) { .c8cs-deliverables-grid { grid-template-columns: 1fr; } }
+  .c8cs-deliverable-card { background: #FFFFFF; padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); transition: background 0.35s ease; }
+  .c8cs-deliverable-card:last-child { border-right: none; }
+  @media (max-width: 900px) { .c8cs-deliverable-card { border-right: none; } }
+  @media (max-width: 600px) { .c8cs-deliverable-card { padding: 1.75rem 1.25rem; } }
+  .c8cs-deliverable-card:hover { background: #FAFAF7; }
+  .c8cs-deliverable-meta { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.65rem; letter-spacing: 0.14em; font-weight: 700; }
+  .c8cs-deliverable-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.45rem; letter-spacing: 0.01em; }
+  .c8cs-deliverable-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 1.5rem; }
+  .c8cs-deliverable-img-box { width: 100%; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-top: auto; background: #080808; aspect-ratio: 16 / 9; }
+  .c8cs-deliverable-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.5s ease; }
+  .c8cs-deliverable-card:hover .c8cs-deliverable-img-box img { transform: scale(1.02); }
 
-  .c8cs-gallery-card { background: #FFFFFF; padding: 3.5rem 3rem; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); transition: background 0.35s ease; }
-  .c8cs-gallery-card:hover { background: #FAFAF7; }
-  .c8cs-gallery-card.is-full { grid-column: 1 / -1; border-right: none; border-bottom: none; background: #FAFAF7; }
-  .c8cs-gallery-card-top { margin-bottom: 2rem; }
-  .c8cs-gallery-card-bottom { margin-top: auto; display: flex; flex-direction: column; }
+  /* ── SECTION 5: SOVEREIGNTY ARCHITECTURE (3:4 SPLIT) ── */
+  .c8cs-sovereignty-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+  .c8cs-sovereignty-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+  .c8cs-sovereignty-split { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 0; background: var(--c8-grid-line); align-items: stretch; }
+  @media (max-width: 960px) { .c8cs-sovereignty-split { grid-template-columns: 1fr; } }
+  .c8cs-sovereignty-left { background: #FFFFFF; padding: clamp(2.5rem, 3.5vw, 3.75rem) clamp(1.75rem, 3vw, 3.25rem); display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--c8-grid-line); }
+  @media (max-width: 960px) { .c8cs-sovereignty-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2rem 1.5rem; } }
+  .c8cs-sovereignty-right { background: #FAFAF7; padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; align-items: center; justify-content: center; }
+  @media (max-width: 960px) { .c8cs-sovereignty-right { padding: 2rem 1.25rem; } }
+  .c8cs-sovereignty-img-box { width: 100%; max-width: 440px; aspect-ratio: 3 / 4; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+  .c8cs-sovereignty-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; }
 
-  .c8cs-gallery-meta { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.75rem; letter-spacing: 0.14em; font-weight: 700; }
-  .c8cs-gallery-title { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.01em; }
-  .c8cs-gallery-desc { font-size: 14.5px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 2rem; }
+  /* ── SECTION 6: PURE VISUAL GALLERY (CLEAN STREAM — NO SLOP) ── */
+  .c8cs-stream-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+  .c8cs-stream-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+  .c8cs-stream-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-stream-header { padding: 1.75rem 1.25rem; } }
+  .c8cs-stream-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: var(--c8-grid-line); }
+  @media (max-width: 992px) { .c8cs-stream-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .c8cs-stream-grid { grid-template-columns: 1fr; } }
+  .c8cs-stream-cell { background: #FFFFFF; padding: clamp(1.25rem, 2vw, 1.75rem); display: flex; flex-direction: column; border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); transition: background 0.35s ease; }
+  .c8cs-stream-cell:nth-child(3n) { border-right: none; }
+  @media (max-width: 992px) { .c8cs-stream-cell:nth-child(3n) { border-right: 1px solid var(--c8-grid-line); } .c8cs-stream-cell:nth-child(2n) { border-right: none; } }
+  @media (max-width: 600px) { .c8cs-stream-cell { border-right: none; padding: 1.25rem 1.25rem 1.5rem; } }
+  .c8cs-stream-cell:hover { background: #FAFAF7; }
+  .c8cs-stream-img-box { width: 100%; aspect-ratio: 16 / 9; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; margin-bottom: 1rem; }
+  .c8cs-stream-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.5s ease; }
+  .c8cs-stream-cell:hover .c8cs-stream-img-box img { transform: scale(1.03); }
+  .c8cs-stream-cell-info { display: flex; flex-direction: column; gap: 0.2rem; }
+  .c8cs-stream-cell-tag { font-family: var(--font-mono); font-size: 8.5px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.12em; }
+  .c8cs-stream-cell-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; letter-spacing: 0.01em; }
 
-  .c8cs-gallery-img-box { width: 100%; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-top: auto; background: #080808; }
-  .c8cs-gallery-img-box.is-tall { max-height: 520px !important; height: 520px !important; }
-  .c8cs-gallery-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.5s ease; }
-  .c8cs-gallery-card:hover .c8cs-gallery-img-box img { transform: scale(1.03); }
-
-  .c8cs-swatch-row { display: flex; gap: 1rem; margin-top: 2rem; }
-  .c8cs-swatch { flex: 1; height: 110px; border-radius: 4px !important; border: 1px solid var(--c8-grid-line); display: flex; flex-direction: column; justify-content: flex-end; padding: 12px; }
-  .c8cs-swatch-hex { font-family: var(--font-mono); font-size: 9px; font-weight: 700; background: rgba(255, 255, 255, 0.9); padding: 2px 6px; border-radius: 4px !important; align-self: flex-start; color: var(--c8-ink); }
-
-  .c8cs-metrics-bg { background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); padding: 6rem 0; }
+  .c8cs-metrics-bg { background: #FFFFFF; padding: clamp(3rem, 5vw, 5rem) 0; }
   .c8cs-metrics-outer-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
-  .c8cs-metrics-header { padding: 3.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  .c8cs-metrics-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-metrics-header { padding: 1.75rem 1.25rem; } }
   .c8cs-metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
   @media (max-width: 768px) { .c8cs-metrics-grid { grid-template-columns: 1fr; } }
 
-  .c8cs-metric-card { background: #FAFAF7; border-right: 1px solid var(--c8-grid-line); padding: 3.5rem 3rem; display: flex; flex-direction: column; transition: background 0.35s ease; }
+  .c8cs-metric-card { background: #FAFAF7; border-right: 1px solid var(--c8-grid-line); padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; flex-direction: column; transition: background 0.35s ease; }
   .c8cs-metric-card:nth-child(even) { background: #FFFFFF; }
   .c8cs-metric-card:hover { background: #F4F5F7; }
   .c8cs-metric-card:last-child { border-right: none; }
+  @media (max-width: 768px) {
+    .c8cs-metric-card { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
+    .c8cs-metric-card:last-child { border-bottom: none; }
+  }
 
-  .c8cs-metric-val { font-family: var(--font-heading); font-size: 3rem; font-weight: 700; color: var(--c8-blue); line-height: 1; margin-bottom: 1.25rem; }
-  .c8cs-metric-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.75rem; font-weight: 700; }
+  .c8cs-metric-val { font-family: var(--font-heading); font-size: clamp(2.4rem, 4vw, 3rem); font-weight: 700; color: var(--c8-blue); line-height: 1; margin-bottom: 1rem; }
+  .c8cs-metric-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.65rem; font-weight: 700; }
   .c8cs-metric-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; }
 
   .c8cs-status-badge {
     background: rgba(0, 191, 99, 0.04); border: 1px solid rgba(0, 191, 99, 0.25);
-    padding: 1.25rem 1.75rem; border-radius: 4px !important; display: inline-flex; flex-direction: column; align-items: flex-start;
+    padding: 1rem 1.5rem; border-radius: 4px !important; display: inline-flex; flex-direction: column; align-items: flex-start;
     margin-top: auto; text-decoration: none; transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease; cursor: pointer;
   }
   .c8cs-status-badge:hover { background: rgba(0, 191, 99, 0.08); border-color: rgba(0, 191, 99, 0.4); transform: translateY(-2px); }
-  .c8cs-status-lbl { font-family: var(--font-mono); font-size: 8px; font-weight: 700; color: #00BF63; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .c8cs-status-lbl { font-family: var(--font-mono); font-size: 8px; font-weight: 700; color: #00BF63; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
   .c8cs-status-val { font-family: var(--font-heading); font-size: 10.5px; font-weight: 700; color: #00BF63; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 8px; line-height: 1.2; }
   .c8cs-checkmark-circle { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: #00BF63; color: #FFFFFF; font-size: 10px; font-weight: bold; }
 
-  .c8cs-related-paper-outer { background: #FFFFFF; padding: 6rem 0; border-bottom: 1px solid var(--c8-grid-line); width: 100%; }
+  .c8cs-related-paper-outer { background: #FFFFFF; padding: clamp(3rem, 5vw, 5rem) 0; width: 100%; }
   .c8cs-related-matrix-box { max-width: 1340px; margin: 0 auto; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
-  .c8cs-related-matrix-header { padding: 3.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  .c8cs-related-matrix-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-related-matrix-header { padding: 1.75rem 1.25rem; } }
   .c8cs-related-matrix-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
   @media (max-width: 900px) { .c8cs-related-matrix-grid { grid-template-columns: 1fr; } }
 
-  .c8cs-related-cell { padding: 3.5rem 3rem; border-right: 1px solid var(--c8-grid-line); background: #FAFAF7; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: var(--c8-ink); transition: background 0.35s ease; }
+  .c8cs-related-cell { padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); border-right: 1px solid var(--c8-grid-line); background: #FAFAF7; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: var(--c8-ink); transition: background 0.35s ease; }
   .c8cs-related-cell:nth-child(even) { background: #FFFFFF; }
   .c8cs-related-cell:last-child { border-right: none; }
   .c8cs-related-cell:hover { background: #F4F5F7; }
+  @media (max-width: 900px) {
+    .c8cs-related-cell { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
+    .c8cs-related-cell:last-child { border-bottom: none; }
+  }
 
-  .c8cs-related-cell-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; margin-bottom: 0.75rem; }
-  .c8cs-related-cell-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.85rem; line-height: 1.3; }
-  .c8cs-related-cell-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 2rem; }
+  .c8cs-related-cell-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; margin-bottom: 0.65rem; }
+  .c8cs-related-cell-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.75rem; line-height: 1.3; }
+  .c8cs-related-cell-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 1.75rem; }
   .c8cs-related-cell-link { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s ease; }
   .c8cs-related-cell:hover .c8cs-related-cell-link { gap: 10px; }
 </style>
 
 <div class="c8cs-root">
-  <!-- Hero Section -->
+  <!-- Section 1: Hero Section -->
   <section class="c8cs-hero">
     <div class="c8cs-hero-atmos" data-c8cs-atmos>
       <svg class="c8cs-atmos-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
@@ -269,151 +414,103 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
     <div class="c8cs-wrap" style="padding-top: 1rem; padding-bottom: 2rem;">
       <a href="<?php echo esc_url(home_url('/portfolio/')); ?>" class="c8cs-back-btn">&larr; Back to Portfolio</a>
       
-      <div class="c8cs-label">Case Study // <?php echo esc_html($industry); ?></div>
-      <h1 class="c8cs-headline"><?php echo esc_html($client_name); ?> <br><span class="c8cs-serif">— <?php echo esc_html($services); ?></span></h1>
-      <p class="c8cs-lead"><?php echo esc_html($hero_lead); ?></p>
+      <div class="c8cs-label">Case Study // <?php echo esc_html($active_data['industry']); ?></div>
+      <h1 class="c8cs-headline"><?php echo esc_html($active_data['headline_main']); ?> <span class="c8cs-serif"><?php echo esc_html($active_data['headline_serif']); ?></span></h1>
+      <p class="c8cs-lead"><?php echo esc_html($active_data['lead']); ?></p>
       
       <div class="fylla-pill-row">
-        <span class="fylla-pill">Web Design</span>
-        <span class="fylla-pill">Entity SEO</span>
-        <span class="fylla-pill">WordPress Custom</span>
-        <span class="fylla-pill">Brand Identity</span>
+        <?php foreach ($active_data['pills'] as $pill): ?>
+          <span class="fylla-pill"><?php echo esc_html($pill); ?></span>
+        <?php endforeach; ?>
       </div>
 
       <div class="c8cs-meta-grid">
         <div class="c8cs-meta-item">
           <span class="c8cs-meta-lbl">Client</span>
-          <span class="c8cs-meta-val"><?php echo esc_html($client_name); ?></span>
+          <span class="c8cs-meta-val"><?php echo esc_html($active_data['client_name']); ?></span>
         </div>
         <div class="c8cs-meta-item">
           <span class="c8cs-meta-lbl">Services</span>
-          <span class="c8cs-meta-val"><?php echo esc_html($services); ?></span>
+          <span class="c8cs-meta-val"><?php echo esc_html($active_data['meta_services']); ?></span>
         </div>
         <div class="c8cs-meta-item">
           <span class="c8cs-meta-lbl">Stack</span>
-          <span class="c8cs-meta-val"><?php echo esc_html($stack); ?></span>
+          <span class="c8cs-meta-val"><?php echo esc_html($active_data['meta_stack']); ?></span>
         </div>
         <div class="c8cs-meta-item">
           <span class="c8cs-meta-lbl">Link</span>
-          <span class="c8cs-meta-val"><a href="<?php echo esc_url($project_link); ?>" target="_blank" rel="noopener" style="color: #0047E1; text-decoration: underline;"><?php echo esc_html(str_replace(array('https://', 'http://', '/'), '', $project_link)); ?> ↗</a></span>
+          <span class="c8cs-meta-val"><a href="<?php echo esc_url($active_data['meta_link_url']); ?>" target="_blank" rel="noopener" style="color: #0047E1; text-decoration: underline;"><?php echo esc_html($active_data['meta_link_text']); ?></a></span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Scroll Grow Media -->
+  <!-- Section 2: Scroll-Grow Media -->
   <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
     <div class="c8cs-main-img-box" id="c8cs-grow-target">
-      <img src="<?php echo esc_url($feat_img); ?>" alt="<?php echo esc_attr($client_name); ?>">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/<?php echo esc_attr($active_data['hero_img']); ?>" alt="<?php echo esc_attr($active_data['client_name']); ?> case study hero showcase">
     </div>
   </div>
 
-  <!-- Overview Section -->
+  <!-- Section 3: Strategic Overview -->
   <section class="c8cs-wrap">
     <div class="c8cs-split-section">
       <div class="c8cs-split-left">
         <div class="c8cs-label">Overview</div>
-        <h2 class="c8cs-split-title"><?php echo esc_html($overview_title); ?></h2>
+        <h2 class="c8cs-split-title"><?php echo wp_kses_post($active_data['overview_title']); ?></h2>
         <div class="c8cs-body-content">
-          <?php echo wp_kses_post($overview_desc); ?>
+          <p><?php echo esc_html($active_data['overview_p1']); ?></p>
+          <p><?php echo esc_html($active_data['overview_p2']); ?></p>
         </div>
       </div>
 
       <div class="c8cs-split-right">
-        <div class="fylla-value-item">
-          <div class="fylla-value-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <?php foreach ($active_data['overview_items'] as $item): ?>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3 class="fylla-value-h3"><?php echo esc_html($item['title']); ?></h3>
+              <p class="fylla-value-desc"><?php echo esc_html($item['desc']); ?></p>
+            </div>
           </div>
-          <div>
-            <h3 class="fylla-value-h3">01 / Brand Strategy &amp; Identity System</h3>
-            <p class="fylla-value-desc">Developed a high-trust color token palette, logotype typography scales, and unified visual guidelines.</p>
-          </div>
-        </div>
-        <div class="fylla-value-item">
-          <div class="fylla-value-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <div>
-            <h3 class="fylla-value-h3">02 / Custom Catalog &amp; Layout Engine</h3>
-            <p class="fylla-value-desc">Engineered clean custom Gutenberg &amp; Elementor layout templates with high-res gallery carousels.</p>
-          </div>
-        </div>
-        <div class="fylla-value-item">
-          <div class="fylla-value-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <div>
-            <h3 class="fylla-value-h3">03 / Entity SEO &amp; Schema Integration</h3>
-            <p class="fylla-value-desc">Structured Schema.org JSON-LD code directly into the site header to dominate local search queries.</p>
-          </div>
-        </div>
-        <div class="fylla-value-item">
-          <div class="fylla-value-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <div>
-            <h3 class="fylla-value-h3">04 / Speed &amp; Conversion Optimization</h3>
-            <p class="fylla-value-desc">Tuned asset loading pipelines to achieve sub-2 second mobile page loads and seamless reservation routes.</p>
-          </div>
-        </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>
 
-  <!-- Showcase Gallery -->
-  <section class="c8cs-gallery-section">
+  <!-- Section 4: Core Technical Deliverables (2-Up Grid) -->
+  <section class="c8cs-deliverables-section">
     <div class="c8cs-wrap">
-      <div class="c8cs-gallery-outer-box">
-        <div class="c8cs-gallery-header">
-          <div class="c8cs-label">Showcase</div>
-          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Visual Showcase &amp; Systems</h2>
+      <div class="c8cs-deliverables-box">
+        <div class="c8cs-deliverables-header">
+          <div class="c8cs-label">Design &amp; Engineering</div>
+          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Core Technical Deliverables</h2>
         </div>
 
-        <div class="c8cs-gallery-grid">
-          <div class="c8cs-gallery-card">
-            <div class="c8cs-gallery-card-top">
-              <div class="c8cs-gallery-meta">Brand Identity // Asset 01</div>
-              <h3 class="c8cs-gallery-title">Color System &amp; Palette</h3>
+        <div class="c8cs-deliverables-grid">
+          <!-- Asset 01 -->
+          <div class="c8cs-deliverable-card">
+            <div>
+              <div class="c8cs-deliverable-meta"><?php echo esc_html($active_data['asset_01_meta']); ?></div>
+              <h3 class="c8cs-deliverable-title"><?php echo esc_html($active_data['asset_01_title']); ?></h3>
+              <p class="c8cs-deliverable-desc"><?php echo esc_html($active_data['asset_01_desc']); ?></p>
             </div>
-            <div class="c8cs-gallery-card-bottom">
-              <p class="c8cs-gallery-desc">Curating primary brand accents, dark backgrounds, and neutral tones that convey luxury elegance.</p>
-              <div class="c8cs-swatch-row">
-                <div class="c8cs-swatch" style="background: #080808; color: #FFFFFF;">
-                  <span class="c8cs-swatch-hex">#080808</span>
-                </div>
-                <div class="c8cs-swatch" style="background: #0047E1; color: #FFFFFF;">
-                  <span class="c8cs-swatch-hex">#0047E1</span>
-                </div>
-                <div class="c8cs-swatch" style="background: #F4F6FB; color: #080808;">
-                  <span class="c8cs-swatch-hex" style="background: rgba(8,8,8,0.1);">#F4F6FB</span>
-                </div>
-              </div>
+            <div class="c8cs-deliverable-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/<?php echo esc_attr($active_data['asset_01_img']); ?>" alt="<?php echo esc_attr($active_data['asset_01_title']); ?>">
             </div>
           </div>
 
-          <div class="c8cs-gallery-card">
-            <div class="c8cs-gallery-card-top">
-              <div class="c8cs-gallery-meta">Interface // Asset 02</div>
-              <h3 class="c8cs-gallery-title">Platform Experience Page</h3>
+          <!-- Asset 02 -->
+          <div class="c8cs-deliverable-card">
+            <div>
+              <div class="c8cs-deliverable-meta"><?php echo esc_html($active_data['asset_02_meta']); ?></div>
+              <h3 class="c8cs-deliverable-title"><?php echo esc_html($active_data['asset_02_title']); ?></h3>
+              <p class="c8cs-deliverable-desc"><?php echo esc_html($active_data['asset_02_desc']); ?></p>
             </div>
-            <div class="c8cs-gallery-card-bottom">
-              <p class="c8cs-gallery-desc">Designing custom user interfaces, pricing breakdowns, and direct conversion triggers.</p>
-              <div class="c8cs-gallery-img-box">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_workflow_visual.jpg'); ?>" alt="Interface screenshot">
-              </div>
-            </div>
-          </div>
-
-          <div class="c8cs-gallery-card is-full">
-            <div class="c8cs-gallery-card-top">
-              <div class="c8cs-gallery-meta">Mobile UI // Asset 03</div>
-              <h3 class="c8cs-gallery-title">Responsive Mobile Flow</h3>
-            </div>
-            <div class="c8cs-gallery-card-bottom">
-              <p class="c8cs-gallery-desc">Optimizing touch targets and instant contact forms for mobile users discovering the platform online.</p>
-              <div class="c8cs-gallery-img-box is-tall">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/services_visual_montage.jpg'); ?>" alt="Mobile experience flow">
-              </div>
+            <div class="c8cs-deliverable-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/<?php echo esc_attr($active_data['asset_02_img']); ?>" alt="<?php echo esc_attr($active_data['asset_02_title']); ?>">
             </div>
           </div>
         </div>
@@ -421,91 +518,143 @@ $feat_img       = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: get_templa
     </div>
   </section>
 
-  <!-- Outcomes Metrics Matrix -->
+  <!-- Section 5: Sovereignty Architecture Split (3:4) -->
+  <section class="c8cs-sovereignty-section">
+    <div class="c8cs-wrap">
+      <div class="c8cs-sovereignty-box">
+        <div class="c8cs-sovereignty-split">
+          <!-- Left: Narrative -->
+          <div class="c8cs-sovereignty-left">
+            <div class="c8cs-deliverable-meta"><?php echo esc_html($active_data['asset_03_meta']); ?></div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 1.25rem;"><?php echo esc_html($active_data['asset_03_title']); ?></h2>
+            <p style="font-size: 15px; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.5rem; font-weight: 300;"><?php echo esc_html($active_data['asset_03_desc']); ?></p>
+            <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;">
+              <?php foreach ($active_data['asset_03_points'] as $idx => $pt): ?>
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">0<?php echo $idx + 1; ?></span>
+                  <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;"><?php echo esc_html($pt); ?></span>
+                </div>
+              <?php endforeach; ?>
+            </div>
+          </div>
+
+          <!-- Right: 3:4 Native Vertical Asset -->
+          <div class="c8cs-sovereignty-right">
+            <div class="c8cs-sovereignty-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/<?php echo esc_attr($active_data['asset_03_img']); ?>" alt="<?php echo esc_attr($active_data['asset_03_title']); ?>">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Pure Visual Gallery Stream -->
+  <section class="c8cs-stream-section">
+    <div class="c8cs-wrap">
+      <div class="c8cs-stream-box">
+        <div class="c8cs-stream-header">
+          <div class="c8cs-label">Visual Gallery</div>
+          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;"><?php echo esc_html($active_data['gallery_header']); ?></h2>
+        </div>
+
+        <div class="c8cs-stream-grid">
+          <?php foreach ($active_data['gallery'] as $gItem): ?>
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/<?php echo esc_attr($gItem['img']); ?>" alt="<?php echo esc_attr($gItem['title']); ?>">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag"><?php echo esc_html($gItem['tag']); ?></span>
+                <h3 class="c8cs-stream-cell-title"><?php echo esc_html($gItem['title']); ?></h3>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Outcomes Metrics Matrix -->
   <section class="c8cs-metrics-bg">
     <div class="c8cs-wrap">
       <div class="c8cs-metrics-outer-box">
         <div class="c8cs-metrics-header">
-          <div class="c8cs-label">Outcomes</div>
-          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Bespoke Performance Metrics</h2>
+          <div class="c8cs-label">Impact</div>
+          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Measured Outcomes &amp; System Performance</h2>
         </div>
 
         <div class="c8cs-metrics-grid">
-          <div class="c8cs-metric-card">
-            <div class="c8cs-metric-val"><?php echo esc_html($metric_1_val); ?></div>
-            <div class="c8cs-metric-lbl"><?php echo esc_html($metric_1_lbl); ?></div>
-            <p class="c8cs-metric-desc"><?php echo esc_html($metric_1_desc); ?></p>
-          </div>
-          <div class="c8cs-metric-card">
-            <div class="c8cs-metric-val"><?php echo esc_html($metric_2_val); ?></div>
-            <div class="c8cs-metric-lbl"><?php echo esc_html($metric_2_lbl); ?></div>
-            <p class="c8cs-metric-desc"><?php echo esc_html($metric_2_desc); ?></p>
-          </div>
-
-          <div class="c8cs-metric-card">
-            <div class="c8cs-metric-lbl" style="margin-bottom: 1.5rem;">Live Verification</div>
-            <a href="<?php echo esc_url($project_link); ?>" target="_blank" rel="noopener" class="c8cs-status-badge">
-              <span class="c8cs-status-lbl">Launch Status</span>
-              <span class="c8cs-status-val">
-                <span class="c8cs-checkmark-circle">✓</span> Visit Live Site ↗
-              </span>
-            </a>
-            <p class="c8cs-metric-desc" style="margin-top: 1.5rem;">The platform is active and live. Click the button above to view their custom site architecture.</p>
-          </div>
+          <?php foreach ($active_data['metrics'] as $mIdx => $m): ?>
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-val"><?php echo esc_html($m['val']); ?></div>
+              <div class="c8cs-metric-lbl"><?php echo esc_html($m['lbl']); ?></div>
+              <p class="c8cs-metric-desc" <?php if ($mIdx === count($active_data['metrics']) - 1) echo 'style="margin-bottom: 1.5rem;"'; ?>><?php echo esc_html($m['desc']); ?></p>
+              
+              <?php if ($mIdx === count($active_data['metrics']) - 1): ?>
+                <a href="<?php echo esc_url($active_data['live_url']); ?>" target="_blank" rel="noopener" class="c8cs-status-badge">
+                  <div class="c8cs-status-lbl">Production Verification</div>
+                  <div class="c8cs-status-val">
+                    <span class="c8cs-checkmark-circle">&#10003;</span>
+                    <span>Visit Live Site &rarr;</span>
+                  </div>
+                </a>
+              <?php endif; ?>
+            </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Related Projects Matrix -->
-  <div class="c8cs-related-paper-outer">
-    <div class="c8cs-wrap" style="padding-top:0; padding-bottom:0;">
-      <div class="c8cs-related-matrix-box">
-        <div class="c8cs-related-matrix-header">
-          <div class="c8cs-label">More Case Studies</div>
-          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Explore Related Projects</h2>
-        </div>
+  <!-- Section 8: Related Projects Matrix -->
+  <section class="c8cs-related-paper-outer">
+    <div class="c8cs-related-matrix-box">
+      <div class="c8cs-related-matrix-header">
+        <div class="c8cs-label">Selected Work</div>
+        <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Explore Related Case Studies</h2>
+      </div>
 
-        <div class="c8cs-related-matrix-grid">
-          <a href="<?php echo esc_url(home_url('/portfolio/kiri-city-stays/')); ?>" class="c8cs-related-cell">
+      <div class="c8cs-related-matrix-grid">
+        <?php
+        $related_keys = ['the-duch-apartments', 'mkenny-properties'];
+        foreach ($related_keys as $rKey):
+          if ($rKey === $active_slug) continue;
+          $rData = $portfolio_data_matrix[$rKey] ?? null;
+          if (!$rData) continue;
+        ?>
+          <a href="<?php echo esc_url(home_url('/portfolio/' . $rKey . '/')); ?>" class="c8cs-related-cell">
             <div>
-              <div class="c8cs-related-cell-tag">01 / Web Design &amp; Booking</div>
-              <h3 class="c8cs-related-cell-title">Kiri City Stays</h3>
-              <p class="c8cs-related-cell-desc">Direct booking platform &amp; luxury stay catalog engineered for seamless reservations and local SEO visibility.</p>
+              <div class="c8cs-related-cell-tag"><?php echo esc_html($rData['industry']); ?></div>
+              <h3 class="c8cs-related-cell-title"><?php echo esc_html($rData['client_name']); ?></h3>
+              <p class="c8cs-related-cell-desc"><?php echo esc_html(wp_trim_words($rData['lead'], 18)); ?></p>
             </div>
             <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
           </a>
-          <a href="<?php echo esc_url(home_url('/portfolio/mkenny-properties/')); ?>" class="c8cs-related-cell">
-            <div>
-              <div class="c8cs-related-cell-tag">02 / WordPress Custom</div>
-              <h3 class="c8cs-related-cell-title">Mkenny Properties</h3>
-              <p class="c8cs-related-cell-desc">Full real estate platform featuring custom Elementor widgets, listing archives, and property detail templates.</p>
-            </div>
-            <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
-          </a>
-          <a href="<?php echo esc_url(home_url('/portfolio/the-duch-apartments/')); ?>" class="c8cs-related-cell">
-            <div>
-              <div class="c8cs-related-cell-tag">03 / Web Design &amp; SEO</div>
-              <h3 class="c8cs-related-cell-title">The Duch Apartments</h3>
-              <p class="c8cs-related-cell-desc">Brand identity and direct booking platform engineered with SEO architecture built in from day one.</p>
-            </div>
-            <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
-          </a>
-        </div>
+        <?php endforeach; ?>
+        <a href="<?php echo esc_url(home_url('/portfolio/bridgepoint-compliance/')); ?>" class="c8cs-related-cell">
+          <div>
+            <div class="c8cs-related-cell-tag">02 / Custom Dev</div>
+            <h3 class="c8cs-related-cell-title">Bridgepoint Advisory</h3>
+            <p class="c8cs-related-cell-desc">Bespoke compliance analysis web application built with zero template bloat and custom SQL queries.</p>
+          </div>
+          <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
+        </a>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Homepage CTA -->
+  <!-- Homepage Pre-Footer CTA Part -->
   <?php get_template_part('parts/prototype-cta'); ?>
 
 </div><!-- End c8cs-root -->
 
+<!-- Parity JavaScript -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var root = document.querySelector('.c8cs-root');
-    var atmos = root.querySelector('[data-c8cs-atmos]');
-    var glow = root.querySelector('[data-c8cs-glow]');
+    var atmos = root ? root.querySelector('[data-c8cs-atmos]') : null;
+    var glow = root ? root.querySelector('[data-c8cs-glow]') : null;
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
 

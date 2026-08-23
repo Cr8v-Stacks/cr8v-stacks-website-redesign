@@ -225,32 +225,32 @@ defined('ABSPATH') || exit;
     </div>
     <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
       <div class="c8isv-portfolio-img">
-        <img src="<?php echo esc_url(cr8v_mod('wp_port_img', 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop')); ?>" alt="The Duch Apartments — built by Cr8v Stacks" data-customizer="wp_port_img">
+        <img src="<?php echo esc_url(cr8v_mod('wp_port_img', get_template_directory_uri() . '/assets/img/case_studies/cs_mkenny_hero_vertical.webp')); ?>" alt="Mkenny Properties — built by Cr8v Stacks" data-customizer="wp_port_img">
       </div>
       <div class="c8isv-portfolio-info">
-        <span class="c8isv-portfolio-client" data-customizer="wp_port_client"><?php echo esc_html(cr8v_mod('wp_port_client', 'Case Study — The Duch Apartments')); ?></span>
-        <h3 class="c8isv-portfolio-title" data-customizer="wp_port_title"><?php echo esc_html(cr8v_mod('wp_port_title', 'Custom WordPress Architecture & Gutenberg System')); ?></h3>
-        <p class="c8isv-portfolio-desc" data-customizer="wp_port_desc"><?php echo wp_kses_post(cr8v_mod('wp_port_desc', 'The Duch Apartments needed a high-conversion real estate platform with instant property search filtering and custom Gutenberg block layouts. We built a custom PHP theme and custom ACF field schema.')); ?></p>
+        <span class="c8isv-portfolio-client" data-customizer="wp_port_client"><?php echo esc_html(cr8v_mod('wp_port_client', 'Case Study — Mkenny Properties')); ?></span>
+        <h3 class="c8isv-portfolio-title" data-customizer="wp_port_title"><?php echo esc_html(cr8v_mod('wp_port_title', 'Property Platform & Custom Elementor Widgets')); ?></h3>
+        <p class="c8isv-portfolio-desc" data-customizer="wp_port_desc"><?php echo wp_kses_post(cr8v_mod('wp_port_desc', 'Rebuilt Mkenny Properties from a basic landing page into a full property catalog platform: listings catalog, individual property showcases, blog insights, and archive taxonomy templates — all powered by a custom Elementor widget system developed specifically for this project.')); ?></p>
         <div class="c8isv-portfolio-stats">
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="wp_port_stat1_val"><?php echo esc_html(cr8v_mod('wp_port_stat1_val', '450ms')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="wp_port_stat1_lbl"><?php echo esc_html(cr8v_mod('wp_port_stat1_lbl', 'Largest Contentful Paint (LCP)')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="wp_port_stat1_val"><?php echo esc_html(cr8v_mod('wp_port_stat1_val', '4')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="wp_port_stat1_lbl"><?php echo esc_html(cr8v_mod('wp_port_stat1_lbl', 'New Page Types')); ?></span>
           </div>
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="wp_port_stat2_val"><?php echo esc_html(cr8v_mod('wp_port_stat2_val', '100%')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="wp_port_stat2_lbl"><?php echo esc_html(cr8v_mod('wp_port_stat2_lbl', 'Gutenberg Editorial Independence')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="wp_port_stat2_val"><?php echo esc_html(cr8v_mod('wp_port_stat2_val', '1')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="wp_port_stat2_lbl"><?php echo esc_html(cr8v_mod('wp_port_stat2_lbl', 'Custom Widget System')); ?></span>
           </div>
         </div>
         <div class="c8isv-portfolio-deliverables">
           <span class="c8isv-portfolio-stat-lbl">Key Deliverables</span>
           <div class="c8isv-portfolio-pills">
-            <span class="c8isv-portfolio-pill">Custom PHP Theme</span>
-            <span class="c8isv-portfolio-pill">Gutenberg Block Suite</span>
-            <span class="c8isv-portfolio-pill">ACF Pro Schemas</span>
-            <span class="c8isv-portfolio-pill">Security &amp; Speed Hardening</span>
+            <span class="c8isv-portfolio-pill">WordPress CMS</span>
+            <span class="c8isv-portfolio-pill">Custom Elementor Widgets</span>
+            <span class="c8isv-portfolio-pill">Property Listing Engine</span>
+            <span class="c8isv-portfolio-pill">Technical SEO Architecture</span>
           </div>
         </div>
-        <a href="<?php echo esc_url(home_url(cr8v_mod('wp_port_btn_url', '/case-studies/the-duch-apartments/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="wp_port_btn_text"><?php echo esc_html(cr8v_mod('wp_port_btn_text', 'View Case Study →')); ?></a>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('wp_port_btn_url', '/case-studies/mkenny-properties/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="wp_port_btn_text"><?php echo esc_html(cr8v_mod('wp_port_btn_text', 'View Case Study →')); ?></a>
       </div>
     </div>
     <div class="c8isv-portfolio-footer">

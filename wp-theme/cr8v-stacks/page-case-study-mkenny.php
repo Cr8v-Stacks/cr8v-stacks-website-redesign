@@ -26,7 +26,7 @@ get_header();
 
   .c8cs-root { position: relative; width: 100%; background: #FFFFFF; color: var(--c8-ink); font-family: var(--font-body); }
   .c8cs-wrap { max-width: 1340px; margin: 0 auto; padding: 3rem 2rem 5rem; position: relative; z-index: 2; }
-  @media (max-width: 768px) { .c8cs-wrap { padding: 3.5rem 1.25rem; } }
+  @media (max-width: 768px) { .c8cs-wrap { padding: clamp(2rem, 4vw, 3.5rem) 1.25rem; } }
 
   .c8cs-label {
     font-family: var(--font-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--c8-blue); display: inline-flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;
@@ -38,11 +38,11 @@ get_header();
   }
   .c8cs-serif { font-family: 'Georgia', serif; font-style: italic; text-transform: none; font-weight: 400; color: var(--c8-blue); }
 
-  .c8cs-lead { font-size: 18.5px; font-weight: 300; color: var(--c8-sub); max-width: 860px; margin-bottom: 2.5rem; line-height: 1.7; }
+  .c8cs-lead { font-size: clamp(1rem, 1.4vw, 1.15rem); font-weight: 300; color: var(--c8-sub); max-width: 860px; margin-bottom: 2.5rem; line-height: 1.7; }
 
-  .fylla-pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; margin-bottom: 2.5rem; }
+  .fylla-pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; margin-bottom: 2rem; }
   .fylla-pill {
-    border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.4rem 0.9rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700; border-radius: 4px !important; text-transform: uppercase;
+    border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.35rem 0.85rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700; border-radius: 4px !important; text-transform: uppercase;
   }
 
   .c8cs-hero { padding-top: 7rem; padding-bottom: 4rem; position: relative; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
@@ -62,111 +62,153 @@ get_header();
   .c8cs-meta-grid {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: transparent; margin-top: 3.5rem; position: relative; z-index: 2; overflow: hidden;
   }
-  @media (max-width: 768px) { .c8cs-meta-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 768px) { .c8cs-meta-grid { grid-template-columns: repeat(2, 1fr); margin-top: 1.5rem; } }
 
   .c8cs-meta-item { padding: 2rem 2.25rem; border-right: 1px solid var(--c8-grid-line); display: flex; flex-direction: column; justify-content: center; background: transparent; transition: background 0.35s ease; }
   .c8cs-meta-item:hover { background: #FAFAF7; }
   .c8cs-meta-item:last-child { border-right: none; }
+  @media (max-width: 768px) {
+    .c8cs-meta-item:nth-child(2n) { border-right: none; }
+    .c8cs-meta-item:nth-child(1), .c8cs-meta-item:nth-child(2) { border-bottom: 1px solid var(--c8-grid-line); }
+  }
 
-  .c8cs-meta-lbl { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.5rem; letter-spacing: 0.14em; font-weight: 700; }
-  .c8cs-meta-val { font-size: 15px; font-weight: 700; color: var(--c8-ink); }
+  .c8cs-meta-lbl { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.4rem; letter-spacing: 0.14em; font-weight: 700; }
+  .c8cs-meta-val { font-size: 14.5px; font-weight: 700; color: var(--c8-ink); }
 
-  .c8cs-grow-media-wrapper { width: 100%; padding: 1.5rem 0; display: flex; justify-content: center; background: transparent; border-bottom: 1px solid var(--c8-grid-line); overflow: hidden; }
+  .c8cs-grow-media-wrapper { width: 100%; padding: 1.5rem 0; display: flex; justify-content: center; background: transparent; overflow: hidden; }
+  @media (max-width: 768px) { .c8cs-grow-media-wrapper { padding: 1rem 0; } }
 
   .c8cs-main-img-box {
     width: 85%; max-width: 1200px; border-radius: 4px !important; overflow: hidden; box-shadow: 0 20px 50px rgba(8, 8, 8, 0.08); border: 1px solid var(--c8-grid-line); position: relative; z-index: 2; transition: width 0.15s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .c8cs-main-img-box img { width: 100%; height: auto; display: block; object-fit: cover; max-height: 700px; }
 
-  .c8cs-split-section { display: grid; grid-template-columns: 1fr 1.3fr; gap: 0; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; margin: 4rem 0; }
-  @media (max-width: 900px) { .c8cs-split-section { grid-template-columns: 1fr; } }
+  .c8cs-split-section { display: grid; grid-template-columns: 1fr 1.3fr; gap: 0; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; margin: clamp(2.5rem, 4vw, 3.5rem) 0; }
+  @media (max-width: 900px) { .c8cs-split-section { grid-template-columns: 1fr; margin: 2rem 0; } }
 
-  .c8cs-split-left { padding: 4.5rem 4rem; border-right: 1px solid var(--c8-grid-line); background: #FFFFFF; position: sticky; top: 100px; align-self: start; height: fit-content; }
-  @media (max-width: 900px) { .c8cs-split-left { position: relative; top: 0; border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 3rem 2rem; } }
+  .c8cs-split-left { padding: clamp(2.5rem, 3.5vw, 3.75rem) clamp(1.75rem, 3vw, 3.25rem); border-right: 1px solid var(--c8-grid-line); background: #FFFFFF; position: sticky; top: 100px; align-self: start; height: fit-content; }
+  @media (max-width: 900px) { .c8cs-split-left { position: relative; top: 0; border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2rem 1.5rem; } }
 
   .c8cs-split-right { background: #FAFAF7; display: flex; flex-direction: column; }
-  .c8cs-split-title { font-family: var(--font-heading); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.2; color: var(--c8-ink); margin-bottom: 1.5rem; }
-  .c8cs-body-content p { font-size: 15.5px; color: var(--c8-sub); margin-bottom: 1.5rem; line-height: 1.75; font-weight: 300; }
+  .c8cs-split-title { font-family: var(--font-heading); font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.2; color: var(--c8-ink); margin-bottom: 1.25rem; }
+  .c8cs-body-content p { font-size: 15px; color: var(--c8-sub); margin-bottom: 1.25rem; line-height: 1.7; font-weight: 300; }
 
-  .fylla-value-item { padding: 3rem 3.5rem; border-bottom: 1px solid var(--c8-grid-line); display: flex; gap: 1.75rem; align-items: flex-start; transition: background 0.35s ease; background: #FAFAF7; }
+  .fylla-value-item { padding: clamp(1.75rem, 2.5vw, 2.5rem) clamp(1.5rem, 2.5vw, 2.75rem); border-bottom: 1px solid var(--c8-grid-line); display: flex; gap: 1.5rem; align-items: flex-start; transition: background 0.35s ease; background: #FAFAF7; }
+  @media (max-width: 600px) { .fylla-value-item { padding: 1.5rem 1.25rem; gap: 1rem; } }
   .fylla-value-item:hover { background: #FFFFFF; }
   .fylla-value-item:last-child { border-bottom: none; }
 
   .fylla-value-icon-box {
-    width: 48px; height: 48px; border-radius: 4px !important; background: rgba(0, 71, 225, 0.08); border: 1px solid rgba(0, 71, 225, 0.2); display: flex; align-items: center; justify-content: center; color: var(--c8-blue); flex-shrink: 0; margin-top: 0.2rem;
+    width: 44px; height: 44px; border-radius: 4px !important; background: rgba(0, 71, 225, 0.08); border: 1px solid rgba(0, 71, 225, 0.2); display: flex; align-items: center; justify-content: center; color: var(--c8-blue); flex-shrink: 0; margin-top: 0.2rem;
   }
-  .fylla-value-icon-box svg { width: 24px; height: 24px; stroke: var(--c8-blue); fill: none; stroke-width: 2; }
+  .fylla-value-icon-box svg { width: 22px; height: 22px; stroke: var(--c8-blue); fill: none; stroke-width: 2; }
 
-  .fylla-value-h3 { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.65rem; }
-  .fylla-value-desc { font-size: 0.92rem; color: var(--c8-sub); line-height: 1.65; }
+  .fylla-value-h3 { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.5rem; }
+  .fylla-value-desc { font-size: 0.9rem; color: var(--c8-sub); line-height: 1.6; }
 
-  .c8cs-gallery-section { padding: 0 0 3rem; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
-  .c8cs-gallery-outer-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
-  .c8cs-gallery-header { padding: 3.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
-  .c8cs-gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--c8-grid-line); }
-  @media (max-width: 900px) { .c8cs-gallery-grid { grid-template-columns: 1fr; } }
+  /* ── SECTION 3: CORE DELIVERABLES (2-UP 16:9 GRID) ── */
+  .c8cs-deliverables-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+  .c8cs-deliverables-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+  .c8cs-deliverables-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-deliverables-header { padding: 1.75rem 1.25rem; } }
+  .c8cs-deliverables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--c8-grid-line); }
+  @media (max-width: 900px) { .c8cs-deliverables-grid { grid-template-columns: 1fr; } }
+  .c8cs-deliverable-card { background: #FFFFFF; padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.75rem); display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); transition: background 0.35s ease; }
+  .c8cs-deliverable-card:last-child { border-right: none; }
+  @media (max-width: 900px) { .c8cs-deliverable-card { border-right: none; } }
+  @media (max-width: 600px) { .c8cs-deliverable-card { padding: 1.75rem 1.25rem; } }
+  .c8cs-deliverable-card:hover { background: #FAFAF7; }
+  .c8cs-deliverable-meta { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.65rem; letter-spacing: 0.14em; font-weight: 700; }
+  .c8cs-deliverable-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.45rem; letter-spacing: 0.01em; }
+  .c8cs-deliverable-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 1.5rem; }
+  .c8cs-deliverable-img-box { width: 100%; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-top: auto; background: #080808; aspect-ratio: 16 / 9; }
+  .c8cs-deliverable-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.5s ease; }
+  .c8cs-deliverable-card:hover .c8cs-deliverable-img-box img { transform: scale(1.02); }
 
-  .c8cs-gallery-card { background: #FFFFFF; padding: 3.5rem 3rem; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); transition: background 0.35s ease; }
-  .c8cs-gallery-card:hover { background: #FAFAF7; }
-  .c8cs-gallery-card.is-full { grid-column: 1 / -1; border-right: none; border-bottom: none; background: #FAFAF7; }
-  .c8cs-gallery-card-top { margin-bottom: 2rem; }
-  .c8cs-gallery-card-bottom { margin-top: auto; display: flex; flex-direction: column; }
+  /* ── SECTION 4: SOVEREIGNTY ARCHITECTURE (3:4 SPLIT) ── */
+  .c8cs-sovereignty-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+  .c8cs-sovereignty-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+  .c8cs-sovereignty-split { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 0; background: var(--c8-grid-line); align-items: stretch; }
+  @media (max-width: 960px) { .c8cs-sovereignty-split { grid-template-columns: 1fr; } }
+  .c8cs-sovereignty-left { background: #FFFFFF; padding: clamp(2.5rem, 3.5vw, 3.75rem) clamp(1.75rem, 3vw, 3.25rem); display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--c8-grid-line); }
+  @media (max-width: 960px) { .c8cs-sovereignty-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2rem 1.5rem; } }
+  .c8cs-sovereignty-right { background: #FAFAF7; padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; align-items: center; justify-content: center; }
+  @media (max-width: 960px) { .c8cs-sovereignty-right { padding: 2rem 1.25rem; } }
+  .c8cs-sovereignty-img-box { width: 100%; max-width: 440px; aspect-ratio: 3 / 4; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+  .c8cs-sovereignty-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; }
 
-  .c8cs-gallery-meta { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.75rem; letter-spacing: 0.14em; font-weight: 700; }
-  .c8cs-gallery-title { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.01em; }
-  .c8cs-gallery-desc { font-size: 14.5px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 2rem; }
+  /* ── SECTION 5: PURE VISUAL GALLERY (CLEAN STREAM — NO SLOP) ── */
+  .c8cs-stream-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+  .c8cs-stream-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+  .c8cs-stream-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-stream-header { padding: 1.75rem 1.25rem; } }
+  .c8cs-stream-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: var(--c8-grid-line); }
+  @media (max-width: 992px) { .c8cs-stream-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .c8cs-stream-grid { grid-template-columns: 1fr; } }
+  .c8cs-stream-cell { background: #FFFFFF; padding: clamp(1.25rem, 2vw, 1.75rem); display: flex; flex-direction: column; border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); transition: background 0.35s ease; }
+  .c8cs-stream-cell:nth-child(3n) { border-right: none; }
+  @media (max-width: 992px) { .c8cs-stream-cell:nth-child(3n) { border-right: 1px solid var(--c8-grid-line); } .c8cs-stream-cell:nth-child(2n) { border-right: none; } }
+  @media (max-width: 600px) { .c8cs-stream-cell { border-right: none; padding: 1.25rem 1.25rem 1.5rem; } }
+  .c8cs-stream-cell:hover { background: #FAFAF7; }
+  .c8cs-stream-img-box { width: 100%; aspect-ratio: 16 / 9; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; margin-bottom: 1rem; }
+  .c8cs-stream-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.5s ease; }
+  .c8cs-stream-cell:hover .c8cs-stream-img-box img { transform: scale(1.03); }
+  .c8cs-stream-cell-info { display: flex; flex-direction: column; gap: 0.2rem; }
+  .c8cs-stream-cell-tag { font-family: var(--font-mono); font-size: 8.5px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.12em; }
+  .c8cs-stream-cell-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; letter-spacing: 0.01em; }
 
-  .c8cs-gallery-img-box { width: 100%; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-top: auto; background: #080808; }
-  .c8cs-gallery-img-box.is-tall { max-height: 520px !important; height: 520px !important; }
-  .c8cs-gallery-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.5s ease; }
-  .c8cs-gallery-card:hover .c8cs-gallery-img-box img { transform: scale(1.03); }
-
-  .c8cs-swatch-row { display: flex; gap: 1rem; margin-top: 2rem; }
-  .c8cs-swatch { flex: 1; height: 110px; border-radius: 4px !important; border: 1px solid var(--c8-grid-line); display: flex; flex-direction: column; justify-content: flex-end; padding: 12px; }
-  .c8cs-swatch-hex { font-family: var(--font-mono); font-size: 9px; font-weight: 700; background: rgba(255, 255, 255, 0.9); padding: 2px 6px; border-radius: 4px !important; align-self: flex-start; color: var(--c8-ink); }
-
-  .c8cs-metrics-bg { background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); padding: 6rem 0; }
+  .c8cs-metrics-bg { background: #FFFFFF; padding: clamp(3rem, 5vw, 5rem) 0; }
   .c8cs-metrics-outer-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
-  .c8cs-metrics-header { padding: 3.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  .c8cs-metrics-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-metrics-header { padding: 1.75rem 1.25rem; } }
   .c8cs-metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
   @media (max-width: 768px) { .c8cs-metrics-grid { grid-template-columns: 1fr; } }
 
-  .c8cs-metric-card { background: #FAFAF7; border-right: 1px solid var(--c8-grid-line); padding: 3.5rem 3rem; display: flex; flex-direction: column; transition: background 0.35s ease; }
+  .c8cs-metric-card { background: #FAFAF7; border-right: 1px solid var(--c8-grid-line); padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; flex-direction: column; transition: background 0.35s ease; }
   .c8cs-metric-card:nth-child(even) { background: #FFFFFF; }
   .c8cs-metric-card:hover { background: #F4F5F7; }
   .c8cs-metric-card:last-child { border-right: none; }
+  @media (max-width: 768px) {
+    .c8cs-metric-card { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
+    .c8cs-metric-card:last-child { border-bottom: none; }
+  }
 
-  .c8cs-metric-val { font-family: var(--font-heading); font-size: 3rem; font-weight: 700; color: var(--c8-blue); line-height: 1; margin-bottom: 1.25rem; }
-  .c8cs-metric-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.75rem; font-weight: 700; }
+  .c8cs-metric-val { font-family: var(--font-heading); font-size: clamp(2.4rem, 4vw, 3rem); font-weight: 700; color: var(--c8-blue); line-height: 1; margin-bottom: 1rem; }
+  .c8cs-metric-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.65rem; font-weight: 700; }
   .c8cs-metric-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; }
 
   .c8cs-status-badge {
     background: rgba(0, 191, 99, 0.04); border: 1px solid rgba(0, 191, 99, 0.25);
-    padding: 1.25rem 1.75rem; border-radius: 4px !important; display: inline-flex; flex-direction: column; align-items: flex-start;
+    padding: 1rem 1.5rem; border-radius: 4px !important; display: inline-flex; flex-direction: column; align-items: flex-start;
     margin-top: auto; text-decoration: none; transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease; cursor: pointer;
   }
   .c8cs-status-badge:hover { background: rgba(0, 191, 99, 0.08); border-color: rgba(0, 191, 99, 0.4); transform: translateY(-2px); }
-  .c8cs-status-lbl { font-family: var(--font-mono); font-size: 8px; font-weight: 700; color: #00BF63; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .c8cs-status-lbl { font-family: var(--font-mono); font-size: 8px; font-weight: 700; color: #00BF63; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
   .c8cs-status-val { font-family: var(--font-heading); font-size: 10.5px; font-weight: 700; color: #00BF63; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 8px; line-height: 1.2; }
   .c8cs-checkmark-circle { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: #00BF63; color: #FFFFFF; font-size: 10px; font-weight: bold; }
 
-  .c8cs-back-btn { font-family: var(--font-mono); font-size: 10px; color: #8A8A8A; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2.5rem; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; text-decoration: none; position: relative; z-index: 2; font-weight: 700; }
+  .c8cs-back-btn { font-family: var(--font-mono); font-size: 10px; color: #8A8A8A; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; text-decoration: none; position: relative; z-index: 2; font-weight: 700; }
   .c8cs-back-btn:hover { color: var(--c8-blue); }
 
-  .c8cs-related-paper-outer { background: #FFFFFF; padding: 6rem 0; border-bottom: 1px solid var(--c8-grid-line); width: 100%; }
+  .c8cs-related-paper-outer { background: #FFFFFF; padding: clamp(3rem, 5vw, 5rem) 0; width: 100%; }
   .c8cs-related-matrix-box { max-width: 1340px; margin: 0 auto; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
-  .c8cs-related-matrix-header { padding: 3.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  .c8cs-related-matrix-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-related-matrix-header { padding: 1.75rem 1.25rem; } }
   .c8cs-related-matrix-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
   @media (max-width: 900px) { .c8cs-related-matrix-grid { grid-template-columns: 1fr; } }
 
-  .c8cs-related-cell { padding: 3.5rem 3rem; border-right: 1px solid var(--c8-grid-line); background: #FAFAF7; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: var(--c8-ink); transition: background 0.35s ease; }
+  .c8cs-related-cell { padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); border-right: 1px solid var(--c8-grid-line); background: #FAFAF7; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: var(--c8-ink); transition: background 0.35s ease; }
   .c8cs-related-cell:nth-child(even) { background: #FFFFFF; }
   .c8cs-related-cell:last-child { border-right: none; }
   .c8cs-related-cell:hover { background: #F4F5F7; }
+  @media (max-width: 900px) {
+    .c8cs-related-cell { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
+    .c8cs-related-cell:last-child { border-bottom: none; }
+  }
 
-  .c8cs-related-cell-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; margin-bottom: 0.75rem; }
-  .c8cs-related-cell-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.85rem; line-height: 1.3; }
-  .c8cs-related-cell-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 2rem; }
+  .c8cs-related-cell-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; margin-bottom: 0.65rem; }
+  .c8cs-related-cell-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.75rem; line-height: 1.3; }
+  .c8cs-related-cell-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 1.75rem; }
   .c8cs-related-cell-link { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s ease; }
   .c8cs-related-cell:hover .c8cs-related-cell-link { gap: 10px; }
 </style>
@@ -206,14 +248,14 @@ get_header();
     <div class="c8cs-wrap" style="padding-top: 1rem; padding-bottom: 2rem;">
       <a href="<?php echo esc_url(home_url('/portfolio/')); ?>" class="c8cs-back-btn">&larr; Back to Portfolio</a>
       
-      <div class="c8cs-label">Case Study // Real Estate &amp; WordPress Widgets</div>
-      <h1 class="c8cs-headline">Mkenny Properties: Real Estate <span class="c8cs-serif">Widget Engine</span></h1>
-      <p class="c8cs-lead">Mkenny Properties needed a robust real estate catalog platform. We developed custom Elementor &amp; Gutenberg widgets, property filter query engines, and interactive listing maps tailored for property buyers.</p>
+      <div class="c8cs-label">Case Study // Real Estate &amp; Custom WordPress Widgets</div>
+      <h1 class="c8cs-headline">Mkenny Properties: Property Archive &amp; <span class="c8cs-serif">Widget Engine</span></h1>
+      <p class="c8cs-lead">Mkenny Properties required a custom real estate portal to showcase active residential and commercial developments. We engineered bespoke Elementor dynamic query widgets, sub-second AJAX filter matrices, and an integrated broker lead routing pipeline.</p>
       
       <div class="fylla-pill-row">
         <span class="fylla-pill">WordPress Custom</span>
-        <span class="fylla-pill">Property Engine</span>
-        <span class="fylla-pill">Custom Widgets</span>
+        <span class="fylla-pill">Elementor Widgets</span>
+        <span class="fylla-pill">Query Pipelines</span>
         <span class="fylla-pill">Real Estate</span>
       </div>
 
@@ -224,7 +266,7 @@ get_header();
         </div>
         <div class="c8cs-meta-item">
           <span class="c8cs-meta-lbl">Services</span>
-          <span class="c8cs-meta-val">WordPress Custom Widgets</span>
+          <span class="c8cs-meta-val">WordPress Custom Widgets &amp; UX</span>
         </div>
         <div class="c8cs-meta-item">
           <span class="c8cs-meta-lbl">Stack</span>
@@ -241,7 +283,7 @@ get_header();
   <!-- Scroll Grow Media -->
   <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
     <div class="c8cs-main-img-box" id="c8cs-grow-target">
-      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1600&auto=format&fit=crop" alt="Mkenny Properties showcase — built by Cr8v Stacks">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/cs_mkenny_hero_landscape.webp" alt="Mkenny Properties real estate portal showcase — engineered by Cr8v Stacks">
     </div>
   </div>
 
@@ -252,8 +294,8 @@ get_header();
         <div class="c8cs-label">Overview</div>
         <h2 class="c8cs-split-title">The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span></h2>
         <div class="c8cs-body-content">
-          <p>Mkenny Properties was limited by standard real estate themes that were rigid, hard to customize, and slowed down by heavy database queries.</p>
-          <p>They needed custom property archive filters (location, price range, bedrooms), interactive floorplan viewers, and instant WhatsApp inquiry widgets.</p>
+          <p>Mkenny Properties' legacy site was a static brochure with no dynamic catalog or lead qualification mechanisms. High-intent property investors were unable to filter developments by location, price, or development status online.</p>
+          <p>We engineered a bespoke WordPress development catalog: modular Elementor listing widgets, sub-second AJAX taxonomy facet filtering, and automated broker routing that converts visitors directly into sales inquiries.</p>
         </div>
       </div>
 
@@ -263,8 +305,8 @@ get_header();
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <div>
-            <h3 class="fylla-value-h3">01 / Custom Elementor &amp; PHP Widgets</h3>
-            <p class="fylla-value-desc">Engineered bespoke Elementor widgets allowing the client team to build custom property pages effortlessly.</p>
+            <h3 class="fylla-value-h3">01 / Custom Elementor Widget System</h3>
+            <p class="fylla-value-desc">Engineered modular drag-and-drop property cards and dynamic query loop builders tailored for the client editorial team.</p>
           </div>
         </div>
         <div class="fylla-value-item">
@@ -272,8 +314,8 @@ get_header();
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <div>
-            <h3 class="fylla-value-h3">02 / High-Speed Property Query Engine</h3>
-            <p class="fylla-value-desc">Optimized WordPress WP_Query database calls for instant filtering across hundreds of active listings.</p>
+            <h3 class="fylla-value-h3">02 / High-Velocity AJAX Query Engine</h3>
+            <p class="fylla-value-desc">Constructed lightweight custom SQL query routines delivering instantaneous multi-facet filtering across price, status, and location.</p>
           </div>
         </div>
         <div class="fylla-value-item">
@@ -281,8 +323,8 @@ get_header();
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <div>
-            <h3 class="fylla-value-h3">03 / Interactive Map &amp; Location Integration</h3>
-            <p class="fylla-value-desc">Embedded Google Maps API boundaries highlighting neighborhood amenities and transport hubs.</p>
+            <h3 class="fylla-value-h3">03 / Dynamic Neighborhood &amp; Map Schema</h3>
+            <p class="fylla-value-desc">Integrated interactive location maps and structured RealEstateListing JSON-LD schema for dominant local search visibility.</p>
           </div>
         </div>
         <div class="fylla-value-item">
@@ -290,68 +332,45 @@ get_header();
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <div>
-            <h3 class="fylla-value-h3">04 / Direct WhatsApp Inquiry Webhooks</h3>
-            <p class="fylla-value-desc">Built one-click lead capture buttons connecting interested buyers directly to sales agents.</p>
+            <h3 class="fylla-value-h3">04 / Direct WhatsApp Broker Routing</h3>
+            <p class="fylla-value-desc">Engineered instant property metadata passing into direct broker WhatsApp inquiries, accelerating deal conversion rates.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Showcase Gallery -->
-  <section class="c8cs-gallery-section">
+  <!-- Section 3: Core Technical Deliverables -->
+  <section class="c8cs-deliverables-section">
     <div class="c8cs-wrap">
-      <div class="c8cs-gallery-outer-box">
-        <div class="c8cs-gallery-header">
-          <div class="c8cs-label">Showcase</div>
-          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Visual Showcase &amp; Systems</h2>
+      <div class="c8cs-deliverables-box">
+        <div class="c8cs-deliverables-header">
+          <div class="c8cs-label">Design &amp; Engineering</div>
+          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Core Technical Deliverables</h2>
         </div>
 
-        <div class="c8cs-gallery-grid">
-          <div class="c8cs-gallery-card">
-            <div class="c8cs-gallery-card-top">
-              <div class="c8cs-gallery-meta">Brand Identity // Asset 01</div>
-              <h3 class="c8cs-gallery-title">Color System &amp; Palette</h3>
+        <div class="c8cs-deliverables-grid">
+          <!-- Asset 01: Component Tokens & Widget Spec -->
+          <div class="c8cs-deliverable-card">
+            <div>
+              <div class="c8cs-deliverable-meta">Design System // Asset 01</div>
+              <h3 class="c8cs-deliverable-title">Custom Elementor Widget Suite</h3>
+              <p class="c8cs-deliverable-desc">Constructed reusable UI components, property badge states (Featured, Sold Out, Under Offer), and typography tokens mapped directly into Elementor theme templates.</p>
             </div>
-            <div class="c8cs-gallery-card-bottom">
-              <p class="c8cs-gallery-desc">Curating primary brand accents, dark backgrounds, and neutral tones that convey luxury elegance.</p>
-              <div class="c8cs-swatch-row">
-                <div class="c8cs-swatch" style="background: #080808; color: #FFFFFF;">
-                  <span class="c8cs-swatch-hex">#080808</span>
-                </div>
-                <div class="c8cs-swatch" style="background: #0047E1; color: #FFFFFF;">
-                  <span class="c8cs-swatch-hex">#0047E1</span>
-                </div>
-                <div class="c8cs-swatch" style="background: #F4F6FB; color: #080808;">
-                  <span class="c8cs-swatch-hex" style="background: rgba(8,8,8,0.1);">#F4F6FB</span>
-                </div>
-              </div>
+            <div class="c8cs-deliverable-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/mkenny_asset_01_design_system.webp" alt="Mkenny Properties Custom Elementor Widget System">
             </div>
           </div>
 
-          <div class="c8cs-gallery-card">
-            <div class="c8cs-gallery-card-top">
-              <div class="c8cs-gallery-meta">Interface // Asset 02</div>
-              <h3 class="c8cs-gallery-title">Platform Experience Page</h3>
+          <!-- Asset 02: Real-time Property Query Engine -->
+          <div class="c8cs-deliverable-card">
+            <div>
+              <div class="c8cs-deliverable-meta">Query Engine // Asset 02</div>
+              <h3 class="c8cs-deliverable-title">AJAX Property Filter Matrix</h3>
+              <p class="c8cs-deliverable-desc">Engineered sub-second facet filtering for location zones, property types (Duplex, Terrace, Land), and budget sliders with zero page reloads.</p>
             </div>
-            <div class="c8cs-gallery-card-bottom">
-              <p class="c8cs-gallery-desc">Designing custom user interfaces, pricing breakdowns, and direct conversion triggers.</p>
-              <div class="c8cs-gallery-img-box">
-                <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop" alt="Mkenny Properties interface detail screenshot">
-              </div>
-            </div>
-          </div>
-
-          <div class="c8cs-gallery-card is-full">
-            <div class="c8cs-gallery-card-top">
-              <div class="c8cs-gallery-meta">Mobile UI // Asset 03</div>
-              <h3 class="c8cs-gallery-title">Responsive Mobile Flow</h3>
-            </div>
-            <div class="c8cs-gallery-card-bottom">
-              <p class="c8cs-gallery-desc">Optimizing touch targets and instant contact forms for mobile users discovering the platform online.</p>
-              <div class="c8cs-gallery-img-box is-tall">
-                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop" alt="Mkenny Properties mobile experience flow">
-              </div>
+            <div class="c8cs-deliverable-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/mkenny_asset_02_experience.webp" alt="Mkenny Properties Real-Time Property Filter Engine">
             </div>
           </div>
         </div>
@@ -359,129 +378,229 @@ get_header();
     </div>
   </section>
 
-  <!-- Outcomes Metrics Matrix -->
+  <!-- Section 4: Sovereignty Architecture (3:4 Split) -->
+  <section class="c8cs-sovereignty-section">
+    <div class="c8cs-wrap">
+      <div class="c8cs-sovereignty-box">
+        <div class="c8cs-sovereignty-split">
+          <!-- Left: Architecture Narrative -->
+          <div class="c8cs-sovereignty-left">
+            <div class="c8cs-deliverable-meta">Ecosystem Velocity // Asset 03</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 1.25rem;">Custom Post Architecture &amp; Direct Lead Sovereignty</h2>
+            <p style="font-size: 15px; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.5rem; font-weight: 300;">Rather than relying on third-party property portal aggregators that divert inquiries to competing agencies, we architected an independent WordPress property catalog pipeline that keeps all buyer data and direct inquiries proprietary to Mkenny.</p>
+            <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;">
+              <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">01</span>
+                <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;"><strong>Custom Post Type &amp; ACF Schema:</strong> Clean property data architecture supporting bedrooms, document title types, and floor plans.</span>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">02</span>
+                <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;"><strong>Cached WP_Query Optimization:</strong> Sub-120ms database response times across high-density image catalogs.</span>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">03</span>
+                <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;"><strong>Automated Broker Routing:</strong> Dynamic pre-filled WhatsApp lead dispatch connecting prospective buyers to the assigned agent.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Native 3:4 Vertical Image Card -->
+          <div class="c8cs-sovereignty-right">
+            <div class="c8cs-sovereignty-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/mkenny_asset_03_ecosystem.webp" alt="Mkenny Properties Custom Property Query Architecture Blueprint">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Project Visual Gallery -->
+  <section class="c8cs-stream-section">
+    <div class="c8cs-wrap">
+      <div class="c8cs-stream-box">
+        <div class="c8cs-stream-header">
+          <div class="c8cs-label">Visual Gallery</div>
+          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Platform Showcase &amp; Production Gallery</h2>
+        </div>
+
+        <div class="c8cs-stream-grid">
+          <!-- Gallery 1 -->
+          <div class="c8cs-stream-cell">
+            <div class="c8cs-stream-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/mkenny_gallery_01.webp" alt="Full-width property archive grid with dynamic filters">
+            </div>
+            <div class="c8cs-stream-cell-info">
+              <span class="c8cs-stream-cell-tag">Live Interface</span>
+              <h3 class="c8cs-stream-cell-title">Property Archive Grid</h3>
+            </div>
+          </div>
+
+          <!-- Gallery 2 -->
+          <div class="c8cs-stream-cell">
+            <div class="c8cs-stream-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/mkenny_gallery_02.webp" alt="Single property master listing layout with dynamic specs">
+            </div>
+            <div class="c8cs-stream-cell-info">
+              <span class="c8cs-stream-cell-tag">Catalog Engine</span>
+              <h3 class="c8cs-stream-cell-title">Single Property Showcase</h3>
+            </div>
+          </div>
+
+          <!-- Gallery 3 -->
+          <div class="c8cs-stream-cell">
+            <div class="c8cs-stream-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/mkenny_gallery_03.webp" alt="WordPress backend Elementor custom widget controls">
+            </div>
+            <div class="c8cs-stream-cell-info">
+              <span class="c8cs-stream-cell-tag">Editorial Tools</span>
+              <h3 class="c8cs-stream-cell-title">Custom Elementor Widget Controls</h3>
+            </div>
+          </div>
+
+          <!-- Gallery 4 -->
+          <div class="c8cs-stream-cell">
+            <div class="c8cs-stream-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/mkenny_gallery_04.webp" alt="Instant broker WhatsApp inquiry workflow">
+            </div>
+            <div class="c8cs-stream-cell-info">
+              <span class="c8cs-stream-cell-tag">Conversion Flow</span>
+              <h3 class="c8cs-stream-cell-title">Direct WhatsApp Broker Dispatch</h3>
+            </div>
+          </div>
+
+          <!-- Gallery 5 -->
+          <div class="c8cs-stream-cell">
+            <div class="c8cs-stream-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/mkenny_gallery_05.webp" alt="Interactive neighborhood amenity map module">
+            </div>
+            <div class="c8cs-stream-cell-info">
+              <span class="c8cs-stream-cell-tag">Geo Architecture</span>
+              <h3 class="c8cs-stream-cell-title">Interactive Amenity Map Module</h3>
+            </div>
+          </div>
+
+          <!-- Gallery 6 -->
+          <div class="c8cs-stream-cell">
+            <div class="c8cs-stream-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/mkenny_gallery_06.webp" alt="Lighthouse performance score and Core Web Vitals telemetry">
+            </div>
+            <div class="c8cs-stream-cell-info">
+              <span class="c8cs-stream-cell-tag">Performance Verification</span>
+              <h3 class="c8cs-stream-cell-title">Core Web Vitals Telemetry</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Outcomes Metrics Matrix -->
   <section class="c8cs-metrics-bg">
     <div class="c8cs-wrap">
       <div class="c8cs-metrics-outer-box">
         <div class="c8cs-metrics-header">
-          <div class="c8cs-label">Outcomes</div>
-          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Bespoke Performance Metrics</h2>
+          <div class="c8cs-label">Impact</div>
+          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Measured Outcomes &amp; System Performance</h2>
         </div>
 
         <div class="c8cs-metrics-grid">
+          <!-- Metric 1 -->
           <div class="c8cs-metric-card">
-            <div class="c8cs-metric-val">100%</div>
-            <div class="c8cs-metric-lbl">Custom Elementor Widgets</div>
-            <p class="c8cs-metric-desc">Delivered tailored drag-and-drop property widgets giving the client total design control.</p>
-          </div>
-          <div class="c8cs-metric-card">
-            <div class="c8cs-metric-val">+250%</div>
-            <div class="c8cs-metric-lbl">Property Inquiry Velocity</div>
-            <p class="c8cs-metric-desc">Streamlined mobile buyer contact pathways directly connecting interested clients to real estate agents.</p>
+            <div class="c8cs-metric-val">&lt;120ms</div>
+            <div class="c8cs-metric-lbl">Query Latency</div>
+            <p class="c8cs-metric-desc">Sub-second database query response for multi-parameter property facet filtering across active listings.</p>
           </div>
 
+          <!-- Metric 2 -->
           <div class="c8cs-metric-card">
-            <div class="c8cs-metric-lbl" style="margin-bottom: 1.5rem;">Live Verification</div>
+            <div class="c8cs-metric-val">100%</div>
+            <div class="c8cs-metric-lbl">Lead Retention</div>
+            <p class="c8cs-metric-desc">Proprietary lead capture architecture routing 100% of buyer inquiries directly to internal sales brokers.</p>
+          </div>
+
+          <!-- Metric 3 -->
+          <div class="c8cs-metric-card">
+            <div class="c8cs-metric-val">98/100</div>
+            <div class="c8cs-metric-lbl">Lighthouse Score</div>
+            <p class="c8cs-metric-desc" style="margin-bottom: 1.5rem;">Optimized asset loading and clean WordPress query pipelines ensuring Core Web Vitals compliance.</p>
+            
             <a href="https://mkennyproperties.com/" target="_blank" rel="noopener" class="c8cs-status-badge">
-              <span class="c8cs-status-lbl">Launch Status</span>
-              <span class="c8cs-status-val">
-                <span class="c8cs-checkmark-circle">✓</span> Visit Live Site ↗
-              </span>
+              <div class="c8cs-status-lbl">Production Verification</div>
+              <div class="c8cs-status-val">
+                <span class="c8cs-checkmark-circle">&#10003;</span>
+                <span>Visit Live Site &rarr;</span>
+              </div>
             </a>
-            <p class="c8cs-metric-desc" style="margin-top: 1.5rem;">The platform is active and live. Click the button above to view their custom site architecture.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Related Projects Matrix -->
-  <div class="c8cs-related-paper-outer">
-    <div class="c8cs-wrap" style="padding-top:0; padding-bottom:0;">
-      <div class="c8cs-related-matrix-box">
-        <div class="c8cs-related-matrix-header">
-          <div class="c8cs-label">More Case Studies</div>
-          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Explore Related Projects</h2>
-        </div>
+  <!-- Section 7: Related Projects Matrix -->
+  <section class="c8cs-related-paper-outer">
+    <div class="c8cs-related-matrix-box">
+      <div class="c8cs-related-matrix-header">
+        <div class="c8cs-label">Selected Work</div>
+        <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Explore Related Case Studies</h2>
+      </div>
 
-        <div class="c8cs-related-matrix-grid">
-          <a href="<?php echo esc_url(home_url('/portfolio/kiri-city-stays/')); ?>" class="c8cs-related-cell">
-            <div>
-              <div class="c8cs-related-cell-tag">01 / Web Design &amp; Booking</div>
-              <h3 class="c8cs-related-cell-title">Kiri City Stays</h3>
-              <p class="c8cs-related-cell-desc">Direct booking platform &amp; luxury stay catalog engineered for seamless reservations and local SEO visibility.</p>
-            </div>
-            <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
-          </a>
-          <a href="<?php echo esc_url(home_url('/portfolio/the-duch-apartments/')); ?>" class="c8cs-related-cell">
-            <div>
-              <div class="c8cs-related-cell-tag">02 / Web Design &amp; SEO</div>
-              <h3 class="c8cs-related-cell-title">The Duch Apartments</h3>
-              <p class="c8cs-related-cell-desc">Brand identity and direct booking platform engineered with SEO architecture built in from day one.</p>
-            </div>
-            <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
-          </a>
-          <a href="<?php echo esc_url(home_url('/portfolio/bridgepoint-compliance/')); ?>" class="c8cs-related-cell">
-            <div>
-              <div class="c8cs-related-cell-tag">03 / Custom Dev</div>
-              <h3 class="c8cs-related-cell-title">Bridgepoint Advisory</h3>
-              <p class="c8cs-related-cell-desc">Bespoke compliance analysis web application built with zero template bloat and custom SQL queries.</p>
-            </div>
-            <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
-          </a>
-        </div>
+      <div class="c8cs-related-matrix-grid">
+        <!-- Related 1 -->
+        <a href="<?php echo esc_url(home_url('/case-study/the-duch-apartments/')); ?>" class="c8cs-related-cell">
+          <div>
+            <div class="c8cs-related-cell-tag">Hospitality // Web Design</div>
+            <h3 class="c8cs-related-cell-title">The Duch Apartments</h3>
+            <p class="c8cs-related-cell-desc">Direct booking platform and entity SEO architecture for luxury serviced apartments in Lekki.</p>
+          </div>
+          <span class="c8cs-related-cell-link">Read Case Study &rarr;</span>
+        </a>
+
+        <!-- Related 2 -->
+        <a href="<?php echo esc_url(home_url('/case-study/wp-publishion-ai/')); ?>" class="c8cs-related-cell">
+          <div>
+            <div class="c8cs-related-cell-tag">AI Engineering // Web Application</div>
+            <h3 class="c8cs-related-cell-title">WP Publishion AI</h3>
+            <p class="c8cs-related-cell-desc">Automated content publishing engine integrating fine-tuned LLMs with custom WordPress workflows.</p>
+          </div>
+          <span class="c8cs-related-cell-link">Read Case Study &rarr;</span>
+        </a>
+
+        <!-- Related 3 -->
+        <a href="<?php echo esc_url(home_url('/case-study/blvck-hair-ng/')); ?>" class="c8cs-related-cell">
+          <div>
+            <div class="c8cs-related-cell-tag">E-Commerce // Shopify</div>
+            <h3 class="c8cs-related-cell-title">BLVCK Hair NG</h3>
+            <p class="c8cs-related-cell-desc">High-conversion Shopify luxury storefront with sub-second cart drawer workflows and Paystack checkout.</p>
+          </div>
+          <span class="c8cs-related-cell-link">Read Case Study &rarr;</span>
+        </a>
       </div>
     </div>
-  </div>
+  </section>
+</div>
 
-  <!-- Homepage CTA -->
-  <?php get_template_part('parts/prototype-cta'); ?>
-
-</div><!-- End c8cs-root -->
-
+<!-- Scroll Grow Interaction Script -->
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var root = document.querySelector('.c8cs-root');
-    var atmos = root.querySelector('[data-c8cs-atmos]');
-    var glow = root.querySelector('[data-c8cs-glow]');
-    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
-
-    if (atmos && glow && canHover && !reduceMotion) {
-      atmos.addEventListener('mousemove', function (e) {
-        var r = atmos.getBoundingClientRect();
-        glow.style.left = (e.clientX - r.left) + 'px';
-        glow.style.top = (e.clientY - r.top) + 'px';
-      });
-      atmos.addEventListener('mouseenter', function () { atmos.classList.add('is-active'); });
-      atmos.addEventListener('mouseleave', function () { atmos.classList.remove('is-active'); });
+document.addEventListener('DOMContentLoaded', function() {
+  const trigger = document.getElementById('c8cs-grow-trigger');
+  const target = document.getElementById('c8cs-grow-target');
+  
+  if (!trigger || !target) return;
+  
+  window.addEventListener('scroll', function() {
+    const rect = trigger.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    
+    if (rect.top < windowHeight && rect.bottom > 0) {
+      const progress = Math.min(Math.max((windowHeight - rect.top) / (windowHeight + rect.height), 0), 1);
+      const width = 85 + (progress * 15);
+      target.style.width = width + '%';
+      target.style.maxWidth = (1200 + (progress * 140)) + 'px';
     }
-
-    var growTarget = document.getElementById('c8cs-grow-target');
-    var growTrigger = document.getElementById('c8cs-grow-trigger');
-
-    if (growTarget && growTrigger && !reduceMotion) {
-      function handleGrowScroll() {
-        var rect = growTrigger.getBoundingClientRect();
-        var viewportH = window.innerHeight;
-        var start = viewportH * 0.9;
-        var end = viewportH * 0.2;
-        var progress = 0;
-        if (rect.top < start) {
-          progress = (start - rect.top) / (start - end);
-          if (progress > 1) progress = 1;
-          if (progress < 0) progress = 0;
-        }
-        var widthVal = 85 + (15 * progress);
-        var maxWVal = 1200 + ((window.innerWidth - 1200) * progress);
-        growTarget.style.width = widthVal + '%';
-        growTarget.style.maxWidth = maxWVal + 'px';
-      }
-      window.addEventListener('scroll', handleGrowScroll);
-      window.addEventListener('resize', handleGrowScroll);
-      handleGrowScroll();
-    }
-  });
+  }, { passive: true });
+});
 </script>
 
 <?php get_footer(); ?>

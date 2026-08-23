@@ -25,16 +25,21 @@ get_header();
   }
 
   .c8cs-root { position: relative; width: 100%; background: #FFFFFF; color: var(--c8-ink); font-family: var(--font-body); }
-  .c8cs-wrap { max-width: 1340px; margin: 0 auto; padding: 3rem 2rem 5rem; position: relative; z-index: 2; }
-  @media (max-width: 768px) { .c8cs-wrap { padding: 3.5rem 1.25rem; } }
+  .c8cs-wrap { max-width: 1340px; margin: 0 auto; padding: 2.5rem 2rem 3.5rem; position: relative; z-index: 2; }
+  @media (max-width: 768px) { .c8cs-wrap { padding: 1.5rem 1.25rem 2.5rem; } }
+
+  .c8cs-back-btn {
+    font-family: var(--font-mono); font-size: 10px; color: #8A8A8A; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; text-decoration: none; font-weight: 700; position: relative; z-index: 2;
+  }
+  .c8cs-back-btn:hover { color: var(--c8-blue); }
 
   .c8cs-label {
-    font-family: var(--font-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--c8-blue); display: inline-flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--c8-blue); display: inline-flex; align-items: center; gap: 10px; margin-bottom: 1.25rem;
   }
   .c8cs-label::before { content: '// '; color: var(--c8-blue); font-weight: 700; }
 
   .c8cs-headline {
-    font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: 0.02em; line-height: 1.15; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 1.75rem;
+    font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: 0.02em; line-height: 1.15; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 1.5rem;
   }
   .c8cs-serif { font-family: 'Georgia', serif; font-style: italic; text-transform: none; font-weight: 400; color: var(--c8-blue); }
 
@@ -42,7 +47,7 @@ get_header();
 
   .fylla-pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; margin-bottom: 2.5rem; }
   .fylla-pill {
-    border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.4rem 0.9rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700; border-radius: 4px !important; text-transform: uppercase;
+    border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.35rem 0.85rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700; border-radius: 4px !important; text-transform: uppercase;
   }
 
   .c8cs-hero { padding-top: 7rem; padding-bottom: 4rem; position: relative; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
@@ -62,111 +67,150 @@ get_header();
   .c8cs-meta-grid {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: transparent; margin-top: 3.5rem; position: relative; z-index: 2; overflow: hidden;
   }
-  @media (max-width: 768px) { .c8cs-meta-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 768px) { .c8cs-meta-grid { grid-template-columns: repeat(2, 1fr); margin-top: 1.5rem; } }
 
   .c8cs-meta-item { padding: 2rem 2.25rem; border-right: 1px solid var(--c8-grid-line); display: flex; flex-direction: column; justify-content: center; background: transparent; transition: background 0.35s ease; }
   .c8cs-meta-item:hover { background: #FAFAF7; }
   .c8cs-meta-item:last-child { border-right: none; }
+  @media (max-width: 768px) {
+    .c8cs-meta-item:nth-child(2n) { border-right: none; }
+    .c8cs-meta-item:nth-child(1), .c8cs-meta-item:nth-child(2) { border-bottom: 1px solid var(--c8-grid-line); }
+  }
 
-  .c8cs-meta-lbl { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.5rem; letter-spacing: 0.14em; font-weight: 700; }
-  .c8cs-meta-val { font-size: 15px; font-weight: 700; color: var(--c8-ink); }
+  .c8cs-meta-lbl { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.4rem; letter-spacing: 0.14em; font-weight: 700; }
+  .c8cs-meta-val { font-size: 14.5px; font-weight: 700; color: var(--c8-ink); }
 
-  .c8cs-grow-media-wrapper { width: 100%; padding: 1.5rem 0; display: flex; justify-content: center; background: transparent; border-bottom: 1px solid var(--c8-grid-line); overflow: hidden; }
+  .c8cs-grow-media-wrapper { width: 100%; padding: 1.5rem 0; display: flex; justify-content: center; background: transparent; overflow: hidden; }
+  @media (max-width: 768px) { .c8cs-grow-media-wrapper { padding: 1rem 0; } }
 
   .c8cs-main-img-box {
     width: 85%; max-width: 1200px; border-radius: 4px !important; overflow: hidden; box-shadow: 0 20px 50px rgba(8, 8, 8, 0.08); border: 1px solid var(--c8-grid-line); position: relative; z-index: 2; transition: width 0.15s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .c8cs-main-img-box img { width: 100%; height: auto; display: block; object-fit: cover; max-height: 700px; }
 
-  .c8cs-split-section { display: grid; grid-template-columns: 1fr 1.3fr; gap: 0; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; margin: 4rem 0; }
-  @media (max-width: 900px) { .c8cs-split-section { grid-template-columns: 1fr; } }
+  .c8cs-split-section { display: grid; grid-template-columns: 1fr 1.3fr; gap: 0; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; margin: clamp(2.5rem, 4vw, 3.5rem) 0; }
+  @media (max-width: 900px) { .c8cs-split-section { grid-template-columns: 1fr; margin: 2rem 0; } }
 
-  .c8cs-split-left { padding: 4.5rem 4rem; border-right: 1px solid var(--c8-grid-line); background: #FFFFFF; position: sticky; top: 100px; align-self: start; height: fit-content; }
-  @media (max-width: 900px) { .c8cs-split-left { position: relative; top: 0; border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 3rem 2rem; } }
+  .c8cs-split-left { padding: clamp(2.5rem, 3.5vw, 3.75rem) clamp(1.75rem, 3vw, 3.25rem); border-right: 1px solid var(--c8-grid-line); background: #FFFFFF; position: sticky; top: 100px; align-self: start; height: fit-content; }
+  @media (max-width: 900px) { .c8cs-split-left { position: relative; top: 0; border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2rem 1.5rem; } }
 
   .c8cs-split-right { background: #FAFAF7; display: flex; flex-direction: column; }
-  .c8cs-split-title { font-family: var(--font-heading); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.2; color: var(--c8-ink); margin-bottom: 1.5rem; }
-  .c8cs-body-content p { font-size: 15.5px; color: var(--c8-sub); margin-bottom: 1.5rem; line-height: 1.75; font-weight: 300; }
+  .c8cs-split-title { font-family: var(--font-heading); font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.2; color: var(--c8-ink); margin-bottom: 1.25rem; }
+  .c8cs-body-content p { font-size: 15px; color: var(--c8-sub); margin-bottom: 1.25rem; line-height: 1.7; font-weight: 300; }
 
-  .fylla-value-item { padding: 3rem 3.5rem; border-bottom: 1px solid var(--c8-grid-line); display: flex; gap: 1.75rem; align-items: flex-start; transition: background 0.35s ease; background: #FAFAF7; }
+  .fylla-value-item { padding: clamp(1.75rem, 2.5vw, 2.5rem) clamp(1.5rem, 2.5vw, 2.75rem); border-bottom: 1px solid var(--c8-grid-line); display: flex; gap: 1.5rem; align-items: flex-start; transition: background 0.35s ease; background: #FAFAF7; }
+  @media (max-width: 600px) { .fylla-value-item { padding: 1.5rem 1.25rem; gap: 1rem; } }
   .fylla-value-item:hover { background: #FFFFFF; }
   .fylla-value-item:last-child { border-bottom: none; }
 
   .fylla-value-icon-box {
-    width: 48px; height: 48px; border-radius: 4px !important; background: rgba(0, 71, 225, 0.08); border: 1px solid rgba(0, 71, 225, 0.2); display: flex; align-items: center; justify-content: center; color: var(--c8-blue); flex-shrink: 0; margin-top: 0.2rem;
+    width: 44px; height: 44px; border-radius: 4px !important; background: rgba(0, 71, 225, 0.08); border: 1px solid rgba(0, 71, 225, 0.2); display: flex; align-items: center; justify-content: center; color: var(--c8-blue); flex-shrink: 0; margin-top: 0.2rem;
   }
-  .fylla-value-icon-box svg { width: 24px; height: 24px; stroke: var(--c8-blue); fill: none; stroke-width: 2; }
+  .fylla-value-icon-box svg { width: 22px; height: 22px; stroke: var(--c8-blue); fill: none; stroke-width: 2; }
 
-  .fylla-value-h3 { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.65rem; }
-  .fylla-value-desc { font-size: 0.92rem; color: var(--c8-sub); line-height: 1.65; }
+  .fylla-value-h3 { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.5rem; }
+  .fylla-value-desc { font-size: 0.9rem; color: var(--c8-sub); line-height: 1.6; }
 
-  .c8cs-gallery-section { padding: 0 0 3rem; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
-  .c8cs-gallery-outer-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
-  .c8cs-gallery-header { padding: 3.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
-  .c8cs-gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--c8-grid-line); }
-  @media (max-width: 900px) { .c8cs-gallery-grid { grid-template-columns: 1fr; } }
+  /* ── SECTION 3: CORE DELIVERABLES (2-UP 16:9 GRID) ── */
+  .c8cs-deliverables-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+  .c8cs-deliverables-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+  .c8cs-deliverables-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-deliverables-header { padding: 1.75rem 1.25rem; } }
+  .c8cs-deliverables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--c8-grid-line); }
+  @media (max-width: 900px) { .c8cs-deliverables-grid { grid-template-columns: 1fr; } }
+  .c8cs-deliverable-card { background: #FFFFFF; padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.75rem); display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); transition: background 0.35s ease; }
+  .c8cs-deliverable-card:last-child { border-right: none; }
+  @media (max-width: 900px) { .c8cs-deliverable-card { border-right: none; } }
+  @media (max-width: 600px) { .c8cs-deliverable-card { padding: 1.75rem 1.25rem; } }
+  .c8cs-deliverable-card:hover { background: #FAFAF7; }
+  .c8cs-deliverable-meta { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.65rem; letter-spacing: 0.14em; font-weight: 700; }
+  .c8cs-deliverable-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.45rem; letter-spacing: 0.01em; }
+  .c8cs-deliverable-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 1.5rem; }
+  .c8cs-deliverable-img-box { width: 100%; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-top: auto; background: #080808; aspect-ratio: 16 / 9; }
+  .c8cs-deliverable-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.5s ease; }
+  .c8cs-deliverable-card:hover .c8cs-deliverable-img-box img { transform: scale(1.02); }
 
-  .c8cs-gallery-card { background: #FFFFFF; padding: 3.5rem 3rem; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); transition: background 0.35s ease; }
-  .c8cs-gallery-card:hover { background: #FAFAF7; }
-  .c8cs-gallery-card.is-full { grid-column: 1 / -1; border-right: none; border-bottom: none; background: #FAFAF7; }
-  .c8cs-gallery-card-top { margin-bottom: 2rem; }
-  .c8cs-gallery-card-bottom { margin-top: auto; display: flex; flex-direction: column; }
+  /* ── SECTION 4: SOVEREIGNTY ARCHITECTURE (3:4 SPLIT) ── */
+  .c8cs-sovereignty-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+  .c8cs-sovereignty-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+  .c8cs-sovereignty-split { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 0; background: var(--c8-grid-line); align-items: stretch; }
+  @media (max-width: 960px) { .c8cs-sovereignty-split { grid-template-columns: 1fr; } }
+  .c8cs-sovereignty-left { background: #FFFFFF; padding: clamp(2.5rem, 3.5vw, 3.75rem) clamp(1.75rem, 3vw, 3.25rem); display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--c8-grid-line); }
+  @media (max-width: 960px) { .c8cs-sovereignty-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2rem 1.5rem; } }
+  .c8cs-sovereignty-right { background: #FAFAF7; padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; align-items: center; justify-content: center; }
+  @media (max-width: 960px) { .c8cs-sovereignty-right { padding: 2rem 1.25rem; } }
+  .c8cs-sovereignty-img-box { width: 100%; max-width: 440px; aspect-ratio: 3 / 4; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+  .c8cs-sovereignty-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; }
 
-  .c8cs-gallery-meta { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.75rem; letter-spacing: 0.14em; font-weight: 700; }
-  .c8cs-gallery-title { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.01em; }
-  .c8cs-gallery-desc { font-size: 14.5px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 2rem; }
+  /* ── SECTION 5: PURE VISUAL GALLERY (CLEAN STREAM — NO SLOP) ── */
+  .c8cs-stream-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+  .c8cs-stream-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+  .c8cs-stream-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-stream-header { padding: 1.75rem 1.25rem; } }
+  .c8cs-stream-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: var(--c8-grid-line); }
+  @media (max-width: 992px) { .c8cs-stream-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .c8cs-stream-grid { grid-template-columns: 1fr; } }
+  .c8cs-stream-cell { background: #FFFFFF; padding: clamp(1.25rem, 2vw, 1.75rem); display: flex; flex-direction: column; border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); transition: background 0.35s ease; }
+  .c8cs-stream-cell:nth-child(3n) { border-right: none; }
+  @media (max-width: 992px) { .c8cs-stream-cell:nth-child(3n) { border-right: 1px solid var(--c8-grid-line); } .c8cs-stream-cell:nth-child(2n) { border-right: none; } }
+  @media (max-width: 600px) { .c8cs-stream-cell { border-right: none; padding: 1.25rem 1.25rem 1.5rem; } }
+  .c8cs-stream-cell:hover { background: #FAFAF7; }
+  .c8cs-stream-img-box { width: 100%; aspect-ratio: 16 / 9; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; margin-bottom: 1rem; }
+  .c8cs-stream-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.5s ease; }
+  .c8cs-stream-cell:hover .c8cs-stream-img-box img { transform: scale(1.03); }
+  .c8cs-stream-cell-info { display: flex; flex-direction: column; gap: 0.2rem; }
+  .c8cs-stream-cell-tag { font-family: var(--font-mono); font-size: 8.5px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.12em; }
+  .c8cs-stream-cell-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; letter-spacing: 0.01em; }
 
-  .c8cs-gallery-img-box { width: 100%; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-top: auto; background: #080808; }
-  .c8cs-gallery-img-box.is-tall { max-height: 520px !important; height: 520px !important; }
-  .c8cs-gallery-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.5s ease; }
-  .c8cs-gallery-card:hover .c8cs-gallery-img-box img { transform: scale(1.03); }
-
-  .c8cs-swatch-row { display: flex; gap: 1rem; margin-top: 2rem; }
-  .c8cs-swatch { flex: 1; height: 110px; border-radius: 4px !important; border: 1px solid var(--c8-grid-line); display: flex; flex-direction: column; justify-content: flex-end; padding: 12px; }
-  .c8cs-swatch-hex { font-family: var(--font-mono); font-size: 9px; font-weight: 700; background: rgba(255, 255, 255, 0.9); padding: 2px 6px; border-radius: 4px !important; align-self: flex-start; color: var(--c8-ink); }
-
-  .c8cs-metrics-bg { background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); padding: 6rem 0; }
+  .c8cs-metrics-bg { background: #FFFFFF; padding: clamp(3rem, 5vw, 5rem) 0; }
   .c8cs-metrics-outer-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
-  .c8cs-metrics-header { padding: 3.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  .c8cs-metrics-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-metrics-header { padding: 1.75rem 1.25rem; } }
   .c8cs-metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
   @media (max-width: 768px) { .c8cs-metrics-grid { grid-template-columns: 1fr; } }
 
-  .c8cs-metric-card { background: #FAFAF7; border-right: 1px solid var(--c8-grid-line); padding: 3.5rem 3rem; display: flex; flex-direction: column; transition: background 0.35s ease; }
+  .c8cs-metric-card { background: #FAFAF7; border-right: 1px solid var(--c8-grid-line); padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; flex-direction: column; transition: background 0.35s ease; }
   .c8cs-metric-card:nth-child(even) { background: #FFFFFF; }
   .c8cs-metric-card:hover { background: #F4F5F7; }
   .c8cs-metric-card:last-child { border-right: none; }
+  @media (max-width: 768px) {
+    .c8cs-metric-card { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
+    .c8cs-metric-card:last-child { border-bottom: none; }
+  }
 
-  .c8cs-metric-val { font-family: var(--font-heading); font-size: 3rem; font-weight: 700; color: var(--c8-blue); line-height: 1; margin-bottom: 1.25rem; }
-  .c8cs-metric-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.75rem; font-weight: 700; }
+  .c8cs-metric-val { font-family: var(--font-heading); font-size: clamp(2.4rem, 4vw, 3rem); font-weight: 700; color: var(--c8-blue); line-height: 1; margin-bottom: 1rem; }
+  .c8cs-metric-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.65rem; font-weight: 700; }
   .c8cs-metric-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; }
 
   .c8cs-status-badge {
     background: rgba(0, 191, 99, 0.04); border: 1px solid rgba(0, 191, 99, 0.25);
-    padding: 1.25rem 1.75rem; border-radius: 4px !important; display: inline-flex; flex-direction: column; align-items: flex-start;
+    padding: 1rem 1.5rem; border-radius: 4px !important; display: inline-flex; flex-direction: column; align-items: flex-start;
     margin-top: auto; text-decoration: none; transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease; cursor: pointer;
   }
   .c8cs-status-badge:hover { background: rgba(0, 191, 99, 0.08); border-color: rgba(0, 191, 99, 0.4); transform: translateY(-2px); }
-  .c8cs-status-lbl { font-family: var(--font-mono); font-size: 8px; font-weight: 700; color: #00BF63; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .c8cs-status-lbl { font-family: var(--font-mono); font-size: 8px; font-weight: 700; color: #00BF63; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
   .c8cs-status-val { font-family: var(--font-heading); font-size: 10.5px; font-weight: 700; color: #00BF63; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 8px; line-height: 1.2; }
   .c8cs-checkmark-circle { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: #00BF63; color: #FFFFFF; font-size: 10px; font-weight: bold; }
 
-  .c8cs-back-btn { font-family: var(--font-mono); font-size: 10px; color: #8A8A8A; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2.5rem; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; text-decoration: none; position: relative; z-index: 2; font-weight: 700; }
-  .c8cs-back-btn:hover { color: var(--c8-blue); }
-
-  .c8cs-related-paper-outer { background: #FFFFFF; padding: 6rem 0; border-bottom: 1px solid var(--c8-grid-line); width: 100%; }
+  .c8cs-related-paper-outer { background: #FFFFFF; padding: clamp(3rem, 5vw, 5rem) 0; width: 100%; }
   .c8cs-related-matrix-box { max-width: 1340px; margin: 0 auto; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
-  .c8cs-related-matrix-header { padding: 3.5rem 4rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  .c8cs-related-matrix-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-related-matrix-header { padding: 1.75rem 1.25rem; } }
   .c8cs-related-matrix-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
   @media (max-width: 900px) { .c8cs-related-matrix-grid { grid-template-columns: 1fr; } }
 
-  .c8cs-related-cell { padding: 3.5rem 3rem; border-right: 1px solid var(--c8-grid-line); background: #FAFAF7; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: var(--c8-ink); transition: background 0.35s ease; }
+  .c8cs-related-cell { padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); border-right: 1px solid var(--c8-grid-line); background: #FAFAF7; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: var(--c8-ink); transition: background 0.35s ease; }
   .c8cs-related-cell:nth-child(even) { background: #FFFFFF; }
   .c8cs-related-cell:last-child { border-right: none; }
   .c8cs-related-cell:hover { background: #F4F5F7; }
+  @media (max-width: 900px) {
+    .c8cs-related-cell { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
+    .c8cs-related-cell:last-child { border-bottom: none; }
+  }
 
-  .c8cs-related-cell-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; margin-bottom: 0.75rem; }
-  .c8cs-related-cell-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.85rem; line-height: 1.3; }
-  .c8cs-related-cell-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 2rem; }
+  .c8cs-related-cell-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; margin-bottom: 0.65rem; }
+  .c8cs-related-cell-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.75rem; line-height: 1.3; }
+  .c8cs-related-cell-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 1.75rem; }
   .c8cs-related-cell-link { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s ease; }
   .c8cs-related-cell:hover .c8cs-related-cell-link { gap: 10px; }
 </style>
@@ -241,7 +285,7 @@ get_header();
   <!-- Scroll Grow Media -->
   <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
     <div class="c8cs-main-img-box" id="c8cs-grow-target">
-      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600&auto=format&fit=crop" alt="The Duch Apartments showcase — built by Cr8v Stacks">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/cs_duch_hero_landscape.webp" alt="The Duch Apartments direct booking platform showcase — engineered by Cr8v Stacks">
     </div>
   </div>
 
@@ -290,68 +334,162 @@ get_header();
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <div>
-            <h3 class="fylla-value-h3">04 / Speed &amp; Conversion Optimization</h3>
-            <p class="fylla-value-desc">Tuned asset loading pipelines to achieve sub-2 second mobile page loads and seamless WhatsApp / direct reservation conversion paths.</p>
+            <h3 class="fylla-value-h3">04 / Direct Reservation &amp; Checkout Architecture</h3>
+            <p class="fylla-value-desc">Engineered an end-to-end guest booking pipeline with instant date selection, zero intermediary lock-in, and direct WhatsApp payment confirmation.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Showcase Gallery -->
-  <section class="c8cs-gallery-section">
+  <!-- Section 3: Core Technical Deliverables -->
+  <section class="c8cs-deliverables-section">
     <div class="c8cs-wrap">
-      <div class="c8cs-gallery-outer-box">
-        <div class="c8cs-gallery-header">
-          <div class="c8cs-label">Showcase</div>
-          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Visual Showcase &amp; Systems</h2>
+      <div class="c8cs-deliverables-box">
+        <div class="c8cs-deliverables-header">
+          <div class="c8cs-label">Design &amp; Engineering</div>
+          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Core Technical Deliverables</h2>
         </div>
 
-        <div class="c8cs-gallery-grid">
-          <div class="c8cs-gallery-card">
-            <div class="c8cs-gallery-card-top">
-              <div class="c8cs-gallery-meta">Brand Identity // Asset 01</div>
-              <h3 class="c8cs-gallery-title">Color System &amp; Palette</h3>
+        <div class="c8cs-deliverables-grid">
+          <!-- Asset 01: Mini Design System Spec -->
+          <div class="c8cs-deliverable-card">
+            <div>
+              <div class="c8cs-deliverable-meta">Design System // Asset 01</div>
+              <h3 class="c8cs-deliverable-title">Semantic Token Architecture</h3>
+              <p class="c8cs-deliverable-desc">Constructed an atomic design system with semantic color tokens (Forest Green, Warm Amber, Slate), DM Sans typography scales, and 4px precision radius components mapped directly into the WordPress theme.</p>
             </div>
-            <div class="c8cs-gallery-card-bottom">
-              <p class="c8cs-gallery-desc">Curating primary brand accents, dark backgrounds, and neutral tones that convey luxury elegance.</p>
-              <div class="c8cs-swatch-row">
-                <div class="c8cs-swatch" style="background: #080808; color: #FFFFFF;">
-                  <span class="c8cs-swatch-hex">#080808</span>
-                </div>
-                <div class="c8cs-swatch" style="background: #0047E1; color: #FFFFFF;">
-                  <span class="c8cs-swatch-hex">#0047E1</span>
-                </div>
-                <div class="c8cs-swatch" style="background: #F4F6FB; color: #080808;">
-                  <span class="c8cs-swatch-hex" style="background: rgba(8,8,8,0.1);">#F4F6FB</span>
-                </div>
+            <div class="c8cs-deliverable-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/duch_asset_01_design_system.webp" alt="The Duch Apartments Mini Design System Specification">
+            </div>
+          </div>
+
+          <!-- Asset 02: Direct Reservation Engine -->
+          <div class="c8cs-deliverable-card">
+            <div>
+              <div class="c8cs-deliverable-meta">Booking Engine // Asset 02</div>
+              <h3 class="c8cs-deliverable-title">Direct Availability Matrix</h3>
+              <p class="c8cs-deliverable-desc">Engineered a custom dual-month availability calendar and real-time room reservation engine that processes guest inquiries directly without third-party OTA commission fees.</p>
+            </div>
+            <div class="c8cs-deliverable-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/duch_asset_02_experience.webp" alt="The Duch Apartments Availability Engine Macro Detail">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Sovereignty Architecture (3:4 Split) -->
+  <section class="c8cs-sovereignty-section">
+    <div class="c8cs-wrap">
+      <div class="c8cs-sovereignty-box">
+        <div class="c8cs-sovereignty-split">
+          <!-- Left: Architecture Narrative -->
+          <div class="c8cs-sovereignty-left">
+            <div class="c8cs-deliverable-meta">Ecosystem Velocity // Asset 03</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 1.25rem;">Direct Booking Sovereignty &amp; Revenue Retention</h2>
+            <p style="font-size: 15px; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.5rem; font-weight: 300;">Relying exclusively on third-party OTA intermediaries drained margins by up to 20% per booking while cutting the client off from direct guest communication. We engineered an independent acquisition and reservation architecture that keeps guest data and full transaction value in-house.</p>
+            <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;">
+              <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">01</span>
+                <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;"><strong>Zero OTA Commission Drain:</strong> Eliminates third-party broker fees on direct room reservations.</span>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">02</span>
+                <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;"><strong>100% Owned Guest Database:</strong> Direct retention of guest contact info for repeat rebooking campaigns.</span>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">03</span>
+                <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;"><strong>Direct Checkout Verification:</strong> Real-time WhatsApp reservation confirmation pipeline for instant guest onboarding.</span>
               </div>
             </div>
           </div>
 
-          <div class="c8cs-gallery-card">
-            <div class="c8cs-gallery-card-top">
-              <div class="c8cs-gallery-meta">Interface // Asset 02</div>
-              <h3 class="c8cs-gallery-title">Platform Experience Page</h3>
+          <!-- Right: Native 3:4 Vertical Image Card -->
+          <div class="c8cs-sovereignty-right">
+            <div class="c8cs-sovereignty-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/duch_asset_03_ecosystem.webp" alt="The Duch Apartments Direct Booking Sovereignty Blueprint">
             </div>
-            <div class="c8cs-gallery-card-bottom">
-              <p class="c8cs-gallery-desc">Designing custom user interfaces, pricing breakdowns, and direct conversion triggers.</p>
-              <div class="c8cs-gallery-img-box">
-                <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop" alt="The Duch Apartments interface detail screenshot">
-              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Project Visual Gallery -->
+  <section class="c8cs-stream-section">
+    <div class="c8cs-wrap">
+      <div class="c8cs-stream-box">
+        <div class="c8cs-stream-header">
+          <div class="c8cs-label">Visual Gallery</div>
+          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Platform Showcase &amp; Production Gallery</h2>
+        </div>
+
+        <div class="c8cs-stream-grid">
+          <!-- Gallery 1 -->
+          <div class="c8cs-stream-cell">
+            <div class="c8cs-stream-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/cs_duch_gallery_01_laptop.webp" alt="Live Room Catalog on MacBook Pro">
+            </div>
+            <div class="c8cs-stream-cell-info">
+              <span class="c8cs-stream-cell-tag">Live Interface</span>
+              <h3 class="c8cs-stream-cell-title">Responsive Room Catalog</h3>
             </div>
           </div>
 
-          <div class="c8cs-gallery-card is-full">
-            <div class="c8cs-gallery-card-top">
-              <div class="c8cs-gallery-meta">Mobile UI // Asset 03</div>
-              <h3 class="c8cs-gallery-title">Responsive Mobile Flow</h3>
+          <!-- Gallery 2 -->
+          <div class="c8cs-stream-cell">
+            <div class="c8cs-stream-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/cs_duch_gallery_02_macro.webp" alt="Suite Feature &amp; Pricing Micro-Detail">
             </div>
-            <div class="c8cs-gallery-card-bottom">
-              <p class="c8cs-gallery-desc">Optimizing touch targets and instant contact forms for mobile users discovering the platform online.</p>
-              <div class="c8cs-gallery-img-box is-tall">
-                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop" alt="The Duch Apartments mobile experience flow">
-              </div>
+            <div class="c8cs-stream-cell-info">
+              <span class="c8cs-stream-cell-tag">Interaction Detail</span>
+              <h3 class="c8cs-stream-cell-title">Amenity &amp; Rate Tokens</h3>
+            </div>
+          </div>
+
+          <!-- Gallery 3 -->
+          <div class="c8cs-stream-cell">
+            <div class="c8cs-stream-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/cs_duch_gallery_05_calendar.webp" alt="Availability Calendar Engine Detail">
+            </div>
+            <div class="c8cs-stream-cell-info">
+              <span class="c8cs-stream-cell-tag">Booking Flow</span>
+              <h3 class="c8cs-stream-cell-title">Availability Matrix Detail</h3>
+            </div>
+          </div>
+
+          <!-- Gallery 4 -->
+          <div class="c8cs-stream-cell">
+            <div class="c8cs-stream-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/cs_duch_gallery_04_living.webp" alt="Hospitality Living Context">
+            </div>
+            <div class="c8cs-stream-cell-info">
+              <span class="c8cs-stream-cell-tag">Spatial Context</span>
+              <h3 class="c8cs-stream-cell-title">Hospitality Living Environment</h3>
+            </div>
+          </div>
+
+          <!-- Gallery 5 -->
+          <div class="c8cs-stream-cell">
+            <div class="c8cs-stream-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/cs_duch_gallery_03_workspace.webp" alt="Studio Workspace &amp; Catalog Ideation">
+            </div>
+            <div class="c8cs-stream-cell-info">
+              <span class="c8cs-stream-cell-tag">Studio Ideation</span>
+              <h3 class="c8cs-stream-cell-title">Catalog Architecture Draft</h3>
+            </div>
+          </div>
+
+          <!-- Gallery 6 -->
+          <div class="c8cs-stream-cell">
+            <div class="c8cs-stream-img-box">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/case_studies/cs_duch_gallery_06_platform.webp" alt="Full Oblique Platform View">
+            </div>
+            <div class="c8cs-stream-cell-info">
+              <span class="c8cs-stream-cell-tag">Platform Overview</span>
+              <h3 class="c8cs-stream-cell-title">Complete Staged Platform Grid</h3>
             </div>
           </div>
         </div>

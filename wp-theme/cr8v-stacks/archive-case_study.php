@@ -422,7 +422,7 @@ $hero_intro   = cr8v_mod('cs_hero_intro',        'A detailed trace of brand stra
             <span class="c8pf-tag-badge is-service">Web Design</span>
             <span class="c8pf-tag-badge">SEO</span>
           </div>
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_stacks_visual.jpg'); ?>" alt="The Duch Apartments">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/cs_duch_hero_landscape.webp'); ?>" alt="The Duch Apartments">
         </div>
         <div class="c8pf-card-details">
           <div class="c8pf-card-client">The Duch Apartments</div>
