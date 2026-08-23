@@ -273,6 +273,318 @@ $portfolio_data_matrix = [
       ['val' => '100%', 'lbl' => 'Organic Verification', 'desc' => 'Verifiable live right now on Google search.']
     ],
     'live_url'      => 'https://blvckhairng.com/'
+  ],
+
+  'bridgepoint-compliance' => [
+    'client_name'   => 'Bridgepoint Advisory',
+    'industry'      => 'Corporate // Compliance & Relational Database App',
+    'headline_main' => 'Bridgepoint Advisory: Custom Compliance',
+    'headline_serif'=> '& SQL App',
+    'lead'          => 'Bridgepoint Advisory Services required a high-security internal compliance web portal to streamline corporate auditing. We engineered a zero-template React and Node.js solution with custom relational database queries and role-based data encryption.',
+    'pills'         => ['Custom Dev', 'React & Node', 'PostgreSQL', 'Data Security'],
+    'meta_services' => 'Custom Development',
+    'meta_stack'    => 'React · Node.js · SQL',
+    'meta_link_url' => 'https://bridgepoints.ng/',
+    'meta_link_text'=> 'bridgepoints.ng ↗',
+    'hero_img'      => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop',
+    'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
+    'overview_p1'   => 'Operating in high-tier financial consulting, Bridgepoint faced major bottlenecks managing client compliance audits using manual spreadsheets and generic cloud forms.',
+    'overview_p2'   => 'They needed a dedicated internal compliance portal capable of parsing complex financial data models securely while maintaining zero latency across multi-user sessions.',
+    'overview_items'=> [
+      ['title' => '01 / Relational Database Architecture', 'desc' => 'Designed normalized PostgreSQL relational schemas optimized for high-speed audit record indexing.'],
+      ['title' => '02 / Secure Authentication & RBAC', 'desc' => 'Configured JWT multi-factor authentication with granular role-based access control for corporate compliance officers.'],
+      ['title' => '03 / Custom Frontend Dashboard', 'desc' => 'Hand-coded a dark glassmorphic React admin interface featuring real-time data visualizers.'],
+      ['title' => '04 / Automated Audit Reporting', 'desc' => 'Engineered background worker threads to automatically generate encrypted PDF compliance reports.']
+    ],
+    'asset_01_meta' => 'Backend Architecture // Asset 01',
+    'asset_01_title'=> 'Engineered Database & Compliance System',
+    'asset_01_desc' => 'Custom SQL database queries, data security encryption, and automated audit logging dashboard.',
+    'asset_01_img'  => 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop',
+    'asset_02_meta' => 'Interface // Asset 02',
+    'asset_02_title'=> 'Platform Experience Page',
+    'asset_02_desc' => 'Designing custom user interfaces, pricing breakdowns, and direct conversion triggers.',
+    'asset_02_img'  => 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop',
+    'asset_03_meta' => 'Mobile Flow // Asset 03',
+    'asset_03_title'=> 'Responsive Mobile Flow',
+    'asset_03_desc' => 'Optimizing touch targets and instant contact forms for mobile users discovering the platform online.',
+    'asset_03_points'=> [
+      'Multi-Factor Auth: Enterprise JWT security with automated session expiry.',
+      'Sub-Second Audits: Optimized PostgreSQL queries across 10,000+ compliance records.',
+      'Automated Encrypted PDF: Instant one-click audit report generation.'
+    ],
+    'asset_03_img'  => 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop',
+    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'gallery'       => [
+      ['img' => 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop', 'tag' => 'Database Architecture', 'title' => 'PostgreSQL Query Pipeline'],
+      ['img' => 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop', 'tag' => 'Admin Interface', 'title' => 'Real-Time Compliance Visualizer'],
+      ['img' => 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop', 'tag' => 'Mobile Flow', 'title' => 'Responsive Auditor Interface']
+    ],
+    'metrics'       => [
+      ['val' => '100%', 'lbl' => 'Data Integrity', 'desc' => 'Zero audit record discrepancies across enterprise client portfolios.'],
+      ['val' => '0ms', 'lbl' => 'Data Leakage', 'desc' => 'Role-based access control safeguarding sensitive corporate filings.'],
+      ['val' => '85%', 'lbl' => 'Time Saved', 'desc' => 'Reduction in manual compliance auditing hours per quarterly cycle.']
+    ],
+    'live_url'      => 'https://bridgepoints.ng/'
+  ],
+
+  'bridgepoint-advisory' => [
+    'client_name'   => 'Bridgepoint Advisory',
+    'industry'      => 'Brand Identity // Vector Design & Corporate Guidelines',
+    'headline_main' => 'BridgePoints: Corporate Visual',
+    'headline_serif'=> 'Brand Identity',
+    'lead'          => 'Bridgepoint Advisory Services needed a visual identity system that commanded authority in corporate financial markets. We crafted an original vector logo mark, set color swatch tokens, and compiled a comprehensive brand manual for digital and print collateral.',
+    'pills'         => ['Brand Identity', 'Vector Logo', 'Design Tokens', 'Brand Manual'],
+    'meta_services' => 'Brand Identity Design',
+    'meta_stack'    => 'Figma · Vector Assets',
+    'meta_link_url' => 'https://bridgepoints.ng/',
+    'meta_link_text'=> 'bridgepoints.ng ↗',
+    'hero_img'      => 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1600&auto=format&fit=crop',
+    'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
+    'overview_p1'   => 'Bridgepoint Advisory Services required a modern, institutional corporate visual identity to distinguish itself in competitive advisory markets.',
+    'overview_p2'   => 'Cr8v Stacks crafted an authoritative vector emblem, complete typography hierarchy guidelines, digital color ramps, and corporate stationeries.',
+    'overview_items'=> [
+      ['title' => '01 / Geometric Logo System', 'desc' => 'Engineered a precision vector mark conveying stability, strategic growth, and corporate precision.'],
+      ['title' => '02 / Brand Manual & Token Rules', 'desc' => 'Documented exact spacing parameters, minimum clear space, and typography scale hierarchies.'],
+      ['title' => '03 / Color System Architecture', 'desc' => 'Curated a bespoke institutional color palette pairing Royal Blue with warm architectural neutrals.'],
+      ['title' => '04 / Corporate Collateral Suite', 'desc' => 'Designed print-ready stationery, executive pitch decks, and digital media assets.']
+    ],
+    'asset_01_meta' => 'Brand Identity // Asset 01',
+    'asset_01_title'=> 'Corporate Brand Guidelines & Token Swatches',
+    'asset_01_desc' => 'Vector geometry, typography scale rules, and institutional color token scales.',
+    'asset_01_img'  => 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop',
+    'asset_02_meta' => 'Identity // Asset 02',
+    'asset_02_title'=> 'Vector Precision & Logo Construction',
+    'asset_02_desc' => 'Grid-aligned vector construction ensuring legibility across corporate signage and app icons.',
+    'asset_02_img'  => 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop',
+    'asset_03_meta' => 'Collateral // Asset 03',
+    'asset_03_title'=> 'Executive Stationery & Pitch Architecture',
+    'asset_03_desc' => 'Consistent brand collateral projecting institutional authority in high-stakes investor meetings.',
+    'asset_03_points'=> [
+      'Comprehensive Brand Manual: Complete usage rules across print and digital media.',
+      'Vector Precision: Scalable SVG assets optimized for high-DPI displays.',
+      'Institutional Authority: Unified typography and color systems across corporate presentations.'
+    ],
+    'asset_03_img'  => 'https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=1200&auto=format&fit=crop',
+    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'gallery'       => [
+      ['img' => 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop', 'tag' => 'Brand Manual', 'title' => 'Design System Specification'],
+      ['img' => 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop', 'tag' => 'Vector Geometry', 'title' => 'Logo Grid Construction'],
+      ['img' => 'https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=1200&auto=format&fit=crop', 'tag' => 'Collateral', 'title' => 'Executive Presentation Suite']
+    ],
+    'metrics'       => [
+      ['val' => '100%', 'lbl' => 'Vector Precision', 'desc' => 'Pixel-perfect geometry across every digital and print touchpoint.'],
+      ['val' => '40+', 'lbl' => 'Brand Assets', 'desc' => 'Comprehensive design tokens, icon sets, and presentation slide templates.'],
+      ['val' => '100%', 'lbl' => 'Client Approval', 'desc' => 'Seamless executive stakeholder alignment and immediate brand rollout.']
+    ],
+    'live_url'      => 'https://bridgepoints.ng/'
+  ],
+
+  'victorias-lane' => [
+    'client_name'   => "Victoria's Lane",
+    'industry'      => 'Fashion // Luxury Leather & Shopify Liquid Storefront',
+    'headline_main' => "Victoria's Lane: Shopify Storefront",
+    'headline_serif'=> '& Liquid Dev',
+    'lead'          => "Victoria's Lane is an exclusive luxury handbag brand. We hand-coded a bespoke Shopify Liquid storefront featuring custom product filters, an app-free AJAX cart drawer, and high-converting PDP visual showcases.",
+    'pills'         => ['Shopify Liquid', 'Custom Theme', 'AJAX Cart', 'Fashion CRO'],
+    'meta_services' => 'Shopify Storefront & CRO',
+    'meta_stack'    => 'Shopify · Liquid · JavaScript',
+    'meta_link_url' => 'https://victoriaslane.com/',
+    'meta_link_text'=> 'victoriaslane.com ↗',
+    'hero_img'      => 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1600&auto=format&fit=crop',
+    'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
+    'overview_p1'   => "Victoria's Lane needed a storefront that reflected high fashion elegance without falling into generic Shopify theme templates or app bloat fees.",
+    'overview_p2'   => 'They required custom Liquid template logic for variant swatches, high-resolution product video showcases, and instant cart drawer slideouts.',
+    'overview_items'=> [
+      ['title' => '01 / Custom Liquid Architecture', 'desc' => 'Engineered a bespoke theme from scratch with zero recurring third-party Shopify app subscription fees.'],
+      ['title' => '02 / App-Free AJAX Cart Drawer', 'desc' => 'Hand-coded sub-second cart slideout with dynamic free-shipping progress indicators.'],
+      ['title' => '03 / Luxury PDP Visual Experience', 'desc' => 'Designed high-converting product pages with zoomable leather textures and variant color chips.'],
+      ['title' => '04 / Multi-Currency International Checkout', 'desc' => 'Integrated automated location-based currency conversion for global luxury shoppers.']
+    ],
+    'asset_01_meta' => 'Design System // Asset 01',
+    'asset_01_title'=> 'Haute Couture Design System & Tokens',
+    'asset_01_desc' => 'Curated editorial typography, rich neutral color ramps, and minimalist luxury product badges.',
+    'asset_01_img'  => 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop',
+    'asset_02_meta' => 'E-Commerce UX // Asset 02',
+    'asset_02_title'=> 'AJAX Slide-Out Cart & Upsell Engine',
+    'asset_02_desc' => 'Instant cart drawer with cross-sell recommendation modules and 1-click checkout trigger.',
+    'asset_02_img'  => 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop',
+    'asset_03_meta' => 'Conversion // Asset 03',
+    'asset_03_title'=> 'High-Converting PDP & Variant Selector',
+    'asset_03_desc' => 'Mobile-optimized product page architecture capturing luxury buyer intent with zero lag.',
+    'asset_03_points'=> [
+      'Zero App Subscriptions: 100% native Liquid code eliminating app conflicts.',
+      'Sub-Second Load Times: Optimized asset loading across international mobile networks.',
+      '+42% Mobile Conversion: Seamless slideout cart driving immediate checkout completion.'
+    ],
+    'asset_03_img'  => 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop',
+    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'gallery'       => [
+      ['img' => 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop', 'tag' => 'Product Page', 'title' => 'Luxury Handbag Detail View'],
+      ['img' => 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop', 'tag' => 'Mobile Checkout', 'title' => 'AJAX Slideout Cart Drawer'],
+      ['img' => 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop', 'tag' => 'Collection Grid', 'title' => 'Responsive Lookbook Archive']
+    ],
+    'metrics'       => [
+      ['val' => '+42%', 'lbl' => 'Checkout Conversion', 'desc' => 'Increase in completed purchases following bespoke AJAX cart deployment.'],
+      ['val' => '$0/mo', 'lbl' => 'App Subscription Bloat', 'desc' => 'Zero monthly SaaS fees by replacing 6 Shopify apps with native Liquid code.'],
+      ['val' => '100%', 'lbl' => 'Mobile Performance', 'desc' => 'Flawless responsive browsing across iOS and Android luxury shoppers.']
+    ],
+    'live_url'      => 'https://victoriaslane.com/'
+  ],
+
+  'sweetermen-ng' => [
+    'client_name'   => 'SweeterMen NG',
+    'industry'      => 'E-Commerce // Luxury Horology & WooCommerce Custom Theme',
+    'headline_main' => 'SweeterMen NG: Full-Stack',
+    'headline_serif'=> 'WooCommerce Store',
+    'lead'          => "SweeterMen NG required a high-conversion e-commerce platform for luxury men's accessories. We engineered a custom WooCommerce theme with zero plugin bloat, custom checkout hooks, and integrated paid Meta ad campaigns.",
+    'pills'         => ['WooCommerce', 'Custom PHP', 'Paid Growth', 'Checkout CRO'],
+    'meta_services' => 'WooCommerce & Paid Ads',
+    'meta_stack'    => 'WordPress · WooCommerce · Meta Ads',
+    'meta_link_url' => 'https://sweetermen.ng/',
+    'meta_link_text'=> 'sweetermen.ng ↗',
+    'hero_img'      => 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1600&auto=format&fit=crop',
+    'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
+    'overview_p1'   => 'SweeterMen NG was struggling with high cart abandonment rates and slow page loading times on their legacy WooCommerce setup.',
+    'overview_p2'   => 'They needed a sleek custom storefront with an app-free 1-step checkout drawer, seamless mobile payment gateway wiring, and targeted ad funnels.',
+    'overview_items'=> [
+      ['title' => '01 / Custom WooCommerce Theme', 'desc' => 'Hand-coded lightweight PHP templates with zero third-party page builder bloat.'],
+      ['title' => '02 / One-Page Instant Checkout', 'desc' => 'Engineered a streamlined single-step checkout flow reducing friction for impulse buyers.'],
+      ['title' => '03 / Mobile-First PDP Layouts', 'desc' => 'High-impact product visual cards with dynamic installment payment calculations.'],
+      ['title' => '04 / High-ROAS Meta Ads Funnels', 'desc' => 'Structured lookalike audience segmentation and dynamic product catalog retargeting campaigns.']
+    ],
+    'asset_01_meta' => 'Design System // Asset 01',
+    'asset_01_title'=> 'Luxury Horology Design System',
+    'asset_01_desc' => 'Dark obsidian surfaces, refined serif headers, and high-contrast gold price callouts.',
+    'asset_01_img'  => 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop',
+    'asset_02_meta' => 'Checkout CRO // Asset 02',
+    'asset_02_title'=> '1-Step Checkout Engine',
+    'asset_02_desc' => 'Fast single-page checkout modal with instant Paystack payment triggers.',
+    'asset_02_img'  => 'https://images.unsplash.com/photo-1508615039623-a25605d2b022?q=80&w=800&auto=format&fit=crop',
+    'asset_03_meta' => 'Growth // Asset 03',
+    'asset_03_title'=> 'Multi-Channel Paid Acquisition Engine',
+    'asset_03_desc' => 'Targeted Meta and Google ad funnels generating consistent profitable ROAS for watch collections.',
+    'asset_03_points'=> [
+      'Sub-1s Load Time: Lightweight custom WooCommerce code accelerating checkout.',
+      '4.2x ROAS: Profitable paid Meta campaigns targeting luxury timepiece buyers.',
+      '+68% Cart Completion: Frictionless single-step mobile checkout.'
+    ],
+    'asset_03_img'  => 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop',
+    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'gallery'       => [
+      ['img' => 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop', 'tag' => 'Timepiece Showcase', 'title' => 'Luxury Watch Catalog Detail'],
+      ['img' => 'https://images.unsplash.com/photo-1508615039623-a25605d2b022?q=80&w=800&auto=format&fit=crop', 'tag' => 'Checkout Flow', 'title' => 'Instant Mobile Checkout'],
+      ['img' => 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop', 'tag' => 'Ad Funnel', 'title' => 'Paid Acquisition Campaign']
+    ],
+    'metrics'       => [
+      ['val' => '4.2x', 'lbl' => 'Paid Ad ROAS', 'desc' => 'Return on ad spend across targeted Meta advertising campaigns.'],
+      ['val' => '+68%', 'lbl' => 'Checkout Completion', 'desc' => 'Reduction in mobile cart drop-off following 1-step checkout deployment.'],
+      ['val' => '0.8s', 'lbl' => 'Page Load Speed', 'desc' => 'Instantaneous product catalog browsing with lightweight custom PHP code.']
+    ],
+    'live_url'      => 'https://sweetermen.ng/'
+  ],
+
+  'stride-plus-media' => [
+    'client_name'   => 'Stride Radio',
+    'industry'      => 'Media // Digital Marketing & Broadcast Growth',
+    'headline_main' => 'Stride Plus Media: Brand Strategy',
+    'headline_serif'=> '& Paid Acquisition',
+    'lead'          => 'Stride Plus Media needed to expand listener acquisition for Stride Radio. We architected a multi-channel digital marketing engine combining targeted Meta Ads, Google Ads search campaigns, and conversion tracking to scale audience retention.',
+    'pills'         => ['Digital Marketing', 'Meta Ads', 'Google Ads', 'Conversion Funnels'],
+    'meta_services' => 'Digital Marketing & Strategy',
+    'meta_stack'    => 'Meta Ads · Google Ads · GTM',
+    'meta_link_url' => 'https://strideradio.ng/',
+    'meta_link_text'=> 'strideradio.ng ↗',
+    'hero_img'      => 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1600&auto=format&fit=crop',
+    'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
+    'overview_p1'   => 'Stride Radio was looking to break through noisy digital media markets and capture loyal daily listeners without wasting budget on broad, un-targeted ad impressions.',
+    'overview_p2'   => 'They needed server-side tracking infrastructure, high-converting ad creative copy, and audience segment funnels tailored to music and broadcast enthusiasts.',
+    'overview_items'=> [
+      ['title' => '01 / Full-Funnel Audience Strategy', 'desc' => 'Constructed multi-tiered ad sets capturing listeners across interest, genre, and demographic segments.'],
+      ['title' => '02 / Server-Side Conversion Tracking', 'desc' => 'Configured Meta Conversions API and Google Tag Manager for 100% accurate stream telemetry.'],
+      ['title' => '03 / High-Converting Audio Creative', 'desc' => 'Produced video teasers and audio snippets optimized for Instagram Reels and TikTok ad placements.'],
+      ['title' => '04 / Retention & Re-Engagement Funnels', 'desc' => 'Automated remarketing workflows driving one-time visitors into daily active radio listeners.']
+    ],
+    'asset_01_meta' => 'Strategy // Asset 01',
+    'asset_01_title'=> 'Paid Growth Campaign Architecture',
+    'asset_01_desc' => 'Multi-channel ad funnels scaling daily active broadcast listeners.',
+    'asset_01_img'  => 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=800&auto=format&fit=crop',
+    'asset_02_meta' => 'Analytics // Asset 02',
+    'asset_02_title'=> 'Real-Time Telemetry & Listener Tracking',
+    'asset_02_desc' => 'Custom Google Tag Manager container tracking audio player duration and retention events.',
+    'asset_02_img'  => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
+    'asset_03_meta' => 'Scale // Asset 03',
+    'asset_03_title'=> 'Broadcast Audience Expansion Engine',
+    'asset_03_desc' => 'Proprietary marketing funnel driving sustained listener growth and commercial sponsor value.',
+    'asset_03_points'=> [
+      '+210% Stream Listenership: Massive surge in active broadcast listening hours.',
+      '100% Tracking Precision: Server-side Conversions API bypassing browser ad blockers.',
+      '3.8x Audience Retention: Retargeting funnels turning listeners into subscribers.'
+    ],
+    'asset_03_img'  => 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1200&auto=format&fit=crop',
+    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'gallery'       => [
+      ['img' => 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=800&auto=format&fit=crop', 'tag' => 'Campaign Matrix', 'title' => 'Paid Acquisition Strategy'],
+      ['img' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop', 'tag' => 'Telemetry', 'title' => 'Listener Analytics Dashboard'],
+      ['img' => 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1200&auto=format&fit=crop', 'tag' => 'Broadcast Studio', 'title' => 'Live Radio Studio Staging']
+    ],
+    'metrics'       => [
+      ['val' => '+210%', 'lbl' => 'Active Listeners', 'desc' => 'Growth in daily digital broadcast streams in the first 60 days of campaign rollout.'],
+      ['val' => '5.2x', 'lbl' => 'Ad Click-Through', 'desc' => 'High CTR achieved through bespoke video and audio teaser creatives.'],
+      ['val' => '100%', 'lbl' => 'Tracking Telemetry', 'desc' => 'Server-side data attribution ensuring zero wasted ad expenditure.']
+    ],
+    'live_url'      => 'https://strideradio.ng/'
+  ],
+
+  'kiri-city-stays' => [
+    'client_name'   => 'Kiri City Stays',
+    'industry'      => 'Hospitality // Urban Short-Let & Direct Booking Platform',
+    'headline_main' => 'Kiri City Stays: Direct Booking',
+    'headline_serif'=> '& Luxury Stays',
+    'lead'          => 'Kiri City Stays is a premier short-let apartment management agency. We engineered their direct booking web application, created their visual identity, and integrated local SEO frameworks to capture direct guest bookings.',
+    'pills'         => ['Web Design', 'Booking Engine', 'Local SEO', 'Hospitality'],
+    'meta_services' => 'Web Design & Booking',
+    'meta_stack'    => 'WordPress · Custom Code',
+    'meta_link_url' => 'https://kiricitystays.com/',
+    'meta_link_text'=> 'kiricitystays.com ↗',
+    'hero_img'      => 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1600&auto=format&fit=crop',
+    'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
+    'overview_p1'   => 'Kiri City Stays wanted to reduce reliance on third-party OTA booking platforms and build a premium direct reservation portal for executive guests.',
+    'overview_p2'   => 'They needed a clean mobile-first catalog showcasing luxury short-let suites, transparent night rates, and instant booking reservation forms.',
+    'overview_items'=> [
+      ['title' => '01 / Bespoke Direct Booking Portal', 'desc' => 'Engineered an in-house room reservation pipeline with instant availability checks.'],
+      ['title' => '02 / High-Trust Brand Identity', 'desc' => 'Crafted an urban luxury aesthetic with dark slate tones and crisp typography.'],
+      ['title' => '03 / Multi-Property Dynamic Catalog', 'desc' => 'Constructed responsive suite showcase pages with floor plan layouts and amenity filters.'],
+      ['title' => '04 / Local SEO & Map Integration', 'desc' => 'Embedded Google Business schema and localized neighborhood guides driving organic searches.']
+    ],
+    'asset_01_meta' => 'Design System // Asset 01',
+    'asset_01_title'=> 'Urban Hospitality Design Tokens',
+    'asset_01_desc' => 'Slate grey, warm gold, and crisp bone white color ramps with modern typography.',
+    'asset_01_img'  => 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop',
+    'asset_02_meta' => 'Booking Engine // Asset 02',
+    'asset_02_title'=> 'Instant Suite Reservation Engine',
+    'asset_02_desc' => 'Interactive date picker and real-time room availability calendar.',
+    'asset_02_img'  => 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop',
+    'asset_03_meta' => 'Autonomy // Asset 03',
+    'asset_03_title'=> 'Direct Booking Sovereignty Pipeline',
+    'asset_03_desc' => 'Reclaiming pricing power and guest relationship data from third-party booking intermediaries.',
+    'asset_03_points'=> [
+      'Zero OTA Commissions: 100% retained revenue on direct website bookings.',
+      'Automated Check-In: Instant WhatsApp confirmation with digital keycard access.',
+      'Local Dominance: Top 3 search visibility for executive Lagos short-lets.'
+    ],
+    'asset_03_img'  => 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop',
+    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'gallery'       => [
+      ['img' => 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop', 'tag' => 'Suite Showcase', 'title' => 'Executive Short-Let Living Room'],
+      ['img' => 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop', 'tag' => 'Booking Engine', 'title' => 'Mobile Date Selection Flow'],
+      ['img' => 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop', 'tag' => 'Property Overview', 'title' => 'Responsive Suite Archive']
+    ],
+    'metrics'       => [
+      ['val' => '+280%', 'lbl' => 'Direct Reservations', 'desc' => 'Shift toward direct website bookings within 90 days of launch.'],
+      ['val' => '0%', 'lbl' => 'OTA Commission Loss', 'desc' => 'Zero intermediary fees on direct website customer transactions.'],
+      ['val' => '100%', 'lbl' => 'Guest CRM Retention', 'desc' => 'Full guest contact details captured for automated repeat booking offers.']
+    ],
+    'live_url'      => 'https://kiricitystays.com/'
   ]
 ];
 
@@ -292,21 +604,26 @@ function cr8v_cs_img_src($filename, $fallback = '') {
 }
 
 // Fallback for unconfigured or dynamic slugs — NEVER DUMP DUCH DATA ON OTHER POSTS
+$curr_post_id = ($post instanceof WP_Post) ? $post->ID : (is_numeric(get_the_ID()) ? get_the_ID() : 0);
+$curr_title   = ($post instanceof WP_Post) ? $post->post_title : (!empty($post_title) ? $post_title : 'Portfolio Case Study');
+$curr_excerpt = ($post instanceof WP_Post && has_excerpt($curr_post_id)) ? get_the_excerpt($curr_post_id) : '';
+$curr_thumb   = $curr_post_id ? (get_the_post_thumbnail_url($curr_post_id, 'full') ?: '') : '';
+
 if ($matched_slug && isset($portfolio_data_matrix[$matched_slug])) {
   $active_data = $portfolio_data_matrix[$matched_slug];
 } else {
   $active_data = [
-    'client_name'   => get_the_title(),
+    'client_name'   => $curr_title,
     'industry'      => 'Portfolio // Case Study',
-    'headline_main' => get_the_title(),
+    'headline_main' => $curr_title,
     'headline_serif'=> '',
-    'lead'          => has_excerpt() ? get_the_excerpt() : '',
+    'lead'          => $curr_excerpt,
     'pills'         => [],
-    'meta_services' => get_post_meta(get_the_ID(), 'case_study_services', true) ?: 'Design & Engineering',
-    'meta_stack'    => get_post_meta(get_the_ID(), 'case_study_stack', true) ?: 'WordPress',
-    'meta_link_url' => get_post_meta(get_the_ID(), 'case_study_link_url', true) ?: '',
-    'meta_link_text'=> get_post_meta(get_the_ID(), 'case_study_link_text', true) ?: '',
-    'hero_img'      => get_the_post_thumbnail_url(get_the_ID(), 'full') ?: '',
+    'meta_services' => ($curr_post_id ? get_post_meta($curr_post_id, 'case_study_services', true) : '') ?: 'Design & Engineering',
+    'meta_stack'    => ($curr_post_id ? get_post_meta($curr_post_id, 'case_study_stack', true) : '') ?: 'WordPress',
+    'meta_link_url' => $curr_post_id ? get_post_meta($curr_post_id, 'case_study_link_url', true) : '',
+    'meta_link_text'=> $curr_post_id ? get_post_meta($curr_post_id, 'case_study_link_text', true) : '',
+    'hero_img'      => $curr_thumb,
     'overview_title'=> '',
     'overview_p1'   => '',
     'overview_p2'   => '',
@@ -327,7 +644,7 @@ if ($matched_slug && isset($portfolio_data_matrix[$matched_slug])) {
     'gallery_header'=> '',
     'gallery'       => [],
     'metrics'       => [],
-    'live_url'      => get_post_meta(get_the_ID(), 'case_study_live_url', true) ?: ''
+    'live_url'      => $curr_post_id ? get_post_meta($curr_post_id, 'case_study_live_url', true) : ''
   ];
 }
 
@@ -824,10 +1141,10 @@ get_header();
 
         <div class="c8cs-related-matrix-grid">
           <?php
-          $related_keys = ['the-duch-apartments', 'mkenny-properties', 'wp-publishion-ai', 'blvck-hair-ng'];
+          $related_keys = ['the-duch-apartments', 'mkenny-properties', 'wp-publishion-ai', 'blvck-hair-ng', 'bridgepoint-compliance', 'victorias-lane'];
           $rendered = 0;
           foreach ($related_keys as $rKey):
-            if ($rKey === $active_slug) continue;
+            if ($rKey === $matched_slug) continue;
             if ($rendered >= 3) break;
             $rData = $portfolio_data_matrix[$rKey] ?? null;
             if (!$rData) continue;
