@@ -42,3 +42,16 @@
 - **Content-Tallying & Creative Domain Interpretation**: Images must interpret the **creative intent and human/studio synergy** of each section (e.g. tactile Bauhaus shapes, typography glyphs, idea sparks, origami wireframe morphing, kinetic growth trajectories, fluid audience funnels) rather than literal machine hardware.
 - **Human Representation (Optional & Restricted)**: Do NOT default to human subjects. Only include people where strictly required (e.g. founder bio). When depicted, characters MUST strictly be mature Black African adults (28–35 age range) with dark skin tones in a sleek, professional, dark moody setting.
 
+## 6. Verbatim Asset-Content Harmony, 3D Jargon Purge & Project-Driven Staging (LOCKED RULE)
+- **Verbatim Eyebrow, Title, Description & Visual Harmony**:
+  - Every deliverable and gallery item MUST maintain 100% verbatim harmony between its Eyebrow/Meta, Title, Description, Alt Text, and the actual on-screen visual.
+  - If an image displays a brand token board (color swatches, typography scales, badge states), the title MUST read `Design System Tokens & Brand Specification` — never mislabeled as a widget or code editor.
+- **Strict Prohibition of 3D Mockup Jargon**:
+  - NEVER use physical mockup or 3D fabrication jargon such as `Slab`, `Tilted Plane`, `Oblique View`, `Tablet on Desk`, or `Laptop Screen View` in client-facing titles, tags, or alt text.
+  - Always articulate the **engineered business capability, conversion mechanism, or software ecosystem** (e.g. `Master Real Estate Catalog & Direct Acquisition Engine`, `Dynamic Multi-Scheme Property Archive & Faceted Catalog`).
+- **Zero Speed & Latency Vanity Terms in Copy**:
+  - NEVER use developer speed jargon like `Sub-Second`, query milliseconds, or TTFB benchmarks in customer-facing titles or headings. Use high-agency terms like `Real-Time AJAX Facet Filter Matrix`, `Instantaneous Response Architecture`, or `Optimized Dynamic Query Loop`.
+- **Pure Project-Driven Staging (Anti-Desk Mandate)**:
+  - Office desks, tables, and furniture are NEVER compulsory. Staging is 100% determined by the project's software interface, system architecture, and domain.
+  - Software and AI products MUST be staged as clean floating dark-mode UI panels on dark obsidian (`#080808`), extreme macro UI harvests, flat Swiss graphic editorial posters, or native CMS block canvases — never default to generic office desks.
+

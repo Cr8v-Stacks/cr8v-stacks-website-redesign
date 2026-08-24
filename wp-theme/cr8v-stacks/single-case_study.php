@@ -189,20 +189,20 @@ $portfolio_data_matrix = [
       ['title' => '04 / Automated Schema & Entities', 'desc' => 'Generates Article, FAQPage, and Entity JSON-LD schemas automatically.']
     ],
     'asset_01_meta' => 'Design System // Asset 01',
-    'asset_01_title'=> 'AI Telemetry & Model Token Spec',
-    'asset_01_desc' => 'Modular developer interface tokens, model status indicators (Claude, GPT, Gemini), and prompt parameter control components.',
+    'asset_01_title'=> 'Multi-LLM Parameter & UI Token Matrix',
+    'asset_01_desc' => 'Constructed atomic color tokens (Obsidian, Slate, Royal Blue, Mint), Space Mono telemetry scales, model selector pills (Claude, Gemini, GPT-4o), and 6-stage workflow components.',
     'asset_01_img'  => 'wp_publishion_asset_01_design_system.webp',
-    'asset_02_meta' => 'Experience // Asset 02',
-    'asset_02_title'=> 'Real-Time Fact Engine & Editor',
-    'asset_02_desc' => 'Live drafting canvas with automated claim validation, citation injections, and readability telemetry.',
+    'asset_02_meta' => 'Research Engine // Asset 02',
+    'asset_02_title'=> 'Sitemap Context & Automated Link Planning Engine',
+    'asset_02_desc' => 'Engineered automated sitemap crawling, topic relevance thresholds, and contextual internal linking controls prior to article drafting.',
     'asset_02_img'  => 'wp_publishion_asset_02_experience.webp',
     'asset_03_meta' => 'Ecosystem Velocity // Asset 03',
-    'asset_03_title'=> 'Proprietary Content Sovereignty Pipeline',
-    'asset_03_desc' => 'Fully autonomous in-house AI engine eliminating subscription lock-in and keeping all training data and editorial content proprietary.',
+    'asset_03_title'=> 'Autonomous Multi-LLM Content Sovereignty Pipeline',
+    'asset_03_desc' => 'Eliminated third-party SaaS subscription markup through direct API orchestration, integrating live Brave Search verification and native Gutenberg core block generation.',
     'asset_03_points'=> [
-      'Zero SaaS Dependency: Self-hosted API orchestration with private key management.',
-      'Instant Block Generation: 1-click publishing directly to WordPress draft queues.',
-      'Automated Semantic SEO: Pre-configured entity graphs and structured metadata.'
+      'Direct API Token Economics: Reduces per-article drafting costs to $0.0093 compared to recurring $99/mo SaaS tools.',
+      'Live Brave Search Grounding: Validates facts and injects real-time citations prior to WordPress draft creation.',
+      'Native Gutenberg Core Bridge: 1-click publishing directly to WordPress draft queues as native structured blocks.'
     ],
     'asset_03_img'  => 'wp_publishion_asset_03_ecosystem.webp',
     'gallery_label' => 'Application Ecosystem',
@@ -213,7 +213,7 @@ $portfolio_data_matrix = [
       ['img' => 'publishion_gallery_03.webp', 'tag' => 'Block Canvas', 'title' => 'Native WordPress Gutenberg Core Block Staging'],
       ['img' => 'publishion_gallery_04.webp', 'tag' => 'SaaS Economics', 'title' => 'Self-Hosted Zero-Markup API Sovereignty Engine'],
       ['img' => 'publishion_gallery_05.webp', 'tag' => 'Cost Transparency', 'title' => 'Real-Time Token Economics & Pillar Telemetry'],
-      ['img' => 'publishion_gallery_06.webp', 'tag' => 'System Deployment', 'title' => 'Master Autonomous WordPress AI Publishing Slab']
+      ['img' => 'publishion_gallery_06.webp', 'tag' => 'System Architecture', 'title' => 'Master Autonomous WordPress AI Publishing Engine']
     ],
     'metrics'       => [
       ['val' => '3', 'lbl' => 'LLMs Integrated', 'desc' => 'Claude 3.5, Gemini 1.5 Pro, and GPT-4o unified in one pipeline.'],
