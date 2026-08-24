@@ -93,14 +93,15 @@ $portfolio_data_matrix = [
       'Local Search Domination: Outranking intermediary listing sites for branded Lekki serviced apartment searches.'
     ],
     'asset_03_img'  => 'duch_asset_03_ecosystem.webp',
+    'gallery_label' => 'Visual Showcase',
     'gallery_header'=> 'Platform Showcase & Production Gallery',
     'gallery'       => [
       ['img' => 'cs_duch_gallery_01_laptop.webp', 'tag' => 'Live Interface', 'title' => 'Responsive Suite Catalog'],
-      ['img' => 'cs_duch_gallery_02_macro.webp', 'tag' => 'Macro Interaction', 'title' => 'Room Suite Card Detail'],
-      ['img' => 'cs_duch_gallery_05_calendar.webp', 'tag' => 'Engine Detail', 'title' => 'Dual-Month Availability Calendar'],
+      ['img' => 'cs_duch_gallery_02_macro.webp', 'tag' => 'Macro Detail', 'title' => 'Room Suite Card & Amenity Tokens'],
+      ['img' => 'cs_duch_gallery_05_calendar.webp', 'tag' => 'Booking Engine', 'title' => 'Dual-Month Availability Calendar'],
       ['img' => 'cs_duch_gallery_04_living.webp', 'tag' => 'Atmosphere', 'title' => 'Luxury Penthouse Living Space'],
-      ['img' => 'cs_duch_gallery_03_workspace.webp', 'tag' => 'Workstation Staging', 'title' => 'Studio Review & Responsive Tablet'],
-      ['img' => 'cs_duch_gallery_06_platform.webp', 'tag' => 'Platform Staging', 'title' => 'Oblique UI Slab Showcase']
+      ['img' => 'cs_duch_gallery_03_workspace.webp', 'tag' => 'Studio Staging', 'title' => 'Responsive Tablet & Workstation Review'],
+      ['img' => 'cs_duch_gallery_06_platform.webp', 'tag' => 'Platform Overview', 'title' => 'Tactile UI Slab & Platform Showcase']
     ],
     'metrics'       => [
       ['val' => '+340%', 'lbl' => 'Direct Reservations', 'desc' => 'Surge in high-margin direct guest bookings bypassing third-party OTAs.'],
@@ -1061,8 +1062,8 @@ get_header();
       <div class="c8cs-wrap">
         <div class="c8cs-stream-box">
           <div class="c8cs-stream-header">
-            <div class="c8cs-label">Visual Gallery</div>
-            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;"><?php echo esc_html($active_data['gallery_header'] ?: 'Production Gallery'); ?></h2>
+            <div class="c8cs-label"><?php echo esc_html(!empty($active_data['gallery_label']) ? $active_data['gallery_label'] : 'Visual Showcase'); ?></div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;"><?php echo esc_html($active_data['gallery_header'] ?: 'Platform Showcase & Production Gallery'); ?></h2>
           </div>
 
           <div class="c8cs-stream-grid">
