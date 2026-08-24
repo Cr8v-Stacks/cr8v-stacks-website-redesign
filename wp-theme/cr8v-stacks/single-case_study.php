@@ -93,15 +93,15 @@ $portfolio_data_matrix = [
       'Local Search Domination: Outranking intermediary listing sites for branded Lekki serviced apartment searches.'
     ],
     'asset_03_img'  => 'duch_asset_03_ecosystem.webp',
-    'gallery_label' => 'Visual Showcase',
-    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'gallery_label' => 'Guest Experience',
+    'gallery_header'=> 'The Engineered Guest Experience in Production',
     'gallery'       => [
-      ['img' => 'cs_duch_gallery_01_laptop.webp', 'tag' => 'Live Interface', 'title' => 'Responsive Suite Catalog'],
-      ['img' => 'cs_duch_gallery_02_macro.webp', 'tag' => 'Macro Detail', 'title' => 'Room Suite Card & Amenity Tokens'],
-      ['img' => 'cs_duch_gallery_05_calendar.webp', 'tag' => 'Booking Engine', 'title' => 'Dual-Month Availability Calendar'],
-      ['img' => 'cs_duch_gallery_04_living.webp', 'tag' => 'Atmosphere', 'title' => 'Luxury Penthouse Living Space'],
-      ['img' => 'cs_duch_gallery_03_workspace.webp', 'tag' => 'Studio Staging', 'title' => 'Responsive Tablet & Workstation Review'],
-      ['img' => 'cs_duch_gallery_06_platform.webp', 'tag' => 'Platform Overview', 'title' => 'Tactile UI Slab & Platform Showcase']
+      ['img' => 'cs_duch_gallery_01_laptop.webp', 'tag' => 'Guest Discovery UX', 'title' => 'Frictionless Inventory Discovery & Room Tiering'],
+      ['img' => 'cs_duch_gallery_02_macro.webp', 'tag' => 'Decision Architecture', 'title' => 'Transparent Rate Architecture & Trust Badging'],
+      ['img' => 'cs_duch_gallery_05_calendar.webp', 'tag' => 'Availability API', 'title' => 'Real-Time Multi-Month Date Selection Engine'],
+      ['img' => 'cs_duch_gallery_04_living.webp', 'tag' => 'Brand Immersion', 'title' => 'High-Yield Visual Immersion & Rate Justification'],
+      ['img' => 'cs_duch_gallery_03_workspace.webp', 'tag' => 'Mobile Ergonomics', 'title' => 'Cross-Device Mobile Booking Parity'],
+      ['img' => 'cs_duch_gallery_06_platform.webp', 'tag' => 'System Architecture', 'title' => 'Unified Direct Booking & Acquisition Ecosystem']
     ],
     'metrics'       => [
       ['val' => '+340%', 'lbl' => 'Direct Reservations', 'desc' => 'Surge in high-margin direct guest bookings bypassing third-party OTAs.'],
@@ -149,14 +149,15 @@ $portfolio_data_matrix = [
       'Automated Broker Routing: Dynamic pre-filled WhatsApp lead dispatch connecting prospective buyers directly to the assigned development manager.'
     ],
     'asset_03_img'  => 'mkenny_asset_03_ecosystem.webp',
-    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'gallery_label' => 'Development Showcase',
+    'gallery_header'=> 'Interactive Property Archive & Direct Broker Pipelines',
     'gallery'       => [
-      ['img' => 'mkenny_gallery_01.webp', 'tag' => 'Live Interface', 'title' => 'Responsive Property Archive Grid'],
-      ['img' => 'mkenny_gallery_02.webp', 'tag' => 'Catalog Engine', 'title' => 'Single Property Master Showcase'],
-      ['img' => 'mkenny_gallery_03.webp', 'tag' => 'Editorial Tools', 'title' => 'Custom Elementor Widget Controls'],
-      ['img' => 'mkenny_gallery_04.webp', 'tag' => 'Conversion Flow', 'title' => 'Direct WhatsApp Broker Dispatch'],
-      ['img' => 'mkenny_gallery_05.webp', 'tag' => 'Geo Architecture', 'title' => 'Interactive Manchester Amenity Map'],
-      ['img' => 'mkenny_gallery_06.webp', 'tag' => 'Catalog Architecture', 'title' => 'Master Development Staging Slab']
+      ['img' => 'mkenny_gallery_01.webp', 'tag' => 'Catalog Architecture', 'title' => 'Sub-Second Dynamic Multi-Scheme Archive Grid'],
+      ['img' => 'mkenny_gallery_02.webp', 'tag' => 'Listing UX', 'title' => 'Single Development Deep-Dive & Investment Specs'],
+      ['img' => 'mkenny_gallery_03.webp', 'tag' => 'Editorial Tooling', 'title' => 'Custom Elementor Dynamic Loop Widget Controls'],
+      ['img' => 'mkenny_gallery_04.webp', 'tag' => 'Lead Pipeline', 'title' => 'Direct Broker WhatsApp Routing & Inquiry Dispatch'],
+      ['img' => 'mkenny_gallery_05.webp', 'tag' => 'Geo Intelligence', 'title' => 'Interactive Manchester Neighborhood Amenity Map'],
+      ['img' => 'mkenny_gallery_06.webp', 'tag' => 'System Deployment', 'title' => 'Master UK Development Staging & Acquisition Slab']
     ],
     'metrics'       => [
       ['val' => '+180%', 'lbl' => 'Qualified Buyer Leads', 'desc' => 'Proprietary lead capture architecture routing UK investor inquiries directly to internal sales brokers.'],
@@ -185,7 +186,7 @@ $portfolio_data_matrix = [
       ['title' => '01 / Multi-LLM Orchestration', 'desc' => 'Integrated Claude 3.5 Sonnet, OpenAI GPT-4o, and Gemini 1.5 Pro with automatic fallback routing.'],
       ['title' => '02 / Real-Time Fact Verification', 'desc' => 'Connected Brave Search API to verify claims and insert live citations prior to publication.'],
       ['title' => '03 / Native WordPress Core Bridge', 'desc' => 'Direct Gutenberg block generation eliminating all external SaaS copy-pasting.'],
-      ['title' => '04 / Automated Schema & Entities', 'desc' => 'Generates Article, FAQPage, and Entity JSON-LD schemas automatically.'],
+      ['title' => '04 / Automated Schema & Entities', 'desc' => 'Generates Article, FAQPage, and Entity JSON-LD schemas automatically.']
     ],
     'asset_01_meta' => 'Design System // Asset 01',
     'asset_01_title'=> 'AI Telemetry & Model Token Spec',
@@ -204,14 +205,15 @@ $portfolio_data_matrix = [
       'Automated Semantic SEO: Pre-configured entity graphs and structured metadata.'
     ],
     'asset_03_img'  => 'wp_publishion_asset_03_ecosystem.webp',
-    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'gallery_label' => 'Application Ecosystem',
+    'gallery_header'=> 'Autonomous Editorial Workflow & Telemetry in Production',
     'gallery'       => [
-      ['img' => 'publishion_gallery_01.webp', 'tag' => 'Live Interface', 'title' => 'Live Analytics & Production Dashboard'],
-      ['img' => 'publishion_gallery_02.webp', 'tag' => 'Interaction Detail', 'title' => 'Article Wizard Modal & Cost Breakdown'],
-      ['img' => 'publishion_gallery_03.webp', 'tag' => 'Workstation Staging', 'title' => 'Software Engineering Lab Workstation'],
-      ['img' => 'publishion_gallery_04.webp', 'tag' => 'Atmosphere', 'title' => 'Cloud AI Infrastructure & Server Atmosphere'],
-      ['img' => 'publishion_gallery_05.webp', 'tag' => 'Telemetry', 'title' => 'Real-Time Token Telemetry Scorecard'],
-      ['img' => 'publishion_gallery_06.webp', 'tag' => 'Platform Staging', 'title' => 'Master Multi-LLM Publishing Platform Slab']
+      ['img' => 'publishion_gallery_01.webp', 'tag' => 'Production Telemetry', 'title' => 'Real-Time Multi-LLM API Spend & Article Dashboard'],
+      ['img' => 'publishion_gallery_02.webp', 'tag' => 'Editorial Engine', 'title' => 'Article Wizard Modal & Per-Run Cost Calculation'],
+      ['img' => 'publishion_gallery_03.webp', 'tag' => 'Engineering Workflow', 'title' => 'Self-Hosted API Orchestration & Schema Staging'],
+      ['img' => 'publishion_gallery_04.webp', 'tag' => 'Infrastructure', 'title' => 'Autonomous Multi-Model Publishing Pipeline'],
+      ['img' => 'publishion_gallery_05.webp', 'tag' => 'Cost Transparency', 'title' => 'Real-Time Token Economics & Pillar Telemetry'],
+      ['img' => 'publishion_gallery_06.webp', 'tag' => 'System Deployment', 'title' => 'Master Autonomous WordPress AI Publishing Slab']
     ],
     'metrics'       => [
       ['val' => '3', 'lbl' => 'LLMs Integrated', 'desc' => 'Claude 3.5, Gemini 1.5 Pro, and GPT-4o unified in one pipeline.'],
