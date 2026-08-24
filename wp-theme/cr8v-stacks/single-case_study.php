@@ -89,7 +89,7 @@ $portfolio_data_matrix = [
     'asset_03_desc' => 'By architecting a proprietary guest acquisition and payment pipeline, The Duch Apartments reclaimed full pricing sovereignty, eliminated OTA commission leakages, and retained complete guest reservation data sovereignty.',
     'asset_03_points'=> [
       'Zero Third-Party Commission: Direct guest transactions retain full room revenue with zero OTA cuts.',
-      'Automated Guest Onboarding: Instant WhatsApp and email reservation confirmations with check-in access codes.',
+      'Automated Guest Onboarding: Instant direct messaging and email reservation confirmations with check-in access codes.',
       'Local Search Domination: Outranking intermediary listing sites for branded Lekki serviced apartment searches.'
     ],
     'asset_03_img'  => 'duch_asset_03_ecosystem.webp',
@@ -130,7 +130,7 @@ $portfolio_data_matrix = [
       ['title' => '01 / Custom Elementor Widget Suite', 'desc' => 'Constructed drag-and-drop property cards and dynamic query loop builders tailored for the client editorial team.'],
       ['title' => '02 / High-Velocity AJAX Query Engine', 'desc' => 'Engineered lightweight custom SQL query routines delivering instantaneous multi-facet filtering across price, status, and UK locations.'],
       ['title' => '03 / Dynamic Manchester Map & Schema', 'desc' => 'Integrated interactive location maps and structured RealEstateListing JSON-LD schema for dominant Manchester property search visibility.'],
-      ['title' => '04 / Direct Broker WhatsApp & Lead Routing', 'desc' => 'Engineered instant property metadata passing into direct broker WhatsApp inquiries, accelerating UK investor deal conversion.']
+      ['title' => '04 / Direct Instant Messaging & Lead Routing', 'desc' => 'Engineered instant property metadata passing into direct broker messaging channels, accelerating UK investor deal conversion.']
     ],
     'asset_01_meta' => 'Design System // Asset 01',
     'asset_01_title'=> 'Custom Elementor Widget Suite & Token Spec',
@@ -146,7 +146,7 @@ $portfolio_data_matrix = [
     'asset_03_points'=> [
       'Custom Post Type & ACF Schema: Clean property data architecture supporting floor plans, tenure, and development stages.',
       'Cached WP_Query Optimization: Instantaneous database response times across high-density image catalogs.',
-      'Automated Broker Routing: Dynamic pre-filled WhatsApp lead dispatch connecting prospective buyers directly to the assigned development manager.'
+      'Automated Broker Routing: Dynamic pre-filled instant messaging dispatch connecting prospective buyers directly to the assigned development manager.'
     ],
     'asset_03_img'  => 'mkenny_asset_03_ecosystem.webp',
     'gallery_label' => 'Development Showcase',
@@ -154,8 +154,8 @@ $portfolio_data_matrix = [
     'gallery'       => [
       ['img' => 'mkenny_gallery_01.webp', 'tag' => 'Catalog Architecture', 'title' => 'Sub-Second Dynamic Multi-Scheme Archive Grid'],
       ['img' => 'mkenny_gallery_02.webp', 'tag' => 'Listing UX', 'title' => 'Single Development Deep-Dive & Investment Specs'],
-      ['img' => 'mkenny_gallery_03.webp', 'tag' => 'Editorial Tooling', 'title' => 'Custom Elementor Dynamic Loop Widget Controls'],
-      ['img' => 'mkenny_gallery_04.webp', 'tag' => 'Lead Pipeline', 'title' => 'Direct Broker WhatsApp Routing & Inquiry Dispatch'],
+      ['img' => 'mkenny_gallery_03.webp', 'tag' => 'Mobile Acquisition', 'title' => 'On-Site Direct Messaging & Instant Buyer Dispatch'],
+      ['img' => 'mkenny_gallery_04.webp', 'tag' => 'Editorial Tooling', 'title' => 'Custom Elementor Dynamic Loop Widget Controls'],
       ['img' => 'mkenny_gallery_05.webp', 'tag' => 'Geo Intelligence', 'title' => 'Interactive Manchester Neighborhood Amenity Map'],
       ['img' => 'mkenny_gallery_06.webp', 'tag' => 'System Deployment', 'title' => 'Master UK Development Staging & Acquisition Slab']
     ],
