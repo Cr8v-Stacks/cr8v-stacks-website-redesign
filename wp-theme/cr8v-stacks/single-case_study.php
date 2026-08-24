@@ -192,9 +192,9 @@ $portfolio_data_matrix = [
     'asset_01_title'=> 'Multi-LLM Parameter & UI Token Matrix',
     'asset_01_desc' => 'Constructed atomic color tokens (Obsidian, Slate, Royal Blue, Mint), Space Mono telemetry scales, model selector pills (Claude, Gemini, GPT-4o), and 6-stage workflow components.',
     'asset_01_img'  => 'wp_publishion_asset_01_design_system.webp',
-    'asset_02_meta' => 'Research Engine // Asset 02',
-    'asset_02_title'=> 'Sitemap Context & Automated Link Planning Engine',
-    'asset_02_desc' => 'Engineered automated sitemap crawling, topic relevance thresholds, and contextual internal linking controls prior to article drafting.',
+    'asset_02_meta' => 'Internal Linking // Asset 02',
+    'asset_02_title'=> 'AI Link Builder & Anchor Optimization Matrix',
+    'asset_02_desc' => 'Engineered automated internal link recommendation routines, anchor text passage scoring, and orphaned page detection directly within the WordPress dashboard.',
     'asset_02_img'  => 'wp_publishion_asset_02_experience.webp',
     'asset_03_meta' => 'Ecosystem Velocity // Asset 03',
     'asset_03_title'=> 'Autonomous Multi-LLM Content Sovereignty Pipeline',
@@ -209,10 +209,10 @@ $portfolio_data_matrix = [
     'gallery_header'=> 'Autonomous Editorial Workflow & Telemetry in Production',
     'gallery'       => [
       ['img' => 'publishion_gallery_01.webp', 'tag' => 'Production Telemetry', 'title' => 'Real-Time Multi-LLM API Spend & Article Dashboard'],
-      ['img' => 'publishion_gallery_02.webp', 'tag' => 'Editorial Engine', 'title' => 'Article Wizard Modal & Per-Run Cost Calculation'],
-      ['img' => 'publishion_gallery_03.webp', 'tag' => 'Block Canvas', 'title' => 'Native WordPress Gutenberg Core Block Staging'],
+      ['img' => 'publishion_gallery_02.webp', 'tag' => 'Cluster Engine', 'title' => 'Pillar Page Generator & Topic Cluster Planning'],
+      ['img' => 'publishion_gallery_03.webp', 'tag' => 'Anchor Optimization', 'title' => 'Anchor Text Optimization & Passage Relevance Engine'],
       ['img' => 'publishion_gallery_04.webp', 'tag' => 'SaaS Economics', 'title' => 'Self-Hosted Zero-Markup API Sovereignty Engine'],
-      ['img' => 'publishion_gallery_05.webp', 'tag' => 'Cost Transparency', 'title' => 'Real-Time Token Economics & Pillar Telemetry'],
+      ['img' => 'publishion_gallery_05.webp', 'tag' => 'Cost Transparency', 'title' => 'Real-Time Token Telemetry & Monthly Spend Scorecard'],
       ['img' => 'publishion_gallery_06.webp', 'tag' => 'System Architecture', 'title' => 'Master Autonomous WordPress AI Publishing Engine']
     ],
     'metrics'       => [
