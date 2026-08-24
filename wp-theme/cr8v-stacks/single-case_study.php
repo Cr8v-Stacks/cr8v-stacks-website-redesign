@@ -176,8 +176,8 @@ $portfolio_data_matrix = [
     'pills'         => ['AI MVP', 'Multi-LLM Pipeline', 'WordPress REST API', 'Brave Search API'],
     'meta_services' => 'AI System Architecture, Full-Stack SaaS Engineering',
     'meta_stack'    => 'WordPress · Python · Claude / OpenAI / Gemini APIs',
-    'meta_link_url' => 'https://wppublishion.com/',
-    'meta_link_text'=> 'wppublishion.com ↗',
+    'meta_link_url' => 'https://devplayground.local/dev-playground/wp-publishion-ai/',
+    'meta_link_text'=> 'devplayground.local ↗',
     'hero_img'      => 'case_study_wp_publishion.webp',
     'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
     'overview_p1'   => 'Publishers and agencies struggle with generic AI content that hallucinates facts, lacks structured schema markup, and requires extensive manual copy-pasting into CMS workflows.',
@@ -210,8 +210,8 @@ $portfolio_data_matrix = [
     'gallery'       => [
       ['img' => 'publishion_gallery_01.webp', 'tag' => 'Production Telemetry', 'title' => 'Real-Time Multi-LLM API Spend & Article Dashboard'],
       ['img' => 'publishion_gallery_02.webp', 'tag' => 'Editorial Engine', 'title' => 'Article Wizard Modal & Per-Run Cost Calculation'],
-      ['img' => 'publishion_gallery_03.webp', 'tag' => 'Engineering Workflow', 'title' => 'Self-Hosted API Orchestration & Schema Staging'],
-      ['img' => 'publishion_gallery_04.webp', 'tag' => 'Infrastructure', 'title' => 'Autonomous Multi-Model Publishing Pipeline'],
+      ['img' => 'publishion_gallery_03.webp', 'tag' => 'Block Canvas', 'title' => 'Native WordPress Gutenberg Core Block Staging'],
+      ['img' => 'publishion_gallery_04.webp', 'tag' => 'SaaS Economics', 'title' => 'Self-Hosted Zero-Markup API Sovereignty Engine'],
       ['img' => 'publishion_gallery_05.webp', 'tag' => 'Cost Transparency', 'title' => 'Real-Time Token Economics & Pillar Telemetry'],
       ['img' => 'publishion_gallery_06.webp', 'tag' => 'System Deployment', 'title' => 'Master Autonomous WordPress AI Publishing Slab']
     ],
@@ -220,7 +220,7 @@ $portfolio_data_matrix = [
       ['val' => '5.4x', 'lbl' => 'Publishing Velocity', 'desc' => 'Reduction in editorial drafting hours from outline to WordPress block staging.'],
       ['val' => '99.2%', 'lbl' => 'API Reliability', 'desc' => 'Self-hosted API orchestration with automatic model fallback redundancy.']
     ],
-    'live_url'      => 'https://wppublishion.com/'
+    'live_url'      => 'https://devplayground.local/dev-playground/wp-publishion-ai/'
   ],
 
   'blvck-hair-ng' => [
