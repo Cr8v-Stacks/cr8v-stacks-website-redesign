@@ -211,8 +211,8 @@ defined('ABSPATH') || exit;
         <p class="c8isv-portfolio-desc" data-customizer="brind_port_desc"><?php echo wp_kses_post(cr8v_mod('brind_port_desc', 'Vanguard needed a premium brand identity that matched their high-end architectural projects. We designed a vector logomark, custom typography guidelines, and a digital style guide.')); ?></p>
         <div class="c8isv-portfolio-stats">
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="brind_port_stat1_val"><?php echo esc_html(cr8v_mod('brind_port_stat1_val', '100%')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="brind_port_stat1_lbl"><?php echo esc_html(cr8v_mod('brind_port_stat1_lbl', 'Vector Asset Consistency')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="brind_port_stat1_val"><?php echo esc_html(cr8v_mod('brind_port_stat1_val', '0.5px')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="brind_port_stat1_lbl"><?php echo esc_html(cr8v_mod('brind_port_stat1_lbl', 'Vector Precision Grid')); ?></span>
           </div>
           <div>
             <span class="c8isv-portfolio-stat-val" data-customizer="brind_port_stat2_val"><?php echo esc_html(cr8v_mod('brind_port_stat2_val', '45 Page')); ?></span>

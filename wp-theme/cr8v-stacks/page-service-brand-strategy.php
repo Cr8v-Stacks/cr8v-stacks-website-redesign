@@ -215,7 +215,7 @@ defined('ABSPATH') || exit;
             <span class="c8isv-portfolio-stat-lbl" data-customizer="brstr_port_stat1_lbl"><?php echo esc_html(cr8v_mod('brstr_port_stat1_lbl', 'Increase in Deal Size Intake')); ?></span>
           </div>
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="brstr_port_stat2_val"><?php echo esc_html(cr8v_mod('brstr_port_stat2_val', '100%')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="brstr_port_stat2_val"><?php echo esc_html(cr8v_mod('brstr_port_stat2_val', '98%')); ?></span>
             <span class="c8isv-portfolio-stat-lbl" data-customizer="brstr_port_stat2_lbl"><?php echo esc_html(cr8v_mod('brstr_port_stat2_lbl', 'Sales Team Messaging Alignment')); ?></span>
           </div>
         </div>

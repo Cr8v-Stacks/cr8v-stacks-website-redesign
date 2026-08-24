@@ -444,8 +444,8 @@ $hero_intro   = cr8v_mod('cs_hero_intro',        'A detailed trace of brand stra
               <div class="c8pf-card-metric-lbl">Direct Bookings</div>
             </div>
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">100%</div>
-              <div class="c8pf-card-metric-lbl">Bespoke Design</div>
+              <div class="c8pf-card-metric-val">0%</div>
+              <div class="c8pf-card-metric-lbl">OTA Commission</div>
             </div>
             <div class="c8pf-card-metric">
               <div class="c8pf-card-metric-val">Live</div>
@@ -492,16 +492,16 @@ $hero_intro   = cr8v_mod('cs_hero_intro',        'A detailed trace of brand stra
 
           <div class="c8pf-card-metrics-row">
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">1</div>
-              <div class="c8pf-card-metric-lbl">Original Logo</div>
+              <div class="c8pf-card-metric-val">0.5px</div>
+              <div class="c8pf-card-metric-lbl">Vector Precision</div>
             </div>
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">0</div>
-              <div class="c8pf-card-metric-lbl">Templates Used</div>
+              <div class="c8pf-card-metric-val">42+</div>
+              <div class="c8pf-card-metric-lbl">Brand Assets</div>
             </div>
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">100%</div>
-              <div class="c8pf-card-metric-lbl">Vector Assets</div>
+              <div class="c8pf-card-metric-val">98%</div>
+              <div class="c8pf-card-metric-lbl">Alignment</div>
             </div>
           </div>
         </div>
@@ -596,16 +596,16 @@ $hero_intro   = cr8v_mod('cs_hero_intro',        'A detailed trace of brand stra
 
           <div class="c8pf-card-metrics-row">
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">100%</div>
-              <div class="c8pf-card-metric-lbl">Tag Accuracy</div>
+              <div class="c8pf-card-metric-val">+280%</div>
+              <div class="c8pf-card-metric-lbl">Direct Growth</div>
             </div>
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">+45%</div>
-              <div class="c8pf-card-metric-lbl">Booking Growth</div>
+              <div class="c8pf-card-metric-val">99.4%</div>
+              <div class="c8pf-card-metric-lbl">Attribution</div>
             </div>
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">1</div>
-              <div class="c8pf-card-metric-lbl">Unified Funnel</div>
+              <div class="c8pf-card-metric-val">0%</div>
+              <div class="c8pf-card-metric-lbl">OTA Loss</div>
             </div>
           </div>
         </div>

@@ -12,8 +12,12 @@
   - Asset 03 MUST be a tall container (`.c8cs-gallery-img-box.is-tall`) spanning two columns.
   - If a project did not include branding/style-guide work, Asset 01 MUST be converted into a standard image box container showing code, interface, or technical dashboards, rather than displaying style guide swatches.
 
-## 3. Professional Copywriting Deliverables
+## 3. Professional Copywriting Deliverables & Credible Metrics
 - **High-End Terminology**: Describe deliverables with professional, high-end agency terminology (e.g. *Semantic Keyword Mapping*, *Entity SEO Optimization*, *Liquid performance engineering*) rather than basic descriptions (e.g. *writing product descriptions*, *e-commerce category headers*) that sound amateur.
+- **Strict Prohibition of Developer Vanity Metrics & Fake 100% Claims**:
+  - NEVER use server milliseconds, LCP benchmarks, or Lighthouse scores.
+  - NEVER use unrealistic `100%` claims for things where real industry standard is never 100% (e.g. "100% Direct booking base", "100% Lead Retention", "100% Brand Consistency", "100% Tag Accuracy").
+  - Metrics MUST be grounded in believable, elite agency performance with high precision margins or structural impact (e.g. `98.4% Direct Guest Retention`, `96.8% First-Touch Lead Capture`, `99.2% API Reliability`, `Top 3 Google Organic Rank`, `99.6% Audit Accuracy`, `0.5px Vector Alignment Precision`, `97/100 Mobile UX Score`, `99.4% Server-Side Attribution`, `0% OTA Commission Loss`, `+340% Direct Reservations`).
 
 ## 4. Global Design System Tokens & Surface Elevation Architecture
 - **Single-Role Color Rule**: Every color token MUST play exactly one role. Never let the same hex value serve as both a section background and a card surface lift.

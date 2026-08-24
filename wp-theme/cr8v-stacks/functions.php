@@ -370,6 +370,14 @@ add_filter('template_include', function ($template) {
         if ($t) return $t;
     }
 
+    // Safety canonical URL filter for virtual portfolio routes to prevent core link-template.php null warnings
+    add_filter('wp_get_canonical_url', function ($canonical_url, $post) {
+        if (empty($post) && !empty($_SERVER['REQUEST_URI'])) {
+            return home_url($_SERVER['REQUEST_URI']);
+        }
+        return $canonical_url;
+    }, 10, 2);
+
     if (is_page() || $post_id) {
         // About Us
         if (in_array($slug, ['about', 'about-us', 'studio'], true) || in_array($uri_slug, ['about', 'about-us', 'studio'], true)) {

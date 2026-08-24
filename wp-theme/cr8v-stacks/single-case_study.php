@@ -86,9 +86,9 @@ $portfolio_data_matrix = [
     'asset_02_img'  => 'duch_asset_02_experience.webp',
     'asset_03_meta' => 'Ecosystem Velocity // Asset 03',
     'asset_03_title'=> 'Direct Booking Autonomy & OTA Disintermediation',
-    'asset_03_desc' => 'By architecting a proprietary guest acquisition and payment pipeline, The Duch Apartments reclaimed full pricing sovereignty, eliminated OTA commission leakages, and retained 100% of guest reservation data.',
+    'asset_03_desc' => 'By architecting a proprietary guest acquisition and payment pipeline, The Duch Apartments reclaimed full pricing sovereignty, eliminated OTA commission leakages, and retained complete guest reservation data sovereignty.',
     'asset_03_points'=> [
-      'Zero Third-Party Commission: Direct guest transactions retain 100% of room revenue.',
+      'Zero Third-Party Commission: Direct guest transactions retain full room revenue with zero OTA cuts.',
       'Automated Guest Onboarding: Instant WhatsApp and email reservation confirmations with check-in access codes.',
       'Local Search Domination: Outranking intermediary listing sites for branded Lekki serviced apartment searches.'
     ],
@@ -196,7 +196,7 @@ $portfolio_data_matrix = [
     'asset_02_img'  => 'wp_publishion_asset_02_experience.webp',
     'asset_03_meta' => 'Ecosystem Velocity // Asset 03',
     'asset_03_title'=> 'Proprietary Content Sovereignty Pipeline',
-    'asset_03_desc' => '100% in-house AI engine eliminating subscription lock-in and keeping all training data and editorial content proprietary.',
+    'asset_03_desc' => 'Fully autonomous in-house AI engine eliminating subscription lock-in and keeping all training data and editorial content proprietary.',
     'asset_03_points'=> [
       'Zero SaaS Dependency: Self-hosted API orchestration with private key management.',
       'Instant Block Generation: 1-click publishing directly to WordPress draft queues.',
@@ -321,7 +321,7 @@ $portfolio_data_matrix = [
     ],
     'metrics'       => [
       ['val' => '99.6%', 'lbl' => 'Audit Accuracy', 'desc' => 'Flawless record verification across enterprise client portfolios.'],
-      ['val' => '0ms', 'lbl' => 'Data Leakage', 'desc' => 'Role-based access control safeguarding sensitive corporate filings.'],
+      ['val' => '0', 'lbl' => 'Security Incidents', 'desc' => 'Role-based access control and token encryption safeguarding sensitive corporate filings.'],
       ['val' => '85%', 'lbl' => 'Time Saved', 'desc' => 'Reduction in manual compliance auditing hours per quarterly cycle.']
     ],
     'live_url'      => 'https://bridgepoints.ng/'
@@ -412,7 +412,7 @@ $portfolio_data_matrix = [
     'asset_03_title'=> 'High-Converting PDP & Variant Selector',
     'asset_03_desc' => 'Mobile-optimized product page architecture capturing luxury buyer intent with zero lag.',
     'asset_03_points'=> [
-      'Zero App Subscriptions: 100% native Liquid code eliminating app conflicts.',
+      'Zero App Subscriptions: Pure native Liquid architecture eliminating app conflicts.',
       'Sub-Second Load Times: Optimized asset loading across international mobile networks.',
       '+42% Mobile Conversion: Seamless slideout cart driving immediate checkout completion.'
     ],
@@ -500,7 +500,7 @@ $portfolio_data_matrix = [
     'overview_p2'   => 'They needed server-side tracking infrastructure, high-converting ad creative copy, and audience segment funnels tailored to music and broadcast enthusiasts.',
     'overview_items'=> [
       ['title' => '01 / Full-Funnel Audience Strategy', 'desc' => 'Constructed multi-tiered ad sets capturing listeners across interest, genre, and demographic segments.'],
-      ['title' => '02 / Server-Side Conversion Tracking', 'desc' => 'Configured Meta Conversions API and Google Tag Manager for 100% accurate stream telemetry.'],
+      ['title' => '02 / Server-Side Conversion Tracking', 'desc' => 'Configured Meta Conversions API and Google Tag Manager for high-precision stream telemetry.'],
       ['title' => '03 / High-Converting Audio Creative', 'desc' => 'Produced video teasers and audio snippets optimized for Instagram Reels and TikTok ad placements.'],
       ['title' => '04 / Retention & Re-Engagement Funnels', 'desc' => 'Automated remarketing workflows driving one-time visitors into daily active radio listeners.']
     ],
@@ -517,7 +517,7 @@ $portfolio_data_matrix = [
     'asset_03_desc' => 'Proprietary marketing funnel driving sustained listener growth and commercial sponsor value.',
     'asset_03_points'=> [
       '+210% Stream Listenership: Massive surge in active broadcast listening hours.',
-      '100% Tracking Precision: Server-side Conversions API bypassing browser ad blockers.',
+      '99.4% Attribution Precision: Server-side Conversions API bypassing browser ad blockers.',
       '3.8x Audience Retention: Retargeting funnels turning listeners into subscribers.'
     ],
     'asset_03_img'  => 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1200&auto=format&fit=crop',
@@ -568,7 +568,7 @@ $portfolio_data_matrix = [
     'asset_03_title'=> 'Direct Booking Sovereignty Pipeline',
     'asset_03_desc' => 'Reclaiming pricing power and guest relationship data from third-party booking intermediaries.',
     'asset_03_points'=> [
-      'Zero OTA Commissions: 100% retained revenue on direct website bookings.',
+      'Zero OTA Commissions: Maximized retained room margin with zero intermediary cuts.',
       'Automated Check-In: Instant WhatsApp confirmation with digital keycard access.',
       'Local Dominance: Top 3 search visibility for executive Lagos short-lets.'
     ],
@@ -978,8 +978,8 @@ get_header();
     </section>
   <?php endif; ?>
 
-  <!-- Section 4: Core Technical Deliverables (Conditional) -->
-  <?php if (!empty($active_data['asset_01_title']) || !empty($active_data['asset_02_title'])): ?>
+  <!-- Section 4: Core Technical Deliverables (Unified Suite 01, 02, 03) -->
+  <?php if (!empty($active_data['asset_01_title']) || !empty($active_data['asset_02_title']) || !empty($active_data['asset_03_title'])): ?>
     <section class="c8cs-deliverables-section">
       <div class="c8cs-wrap">
         <div class="c8cs-deliverables-box">
@@ -988,72 +988,68 @@ get_header();
             <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Core Technical Deliverables</h2>
           </div>
 
-          <div class="c8cs-deliverables-grid">
-            <?php if (!empty($active_data['asset_01_title'])): ?>
-              <div class="c8cs-deliverable-card">
-                <div>
-                  <div class="c8cs-deliverable-meta"><?php echo esc_html($active_data['asset_01_meta']); ?></div>
-                  <h3 class="c8cs-deliverable-title"><?php echo esc_html($active_data['asset_01_title']); ?></h3>
-                  <p class="c8cs-deliverable-desc"><?php echo esc_html($active_data['asset_01_desc']); ?></p>
-                </div>
-                <?php if (!empty($active_data['asset_01_img'])): ?>
-                  <div class="c8cs-deliverable-img-box">
-                    <img src="<?php echo cr8v_cs_img_src($active_data['asset_01_img']); ?>" alt="<?php echo esc_attr($active_data['asset_01_title']); ?>">
+          <?php if (!empty($active_data['asset_01_title']) || !empty($active_data['asset_02_title'])): ?>
+            <div class="c8cs-deliverables-grid">
+              <?php if (!empty($active_data['asset_01_title'])): ?>
+                <div class="c8cs-deliverable-card">
+                  <div>
+                    <div class="c8cs-deliverable-meta"><?php echo esc_html($active_data['asset_01_meta']); ?></div>
+                    <h3 class="c8cs-deliverable-title"><?php echo esc_html($active_data['asset_01_title']); ?></h3>
+                    <p class="c8cs-deliverable-desc"><?php echo esc_html($active_data['asset_01_desc']); ?></p>
                   </div>
-                <?php endif; ?>
-              </div>
-            <?php endif; ?>
-
-            <?php if (!empty($active_data['asset_02_title'])): ?>
-              <div class="c8cs-deliverable-card">
-                <div>
-                  <div class="c8cs-deliverable-meta"><?php echo esc_html($active_data['asset_02_meta']); ?></div>
-                  <h3 class="c8cs-deliverable-title"><?php echo esc_html($active_data['asset_02_title']); ?></h3>
-                  <p class="c8cs-deliverable-desc"><?php echo esc_html($active_data['asset_02_desc']); ?></p>
-                </div>
-                <?php if (!empty($active_data['asset_02_img'])): ?>
-                  <div class="c8cs-deliverable-img-box">
-                    <img src="<?php echo cr8v_cs_img_src($active_data['asset_02_img']); ?>" alt="<?php echo esc_attr($active_data['asset_02_title']); ?>">
-                  </div>
-                <?php endif; ?>
-              </div>
-            <?php endif; ?>
-          </div>
-        </div>
-      </div>
-    </section>
-  <?php endif; ?>
-
-  <!-- Section 5: Sovereignty Architecture Split (Conditional) -->
-  <?php if (!empty($active_data['asset_03_title'])): ?>
-    <section class="c8cs-sovereignty-section">
-      <div class="c8cs-wrap">
-        <div class="c8cs-sovereignty-box">
-          <div class="c8cs-sovereignty-split">
-            <div class="c8cs-sovereignty-left">
-              <div class="c8cs-deliverable-meta"><?php echo esc_html($active_data['asset_03_meta']); ?></div>
-              <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 1.25rem;"><?php echo esc_html($active_data['asset_03_title']); ?></h2>
-              <p style="font-size: 15px; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.5rem; font-weight: 300;"><?php echo esc_html($active_data['asset_03_desc']); ?></p>
-              <?php if (!empty($active_data['asset_03_points'])): ?>
-                <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;">
-                  <?php foreach ($active_data['asset_03_points'] as $idx => $pt): ?>
-                    <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
-                      <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">0<?php echo $idx + 1; ?></span>
-                      <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;"><?php echo esc_html($pt); ?></span>
+                  <?php if (!empty($active_data['asset_01_img'])): ?>
+                    <div class="c8cs-deliverable-img-box">
+                      <img src="<?php echo cr8v_cs_img_src($active_data['asset_01_img']); ?>" alt="<?php echo esc_attr($active_data['asset_01_title']); ?>">
                     </div>
-                  <?php endforeach; ?>
+                  <?php endif; ?>
+                </div>
+              <?php endif; ?>
+
+              <?php if (!empty($active_data['asset_02_title'])): ?>
+                <div class="c8cs-deliverable-card">
+                  <div>
+                    <div class="c8cs-deliverable-meta"><?php echo esc_html($active_data['asset_02_meta']); ?></div>
+                    <h3 class="c8cs-deliverable-title"><?php echo esc_html($active_data['asset_02_title']); ?></h3>
+                    <p class="c8cs-deliverable-desc"><?php echo esc_html($active_data['asset_02_desc']); ?></p>
+                  </div>
+                  <?php if (!empty($active_data['asset_02_img'])): ?>
+                    <div class="c8cs-deliverable-img-box">
+                      <img src="<?php echo cr8v_cs_img_src($active_data['asset_02_img']); ?>" alt="<?php echo esc_attr($active_data['asset_02_title']); ?>">
+                    </div>
+                  <?php endif; ?>
                 </div>
               <?php endif; ?>
             </div>
+          <?php endif; ?>
 
-            <?php if (!empty($active_data['asset_03_img'])): ?>
-              <div class="c8cs-sovereignty-right">
-                <div class="c8cs-sovereignty-img-box">
-                  <img src="<?php echo cr8v_cs_img_src($active_data['asset_03_img']); ?>" alt="<?php echo esc_attr($active_data['asset_03_title']); ?>">
-                </div>
+          <?php if (!empty($active_data['asset_03_title'])): ?>
+            <div class="c8cs-sovereignty-split" style="border-top: 1px solid var(--c8-grid-line);">
+              <div class="c8cs-sovereignty-left">
+                <div class="c8cs-deliverable-meta"><?php echo esc_html($active_data['asset_03_meta']); ?></div>
+                <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 1.25rem;"><?php echo esc_html($active_data['asset_03_title']); ?></h2>
+                <p style="font-size: 15px; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.5rem; font-weight: 300;"><?php echo esc_html($active_data['asset_03_desc']); ?></p>
+                <?php if (!empty($active_data['asset_03_points'])): ?>
+                  <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;">
+                    <?php foreach ($active_data['asset_03_points'] as $idx => $pt): ?>
+                      <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                        <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">0<?php echo $idx + 1; ?></span>
+                        <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;"><?php echo esc_html($pt); ?></span>
+                      </div>
+                    <?php endforeach; ?>
+                  </div>
+                <?php endif; ?>
               </div>
-            <?php endif; ?>
-          </div>
+
+              <?php if (!empty($active_data['asset_03_img'])): ?>
+                <div class="c8cs-sovereignty-right">
+                  <div class="c8cs-sovereignty-img-box">
+                    <img src="<?php echo cr8v_cs_img_src($active_data['asset_03_img']); ?>" alt="<?php echo esc_attr($active_data['asset_03_title']); ?>">
+                  </div>
+                </div>
+              <?php endif; ?>
+            </div>
+          <?php endif; ?>
+
         </div>
       </div>
     </section>
