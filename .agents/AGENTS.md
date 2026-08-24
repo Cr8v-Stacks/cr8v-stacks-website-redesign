@@ -53,5 +53,31 @@
   - NEVER use developer speed jargon like `Sub-Second`, query milliseconds, or TTFB benchmarks in customer-facing titles or headings. Use high-agency terms like `Real-Time AJAX Facet Filter Matrix`, `Instantaneous Response Architecture`, or `Optimized Dynamic Query Loop`.
 - **Pure Project-Driven Staging (Anti-Desk Mandate)**:
   - Office desks, tables, and furniture are NEVER compulsory. Staging is 100% determined by the project's software interface, system architecture, and domain.
-  - Software and AI products MUST be staged as clean floating dark-mode UI panels on dark obsidian (`#080808`), extreme macro UI harvests, flat Swiss graphic editorial posters, or native CMS block canvases — never default to generic office desks.
 
+## 7. Audit Document Preservation & Cumulative Integrity (LOCKED RULE)
+- **Zero Wholesale Deletions**: When conducting active design audits or updating audit markdown files (`.md`), NEVER overwrite or delete previously extracted audit sections unless a specific finding has been proven factually obsolete or incorrect.
+- **Cumulative Record**: Audits must be built cumulatively, preserving every section's baseline findings while appending deeper microscopic analysis.
+
+## 8. Strict Typographical & Component Anatomy Cross-Auditing (LOCKED RULE)
+- **Contextual Anatomy Cross-Checking**: Never report raw HTML tags in isolation. Always cross-check every section against the established page benchmark across:
+  1. **Headings Hierarchy**: Compare Section H2s to Hero H1s, and Card/Item H3s to Section H2s. Identify any anomalies where items in the same section switch tags or font sizes (e.g. Asset 01/02 using H3 `1.15rem` while Asset 03 uses H2 `2.2rem` within the exact same deliverables group).
+  2. **Body & Paragraph Consistency**: Compare each section's lead paragraphs, body copy, card descriptions, and quotes against the standard (`DM Sans`, size, line-height, weight, color).
+  3. **Button Hierarchy Classification**:
+     - *Primary Buttons*: Solid fill, font, padding, radius, hover shimmer.
+     - *Secondary Buttons*: Outline/Ghost with border, background, hover.
+     - *Tertiary / Text Links*: Text-based buttons with or without solid bottom border underlines, arrow icons, font family.
+     - Flag all discrepancies where buttons switch fonts (e.g. `Michroma` or `DM Sans` instead of `Space Mono`), change border-radius (e.g. `2px` or `6px` instead of `4px`), or lack expected underline/arrow styles.
+
+## 9. Campaign & Deliverable Truth (Anti-One-Trick-Pony Law)
+- **The Mandatory Pre-Prompt Question**: Before writing a single visual prompt, always ask: *What did the agency actually deliver for this client?*
+- For brand strategy, content strategy, SEO, or physical production clients (e.g. hair production, fashion, advisory), NEVER default to software UI screens, dashboards, or dark obsidian developer terminals.
+- **Target Audience Alignment**: Visual language must match the target audience (e.g. female beauty audience looking for relatable hair styling, photoshoot energy, unboxing, educational articles, and genuine human connection).
+- **Absolute Ban on the "Marble / Stone Slab" Crutch**: Banning the word "slab" does NOT mean replacing it with "Nero Marquina marble plinth" or "elevated panel on dark marble". Do NOT default to floating UI boards resting on marble surfaces.
+- **Mandatory Environmental Dynamism**: Prompts must explore authentic domain environments: photoshoot studios with lighting rigs and backdrop rolls, bright modern beauty salon vanities, editorial print/digital layouts, packaging unboxing scenes with satin pouches and embossed boxes, graphic SEO search console posters, and conversion funnel graphics.
+
+## 10. The 5-Phase Mandatory Pre-Prompt Planning Protocol
+1. **Phase 1 (Campaign Truth)**: Define exactly what the agency delivered (SEO, Content Strategy, Sales Funnel, Brand Identity, etc.).
+2. **Phase 2 (Audience Persona)**: Identify the end consumer (e.g. female hair shoppers) and what visual touchpoints resonate with them.
+3. **Phase 3 (Pillar Outlining)**: Map out 11 distinct, non-repetitive visual concepts covering every angle of the campaign (e.g. Articles, Funnels, Search Console, Photoshoot Studio, Packaging, UGC).
+4. **Phase 4 (Environmental Variety Check)**: Verify that no two prompts share the same background, lighting, or staging composition.
+5. **Phase 5 (Verbatim Harmony)**: Ensure eyebrow, title, description, and visual image match 100% verbatim.
