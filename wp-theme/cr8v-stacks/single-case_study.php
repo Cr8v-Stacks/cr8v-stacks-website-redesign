@@ -125,39 +125,39 @@ $portfolio_data_matrix = [
     'hero_img'      => 'case_study_mkenny_properties.webp',
     'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
     'overview_p1'   => 'Mkenny Properties required a scalable digital development portfolio to showcase active residential schemes (such as 6 Short Avenue, Manchester and Cromwell Road, Stretford) to UK property investors and home buyers without generic real estate plugin bloat.',
-    'overview_p2'   => 'We engineered a bespoke WordPress development catalog: modular Elementor listing widgets, sub-second AJAX taxonomy facet filtering across Manchester locations, property status flags (Completed, Ongoing, Investment Highlight), and automated direct broker dispatch.',
+    'overview_p2'   => 'We engineered a bespoke WordPress development catalog: modular Elementor listing widgets, real-time AJAX taxonomy facet filtering across Manchester locations, property status flags (Completed, Ongoing, Investment Highlight), and automated direct broker dispatch.',
     'overview_items'=> [
       ['title' => '01 / Custom Elementor Widget Suite', 'desc' => 'Constructed drag-and-drop property cards and dynamic query loop builders tailored for the client editorial team.'],
-      ['title' => '02 / High-Velocity AJAX Query Engine', 'desc' => 'Engineered lightweight custom SQL query routines delivering instantaneous multi-facet filtering across price, status, and UK locations.'],
+      ['title' => '02 / Instant AJAX Facet Filter Matrix', 'desc' => 'Engineered custom query routines delivering instantaneous multi-facet filtering across price, status, and UK locations without page reloads.'],
       ['title' => '03 / Dynamic Manchester Map & Schema', 'desc' => 'Integrated interactive location maps and structured RealEstateListing JSON-LD schema for dominant Manchester property search visibility.'],
       ['title' => '04 / Direct Instant Messaging & Lead Routing', 'desc' => 'Engineered instant property metadata passing into direct broker messaging channels, accelerating UK investor deal conversion.']
     ],
     'asset_01_meta' => 'Design System // Asset 01',
-    'asset_01_title'=> 'Custom Elementor Widget Suite & Token Spec',
-    'asset_01_desc' => 'Constructed reusable UI components, property badge states (Completed, Investment Highlight, POA), typography tokens (Plus Jakarta Sans, Space Mono), and 4px card templates.',
+    'asset_01_title'=> 'Design System Tokens & Brand Specification',
+    'asset_01_desc' => 'Constructed atomic color tokens (Navy, Royal Blue, Emerald), Plus Jakarta Sans typography scales, property badge states (Completed, Investment Highlight, POA), and precision UI component standards.',
     'asset_01_img'  => 'mkenny_asset_01_design_system.webp',
     'asset_02_meta' => 'Query Engine // Asset 02',
     'asset_02_title'=> 'AJAX Property Filter Matrix',
-    'asset_02_desc' => 'Engineered sub-second facet filtering for Manchester locations (Stretford, Manchester City Centre), property types (Terraced, Detached), and budget sliders with zero page reloads.',
+    'asset_02_desc' => 'Engineered real-time facet filtering for Manchester locations (Stretford, Manchester City Centre), property types (Terraced, Detached), and budget sliders with zero page reloads.',
     'asset_02_img'  => 'mkenny_asset_02_experience.webp',
     'asset_03_meta' => 'Ecosystem Velocity // Asset 03',
     'asset_03_title'=> 'Custom Post Architecture & Direct Lead Sovereignty',
     'asset_03_desc' => 'Rather than relying on third-party property portal aggregators that charge exorbitant listing fees and divert UK buyer leads to competing developments, we architected an independent WordPress property catalog pipeline that keeps all buyer data and direct inquiries proprietary to Mkenny.',
     'asset_03_points'=> [
       'Custom Post Type & ACF Schema: Clean property data architecture supporting floor plans, tenure, and development stages.',
-      'Cached WP_Query Optimization: Instantaneous database response times across high-density image catalogs.',
+      'Optimized Catalog Architecture: Instantaneous response times across high-density development catalogs.',
       'Automated Broker Routing: Dynamic pre-filled instant messaging dispatch connecting prospective buyers directly to the assigned development manager.'
     ],
     'asset_03_img'  => 'mkenny_asset_03_ecosystem.webp',
     'gallery_label' => 'Development Showcase',
     'gallery_header'=> 'Interactive Property Archive & Direct Broker Pipelines',
     'gallery'       => [
-      ['img' => 'mkenny_gallery_01.webp', 'tag' => 'Catalog Architecture', 'title' => 'Sub-Second Dynamic Multi-Scheme Archive Grid'],
+      ['img' => 'mkenny_gallery_01.webp', 'tag' => 'Catalog Architecture', 'title' => 'Dynamic Multi-Scheme Property Archive & Faceted Catalog'],
       ['img' => 'mkenny_gallery_02.webp', 'tag' => 'Listing UX', 'title' => 'Single Development Deep-Dive & Investment Specs'],
       ['img' => 'mkenny_gallery_03.webp', 'tag' => 'Mobile Acquisition', 'title' => 'On-Site Direct Messaging & Instant Buyer Dispatch'],
       ['img' => 'mkenny_gallery_04.webp', 'tag' => 'Editorial Tooling', 'title' => 'Custom Elementor Dynamic Loop Widget Controls'],
       ['img' => 'mkenny_gallery_05.webp', 'tag' => 'Geo Intelligence', 'title' => 'Interactive Manchester Neighborhood Amenity Map'],
-      ['img' => 'mkenny_gallery_06.webp', 'tag' => 'System Deployment', 'title' => 'Master UK Development Staging & Acquisition Slab']
+      ['img' => 'mkenny_gallery_06.webp', 'tag' => 'System Deployment', 'title' => 'Master Real Estate Catalog & Direct Acquisition Engine']
     ],
     'metrics'       => [
       ['val' => '+180%', 'lbl' => 'Qualified Buyer Leads', 'desc' => 'Proprietary lead capture architecture routing UK investor inquiries directly to internal sales brokers.'],
