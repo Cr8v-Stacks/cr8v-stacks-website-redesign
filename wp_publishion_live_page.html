@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WP Publishion AI &#8211; devplayground</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://devplayground.local/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdevplayground.local%2Fdev-playground%2Fwp-publishion-ai%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://devplayground.local/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdevplayground.local%2Fdev-playground%2Fwp-publishion-ai%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<link rel='stylesheet' id='wc-blocks-style-css' href='https://devplayground.local/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks.css' media='all' />
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-family--inter: "Inter", sans-serif;--wp--preset--font-family--cardo: Cardo;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-inter-font-family{font-family: var(--wp--preset--font-family--inter) !important;}.has-cardo-font-family{font-family: var(--wp--preset--font-family--cardo) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='cr8vt-styles-css' href='https://devplayground.local/wp-content/plugins/cr8v-templates/assets/css/templates.css' media='all' />
+<link rel='stylesheet' id='cr8vt-fonts-css' href='https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&#038;family=JetBrains+Mono:wght@400;500;600&#038;display=swap' media='all' />
+<link rel='stylesheet' id='lumicode-hljs-theme-css' href='https://devplayground.local/wp-content/plugins/lumicode-syntax-highlighter/assets/vendor/css/themes/atom-one-dark.min.css' media='all' />
+<link rel='stylesheet' id='lumicode-blocks-css' href='https://devplayground.local/wp-content/plugins/lumicode-syntax-highlighter/assets/css/lc-blocks.css' media='all' />
+<link rel='stylesheet' id='woocommerce-layout-css' href='https://devplayground.local/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css' media='all' />
+<link rel='stylesheet' id='woocommerce-smallscreen-css' href='https://devplayground.local/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css' media='only screen and (max-width: 768px)' />
+<link rel='stylesheet' id='woocommerce-general-css' href='https://devplayground.local/wp-content/plugins/woocommerce/assets/css/woocommerce.css' media='all' />
+<style id="woocommerce-inline-inline-css">
+.woocommerce form .form-row .required { visibility: visible; }
+/*# sourceURL=woocommerce-inline-inline-css */
+</style>
+<link rel='stylesheet' id='csl-phosphor-icons-css' href='https://devplayground.local/wp-content/plugins/cr8vstacks-labs/assets/vendor/phosphor/phosphor.css' media='all' />
+<link rel='stylesheet' id='wppa-fonts-css' href='https://fonts.googleapis.com/css2?family=JetBrains+Mono%3Awght%40300%3B400&#038;display=swap' media='all' />
+<link rel='stylesheet' id='wppa-phosphor-css' href='https://devplayground.local/wp-content/plugins/wp-publishion-ai/assets/phosphor/index.css' media='all' />
+<link rel='stylesheet' id='wppa-front-v2-css' href='https://devplayground.local/wp-content/plugins/wp-publishion-ai/assets/css/front-v2.css' media='all' />
+<link rel='stylesheet' id='wppa-style-css' href='https://devplayground.local/wp-content/plugins/wp-publishion-ai/assets/css/style.css' media='all' />
+<link rel='stylesheet' id='cr8v-fonts-css' href='https://fonts.googleapis.com/css2?family=Bebas+Neue&#038;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&#038;family=Michroma&#038;family=Space+Mono:ital,wght@0,400;0,700;1,400&#038;display=swap' media='all' />
+<link rel='stylesheet' id='cr8v-shared-css' href='https://devplayground.local/wp-content/themes/cr8v-stacks/assets/css/shared-service-components.css' media='all' />
+<link rel='stylesheet' id='cr8v-theme-css' href='https://devplayground.local/wp-content/themes/cr8v-stacks/style.css' media='all' />
+<script id="jquery-core-js" src="https://devplayground.local/wp-includes/js/jquery/jquery.min.js"></script>
+<script id="jquery-migrate-js" src="https://devplayground.local/wp-includes/js/jquery/jquery-migrate.min.js"></script>
+<script data-wp-strategy="defer" defer id="wc-jquery-blockui-js" src="https://devplayground.local/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js"></script>
+<script id="wc-add-to-cart-js-extra">
+var wc_add_to_cart_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"https://devplayground.local/cart/","is_cart":"","cart_redirect_after_add":"no"};
+//# sourceURL=wc-add-to-cart-js-extra
+</script>
+<script data-wp-strategy="defer" defer id="wc-add-to-cart-js" src="https://devplayground.local/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js"></script>
+<script data-wp-strategy="defer" defer id="wc-js-cookie-js" src="https://devplayground.local/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js"></script>
+<script id="woocommerce-js-extra">
+var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/?wc-ajax=%%endpoint%%","i18n_password_show":"Show password","i18n_password_hide":"Hide password"};
+//# sourceURL=woocommerce-js-extra
+</script>
+<script data-wp-strategy="defer" defer id="woocommerce-js" src="https://devplayground.local/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js"></script>
+<link rel="https://api.w.org/" href="https://devplayground.local/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://devplayground.local/wp-json/wp/v2/cr8vt_plugin/2625" /><link rel="canonical" href="https://devplayground.local/dev-playground/wp-publishion-ai/" />
+
+<style id='wppa-v2-ui'>
+.wppa-abstract-v2 {
+  --ab-bg: #0a0d12 !important;
+  --ab-radius: 0px !important;
+  --ab-border-w: 0px !important;
+  --ab-border-c: #1a2030 !important;
+  --ab-accent: #4a90d9 !important;
+  --ab-left-bw: 3px !important;
+  --ab-glow-c: #4a90d9 !important;
+  --ab-glow-op: 0.8 !important;
+  --ab-noise-op: 0.25 !important;
+  --ab-scan-c: #4a90d9 !important;
+  --ab-scan-h: 2px !important;
+  --ab-scan-speed: 3s !important;
+  --ab-scan-op: 0.6 !important;
+  --ab-headline-font: Lora !important;
+  --ab-headline-c: #e8f0ff !important;
+  --ab-headline-sz: 16px !important;
+  --ab-body-font: Lora !important;
+  --ab-body-c: #b0bcd8 !important;
+  --ab-body-sz: 14px !important;
+  --ab-tag-c: #4a6090 !important;
+  --ab-tag-border: #1a2840 !important;
+  --ab-padding: 36px 40px 32px !important;
+  --ab-mid: #4a6090 !important;
+  --hk-mid: #4a6090 !important;
+  --ab-border: #1a2840 !important;
+  --hk-border: #1a2840 !important;
+  --ab-accent-rgb: 74, 144, 217;
+}
+.wppa-hooks-v2 {
+  --hk-bg: #0f0e0c !important;
+  --hk-card: #0f0e0c !important;
+  --hk-card2: #0c0b09 !important;
+  --hk-border: #2a2720 !important;
+  --hk-gap: #1e1c18 !important;
+  --hk-radius: 6px !important;
+  --hk-glow: #e8a832 !important;
+  --hk-scan-h: 2px !important;
+  --hk-scan-speed: 3s !important;
+  --hk-text: #f0ead8 !important;
+  --hk-mid: #5a5650 !important;
+  --hk-dim: #4a4840 !important;
+  --hk-footer-c: #3a3830 !important;
+  --hk-q-font: Lora !important;
+  --hk-q-size: 13px !important;
+  --hk-l-font: JetBrains Mono !important;
+  --hk-glow-rgb: 232, 168, 50;
+}
+
+:root {
+  --wppa-font-base: Lora, serif;
+  --wppa-font-heading: Lora, sans-serif;
+  --wppa-font-size-base: 14px;
+  --wppa-font-size-ab-head: 16px;
+  --wppa-font-size-ab-body: 14px;
+  --wppa-font-size-hook: 13px;
+  --wppa-abstract-bg: #0a0d12;
+  --wppa-abstract-accent: #4a90d9;
+  --wppa-abstract-text: #b0bcd8;
+  --wppa-abstract-text-dim: #4a6090;
+  --wppa-abstract-border: #1a2030;
+  --wppa-abstract-radius: 0px;
+  --wppa-abstract-padding: 36px 40px 32px;
+  --wppa-hooks-bg-dark: #0f0e0c;
+  --wppa-hooks-bg-light: #0f0e0c;
+  --wppa-hooks-accent-dark: #e8a832;
+  --wppa-hooks-accent-light: #e8a832;
+  --wppa-hooks-border-dark: #2a2720;
+  --wppa-hooks-border-light: #2a2720;
+  --wppa-hooks-card-bg: #0f0e0c;
+  --wppa-hooks-text-dark: #f0ead8;
+  --wppa-hooks-text-light: #f0ead8;
+  --wppa-hooks-radius: 6px;
+  --wppa-hooks-padding: 0px;
+}
+.wppa-abstract { background: var(--wppa-abstract-bg); border: 1px solid var(--wppa-abstract-border); border-radius: var(--wppa-abstract-radius); padding: var(--wppa-abstract-padding); }
+</style>
+	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<meta name="generator" content="Elementor 3.32.5; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<style class="wp-fonts-local">
+@font-face{font-family:Inter;font-style:normal;font-weight:300 900;font-display:fallback;src:url('https://devplayground.local/wp-content/plugins/woocommerce/assets/fonts/Inter-VariableFont_slnt,wght.woff2') format('woff2');font-stretch:normal;}
+@font-face{font-family:Cardo;font-style:normal;font-weight:400;font-display:fallback;src:url('https://devplayground.local/wp-content/plugins/woocommerce/assets/fonts/cardo_normal_400.woff2') format('woff2');}
+</style>
+</head>
+<body class="wp-singular cr8vt_plugin-template-default single single-cr8vt_plugin postid-2625 wp-theme-cr8v-stacks theme-cr8v-stacks woocommerce-no-js elementor-default elementor-kit-14">
+<div class="c8hdr-root">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+.c8hdr-root,.c8hdr-root *{box-sizing:border-box!important;}
+.c8hdr-root a{text-decoration:none!important;color:inherit!important;}
+.c8hdr-root ul{list-style:none!important;margin:0!important;padding:0!important;}
+.c8hdr-root button{font-family:'DM Sans',sans-serif!important;}/* ── Header Shell (Starts Full-Width, Compresses & Floats on Scroll with 4px border radius) ── */
+.c8hdr-root .c8-nav-header{
+  position:fixed!important;
+  top:0!important;
+  left:0!important;
+  right:0!important;
+  margin:0 auto!important;
+  width:100%!important;
+  max-width:100%!important;
+  height:68px!important;
+  padding:0 3.5rem!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:1.5rem!important;
+  background:#FFFFFF!important;
+  border-bottom:1px solid rgba(8,8,8,0.06)!important;
+  box-shadow:0 2px 20px rgba(0,0,0,0.03)!important;
+  border-radius:0px!important;
+  z-index:9500!important;
+  transition:top 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-radius 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s ease,
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border 0.3s ease,
+              backdrop-filter 0.3s ease!important;
+}
+.c8hdr-root .c8-nav-header.c8-scrolled{
+  top:14px!important;
+  width:min(1240px, calc(100% - 2.5rem))!important;
+  height:54px!important;
+  padding:0 1.5rem!important;
+  background:rgba(255,255,255,0.92)!important;
+  backdrop-filter:blur(16px) saturate(180%)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(180%)!important;
+  border:1px solid rgba(8,8,8,0.09)!important;
+  border-radius:4px!important;
+  box-shadow:0 16px 36px rgba(0,0,0,0.09), 0 2px 6px rgba(0,0,0,0.03)!important;
+}
+
+/* WordPress Admin Bar offsets */
+body.admin-bar .c8hdr-root .c8-nav-header{top:32px!important;}
+body.admin-bar .c8hdr-root .c8-nav-header.c8-scrolled{top:46px!important;}
+body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overlay{top:32px!important;}
+@media(max-width:782px){
+  body.admin-bar .c8hdr-root .c8-nav-header{top:46px!important;}
+  body.admin-bar .c8hdr-root .c8-nav-header.c8-scrolled{top:56px!important;}
+  body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overlay{top:46px!important;}
+}
+
+@media(max-width:1100px){
+  .c8hdr-root .c8-nav-header{padding:0 1.25rem!important;}
+  .c8hdr-root .c8-nav-header.c8-scrolled{padding:0 1rem!important;}
+}
+
+/* ── Logo ── */
+.c8hdr-root .c8-logo{display:flex!important;align-items:center!important;gap:10px!important;flex-shrink:0!important;text-decoration:none!important;}
+.c8hdr-root .c8-logo-img{
+  display:block!important;
+  height:44px!important;
+  width:auto!important;
+  max-width:none!important;
+  transition:height 0.35s cubic-bezier(0.16, 1, 0.3, 1)!important;
+}
+.c8hdr-root .c8-nav-header.c8-scrolled .c8-logo-img{height:34px!important;}
+.c8hdr-root .c8-md-hero-logo-img{height:36px!important;width:auto!important;display:block!important;object-fit:contain!important;}
+
+/* ── Primary Nav ── */
+.c8hdr-root .c8-pnav{
+  display:flex!important;
+  align-items:center!important;
+  gap:2px!important;
+  background:#F2F2F0!important;
+  padding:4px!important;
+  height:46px!important;
+  border-radius:4px!important;
+  transition:height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.35s cubic-bezier(0.16, 1, 0.3, 1)!important;
+}
+.c8hdr-root .c8-nav-header.c8-scrolled .c8-pnav{
+  height:40px!important;
+  padding:3px!important;
+}
+.c8hdr-root .c8-pnav-item{position:static!important;}
+.c8hdr-root .c8-pnav-link{
+  display:flex!important;
+  align-items:center!important;
+  gap:4px!important;
+  font-size:13px!important;
+  font-weight:500!important;
+  color:#080808!important;
+  padding:0 1rem!important;
+  height:38px!important;
+  letter-spacing:.01em!important;
+  cursor:pointer!important;
+  position:relative!important;
+  border-radius:4px!important;
+  transition:background .2s ease,color .2s ease,box-shadow .2s ease,height 0.35s cubic-bezier(0.16, 1, 0.3, 1),font-size 0.35s ease,padding 0.35s ease!important;
+  white-space:nowrap!important;
+  user-select:none!important;
+  font-family:'DM Sans',sans-serif!important;
+}
+.c8hdr-root .c8-nav-header.c8-scrolled .c8-pnav-link{
+  height:34px!important;
+  font-size:12.5px!important;
+  padding:0 0.85rem!important;
+}
+.c8hdr-root .c8-pnav-link:hover,.c8hdr-root .c8-pnav-link.c8-open{background:#FFFFFF!important;color:#0047E1!important;box-shadow:0 2px 10px rgba(8,8,8,0.07)!important;}
+.c8hdr-root .c8-chev{width:11px!important;height:11px!important;opacity:.5!important;transition:transform .22s ease,opacity .2s!important;flex-shrink:0!important;stroke:currentColor!important;}
+.c8hdr-root .c8-pnav-link.c8-open .c8-chev{transform:rotate(180deg)!important;opacity:1!important;}
+@media(max-width:1100px){.c8hdr-root .c8-pnav{display:none!important;}}
+
+/* ── CTA Button ── */
+.c8hdr-root .c8hdr-right{display:flex!important;align-items:center!important;gap:.9rem!important;flex-shrink:0!important;}
+.c8hdr-root .c8-btn-cta{
+  position:relative!important;
+  overflow:hidden!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+  font-family:'Michroma',sans-serif!important;
+  font-size:10.5px!important;
+  font-weight:700!important;
+  color:#FAFAF7!important;
+  background:#0047E1!important;
+  padding:0 1.4rem!important;
+  height:40px!important;
+  border-radius:4px!important;
+  letter-spacing:.04em!important;
+  text-transform:uppercase!important;
+  white-space:nowrap!important;
+  transition:background 0.25s ease,transform 0.2s ease,height 0.35s cubic-bezier(0.16, 1, 0.3, 1),padding 0.35s cubic-bezier(0.16, 1, 0.3, 1),font-size 0.35s ease!important;
+  box-shadow:none!important;
+}
+.c8hdr-root .c8-nav-header.c8-scrolled .c8-btn-cta{
+  height:36px!important;
+  padding:0 1.15rem!important;
+  font-size:9.5px!important;
+}
+.c8hdr-root .c8-btn-cta::before{content:''!important;position:absolute!important;top:0!important;left:-100%!important;width:60%!important;height:100%!important;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent)!important;transform:skewX(-20deg)!important;transition:left 0.65s ease!important;}
+.c8hdr-root .c8-btn-cta:hover{background:#0038C0!important;transform:translateY(-1px)!important;box-shadow:none!important;}
+.c8hdr-root .c8-btn-cta:hover::before{left:180%!important;}
+@media(max-width:1100px){.c8hdr-root .c8-btn-cta{display:none!important;}}
+
+/* ── Hamburger ── */
+.c8hdr-root .c8-hbg{display:none!important;flex-direction:column!important;gap:5px!important;padding:10px!important;cursor:pointer!important;background:none!important;border:none!important;margin-left:.25rem!important;}
+.c8hdr-root .c8-hbg span{display:block!important;width:22px!important;height:1.5px!important;background:#080808!important;transition:all .25s!important;}
+.c8hdr-root .c8-hbg.c8-open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)!important;}
+.c8hdr-root .c8-hbg.c8-open span:nth-child(2){opacity:0!important;transform:scaleX(0)!important;}
+.c8hdr-root .c8-hbg.c8-open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)!important;}
+@media(max-width:1100px){.c8hdr-root .c8-hbg{display:flex!important;}}
+
+/* ── Mega Menu Backdrop ── */
+.c8hdr-root .c8-mega-back{position:fixed!important;top:0px!important;left:0!important;right:0!important;bottom:0!important;background:rgba(8,8,8,0.25)!important;z-index:9400!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .25s ease,visibility .25s ease!important;}
+.c8hdr-root .c8-mega-back.c8-show{opacity:1!important;visibility:visible!important;pointer-events:auto!important;}
+
+/* ── Mega Menu Shell ── */
+.c8hdr-root .c8-mega{
+  position:fixed!important;
+  top:68px!important;
+  left:0!important;
+  right:0!important;
+  z-index:9450!important;
+  display:flex!important;
+  justify-content:center!important;
+  padding-top:14px!important;
+  background:transparent!important;
+  pointer-events:none!important;
+  visibility:hidden!important;
+  opacity:0!important;
+  transform:translateY(-8px)!important;
+  transition:top 0.35s cubic-bezier(0.16, 1, 0.3, 1),transform .25s cubic-bezier(.4,0,.2,1),opacity .2s ease,visibility .2s ease!important;
+}
+.c8hdr-root .c8-nav-header.c8-scrolled ~ .c8-mega,
+.c8hdr-root:has(.c8-nav-header.c8-scrolled) .c8-mega {
+  top:76px!important;
+}
+.c8hdr-root .c8-mega.c8-open{transform:translateY(0)!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;}
+@media(max-width:1100px){.c8hdr-root .c8-mega,.c8hdr-root .c8-mega-back{display:none!important;}}
+
+.c8-mega-card{background:#FFFFFF!important;width:min(1280px, calc(100% - 4rem))!important;border-radius:4px!important;border:1px solid rgba(8,8,8,0.08)!important;box-shadow:0 24px 60px rgba(8,8,8,0.14)!important;overflow:hidden!important;pointer-events:auto!important;}
+.c8hdr-root .c8-mega-grid{display:grid!important;}
+.c8hdr-root .c8-mega-grid-services{grid-template-columns:1fr 1fr 1fr!important;}
+.c8hdr-root .c8-mega-grid-tools{grid-template-columns:1fr 1.4fr!important;}
+.c8hdr-root .c8-mcol-intro,.c8hdr-root .c8-mcol-list,.c8hdr-root .c8-mcol-list-wide{padding:2.2rem 2.2rem!important;border-right:1px solid rgba(8,8,8,0.06)!important;}
+.c8hdr-root .c8-mcol-list:last-child,.c8hdr-root .c8-mcol-list-wide{border-right:none!important;}
+.c8hdr-root .c8-mcol-eyebrow{font-family:'Space Mono',monospace!important;font-size:9.5px!important;letter-spacing:.28em!important;text-transform:uppercase!important;color:#0047E1!important;margin-bottom:1.1rem!important;display:flex!important;align-items:center!important;gap:8px!important;font-weight:700!important;}
+.c8hdr-root .c8-mcol-eyebrow::before{content:''!important;width:14px!important;height:1px!important;background:#0047E1!important;display:inline-block!important;flex-shrink:0!important;}
+.c8hdr-root .c8-mcol-heading{font-family:'Michroma',sans-serif!important;font-size:1.35rem!important;line-height:1.3!important;color:#080808!important;margin-bottom:.8rem!important;letter-spacing:.01em!important;font-weight:700!important;}
+.c8hdr-root .c8-mcol-desc{font-family:'DM Sans',sans-serif!important;font-size:12.5px!important;color:#666663!important;line-height:1.65!important;font-weight:400!important;margin-bottom:1.5rem!important;max-width:280px!important;}
+
+/* Highlight / Showcase Card */
+.c8hdr-root .c8-highlight-card{display:block!important;background:#0047E1!important;border-radius:4px!important;padding:1.1rem 1.2rem!important;transition:background .2s!important;}
+.c8hdr-root .c8-highlight-card:hover{background:#0038C0!important;}
+.c8hdr-root .c8-highlight-header-row{display:flex!important;align-items:center!important;gap:10px!important;margin-bottom:.5rem!important;}
+.c8hdr-root .c8-highlight-ico{width:30px!important;height:30px!important;background:rgba(255,255,255,0.15)!important;border-radius:4px!important;display:flex!important;align-items:center!important;justify-content:center!important;flex-shrink:0!important;}
+.c8hdr-root .c8-highlight-ico svg{width:14px!important;height:14px!important;stroke:#FFFFFF!important;stroke-width:1.75!important;fill:none!important;}
+.c8hdr-root .c8-highlight-title{font-family:'Michroma',sans-serif!important;font-size:11px!important;font-weight:700!important;color:#FFFFFF!important;text-transform:uppercase!important;letter-spacing:.04em!important;}
+.c8hdr-root .c8-highlight-desc{font-family:'DM Sans',sans-serif!important;font-size:11.5px!important;color:rgba(255,255,255,0.75)!important;line-height:1.5!important;margin-bottom:.6rem!important;}
+.c8hdr-root .c8-highlight-link{font-family:'Space Mono',monospace!important;font-size:10px!important;font-weight:700!important;color:rgba(255,255,255,0.9)!important;}
+
+/* Services row items */
+.c8hdr-root .c8-svc2-list{display:flex!important;flex-direction:column!important;gap:0!important;}
+.c8hdr-root .c8-svc2-row{display:flex!important;align-items:center!important;gap:12px!important;padding:9px 10px!important;border-radius:4px!important;transition:background .15s!important;}
+.c8hdr-root .c8-svc2-row:hover{background:#F3F2EC!important;}
+.c8hdr-root .c8-svc2-ico{width:28px!important;height:28px!important;background:#EEF3FF!important;border-radius:4px!important;display:flex!important;align-items:center!important;justify-content:center!important;flex-shrink:0!important;transition:background .2s!important;}
+.c8hdr-root .c8-svc2-row:hover .c8-svc2-ico{background:#0047E1!important;}
+.c8hdr-root .c8-svc2-ico svg{width:12px!important;height:12px!important;stroke:#0047E1!important;stroke-width:1.75!important;fill:none!important;transition:stroke .2s!important;}
+.c8hdr-root .c8-svc2-row:hover .c8-svc2-ico svg{stroke:#FFFFFF!important;}
+.c8hdr-root .c8-svc2-name{font-family:'DM Sans',sans-serif!important;font-size:13px!important;font-weight:600!important;color:#080808!important;}
+.c8hdr-root .c8-svc2-desc{font-family:'DM Sans',sans-serif!important;font-size:11px!important;color:#6B6B6B!important;}
+
+/* Toolkit mega items */
+.c8hdr-root .c8-tool2-list{display:flex!important;flex-direction:column!important;gap:4px!important;}
+.c8hdr-root .c8-tool2-row{display:flex!important;align-items:flex-start!important;gap:14px!important;padding:12px 10px!important;border-radius:4px!important;transition:background .15s!important;border-bottom:1px solid rgba(8,8,8,0.05)!important;text-decoration:none!important;}
+.c8hdr-root .c8-tool2-row:last-child{border-bottom:none!important;}
+.c8hdr-root .c8-tool2-row:hover{background:#F3F2EC!important;}
+.c8hdr-root .c8-tool2-ico{width:32px!important;height:32px!important;background:#EEF3FF!important;border-radius:4px!important;display:flex!important;align-items:center!important;justify-content:center!important;flex-shrink:0!important;margin-top:2px!important;transition:background .2s!important;}
+.c8hdr-root .c8-tool2-row:hover .c8-tool2-ico{background:#0047E1!important;}
+.c8hdr-root .c8-tool2-ico svg{width:13px!important;height:13px!important;stroke:#0047E1!important;stroke-width:1.75!important;fill:none!important;transition:stroke .2s!important;}
+.c8hdr-root .c8-tool2-row:hover .c8-tool2-ico svg{stroke:#FFFFFF!important;}
+.c8hdr-root .c8-tool2-name{font-family:'DM Sans',sans-serif!important;font-size:13px!important;font-weight:600!important;color:#080808!important;margin-bottom:3px!important;}
+.c8hdr-root .c8-tool2-desc{font-family:'DM Sans',sans-serif!important;font-size:11.5px!important;color:#6B6B6B!important;line-height:1.5!important;margin-bottom:4px!important;}
+.c8hdr-root .c8-tool2-link{font-family:'Space Mono',monospace!important;font-size:9.5px!important;font-weight:700!important;color:#0047E1!important;}
+
+/* Option 3: Full-Width Mega Menu Bottom Navigation Bar */
+.c8hdr-root .c8-mega-bar{
+  margin-top: 0 !important;
+  padding: 1rem 2.2rem !important;
+  border-top: 1px solid rgba(8,8,8,0.06) !important;
+  background: #FAF9F5 !important;
+  text-align: center !important;
+}
+.c8hdr-root .c8-mega-bar-link{
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  color: #0047E1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  padding: 0.65rem 1.75rem !important;
+  background: rgba(0, 71, 225, 0.05) !important;
+  border-radius: 4px !important;
+  transition: all 0.25s ease !important;
+  text-decoration: none !important;
+}
+.c8hdr-root .c8-mega-bar-link:hover{
+  background: #0047E1 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px) !important;
+}
+.c8hdr-root .c8-mega-bar-arr{
+  transition: transform 0.2s ease !important;
+}
+.c8hdr-root .c8-mega-bar-link:hover .c8-mega-bar-arr{
+  transform: translateX(4px) !important;
+}
+
+/* ── Mobile Drawer ── */
+.c8hdr-root .c8-md-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(8, 8, 8, 0.5) !important;
+  backdrop-filter: blur(4px) !important;
+  z-index: 9600 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity .25s ease, visibility .25s ease !important;
+}
+.c8hdr-root .c8-md-overlay.c8-show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+.c8hdr-root .c8-md-drawer {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: min(420px, 100vw) !important;
+  background: #FAFAF7 !important;
+  z-index: 9700 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transform: translateX(100%) !important;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1) !important;
+  box-shadow: -8px 0 40px rgba(8, 8, 8, 0.15) !important;
+  border-left: 1px solid rgba(8, 8, 8, 0.08) !important;
+  overflow: hidden !important;
+}
+.c8hdr-root .c8-md-drawer.c8-open { transform: translateX(0) !important; }
+
+.c8hdr-root .c8-md-hero {
+  background: #080808 !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding-bottom: 1.25rem !important;
+}
+.c8hdr-root .c8-md-hero::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E") !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+.c8hdr-root .c8-md-hero-bar {
+  height: 60px !important;
+  padding: 0 1.25rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+.c8hdr-root .c8-md-hero-logo-img {
+  display: block !important;
+  height: 38px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+.c8hdr-root .c8-md-close {
+  width: 34px !important;
+  height: 34px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  border-radius: 4px !important;
+  transition: background .2s, border-color .2s !important;
+}
+.c8hdr-root .c8-md-close:hover {
+  background: #0047E1 !important;
+  border-color: #0047E1 !important;
+}
+.c8hdr-root .c8-md-hero-label {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 9px !important;
+  letter-spacing: .3em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  padding: 1.1rem 1.25rem 0 !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.c8hdr-root .c8-md-body {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  background: #FAFAF7 !important;
+}
+.c8hdr-root .c8-md-section-label {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 9px !important;
+  letter-spacing: .32em !important;
+  text-transform: uppercase !important;
+  color: #0047E1 !important;
+  padding: 1.1rem 1.25rem .5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-weight: 700 !important;
+}
+.c8hdr-root .c8-md-section-label::before {
+  content: '' !important;
+  width: 14px !important;
+  height: 1px !important;
+  background: #0047E1 !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+.c8hdr-root .c8-md-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+  padding: 6px 1.25rem 1rem !important;
+}
+.c8hdr-root .c8-md-card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  padding: 12px 10px !important;
+  background: #F4F3EE !important;
+  border: 1px solid rgba(8, 8, 8, 0.06) !important;
+  border-radius: 4px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: background .2s, border-color .2s, transform .2s !important;
+}
+.c8hdr-root .c8-md-card:hover {
+  background: rgba(0, 71, 225, 0.05) !important;
+  border-color: rgba(0, 71, 225, 0.25) !important;
+  transform: translateX(3px) !important;
+}
+.c8hdr-root .c8-md-card-ico {
+  width: 26px !important;
+  height: 26px !important;
+  background: #EEF3FF !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 4px !important;
+  transition: background .2s !important;
+}
+.c8hdr-root .c8-md-card:hover .c8-md-card-ico { background: #0047E1 !important; }
+.c8hdr-root .c8-md-card-ico svg {
+  width: 12px !important;
+  height: 12px !important;
+  stroke: #0047E1 !important;
+  stroke-width: 1.75 !important;
+  fill: none !important;
+  transition: stroke .2s !important;
+}
+.c8hdr-root .c8-md-card:hover .c8-md-card-ico svg { stroke: #FFFFFF !important; }
+.c8hdr-root .c8-md-card-name {
+  font-family: 'Michroma', sans-serif !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  color: #080808 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .01em !important;
+  transition: color .2s !important;
+}
+.c8hdr-root .c8-md-card:hover .c8-md-card-name { color: #0047E1 !important; }
+
+.c8hdr-root .c8-md-plain-links { padding: 4px 1.25rem 8px !important; }
+.c8hdr-root .c8-md-plain-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 12px 0 !important;
+  border-bottom: 1px solid rgba(8, 8, 8, 0.06) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: #080808 !important;
+  transition: color .15s, padding-left .15s !important;
+}
+.c8hdr-root .c8-md-plain-link:hover {
+  color: #0047E1 !important;
+  padding-left: 5px !important;
+}
+
+/* Mobile Drawer Footer with Solid Obsidian Black & SVG Texture */
+.c8hdr-root .c8-md-foot {
+  padding: 1.1rem 1.25rem 1.5rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: #080808 !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.c8hdr-root .c8-md-foot::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E") !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+.c8hdr-root .c8-md-cta {
+  position: relative !important;
+  z-index: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  height: 48px !important;
+  background: #0047E1 !important;
+  color: #FAFAF7 !important;
+  font-family: 'Michroma', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: .04em !important;
+  text-transform: uppercase !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  transition: background .2s !important;
+}
+.c8hdr-root .c8-md-cta:hover { background: #0038C0 !important; }
+
+@media (max-width: 1200px) {
+  .c8hdr-root .c8-mega-grid-services { grid-template-columns: 1fr 1fr 1fr !important; }
+  .c8hdr-root .c8-mega-grid-tools { grid-template-columns: 1fr 1.2fr !important; }
+}
+</style>
+
+<!-- ── Desktop Backdrop ── -->
+<div class="c8-mega-back" id="c8-mega-back"></div>
+
+<!-- ── Main Site Header ── -->
+<header class="c8-nav-header" id="c8-header">
+  <!-- Left: Brand Logo -->
+  <a href="https://devplayground.local/" class="c8-logo">
+    <img src="https://cr8vstacks.com/wp-content/uploads/2022/08/1.png" alt="devplayground" class="c8-logo-img">  </a>
+
+  <!-- Primary Navigation -->
+  <nav>
+    <ul class="c8-pnav" id="c8-pnav">
+
+      <!-- Home -->
+      <li class="c8-pnav-item">
+        <a href="https://devplayground.local/" class="c8-pnav-link">Home</a>
+      </li>
+
+      <!-- Services (mega menu trigger) -->
+      <li class="c8-pnav-item" data-mega="c8-mega-services">
+        <span class="c8-pnav-link" tabindex="0">Services
+          <svg class="c8-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+        </span>
+      </li>
+
+      <!-- Case Studies -->
+      <li class="c8-pnav-item">
+        <a href="https://devplayground.local/case-studies/" class="c8-pnav-link">Case Studies</a>
+      </li>
+
+      <!-- Toolkits (mega menu trigger) -->
+      <li class="c8-pnav-item" data-mega="c8-mega-toolkits">
+        <span class="c8-pnav-link" tabindex="0">Toolkits
+          <svg class="c8-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+        </span>
+      </li>
+
+      <!-- About -->
+      <li class="c8-pnav-item">
+        <a href="https://devplayground.local/about/" class="c8-pnav-link">About</a>
+      </li>
+
+      <!-- Blog -->
+      <li class="c8-pnav-item">
+        <a href="https://devplayground.local/blog/" class="c8-pnav-link">Blog</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Right: CTA + Hamburger -->
+  <div class="c8hdr-right">
+    <a href="https://devplayground.local/discovery-call/" class="c8-btn-cta">
+      Get an Estimate →
+    </a>
+    <button class="c8-hbg" id="c8-hbg" type="button" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ── MEGA MENU: Services ── -->
+<div class="c8-mega" id="c8-mega-services">
+  <div class="c8-mega-card">
+    <div class="c8-mega-grid c8-mega-grid-services">
+
+      <!-- Col 1: Intro + Featured Case Study -->
+      <div class="c8-mcol-intro">
+        <div class="c8-mcol-eyebrow">// SERVICES</div>
+        <div class="c8-mcol-heading">Full-Stack Builds</div>
+        <p class="c8-mcol-desc">Design, development and growth systems — customizable enough to run any kind of business online.</p>
+        
+        <!-- Showcase Proof of Work -->
+        <a href="https://devplayground.local/case-studies/the-duch-apartments/" class="c8-highlight-card">
+          <div class="c8-highlight-header-row">
+            <div class="c8-highlight-ico"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg></div>
+            <div class="c8-highlight-title">The Duch Apartments</div>
+          </div>
+          <div class="c8-highlight-desc">A bespoke hospitality build with a 100% direct booking engine.</div>
+          <span class="c8-highlight-link">Explore case study →</span>
+        </a>
+      </div>
+
+      <!-- Col 2: Design & Build — driven by WP Services Mega Menu (with fallback) -->
+      <div class="c8-mcol-list">
+        <div class="c8-mcol-eyebrow">DESIGN &amp; BUILD</div>
+        <div class="c8-svc2-list">
+          <a href="https://devplayground.local/web-design/" class="c8-svc2-row"><div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div><div class="c8-svc2-name">Website Design</div></div></a><a href="https://devplayground.local/custom-dev/" class="c8-svc2-row"><div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div><div class="c8-svc2-name">Custom Development</div></div></a><a href="https://devplayground.local/ecommerce/" class="c8-svc2-row"><div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg></div><div><div class="c8-svc2-name">E-Commerce</div></div></a><a href="https://devplayground.local/shopify/" class="c8-svc2-row"><div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div><div><div class="c8-svc2-name">Shopify</div></div></a><a href="https://devplayground.local/woocommerce/" class="c8-svc2-row"><div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div><div><div class="c8-svc2-name">WooCommerce</div></div></a><a href="https://devplayground.local/wordpress/" class="c8-svc2-row"><div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"/></svg></div><div><div class="c8-svc2-name">WordPress</div></div></a>        </div>
+      </div>
+
+      <!-- Col 3: Strategy & Growth (static — edit via WP Admin > Menus > Services Mega Menu) -->
+      <div class="c8-mcol-list">
+        <div class="c8-mcol-eyebrow">STRATEGY &amp; GROWTH</div>
+        <div class="c8-svc2-list">
+          <a href="https://devplayground.local/services/ai-mvp/" class="c8-svc2-row">
+            <div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm0 18a8 8 0 118-8 8 8 0 01-8 8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <div><div class="c8-svc2-name">AI MVP</div><div class="c8-svc2-desc">Rapid AI prototyping</div></div>
+          </a>
+          <a href="https://devplayground.local/services/brand-identity/" class="c8-svc2-row">
+            <div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+            <div><div class="c8-svc2-name">Brand Identity</div><div class="c8-svc2-desc">Logos &amp; design tokens</div></div>
+          </a>
+          <a href="https://devplayground.local/services/brand-strategy/" class="c8-svc2-row">
+            <div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+            <div><div class="c8-svc2-name">Brand Strategy</div><div class="c8-svc2-desc">Positioning &amp; messaging</div></div>
+          </a>
+          <a href="https://devplayground.local/services/digital-marketing/" class="c8-svc2-row">
+            <div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div><div class="c8-svc2-name">Digital Marketing</div><div class="c8-svc2-desc">Paid campaigns &amp; CRO</div></div>
+          </a>
+          <a href="https://devplayground.local/services/seo-content/" class="c8-svc2-row">
+            <div class="c8-svc2-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+            <div><div class="c8-svc2-name">SEO &amp; Content</div><div class="c8-svc2-desc">Entity SEO &amp; organic authority</div></div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <!-- Option 3: Full-Width Mega Menu Bottom Navigation Bar -->
+    <div class="c8-mega-bar">
+      <a href="https://devplayground.local/services/" class="c8-mega-bar-link">
+        Explore Our Full Services Directory &amp; Pricing Packages <span class="c8-mega-bar-arr">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── MEGA MENU: Toolkit ── -->
+<div class="c8-mega" id="c8-mega-toolkits">
+  <div class="c8-mega-card">
+    <div class="c8-mega-grid c8-mega-grid-tools">
+
+      <div class="c8-mcol-intro">
+        <div class="c8-mcol-eyebrow">// TOOLKIT</div>
+        <div class="c8-mcol-heading">Build Smarter</div>
+        <p class="c8-mcol-desc">Free interactive tools and references — price your project, explore our work, and browse real client brand assets before you ever book a call.</p>
+        <a href="https://cr8vstacks.com/toolkits/website-cost-calculator/" class="c8-highlight-card">
+          <div class="c8-highlight-header-row">
+            <div class="c8-highlight-ico"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></div>
+            <div class="c8-highlight-title">Instant Cost Estimate</div>
+          </div>
+          <div class="c8-highlight-desc">Tell us what you need and get a realistic price range — no consultation required.</div>
+          <span class="c8-highlight-link">Calculate Your Cost →</span>
+        </a>
+      </div>
+
+      <div class="c8-mcol-list-wide">
+        <div class="c8-mcol-eyebrow">AVAILABLE TOOLS</div>
+        <div class="c8-tool2-list">
+          <a href="https://cr8vstacks.com/toolkits/brand-directory/" class="c8-tool2-row">
+            <div class="c8-tool2-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <div>
+              <div class="c8-tool2-name">Brand Directory</div>
+              <div class="c8-tool2-desc">A running library of real client brand assets and design references, organised by industry.</div>
+              <span class="c8-tool2-link">Browse the Directory →</span>
+            </div>
+          </a>
+          <a href="https://devplayground.local/#dev-playground" class="c8-tool2-row">
+            <div class="c8-tool2-ico"><svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+            <div>
+              <div class="c8-tool2-name">Dev Playground</div>
+              <div class="c8-tool2-desc">A running showcase of custom WordPress plugins and development work — live releases plus what's in production.</div>
+              <span class="c8-tool2-link">Visit the Playground →</span>
+            </div>
+          </a>
+          <a href="https://cr8vstacks.com/toolkits/website-cost-calculator/" class="c8-tool2-row">
+            <div class="c8-tool2-ico"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></div>
+            <div>
+              <div class="c8-tool2-name">Cost Calculator</div>
+              <div class="c8-tool2-desc">Tell us what you need and get a realistic price range for your website — no consultation required to start.</div>
+              <span class="c8-tool2-link">Calculate Your Cost →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── Mobile Drawer ── -->
+<div class="c8-md-overlay" id="c8-md-overlay"></div>
+<div class="c8-md-drawer" id="c8-md-drawer">
+
+  <div class="c8-md-hero">
+    <div class="c8-md-hero-bar">
+      <img src="https://devplayground.local/wp-content/themes/cr8v-stacks/assets/img/cr8v_mobile_logo.webp" alt="devplayground" class="c8-md-hero-logo-img">      <button class="c8-md-close" id="c8-md-close" type="button" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FAFAF7" stroke-width="1.75" style="display:block;width:13px;height:13px;stroke:#FAFAF7;"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="c8-md-hero-label">Strategy, Design &amp; Liquid Performance</div>
+  </div>
+
+  <div class="c8-md-body">
+    <div class="c8-md-section-label">Core Services</div>
+    <div class="c8-md-grid">
+      <a href="https://devplayground.local/services/web-design/" class="c8-md-card">
+        <div class="c8-md-card-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="c8-md-card-name">Website Design</div>
+      </a>
+      <a href="https://devplayground.local/services/custom-dev/" class="c8-md-card">
+        <div class="c8-md-card-ico"><svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+        <div class="c8-md-card-name">Custom Dev</div>
+      </a>
+      <a href="https://devplayground.local/services/ecommerce/" class="c8-md-card">
+        <div class="c8-md-card-ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg></div>
+        <div class="c8-md-card-name">E-Commerce</div>
+      </a>
+      <a href="https://devplayground.local/services/shopify/" class="c8-md-card">
+        <div class="c8-md-card-ico"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg></div>
+        <div class="c8-md-card-name">Shopify</div>
+      </a>
+      <a href="https://devplayground.local/services/woocommerce/" class="c8-md-card">
+        <div class="c8-md-card-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg></div>
+        <div class="c8-md-card-name">WooCommerce</div>
+      </a>
+      <a href="https://devplayground.local/services/wordpress/" class="c8-md-card">
+        <div class="c8-md-card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 00-7.07 17.07l4.07-11.07h6l4.07 11.07A10 10 0 0012 2z"/></svg></div>
+        <div class="c8-md-card-name">WordPress</div>
+      </a>
+      <a href="https://devplayground.local/services/seo-content/" class="c8-md-card">
+        <div class="c8-md-card-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <div class="c8-md-card-name">SEO & Content</div>
+      </a>
+      <a href="https://devplayground.local/services/digital-marketing/" class="c8-md-card">
+        <div class="c8-md-card-ico"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div class="c8-md-card-name">Marketing</div>
+      </a>
+    </div>
+
+    <div class="c8-md-plain-links">
+      <a href="https://devplayground.local/" class="c8-md-plain-link">Home <span>→</span></a></li>
+<a href="https://devplayground.local/services/" class="c8-md-plain-link">Services <span>→</span></a></li>
+<a href="https://devplayground.local/case-studies/" class="c8-md-plain-link">Case Studies <span>→</span></a></li>
+<a href="https://devplayground.local/discovery-call/" class="c8-md-plain-link">Scope Estimator <span>→</span></a></li>
+<a href="https://devplayground.local/#dev-playground" class="c8-md-plain-link">Dev Playground <span>→</span></a></li>
+<a href="https://devplayground.local/about/" class="c8-md-plain-link">About <span>→</span></a></li>
+<a href="https://devplayground.local/blog/" class="c8-md-plain-link">Blog <span>→</span></a></li>
+    </div>
+  </div>
+
+  <div class="c8-md-foot">
+    <a href="https://devplayground.local/discovery-call/" class="c8-md-cta">Get an Estimate →</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var header=document.getElementById('c8-header');
+  var back=document.getElementById('c8-mega-back');
+  var active=null,timer=null;
+  function open(id){clearTimeout(timer);var panel=document.getElementById(id);if(!panel)return;if(active&&active!==panel){active.classList.remove('c8-open');document.querySelectorAll('#c8-pnav .c8-pnav-link').forEach(function(l){l.classList.remove('c8-open');});}panel.classList.add('c8-open');if(back)back.classList.add('c8-show');active=panel;document.querySelectorAll('[data-mega="'+id+'"] .c8-pnav-link').forEach(function(l){l.classList.add('c8-open');});}
+  function close(immediate){clearTimeout(timer);var fn=function(){if(active){active.classList.remove('c8-open');active=null;}if(back)back.classList.remove('c8-show');document.querySelectorAll('#c8-pnav .c8-pnav-link').forEach(function(l){l.classList.remove('c8-open');});};if(immediate)fn();else timer=setTimeout(fn,180);}
+  document.querySelectorAll('#c8-pnav .c8-pnav-item[data-mega]').forEach(function(item){var link=item.querySelector('.c8-pnav-link');var id=item.getAttribute('data-mega');link.addEventListener('mouseenter',function(){open(id);});link.addEventListener('click',function(e){if(active&&active.id===id)close(true);else open(id);});item.addEventListener('mouseleave',function(){close(false);});});
+  document.querySelectorAll('#c8-mega-services,#c8-mega-toolkits').forEach(function(p){p.addEventListener('mouseenter',function(){clearTimeout(timer);});p.addEventListener('mouseleave',function(){close(false);});});
+  if(back)back.addEventListener('click',function(){close(true);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close(true);});
+  if(header){
+    var isHeaderTicking=false;
+    function updateHeaderScroll(){
+      header.classList.toggle('c8-scrolled',window.scrollY>20);
+      isHeaderTicking=false;
+    }
+    window.addEventListener('scroll',function(){
+      if(!isHeaderTicking){
+        requestAnimationFrame(updateHeaderScroll);
+        isHeaderTicking=true;
+      }
+    },{passive:true});
+    updateHeaderScroll();
+  }
+  var hbg=document.getElementById('c8-hbg');
+  var drawer=document.getElementById('c8-md-drawer');
+  var overlay=document.getElementById('c8-md-overlay');
+  var closeBtn=document.getElementById('c8-md-close');
+  function toggleDrawer(){var isOpen=drawer.classList.toggle('c8-open');overlay.classList.toggle('c8-show',isOpen);hbg.classList.toggle('c8-open',isOpen);}
+  if(hbg&&drawer&&overlay&&closeBtn){hbg.addEventListener('click',toggleDrawer);closeBtn.addEventListener('click',toggleDrawer);overlay.addEventListener('click',toggleDrawer);document.addEventListener('keydown',function(e){if(e.key==='Escape'&&drawer.classList.contains('c8-open'))toggleDrawer();});}
+})();
+</script>
+</div>
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
+
+  :root {
+    --c8-paper-bg: #F9F9F8;
+    --c8-paper-card: #FFFFFF;
+    --c8-ink: #080808;
+    --c8-sub: #555555;
+    --c8-grid-line: rgba(8, 8, 8, 0.14);
+    --c8-blue: #0047E1;
+    --c8-blue-hi: #3D6BFF;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --font-heading: 'Michroma', sans-serif;
+  }
+
+  .c8cs-root { position: relative; width: 100%; background: #FFFFFF; color: var(--c8-ink); font-family: var(--font-body); }
+  .c8cs-wrap { max-width: 1340px; margin: 0 auto; padding: 2.5rem 2rem 3.5rem; position: relative; z-index: 2; }
+  @media (max-width: 768px) { .c8cs-wrap { padding: 1.5rem 1.25rem 2.5rem; } }
+
+  .c8cs-back-btn {
+    font-family: var(--font-mono); font-size: 10px; color: #8A8A8A; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; text-decoration: none; font-weight: 700; position: relative; z-index: 2;
+  }
+  .c8cs-back-btn:hover { color: var(--c8-blue); }
+
+  .c8cs-label {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--c8-blue); display: inline-flex; align-items: center; gap: 10px; margin-bottom: 1.25rem;
+  }
+  .c8cs-label::before { content: '// '; color: var(--c8-blue); font-weight: 700; }
+
+  .c8cs-headline {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 5vw, 2.6rem);
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--c8-ink);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    max-width: 1000px;
+  }
+  .c8cs-serif { font-family: var(--font-body); font-style: italic; text-transform: none; font-weight: 400; color: var(--c8-blue); }
+
+  .c8cs-lead {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--c8-sub);
+    max-width: 860px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .fylla-pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; margin-bottom: 2.5rem; }
+  .fylla-pill {
+    border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.4rem 0.9rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700; border-radius: 4px !important; text-transform: uppercase;
+  }
+
+  .c8cs-hero { padding-top: 7rem; padding-bottom: 4rem; position: relative; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
+
+  .c8cs-hero-atmos {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: auto; overflow: hidden;
+  }
+  .c8cs-atmos-svg { position: absolute; top: -10%; left: 0; width: 100%; height: 130%; }
+  .c8cs-atmos-blob { filter: blur(1px); opacity: 0.35; }
+  .c8cs-atmos-glow {
+    position: absolute; top: 0; left: 0; width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 71, 225, 0.35) 0%, rgba(0, 71, 225, 0) 70%);
+    transform: translate(-50%, -50%); opacity: 0; transition: opacity 0.4s ease; will-change: transform; pointer-events: none;
+  }
+  .c8cs-hero-atmos.is-active .c8cs-atmos-glow { opacity: 1; }
+
+  .c8cs-meta-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: transparent; margin-top: 3.5rem; position: relative; z-index: 2; overflow: hidden;
+  }
+  @media (max-width: 768px) { .c8cs-meta-grid { grid-template-columns: repeat(2, 1fr); margin-top: 1.5rem; } }
+
+  .c8cs-meta-item { padding: 2rem 2.25rem; border-right: 1px solid var(--c8-grid-line); display: flex; flex-direction: column; justify-content: center; background: transparent; transition: background 0.35s ease; }
+  .c8cs-meta-item:hover { background: #FAFAF7; }
+  .c8cs-meta-item:last-child { border-right: none; }
+  @media (max-width: 768px) {
+    .c8cs-meta-item:nth-child(2n) { border-right: none; }
+    .c8cs-meta-item:nth-child(1), .c8cs-meta-item:nth-child(2) { border-bottom: 1px solid var(--c8-grid-line); }
+  }
+
+  .c8cs-meta-lbl { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.4rem; letter-spacing: 0.14em; font-weight: 700; }
+  .c8cs-meta-val { font-size: 14.5px; font-weight: 700; color: var(--c8-ink); }
+
+  .c8cs-grow-media-wrapper { width: 100%; padding: 1.5rem 0; display: flex; justify-content: center; background: transparent; overflow: hidden; }
+  @media (max-width: 768px) { .c8cs-grow-media-wrapper { padding: 1rem 0; } }
+
+  .c8cs-main-img-box {
+    width: 85%; max-width: 1200px; border-radius: 4px !important; overflow: hidden; box-shadow: 0 20px 50px rgba(8, 8, 8, 0.08); border: 1px solid var(--c8-grid-line); position: relative; z-index: 2; transition: width 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .c8cs-main-img-box img { width: 100%; height: auto; display: block; object-fit: cover; max-height: 700px; }
+
+  .c8cs-split-section { display: grid; grid-template-columns: 1fr 1.3fr; gap: 0; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; margin: clamp(2.5rem, 4vw, 3.5rem) 0; }
+  @media (max-width: 900px) { .c8cs-split-section { grid-template-columns: 1fr; margin: 2rem 0; } }
+
+  .c8cs-split-left { padding: clamp(2.5rem, 3.5vw, 3.75rem) clamp(1.75rem, 3vw, 3.25rem); border-right: 1px solid var(--c8-grid-line); background: #FFFFFF; position: sticky; top: 100px; align-self: start; height: fit-content; }
+  @media (max-width: 900px) { .c8cs-split-left { position: relative; top: 0; border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2rem 1.5rem; } }
+
+  .c8cs-split-right { background: #FAFAF7; display: flex; flex-direction: column; }
+  .c8cs-split-title { font-family: var(--font-heading); font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.2; color: var(--c8-ink); margin-bottom: 1.25rem; }
+  .c8cs-body-content p { font-size: 15px; color: var(--c8-sub); margin-bottom: 1.25rem; line-height: 1.7; font-weight: 300; }
+
+  .fylla-value-item { padding: clamp(1.75rem, 2.5vw, 2.5rem) clamp(1.5rem, 2.5vw, 2.75rem); border-bottom: 1px solid var(--c8-grid-line); display: flex; gap: 1.5rem; align-items: flex-start; transition: background 0.35s ease; background: #FAFAF7; }
+  @media (max-width: 600px) { .fylla-value-item { padding: 1.5rem 1.25rem; gap: 1rem; } }
+  .fylla-value-item:hover { background: #FFFFFF; }
+  .fylla-value-item:last-child { border-bottom: none; }
+
+  .fylla-value-icon-box {
+    width: 44px; height: 44px; border-radius: 4px !important; background: rgba(0, 71, 225, 0.08); border: 1px solid rgba(0, 71, 225, 0.2); display: flex; align-items: center; justify-content: center; color: var(--c8-blue); flex-shrink: 0; margin-top: 0.2rem;
+  }
+  .fylla-value-icon-box svg { width: 22px; height: 22px; stroke: var(--c8-blue); fill: none; stroke-width: 2; }
+
+  .fylla-value-h3 { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.5rem; }
+  .fylla-value-desc { font-size: 0.9rem; color: var(--c8-sub); line-height: 1.6; }
+
+  /* ── SECTION 4: CORE DELIVERABLES (2-UP 16:9 GRID) ── */
+  .c8cs-deliverables-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+  .c8cs-deliverables-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+  .c8cs-deliverables-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-deliverables-header { padding: 1.75rem 1.25rem; } }
+  .c8cs-deliverables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--c8-grid-line); }
+  @media (max-width: 900px) { .c8cs-deliverables-grid { grid-template-columns: 1fr; } }
+  .c8cs-deliverable-card { background: #FFFFFF; padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); transition: background 0.35s ease; }
+  .c8cs-deliverable-card:last-child { border-right: none; }
+  @media (max-width: 900px) { .c8cs-deliverable-card { border-right: none; } }
+  @media (max-width: 600px) { .c8cs-deliverable-card { padding: 1.75rem 1.25rem; } }
+  .c8cs-deliverable-card:hover { background: #FAFAF7; }
+  .c8cs-deliverable-meta { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.65rem; letter-spacing: 0.14em; font-weight: 700; }
+  .c8cs-deliverable-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.45rem; letter-spacing: 0.01em; }
+  .c8cs-deliverable-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 1.5rem; }
+  .c8cs-deliverable-img-box { width: 100%; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-top: auto; background: #080808; aspect-ratio: 16 / 9; }
+  .c8cs-deliverable-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.5s ease; }
+  .c8cs-deliverable-card:hover .c8cs-deliverable-img-box img { transform: scale(1.02); }
+
+  /* ── SECTION 5: SOVEREIGNTY ARCHITECTURE (3:4 SPLIT) ── */
+  .c8cs-sovereignty-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+  .c8cs-sovereignty-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+  .c8cs-sovereignty-split { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 0; background: var(--c8-grid-line); align-items: stretch; }
+  @media (max-width: 960px) { .c8cs-sovereignty-split { grid-template-columns: 1fr; } }
+  .c8cs-sovereignty-left { background: #FFFFFF; padding: clamp(2.5rem, 3.5vw, 3.75rem) clamp(1.75rem, 3vw, 3.25rem); display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--c8-grid-line); }
+  @media (max-width: 960px) { .c8cs-sovereignty-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2rem 1.5rem; } }
+  .c8cs-sovereignty-right { background: #FAFAF7; padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; align-items: center; justify-content: center; }
+  @media (max-width: 960px) { .c8cs-sovereignty-right { padding: 2rem 1.25rem; } }
+  .c8cs-sovereignty-img-box { width: 100%; max-width: 440px; aspect-ratio: 3 / 4; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+  .c8cs-sovereignty-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+  /* ── SECTION 6: PURE VISUAL GALLERY (CLEAN STREAM — NO SLOP) ── */
+  .c8cs-stream-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+  .c8cs-stream-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+  .c8cs-stream-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-stream-header { padding: 1.75rem 1.25rem; } }
+  .c8cs-stream-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: var(--c8-grid-line); }
+  @media (max-width: 992px) { .c8cs-stream-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .c8cs-stream-grid { grid-template-columns: 1fr; } }
+  .c8cs-stream-cell { background: #FFFFFF; padding: clamp(1.25rem, 2vw, 1.75rem); display: flex; flex-direction: column; border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); transition: background 0.35s ease; }
+  .c8cs-stream-cell:nth-child(3n) { border-right: none; }
+  @media (max-width: 992px) { .c8cs-stream-cell:nth-child(3n) { border-right: 1px solid var(--c8-grid-line); } .c8cs-stream-cell:nth-child(2n) { border-right: none; } }
+  @media (max-width: 600px) { .c8cs-stream-cell { border-right: none; padding: 1.25rem 1.25rem 1.5rem; } }
+  .c8cs-stream-cell:hover { background: #FAFAF7; }
+  .c8cs-stream-img-box { width: 100%; aspect-ratio: 16 / 9; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; margin-bottom: 1rem; }
+  .c8cs-stream-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.5s ease; }
+  .c8cs-stream-cell:hover .c8cs-stream-img-box img { transform: scale(1.03); }
+  .c8cs-stream-cell-info { display: flex; flex-direction: column; gap: 0.2rem; }
+  .c8cs-stream-cell-tag { font-family: var(--font-mono); font-size: 8.5px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.12em; }
+  .c8cs-stream-cell-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; letter-spacing: 0.01em; }
+
+  .c8cs-metrics-bg { background: #FFFFFF; padding: clamp(3rem, 5vw, 5rem) 0; }
+  .c8cs-metrics-outer-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+  .c8cs-metrics-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-metrics-header { padding: 1.75rem 1.25rem; } }
+  .c8cs-metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  @media (max-width: 768px) { .c8cs-metrics-grid { grid-template-columns: 1fr; } }
+
+  .c8cs-metric-card { background: #FAFAF7; border-right: 1px solid var(--c8-grid-line); padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; flex-direction: column; transition: background 0.35s ease; }
+  .c8cs-metric-card:nth-child(even) { background: #FFFFFF; }
+  .c8cs-metric-card:hover { background: #F4F5F7; }
+  .c8cs-metric-card:last-child { border-right: none; }
+  @media (max-width: 768px) {
+    .c8cs-metric-card { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
+    .c8cs-metric-card:last-child { border-bottom: none; }
+  }
+
+  .c8cs-metric-val { font-family: var(--font-heading); font-size: clamp(2.4rem, 4vw, 3rem); font-weight: 700; color: var(--c8-blue); line-height: 1; margin-bottom: 1rem; }
+  .c8cs-metric-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.65rem; font-weight: 700; }
+  .c8cs-metric-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; }
+
+  .c8cs-status-badge {
+    background: rgba(0, 191, 99, 0.04); border: 1px solid rgba(0, 191, 99, 0.25);
+    padding: 1rem 1.5rem; border-radius: 4px !important; display: inline-flex; flex-direction: column; align-items: flex-start;
+    margin-top: auto; text-decoration: none; transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease; cursor: pointer;
+  }
+  .c8cs-status-badge:hover { background: rgba(0, 191, 99, 0.08); border-color: rgba(0, 191, 99, 0.4); transform: translateY(-2px); }
+  .c8cs-status-lbl { font-family: var(--font-mono); font-size: 8px; font-weight: 700; color: #00BF63; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .c8cs-status-val { font-family: var(--font-heading); font-size: 10.5px; font-weight: 700; color: #00BF63; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 8px; line-height: 1.2; }
+  .c8cs-checkmark-circle { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: #00BF63; color: #FFFFFF; font-size: 10px; font-weight: bold; }
+
+  .c8cs-related-paper-outer { background: #FFFFFF; padding: clamp(3rem, 5vw, 5rem) 0; width: 100%; }
+  .c8cs-related-matrix-box { max-width: 1340px; margin: 0 auto; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+  .c8cs-related-matrix-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-related-matrix-header { padding: 1.75rem 1.25rem; } }
+  .c8cs-related-matrix-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  @media (max-width: 900px) { .c8cs-related-matrix-grid { grid-template-columns: 1fr; } }
+
+  .c8cs-related-cell { padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); border-right: 1px solid var(--c8-grid-line); background: #FAFAF7; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: var(--c8-ink); transition: background 0.35s ease; }
+  .c8cs-related-cell:nth-child(even) { background: #FFFFFF; }
+  .c8cs-related-cell:last-child { border-right: none; }
+  .c8cs-related-cell:hover { background: #F4F5F7; }
+  @media (max-width: 900px) {
+    .c8cs-related-cell { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
+    .c8cs-related-cell:last-child { border-bottom: none; }
+  }
+
+  .c8cs-related-cell-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; margin-bottom: 0.65rem; }
+  .c8cs-related-cell-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.75rem; line-height: 1.3; }
+  .c8cs-related-cell-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 1.75rem; }
+  .c8cs-related-cell-link { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s ease; }
+  .c8cs-related-cell:hover .c8cs-related-cell-link { gap: 10px; }
+</style>
+
+<div class="c8cs-root">
+  <!-- Section 1: Hero Section -->
+  <section class="c8cs-hero">
+    <div class="c8cs-hero-atmos" data-c8cs-atmos>
+      <svg class="c8cs-atmos-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
+        <defs>
+          <filter id="c8csGoo" x="-50%" y="-50%" width="200%" height="200%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.008 0.02" numOctaves="2" seed="7" result="turb">
+              <animate attributeName="baseFrequency" values="0.008 0.02;0.02 0.05;0.008 0.02" dur="16s" repeatCount="indefinite"/>
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="turb" scale="42" xChannelSelector="R" yChannelSelector="G"/>
+            <feGaussianBlur stdDeviation="4"/>
+          </filter>
+        </defs>
+        <g filter="url(#c8csGoo)">
+          <circle class="c8cs-atmos-blob" cx="80" cy="60" r="70" fill="#0047E1">
+            <animate attributeName="cx" values="80;145;55;80" dur="19s" repeatCount="indefinite"/>
+            <animate attributeName="cy" values="60;35;95;60" dur="19s" repeatCount="indefinite"/>
+          </circle>
+          <circle class="c8cs-atmos-blob" cx="220" cy="55" r="55" fill="#3D6BFF">
+            <animate attributeName="cx" values="220;165;265;220" dur="23s" repeatCount="indefinite"/>
+            <animate attributeName="cy" values="55;95;25;55" dur="23s" repeatCount="indefinite"/>
+          </circle>
+          <circle class="c8cs-atmos-blob" cx="330" cy="70" r="45" fill="#7C93FF">
+            <animate attributeName="cx" values="330;285;365;330" dur="15s" repeatCount="indefinite"/>
+            <animate attributeName="cy" values="70;105;45;70" dur="15s" repeatCount="indefinite"/>
+          </circle>
+        </g>
+      </svg>
+    </div>
+    <div class="c8cs-atmos-glow" data-c8cs-glow></div>
+
+    <div class="c8cs-wrap" style="padding-top: 1rem; padding-bottom: 2rem;">
+      <a href="https://devplayground.local/portfolio/" class="c8cs-back-btn">&larr; Back to Portfolio</a>
+      
+      <div class="c8cs-label">Case Study // AI MVP // Autonomous Multi-LLM Content Engine</div>
+      <h1 class="c8cs-headline">WP Publishion AI: Autonomous Editorial &amp; <span class="c8cs-serif">Multi-LLM Engine</span></h1>
+      <p class="c8cs-lead">WP Publishion AI is our proprietary AI-powered WordPress publishing application, architected to automate fact-verified, SEO-optimized editorial drafting directly within WordPress core via Claude 3.5, Gemini 1.5 Pro, and OpenAI.</p>
+      
+      <div class="fylla-pill-row">
+                  <span class="fylla-pill">AI MVP</span>
+                  <span class="fylla-pill">Multi-LLM Pipeline</span>
+                  <span class="fylla-pill">WordPress REST API</span>
+                  <span class="fylla-pill">Brave Search API</span>
+              </div>
+
+      <div class="c8cs-meta-grid">
+        <div class="c8cs-meta-item">
+          <span class="c8cs-meta-lbl">Client</span>
+          <span class="c8cs-meta-val">WP Publishion AI</span>
+        </div>
+        <div class="c8cs-meta-item">
+          <span class="c8cs-meta-lbl">Services</span>
+          <span class="c8cs-meta-val">AI System Architecture, Full-Stack SaaS Engineering</span>
+        </div>
+        <div class="c8cs-meta-item">
+          <span class="c8cs-meta-lbl">Stack</span>
+          <span class="c8cs-meta-val">WordPress · Python · Claude / OpenAI / Gemini APIs</span>
+        </div>
+        <div class="c8cs-meta-item">
+          <span class="c8cs-meta-lbl">Link</span>
+          <span class="c8cs-meta-val"><a href="https://wppublishion.com/" target="_blank" rel="noopener" style="color: #0047E1; text-decoration: underline;">wppublishion.com ↗</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Scroll-Grow Media (Conditional) -->
+      <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
+      <div class="c8cs-main-img-box" id="c8cs-grow-target">
+        <img src="https://devplayground.local/wp-content/themes/cr8v-stacks/assets/img/case_studies/case_study_wp_publishion.webp" alt="WP Publishion AI case study hero showcase">
+      </div>
+    </div>
+  
+  <!-- Section 3: Strategic Overview (Conditional) -->
+      <section class="c8cs-wrap">
+      <div class="c8cs-split-section">
+        <div class="c8cs-split-left">
+          <div class="c8cs-label">Overview</div>
+          <h2 class="c8cs-split-title">The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span></h2>
+          <div class="c8cs-body-content">
+            <p>Publishers and agencies struggle with generic AI content that hallucinates facts, lacks structured schema markup, and requires extensive manual copy-pasting into CMS workflows.</p>            <p>We built WP Publishion AI from the ground up: an autonomous multi-LLM orchestration pipeline with integrated Brave Search fact-checking, automated internal linking, and direct REST API block editor publishing.</p>          </div>
+        </div>
+
+        <div class="c8cs-split-right">
+                      <div class="fylla-value-item">
+              <div class="fylla-value-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div>
+                <h3 class="fylla-value-h3">01 / Multi-LLM Orchestration</h3>
+                <p class="fylla-value-desc">Integrated Claude 3.5 Sonnet, OpenAI GPT-4o, and Gemini 1.5 Pro with automatic fallback routing.</p>
+              </div>
+            </div>
+                      <div class="fylla-value-item">
+              <div class="fylla-value-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div>
+                <h3 class="fylla-value-h3">02 / Real-Time Fact Verification</h3>
+                <p class="fylla-value-desc">Connected Brave Search API to verify claims and insert live citations prior to publication.</p>
+              </div>
+            </div>
+                      <div class="fylla-value-item">
+              <div class="fylla-value-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div>
+                <h3 class="fylla-value-h3">03 / Native WordPress Core Bridge</h3>
+                <p class="fylla-value-desc">Direct Gutenberg block generation eliminating all external SaaS copy-pasting.</p>
+              </div>
+            </div>
+                      <div class="fylla-value-item">
+              <div class="fylla-value-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div>
+                <h3 class="fylla-value-h3">04 / Automated Schema &amp; Entities</h3>
+                <p class="fylla-value-desc">Generates Article, FAQPage, and Entity JSON-LD schemas automatically.</p>
+              </div>
+            </div>
+                  </div>
+      </div>
+    </section>
+  
+  <!-- Section 4: Core Technical Deliverables (Unified Suite 01, 02, 03) -->
+      <section class="c8cs-deliverables-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-deliverables-box">
+          <div class="c8cs-deliverables-header">
+            <div class="c8cs-label">Design &amp; Engineering</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Core Technical Deliverables</h2>
+          </div>
+
+                      <div class="c8cs-deliverables-grid">
+                              <div class="c8cs-deliverable-card">
+                  <div>
+                    <div class="c8cs-deliverable-meta">Design System // Asset 01</div>
+                    <h3 class="c8cs-deliverable-title">AI Telemetry &amp; Model Token Spec</h3>
+                    <p class="c8cs-deliverable-desc">Modular developer interface tokens, model status indicators (Claude, GPT, Gemini), and prompt parameter control components.</p>
+                  </div>
+                                      <div class="c8cs-deliverable-img-box">
+                      <img src="https://devplayground.local/wp-content/themes/cr8v-stacks/assets/img/case_studies/wp_publishion_asset_01_design_system.webp" alt="AI Telemetry &amp; Model Token Spec">
+                    </div>
+                                  </div>
+              
+                              <div class="c8cs-deliverable-card">
+                  <div>
+                    <div class="c8cs-deliverable-meta">Experience // Asset 02</div>
+                    <h3 class="c8cs-deliverable-title">Real-Time Fact Engine &amp; Editor</h3>
+                    <p class="c8cs-deliverable-desc">Live drafting canvas with automated claim validation, citation injections, and readability telemetry.</p>
+                  </div>
+                                      <div class="c8cs-deliverable-img-box">
+                      <img src="https://devplayground.local/wp-content/themes/cr8v-stacks/assets/img/case_studies/wp_publishion_asset_02_experience.webp" alt="Real-Time Fact Engine &amp; Editor">
+                    </div>
+                                  </div>
+                          </div>
+          
+                      <div class="c8cs-sovereignty-split" style="border-top: 1px solid var(--c8-grid-line);">
+              <div class="c8cs-sovereignty-left">
+                <div class="c8cs-deliverable-meta">Ecosystem Velocity // Asset 03</div>
+                <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 1.25rem;">Proprietary Content Sovereignty Pipeline</h2>
+                <p style="font-size: 15px; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.5rem; font-weight: 300;">Fully autonomous in-house AI engine eliminating subscription lock-in and keeping all training data and editorial content proprietary.</p>
+                                  <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;">
+                                          <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                        <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">01</span>
+                        <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;">Zero SaaS Dependency: Self-hosted API orchestration with private key management.</span>
+                      </div>
+                                          <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                        <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">02</span>
+                        <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;">Instant Block Generation: 1-click publishing directly to WordPress draft queues.</span>
+                      </div>
+                                          <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                        <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">03</span>
+                        <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;">Automated Semantic SEO: Pre-configured entity graphs and structured metadata.</span>
+                      </div>
+                                      </div>
+                              </div>
+
+                              <div class="c8cs-sovereignty-right">
+                  <div class="c8cs-sovereignty-img-box">
+                    <img src="https://devplayground.local/wp-content/themes/cr8v-stacks/assets/img/case_studies/wp_publishion_asset_03_ecosystem.webp" alt="Proprietary Content Sovereignty Pipeline">
+                  </div>
+                </div>
+                          </div>
+          
+        </div>
+      </div>
+    </section>
+  
+  <!-- Section 6: Pure Visual Gallery Stream (Conditional) -->
+      <section class="c8cs-stream-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-stream-box">
+          <div class="c8cs-stream-header">
+            <div class="c8cs-label">Application Ecosystem</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Autonomous Editorial Workflow &amp; Telemetry in Production</h2>
+          </div>
+
+          <div class="c8cs-stream-grid">
+                          <div class="c8cs-stream-cell">
+                <div class="c8cs-stream-img-box">
+                  <img src="https://devplayground.local/wp-content/themes/cr8v-stacks/assets/img/case_studies/publishion_gallery_01.webp" alt="Real-Time Multi-LLM API Spend &amp; Article Dashboard">
+                </div>
+                <div class="c8cs-stream-cell-info">
+                  <span class="c8cs-stream-cell-tag">Production Telemetry</span>
+                  <h3 class="c8cs-stream-cell-title">Real-Time Multi-LLM API Spend &amp; Article Dashboard</h3>
+                </div>
+              </div>
+                          <div class="c8cs-stream-cell">
+                <div class="c8cs-stream-img-box">
+                  <img src="https://devplayground.local/wp-content/themes/cr8v-stacks/assets/img/case_studies/publishion_gallery_02.webp" alt="Article Wizard Modal &amp; Per-Run Cost Calculation">
+                </div>
+                <div class="c8cs-stream-cell-info">
+                  <span class="c8cs-stream-cell-tag">Editorial Engine</span>
+                  <h3 class="c8cs-stream-cell-title">Article Wizard Modal &amp; Per-Run Cost Calculation</h3>
+                </div>
+              </div>
+                          <div class="c8cs-stream-cell">
+                <div class="c8cs-stream-img-box">
+                  <img src="https://devplayground.local/wp-content/themes/cr8v-stacks/assets/img/case_studies/publishion_gallery_03.webp" alt="Self-Hosted API Orchestration &amp; Schema Staging">
+                </div>
+                <div class="c8cs-stream-cell-info">
+                  <span class="c8cs-stream-cell-tag">Engineering Workflow</span>
+                  <h3 class="c8cs-stream-cell-title">Self-Hosted API Orchestration &amp; Schema Staging</h3>
+                </div>
+              </div>
+                          <div class="c8cs-stream-cell">
+                <div class="c8cs-stream-img-box">
+                  <img src="https://devplayground.local/wp-content/themes/cr8v-stacks/assets/img/case_studies/publishion_gallery_04.webp" alt="Autonomous Multi-Model Publishing Pipeline">
+                </div>
+                <div class="c8cs-stream-cell-info">
+                  <span class="c8cs-stream-cell-tag">Infrastructure</span>
+                  <h3 class="c8cs-stream-cell-title">Autonomous Multi-Model Publishing Pipeline</h3>
+                </div>
+              </div>
+                          <div class="c8cs-stream-cell">
+                <div class="c8cs-stream-img-box">
+                  <img src="https://devplayground.local/wp-content/themes/cr8v-stacks/assets/img/case_studies/publishion_gallery_05.webp" alt="Real-Time Token Economics &amp; Pillar Telemetry">
+                </div>
+                <div class="c8cs-stream-cell-info">
+                  <span class="c8cs-stream-cell-tag">Cost Transparency</span>
+                  <h3 class="c8cs-stream-cell-title">Real-Time Token Economics &amp; Pillar Telemetry</h3>
+                </div>
+              </div>
+                          <div class="c8cs-stream-cell">
+                <div class="c8cs-stream-img-box">
+                  <img src="https://devplayground.local/wp-content/themes/cr8v-stacks/assets/img/case_studies/publishion_gallery_06.webp" alt="Master Autonomous WordPress AI Publishing Slab">
+                </div>
+                <div class="c8cs-stream-cell-info">
+                  <span class="c8cs-stream-cell-tag">System Deployment</span>
+                  <h3 class="c8cs-stream-cell-title">Master Autonomous WordPress AI Publishing Slab</h3>
+                </div>
+              </div>
+                      </div>
+        </div>
+      </div>
+    </section>
+  
+  <!-- Section 7: Outcomes Metrics Matrix (Conditional) -->
+      <section class="c8cs-metrics-bg">
+      <div class="c8cs-wrap">
+        <div class="c8cs-metrics-outer-box">
+          <div class="c8cs-metrics-header">
+            <div class="c8cs-label">Impact</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Measured Outcomes &amp; System Performance</h2>
+          </div>
+
+          <div class="c8cs-metrics-grid">
+                          <div class="c8cs-metric-card">
+                <div class="c8cs-metric-val">3</div>
+                <div class="c8cs-metric-lbl">LLMs Integrated</div>
+                <p class="c8cs-metric-desc" >Claude 3.5, Gemini 1.5 Pro, and GPT-4o unified in one pipeline.</p>
+                
+                              </div>
+                          <div class="c8cs-metric-card">
+                <div class="c8cs-metric-val">5.4x</div>
+                <div class="c8cs-metric-lbl">Publishing Velocity</div>
+                <p class="c8cs-metric-desc" >Reduction in editorial drafting hours from outline to WordPress block staging.</p>
+                
+                              </div>
+                          <div class="c8cs-metric-card">
+                <div class="c8cs-metric-val">99.2%</div>
+                <div class="c8cs-metric-lbl">API Reliability</div>
+                <p class="c8cs-metric-desc" style="margin-bottom: 1.5rem;">Self-hosted API orchestration with automatic model fallback redundancy.</p>
+                
+                                  <a href="https://wppublishion.com/" target="_blank" rel="noopener" class="c8cs-status-badge">
+                    <div class="c8cs-status-lbl">Production Verification</div>
+                    <div class="c8cs-status-val">
+                      <span class="c8cs-checkmark-circle">&#10003;</span>
+                      <span>Visit Live Site &rarr;</span>
+                    </div>
+                  </a>
+                              </div>
+                      </div>
+        </div>
+      </div>
+    </section>
+  
+  <!-- Standard Post Content Fallback for unconfigured cases -->
+  
+  <!-- Section 8: Related Projects Matrix -->
+  <section class="c8cs-related-paper-outer">
+    <div class="c8cs-wrap">
+      <div class="c8cs-related-matrix-box">
+        <div class="c8cs-related-matrix-header">
+          <div class="c8cs-label">Selected Work</div>
+          <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Explore Related Case Studies</h2>
+        </div>
+
+        <div class="c8cs-related-matrix-grid">
+                      <a href="https://devplayground.local/portfolio/the-duch-apartments/" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag">Hospitality // Direct Booking &amp; Web Engineering</div>
+                <h3 class="c8cs-related-cell-title">The Duch Apartments</h3>
+                <p class="c8cs-related-cell-desc">The Duch Apartments is a premier luxury boutique serviced apartment residence in Lekki Phase 1, Lagos. We engineered&hellip;</p>
+              </div>
+              <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
+            </a>
+                      <a href="https://devplayground.local/portfolio/mkenny-properties/" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag">Real Estate // Manchester UK Property Development &amp; WordPress Widgets</div>
+                <h3 class="c8cs-related-cell-title">Mkenny Properties</h3>
+                <p class="c8cs-related-cell-desc">Mkenny Properties Ltd is a trusted UK property development firm based in Manchester, specializing in residential, commercial, and&hellip;</p>
+              </div>
+              <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
+            </a>
+                      <a href="https://devplayground.local/portfolio/blvck-hair-ng/" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag">E-Commerce // Luxury Hair Extensions &amp; Organic Search Domination</div>
+                <h3 class="c8cs-related-cell-title">BLVCK Hair NG</h3>
+                <p class="c8cs-related-cell-desc">BLVCK Hair NG is a luxury hair extension brand that scaled from early-stage organic search presence to running&hellip;</p>
+              </div>
+              <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
+            </a>
+                  </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Homepage Pre-Footer CTA Part -->
+  <style>
+  .cta-section {
+    background: #FFFFFF !important;
+    padding: clamp(5rem, 9vw, 8rem) 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-top: 1px solid rgba(8,8,8,0.08) !important;
+  }
+  .cta-inner {
+    max-width: 860px !important;
+    margin: 0 auto !important;
+    padding: 0 clamp(1.5rem, 5vw, 4rem) !important;
+    text-align: center !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+  .cta-arc-container {
+    width: 100% !important;
+    max-width: 780px !important;
+    margin: 0 auto 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  .cta-arc-video {
+    width: 100% !important;
+    max-width: 780px !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: contain !important;
+    pointer-events: none !important;
+    user-select: none !important;
+  }
+  .cta-content-group {
+    margin-top: -6.5rem !important;
+    position: relative !important;
+    z-index: 5 !important;
+  }
+  @media (max-width: 768px) {
+    .cta-content-group {
+      margin-top: -3.5rem !important;
+    }
+  }
+  .cta-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    font-family: 'Space Mono', monospace !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    color: #0047E1 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0.4rem 1.1rem !important;
+    border-radius: 4px !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .cta-h2 {
+    font-family: 'Michroma', sans-serif !important;
+    font-size: clamp(1.9rem, 4.2vw, 3rem) !important;
+    font-weight: 400 !important;
+    color: #080808 !important;
+    letter-spacing: 0.01em !important;
+    line-height: 1.25 !important;
+    max-width: 780px !important;
+    margin: 0 auto 1.4rem !important;
+  }
+  .cta-h2 em {
+    font-style: normal !important;
+    color: #0047E1 !important;
+  }
+  .cta-desc {
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 300 !important;
+    color: #555555 !important;
+    line-height: 1.7 !important;
+    max-width: 620px !important;
+    margin: 0 auto 2.5rem !important;
+  }
+  .cta-btn-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.8rem !important;
+    background: #0047E1 !important;
+    color: #FFFFFF !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    padding: 1rem 2.2rem !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    box-shadow: 0 10px 28px rgba(0, 71, 225, 0.28) !important;
+    transition: all 0.25s ease !important;
+  }
+  .cta-btn-pill:hover {
+    background: #0037B5 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 14px 35px rgba(0, 71, 225, 0.38) !important;
+  }
+  .cta-btn-arrow {
+    background: rgba(255,255,255,0.2) !important;
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.85rem !important;
+    transition: transform 0.25s ease !important;
+  }
+  .cta-btn-pill:hover .cta-btn-arrow {
+    transform: translateX(4px) !important;
+  }
+</style>
+
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="cta-arc-container">
+      <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate" class="cta-arc-video">
+        <source src="https://devplayground.local/wp-content/themes/cr8v-stacks/assets/img/download.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="cta-content-group">
+      <div class="cta-badge" data-customizer="cs_cta_badge"><span style="color:#0047E1;font-weight:800;margin-right:4px;">//</span>  START A PROJECT</div>
+      
+      <h2 class="cta-h2" data-customizer="cs_cta_title">
+        Ready to launch your <em>custom digital platform?</em>      </h2>
+
+      <p class="cta-desc" data-customizer="cs_cta_desc">
+        Cr8v Stacks requires no guesswork. Transparent fixed scoping, dedicated engineering, and custom digital systems tailored to your exact business goals.      </p>
+
+      <div>
+        <a href="https://devplayground.local/discovery-call/" class="cta-btn-pill" data-customizer="cta_button_text">
+          <span class="cta-text-content" data-customizer="cs_cta_btn_text">Book a Scoping Call</span> <span class="cta-btn-arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- End c8cs-root -->
+
+<!-- Parity JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var root = document.querySelector('.c8cs-root');
+    var atmos = root ? root.querySelector('[data-c8cs-atmos]') : null;
+    var glow = root ? root.querySelector('[data-c8cs-glow]') : null;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+
+    if (atmos && glow && canHover && !reduceMotion) {
+      atmos.addEventListener('mousemove', function (e) {
+        var r = atmos.getBoundingClientRect();
+        glow.style.left = (e.clientX - r.left) + 'px';
+        glow.style.top = (e.clientY - r.top) + 'px';
+      });
+      atmos.addEventListener('mouseenter', function () { atmos.classList.add('is-active'); });
+      atmos.addEventListener('mouseleave', function () { atmos.classList.remove('is-active'); });
+    }
+
+    var growTarget = document.getElementById('c8cs-grow-target');
+    var growTrigger = document.getElementById('c8cs-grow-trigger');
+
+    if (growTarget && growTrigger && !reduceMotion) {
+      function handleGrowScroll() {
+        var rect = growTrigger.getBoundingClientRect();
+        var viewportH = window.innerHeight;
+        var start = viewportH * 0.9;
+        var end = viewportH * 0.2;
+        var progress = 0;
+        if (rect.top < start) {
+          progress = (start - rect.top) / (start - end);
+          if (progress > 1) progress = 1;
+          if (progress < 0) progress = 0;
+        }
+        var widthVal = 85 + (15 * progress);
+        var maxWVal = 1200 + ((window.innerWidth - 1200) * progress);
+        growTarget.style.width = widthVal + '%';
+        growTarget.style.maxWidth = maxWVal + 'px';
+      }
+      window.addEventListener('scroll', handleGrowScroll);
+      window.addEventListener('resize', handleGrowScroll);
+      handleGrowScroll();
+    }
+  });
+</script>
+
+<!-- ══════════════════════════════════════════════════════════
+   CR8V STACKS — FOOTER (Tropos Theme)
+   Edit all text: WP Admin → Appearance → Customize → Footer
+═══════════════════════════════════════════════════════════ -->
+<div class="c8ft-root">
+<div class="c8-grain-overlay"></div>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+.c8ft-root{--c8ft-black:#080808;--c8ft-white:#FFFFFF;--c8ft-off:#141414;--c8ft-blue:#0047E1;--c8ft-blue-mid:#0038C0;--c8ft-blue-hi:#4A9EFF;--c8ft-gray:#A0A0A0;font-family:'DM Sans',sans-serif;background:var(--c8ft-black);overflow:hidden;position:relative;}
+.c8ft-root *,.c8ft-root *::before,.c8ft-root *::after{box-sizing:border-box;margin:0;padding:0;}
+:where(.c8ft-root) a{text-decoration:none;color:inherit;}
+.c8ft-root ul{list-style:none;}
+
+/* Pre-Footer Hero CTA Zone (Paper Grid UI Light Base) */
+.c8ft-hero{position:relative;padding:5rem 3.5rem 6rem;overflow:hidden;background:#FFFFFF!important;border-bottom:1px solid rgba(8,8,8,.08)!important;}
+.c8ft-hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")!important;pointer-events:none;}
+.c8ft-hero-ghost{position:absolute;bottom:-2.5rem;left:3rem;font-family:'Michroma',sans-serif;font-size:min(15vw,10rem);line-height:.8;color:rgba(8,8,8,.03);letter-spacing:-.02em;pointer-events:none;z-index:0;white-space:nowrap;}
+.c8ft-hero-in{position:relative;z-index:1;max-width:1440px;margin:0 auto;}
+.c8ft-hero-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--c8ft-blue);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px;}
+.c8ft-hero-tag::before{content:'';width:20px;height:1px;background:var(--c8ft-blue);}
+.c8ft-hero-title{font-family:'Michroma',sans-serif;font-size:clamp(2.5rem,5vw,1.8rem);line-height:1.2;color:#080808!important;letter-spacing:.01em;max-width:900px;margin-bottom:2.25rem;font-weight:700;}
+.c8ft-hero-title span{color:var(--c8ft-blue);}
+.c8ft-hero-cta{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 2rem;background:var(--c8ft-blue);color:#fff!important;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;border-radius:2px;box-shadow:0 4px 14px rgba(0,71,225,0.25);transition:background .25s ease,transform .2s ease;}
+.c8ft-hero-cta::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);transform:skewX(-20deg);transition:left 0.65s ease;}
+.c8ft-hero-cta:hover{background:var(--c8ft-blue-mid);transform:translateY(-2px);}
+.c8ft-hero-cta:hover::before{left:180%;}
+.c8ft-hero-cta svg{width:14px;height:14px;stroke:#fff;stroke-width:2;fill:none;}
+
+/* Stack Cards */
+.c8ft-stack-zone{max-width:1440px;margin:0 auto;padding:0 3.5rem;position:relative;z-index:1;}
+.c8ft-stack{display:grid;grid-template-columns:1.1fr 1.2fr 1fr;gap:2.5rem;margin-top:-3rem;padding-bottom:4rem;align-items:start;}
+.c8ft-card{background:#141414!important;border:1px solid rgba(255,255,255,0.1)!important;position:relative;padding:2.25rem 2rem;border-radius:4px;color:#FFFFFF!important;}
+.c8ft-card-label{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--c8ft-blue-hi);margin-bottom:1.25rem;display:flex;align-items:center;gap:8px;}
+.c8ft-card-label::before{content:'';width:14px;height:1px;background:var(--c8ft-blue-hi);}
+
+/* Card 1 — site links */
+.c8ft-site-link{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:500;color:#FFFFFF!important;transition:padding-left .18s,color .18s;}
+.c8ft-site-link:last-child{border-bottom:none;}
+.c8ft-site-link:hover{padding-left:6px;color:var(--c8ft-blue-hi)!important;}
+.c8ft-site-link-arr{font-size:.9rem;opacity:.6;transition:opacity .18s,transform .18s;}
+.c8ft-site-link:hover .c8ft-site-link-arr{opacity:1;transform:translateX(4px);color:var(--c8ft-blue-hi)!important;}
+
+/* Card 2 — service chips */
+.c8ft-chip-cluster{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1.25rem;}
+.c8ft-chip{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;background:#1E1E1E!important;border:1px solid rgba(255,255,255,.12)!important;font-size:12px;font-weight:500;color:#FFFFFF!important;border-radius:3px;transition:background .18s,border-color .18s,color .18s,transform .18s;}
+.c8ft-chip:hover{background:var(--c8ft-blue)!important;border-color:var(--c8ft-blue)!important;color:#fff!important;transform:translateY(-1px);}
+.c8ft-card-note{font-size:12px;color:var(--c8ft-gray);font-weight:300;line-height:1.6;}
+.c8ft-card-note a{color:var(--c8ft-blue);font-weight:500;}
+.c8ft-card-note a:hover{text-decoration:underline;}
+
+/* Card 3 — contact + social */
+.c8ft-touch-row{display:flex;flex-direction:column;gap:.9rem;margin-bottom:1.5rem;}
+.c8ft-touch-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#FFFFFF!important;}
+.c8ft-touch-item strong{display:block;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--c8ft-gray);font-weight:500;margin-bottom:2px;}
+.c8ft-touch-icon{width:28px;height:28px;background:var(--c8ft-white);border:1px solid rgba(8,8,8,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:3px;}
+.c8ft-touch-icon svg{width:12px;height:12px;stroke:var(--c8ft-blue);stroke-width:1.8;fill:none;}
+.c8ft-social-row{display:flex;gap:.6rem;}
+.c8ft-social{width:36px;height:36px;background:var(--c8ft-black);display:flex;align-items:center;justify-content:center;border-radius:3px;transition:background .18s,transform .18s;}
+.c8ft-social:hover{background:var(--c8ft-blue);transform:translateY(-2px);}
+.c8ft-social svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:1.6;}
+
+/* Bottom cap */
+.c8ft-cap{border-top:1px solid rgba(255,255,255,.08);padding:1.25rem 3.5rem;position:relative;z-index:1;}
+.c8ft-cap-in{max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.c8ft-cap-copy{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.05em;color:rgba(255,255,255,.4);}
+.c8ft-cap-copy span{color:var(--c8ft-blue-hi);}
+.c8ft-brand-name{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.05em;color:rgba(255,255,255,.4);}
+.c8ft-totop{display:flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);transition:color .18s;cursor:pointer;}
+.c8ft-totop:hover{color:#fff;}
+.c8ft-totop-icon{width:26px;height:26px;border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;transition:border-color .18s,transform .18s;border-radius:2px;}
+.c8ft-totop:hover .c8ft-totop-icon{border-color:#fff;transform:translateY(-2px);}
+.c8ft-totop-icon svg{width:11px;height:11px;stroke:#fff;stroke-width:2;fill:none;}
+
+@media(max-width:1024px){.c8ft-hero{padding:4rem 2rem 5.5rem;}.c8ft-stack-zone{padding:0 2rem;}.c8ft-stack{grid-template-columns:1fr 1fr;gap:2rem;}.c8ft-card:last-child{grid-column:1/-1;}}
+@media(max-width:768px){.c8ft-hero{padding:3.5rem 1.25rem 4.5rem;}.c8ft-hero-title{font-size:clamp(1.8rem,8vw,1.5rem);}.c8ft-stack-zone{padding:0 1.25rem;}.c8ft-stack{grid-template-columns:1fr;gap:1.75rem;margin-top:-2rem;}.c8ft-cap{padding:1.1rem 1.25rem;}.c8ft-cap-in{justify-content:center;text-align:center;flex-direction:column;}}
+</style>
+
+<!-- Hero CTA -->
+<div class="c8ft-hero">
+  <div class="c8ft-hero-ghost">CR8V</div>
+  <div class="c8ft-hero-in">
+    <div class="c8ft-hero-tag">// DIGITAL AGENCY ECOSYSTEM</div>
+    <div class="c8ft-hero-title">READY TO BUILD WHAT YOUR BUSINESS <span>ACTUALLY RUNS ON?</span></div>
+    <a href="https://devplayground.local/discovery-call/" class="c8ft-hero-cta">
+      Start Your Discovery Call
+      <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- Stack Cards -->
+<div class="c8ft-stack-zone">
+  <div class="c8ft-stack">
+
+    <!-- Card 1: Sitemap — driven by WP footer menu (with fallback) -->
+    <div class="c8ft-card">
+      <div class="c8ft-card-label">// SITEMAP</div>
+      <a href="https://devplayground.local/" class="c8ft-site-link">Home <span class="c8ft-site-link-arr">→</span></a><a href="https://devplayground.local/about/" class="c8ft-site-link">About Us <span class="c8ft-site-link-arr">→</span></a><a href="https://devplayground.local/services/" class="c8ft-site-link">Services <span class="c8ft-site-link-arr">→</span></a><a href="https://devplayground.local/case-studies/" class="c8ft-site-link">Case Studies <span class="c8ft-site-link-arr">→</span></a><a href="https://devplayground.local/blog/" class="c8ft-site-link">Blog <span class="c8ft-site-link-arr">→</span></a><a href="https://devplayground.local/discovery-call/" class="c8ft-site-link">Discovery Call <span class="c8ft-site-link-arr">→</span></a><a href="https://devplayground.local/contact/" class="c8ft-site-link">Contact Us <span class="c8ft-site-link-arr">→</span></a>    </div>
+
+    <!-- Card 2: Services chips — driven by WP footer services menu (with fallback) -->
+    <div class="c8ft-card">
+      <div class="c8ft-card-label">// WHAT WE DO</div>
+      <div class="c8ft-chip-cluster">
+        <a href="https://devplayground.local/web-design/" class="c8ft-chip">Website Design</a><a href="https://devplayground.local/custom-dev/" class="c8ft-chip">Custom Dev</a><a href="https://devplayground.local/ecommerce/" class="c8ft-chip">E-Commerce</a><a href="https://devplayground.local/shopify/" class="c8ft-chip">Shopify</a><a href="https://devplayground.local/woocommerce/" class="c8ft-chip">WooCommerce</a><a href="https://devplayground.local/wordpress/" class="c8ft-chip">WordPress</a><a href="https://devplayground.local/ai-mvp/" class="c8ft-chip">AI MVP</a><a href="https://devplayground.local/brand-identity/" class="c8ft-chip">Brand Identity</a><a href="https://devplayground.local/digital-marketing/" class="c8ft-chip">Digital Marketing</a><a href="https://devplayground.local/seo-content/" class="c8ft-chip">SEO &amp; Content</a>      </div>
+      <div class="c8ft-card-note">Need a custom scope? <a href="https://devplayground.local/discovery-call/">Calculate instant estimate →</a></div>
+    </div>
+
+    <!-- Card 3: Contact info (hardcoded — edit here or extend to Customizer) -->
+    <div class="c8ft-card">
+      <div class="c8ft-card-label">// GET IN TOUCH</div>
+      <div class="c8ft-touch-row">
+        <div class="c8ft-touch-item">
+          <div class="c8ft-touch-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+          <div><strong>Email</strong><a href="mailto:info@cr8vstacks.com">info@cr8vstacks.com</a></div>
+        </div>
+        <div class="c8ft-touch-item">
+          <div class="c8ft-touch-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div><strong>Phone</strong><a href="tel:+2347054963639">0705 496 3639</a></div>
+        </div>
+        <div class="c8ft-touch-item">
+          <div class="c8ft-touch-icon"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg></div>
+          <div><strong>Address</strong>Ogudu, Lagos State, Nigeria</div>
+        </div>
+      </div>
+      <div class="c8ft-social-row">
+                <a href="https://www.instagram.com/cr8v_stacks" class="c8ft-social" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+                        <a href="https://www.linkedin.com/company/cr8v-stacks/" class="c8ft-social" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+                        <a href="https://www.youtube.com/@cr8vstacks" class="c8ft-social" aria-label="YouTube" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="#FFFFFF" stroke="none"/></svg>
+        </a>
+                        <a href="https://www.facebook.com/cr8vstacks" class="c8ft-social" aria-label="Facebook" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+              </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Bottom Cap -->
+<div class="c8ft-cap">
+  <div class="c8ft-cap-in">
+    <div class="c8ft-cap-copy c8ft-brand-name" data-customizer="footer_copyright">
+      © 2026 CR8V STACKS. All rights reserved.    </div>
+    <div class="c8ft-totop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      Back to Top
+      <div class="c8ft-totop-icon"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div>
+    </div>
+  </div>
+</div>
+
+<!-- Floating Back To Top Button -->
+<div id="c8-btt-btn" class="c8-btt-floating" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">
+  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M18 15l-6-6-6 6"/></svg>
+</div>
+
+<style>
+.c8-btt-floating {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 9990;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: #080808; color: #FFFFFF; border: 1px solid rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+.c8-btt-floating.is-visible {
+  opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important;
+}
+.c8-btt-floating:hover {
+  background: #0047E1 !important; border-color: #0047E1 !important; transform: translateY(-3px) !important;
+}
+</style>
+
+<script>
+window.addEventListener('scroll', function() {
+  var btt = document.getElementById('c8-btt-btn');
+  if (btt) {
+    if (window.scrollY > 300) {
+      btt.classList.add('is-visible');
+    } else {
+      btt.classList.remove('is-visible');
+    }
+  }
+});
+
+(function initGlobalMatrixEngine() {
+  if (window.__cr8vMatrixInited) return;
+  window.__cr8vMatrixInited = true;
+
+  var matrixChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  document.addEventListener('mouseover', function(e) {
+    var btn = e.target.closest('.cta-btn-pill, .c8-btn-primary, .c8cs-btn-primary, .c8-matrix-btn-blue, .c8-matrix-btn-dark, .c8srv-btn-ghost, .dp-btn-primary, .c8bm-btn-cta, .c8ft-cta-btn, .c8isv-cta-btn, .blog-cta-btn, .c8-btn, .cta-card-btn, [data-customizer="cta_button_text"], [data-customizer="cs_cta_btn_text"], .art-btn-primary, .art-btn-secondary, .art-ui-buttons a, .wp-block-button__link, .wp-block-button a, .art-author-link, .c8-matrix-target');
+    if (!btn || btn.dataset.matrixActive === 'true') return;
+
+    btn.dataset.matrixActive = 'true';
+
+    var textTarget = btn.querySelector('.cta-text-content') || 
+                     btn.querySelector('[data-customizer="cs_cta_btn_text"]') || 
+                     Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim().length > 0; });
+
+    if (!textTarget) {
+      if (btn.children.length === 0) {
+        textTarget = btn;
+      } else {
+        // Fallback to first non-empty text container or direct child
+        textTarget = Array.from(btn.querySelectorAll('span, a, p')).find(function(el) {
+          return !el.classList.contains('cta-btn-arrow') && !el.classList.contains('faq-icon') && el.textContent.trim().length > 0;
+        }) || btn;
+      }
+    }
+
+    var originalText = btn.dataset.matrixOriginalText || textTarget.textContent.trim();
+    if (!originalText) {
+      btn.dataset.matrixActive = 'false';
+      return;
+    }
+    btn.dataset.matrixOriginalText = originalText;
+
+    var scrambleInterval = null;
+    var iteration = 0;
+
+    scrambleInterval = setInterval(function() {
+      var scrambled = originalText.split('')
+        .map(function(char, index) {
+          if (char === ' ' || index < iteration) return originalText[index];
+          return matrixChars[Math.floor(Math.random() * matrixChars.length)];
+        })
+        .join('');
+
+      textTarget.textContent = scrambled;
+
+      if (iteration >= originalText.length) {
+        clearInterval(scrambleInterval);
+        textTarget.textContent = originalText;
+        btn.dataset.matrixActive = 'false';
+      }
+      iteration += 1 / 2;
+    }, 25);
+
+    var cleanup = function(evt) {
+      if (evt && evt.relatedTarget && btn.contains(evt.relatedTarget)) return;
+      clearInterval(scrambleInterval);
+      textTarget.textContent = originalText;
+      btn.dataset.matrixActive = 'false';
+      btn.removeEventListener('mouseleave', cleanup);
+      btn.removeEventListener('mouseout', cleanup);
+    };
+
+    btn.addEventListener('mouseleave', cleanup);
+    btn.addEventListener('mouseout', cleanup);
+  });
+})();
+</script>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/cr8v-stacks/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+			<script>
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+				<script type='text/javascript'>
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<script id="cr8vt-archive-js-extra">
+var cr8vt_ajax = {"ajaxurl":"https://devplayground.local/wp-admin/admin-ajax.php","nonce":"91d5dde831"};
+//# sourceURL=cr8vt-archive-js-extra
+</script>
+<script id="cr8vt-archive-js" src="https://devplayground.local/wp-content/plugins/cr8v-templates/assets/js/archive.js"></script>
+<script id="lumicode-hljs-js" src="https://devplayground.local/wp-content/plugins/lumicode-syntax-highlighter/assets/vendor/js/highlight.min.js"></script>
+<script id="lumicode-main-js-before">
+window.LumiCode = {"theme":"atom-one-dark","isLight":false,"lineNumbers":true,"copyButton":true,"languageBadge":true,"autoDetect":true,"fontSize":14,"fontFamily":"JetBrains Mono, Fira Code, monospace","collapseAfter":30,"maxWidth":"","lineWrap":true,"i18n":{"copy":"Copy","copied":"Copied!","expand":"Expand","collapse":"Collapse","hidden":"lines hidden","copyLabel":"Copy code"}};
+//# sourceURL=lumicode-main-js-before
+</script>
+<script id="lumicode-main-js" src="https://devplayground.local/wp-content/plugins/lumicode-syntax-highlighter/assets/js/lc-render.js"></script>
+<script id="wppa-front-v2-js" src="https://devplayground.local/wp-content/plugins/wp-publishion-ai/assets/js/front-v2.bundle.js"></script>
+<script id="cr8v-canvas-js-extra">
+var cr8vAjax = {"url":"https://devplayground.local/wp-admin/admin-ajax.php","nonce":"fd89499734"};
+//# sourceURL=cr8v-canvas-js-extra
+</script>
+<script id="cr8v-canvas-js" src="https://devplayground.local/wp-content/themes/cr8v-stacks/assets/js/ecommerce-hero-canvas.js"></script>
+<script id="cr8v-stack-js" src="https://devplayground.local/wp-content/themes/cr8v-stacks/assets/js/shared-folder-stack.js"></script>
+<script id="sourcebuster-js-js" src="https://devplayground.local/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js"></script>
+<script id="wc-order-attribution-js-extra">
+var wc_order_attribution = {"params":{"lifetime":1.0000000000000001e-5,"session":30,"base64":false,"ajaxurl":"https://devplayground.local/wp-admin/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
+//# sourceURL=wc-order-attribution-js-extra
+</script>
+<script id="wc-order-attribution-js" src="https://devplayground.local/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://devplayground.local/wp-includes/js/wp-emoji-release.min.js"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://devplayground.local/wp-includes/js/wp-emoji-loader.min.js
+</script>
+</body>
+</html>
