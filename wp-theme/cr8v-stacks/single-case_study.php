@@ -257,7 +257,7 @@ $portfolio_data_matrix = [
     'asset_03_desc' => 'Rather than depending on recurring paid social ad burn with rising customer acquisition costs, we architected a dominant organic search entity foundation and localized dual-region storefronts across Nigeria and the United Kingdom.',
     'asset_03_points'=> [
       'Dual-Region Storefronts: Operating localized shopping pipelines in Nigeria and the UK.',
-      '450+ Verified Reviews: Building compounding social proof and sovereign brand equity.',
+      '+240% Organic Revenue: Generating compounding direct buyer traffic with zero recurring ad dependency.',
       'Top 3 Organic Search Rank: Dominant organic ranking for high-intent protective hair extension keywords.'
     ],
     'asset_03_img'  => 'blvck_asset_03_ecosystem.webp',
@@ -267,12 +267,12 @@ $portfolio_data_matrix = [
       ['img' => 'blvck_gallery_02.webp', 'tag' => 'Tactile Specs', 'title' => 'Tactile Hair Texture & Stepped Length Selection Matrix'],
       ['img' => 'blvck_gallery_03.webp', 'tag' => 'Checkout Gateway', 'title' => 'Paystack Multi-Currency Instant Checkout Gateway'],
       ['img' => 'blvck_gallery_04.webp', 'tag' => 'Search Equity', 'title' => 'Flat Graphic Organic SEO Sovereignty & Entity Dominance'],
-      ['img' => 'blvck_gallery_05.webp', 'tag' => 'Social Proof', 'title' => 'Omnichannel UGC Reviews & 450+ Verified Social Proof Grid'],
+      ['img' => 'blvck_gallery_05.webp', 'tag' => 'Social Proof', 'title' => 'Omnichannel UGC Reviews & Verified Customer Social Proof'],
       ['img' => 'blvck_gallery_06.webp', 'tag' => 'Brand Packaging', 'title' => 'Luxury Product Unboxing & Physical Packaging Suite']
     ],
     'metrics'       => [
-      ['val' => '2', 'lbl' => 'Live Storefronts', 'desc' => 'Expanded from single location to live commercial storefronts in Nigeria & UK.'],
-      ['val' => '450+', 'lbl' => 'Customer Reviews', 'desc' => 'Accumulated across both regional operations.'],
+      ['val' => '2', 'lbl' => 'Regional Storefronts', 'desc' => 'Localized multi-currency Shopify storefronts operating across Nigeria & UK.'],
+      ['val' => '+240%', 'lbl' => 'Organic Search Revenue', 'desc' => 'Direct revenue lift generated via organic Google search with zero paid ad burn.'],
       ['val' => 'Top 3', 'lbl' => 'Organic Google Rank', 'desc' => 'Dominant search visibility for high-intent luxury hair queries.']
     ],
     'live_url'      => 'https://blvckhairng.com/'
