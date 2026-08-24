@@ -572,7 +572,7 @@ $portfolio_data_matrix = [
     'asset_03_desc' => 'Reclaiming pricing power and guest relationship data from third-party booking intermediaries.',
     'asset_03_points'=> [
       'Zero OTA Commissions: Maximized retained room margin with zero intermediary cuts.',
-      'Automated Check-In: Instant WhatsApp confirmation with digital keycard access.',
+      'Automated Check-In: Instant direct messaging confirmation with digital keycard access.',
       'Local Dominance: Top 3 search visibility for executive Lagos short-lets.'
     ],
     'asset_03_img'  => 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop',
