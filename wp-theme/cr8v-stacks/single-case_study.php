@@ -205,12 +205,12 @@ $portfolio_data_matrix = [
     'asset_03_img'  => 'wp_publishion_asset_03_ecosystem.webp',
     'gallery_header'=> 'Platform Showcase & Production Gallery',
     'gallery'       => [
-      ['img' => 'publishion_gallery_01.webp', 'tag' => 'Editor Workspace', 'title' => 'Multi-LLM Drafting Canvas'],
-      ['img' => 'publishion_gallery_02.webp', 'tag' => 'Verification', 'title' => 'Live Search Fact Checker'],
-      ['img' => 'publishion_gallery_03.webp', 'tag' => 'API Pipeline', 'title' => 'REST API Webhook Telemetry'],
-      ['img' => 'publishion_gallery_04.webp', 'tag' => 'CMS Integration', 'title' => 'Gutenberg Block Injection'],
-      ['img' => 'publishion_gallery_05.webp', 'tag' => 'Model Routing', 'title' => 'LLM Parameter Controls'],
-      ['img' => 'publishion_gallery_06.webp', 'tag' => 'Telemetry', 'title' => 'System Execution Staging Slab']
+      ['img' => 'publishion_gallery_01.webp', 'tag' => 'Live Interface', 'title' => 'Live Analytics & Production Dashboard'],
+      ['img' => 'publishion_gallery_02.webp', 'tag' => 'Interaction Detail', 'title' => 'Article Wizard Modal & Cost Breakdown'],
+      ['img' => 'publishion_gallery_03.webp', 'tag' => 'Workstation Staging', 'title' => 'Software Engineering Lab Workstation'],
+      ['img' => 'publishion_gallery_04.webp', 'tag' => 'Atmosphere', 'title' => 'Cloud AI Infrastructure & Server Atmosphere'],
+      ['img' => 'publishion_gallery_05.webp', 'tag' => 'Telemetry', 'title' => 'Real-Time Token Telemetry Scorecard'],
+      ['img' => 'publishion_gallery_06.webp', 'tag' => 'Platform Staging', 'title' => 'Master Multi-LLM Publishing Platform Slab']
     ],
     'metrics'       => [
       ['val' => '3', 'lbl' => 'LLMs Integrated', 'desc' => 'Claude 3.5, Gemini 1.5 Pro, and GPT-4o unified in one pipeline.'],
