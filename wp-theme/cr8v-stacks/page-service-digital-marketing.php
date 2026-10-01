@@ -203,36 +203,43 @@ defined('ABSPATH') || exit;
     </div>
     <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
       <div class="c8isv-portfolio-img">
-        <img src="<?php echo esc_url(cr8v_mod('mktg_port_img', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop')); ?>" alt="Search Growth Campaign — built by Cr8v Stacks" data-customizer="mktg_port_img">
+        <?php
+          $mktg_cs_def = get_template_directory_uri() . '/assets/img/case_studies/cs_kiri_city_stays_hero_vertical.webp';
+          $mktg_cs_src = cr8v_mod('mktg_port_img', $mktg_cs_def);
+          if (empty($mktg_cs_src) || strpos($mktg_cs_src, 'unsplash') !== false || strpos($mktg_cs_src, 'fintech') !== false) {
+            $mktg_cs_src = $mktg_cs_def;
+          }
+        ?>
+        <img src="<?php echo esc_url($mktg_cs_src); ?>" alt="Kiri City Stays Paid Acquisition & Attribution — built by Cr8v Stacks" data-customizer="mktg_port_img">
       </div>
       <div class="c8isv-portfolio-info">
-        <span class="c8isv-portfolio-client" data-customizer="mktg_port_client"><?php echo esc_html(cr8v_mod('mktg_port_client', 'Case Study — FinTech Scale-Up')); ?></span>
-        <h3 class="c8isv-portfolio-title" data-customizer="mktg_port_title"><?php echo esc_html(cr8v_mod('mktg_port_title', 'Entity SEO Architecture & Organic Growth Campaign')); ?></h3>
-        <p class="c8isv-portfolio-desc" data-customizer="mktg_port_desc"><?php echo wp_kses_post(cr8v_mod('mktg_port_desc', 'A B2B FinTech scale-up needed to break into high-intent organic search rankings. We implemented semantic keyword mapping, technical Core Web Vitals remediation, and a 12-article pillar cluster.')); ?></p>
+        <span class="c8isv-portfolio-client" data-customizer="mktg_port_client"><?php echo esc_html(cr8v_mod('mktg_port_client', 'Case Study — Kiri City Stays')); ?></span>
+        <h3 class="c8isv-portfolio-title" data-customizer="mktg_port_title"><?php echo esc_html(cr8v_mod('mktg_port_title', 'Attribution & Paid Acquisition Launch')); ?></h3>
+        <p class="c8isv-portfolio-desc" data-customizer="mktg_port_desc"><?php echo wp_kses_post(cr8v_mod('mktg_port_desc', 'Established high-intent Google Search advertising, Google Tag Manager event attribution pipelines, and targeted Meta multi-slide carousels and video reels for luxury urban serviced apartments in Manchester, UK.')); ?></p>
         <div class="c8isv-portfolio-stats">
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="mktg_port_stat1_val"><?php echo esc_html(cr8v_mod('mktg_port_stat1_val', '+280%')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="mktg_port_stat1_lbl"><?php echo esc_html(cr8v_mod('mktg_port_stat1_lbl', 'Organic Search Traffic Growth')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="mktg_port_stat1_val"><?php echo esc_html(cr8v_mod('mktg_port_stat1_val', '4.6x')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="mktg_port_stat1_lbl"><?php echo esc_html(cr8v_mod('mktg_port_stat1_lbl', 'Ad Engagement Lift')); ?></span>
           </div>
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="mktg_port_stat2_val"><?php echo esc_html(cr8v_mod('mktg_port_stat2_val', '#1 Rank')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="mktg_port_stat2_lbl"><?php echo esc_html(cr8v_mod('mktg_port_stat2_lbl', 'For Target High-Intent Keywords')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="mktg_port_stat2_val"><?php echo esc_html(cr8v_mod('mktg_port_stat2_val', '+280%')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="mktg_port_stat2_lbl"><?php echo esc_html(cr8v_mod('mktg_port_stat2_lbl', 'Direct Booking Inquiries')); ?></span>
           </div>
         </div>
         <div class="c8isv-portfolio-deliverables">
           <span class="c8isv-portfolio-stat-lbl">Key Deliverables</span>
           <div class="c8isv-portfolio-pills">
-            <span class="c8isv-portfolio-pill">Semantic Keyword Map</span>
-            <span class="c8isv-portfolio-pill">Technical SEO Audit</span>
-            <span class="c8isv-portfolio-pill">Pillar Content Cluster</span>
-            <span class="c8isv-portfolio-pill">Schema Data Markup</span>
+            <span class="c8isv-portfolio-pill">Google Search Ads</span>
+            <span class="c8isv-portfolio-pill">GTM &amp; GA4 Pipelines</span>
+            <span class="c8isv-portfolio-pill">Meta Video Reels</span>
+            <span class="c8isv-portfolio-pill">Matchday Funnels</span>
           </div>
         </div>
-        <a href="<?php echo esc_url(home_url(cr8v_mod('mktg_port_btn_url', '/case-studies/fintech-growth/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="mktg_port_btn_text"><?php echo esc_html(cr8v_mod('mktg_port_btn_text', 'View Case Study →')); ?></a>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('mktg_port_btn_url', '/case-studies/kiri-city-stays/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="mktg_port_btn_text"><?php echo esc_html(cr8v_mod('mktg_port_btn_text', 'View Case Study →')); ?></a>
       </div>
     </div>
     <div class="c8isv-portfolio-footer">
-      <a href="<?php echo esc_url(home_url('/portfolio/')); ?>" class="c8isv-explore">See All Projects →</a>
+      <a href="<?php echo esc_url(home_url('/case-studies/')); ?>" class="c8isv-explore">See All Projects →</a>
     </div>
   </div>
 </div>

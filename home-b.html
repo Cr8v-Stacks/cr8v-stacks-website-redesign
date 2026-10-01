@@ -1057,17 +1057,56 @@
       opacity: 1;
     }
 
-    @media (max-width: 900px) {
-      .c8-paper-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, minmax(320px, auto));
-      }
-      .c8-pg-cell {
-        min-height: 320px;
-        padding: 2.5rem 1.75rem;
-      }
+    .c8-mobile-card-media {
+      display: none;
     }
 
+    @media (max-width: 900px) {
+      .c8-puzzle-section {
+        padding: clamp(3rem, 6vw, 4.5rem) 1rem 3.5rem !important;
+      }
+      .c8-puzzle-header {
+        margin-bottom: 2rem !important;
+      }
+      .c8-paper-grid {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto !important;
+        gap: 16px !important;
+        background: transparent !important;
+        border: none !important;
+      }
+      .c8-puzzle-tile {
+        display: none !important;
+      }
+      .c8-pg-cell.is-empty-slot {
+        display: none !important;
+      }
+      .c8-pg-cell {
+        min-height: auto !important;
+        padding: 1.5rem 1.15rem !important;
+        border: 1px solid var(--c8-line) !important;
+        border-radius: 4px !important;
+        background: #FFFFFF !important;
+      }
+      .c8-drag-grip {
+        display: none !important;
+      }
+      .c8-mobile-card-media {
+        display: block !important;
+        width: 100% !important;
+        aspect-ratio: 16 / 9 !important;
+        border-radius: 4px !important;
+        overflow: hidden !important;
+        margin-bottom: 1.25rem !important;
+        border: 1px solid var(--c8-line) !important;
+      }
+      .c8-mobile-card-media img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+      }
+    }
 </style>
 </head>
 <body>
@@ -1107,6 +1146,9 @@
 
       <!-- ROW 1 -->
       <div class="c8-pg-cell is-text-card" data-row="0" data-col="0" id="d-r1-text">
+        <div class="c8-mobile-card-media">
+          <img src="assets/kinetic_grid_showcase.jpg" alt="Design-Led Brand & Visual Systems">
+        </div>
         <span class="c8-drag-grip">DRAG CARD</span>
         <h3 class="c8-pg-h3">Design-Led Brand &amp; Visual Systems</h3>
         <p class="c8-pg-p">Design is our primary foundation. We craft distinct visual identities, digital products, and brand systems that make your business instantly memorable.</p>
@@ -1126,6 +1168,9 @@
         <span class="c8-slot-hint">CLICK / DRAG SLOT ↑</span>
       </div>
       <div class="c8-pg-cell is-text-card" data-row="1" data-col="2" id="d-r2-text">
+        <div class="c8-mobile-card-media">
+          <img src="cr8v_ai_workflow.png" alt="AI as Our Creative Partner">
+        </div>
         <span class="c8-drag-grip">DRAG CARD</span>
         <h3 class="c8-pg-h3">AI as Our Creative Partner</h3>
         <p class="c8-pg-p">We leverage AI as a high-speed creative partner—accelerating research, rapid prototyping, and workflow iteration so we can ship elevated design faster.</p>
@@ -1133,6 +1178,9 @@
 
       <!-- ROW 3 -->
       <div class="c8-pg-cell is-text-card" data-row="2" data-col="0" id="d-r3-text">
+        <div class="c8-mobile-card-media">
+          <img src="cr8v_stack_seo.png" alt="Built-In Growth Engine">
+        </div>
         <span class="c8-drag-grip">DRAG CARD</span>
         <h3 class="c8-pg-h3">Built-In Growth Engine</h3>
         <p class="c8-pg-p">Stunning design means nothing if it doesn't scale. Our brand systems are built to convert, capture market share, and drive long-term business momentum.</p>
@@ -1288,16 +1336,54 @@
     }
 
     @media (max-width: 900px) {
+      .sw-matrix-wrapper {
+        margin: 2.5rem 1rem 3.5rem 1rem !important;
+        border-radius: 4px !important;
+      }
       .sw-matrix-cell {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+      /* Ensure text always comes before image on mobile, even for zig-zag cells */
+      #cs-duch-apartments .sw-matrix-left {
+        order: 1 !important;
+        border-bottom: 1px solid rgba(8, 8, 8, 0.06) !important;
+      }
+      #cs-duch-apartments .sw-matrix-right {
+        order: 2 !important;
+        border-right: none !important;
       }
       .sw-matrix-left {
-        border-right: none;
-        border-bottom: 1px solid rgba(8, 8, 8, 0.06);
-        padding: 2.5rem 1.5rem;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(8, 8, 8, 0.06) !important;
+        padding: 1.5rem 1.15rem !important;
+      }
+      .sw-matrix-intro-cell .sw-matrix-left {
+        padding: 1.75rem 1.15rem 1rem 1.15rem !important;
+        border-bottom: none !important;
+      }
+      .sw-matrix-intro-cell .sw-matrix-right {
+        padding: 0 1.15rem 1.75rem 1.15rem !important;
       }
       .sw-matrix-right {
-        padding: 1.5rem;
+        padding: 1.15rem !important;
+      }
+      .sw-testimonial-card {
+        padding: 1rem 0.9rem !important;
+        margin-bottom: 1.25rem !important;
+      }
+      .sw-testimonial-quote {
+        font-size: 0.85rem !important;
+        line-height: 1.55 !important;
+      }
+      .sw-matrix-sub {
+        margin-bottom: 1.25rem !important;
+      }
+      .sw-matrix-stat-floating {
+        top: 2rem !important;
+        right: 2rem !important;
+        padding: 0.45rem 0.9rem !important;
       }
     }
   </style>
@@ -1984,13 +2070,28 @@
 
     /* Mobile responsive */
     @media (max-width: 900px) {
-      .sdv-section { padding: 6rem 1.5rem; }
-      .sdv-header { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; }
-      .sdv-item-trigger { grid-template-columns: 40px 1fr 80px; }
-      .sdv-item-tag { display: none; }
-      .sdv-item-thumb { display: none; }
-      .sdv-panel-content { grid-template-columns: 40px 1fr; }
-      .sdv-panel-right { grid-column: 2; }
+      .sdv-section { padding: clamp(3rem, 6vw, 4.5rem) 1rem !important; }
+      .sdv-header { grid-template-columns: 1fr !important; gap: 1.5rem !important; margin-bottom: 2.5rem !important; }
+      .sdv-item-trigger { grid-template-columns: 36px 1fr 40px !important; padding: 1.5rem 0 !important; }
+      .sdv-item-tag { display: none !important; }
+      .sdv-item-thumb { display: none !important; }
+      .sdv-panel-spacer { display: none !important; }
+      .sdv-panel-content { 
+        grid-template-columns: 1fr !important; 
+        gap: 1.25rem !important; 
+        padding: 0 0 2rem 0 !important; 
+      }
+      .sdv-panel-desc { 
+        grid-column: 1 !important; 
+        font-size: 0.95rem !important; 
+      }
+      .sdv-panel-right { 
+        grid-column: 1 !important; 
+        gap: 0.85rem !important; 
+      }
+      .sdv-deliverable-row { 
+        font-size: 0.88rem !important; 
+      }
     }
 
     /* ── Accordion panel visual thumbnail ── */
@@ -2603,27 +2704,28 @@
         position: relative;
       }
       .dp-half-left {
-        padding: 4rem 1.5rem 4rem 1.5rem;
+        padding: 3rem 1rem !important;
       }
       .dp-half-right {
-        padding: 4rem 1.5rem 4rem 1.5rem;
+        padding: 3rem 1rem !important;
         overflow: hidden;
       }
       /* Mascot: behind content on mobile via z-index */
       .dp-mascot-wrap {
         z-index: 0;
-        width: 260px;
-        right: -30px;
+        width: 240px;
+        right: -20px;
         bottom: 0;
-        opacity: 0.22;
+        opacity: 0.18;
       }
       .dp-right-content {
         margin-left: 0;
         max-width: 100%;
+        padding: 0 !important;
       }
       .dp-stat-pair {
         grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
+        gap: 1.25rem;
       }
     }
   </style>
@@ -4062,12 +4164,15 @@
 
   <section class="cta-section" id="contact">
     <div class="cta-inner">
-      <!-- Transparent PNG Arc image matching title width -->
+      <!-- Transparent Animated Arc image matching title width -->
       <div class="cta-arc-container">
-        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate" class="cta-arc-video">
-          <source src="assets/download.mp4" type="video/mp4">
-          <source src="assets/seven_circular_badges.webm" type="video/webm">
-        </video>
+        <img 
+          src="assets/seven_badges_transparent.webp" 
+          alt="Creative Stacks Badges" 
+          class="cta-arc-video"
+          loading="lazy"
+          decoding="async"
+        >
       </div>
 
       <!-- Pure positioning wrapper container: shift margin-top on .cta-content-group to push up or down -->
@@ -4088,6 +4193,8 @@
           </a>
         </div>
       </div>
+    </div>
+  </section>
   <script>
     // Live Matrix Text Scramble Script
     function initMatrixScramble() {

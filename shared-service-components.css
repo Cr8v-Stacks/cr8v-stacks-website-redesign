@@ -703,9 +703,8 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
 /* ══════════════════════════════════════════
    SECTION 3: WHAT YOU GET / FOLDER STACK (Pristine Visual Parity with services (2).html)
    ══════════════════════════════════════════ */
-.c8isv-folder-section, .c8isv-wrap, .c8srv-wrap, .c8srv-root .c8srv-wrap {
-  padding: 5rem 3.5rem !important;
-  max-width: 100% !important;
+.c8isv-folder-section, .c8srv-folder-section {
+  padding: 0 !important;
   position: relative !important;
   z-index: 2 !important;
   background: #FFFFFF !important;
@@ -715,7 +714,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   position: relative !important;
   display: block !important;
   margin-top: 5rem !important;
-  padding-bottom: 120px !important;
+  padding-bottom: 0 !important;
   margin-bottom: 6rem !important;
 }
 
@@ -1247,9 +1246,9 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   display: grid !important;
   grid-template-columns: repeat(4, 1fr) !important;
   border: 1px solid rgba(8, 8, 8, 0.12) !important;
-  background: #FFFFFF !important;
+  background: rgba(8, 8, 8, 0.12) !important;
   margin-top: 3.5rem !important;
-  gap: 0 !important;
+  gap: 1px !important;
 }
 
 @media (max-width: 1024px) {
@@ -1267,10 +1266,7 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
 .c8isv-platform-card, .c8srv-platform-card {
   background: #FFFFFF !important;
   padding: 2.5rem 2rem !important;
-  border-right: 1px solid rgba(8, 8, 8, 0.12) !important;
-  border-bottom: none !important;
-  border-left: none !important;
-  border-top: none !important;
+  border: none !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   display: flex !important;
@@ -1280,6 +1276,17 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   transform: none !important;
 }
 
+/* Explicit fallback line between card 2 and card 3 */
+.c8isv-platform-deck > .c8isv-platform-card:not(:last-child),
+.c8srv-platform-deck > .c8srv-platform-card:not(:last-child) {
+  border-right: 1px solid rgba(8, 8, 8, 0.12) !important;
+}
+
+.c8isv-platform-deck > .c8isv-platform-card:nth-child(3),
+.c8srv-platform-deck > .c8srv-platform-card:nth-child(3) {
+  border-left: 1px solid rgba(8, 8, 8, 0.12) !important;
+}
+
 @media (max-width: 1024px) {
   .c8isv-platform-card, .c8srv-platform-card {
     border-bottom: 1px solid rgba(8, 8, 8, 0.12) !important;
@@ -1287,11 +1294,16 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
   .c8isv-platform-card:nth-child(2n), .c8srv-platform-card:nth-child(2n) {
     border-right: none !important;
   }
+  .c8isv-platform-deck > .c8isv-platform-card:nth-child(3),
+  .c8srv-platform-deck > .c8srv-platform-card:nth-child(3) {
+    border-left: none !important;
+  }
 }
 
 @media (max-width: 600px) {
   .c8isv-platform-card, .c8srv-platform-card {
     border-right: none !important;
+    border-left: none !important;
     border-bottom: 1px solid rgba(8, 8, 8, 0.12) !important;
   }
 }
@@ -1303,7 +1315,6 @@ a, a:hover, a:focus, button, .c8-btn-primary, .c8srv-explore, .c8isv-explore, .c
 
 .c8isv-platform-card:hover, .c8srv-platform-card:hover {
   background: #FAFAF7 !important;
-  border-color: rgba(8, 8, 8, 0.12) !important;
   transform: none !important;
   box-shadow: none !important;
 }
@@ -2266,3 +2277,99 @@ button.c8isv-est-choice.is-active,
   margin-right: auto !important;
   text-align: center !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GLOBAL MOBILE RESPONSIVENESS & PROPORTION REFINEMENT (SERVICE PAGES)
+   Eliminates excessive section whitespace and restores balanced typography
+   ═══════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  /* Universal section vertical spacing on mobile */
+  .c8isv-flank-section, .c8srv-flank-section,
+  .c8isv-approach-outer, .c8srv-approach-outer,
+  .c8isv-platforms-outer, .c8srv-platforms-outer,
+  .c8isv-hl-section, .c8srv-hl-section,
+  .c8isv-pricing-section, .c8srv-pricing-section,
+  .c8isv-faq-outer, .c8srv-faq-outer,
+  .c8isv-fits-outer, .c8srv-fits-outer,
+  .c8isv-related-outer, .c8srv-related-outer {
+    padding: clamp(2.5rem, 5vw, 3.5rem) 0 !important;
+  }
+
+  /* Container horizontal padding */
+  .c8isv-wrap, .c8srv-wrap {
+    padding: 0 1rem !important;
+  }
+  .c8isv-flank-inner, .c8srv-flank-inner {
+    padding: 0 1rem !important;
+  }
+
+  /* Our Work / Portfolio Section */
+  .c8isv-portfolio-outer, .c8srv-portfolio-outer {
+    padding: clamp(2.5rem, 5vw, 3.5rem) 0 1.5rem 0 !important;
+  }
+  .c8isv-portfolio-inner, .c8srv-portfolio-inner {
+    padding: 0 1rem !important;
+  }
+  .c8isv-portfolio-head, .c8srv-portfolio-head {
+    margin-bottom: 2rem !important;
+  }
+  .c8isv-portfolio-card, .c8srv-portfolio-card {
+    grid-template-columns: 1fr !important;
+  }
+  .c8isv-portfolio-img, .c8srv-portfolio-img {
+    min-height: 220px !important;
+    max-height: 280px !important;
+  }
+  .c8isv-portfolio-info, .c8srv-portfolio-info {
+    padding: 1.5rem 1.15rem !important;
+  }
+  .c8isv-portfolio-title, .c8srv-portfolio-title {
+    font-size: 1.05rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .c8isv-portfolio-desc, .c8srv-portfolio-desc {
+    font-size: 13.5px !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .c8isv-portfolio-stats, .c8srv-portfolio-stats {
+    gap: 1.25rem !important;
+    margin-bottom: 1.25rem !important;
+    padding-top: 1rem !important;
+  }
+  .c8isv-portfolio-footer, .c8srv-portfolio-footer {
+    margin-top: 1.5rem !important;
+  }
+
+  /* What You Get / Folder Deck */
+  .c8isv-folder-section, .c8srv-folder-section {
+    padding: 1.5rem 0 0 0 !important;
+  }
+  .c8isv-folder-deck, .c8srv-folder-deck {
+    margin-top: 1.5rem !important;
+    padding-bottom: 80px !important;
+    margin-bottom: 0px !important;
+  }
+  .c8isv-folder-card, .c8srv-folder-card {
+    grid-template-columns: 1fr !important;
+    padding: 1.5rem 1.15rem !important;
+    gap: 1.25rem !important;
+    min-height: auto !important;
+  }
+
+  /* How We Approach It */
+  .c8isv-approach-deck, .c8srv-approach-deck {
+    margin: 1rem auto 2rem auto !important;
+  }
+  .c8isv-approach-card, .c8srv-approach-card {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    padding: 1.5rem 1.15rem !important;
+  }
+  .c8isv-approach-col-name, .c8srv-approach-col-name {
+    font-size: 1.5rem !important;
+  }
+  .c8isv-approach-col-img, .c8srv-approach-col-img {
+    height: 150px !important;
+  }
+}
+

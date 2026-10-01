@@ -42,29 +42,29 @@ defined('ABSPATH') || exit;
     _cr8v_text($wp_customize, 'work_matrix_heading', 'cr8v_work_matrix', 'Section Heading', 'WORK THAT\'S VERIFIABLY LIVE.');
     _cr8v_textarea($wp_customize, 'work_matrix_sub', 'cr8v_work_matrix', 'Section Subtitle', 'These aren\'t concept projects or fictitious mockups. Every case study below is a live engagement — search the clients on Google and see the work for yourself. We only show projects we\'re allowed to talk about.');
 
-    // Case Study 1: blvck Hair NG
-    _cr8v_text($wp_customize, 'cs1_eyebrow', 'cr8v_work_matrix', 'Case 1 Eyebrow', 'ORGANIC ACQUISITION ENGINE');
-    _cr8v_text($wp_customize, 'cs1_heading', 'cr8v_work_matrix', 'Case 1 Heading', 'Organic E-Commerce Growth From The Ground Up');
-    _cr8v_textarea($wp_customize, 'cs1_sub', 'cr8v_work_matrix', 'Case 1 Subtitle', 'Full-stack SEO architecture and multi-market e-commerce scaling for blvck Hair NG — growing from a single early storefront to active revenue-generating stores in both Nigeria and the UK.');
-    _cr8v_textarea($wp_customize, 'cs1_quote', 'cr8v_work_matrix', 'Case 1 Quote', 'We handled their SEO end-to-end — keyword mapping, page architecture, and content — from the ground up. We built out the strategy for two markets simultaneously, and both storefronts are now ranking and converting independently.');
-    _cr8v_text($wp_customize, 'cs1_role', 'cr8v_work_matrix', 'Case 1 Role/Tag', 'SEO & E-Commerce · Nigeria & UK');
+    // Case Study 1: The Duch Apartments
+    _cr8v_text($wp_customize, 'cs1_eyebrow', 'cr8v_work_matrix', 'Case 1 Eyebrow', 'BUILT-IN SEO ARCHITECTURE');
+    _cr8v_text($wp_customize, 'cs1_heading', 'cr8v_work_matrix', 'Case 1 Heading', 'Website Design With SEO Folded In From Day One');
+    _cr8v_textarea($wp_customize, 'cs1_sub', 'cr8v_work_matrix', 'Case 1 Subtitle', 'Bespoke website design for The Duch Apartments — engineered with search engine optimization folded directly into the code structure from line one rather than patched after launch.');
+    _cr8v_textarea($wp_customize, 'cs1_quote', 'cr8v_work_matrix', 'Case 1 Quote', 'We designed and built the full site — custom layout, zero template base — with SEO architecture already coded in before a single page went live. Direct booking integration was included from the first sprint, maximising their direct revenue channel from day one.');
+    _cr8v_text($wp_customize, 'cs1_role', 'cr8v_work_matrix', 'Case 1 Role/Tag', 'Web Design & Technical SEO · Lagos, Nigeria');
     _cr8v_text($wp_customize, 'cs1_cta_text', 'cr8v_work_matrix', 'Case 1 CTA Button Text', 'Explore Case Study');
-    _cr8v_text($wp_customize, 'cs1_stat_val', 'cr8v_work_matrix', 'Case 1 Stat Value', '2 Active Stores');
-    _cr8v_text($wp_customize, 'cs1_stat_lbl', 'cr8v_work_matrix', 'Case 1 Stat Label', 'UK & NG Growth');
+    _cr8v_text($wp_customize, 'cs1_stat_val', 'cr8v_work_matrix', 'Case 1 Stat Value', '100% Custom');
+    _cr8v_text($wp_customize, 'cs1_stat_lbl', 'cr8v_work_matrix', 'Case 1 Stat Label', 'Design & SEO Day 1');
     _cr8v_image($wp_customize, 'cs1_img', 'cr8v_work_matrix', 'Case 1 Image');
-    _cr8v_text($wp_customize, 'cs1_link', 'cr8v_work_matrix', 'Case 1 Link', '/case-studies/blvck-hair-ng/');
+    _cr8v_text($wp_customize, 'cs1_link', 'cr8v_work_matrix', 'Case 1 Link', '/case-studies/the-duch-apartments/');
 
-    // Case Study 2: The Duch Apartments
-    _cr8v_text($wp_customize, 'cs2_eyebrow', 'cr8v_work_matrix', 'Case 2 Eyebrow', 'BUILT-IN SEO ARCHITECTURE');
-    _cr8v_text($wp_customize, 'cs2_heading', 'cr8v_work_matrix', 'Case 2 Heading', 'Website Design With SEO Folded In From Day One');
-    _cr8v_textarea($wp_customize, 'cs2_sub', 'cr8v_work_matrix', 'Case 2 Subtitle', 'Bespoke website design for The Duch Apartments — engineered with search engine optimization folded directly into the code structure from line one rather than patched after launch.');
-    _cr8v_textarea($wp_customize, 'cs2_quote', 'cr8v_work_matrix', 'Case 2 Quote', 'We designed and built the full site — custom layout, zero template base — with SEO architecture already coded in before a single page went live. Direct booking integration was included from the first sprint, maximising their direct revenue channel from day one.');
-    _cr8v_text($wp_customize, 'cs2_role', 'cr8v_work_matrix', 'Case 2 Role/Tag', 'Web Design & Technical SEO · Lagos, Nigeria');
+    // Case Study 2: Mkenny Properties
+    _cr8v_text($wp_customize, 'cs2_eyebrow', 'cr8v_work_matrix', 'Case 2 Eyebrow', 'DYNAMIC PROPERTY DIRECTORY');
+    _cr8v_text($wp_customize, 'cs2_heading', 'cr8v_work_matrix', 'Case 2 Heading', 'Bespoke Real Estate Engine Built On Custom WordPress Blocks');
+    _cr8v_textarea($wp_customize, 'cs2_sub', 'cr8v_work_matrix', 'Case 2 Subtitle', 'Upgraded Mkenny Properties from a static brochure into a high-performance commercial real estate engine with bespoke custom post types, dynamic filtering, and custom Gutenberg blocks.');
+    _cr8v_textarea($wp_customize, 'cs2_quote', 'cr8v_work_matrix', 'Case 2 Quote', 'Handcrafted custom post types, facet-based search filters, and lightweight Gutenberg blocks engineered without bulky plugins. 3.5x boost in commercial client deal size.');
+    _cr8v_text($wp_customize, 'cs2_role', 'cr8v_work_matrix', 'Case 2 Role/Tag', 'Real Estate Directory · Manchester UK');
     _cr8v_text($wp_customize, 'cs2_cta_text', 'cr8v_work_matrix', 'Case 2 CTA Button Text', 'Explore Case Study');
-    _cr8v_text($wp_customize, 'cs2_stat_val', 'cr8v_work_matrix', 'Case 2 Stat Value', '100% Custom');
-    _cr8v_text($wp_customize, 'cs2_stat_lbl', 'cr8v_work_matrix', 'Case 2 Stat Label', 'Design & SEO Day 1');
+    _cr8v_text($wp_customize, 'cs2_stat_val', 'cr8v_work_matrix', 'Case 2 Stat Value', '4.8x Leads');
+    _cr8v_text($wp_customize, 'cs2_stat_lbl', 'cr8v_work_matrix', 'Case 2 Stat Label', 'Bespoke Directory');
     _cr8v_image($wp_customize, 'cs2_img', 'cr8v_work_matrix', 'Case 2 Image');
-    _cr8v_text($wp_customize, 'cs2_link', 'cr8v_work_matrix', 'Case 2 Link', '/case-studies/the-duch-apartments/');
+    _cr8v_text($wp_customize, 'cs2_link', 'cr8v_work_matrix', 'Case 2 Link', '/case-studies/mkenny-properties/');
 
     // Case Study 3: WP Publishion AI
     _cr8v_text($wp_customize, 'cs3_eyebrow', 'cr8v_work_matrix', 'Case 3 Eyebrow', 'PROPRIETARY AI MVP PLATFORM');
@@ -77,6 +77,18 @@ defined('ABSPATH') || exit;
     _cr8v_text($wp_customize, 'cs3_stat_lbl', 'cr8v_work_matrix', 'Case 3 Stat Label', 'Proprietary AI Build');
     _cr8v_image($wp_customize, 'cs3_img', 'cr8v_work_matrix', 'Case 3 Image');
     _cr8v_text($wp_customize, 'cs3_link', 'cr8v_work_matrix', 'Case 3 Link', '/case-studies/wp-publishion-ai/');
+
+    // Case Study 4: BLVCK Hair NG
+    _cr8v_text($wp_customize, 'cs4_eyebrow', 'cr8v_work_matrix', 'Case 4 Eyebrow', 'LUXURY E-COMMERCE & ENTITY SEO');
+    _cr8v_text($wp_customize, 'cs4_heading', 'cr8v_work_matrix', 'Case 4 Heading', 'Bespoke Shopify Storefront & Organic Search Domination');
+    _cr8v_textarea($wp_customize, 'cs4_sub', 'cr8v_work_matrix', 'Case 4 Subtitle', 'Engineered custom Shopify Liquid templates, Paystack multi-currency checkout, and entity search authority for BLVCK Hair NG, scaling cross-border sales across Nigeria and the UK.');
+    _cr8v_textarea($wp_customize, 'cs4_quote', 'cr8v_work_matrix', 'Case 4 Quote', 'Handcrafted Liquid templates, dynamic length variant matrix, and Paystack multi-currency checkout. +240% organic revenue lift with zero recurring paid social ad burn.');
+    _cr8v_text($wp_customize, 'cs4_role', 'cr8v_work_matrix', 'Case 4 Role/Tag', 'Shopify Liquid & Paystack · Lagos & London');
+    _cr8v_text($wp_customize, 'cs4_cta_text', 'cr8v_work_matrix', 'Case 4 CTA Button Text', 'Explore Case Study');
+    _cr8v_text($wp_customize, 'cs4_stat_val', 'cr8v_work_matrix', 'Case 4 Stat Value', '+240% Rev');
+    _cr8v_text($wp_customize, 'cs4_stat_lbl', 'cr8v_work_matrix', 'Case 4 Stat Label', 'Organic Search');
+    _cr8v_image($wp_customize, 'cs4_img', 'cr8v_work_matrix', 'Case 4 Image');
+    _cr8v_text($wp_customize, 'cs4_link', 'cr8v_work_matrix', 'Case 4 Link', '/case-studies/blvck-hair-ng/');
 
     // 4. SERVICES DEEP DIVE (#services-deep-dive)
     _cr8v_section($wp_customize, 'cr8v_sdv', '4. Services Deep Dive', 'cr8v_homepage', 40);
@@ -293,7 +305,6 @@ defined('ABSPATH') || exit;
     _cr8v_text($wp_customize, 'cta_button_text', 'cr8v_final_cta', 'Button Label', 'Book a Consultation');
     _cr8v_text($wp_customize, 'cta_button_url', 'cr8v_final_cta', 'Button Link', '/discovery-call/');
     _cr8v_text($wp_customize, 'cta_video_mp4', 'cr8v_final_cta', 'Banner Video MP4 Asset', 'download.mp4');
-    _cr8v_text($wp_customize, 'cta_video_webm', 'cr8v_final_cta', 'Banner Video WebM Asset', 'seven_circular_badges.webm');
 
         // ==========================================
     // ABOUT US PAGE PANEL (11 EXHAUSTIVE SECTIONS)

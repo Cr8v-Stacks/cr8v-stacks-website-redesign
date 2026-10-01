@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red Cap Entertainment: Live Spectacle Architecture & African Cultural Staging — Cr8v Stacks Case Study</title>
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --c8-paper-bg: #FAFAF7;
+      --c8-paper-card: #FFFFFF;
+      --c8-ink: #111215;
+      --c8-sub: #55575D;
+      --c8-grid-line: #E5E7EB;
+      --c8-blue: #0047E1;
+      --c8-blue-hi: #3D6BFF;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-heading: 'Michroma', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #FFFFFF;
+      color: var(--c8-ink);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── GLOBAL HEADER ── */
+    .c8-nav-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 68px;
+      padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--c8-grid-line);
+      z-index: 1000;
+    }
+    .c8-brand-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--c8-ink);
+    }
+    .c8-brand-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--c8-blue);
+      border-radius: 50%;
+    }
+    .c8-nav-pills {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    @media (max-width: 640px) {
+      .c8-nav-pills { display: none; }
+    }
+    .c8-nav-link {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--c8-sub);
+      transition: color 0.2s ease;
+    }
+    .c8-nav-link:hover { color: var(--c8-blue); }
+    .c8-btn-cta {
+      background: var(--c8-ink);
+      color: #FFFFFF !important;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .c8-btn-cta:hover {
+      background: var(--c8-blue);
+      transform: translateY(-1px);
+    }
+
+    /* ── CASE STUDY ROOT & LAYOUT ── */
+    .c8cs-root { position: relative; width: 100%; background: #FFFFFF; color: var(--c8-ink); font-family: var(--font-body); }
+    .c8cs-wrap { max-width: 1340px; margin: 0 auto; padding: 2.5rem 2rem 3.5rem; position: relative; z-index: 2; }
+    @media (max-width: 768px) { .c8cs-wrap { padding: 1.5rem 1.25rem 2.5rem; } }
+
+    .c8cs-back-btn {
+      font-family: var(--font-mono); font-size: 10px; color: #8A8A8A; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; text-decoration: none; font-weight: 700; position: relative; z-index: 2;
+    }
+    .c8cs-back-btn:hover { color: var(--c8-blue); }
+
+    .c8cs-label {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--c8-blue); display: inline-flex; align-items: center; gap: 10px; margin-bottom: 1.25rem;
+    }
+    .c8cs-label::before { content: '// '; color: var(--c8-blue); font-weight: 700; }
+
+    .c8cs-headline {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 4.5vw, 2.6rem);
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      font-weight: 700;
+      color: var(--c8-ink);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      max-width: 1050px;
+    }
+    .c8cs-serif { font-family: var(--font-body); font-style: italic; text-transform: none; font-weight: 400; color: var(--c8-blue); }
+
+    .c8cs-lead {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--c8-sub);
+      max-width: 880px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .fylla-pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; margin-bottom: 2.5rem; }
+    .fylla-pill {
+      border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.4rem 0.9rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700; border-radius: 4px !important; text-transform: uppercase;
+    }
+
+    .c8cs-hero { padding-top: 4rem; padding-bottom: 4rem; position: relative; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
+
+    .c8cs-meta-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: transparent; margin-top: 3.5rem; position: relative; z-index: 2; overflow: hidden;
+    }
+    @media (max-width: 900px) { .c8cs-meta-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .c8cs-meta-grid { grid-template-columns: 1fr; } }
+
+    .c8cs-meta-item { padding: 1.25rem 1.75rem; border-right: 1px solid var(--c8-grid-line); background: #FFFFFF; display: flex; flex-direction: column; gap: 0.35rem; }
+    .c8cs-meta-item:last-child { border-right: none; }
+    @media (max-width: 900px) {
+      .c8cs-meta-item:nth-child(2) { border-right: none; }
+      .c8cs-meta-item:nth-child(1), .c8cs-meta-item:nth-child(2) { border-bottom: 1px solid var(--c8-grid-line); }
+    }
+    @media (max-width: 500px) {
+      .c8cs-meta-item { border-right: none !important; border-bottom: 1px solid var(--c8-grid-line); }
+      .c8cs-meta-item:last-child { border-bottom: none; }
+    }
+
+    .c8cs-meta-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-sub); font-weight: 700; }
+    .c8cs-meta-val { font-size: 13.5px; font-weight: 600; color: var(--c8-ink); }
+
+    /* ── FULL-WIDTH EXPANSIVE HERO MEDIA ── */
+    .c8cs-grow-media-wrapper {
+      width: 100%;
+      background: #FAFAF7;
+      padding: clamp(2rem, 4vw, 4rem) 0;
+      border-bottom: 1px solid var(--c8-grid-line);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .c8cs-hero-switcher {
+      display: inline-flex;
+      background: #FFFFFF;
+      border: 1px solid var(--c8-grid-line);
+      border-radius: 4px;
+      padding: 4px;
+      gap: 4px;
+    }
+    .c8cs-switch-btn {
+      padding: 6px 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: none;
+      background: transparent;
+      color: var(--c8-sub);
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.2s ease;
+    }
+    .c8cs-switch-btn.is-active {
+      background: var(--c8-blue);
+      color: #FFFFFF;
+    }
+    .c8cs-main-img-box {
+      width: 100%;
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 0 clamp(1rem, 3vw, 2.5rem);
+      box-sizing: border-box;
+    }
+    .c8cs-hero-img-inner {
+      width: 100%;
+      border-radius: 4px !important;
+      overflow: hidden;
+      border: 1px solid var(--c8-grid-line);
+      background: #080808;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+    .c8cs-hero-img-inner.is-landscape {
+      aspect-ratio: 16 / 9;
+    }
+    .c8cs-hero-img-inner.is-vertical {
+      max-width: 580px;
+      margin: 0 auto;
+      aspect-ratio: 3 / 4;
+    }
+    .c8cs-hero-img-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+      transition: transform 0.5s ease;
+    }
+    .c8cs-hero-img-inner:hover img {
+      transform: scale(1.02);
+    }
+
+    /* ── SECTION 3: STRATEGIC OVERVIEW ── */
+    .c8cs-split-section { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 5vw, 6rem); align-items: flex-start; padding: 2rem 0; }
+    @media (max-width: 900px) { .c8cs-split-section { grid-template-columns: 1fr; gap: 3rem; } }
+
+    .c8cs-split-title { font-family: var(--font-heading); font-size: clamp(1.6rem, 3vw, 2.4rem); text-transform: uppercase; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; }
+    .c8cs-body-content p { font-size: 15px; color: var(--c8-sub); line-height: 1.8; margin-bottom: 1.25rem; font-weight: 300; }
+
+    .fylla-value-item { display: flex; gap: 1.25rem; margin-bottom: 2rem; align-items: flex-start; }
+    .fylla-value-icon-box { width: 42px; height: 42px; border-radius: 4px; background: #FAFAF7; border: 1px solid var(--c8-grid-line); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--c8-blue); }
+    .fylla-value-icon-box svg { width: 20px; height: 20px; stroke-width: 2; }
+    .fylla-value-h3 { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.35rem; color: var(--c8-ink); line-height: 1.3; }
+    .fylla-value-desc { font-size: 13.5px; color: var(--c8-sub); line-height: 1.6; font-weight: 300; }
+
+    /* ── SECTION 4: CORE TECHNICAL DELIVERABLES ── */
+    .c8cs-deliverables-section { padding: clamp(2rem, 3.5vw, 3.5rem) 0; background: #FFFFFF; }
+    .c8cs-deliverables-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+    .c8cs-deliverables-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+    .c8cs-deliverables-grid { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--c8-grid-line); }
+    @media (max-width: 900px) { .c8cs-deliverables-grid { grid-template-columns: 1fr; } }
+
+    .c8cs-deliverable-card { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3vw, 3rem); display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--c8-grid-line); background: #FAFAF7; }
+    .c8cs-deliverable-card:nth-child(even) { border-right: none; background: #FFFFFF; }
+    @media (max-width: 900px) { .c8cs-deliverable-card { border-right: none; border-bottom: 1px solid var(--c8-grid-line); } }
+
+    .c8cs-deliverable-meta { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; margin-bottom: 0.75rem; }
+    .c8cs-deliverable-title { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 1rem; line-height: 1.25; }
+    .c8cs-deliverable-desc { font-size: 14px; color: var(--c8-sub); line-height: 1.6; font-weight: 300; margin-bottom: 2rem; }
+
+    .c8cs-deliverable-img-box { width: 100%; aspect-ratio: 16 / 9; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; margin-top: auto; position: relative; }
+    .c8cs-deliverable-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; transition: transform 0.4s ease; }
+    .c8cs-deliverable-img-box:hover img { transform: scale(1.03); }
+
+    .c8cs-sovereignty-split { display: grid; grid-template-columns: 1.15fr 0.85fr; }
+    @media (max-width: 960px) { .c8cs-sovereignty-split { grid-template-columns: 1fr; } }
+
+    .c8cs-sovereignty-left { background: #FFFFFF; padding: clamp(2.5rem, 3.5vw, 3.75rem) clamp(1.75rem, 3vw, 3.25rem); display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--c8-grid-line); }
+    @media (max-width: 960px) { .c8cs-sovereignty-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2rem 1.5rem; } }
+    .c8cs-sovereignty-right { background: #FAFAF7; padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; align-items: center; justify-content: center; }
+    @media (max-width: 960px) { .c8cs-sovereignty-right { padding: 2rem 1.25rem; } }
+    .c8cs-sovereignty-img-box { width: 100%; max-width: 440px; aspect-ratio: 3 / 4; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; box-shadow: 0 20px 40px rgba(0,0,0,0.08); position: relative; }
+    .c8cs-sovereignty-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; transition: transform 0.4s ease; }
+    .c8cs-sovereignty-img-box:hover img { transform: scale(1.03); }
+
+    /* ── SECTION 5.5: DEDICATED ENGINEERING SHOWCASE & CAROUSEL DECK ── */
+    .c8cs-social-campaign-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+    .c8cs-social-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+    .c8cs-social-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+    @media (max-width: 600px) { .c8cs-social-header { padding: 1.75rem 1.25rem; } }
+
+    .c8cs-carousel-deck-wrap { border-bottom: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); }
+    @media (max-width: 600px) { .c8cs-carousel-deck-wrap { padding: 1.5rem 1rem; } }
+    .c8cs-carousel-deck-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+    .c8cs-carousel-deck-title { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--c8-ink); font-weight: 700; letter-spacing: 0.08em; }
+    .c8cs-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c8-blue); display: inline-block; }
+    .c8cs-carousel-nav-controls { display: flex; align-items: center; gap: 10px; }
+    .c8cs-deck-nav-btn {
+      width: 38px; height: 38px; border-radius: 4px; border: 1px solid var(--c8-grid-line); background: #FFFFFF; color: var(--c8-ink); font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;
+    }
+    .c8cs-deck-nav-btn:hover { background: var(--c8-blue); color: #FFFFFF; border-color: var(--c8-blue); }
+    .c8cs-deck-counter { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--c8-sub); letter-spacing: 0.1em; padding: 0 4px; }
+    
+    .c8cs-carousel-deck-track {
+      display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 1rem; scrollbar-width: thin;
+    }
+    .c8cs-carousel-deck-track::-webkit-scrollbar { height: 6px; }
+    .c8cs-carousel-deck-track::-webkit-scrollbar-track { background: rgba(0,0,0,0.04); border-radius: 3px; }
+    .c8cs-carousel-deck-track::-webkit-scrollbar-thumb { background: rgba(0,71,225,0.3); border-radius: 3px; }
+    
+    .c8cs-carousel-slide-item {
+      flex: 0 0 clamp(290px, 32vw, 390px); scroll-snap-align: start; background: #FFFFFF; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .c8cs-carousel-slide-item:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.06); }
+    .c8cs-slide-media { position: relative; width: 100%; aspect-ratio: 16 / 10; background: #0F172A; overflow: hidden; }
+    .c8cs-slide-media img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
+    .c8cs-slide-num-badge {
+      position: absolute; top: 10px; right: 10px; background: rgba(15,23,42,0.85); backdrop-filter: blur(4px); color: #FFFFFF; font-family: var(--font-mono); font-size: 9px; font-weight: 700; padding: 4px 8px; border-radius: 4px; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .c8cs-slide-caption { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; }
+    .c8cs-slide-tag { font-family: var(--font-mono); font-size: 8.5px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.12em; }
+    .c8cs-slide-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; line-height: 1.3; }
+    .c8cs-slide-desc { font-size: 13px; color: var(--c8-sub); font-weight: 300; line-height: 1.5; }
+
+    /* Mobile Interface Inspection Stage */
+    .c8cs-reels-stage-wrap { padding: clamp(2.5rem, 3.5vw, 3.5rem) clamp(1.75rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+    @media (max-width: 600px) { .c8cs-reels-stage-wrap { padding: 1.75rem 1.25rem; } }
+    .c8cs-reels-stage-header { margin-bottom: 2rem; }
+    .c8cs-reels-tag { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.14em; display: block; margin-bottom: 0.5rem; }
+    .c8cs-reels-title { font-family: var(--font-heading); font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 700; text-transform: uppercase; color: var(--c8-ink); }
+    
+    .c8cs-reels-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    @media (max-width: 900px) { .c8cs-reels-grid { grid-template-columns: 1fr; } }
+    
+    .c8cs-reel-card { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FAFAF7; padding: clamp(1.5rem, 2vw, 2rem); display: grid; grid-template-columns: 240px 1fr; gap: 1.75rem; align-items: center; }
+    @media (max-width: 650px) { .c8cs-reel-card { grid-template-columns: 1fr; } }
+    
+    .c8cs-phone-frame { width: 100%; max-width: 240px; aspect-ratio: 9 / 16; border-radius: 20px; background: #0F172A; padding: 6px; box-shadow: 0 16px 36px rgba(0,0,0,0.12); border: 2px solid #E2E8F0; position: relative; margin: 0 auto; }
+    .c8cs-phone-screen { width: 100%; height: 100%; border-radius: 14px; overflow: hidden; position: relative; background: #000000; }
+    .c8cs-phone-screen img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
+    
+    .c8cs-reel-details { display: flex; flex-direction: column; gap: 0.75rem; }
+    .c8cs-reel-sub { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.12em; }
+    .c8cs-reel-h4 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); line-height: 1.3; }
+
+    /* ── SECTION 6: PURE VISUAL GALLERY ── */
+    .c8cs-stream-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+    .c8cs-stream-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+    .c8cs-stream-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+    @media (max-width: 600px) { .c8cs-stream-header { padding: 1.75rem 1.25rem; } }
+    .c8cs-stream-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: var(--c8-grid-line); }
+    @media (max-width: 992px) { .c8cs-stream-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .c8cs-stream-grid { grid-template-columns: 1fr; } }
+    .c8cs-stream-cell { background: #FFFFFF; padding: clamp(1.25rem, 2vw, 1.75rem); display: flex; flex-direction: column; border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); transition: background 0.35s ease; }
+    .c8cs-stream-cell:nth-child(3n) { border-right: none; }
+    @media (max-width: 992px) { .c8cs-stream-cell:nth-child(3n) { border-right: 1px solid var(--c8-grid-line); } .c8cs-stream-cell:nth-child(2n) { border-right: none; } }
+    @media (max-width: 600px) { .c8cs-stream-cell { border-right: none; padding: 1.25rem 1.25rem 1.5rem; } }
+    .c8cs-stream-cell:hover { background: #FAFAF7; }
+    .c8cs-stream-img-box { width: 100%; aspect-ratio: 16 / 9; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; margin-bottom: 1rem; position: relative; }
+    .c8cs-stream-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; cursor: zoom-in; transition: transform 0.5s ease; }
+    .c8cs-stream-cell:hover .c8cs-stream-img-box img { transform: scale(1.03); }
+    .c8cs-stream-cell-info { display: flex; flex-direction: column; gap: 0.2rem; }
+    .c8cs-stream-cell-tag { font-family: var(--font-mono); font-size: 8.5px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.12em; }
+    .c8cs-stream-cell-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; letter-spacing: 0.01em; }
+
+    /* ── SECTION 7: METRICS ── */
+    .c8cs-metrics-bg { background: #FFFFFF; padding: clamp(3rem, 5vw, 5rem) 0; }
+    .c8cs-metrics-outer-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+    .c8cs-metrics-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+    @media (max-width: 600px) { .c8cs-metrics-header { padding: 1.75rem 1.25rem; } }
+    .c8cs-metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+    @media (max-width: 768px) { .c8cs-metrics-grid { grid-template-columns: 1fr; } }
+
+    .c8cs-metric-card { background: #FAFAF7; border-right: 1px solid var(--c8-grid-line); padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; flex-direction: column; transition: background 0.35s ease; }
+    .c8cs-metric-card:nth-child(even) { background: #FFFFFF; }
+    .c8cs-metric-card:hover { background: #F4F5F7; }
+    .c8cs-metric-card:last-child { border-right: none; }
+    @media (max-width: 768px) {
+      .c8cs-metric-card { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
+      .c8cs-metric-card:last-child { border-bottom: none; }
+    }
+
+    .c8cs-metric-val { font-family: var(--font-heading); font-size: clamp(2.4rem, 4vw, 3rem); font-weight: 700; color: var(--c8-blue); line-height: 1; margin-bottom: 1rem; }
+    .c8cs-metric-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.65rem; font-weight: 700; }
+    .c8cs-metric-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; }
+
+    /* ── SECTION 8: RELATED PROJECTS ── */
+    .c8cs-related-paper-outer { background: #FFFFFF; padding: clamp(3rem, 5vw, 5rem) 0; width: 100%; }
+    .c8cs-related-matrix-box { max-width: 1340px; margin: 0 auto; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+    .c8cs-related-matrix-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+    @media (max-width: 600px) { .c8cs-related-matrix-header { padding: 1.75rem 1.25rem; } }
+    .c8cs-related-matrix-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+    @media (max-width: 900px) { .c8cs-related-matrix-grid { grid-template-columns: 1fr; } }
+
+    .c8cs-related-cell { padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); border-right: 1px solid var(--c8-grid-line); background: #FAFAF7; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: var(--c8-ink); transition: background 0.35s ease; }
+    .c8cs-related-cell:nth-child(even) { background: #FFFFFF; }
+    .c8cs-related-cell:last-child { border-right: none; }
+    .c8cs-related-cell:hover { background: #F4F5F7; }
+    @media (max-width: 900px) {
+      .c8cs-related-cell { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
+      .c8cs-related-cell:last-child { border-bottom: none; }
+    }
+
+    .c8cs-related-cell-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; margin-bottom: 0.65rem; }
+    .c8cs-related-cell-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.75rem; line-height: 1.3; }
+    .c8cs-related-cell-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 1.75rem; }
+    .c8cs-related-cell-link { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s ease; }
+    .c8cs-related-cell:hover .c8cs-related-cell-link { gap: 10px; }
+
+    /* ── FOOTER ── */
+    .c8-footer {
+      background: #080808;
+      color: #FFFFFF;
+      padding: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 4vw, 3.5rem);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .c8-footer-inner {
+      max-width: 1340px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .c8-footer-brand {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .c8-footer-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #888888;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── INTERACTIVE LIGHTBOX INSPECTOR MODAL ── */
+    .c8-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 8, 8, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 99999;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .c8-lightbox.is-open {
+      display: flex;
+      opacity: 1;
+    }
+    .c8-lb-topbar {
+      width: 100%;
+      max-width: 1400px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #FFFFFF;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      font-family: var(--font-mono);
+      font-size: 11px;
+    }
+    .c8-lb-title {
+      color: #FFFFFF;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .c8-lb-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .c8-lb-close-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      transition: background 0.2s ease;
+    }
+    .c8-lb-close-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .c8-lb-stage {
+      position: relative;
+      flex: 1;
+      width: 100%;
+      max-width: 1400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 0;
+      overflow: hidden;
+    }
+    .c8-lb-stage img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      cursor: zoom-out;
+      transition: transform 0.2s ease;
+    }
+    .c8-lb-phone-wrap {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      max-height: 82vh;
+      width: auto;
+    }
+    .c8-lightbox.is-mobile-view .c8-lb-phone-wrap {
+      display: flex;
+    }
+    .c8-lightbox.is-mobile-view > .c8-lb-stage > img,
+    .c8-lightbox.is-mobile-view #c8LbImg {
+      display: none !important;
+    }
+    .c8-lb-phone-frame {
+      height: 80vh;
+      max-height: 760px;
+      width: calc(80vh * 9 / 18.5);
+      max-width: 370px;
+      border-radius: 42px;
+      background: #0B0F19;
+      padding: 10px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.18), inset 0 0 0 2px #1E293B;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .c8-lb-phone-notch {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 18px;
+      background: #000000;
+      border-radius: 10px;
+      z-index: 10;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    }
+    .c8-lb-phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 32px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: relative;
+      background: #000000;
+      -webkit-overflow-scrolling: touch;
+    }
+    .c8-lb-phone-screen img {
+      width: 100% !important;
+      height: 100% !important;
+      max-height: none !important;
+      object-fit: cover !important;
+      object-position: top center !important;
+      display: block !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      border: none !important;
+      cursor: default !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="c8-nav-header">
+    <a href="#" class="c8-brand-link">
+      <span class="c8-brand-dot"></span>
+      <span>Cr8v Stacks</span>
+    </a>
+    <nav class="c8-nav-pills">
+      <a href="#" class="c8-nav-link">Case Studies</a>
+      <a href="#" class="c8-nav-link">Services</a>
+      <a href="#" class="c8-nav-link">Framework</a>
+      <a href="#" class="c8-btn-cta">Book Discovery Call</a>
+    </nav>
+  </header>
+
+  <div class="c8cs-root">
+    
+    <!-- Section 1: Hero Section -->
+    <section class="c8cs-hero">
+      <div class="c8cs-wrap" style="padding-top: 1rem; padding-bottom: 2rem;">
+        <a href="#" class="c8cs-back-btn">&larr; Back to Portfolio Archive</a>
+        
+        <div class="c8cs-label">Case Study // Full-Stack Theme Architecture & Inquiries Engine // Rapid Customizer Conversion</div>
+        <h1 class="c8cs-headline">Red Cap Entertainment: Live Spectacle & <span class="c8cs-serif">African Cultural Staging</span></h1>
+        <p class="c8cs-lead">Red Cap Entertainment is a UK-based cultural production house translating African heritage into contemporary live settings across the UK and internationally. Cr8v Stacks engineered their complete custom WordPress theme and companion core plugin—featuring an intelligent Event CPT docket with past-event calculus, real-time .ics calendar generator, the universal multi-discipline inquiries engine, and native Customizer controls with zero page-builder overhead.</p>
+        
+        <div class="fylla-pill-row">
+          <span class="fylla-pill">WordPress Theme Engineering</span>
+          <span class="fylla-pill">Live Cultural Production</span>
+          <span class="fylla-pill">Event CPT Docket</span>
+          <span class="fylla-pill">Inquiries Engine</span>
+          <span class="fylla-pill">Native Customizer</span>
+          <span class="fylla-pill">Dynamic .ics Generator</span>
+        </div>
+
+        <div class="c8cs-meta-grid">
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Client</span>
+            <span class="c8cs-meta-val">Red Cap Entertainment</span>
+          </div>
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Services</span>
+            <span class="c8cs-meta-val">Theme Architecture, CPT Docket & Inquiries</span>
+          </div>
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Stack</span>
+            <span class="c8cs-meta-val">WordPress Core · Customizer · PHP · CSS Tokens</span>
+          </div>
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Link</span>
+            <span class="c8cs-meta-val">
+              <a href="https://redcapentertainment.co.uk/" target="_blank" rel="noopener" style="color: var(--c8-blue); font-weight: 700;">redcapentertainment.co.uk &nearr;</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Full-Width Expansive Hero Media (AI Creative Desk Suite) -->
+    <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
+      <div class="c8cs-hero-switcher">
+        <button type="button" class="c8cs-switch-btn is-active" id="btnHeroLandscape" data-target="landscape">Portfolio Landscape (16:9)</button>
+        <button type="button" class="c8cs-switch-btn" id="btnHeroVertical" data-target="vertical">Service Page Portrait (3:4)</button>
+      </div>
+
+      <div class="c8cs-main-img-box" id="c8cs-grow-target">
+        <!-- Landscape Featured Image -->
+        <div class="c8cs-hero-img-inner is-landscape" id="heroBoxLandscape" title="Click to Inspect Full-Resolution Landscape Hero">
+          <img src="wp-theme/cr8v-stacks/assets/img/case_studies/case_study_red_cap_entertainment.webp" alt="Red Cap Entertainment - Production Director Control Suite" data-inspect-img data-inspect-title="Portfolio Featured Image (16:9) // Production Director Studio Setup">
+        </div>
+        <!-- Vertical Service Page Hero -->
+        <div class="c8cs-hero-img-inner is-vertical" id="heroBoxVertical" style="display: none;" title="Click to Inspect Full-Resolution Vertical Hero">
+          <img src="wp-theme/cr8v-stacks/assets/img/case_studies/cs_red_cap_entertainment_hero_vertical.webp" alt="Red Cap Entertainment - Service Page Vertical Hero" data-inspect-img data-inspect-title="Service Page Hero (3:4) // Live Cultural Staging Roadcase Suite">
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Strategic Overview -->
+    <section class="c8cs-wrap">
+      <div class="c8cs-split-section">
+        <div class="c8cs-split-left">
+          <div class="c8cs-label">Overview</div>
+          <h2 class="c8cs-split-title">The Cultural Staging Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span></h2>
+          <div class="c8cs-body-content">
+            <p>Under the creative direction of Farida Atanda, Red Cap Entertainment produces major live cultural experiences, festivals, visual arts exhibitions, and traditional matrimonial showcases spanning London, Sheffield, Lagos, and Accra. Operating across sovereign traditions like the <em>Pan-African Royal Nuptials (Alaga Showcase)</em> and institutional museum exhibitions like <em>Beyond the Bronze</em>, the platform required a high-velocity digital presence that captured the grandeur of live African spectacle.</p>
+            <p>Rather than wrestling with bloated page-builder JSON that breaks under mobile load, Cr8v Stacks engineered a clean, dependency-free system: converting semantic HTML/CSS directly into a native WordPress Customizer-powered theme, deploying an automated Event CPT docket with real-time past-event calculus, and integrating the universal <code>cr8v-inquiries</code> engine to route high-value production commissions directly into executive briefing dossiers.</p>
+          </div>
+        </div>
+
+        <div class="c8cs-split-right">
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3 class="fylla-value-h3">01 / Native Customizer Rapid Build Engine</h3>
+              <p class="fylla-value-desc">Bypassed Elementor entirely by registering native <code>WP_Customize_Section</code> controls with selective refresh DOM partials and instant <code>postMessage</code> token styling.</p>
+            </div>
+          </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3 class="fylla-value-h3">02 / Event CPT Loop &amp; Past-Event Calculus</h3>
+              <p class="fylla-value-desc">Architected custom date evaluation logic (<code>cr8v_is_event_past()</code>) that automatically disables concluded calendar triggers and tags past productions.</p>
+            </div>
+          </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3 class="fylla-value-h3">03 / Dynamic .ics Calendar Generator</h3>
+              <p class="fylla-value-desc">Engineered zero-plugin downloadable calendar invitations (<code>cr8v_render_calendar_button()</code>) generated in real time from post metadata.</p>
+            </div>
+          </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3 class="fylla-value-h3">04 / Universal cr8v-inquiries Intake Router</h3>
+              <p class="fylla-value-desc">Constructed an anti-spam intake matrix that logs commissioning briefs to <code>admin.php?page=cr8v-inquiries</code> and dispatches branded executive HTML email dossiers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Core Technical Deliverables (Asset 01, 02, 03) -->
+    <section class="c8cs-deliverables-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-deliverables-box">
+          <div class="c8cs-deliverables-header">
+            <div class="c8cs-label">Design &amp; Engineering</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Core Technical Deliverables</h2>
+          </div>
+
+          <div class="c8cs-deliverables-grid">
+            <!-- Deliverable 01 -->
+            <div class="c8cs-deliverable-card">
+              <div>
+                <div class="c8cs-deliverable-meta">Culture in Motion // Asset 01</div>
+                <h3 class="c8cs-deliverable-title">Master Brand Standards &amp; Cultural Vector Identity</h3>
+                <p class="c8cs-deliverable-desc">Crafted the official Red Cap Entertainment vector emblem, Anton display typography, warm parchment tokens, and live event docket loops with real-time upcoming/past status filters.</p>
+              </div>
+              <div class="c8cs-deliverable-img-box" title="Click to Inspect Asset 01">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_asset_01_brand.webp" alt="Red Cap Entertainment Brand Guidelines" data-inspect-img data-inspect-title="Asset 01 // Master Brand Standards &amp; Cultural Vector Identity">
+              </div>
+            </div>
+
+            <!-- Deliverable 02 -->
+            <div class="c8cs-deliverable-card">
+              <div>
+                <div class="c8cs-deliverable-meta">Proprietary Pipeline // Asset 02</div>
+                <h3 class="c8cs-deliverable-title">The 2026 AI-to-Customizer Rapid Build Architecture</h3>
+                <p class="c8cs-deliverable-desc">Pioneered a dependency-free workflow: converting modular semantic HTML/CSS directly into native WordPress Customizer controls (<code>WP_Customize_Section</code>, selective refresh partials, and <code>postMessage</code> live transports) for instant visual client editing with 0.65s load times.</p>
+              </div>
+              <div class="c8cs-deliverable-img-box" title="Click to Inspect Asset 02">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_asset_02_customizer.webp" alt="Red Cap Customizer Pipeline" data-inspect-img data-inspect-title="Asset 02 // The 2026 AI-to-Customizer Rapid Build Architecture">
+              </div>
+            </div>
+          </div>
+
+          <!-- Deliverable 03: Architectural Board Model on Granite (Canonical 3:4 Vertical Standard) -->
+          <div class="c8cs-sovereignty-split" style="border-top: 1px solid var(--c8-grid-line);">
+            <div class="c8cs-sovereignty-left">
+              <div class="c8cs-deliverable-meta">Data Sovereignty // Asset 03</div>
+              <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 1.25rem;">Universal Event Data Core &amp; Dynamic Calendar Calculus</h2>
+              <p style="font-size: 15px; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.5rem; font-weight: 300;">The white architectural system model board: tactile 3D relief blocks detailing the full-stack event pipeline—from the Universal Event CPT and Customizer data core down through the past-event timestamp filter, real-time .ics calendar generator, and universal cr8v-inquiries specification router.</p>
+              <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;">
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">01</span>
+                  <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;"><strong>Native Customizer Governance:</strong> 100% editable theme controls (<code>WP_Customize_Manager</code>) with selective refresh DOM partials eliminating page-builder runtime overhead and external dependencies.</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">02</span>
+                  <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;"><strong>Universal cr8v-inquiries CRM:</strong> CPT <code>cr8v_inquiry</code> database with 4-stage pipeline CRM (<code>admin.php?page=cr8v-inquiries</code>), quote value telemetry (£), and triple-gate anti-spam protection.</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">03</span>
+                  <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;"><strong>Dynamic .ics Calendar Calculus:</strong> Automated <code>cr8v_is_event_past()</code> timestamp routine that transitions concluded events into archives and auto-disables calendar download buttons.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="c8cs-sovereignty-right">
+              <div class="c8cs-sovereignty-img-box" title="Click to Inspect Asset 03 (3:4 Architectural Board Model)">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_asset_03_ecosystem.webp" alt="Red Cap Entertainment Architectural Board Model" data-inspect-img data-inspect-title="Asset 03 // White Architectural Board Model on Granite (3:4 Portrait)">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5.5: Dedicated Engineering Showcase Section (Parity with Kiri City Stays) -->
+    <section class="c8cs-social-campaign-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-social-box">
+          
+          <!-- Section Header -->
+          <div class="c8cs-social-header">
+            <div class="c8cs-label">Production Engine &amp; Administrative Architecture</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0.75rem;">Engineered Systems &amp; Workflows</h2>
+            <p style="font-size: 15px; color: var(--c8-sub); max-width: 820px; line-height: 1.7; font-weight: 300; margin: 0;">A comprehensive technical breakdown of the bespoke systems engineered for Red Cap Entertainment—combining the native Customizer control surface, dynamic event calendar logic, and the universal multi-discipline inquiries engine.</p>
+          </div>
+
+          <!-- Component A: 5-Slide Engineering Carousel Deck -->
+          <div class="c8cs-carousel-deck-wrap">
+            <div class="c8cs-carousel-deck-topbar">
+              <div class="c8cs-carousel-deck-title">
+                <span class="c8cs-badge-dot"></span>
+                <span>System Architecture Carousel Deck // 5 Core Engineering Milestones</span>
+              </div>
+              <div class="c8cs-carousel-nav-controls">
+                <button type="button" class="c8cs-deck-nav-btn" data-carousel-btn="prev" aria-label="Previous Slide">&larr;</button>
+                <span class="c8cs-deck-counter" data-carousel-counter>01 / 06</span>
+                <button type="button" class="c8cs-deck-nav-btn" data-carousel-btn="next" aria-label="Next Slide">&rarr;</button>
+              </div>
+            </div>
+
+            <div class="c8cs-carousel-deck-track" data-carousel-track>
+              <!-- Slide 1 -->
+              <div class="c8cs-carousel-slide-item">
+                <div class="c8cs-slide-media" title="Click to Inspect Slide 01">
+                  <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_04_customizer.webp" alt="Native Customizer Control Surface" data-inspect-img data-inspect-title="Slide 01 // Native Customizer Control Surface">
+                  <span class="c8cs-slide-num-badge">SLIDE 01</span>
+                </div>
+                <div class="c8cs-slide-caption">
+                  <span class="c8cs-slide-tag">01 / Zero-Bloat Control</span>
+                  <h4 class="c8cs-slide-title">Native Customizer Control Surface</h4>
+                  <p class="c8cs-slide-desc">Registering modular theme settings via selective refresh partials, enabling the client to update event schedules, phone numbers, and hero copy with instant live visual feedback.</p>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="c8cs-carousel-slide-item">
+                <div class="c8cs-slide-media" title="Click to Inspect Slide 02">
+                  <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_02_inquiries.webp" alt="4-Stage Inquiries Pipeline CRM Dashboard" data-inspect-img data-inspect-title="Slide 02 // 4-Stage Inquiries Pipeline CRM Dashboard">
+                  <span class="c8cs-slide-num-badge">SLIDE 02</span>
+                </div>
+                <div class="c8cs-slide-caption">
+                  <span class="c8cs-slide-tag">02 / Client CRM</span>
+                  <h4 class="c8cs-slide-title">4-Stage Inquiries Pipeline CRM Dashboard</h4>
+                  <p class="c8cs-slide-desc">Bespoke <code>admin.php?page=cr8v-inquiries</code> interface tracking lead lifecycle, quote values (£), and conversion telemetry with zero third-party form plugin dependencies.</p>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="c8cs-carousel-slide-item">
+                <div class="c8cs-slide-media" title="Click to Inspect Slide 03">
+                  <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_asset_02_customizer.webp" alt="Multi-Variant Page Template Library" data-inspect-img data-inspect-title="Slide 03 // Multi-Variant Page Template Library">
+                  <span class="c8cs-slide-num-badge">SLIDE 03</span>
+                </div>
+                <div class="c8cs-slide-caption">
+                  <span class="c8cs-slide-tag">03 / Modular Architecture</span>
+                  <h4 class="c8cs-slide-title">Multi-Variant Page Template Library</h4>
+                  <p class="c8cs-slide-desc">Native WordPress Page Attributes selector with lazy-mode scoped customizer controls, allowing rapid deployment of new festival layouts from a modular template library.</p>
+                </div>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="c8cs-carousel-slide-item">
+                <div class="c8cs-slide-media" title="Click to Inspect Slide 04">
+                  <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_03_single_event.webp" alt="Dynamic .ics Calendar Generator" data-inspect-img data-inspect-title="Slide 04 // Dynamic .ics Calendar Generator">
+                  <span class="c8cs-slide-num-badge">SLIDE 04</span>
+                </div>
+                <div class="c8cs-slide-caption">
+                  <span class="c8cs-slide-tag">04 / Calendar Calculus</span>
+                  <h4 class="c8cs-slide-title">Dynamic .ics Calendar Generator</h4>
+                  <p class="c8cs-slide-desc">Generating real-time .ics calendar files directly from event post metadata. Once an event date passes, the download control automatically transforms into a disabled 'Event Concluded' badge.</p>
+                </div>
+              </div>
+
+              <!-- Slide 5 -->
+              <div class="c8cs-carousel-slide-item">
+                <div class="c8cs-slide-media" title="Click to Inspect Slide 05">
+                  <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_08_demo_seeder.webp" alt="1-Click Starter Content Demo Importer" data-inspect-img data-inspect-title="Slide 05 // 1-Click Starter Content Demo Importer">
+                  <span class="c8cs-slide-num-badge">SLIDE 05</span>
+                </div>
+                <div class="c8cs-slide-caption">
+                  <span class="c8cs-slide-tag">05 / Rapid Seeding</span>
+                  <h4 class="c8cs-slide-title">1-Click Starter Content Demo Importer</h4>
+                  <p class="c8cs-slide-desc">Bundled demo importer (<code>inc/demo-importer.php</code>) that checks for empty tables upon theme activation and seeds sample cultural festivals spanning 2024 to 2026 instantly.</p>
+                </div>
+              </div>
+
+              <!-- Slide 6 -->
+              <div class="c8cs-carousel-slide-item">
+                <div class="c8cs-slide-media" title="Click to Inspect Slide 06">
+                  <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_04_email_dossier.webp" alt="Dual Executive HTML Email Engine" data-inspect-img data-inspect-title="Slide 06 // Dual Executive HTML Email Engine">
+                  <span class="c8cs-slide-num-badge">SLIDE 06</span>
+                </div>
+                <div class="c8cs-slide-caption">
+                  <span class="c8cs-slide-tag">06 / Executive Dispatch</span>
+                  <h4 class="c8cs-slide-title">Dual Executive HTML Email Engine</h4>
+                  <p class="c8cs-slide-desc">Automated generation of dark-mode executive briefing worksheets for internal production staff alongside branded editorial confirmation receipts for commissioning clients.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Component B: Mobile Interface Inspection Stage -->
+          <div class="c8cs-reels-stage-wrap">
+            <div class="c8cs-reels-stage-header">
+              <span class="c8cs-reels-tag">Mobile Engineering // Responsive Touch Ergonomics</span>
+              <h3 class="c8cs-reels-title">Mobile Navigation &amp; Ticket Interaction</h3>
+            </div>
+            <div class="c8cs-reels-grid">
+              
+              <!-- Card 1: Mobile Drawer -->
+              <div class="c8cs-reel-card">
+                <div class="c8cs-phone-frame">
+                  <div class="c8cs-phone-screen">
+                    <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_06_mobile_drawer.webp" alt="Mobile Navigation Drawer" data-inspect-img data-is-mobile="true" data-inspect-title="Mobile Drawer Navigation // Dual-Accordion Hierarchy">
+                  </div>
+                </div>
+                <div class="c8cs-reel-details">
+                  <span class="c8cs-reel-sub">Ergonomic UX // Full-Screen Drawer</span>
+                  <h4 class="c8cs-reel-h4">Dual-Accordion Mobile Menu Architecture</h4>
+                  <p style="font-size: 13.5px; color: var(--c8-sub); line-height: 1.6; font-weight: 300;">Engineered independent accordion trees for <em>Productions</em> and <em>Recognition</em>, ensuring deep cultural archives and press credentials remain accessible on mobile viewports without endless scrolling.</p>
+                </div>
+              </div>
+
+              <!-- Card 2: Ticket Stubs -->
+              <div class="c8cs-reel-card">
+                <div class="c8cs-phone-frame">
+                  <div class="c8cs-phone-screen">
+                    <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_07_mobile_docket.webp" alt="Mobile Event Production Docket" data-inspect-img data-is-mobile="true" data-inspect-title="Mobile Event Docket &amp; Ticket Interaction">
+                  </div>
+                </div>
+                <div class="c8cs-reel-details">
+                  <span class="c8cs-reel-sub">Mobile Staging // Ticket Interaction</span>
+                  <h4 class="c8cs-reel-h4">Mobile Event Docket &amp; Ticket Action</h4>
+                  <p style="font-size: 13.5px; color: var(--c8-sub); line-height: 1.6; font-weight: 300;">Authentic mobile viewport presentation featuring live African cultural event dockets, dynamic calendar triggers, and ticket stub micro-interactions formatted for thumb ergonomics.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: System & Engineering Showcase Stream (Gallery) -->
+    <section class="c8cs-stream-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-stream-box">
+          <div class="c8cs-stream-header">
+            <div class="c8cs-label">Engineering Showcase Stream</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Platform Infrastructure in Production</h2>
+          </div>
+
+          <div class="c8cs-stream-grid">
+            <!-- Cell 01 -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box" title="Click to Inspect Gallery 01">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_01_docket.webp" alt="Event CPT Archive & Docket Engine" data-inspect-img data-inspect-title="Gallery 01 // Event CPT Archive & Docket Engine">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag">CPT Architecture</span>
+                <h3 class="c8cs-stream-cell-title">Event CPT Archive &amp; Docket Loop</h3>
+              </div>
+            </div>
+
+            <!-- Cell 02 -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box" title="Click to Inspect Gallery 02">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_02_inquiries.webp" alt="Universal Inquiries CRM Dashboard" data-inspect-img data-inspect-title="Gallery 02 // Universal Inquiries CRM Dashboard">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag">Inquiries Engine</span>
+                <h3 class="c8cs-stream-cell-title">Universal Inquiries CRM Dashboard</h3>
+              </div>
+            </div>
+
+            <!-- Cell 03 -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box" title="Click to Inspect Gallery 03">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_03_single_event.webp" alt="Single Event Showcase & Calendar Trigger" data-inspect-img data-inspect-title="Gallery 03 // Single Event Showcase & Calendar Trigger">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag">Single Production</span>
+                <h3 class="c8cs-stream-cell-title">Single Event Production Logistics &amp; .ics Trigger</h3>
+              </div>
+            </div>
+
+            <!-- Cell 04 -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box" title="Click to Inspect Gallery 04">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_04_email_dossier.webp" alt="Automated Executive HTML Email Dossier" data-inspect-img data-inspect-title="Gallery 04 // Automated Executive HTML Email Dossier">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag">Executive Workflow</span>
+                <h3 class="c8cs-stream-cell-title">Executive HTML Email Briefing Worksheet</h3>
+              </div>
+            </div>
+
+            <!-- Cell 05 -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box" title="Click to Inspect Gallery 05">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_04_customizer.webp" alt="Native Customizer Live Panel & Selective Refresh" data-inspect-img data-inspect-title="Gallery 05 // Native Customizer Live Panel & Selective Refresh">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag">Customizer Core</span>
+                <h3 class="c8cs-stream-cell-title">Native Customizer Live Panel &amp; Selective Refresh</h3>
+              </div>
+            </div>
+
+            <!-- Cell 06 -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box" title="Click to Inspect Gallery 06">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_06_inquiries_brief.webp" alt="Production Commissioning Brief & Anti-Spam Triple Gate" data-inspect-img data-inspect-title="Gallery 06 // Production Commissioning Brief & Anti-Spam Triple Gate">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag">Inquiries Matrix</span>
+                <h3 class="c8cs-stream-cell-title">Production Commissioning Brief &amp; Anti-Spam Triple Gate</h3>
+              </div>
+            </div>
+
+            <!-- Cell 07 -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box" title="Click to Inspect Gallery 07">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_07_press_portal.webp" alt="Press & Award Verification Portal" data-inspect-img data-inspect-title="Gallery 07 // Press & Award Verification Portal">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag">Credentials Docket</span>
+                <h3 class="c8cs-stream-cell-title">Press &amp; Award Verification Portal</h3>
+              </div>
+            </div>
+
+            <!-- Cell 08 -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box" title="Click to Inspect Gallery 08">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_08_demo_seeder.webp" alt="1-Click Starter Content Demo Importer" data-inspect-img data-inspect-title="Gallery 08 // 1-Click Starter Content Demo Importer">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag">Automated Seeder</span>
+                <h3 class="c8cs-stream-cell-title">1-Click Starter Content Demo Importer</h3>
+              </div>
+            </div>
+
+            <!-- Cell 09 -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box" title="Click to Inspect Gallery 09">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/rc_gallery_09_admin_theme.webp" alt="Bespoke Deep Obsidian & Crimson WP Admin Theme" data-inspect-img data-inspect-title="Gallery 09 // Bespoke Deep Obsidian & Crimson WP Admin Theme">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag">Admin Scenography</span>
+                <h3 class="c8cs-stream-cell-title">Bespoke Deep Obsidian &amp; Crimson WP Admin Theme</h3>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Metrics -->
+    <section class="c8cs-metrics-bg">
+      <div class="c8cs-wrap">
+        <div class="c8cs-metrics-outer-box">
+          <div class="c8cs-metrics-header">
+            <div class="c8cs-label">Performance &amp; Operational Metrics</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Measurable Architecture Impact</h2>
+          </div>
+          <div class="c8cs-metrics-grid">
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-val">0ms</div>
+              <div class="c8cs-metric-lbl">Page-Builder Runtime Overhead</div>
+              <div class="c8cs-metric-desc">Eliminated Elementor JSON runtime dependencies entirely, serving clean semantic PHP templates with instantaneous browser execution.</div>
+            </div>
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-val">100%</div>
+              <div class="c8cs-metric-lbl">Native Customizer Control</div>
+              <div class="c8cs-metric-desc">All site typography, festival schedules, and company dossiers are fully editable through WordPress core's native Customizer surface.</div>
+            </div>
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-val">3-Tier</div>
+              <div class="c8cs-metric-lbl">Anti-Spam Zero Leakage</div>
+              <div class="c8cs-metric-desc">Invisible honeypot, 2-second time-gate check, and IP rate limiting completely prevent bot submissions without annoying CAPTCHAs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Related Projects -->
+    <section class="c8cs-related-paper-outer">
+      <div class="c8cs-wrap">
+        <div class="c8cs-related-matrix-box">
+          <div class="c8cs-related-matrix-header">
+            <div class="c8cs-label">Portfolio Matrix</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Explore Related Systems</h2>
+          </div>
+          <div class="c8cs-related-matrix-grid">
+            
+            <a href="crux-nxtion.html" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag">Dual-Wing Architecture</div>
+                <h3 class="c8cs-related-cell-title">Crux Nxtion: Dual-Wing Platform &amp; Switcher</h3>
+                <p class="c8cs-related-cell-desc">Unifying high-energy cultural events with executive business consultancy via a mathematical slanted switcher pod and 10-discipline intake routing.</p>
+              </div>
+              <span class="c8cs-related-cell-link">Inspect Architecture &rarr;</span>
+            </a>
+
+            <a href="kiri-city-stays.html" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag">Growth Engineering</div>
+                <h3 class="c8cs-related-cell-title">Kiri City Stays: Attribution &amp; Paid Acquisition</h3>
+                <p class="c8cs-related-cell-desc">Attribution tracking, Google Ads campaign architecture, and multi-tier social media content suites for Manchester urban serviced apartments.</p>
+              </div>
+              <span class="c8cs-related-cell-link">Inspect Architecture &rarr;</span>
+            </a>
+
+            <a href="duch-enterprise.html" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag">Hospitality Platform</div>
+                <h3 class="c8cs-related-cell-title">The Duch Apartments: Direct Booking Sovereignty</h3>
+                <p class="c8cs-related-cell-desc">Independent hospitality booking engine, multi-month availability API, and entity SEO architecture reducing third-party OTA commission leakage.</p>
+              </div>
+              <span class="c8cs-related-cell-link">Inspect Architecture &rarr;</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="c8-footer">
+    <div class="c8-footer-inner">
+      <div class="c8-footer-brand">Cr8v Stacks &bull; Architecture &amp; Engineering</div>
+      <div class="c8-footer-meta">2026 Cr8v Stacks &bull; All Rights Reserved</div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Inspector Modal -->
+  <div class="c8-lightbox" id="c8Lightbox" role="dialog" aria-modal="true" aria-label="Image Inspector">
+    <div class="c8-lb-topbar">
+      <span class="c8-lb-title" id="c8LbTitle">Image Inspector</span>
+      <button type="button" class="c8-lb-close-btn" id="c8LbClose" aria-label="Close Inspector">Esc / Close &times;</button>
+    </div>
+    <div class="c8-lb-stage">
+      <img src="" alt="" id="c8LbImg">
+      <div class="c8-lb-phone-wrap" id="c8LbPhoneWrap">
+        <div class="c8-lb-phone-frame">
+          <div class="c8-lb-phone-notch"></div>
+          <div class="c8-lb-phone-screen">
+            <img src="" alt="" id="c8LbPhoneImg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // Hero Switcher Logic
+    const btnLandscape = document.getElementById('btnHeroLandscape');
+    const btnVertical = document.getElementById('btnHeroVertical');
+    const boxLandscape = document.getElementById('heroBoxLandscape');
+    const boxVertical = document.getElementById('heroBoxVertical');
+
+    if (btnLandscape && btnVertical && boxLandscape && boxVertical) {
+      btnLandscape.addEventListener('click', () => {
+        btnLandscape.classList.add('is-active');
+        btnVertical.classList.remove('is-active');
+        boxLandscape.style.display = 'block';
+        boxVertical.style.display = 'none';
+      });
+      btnVertical.addEventListener('click', () => {
+        btnVertical.classList.add('is-active');
+        btnLandscape.classList.remove('is-active');
+        boxLandscape.style.display = 'none';
+        boxVertical.style.display = 'block';
+      });
+    }
+
+    // Carousel Deck Track & Counter
+    const track = document.querySelector('[data-carousel-track]');
+    const btnPrev = document.querySelector('[data-carousel-btn="prev"]');
+    const btnNext = document.querySelector('[data-carousel-btn="next"]');
+    const counter = document.querySelector('[data-carousel-counter]');
+
+    if (track && btnPrev && btnNext && counter) {
+      const slides = track.querySelectorAll('.c8cs-carousel-slide-item');
+      let currentIndex = 0;
+
+      function updateCounter() {
+        const idx = Math.min(Math.max(currentIndex + 1, 1), slides.length);
+        counter.textContent = String(idx).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+      }
+
+      btnPrev.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          slides[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+          updateCounter();
+        }
+      });
+
+      btnNext.addEventListener('click', () => {
+        if (currentIndex < slides.length - 1) {
+          currentIndex++;
+          slides[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+          updateCounter();
+        }
+      });
+    }
+
+    // Lightbox Inspector Logic
+    const lightbox = document.getElementById('c8Lightbox');
+    const lbImg = document.getElementById('c8LbImg');
+    const lbPhoneImg = document.getElementById('c8LbPhoneImg');
+    const lbTitle = document.getElementById('c8LbTitle');
+    const lbClose = document.getElementById('c8LbClose');
+
+    document.querySelectorAll('[data-inspect-img]').forEach(el => {
+      el.addEventListener('click', () => {
+        const title = el.getAttribute('data-inspect-title') || el.alt || 'Asset Inspection';
+        const isMobile = el.getAttribute('data-is-mobile') === 'true' || 
+                         el.closest('.c8cs-phone-frame') !== null ||
+                         el.closest('[data-is-mobile="true"]') !== null;
+
+        if (isMobile && lbPhoneImg) {
+          lightbox.classList.add('is-mobile-view');
+          lbPhoneImg.src = el.src;
+          lbPhoneImg.alt = title;
+        } else {
+          lightbox.classList.remove('is-mobile-view');
+          lbImg.src = el.src;
+          lbImg.alt = title;
+        }
+
+        lbTitle.textContent = title;
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      if (lightbox) {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (lbClose) lbClose.addEventListener('click', closeLightbox);
+    if (lightbox) lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.classList.contains('c8-lb-stage')) {
+        closeLightbox();
+      }
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+</body>
+</html>

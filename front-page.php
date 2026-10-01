@@ -925,24 +925,6 @@ defined('ABSPATH') || exit;
   <div class="c8-hero-sticky-track" id="c8HeroTrack">
     <section class="c8-hero-top c8-hero-b-standalone">
 
-    <!-- Live Floating Viewport Path Calibrator HUD (Locked) -->
-    <div id="floatingCalibHUD" style="display: none; position: fixed; top: 90px; right: 20px; z-index: 999999; background: #141414; color: #FFFFFF; padding: 14px 18px; border-radius: 8px; font-family: monospace; font-size: 0.75rem; box-shadow: 0 8px 30px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15);">
-      <div id="hudHeaderHandle" style="font-weight: 700; color: #3D6BFF; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: move; user-select: none;">
-        <span>❖ LIVE HOMEPAGE PATH CALIBRATOR (DRAG ME)</span>
-        <button onclick="document.getElementById('floatingCalibHUD').style.display='none'" style="background:none; border:none; color:#AAA; cursor:pointer; font-size:0.9rem;">✕</button>
-      </div>
-      <div id="hudWooVal" style="margin-bottom: 4px; color: #E0E0E0;">Woo: dX: 148px | dY: 469px</div>
-      <div id="hudNextVal" style="margin-bottom: 4px; color: #E0E0E0;">Next: dX: 168px | dY: 332px</div>
-      <div id="hudYellowVal" style="margin-bottom: 4px; color: #E0E0E0;">Yellow: dX: -540px | dY: 320px</div>
-      <div id="hudGreenVal" style="margin-bottom: 8px; color: #E0E0E0;">Green: dX: -75px | dY: 425px</div>
-      <button onclick="copyCalibratedCoordinates()" style="width: 100%; background: #0047E1; color: #FFF; border: none; padding: 6px 10px; border-radius: 4px; font-family: monospace; font-size: 0.72rem; font-weight: 700; cursor: pointer; margin-bottom: 8px;">📋 COPY COORDINATES</button>
-      <div style="font-size: 0.68rem; color: #888888; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 6px;">
-        Drag floating cards to position. Press [R] to Rotate 90°, [F] to Flip.
-      </div>
-    </div>
-    <!-- Mobile-friendly CAL toggle button -->
-    <button id="calibToggleBtn" onclick="(function(){var h=document.getElementById('floatingCalibHUD');h.style.display=h.style.display==='none'?'block':'none';})()" style="position: fixed; bottom: 24px; left: 20px; z-index: 999998; background: #0047E1; color: #FFF; border: none; padding: 9px 14px; border-radius: 6px; font-family: monospace; font-size: 0.7rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 14px rgba(0,71,225,0.4); letter-spacing: 0.05em;">⚙ CAL</button>
-
     <div class="c8-hero-in">
       <div class="c8-eyebrow" data-customizer="hero_eyebrow"><span class="c8-eyebrow-slash">//</span> <?php echo esc_html(cr8v_mod('hero_eyebrow', 'SCALE WITH AUTHORITY')); ?></div>
       <h1 class="c8-hero-h1" data-customizer="hero_headline_1"><?php echo esc_html(cr8v_mod('hero_headline_1', 'We build what your business actually runs on.')); ?></h1>
@@ -1252,9 +1234,9 @@ defined('ABSPATH') || exit;
       
       <!-- Moving Visual Tile -->
       <div class="c8-puzzle-tile" id="desk-tile">
-        <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_1', get_template_directory_uri() . '/assets/img/abstract/cr8v_mindset_design_system.jpg')); ?>" alt="Design Identity" class="c8-swap-img is-active-img" id="img-row-1">
-        <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_2', get_template_directory_uri() . '/assets/img/abstract/cr8v_mindset_ai_partner.jpg')); ?>" alt="AI Creative Partner" class="c8-swap-img" id="img-row-2">
-        <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_3', get_template_directory_uri() . '/assets/img/abstract/cr8v_mindset_growth_engine.jpg')); ?>" alt="Growth Systems" class="c8-swap-img" id="img-row-3">
+        <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_1', get_template_directory_uri() . '/assets/img/abstract/cr8v_mindset_design_system.webp')); ?>" alt="Design Identity" class="c8-swap-img is-active-img" id="img-row-1">
+        <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_2', get_template_directory_uri() . '/assets/img/abstract/cr8v_mindset_ai_partner.webp')); ?>" alt="AI Creative Partner" class="c8-swap-img" id="img-row-2">
+        <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_3', get_template_directory_uri() . '/assets/img/abstract/cr8v_mindset_growth_engine.webp')); ?>" alt="Growth Systems" class="c8-swap-img" id="img-row-3">
       </div>
 
       <!-- ROW 1 -->
@@ -1668,28 +1650,28 @@ defined('ABSPATH') || exit;
         </div>
       </div>
 
-      <!-- ── CASE 1: BLVCK HAIR NG ── -->
-      <div class="sw-matrix-cell" id="cs-blvck-hair">
+      <!-- ── CASE 1: THE DUCH APARTMENTS ── -->
+      <div class="sw-matrix-cell" id="cs-duch-apartments">
         <div class="sw-matrix-left">
           <div>
-            <div class="sw-matrix-eyebrow" data-customizer="cs1_eyebrow">// <?php echo esc_html(cr8v_mod('cs1_eyebrow', 'ORGANIC ACQUISITION ENGINE')); ?></div>
-            <h2 class="sw-matrix-h2" data-customizer="cs1_heading"><?php echo esc_html(cr8v_mod('cs1_heading', 'Organic E-Commerce Growth From The Ground Up')); ?></h2>
+            <div class="sw-matrix-eyebrow" data-customizer="cs1_eyebrow">// <?php echo esc_html(cr8v_mod('cs1_eyebrow', 'BUILT-IN SEO ARCHITECTURE')); ?></div>
+            <h2 class="sw-matrix-h2" data-customizer="cs1_heading"><?php echo esc_html(cr8v_mod('cs1_heading', 'Website Design With SEO Folded In From Day One')); ?></h2>
             <p class="sw-matrix-sub" data-customizer="cs1_sub">
-              <?php echo esc_html(cr8v_mod('cs1_sub', 'Full-stack SEO architecture and multi-market e-commerce scaling for blvck Hair NG — growing from a single early storefront to active revenue-generating stores in both Nigeria and the UK.')); ?>
+              <?php echo esc_html(cr8v_mod('cs1_sub', 'Bespoke website design for The Duch Apartments — engineered with search engine optimization folded directly into the code structure from line one rather than patched after launch.')); ?>
             </p>
           </div>
 
           <div class="sw-quote-box">
-            <p data-customizer="cs1_quote"><?php echo esc_html(cr8v_mod('cs1_quote', 'We handled their SEO end-to-end — keyword mapping, page architecture, and content — from the ground up. Both storefronts are now ranking and converting independently.')); ?></p>
+            <p data-customizer="cs1_quote"><?php echo esc_html(cr8v_mod('cs1_quote', 'Custom layout, zero template base, with SEO architecture coded in before a single page went live. Direct booking integration maximised their direct revenue channel from day one.')); ?></p>
           </div>
 
           <div class="sw-chip-tag">
-            <span class="sw-chip-icon">S</span>
-            <span data-customizer="cs1_role"><?php echo esc_html(cr8v_mod('cs1_role', 'SEO & E-Commerce · Nigeria & UK')); ?></span>
+            <span class="sw-chip-icon">W</span>
+            <span data-customizer="cs1_role"><?php echo esc_html(cr8v_mod('cs1_role', 'Web Design & Technical SEO · Lagos, Nigeria')); ?></span>
           </div>
 
           <div>
-            <a href="<?php echo esc_url(home_url(cr8v_mod('cs1_link', '/case-studies/blvck-hair-ng/'))); ?>" class="c8-text-cta">
+            <a href="<?php echo esc_url(home_url(cr8v_mod('cs1_link', '/case-studies/the-duch-apartments/'))); ?>" class="c8-text-cta">
               <span>Explore Case Study</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
@@ -1703,36 +1685,43 @@ defined('ABSPATH') || exit;
               <span class="sw-corner-text">// P.01 — Live</span>
             </div>
             <div class="sw-floating-badge">
-              <div class="b1" data-customizer="cs1_stat_val"><?php echo esc_html(cr8v_mod('cs1_stat_val', '2 Active Stores')); ?></div>
-              <div class="b2" data-customizer="cs1_stat_lbl"><?php echo esc_html(cr8v_mod('cs1_stat_lbl', 'UK & NG Growth')); ?></div>
+              <div class="b1" data-customizer="cs1_stat_val"><?php echo esc_html(cr8v_mod('cs1_stat_val', '100% Custom')); ?></div>
+              <div class="b2" data-customizer="cs1_stat_lbl"><?php echo esc_html(cr8v_mod('cs1_stat_lbl', 'Design & SEO Day 1')); ?></div>
             </div>
-            <img src="<?php echo esc_url(cr8v_mod('cs1_img', get_template_directory_uri() . '/assets/img/case_studies/case_study_blvck_hair.jpg')); ?>" alt="blvck Hair NG" class="sw-matrix-img">
+            <?php
+              $cs1_def = get_template_directory_uri() . '/assets/img/case_studies/cs_duch_hero_landscape.webp';
+              $cs1_src = cr8v_mod('cs1_img', $cs1_def);
+              if (empty($cs1_src) || strpos($cs1_src, 'case_study_blvck_hair') !== false || strpos($cs1_src, 'case_study_duch_apartments.jpg') !== false) {
+                $cs1_src = $cs1_def;
+              }
+            ?>
+            <img src="<?php echo esc_url($cs1_src); ?>" alt="The Duch Apartments" class="sw-matrix-img">
           </div>
         </div>
       </div>
 
-      <!-- ── CASE 2: THE DUCH APARTMENTS (FLIP ROW) ── -->
-      <div class="sw-matrix-cell flip" id="cs-duch-apartments">
+      <!-- ── CASE 2: MKENNY PROPERTIES (FLIP ROW) ── -->
+      <div class="sw-matrix-cell flip" id="cs-mkenny-properties">
         <div class="sw-matrix-left">
           <div>
-            <div class="sw-matrix-eyebrow" data-customizer="cs2_eyebrow">// <?php echo esc_html(cr8v_mod('cs2_eyebrow', 'BUILT-IN SEO ARCHITECTURE')); ?></div>
-            <h2 class="sw-matrix-h2" data-customizer="cs2_heading"><?php echo esc_html(cr8v_mod('cs2_heading', 'Website Design With SEO Folded In From Day One')); ?></h2>
+            <div class="sw-matrix-eyebrow" data-customizer="cs2_eyebrow">// <?php echo esc_html(cr8v_mod('cs2_eyebrow', 'DYNAMIC PROPERTY DIRECTORY')); ?></div>
+            <h2 class="sw-matrix-h2" data-customizer="cs2_heading"><?php echo esc_html(cr8v_mod('cs2_heading', 'Bespoke Real Estate Engine Built On Custom WordPress Blocks')); ?></h2>
             <p class="sw-matrix-sub" data-customizer="cs2_sub">
-              <?php echo esc_html(cr8v_mod('cs2_sub', 'Bespoke website design for The Duch Apartments — engineered with search engine optimization folded directly into the code structure from line one rather than patched after launch.')); ?>
+              <?php echo esc_html(cr8v_mod('cs2_sub', 'Upgraded Mkenny Properties from a static brochure into a high-performance commercial real estate engine with bespoke custom post types, dynamic filtering, and custom Gutenberg blocks.')); ?>
             </p>
           </div>
 
           <div class="sw-quote-box">
-            <p data-customizer="cs2_quote"><?php echo esc_html(cr8v_mod('cs2_quote', 'Custom layout, zero template base, with SEO architecture coded in before a single page went live. Direct booking integration maximised their direct revenue channel from day one.')); ?></p>
+            <p data-customizer="cs2_quote"><?php echo esc_html(cr8v_mod('cs2_quote', 'Handcrafted custom post types, facet-based search filters, and lightweight Gutenberg blocks engineered without bulky plugins. 3.5x boost in commercial client deal size.')); ?></p>
           </div>
 
           <div class="sw-chip-tag">
-            <span class="sw-chip-icon">W</span>
-            <span data-customizer="cs2_role"><?php echo esc_html(cr8v_mod('cs2_role', 'Web Design & Technical SEO · Lagos, Nigeria')); ?></span>
+            <span class="sw-chip-icon">R</span>
+            <span data-customizer="cs2_role"><?php echo esc_html(cr8v_mod('cs2_role', 'Real Estate Directory · Manchester UK')); ?></span>
           </div>
 
           <div>
-            <a href="<?php echo esc_url(home_url(cr8v_mod('cs2_link', '/case-studies/the-duch-apartments/'))); ?>" class="c8-text-cta">
+            <a href="<?php echo esc_url(home_url(cr8v_mod('cs2_link', '/case-studies/mkenny-properties/'))); ?>" class="c8-text-cta">
               <span>Explore Case Study</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
@@ -1746,10 +1735,17 @@ defined('ABSPATH') || exit;
               <span class="sw-corner-text">// P.02 — Live</span>
             </div>
             <div class="sw-floating-badge">
-              <div class="b1" data-customizer="cs2_stat_val"><?php echo esc_html(cr8v_mod('cs2_stat_val', '100% Custom')); ?></div>
-              <div class="b2" data-customizer="cs2_stat_lbl"><?php echo esc_html(cr8v_mod('cs2_stat_lbl', 'Design & SEO Day 1')); ?></div>
+              <div class="b1" data-customizer="cs2_stat_val"><?php echo esc_html(cr8v_mod('cs2_stat_val', '4.8x Leads')); ?></div>
+              <div class="b2" data-customizer="cs2_stat_lbl"><?php echo esc_html(cr8v_mod('cs2_stat_lbl', 'Bespoke Directory')); ?></div>
             </div>
-            <img src="<?php echo esc_url(cr8v_mod('cs2_img', get_template_directory_uri() . '/assets/img/case_studies/case_study_duch_apartments.jpg')); ?>" alt="The Duch Apartments" class="sw-matrix-img">
+            <?php
+              $cs2_def = get_template_directory_uri() . '/assets/img/case_studies/case_study_mkenny_properties.webp';
+              $cs2_src = cr8v_mod('cs2_img', $cs2_def);
+              if (empty($cs2_src)) {
+                $cs2_src = $cs2_def;
+              }
+            ?>
+            <img src="<?php echo esc_url($cs2_src); ?>" alt="Mkenny Properties" class="sw-matrix-img">
           </div>
         </div>
       </div>
@@ -1792,7 +1788,14 @@ defined('ABSPATH') || exit;
               <div class="b1" data-customizer="cs3_stat_val"><?php echo esc_html(cr8v_mod('cs3_stat_val', 'AI MVP Engine')); ?></div>
               <div class="b2" data-customizer="cs3_stat_lbl"><?php echo esc_html(cr8v_mod('cs3_stat_lbl', 'Proprietary Build')); ?></div>
             </div>
-            <img src="<?php echo esc_url(cr8v_mod('cs3_img', get_template_directory_uri() . '/assets/img/case_studies/case_study_bridgepoint_compliance.jpg')); ?>" alt="WP Publishion AI" class="sw-matrix-img">
+            <?php
+              $cs3_def = get_template_directory_uri() . '/assets/img/case_studies/case_study_wp_publishion.webp';
+              $cs3_src = cr8v_mod('cs3_img', $cs3_def);
+              if (empty($cs3_src) || strpos($cs3_src, 'bridgepoint') !== false) {
+                $cs3_src = $cs3_def;
+              }
+            ?>
+            <img src="<?php echo esc_url($cs3_src); ?>" alt="WP Publishion AI" class="sw-matrix-img">
           </div>
         </div>
       </div>
@@ -2423,7 +2426,7 @@ defined('ABSPATH') || exit;
             <span class="sdv-item-title" data-customizer="sdv_1_title"><?php echo esc_html(cr8v_mod("sdv_1_title", "Website Design")); ?></span>
             <span class="sdv-item-tag tag-build sdv-badge-blue">Build Layer</span>
             <div class="sdv-item-thumb">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.jpg'); ?>" alt="Website Design Preview">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.webp'); ?>" alt="Website Design Preview">
             </div>
             <span class="sdv-item-chevron">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -2446,7 +2449,7 @@ defined('ABSPATH') || exit;
                 </div>
               </div>
               <div class="sdv-panel-visual">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.jpg'); ?>" alt="Website Design Work">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_webdesign.webp'); ?>" alt="Website Design Work">
                 <span class="sdv-panel-visual-label sdv-badge-blue">Capability Layer</span>
               </div>
             </div>
@@ -2460,7 +2463,7 @@ defined('ABSPATH') || exit;
             <span class="sdv-item-title" data-customizer="sdv_2_title"><?php echo esc_html(cr8v_mod("sdv_2_title", "Custom Development")); ?></span>
             <span class="sdv-item-tag tag-build sdv-badge-red">Build Layer</span>
             <div class="sdv-item-thumb">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.jpg'); ?>" alt="Custom Dev Preview">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.webp'); ?>" alt="Custom Dev Preview">
             </div>
             <span class="sdv-item-chevron">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -2483,7 +2486,7 @@ defined('ABSPATH') || exit;
                 </div>
               </div>
               <div class="sdv-panel-visual">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.jpg'); ?>" alt="Custom Development Work">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_customdev.webp'); ?>" alt="Custom Development Work">
                 <span class="sdv-panel-visual-label sdv-badge-red">Capability Layer</span>
               </div>
             </div>
@@ -2497,7 +2500,7 @@ defined('ABSPATH') || exit;
             <span class="sdv-item-title" data-customizer="sdv_3_title"><?php echo esc_html(cr8v_mod("sdv_3_title", "AI MVP Products")); ?></span>
             <span class="sdv-item-tag tag-build sdv-badge-gold">Build Layer</span>
             <div class="sdv-item-thumb">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.jpg'); ?>" alt="AI MVP Preview">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.webp'); ?>" alt="AI MVP Preview">
             </div>
             <span class="sdv-item-chevron">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -2520,7 +2523,7 @@ defined('ABSPATH') || exit;
                 </div>
               </div>
               <div class="sdv-panel-visual">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.jpg'); ?>" alt="AI MVP Build">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_aimvp.webp'); ?>" alt="AI MVP Build">
                 <span class="sdv-panel-visual-label sdv-badge-gold">Capability Layer</span>
               </div>
             </div>
@@ -2534,7 +2537,7 @@ defined('ABSPATH') || exit;
             <span class="sdv-item-title" data-customizer="sdv_4_title"><?php echo esc_html(cr8v_mod("sdv_4_title", "Brand Strategy")); ?></span>
             <span class="sdv-item-tag tag-growth sdv-badge-white">Growth Layer</span>
             <div class="sdv-item-thumb">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_brandstrategy.jpg'); ?>" alt="Brand Strategy Preview">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_brandstrategy.webp'); ?>" alt="Brand Strategy Preview">
             </div>
             <span class="sdv-item-chevron">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -2559,7 +2562,7 @@ defined('ABSPATH') || exit;
                 </div>
               </div>
               <div class="sdv-panel-visual">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_brandstrategy.jpg'); ?>" alt="Brand Strategy Work">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_brandstrategy.webp'); ?>" alt="Brand Strategy Work">
                 <span class="sdv-panel-visual-label sdv-badge-white">Capability Layer</span>
               </div>
             </div>
@@ -2573,7 +2576,7 @@ defined('ABSPATH') || exit;
             <span class="sdv-item-title" data-customizer="sdv_5_title"><?php echo esc_html(cr8v_mod("sdv_5_title", "SEO & Content")); ?></span>
             <span class="sdv-item-tag tag-growth sdv-badge-blue">Growth Layer</span>
             <div class="sdv-item-thumb">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_seocontent.jpg'); ?>" alt="SEO & Content Preview">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_seocontent.webp'); ?>" alt="SEO & Content Preview">
             </div>
             <span class="sdv-item-chevron">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -2598,7 +2601,7 @@ defined('ABSPATH') || exit;
                 </div>
               </div>
               <div class="sdv-panel-visual">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_seocontent.jpg'); ?>" alt="SEO Architecture Work">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_seocontent.webp'); ?>" alt="SEO Architecture Work">
                 <span class="sdv-panel-visual-label sdv-badge-blue">Capability Layer</span>
               </div>
             </div>
@@ -2612,7 +2615,7 @@ defined('ABSPATH') || exit;
             <span class="sdv-item-title" data-customizer="sdv_6_title"><?php echo esc_html(cr8v_mod("sdv_6_title", "Digital Marketing")); ?></span>
             <span class="sdv-item-tag tag-growth sdv-badge-red">Growth Layer</span>
             <div class="sdv-item-thumb">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_digimkt.jpg'); ?>" alt="Digital Marketing Preview">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_digimkt.webp'); ?>" alt="Digital Marketing Preview">
             </div>
             <span class="sdv-item-chevron">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -2637,7 +2640,7 @@ defined('ABSPATH') || exit;
                 </div>
               </div>
               <div class="sdv-panel-visual">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_digimkt.jpg'); ?>" alt="Digital Marketing Campaign Work">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_home_sdv_digimkt.webp'); ?>" alt="Digital Marketing Campaign Work">
                 <span class="sdv-panel-visual-label sdv-badge-red">Capability Layer</span>
               </div>
             </div>
@@ -3357,7 +3360,7 @@ defined('ABSPATH') || exit;
 
         <!-- C2: Stacks visual (System 1 Chiaroscuro Beam) -->
         <div class="hww-card hww-c2">
-          <img src="<?php echo esc_url(cr8v_mod("hww_c2_img", get_template_directory_uri() . "/assets/img/abstract/cr8v_hww_chiaroscuro_beam.jpg")); ?>" alt="Tech stack visualization" class="hww-visual-img" data-customizer="hww_c2_img">
+          <img src="<?php echo esc_url(cr8v_mod("hww_c2_img", get_template_directory_uri() . "/assets/img/abstract/cr8v_hww_chiaroscuro_beam.webp")); ?>" alt="Tech stack visualization" class="hww-visual-img" data-customizer="hww_c2_img">
         </div>
 
         <!-- C3: Sprint Stat (blue) -->
@@ -3662,7 +3665,7 @@ defined('ABSPATH') || exit;
           </div>
           
           <div class="wwa-visual-card">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_about_negative_space.jpg'); ?>" alt="Cr8v Stacks Studio Workspace" class="wwa-visual-img">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/abstract/cr8v_about_negative_space.webp'); ?>" alt="Cr8v Stacks Studio Workspace" class="wwa-visual-img">
             <div class="wwa-visual-overlay">
               <span class="wwa-visual-caption" data-customizer="wwa_caption"><?php echo esc_html(cr8v_mod("wwa_caption", "Built for execution, not pitch decks.")); ?></span>
               <span class="wwa-visual-badge" data-customizer="wwa_badge"><?php echo esc_html(cr8v_mod("wwa_badge", "IN-HOUSE STUDIO")); ?></span>
@@ -3697,16 +3700,16 @@ defined('ABSPATH') || exit;
 
           <div class="wwa-stats">
             <div class="wwa-stat">
-              <div class="wwa-stat-num">5+</div>
-              <div class="wwa-stat-label">Years Building</div>
+              <div class="wwa-stat-num" data-customizer="wwa_s1_num"><?php echo esc_html(cr8v_mod("wwa_s1_num", "8+")); ?></div>
+              <div class="wwa-stat-label" data-customizer="wwa_s1_lbl"><?php echo esc_html(cr8v_mod("wwa_s1_lbl", "Years Building")); ?></div>
             </div>
             <div class="wwa-stat">
-              <div class="wwa-stat-num">3</div>
-              <div class="wwa-stat-label">Continents Served</div>
+              <div class="wwa-stat-num" data-customizer="wwa_s2_num"><?php echo esc_html(cr8v_mod("wwa_s2_num", "3")); ?></div>
+              <div class="wwa-stat-label" data-customizer="wwa_s2_lbl"><?php echo esc_html(cr8v_mod("wwa_s2_lbl", "Continents Served")); ?></div>
             </div>
             <div class="wwa-stat">
-              <div class="wwa-stat-num">100%</div>
-              <div class="wwa-stat-label">Client Ownership</div>
+              <div class="wwa-stat-num" data-customizer="wwa_s3_num"><?php echo esc_html(cr8v_mod("wwa_s3_num", "100%")); ?></div>
+              <div class="wwa-stat-label" data-customizer="wwa_s3_lbl"><?php echo esc_html(cr8v_mod("wwa_s3_lbl", "Client Ownership")); ?></div>
             </div>
           </div>
         </div>
@@ -4287,7 +4290,6 @@ defined('ABSPATH') || exit;
       <div class="cta-arc-container">
         <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate" class="cta-arc-video">
           <source src="<?php echo esc_url(cr8v_mod("cta_video_mp4", get_template_directory_uri() . "/assets/img/download.mp4")); ?>" type="video/mp4">
-          <source src="<?php echo esc_url(cr8v_mod("cta_video_webm", get_template_directory_uri() . "/assets/img/seven_circular_badges.webm")); ?>" type="video/webm">
         </video>
       </div>
 
@@ -4626,35 +4628,10 @@ defined('ABSPATH') || exit;
 
 
 
-        function updateHUDDisplay() {
-          const hudWoo    = document.getElementById('hudWooVal');
-          const hudNext   = document.getElementById('hudNextVal');
-          const hudYellow = document.getElementById('hudYellowVal');
-          const hudGreen  = document.getElementById('hudGreenVal');
-
-          // Effective delta = calibration base + current user drag offset
-          const baseWeight = scrollProgress >= 0.5 ? 1 : scrollProgress;
-          const wX  = Math.round(liveCalibData.woo.dX    * baseWeight + (airWoo    ? (airWoo.userOffsetX    || 0) : 0));
-          const wY  = Math.round(liveCalibData.woo.dY    * baseWeight + (airWoo    ? (airWoo.userOffsetY    || 0) : 0));
-          const nX  = Math.round(liveCalibData.next.dX   * baseWeight + (airNext   ? (airNext.userOffsetX   || 0) : 0));
-          const nY  = Math.round(liveCalibData.next.dY   * baseWeight + (airNext   ? (airNext.userOffsetY   || 0) : 0));
-          const yX  = Math.round(liveCalibData.yellow.dX * baseWeight + (airYellow ? (airYellow.userOffsetX || 0) : 0));
-          const yY  = Math.round(liveCalibData.yellow.dY * baseWeight + (airYellow ? (airYellow.userOffsetY || 0) : 0));
-          const gX  = Math.round(liveCalibData.green.dX  * baseWeight + (airGreen  ? (airGreen.userOffsetX  || 0) : 0));
-          const gY  = Math.round(liveCalibData.green.dY  * baseWeight + (airGreen  ? (airGreen.userOffsetY  || 0) : 0));
-
-          if (hudWoo)    hudWoo.textContent    = `Woo: dX: ${wX}px | dY: ${wY}px | Rot: ${liveCalibData.woo.rot}°`;
-          if (hudNext)   hudNext.textContent   = `Next: dX: ${nX}px | dY: ${nY}px | Rot: ${liveCalibData.next.rot}°`;
-          if (hudYellow) hudYellow.textContent = `Yellow: dX: ${yX}px | dY: ${yY}px | Rot: ${liveCalibData.yellow.rot}° | Flip: ${liveCalibData.yellow.flipX}`;
-          if (hudGreen)  hudGreen.textContent  = `Green: dX: ${gX}px | dY: ${gY}px | Rot: ${liveCalibData.green.rot}°`;
-        }
-
         // Weight calculation function:
         // Returns 1.0 at the scrollProgress where the block was dragged,
         // fading smoothly to 0 as the user scrolls to 0% (sky) or 100% (floor).
         function getDragWeight(piece) {
-          const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
-          if (calibMode) return 1.0;
           const originS = piece.dragOriginScroll !== undefined ? piece.dragOriginScroll : 0;
           if (originS <= 0.02) {
             // Dragged at or near 0% (top):
@@ -4684,8 +4661,6 @@ defined('ABSPATH') || exit;
             { el: airGreen, key: 'green', initialRot: 6 }
           ];
 
-          const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
-
           // 1. Render Airborne Floating Cards
           pieces.forEach(item => {
             if (!item.el) return;
@@ -4703,7 +4678,7 @@ defined('ABSPATH') || exit;
             const currentDY = baseDY + userY;
 
             const initialRot = item.initialRot || 0;
-            const currentRot = calibMode ? 0 : (initialRot * (1 - scrollProgress));
+            const currentRot = initialRot * (1 - scrollProgress);
             const flip = c.flipX || 1;
             item.el.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${flip})`;
           });
@@ -4720,7 +4695,7 @@ defined('ABSPATH') || exit;
 
           // Auto-clear drag offsets at scroll endpoints so scrolling in the opposite
           // direction always follows the pure, predefined canonical trajectory
-          if (!calibMode && !activePiece) {
+          if (!activePiece) {
             if (scrollProgress <= 0.001) {
               // At 0% top: clear any floor drag offsets so scrolling down always hits true floor sockets
               allBlocks.forEach(piece => {
@@ -4741,8 +4716,6 @@ defined('ABSPATH') || exit;
               });
             }
           }
-
-          updateHUDDisplay();
         }
 
         // True Wheel Hijack Listener
@@ -4861,7 +4834,6 @@ defined('ABSPATH') || exit;
 
           // Directly set transform — instantaneous response
           const k = getKey(activePiece);
-          const calibMode = document.getElementById('floatingCalibHUD')?.style.display !== 'none';
           if (k) {
             const c = liveCalibData[k];
             const baseDX = c.dX * scrollProgress;
@@ -4869,7 +4841,7 @@ defined('ABSPATH') || exit;
             const currentDX = baseDX + activePiece.userOffsetX;
             const currentDY = baseDY + activePiece.userOffsetY;
             const initialRotMap = { woo: -5, next: -8, yellow: 10, green: 6 };
-            const currentRot = calibMode ? 0 : ((initialRotMap[k] || 0) * (1 - scrollProgress));
+            const currentRot = (initialRotMap[k] || 0) * (1 - scrollProgress);
             activePiece.style.transform = `translate3d(${currentDX}px, ${currentDY}px, 0) rotate(${currentRot}deg) scaleX(${c.flipX || 1})`;
           } else {
             // Floor grid card — pure user offset
@@ -4888,90 +4860,6 @@ defined('ABSPATH') || exit;
 
         window.addEventListener('pointerup', endDrag);
         window.addEventListener('pointercancel', endDrag);
-
-        // Hotkeys [R] and [F]
-        window.addEventListener('keydown', function(e) {
-          if (!activePiece) return;
-          const k = getKey(activePiece);
-          if (!k) return;
-
-          if (e.key === 'r' || e.key === 'R') {
-            liveCalibData[k].rot = (liveCalibData[k].rot + 90) % 360;
-            renderPositions();
-          } else if (e.key === 'f' || e.key === 'F') {
-            liveCalibData[k].flipX = liveCalibData[k].flipX * -1;
-            renderPositions();
-          }
-        });
-
-        window.copyCalibratedCoordinates = function() {
-          // Output EFFECTIVE delta = calibration base + current user drag offset
-          const elMap = { woo: airWoo, next: airNext, yellow: airYellow, green: airGreen };
-          const out = {};
-          const baseWeight = scrollProgress >= 0.5 ? 1 : scrollProgress;
-          for (const k in liveCalibData) {
-            const el = elMap[k];
-            out[k] = {
-              dX:    Math.round(liveCalibData[k].dX * baseWeight + (el ? (el.userOffsetX || 0) : 0)),
-              dY:    Math.round(liveCalibData[k].dY * baseWeight + (el ? (el.userOffsetY || 0) : 0)),
-              rot:   liveCalibData[k].rot,
-              flipX: liveCalibData[k].flipX
-            };
-          }
-          const text = JSON.stringify(out, null, 2);
-          navigator.clipboard.writeText(text).then(function() {
-            alert('Coordinates copied!\n\n' + text);
-          }).catch(function() {
-            alert('Coordinates:\n\n' + text);
-          });
-        };
-
-        // Toggle HUD with H key on desktop
-        document.addEventListener('keydown', function(e) {
-          if (e.key === 'h' || e.key === 'H') {
-            const hud = document.getElementById('floatingCalibHUD');
-            if (hud) hud.style.display = hud.style.display === 'none' ? 'block' : 'none';
-          }
-        });
-
-        // ════════════════════════════════════════════════════════════════
-        // MAKE CALIBRATOR HUD ITSELF DRAGGABLE ANYWHERE ON SCREEN
-        // ════════════════════════════════════════════════════════════════
-        const hudContainer = document.getElementById('floatingCalibHUD');
-        const hudHandle = document.getElementById('hudHeaderHandle');
-        if (hudContainer && hudHandle) {
-          let isHudDragging = false;
-          let hudStartX = 0, hudStartY = 0;
-          let hudInitialLeft = 0, hudInitialTop = 0;
-
-          hudHandle.addEventListener('pointerdown', function(e) {
-            if (e.target.tagName === 'BUTTON') return;
-            isHudDragging = true;
-            hudStartX = e.clientX;
-            hudStartY = e.clientY;
-            const rect = hudContainer.getBoundingClientRect();
-            hudInitialLeft = rect.left;
-            hudInitialTop = rect.top;
-
-            hudContainer.style.right = 'auto';
-            hudContainer.style.bottom = 'auto';
-            hudContainer.style.left = hudInitialLeft + 'px';
-            hudContainer.style.top = hudInitialTop + 'px';
-            e.preventDefault();
-          });
-
-          window.addEventListener('pointermove', function(e) {
-            if (!isHudDragging) return;
-            const dx = e.clientX - hudStartX;
-            const dy = e.clientY - hudStartY;
-            hudContainer.style.left = (hudInitialLeft + dx) + 'px';
-            hudContainer.style.top = (hudInitialTop + dy) + 'px';
-          });
-
-          window.addEventListener('pointerup', function() {
-            isHudDragging = false;
-          });
-        }
 
         renderPositions(); // Initial render
       });

@@ -203,36 +203,43 @@ defined('ABSPATH') || exit;
     </div>
     <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
       <div class="c8isv-portfolio-img">
-        <img src="<?php echo esc_url(cr8v_mod('ecom_port_img', 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop')); ?>" alt="Luxe Apparel E-Commerce — built by Cr8v Stacks" data-customizer="ecom_port_img">
+        <?php
+          $ecom_cs_def = get_template_directory_uri() . '/assets/img/case_studies/cs_victorias_lane_hero_vertical.webp';
+          $ecom_cs_src = cr8v_mod('ecom_port_img', $ecom_cs_def);
+          if (empty($ecom_cs_src) || strpos($ecom_cs_src, 'unsplash') !== false || strpos($ecom_cs_src, 'luxe') !== false) {
+            $ecom_cs_src = $ecom_cs_def;
+          }
+        ?>
+        <img src="<?php echo esc_url($ecom_cs_src); ?>" alt="Victoria's Lane Handcrafted Bags & Shopify Liquid — built by Cr8v Stacks" data-customizer="ecom_port_img">
       </div>
       <div class="c8isv-portfolio-info">
-        <span class="c8isv-portfolio-client" data-customizer="ecom_port_client"><?php echo esc_html(cr8v_mod('ecom_port_client', 'Case Study — Luxe Apparel Brand')); ?></span>
-        <h3 class="c8isv-portfolio-title" data-customizer="ecom_port_title"><?php echo esc_html(cr8v_mod('ecom_port_title', 'Custom WooCommerce Storefront & Native Slide Cart System')); ?></h3>
-        <p class="c8isv-portfolio-desc" data-customizer="ecom_port_desc"><?php echo wp_kses_post(cr8v_mod('ecom_port_desc', 'Luxe Apparel needed a high-performance fashion store with sub-second page loads and custom bundle upsells. We built a bloat-free WooCommerce theme with custom AJAX cart drawers.')); ?></p>
+        <span class="c8isv-portfolio-client" data-customizer="ecom_port_client"><?php echo esc_html(cr8v_mod('ecom_port_client', "Case Study — Victoria's Lane")); ?></span>
+        <h3 class="c8isv-portfolio-title" data-customizer="ecom_port_title"><?php echo esc_html(cr8v_mod('ecom_port_title', 'Statement Accessories &amp; Bespoke Liquid Storefront')); ?></h3>
+        <p class="c8isv-portfolio-desc" data-customizer="ecom_port_desc"><?php echo wp_kses_post(cr8v_mod('ecom_port_desc', 'Hand-coded a bespoke Shopify Liquid storefront featuring custom variant swatches, an app-free AJAX slide cart drawer, and high-ROAS fashion acquisition funnels.')); ?></p>
         <div class="c8isv-portfolio-stats">
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="ecom_port_stat1_val"><?php echo esc_html(cr8v_mod('ecom_port_stat1_val', '+34%')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="ecom_port_stat1_lbl"><?php echo esc_html(cr8v_mod('ecom_port_stat1_lbl', 'Increase in Average Order Value (AOV)')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="ecom_port_stat1_val"><?php echo esc_html(cr8v_mod('ecom_port_stat1_val', '+42%')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="ecom_port_stat1_lbl"><?php echo esc_html(cr8v_mod('ecom_port_stat1_lbl', 'Checkout Conversion')); ?></span>
           </div>
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="ecom_port_stat2_val"><?php echo esc_html(cr8v_mod('ecom_port_stat2_val', '820ms')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="ecom_port_stat2_lbl"><?php echo esc_html(cr8v_mod('ecom_port_stat2_lbl', 'Mobile Checkout Speed')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="ecom_port_stat2_val"><?php echo esc_html(cr8v_mod('ecom_port_stat2_val', '0.7s')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="ecom_port_stat2_lbl"><?php echo esc_html(cr8v_mod('ecom_port_stat2_lbl', 'Mobile LCP Speed')); ?></span>
           </div>
         </div>
         <div class="c8isv-portfolio-deliverables">
           <span class="c8isv-portfolio-stat-lbl">Key Deliverables</span>
           <div class="c8isv-portfolio-pills">
-            <span class="c8isv-portfolio-pill">WooCommerce PHP Theme</span>
-            <span class="c8isv-portfolio-pill">AJAX Slide Cart</span>
-            <span class="c8isv-portfolio-pill">Sub-Second Checkout</span>
-            <span class="c8isv-portfolio-pill">Server Meta CAPI</span>
+            <span class="c8isv-portfolio-pill">Bespoke Shopify Liquid</span>
+            <span class="c8isv-portfolio-pill">App-Free AJAX Cart</span>
+            <span class="c8isv-portfolio-pill">Multi-Currency Geolocation</span>
+            <span class="c8isv-portfolio-pill">Zero App Bloat ($0/mo)</span>
           </div>
         </div>
-        <a href="<?php echo esc_url(home_url(cr8v_mod('ecom_port_btn_url', '/case-studies/luxe-apparel/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="ecom_port_btn_text"><?php echo esc_html(cr8v_mod('ecom_port_btn_text', 'View Case Study →')); ?></a>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('ecom_port_btn_url', '/case-studies/victorias-lane/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="ecom_port_btn_text"><?php echo esc_html(cr8v_mod('ecom_port_btn_text', 'View Case Study →')); ?></a>
       </div>
     </div>
     <div class="c8isv-portfolio-footer">
-      <a href="<?php echo esc_url(home_url('/portfolio/')); ?>" class="c8isv-explore">See All Projects →</a>
+      <a href="<?php echo esc_url(home_url('/case-studies/')); ?>" class="c8isv-explore">See All Projects →</a>
     </div>
   </div>
 </div>

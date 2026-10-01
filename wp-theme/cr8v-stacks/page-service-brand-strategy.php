@@ -203,36 +203,43 @@ defined('ABSPATH') || exit;
     </div>
     <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
       <div class="c8isv-portfolio-img">
-        <img src="<?php echo esc_url(cr8v_mod('brstr_port_img', 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop')); ?>" alt="Mkenny Strategy — built by Cr8v Stacks" data-customizer="brstr_port_img">
+        <?php
+          $brstr_cs_def = get_template_directory_uri() . '/assets/img/case_studies/cs_mkenny_hero_vertical.webp';
+          $brstr_cs_src = cr8v_mod('brstr_port_img', $brstr_cs_def);
+          if (empty($brstr_cs_src) || strpos($brstr_cs_src, 'unsplash') !== false || strpos($brstr_cs_src, 'mkenny-real-estate') !== false) {
+            $brstr_cs_src = $brstr_cs_def;
+          }
+        ?>
+        <img src="<?php echo esc_url($brstr_cs_src); ?>" alt="Mkenny Properties Real Estate Directory & Brand Architecture — built by Cr8v Stacks" data-customizer="brstr_port_img">
       </div>
       <div class="c8isv-portfolio-info">
-        <span class="c8isv-portfolio-client" data-customizer="brstr_port_client"><?php echo esc_html(cr8v_mod('brstr_port_client', 'Case Study — Mkenny Real Estate')); ?></span>
-        <h3 class="c8isv-portfolio-title" data-customizer="brstr_port_title"><?php echo esc_html(cr8v_mod('brstr_port_title', 'Market Positioning Architecture & Brand Messaging Matrix')); ?></h3>
-        <p class="c8isv-portfolio-desc" data-customizer="brstr_port_desc"><?php echo wp_kses_post(cr8v_mod('brstr_port_desc', 'Mkenny needed to reposition their commercial advisory firm to target high-net-worth institutional investors. We built a complete brand strategy framework, value proposition matrix, and pitch book.')); ?></p>
+        <span class="c8isv-portfolio-client" data-customizer="brstr_port_client"><?php echo esc_html(cr8v_mod('brstr_port_client', 'Case Study — Mkenny Properties')); ?></span>
+        <h3 class="c8isv-portfolio-title" data-customizer="brstr_port_title"><?php echo esc_html(cr8v_mod('brstr_port_title', 'Real Estate Directory &amp; Brand Architecture')); ?></h3>
+        <p class="c8isv-portfolio-desc" data-customizer="brstr_port_desc"><?php echo wp_kses_post(cr8v_mod('brstr_port_desc', 'Repositioned a static corporate presence into an authoritative commercial real estate directory, structuring dynamic property taxonomies, custom listing widgets, and institutional investor lead funnels.')); ?></p>
         <div class="c8isv-portfolio-stats">
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="brstr_port_stat1_val"><?php echo esc_html(cr8v_mod('brstr_port_stat1_val', '3.5x')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="brstr_port_stat1_lbl"><?php echo esc_html(cr8v_mod('brstr_port_stat1_lbl', 'Increase in Deal Size Intake')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="brstr_port_stat1_val"><?php echo esc_html(cr8v_mod('brstr_port_stat1_val', '4.8x')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="brstr_port_stat1_lbl"><?php echo esc_html(cr8v_mod('brstr_port_stat1_lbl', 'Lead Conversion Lift')); ?></span>
           </div>
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="brstr_port_stat2_val"><?php echo esc_html(cr8v_mod('brstr_port_stat2_val', '98%')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="brstr_port_stat2_lbl"><?php echo esc_html(cr8v_mod('brstr_port_stat2_lbl', 'Sales Team Messaging Alignment')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="brstr_port_stat2_val"><?php echo esc_html(cr8v_mod('brstr_port_stat2_val', '3.5x')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="brstr_port_stat2_lbl"><?php echo esc_html(cr8v_mod('brstr_port_stat2_lbl', 'Deal Intake Size')); ?></span>
           </div>
         </div>
         <div class="c8isv-portfolio-deliverables">
           <span class="c8isv-portfolio-stat-lbl">Key Deliverables</span>
           <div class="c8isv-portfolio-pills">
-            <span class="c8isv-portfolio-pill">Market Positioning Blueprint</span>
-            <span class="c8isv-portfolio-pill">ICP Buyer Persona Matrix</span>
-            <span class="c8isv-portfolio-pill">Value Proposition Copy</span>
-            <span class="c8isv-portfolio-pill">Brand Architecture Blueprint</span>
+            <span class="c8isv-portfolio-pill">Brand Positioning Architecture</span>
+            <span class="c8isv-portfolio-pill">Dynamic Listings Grid</span>
+            <span class="c8isv-portfolio-pill">Property Taxonomy Schema</span>
+            <span class="c8isv-portfolio-pill">High-Intent Inquiry Funnels</span>
           </div>
         </div>
-        <a href="<?php echo esc_url(home_url(cr8v_mod('brstr_port_btn_url', '/case-studies/mkenny-real-estate/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="brstr_port_btn_text"><?php echo esc_html(cr8v_mod('brstr_port_btn_text', 'View Case Study →')); ?></a>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('brstr_port_btn_url', '/case-studies/mkenny-properties/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="brstr_port_btn_text"><?php echo esc_html(cr8v_mod('brstr_port_btn_text', 'View Case Study →')); ?></a>
       </div>
     </div>
     <div class="c8isv-portfolio-footer">
-      <a href="<?php echo esc_url(home_url('/portfolio/')); ?>" class="c8isv-explore">See All Projects →</a>
+      <a href="<?php echo esc_url(home_url('/case-studies/')); ?>" class="c8isv-explore">See All Projects →</a>
     </div>
   </div>
 </div>

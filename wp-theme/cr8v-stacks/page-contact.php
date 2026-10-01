@@ -35,7 +35,15 @@ $form_label = cr8v_mod('contact_form_label', 'FILL OUT THE PROJECT FORM BELOW');
 .c8ct-wrap::before { content:''; position:absolute; inset:0; background:none !important; pointer-events:none; }
 .c8ct-wrap::after { content:''; position:absolute; inset:0; background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size:140px 140px; mix-blend-mode:screen; pointer-events:none; }
 
-.c8ct-card { position:relative; z-index:1; width: 100%; max-width:720px; margin:0 auto; background:var(--paper); padding:4.5rem; overflow:visible; border-radius:4px !important; }
+.c8ct-card { position:relative; z-index:1; width: 100%; max-width:720px; margin:0 auto; background:var(--paper); padding:4.5rem; overflow:visible; border-radius:4px !important; transition: max-width 0.3s ease; }
+.c8ct-card.has-wide-form,
+.c8ct-card:has(iframe),
+.c8ct-card:has([id*="sb_"]),
+.c8ct-card:has(.simplybook-widget),
+.c8ct-card:has(#sb_widget_container) {
+  max-width: 1140px !important;
+  padding: clamp(2rem, 4vw, 3.5rem) !important;
+}
 .c8ct-card::before, .c8ct-card::after { content:''; position:absolute; left:8px; right:8px; background:rgba(255,255,255,.05); z-index:-1; }
 .c8ct-card::before { bottom:-10px; left:20px; right:20px; background:rgba(255,255,255,.08); }
 .c8ct-card::after { bottom:-20px; left:32px; right:32px; background:rgba(255,255,255,.045); }
@@ -62,7 +70,216 @@ $form_label = cr8v_mod('contact_form_label', 'FILL OUT THE PROJECT FORM BELOW');
 
 .c8ct-form-label { font-family: 'Space Mono', monospace !important; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--gray); margin-bottom: 1.5rem; font-weight: 700; }
 
-.c8ct-form-container { width: 100%; text-align: center; }
+.c8ct-form-container { width: 100% !important; max-width: 100% !important; text-align: center; }
+.c8ct-form-container iframe,
+.c8ct-form-container .simplybook-widget,
+.c8ct-form-container #sb_widget_container,
+.c8ct-form-container .sb-widget-content {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+  border: none !important;
+  margin: 0 auto !important;
+  overflow: visible !important;
+}
+
+/* ── Complete Ticket Stub Contact Form Styling ── */
+.c8ct-form-container .wpcf7 form p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.c8ct-form-container .wpcf7 form br {
+  display: none !important;
+}
+
+.c8cf-root {
+  --c8cf-ink: #080808; 
+  --c8cf-gray: #8A8A8A; 
+  --c8cf-line: rgba(8,8,8,.2);
+  --c8cf-blue: #0047E1; 
+  --c8cf-blue-mid: #0038C0; 
+  --c8cf-red: #C4291F;
+  font-family: 'DM Sans', sans-serif;
+  text-align: left;
+}
+
+.c8cf-row {
+  display: flex !important;
+  gap: 1.75rem !important;
+}
+.c8cf-field {
+  margin-bottom: 1.75rem !important;
+  flex: 1 !important;
+  text-align: left !important;
+}
+
+.c8cf-flabel {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 9px !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase !important;
+  color: var(--c8cf-gray) !important;
+  margin-bottom: 8px !important;
+  display: block !important;
+  font-weight: 700 !important;
+}
+
+.c8cf-root .wpcf7-form-control-wrap {
+  display: block !important;
+  width: 100% !important;
+}
+
+.c8cf-root input.c8cf-input,
+.c8cf-root input.wpcf7-text,
+.c8cf-root input.wpcf7-email,
+.c8cf-root input.wpcf7-tel,
+.c8cf-root textarea.c8cf-textarea,
+.c8cf-root textarea.wpcf7-textarea {
+  width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1.5px solid var(--c8cf-line) !important;
+  color: var(--c8cf-ink) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  padding: 8px 2px !important;
+  outline: none !important;
+  transition: border-color .2s !important;
+  box-sizing: border-box !important;
+  border-radius: 0 !important;
+}
+
+.c8cf-root textarea.c8cf-textarea,
+.c8cf-root textarea.wpcf7-textarea {
+  min-height: 88px !important;
+  resize: vertical !important;
+}
+
+.c8cf-root input::placeholder,
+.c8cf-root textarea::placeholder {
+  color: rgba(8,8,8,.32) !important;
+}
+
+.c8cf-root input:focus,
+.c8cf-root textarea:focus {
+  border-color: var(--c8cf-blue) !important;
+}
+
+.c8cf-root input.wpcf7-not-valid,
+.c8cf-root textarea.wpcf7-not-valid {
+  border-color: var(--c8cf-red) !important;
+}
+
+.c8cf-root .wpcf7-not-valid-tip {
+  display: block !important;
+  font-size: 11px !important;
+  color: var(--c8cf-red) !important;
+  margin-top: 6px !important;
+  font-weight: 500 !important;
+  font-family: 'Space Mono', monospace !important;
+}
+
+/* ── Interactive Multi-Select Service Pills ── */
+.c8cf-root .c8cf-services,
+.c8cf-root .wpcf7-checkbox {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin-top: 6px !important;
+}
+
+.c8cf-root .c8cf-services .wpcf7-list-item,
+.c8cf-root .wpcf7-checkbox .wpcf7-list-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  position: relative !important;
+  cursor: pointer !important;
+  border: 1px solid var(--c8cf-line) !important;
+  background: transparent !important;
+  padding: 9px 14px !important;
+  font-size: 13px !important;
+  color: var(--c8cf-ink) !important;
+  transition: all .2s ease !important;
+  user-select: none !important;
+  margin: 0 !important;
+  border-radius: 2px !important;
+}
+
+.c8cf-root .c8cf-services .wpcf7-list-item input[type="checkbox"],
+.c8cf-root .wpcf7-checkbox input[type="checkbox"] {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0 !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  z-index: 2 !important;
+}
+
+.c8cf-root .c8cf-services .wpcf7-list-item:hover,
+.c8cf-root .wpcf7-checkbox .wpcf7-list-item:hover {
+  border-color: var(--c8cf-blue) !important;
+  color: var(--c8cf-blue) !important;
+}
+
+.c8cf-root .c8cf-services .wpcf7-list-item:has(input:checked),
+.c8cf-root .wpcf7-checkbox .wpcf7-list-item:has(input:checked),
+.c8cf-root .c8cf-services .wpcf7-list-item.is-checked,
+.c8cf-root .wpcf7-checkbox .wpcf7-list-item.is-checked {
+  background: var(--c8cf-ink) !important;
+  border-color: var(--c8cf-ink) !important;
+  color: #FFFFFF !important;
+}
+
+.c8cf-root .c8cf-services .wpcf7-list-item:has(input:checked) .wpcf7-list-item-label,
+.c8cf-root .wpcf7-checkbox .wpcf7-list-item:has(input:checked) .wpcf7-list-item-label,
+.c8cf-root .c8cf-services .wpcf7-list-item.is-checked .wpcf7-list-item-label,
+.c8cf-root .wpcf7-checkbox .wpcf7-list-item.is-checked .wpcf7-list-item-label {
+  color: #FFFFFF !important;
+}
+
+/* ── Submit Button ── */
+.c8cf-submit-row {
+  margin-top: 1rem !important;
+}
+
+.c8cf-root input.c8cf-submit,
+.c8cf-root input.wpcf7-submit {
+  width: 100% !important;
+  height: 54px !important;
+  background: var(--c8cf-ink) !important;
+  border: 1px solid var(--c8cf-ink) !important;
+  color: #FFFFFF !important;
+  font-family: 'Michroma', sans-serif !important;
+  font-size: 15px !important;
+  letter-spacing: .06em !important;
+  cursor: pointer !important;
+  transition: all .2s ease !important;
+  text-transform: uppercase !important;
+  border-radius: 2px !important;
+  display: block !important;
+}
+
+.c8cf-root input.c8cf-submit:hover,
+.c8cf-root input.wpcf7-submit:hover {
+  background: var(--c8cf-blue) !important;
+  border-color: var(--c8cf-blue) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px rgba(0, 71, 225, 0.25) !important;
+}
+
+.c8cf-root .wpcf7-response-output {
+  margin: 1.5rem 0 0 0 !important;
+  padding: 12px 16px !important;
+  border: 1px solid var(--c8cf-line) !important;
+  border-radius: 3px !important;
+  font-size: 13px !important;
+  text-align: center !important;
+}
 
 /* Custom CF7 Success Confirmation Card */
 .c8cf-success-card {
@@ -124,6 +341,13 @@ $form_label = cr8v_mod('contact_form_label', 'FILL OUT THE PROJECT FORM BELOW');
   to { transform: rotate(360deg); }
 }
 
+@media (max-width: 640px) {
+  .c8cf-row {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+}
+
 @media (max-width:768px){
   .c8ct-wrap { padding:5.5rem 1.25rem 3.5rem 1.25rem; }
   .c8ct-card { padding:3rem 2rem; }
@@ -140,8 +364,12 @@ $form_label = cr8v_mod('contact_form_label', 'FILL OUT THE PROJECT FORM BELOW');
 }
 </style>
 
+<?php
+$contact_form_code = cr8v_mod('contact_form_shortcode', '[contact-form-7 id="70c8d19" title="Contact Page"]');
+$is_wide_booking   = (stripos($contact_form_code, 'booking') !== false || stripos($contact_form_code, 'simplybook') !== false);
+?>
 <div class="c8ct-wrap">
-  <div class="c8ct-card">
+  <div class="c8ct-card <?php echo $is_wide_booking ? 'has-wide-form' : ''; ?>">
     <div class="c8ct-stamp"><span><?php echo wp_kses_post($stamp_text); ?></span></div>
 
     <div class="c8ct-tag"><?php echo esc_html($eyebrow); ?></div>
@@ -164,7 +392,7 @@ $form_label = cr8v_mod('contact_form_label', 'FILL OUT THE PROJECT FORM BELOW');
     <div class="c8ct-form-label"><?php echo esc_html($form_label); ?></div>
 
     <div class="c8ct-form-container">
-      <?php echo do_shortcode(cr8v_mod('contact_form_shortcode', '[contact-form-7 id="70c8d19" title="Contact Page"]')); ?>
+      <?php echo do_shortcode($contact_form_code); ?>
     </div>
   </div>
 </div>
@@ -172,6 +400,39 @@ $form_label = cr8v_mod('contact_form_label', 'FILL OUT THE PROJECT FORM BELOW');
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Ensure booking widget or iframe dynamically expands contact card to full desktop width
+  function checkWideBookingForm() {
+    var formBox = document.querySelector('.c8ct-form-container');
+    var card = document.querySelector('.c8ct-card');
+    if (formBox && card) {
+      if (formBox.querySelector('iframe, [id*="sb_"], .simplybook-widget, #sb_widget_container')) {
+        card.classList.add('has-wide-form');
+      }
+    }
+  }
+  checkWideBookingForm();
+  setTimeout(checkWideBookingForm, 400);
+  setTimeout(checkWideBookingForm, 1200);
+  setTimeout(checkWideBookingForm, 2500);
+
+  // Multi-select service pill checkbox toggle (fallback for browsers alongside CSS :has)
+  document.querySelectorAll('.c8cf-root .wpcf7-list-item input[type="checkbox"]:checked').forEach(function(cb) {
+    var item = cb.closest('.wpcf7-list-item');
+    if (item) item.classList.add('is-checked');
+  });
+  document.addEventListener('change', function(e) {
+    if (e.target && e.target.matches('.c8cf-root .wpcf7-list-item input[type="checkbox"]')) {
+      var item = e.target.closest('.wpcf7-list-item');
+      if (item) {
+        if (e.target.checked) {
+          item.classList.add('is-checked');
+        } else {
+          item.classList.remove('is-checked');
+        }
+      }
+    }
+  });
+
   document.addEventListener('wpcf7beforesubmit', function(e) {
     const btn = e.target.querySelector('.c8cf-submit');
     if (btn) {

@@ -296,16 +296,19 @@ body.single-post {
 .art-body-text figure { margin: 1.5rem 0 !important; }
 .art-body-text figcaption { font-family: var(--font-mono); font-size: 0.72rem; color: #8A8A8A; text-align: center; margin-top: 0.5rem; }
 
-.art-body-text pre {
-  font-family: var(--font-mono) !important;
-  background: #080808 !important;
-  color: #00FF66 !important;
-  border-radius: 4px !important;
-  padding: 1.25rem !important;
-  overflow-x: auto !important;
-  font-size: 0.85rem !important;
-  line-height: 1.6 !important;
-  margin: 1.75rem 0 !important;
+.art-body-text pre:not(.lumicode-pre):not([class*="widget-code"]):not([class*="arch"]):not([id^="w"]) {
+  font-family: var(--font-mono);
+  background: #080808;
+  color: #00FF66;
+  border-radius: 4px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 1.75rem 0;
+}
+.art-body-text.has-custom-html-payload {
+  overflow: visible;
 }
 .art-body-text code {
   font-family: var(--font-mono) !important;
@@ -800,8 +803,17 @@ body.single-post {
         <?php endif; ?>
       </div>
 
+      <?php
+        $raw_post_content = get_post_field('post_content', get_the_ID());
+        $is_custom_html_post = (
+          strpos($raw_post_content, '<style') !== false ||
+          strpos($raw_post_content, '<section') !== false ||
+          strpos($raw_post_content, 'class="scene"') !== false ||
+          strpos($raw_post_content, 'class="ctc-') !== false
+        );
+      ?>
       <!-- Dynamic Post Content -->
-      <div class="art-body-text">
+      <div class="art-body-text <?php if ($is_custom_html_post) echo 'has-custom-html-payload'; ?>">
         <?php the_content(); ?>
       </div>
 

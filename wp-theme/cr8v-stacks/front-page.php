@@ -1241,6 +1241,9 @@ defined('ABSPATH') || exit;
 
       <!-- ROW 1 -->
       <div class="c8-pg-cell is-text-card" data-row="0" data-col="0" id="d-r1-text">
+        <div class="c8-mobile-card-media">
+          <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_1', get_template_directory_uri() . '/assets/img/abstract/cr8v_mindset_design_system.webp')); ?>" alt="Design Identity">
+        </div>
         <span class="c8-drag-grip">DRAG CARD</span>
         <h3 class="c8-pg-h3" data-customizer="pg_card_1_title"><?php echo esc_html(cr8v_mod('pg_card_1_title', 'Design-Led Brand & Visual Systems')); ?></h3>
         <p class="c8-pg-p" data-customizer="pg_card_1_desc"><?php echo esc_html(cr8v_mod('pg_card_1_desc', 'Design is our primary foundation. We craft distinct visual identities, digital products, and brand systems that make your business instantly memorable.')); ?></p>
@@ -1260,6 +1263,9 @@ defined('ABSPATH') || exit;
         <span class="c8-slot-hint">CLICK / DRAG SLOT ↑</span>
       </div>
       <div class="c8-pg-cell is-text-card" data-row="1" data-col="2" id="d-r2-text">
+        <div class="c8-mobile-card-media">
+          <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_2', get_template_directory_uri() . '/assets/img/abstract/cr8v_mindset_ai_partner.webp')); ?>" alt="AI Creative Partner">
+        </div>
         <span class="c8-drag-grip">DRAG CARD</span>
         <h3 class="c8-pg-h3" data-customizer="pg_card_2_title"><?php echo esc_html(cr8v_mod('pg_card_2_title', 'AI as Our Creative Partner')); ?></h3>
         <p class="c8-pg-p" data-customizer="pg_card_2_desc"><?php echo esc_html(cr8v_mod('pg_card_2_desc', 'We leverage AI as a high-speed creative partner—accelerating research, rapid prototyping, and workflow iteration so we can ship elevated design faster.')); ?></p>
@@ -1267,6 +1273,9 @@ defined('ABSPATH') || exit;
 
       <!-- ROW 3 -->
       <div class="c8-pg-cell is-text-card" data-row="2" data-col="0" id="d-r3-text">
+        <div class="c8-mobile-card-media">
+          <img src="<?php echo esc_url(cr8v_mod('pg_tile_img_3', get_template_directory_uri() . '/assets/img/abstract/cr8v_mindset_growth_engine.webp')); ?>" alt="Growth Systems">
+        </div>
         <span class="c8-drag-grip">DRAG CARD</span>
         <h3 class="c8-pg-h3" data-customizer="pg_card_3_title"><?php echo esc_html(cr8v_mod('pg_card_3_title', 'Built-In Growth Engine')); ?></h3>
         <p class="c8-pg-p" data-customizer="pg_card_3_desc"><?php echo esc_html(cr8v_mod('pg_card_3_desc', 'Stunning design means nothing if it doesn\'t scale. Our brand systems are built to convert, capture market share, and drive long-term business momentum.')); ?></p>
@@ -1650,28 +1659,28 @@ defined('ABSPATH') || exit;
         </div>
       </div>
 
-      <!-- ── CASE 1: BLVCK HAIR NG ── -->
-      <div class="sw-matrix-cell" id="cs-blvck-hair">
+      <!-- ── CASE 1: CRUX NXTION LTD ── -->
+      <div class="sw-matrix-cell" id="cs-crux-nxtion">
         <div class="sw-matrix-left">
           <div>
-            <div class="sw-matrix-eyebrow" data-customizer="cs1_eyebrow">// <?php echo esc_html(cr8v_mod('cs1_eyebrow', 'ORGANIC ACQUISITION ENGINE')); ?></div>
-            <h2 class="sw-matrix-h2" data-customizer="cs1_heading"><?php echo esc_html(cr8v_mod('cs1_heading', 'Organic E-Commerce Growth From The Ground Up')); ?></h2>
+            <div class="sw-matrix-eyebrow" data-customizer="cs1_eyebrow">// <?php echo esc_html(cr8v_mod('cs1_eyebrow', 'DUAL-WING HYBRID PLATFORM')); ?></div>
+            <h2 class="sw-matrix-h2" data-customizer="cs1_heading"><?php echo esc_html(cr8v_mod('cs1_heading', 'Dual-Wing Platform & Intelligent Switcher Architecture')); ?></h2>
             <p class="sw-matrix-sub" data-customizer="cs1_sub">
-              <?php echo esc_html(cr8v_mod('cs1_sub', 'Full-stack SEO architecture and multi-market e-commerce scaling for blvck Hair NG — growing from a single early storefront to active revenue-generating stores in both Nigeria and the UK.')); ?>
+              <?php echo esc_html(cr8v_mod('cs1_sub', 'Bespoke web platform for Crux Nxtion (Sheffield, UK) — unifying high-energy live cultural event production with executive business growth consultancy through a hardware-accelerated theme switcher and zero-dependency WordPress platform.')); ?>
             </p>
           </div>
 
           <div class="sw-quote-box">
-            <p data-customizer="cs1_quote"><?php echo esc_html(cr8v_mod('cs1_quote', 'We handled their SEO end-to-end — keyword mapping, page architecture, and content — from the ground up. Both storefronts are now ranking and converting independently.')); ?></p>
+            <p data-customizer="cs1_quote"><?php echo esc_html(cr8v_mod('cs1_quote', 'Two distinct commercial wings engineered into one seamless digital experience. Dynamic header and mobile bottom switcher, unified 10-service intake routing, and 100% domain authority preservation.')); ?></p>
           </div>
 
           <div class="sw-chip-tag">
-            <span class="sw-chip-icon">S</span>
-            <span data-customizer="cs1_role"><?php echo esc_html(cr8v_mod('cs1_role', 'SEO & E-Commerce · Nigeria & UK')); ?></span>
+            <span class="sw-chip-icon">W</span>
+            <span data-customizer="cs1_role"><?php echo esc_html(cr8v_mod('cs1_role', 'Web Design & UI/UX Architecture · Sheffield, UK')); ?></span>
           </div>
 
           <div>
-            <a href="<?php echo esc_url(home_url(cr8v_mod('cs1_link', '/case-studies/blvck-hair-ng/'))); ?>" class="c8-text-cta">
+            <a href="<?php echo esc_url(home_url(cr8v_mod('cs1_link', '/case-studies/crux-nxtion/'))); ?>" class="c8-text-cta">
               <span>Explore Case Study</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
@@ -1682,39 +1691,46 @@ defined('ABSPATH') || exit;
           <div class="sw-media-frame">
             <div class="sw-corner-label">
               <span class="sw-dot-grid"><span></span><span></span><span></span><span></span><span></span><span></span></span>
-              <span class="sw-corner-text">// P.01 — Live</span>
+              <span class="sw-corner-text">// P.01 — Live UK</span>
             </div>
             <div class="sw-floating-badge">
-              <div class="b1" data-customizer="cs1_stat_val"><?php echo esc_html(cr8v_mod('cs1_stat_val', '2 Active Stores')); ?></div>
-              <div class="b2" data-customizer="cs1_stat_lbl"><?php echo esc_html(cr8v_mod('cs1_stat_lbl', 'UK & NG Growth')); ?></div>
+              <div class="b1" data-customizer="cs1_stat_val"><?php echo esc_html(cr8v_mod('cs1_stat_val', '2 Wings')); ?></div>
+              <div class="b2" data-customizer="cs1_stat_lbl"><?php echo esc_html(cr8v_mod('cs1_stat_lbl', '1 Unified Engine')); ?></div>
             </div>
-            <img src="<?php echo esc_url(cr8v_mod('cs1_img', get_template_directory_uri() . '/assets/img/case_studies/case_study_blvck_hair.jpg')); ?>" alt="blvck Hair NG" class="sw-matrix-img">
+            <?php
+              $cs1_def = get_template_directory_uri() . '/assets/img/case_studies/case_study_crux_nxtion.webp';
+              $cs1_src = cr8v_mod('cs1_img', $cs1_def);
+              if (empty($cs1_src) || strpos($cs1_src, 'case_study_blvck_hair') !== false || strpos($cs1_src, 'case_study_duch_apartments.jpg') !== false || strpos($cs1_src, 'cs_duch_hero_landscape') !== false) {
+                $cs1_src = $cs1_def;
+              }
+            ?>
+            <img src="<?php echo esc_url($cs1_src); ?>" alt="Crux Nxtion Ltd" class="sw-matrix-img">
           </div>
         </div>
       </div>
 
-      <!-- ── CASE 2: THE DUCH APARTMENTS (FLIP ROW) ── -->
-      <div class="sw-matrix-cell flip" id="cs-duch-apartments">
+      <!-- ── CASE 2: MKENNY PROPERTIES (FLIP ROW) ── -->
+      <div class="sw-matrix-cell flip" id="cs-mkenny-properties">
         <div class="sw-matrix-left">
           <div>
-            <div class="sw-matrix-eyebrow" data-customizer="cs2_eyebrow">// <?php echo esc_html(cr8v_mod('cs2_eyebrow', 'BUILT-IN SEO ARCHITECTURE')); ?></div>
-            <h2 class="sw-matrix-h2" data-customizer="cs2_heading"><?php echo esc_html(cr8v_mod('cs2_heading', 'Website Design With SEO Folded In From Day One')); ?></h2>
+            <div class="sw-matrix-eyebrow" data-customizer="cs2_eyebrow">// <?php echo esc_html(cr8v_mod('cs2_eyebrow', 'DYNAMIC PROPERTY DIRECTORY')); ?></div>
+            <h2 class="sw-matrix-h2" data-customizer="cs2_heading"><?php echo esc_html(cr8v_mod('cs2_heading', 'Bespoke Real Estate Engine Built On Custom WordPress Blocks')); ?></h2>
             <p class="sw-matrix-sub" data-customizer="cs2_sub">
-              <?php echo esc_html(cr8v_mod('cs2_sub', 'Bespoke website design for The Duch Apartments — engineered with search engine optimization folded directly into the code structure from line one rather than patched after launch.')); ?>
+              <?php echo esc_html(cr8v_mod('cs2_sub', 'Upgraded Mkenny Properties from a static brochure into a high-performance commercial real estate engine with bespoke custom post types, dynamic filtering, and custom Gutenberg blocks.')); ?>
             </p>
           </div>
 
           <div class="sw-quote-box">
-            <p data-customizer="cs2_quote"><?php echo esc_html(cr8v_mod('cs2_quote', 'Custom layout, zero template base, with SEO architecture coded in before a single page went live. Direct booking integration maximised their direct revenue channel from day one.')); ?></p>
+            <p data-customizer="cs2_quote"><?php echo esc_html(cr8v_mod('cs2_quote', 'Handcrafted custom post types, facet-based search filters, and lightweight Gutenberg blocks engineered without bulky plugins. 3.5x boost in commercial client deal size.')); ?></p>
           </div>
 
           <div class="sw-chip-tag">
-            <span class="sw-chip-icon">W</span>
-            <span data-customizer="cs2_role"><?php echo esc_html(cr8v_mod('cs2_role', 'Web Design & Technical SEO · Lagos, Nigeria')); ?></span>
+            <span class="sw-chip-icon">R</span>
+            <span data-customizer="cs2_role"><?php echo esc_html(cr8v_mod('cs2_role', 'Real Estate Directory · Manchester UK')); ?></span>
           </div>
 
           <div>
-            <a href="<?php echo esc_url(home_url(cr8v_mod('cs2_link', '/case-studies/the-duch-apartments/'))); ?>" class="c8-text-cta">
+            <a href="<?php echo esc_url(home_url(cr8v_mod('cs2_link', '/case-studies/mkenny-properties/'))); ?>" class="c8-text-cta">
               <span>Explore Case Study</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
@@ -1728,10 +1744,17 @@ defined('ABSPATH') || exit;
               <span class="sw-corner-text">// P.02 — Live</span>
             </div>
             <div class="sw-floating-badge">
-              <div class="b1" data-customizer="cs2_stat_val"><?php echo esc_html(cr8v_mod('cs2_stat_val', '100% Custom')); ?></div>
-              <div class="b2" data-customizer="cs2_stat_lbl"><?php echo esc_html(cr8v_mod('cs2_stat_lbl', 'Design & SEO Day 1')); ?></div>
+              <div class="b1" data-customizer="cs2_stat_val"><?php echo esc_html(cr8v_mod('cs2_stat_val', '4.8x Leads')); ?></div>
+              <div class="b2" data-customizer="cs2_stat_lbl"><?php echo esc_html(cr8v_mod('cs2_stat_lbl', 'Bespoke Directory')); ?></div>
             </div>
-            <img src="<?php echo esc_url(cr8v_mod('cs2_img', get_template_directory_uri() . '/assets/img/case_studies/case_study_duch_apartments.jpg')); ?>" alt="The Duch Apartments" class="sw-matrix-img">
+            <?php
+              $cs2_def = get_template_directory_uri() . '/assets/img/case_studies/case_study_mkenny_properties.webp';
+              $cs2_src = cr8v_mod('cs2_img', $cs2_def);
+              if (empty($cs2_src)) {
+                $cs2_src = $cs2_def;
+              }
+            ?>
+            <img src="<?php echo esc_url($cs2_src); ?>" alt="Mkenny Properties" class="sw-matrix-img">
           </div>
         </div>
       </div>
@@ -1774,7 +1797,64 @@ defined('ABSPATH') || exit;
               <div class="b1" data-customizer="cs3_stat_val"><?php echo esc_html(cr8v_mod('cs3_stat_val', 'AI MVP Engine')); ?></div>
               <div class="b2" data-customizer="cs3_stat_lbl"><?php echo esc_html(cr8v_mod('cs3_stat_lbl', 'Proprietary Build')); ?></div>
             </div>
-            <img src="<?php echo esc_url(cr8v_mod('cs3_img', get_template_directory_uri() . '/assets/img/case_studies/case_study_bridgepoint_compliance.jpg')); ?>" alt="WP Publishion AI" class="sw-matrix-img">
+            <?php
+              $cs3_def = get_template_directory_uri() . '/assets/img/case_studies/case_study_wp_publishion.webp';
+              $cs3_src = cr8v_mod('cs3_img', $cs3_def);
+              if (empty($cs3_src) || strpos($cs3_src, 'bridgepoint') !== false) {
+                $cs3_src = $cs3_def;
+              }
+            ?>
+            <img src="<?php echo esc_url($cs3_src); ?>" alt="WP Publishion AI" class="sw-matrix-img">
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CASE 4: BLVCK HAIR NG (FLIP ROW) ── -->
+      <div class="sw-matrix-cell flip" id="cs-blvck-hair">
+        <div class="sw-matrix-left">
+          <div>
+            <div class="sw-matrix-eyebrow" data-customizer="cs4_eyebrow">// <?php echo esc_html(cr8v_mod('cs4_eyebrow', 'LUXURY E-COMMERCE & ENTITY SEO')); ?></div>
+            <h2 class="sw-matrix-h2" data-customizer="cs4_heading"><?php echo esc_html(cr8v_mod('cs4_heading', 'Bespoke Shopify Storefront & Organic Search Domination')); ?></h2>
+            <p class="sw-matrix-sub" data-customizer="cs4_sub">
+              <?php echo esc_html(cr8v_mod('cs4_sub', 'Engineered custom Shopify Liquid templates, Paystack multi-currency checkout, and entity search authority for BLVCK Hair NG, scaling cross-border sales across Nigeria and the UK.')); ?>
+            </p>
+          </div>
+
+          <div class="sw-quote-box">
+            <p data-customizer="cs4_quote"><?php echo esc_html(cr8v_mod('cs4_quote', 'Handcrafted Liquid templates, dynamic length variant matrix, and Paystack multi-currency checkout. +240% organic revenue lift with zero recurring paid social ad burn.')); ?></p>
+          </div>
+
+          <div class="sw-chip-tag">
+            <span class="sw-chip-icon">E</span>
+            <span data-customizer="cs4_role"><?php echo esc_html(cr8v_mod('cs4_role', 'Shopify Liquid & Paystack · Lagos & London')); ?></span>
+          </div>
+
+          <div>
+            <a href="<?php echo esc_url(home_url(cr8v_mod('cs4_link', '/case-studies/blvck-hair-ng/'))); ?>" class="c8-text-cta">
+              <span>Explore Case Study</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="sw-matrix-right">
+          <div class="sw-media-frame">
+            <div class="sw-corner-label">
+              <span class="sw-dot-grid"><span></span><span></span><span></span><span></span><span></span><span></span></span>
+              <span class="sw-corner-text">// P.04 — Live</span>
+            </div>
+            <div class="sw-floating-badge">
+              <div class="b1" data-customizer="cs4_stat_val"><?php echo esc_html(cr8v_mod('cs4_stat_val', '+240% Rev')); ?></div>
+              <div class="b2" data-customizer="cs4_stat_lbl"><?php echo esc_html(cr8v_mod('cs4_stat_lbl', 'Organic Search')); ?></div>
+            </div>
+            <?php
+              $cs4_def = cr8v_cs_img_src('case_study_blvck_hair.webp');
+              $cs4_src = cr8v_mod('cs4_img', $cs4_def);
+              if (empty($cs4_src) || strpos($cs4_src, '.jpg') !== false || strpos($cs4_src, 'unsplash') !== false) {
+                $cs4_src = $cs4_def;
+              }
+            ?>
+            <img src="<?php echo esc_url($cs4_src); ?>" alt="BLVCK Hair NG" class="sw-matrix-img">
           </div>
         </div>
       </div>
@@ -4267,10 +4347,13 @@ defined('ABSPATH') || exit;
   <section class="cta-section" id="contact">
     <div class="cta-inner">
       <div class="cta-arc-container">
-        <video autoplay loop muted playsinline disablePictureInPicture disableRemotePlayback controlsList="nodownload no-user-select noplaybackrate" class="cta-arc-video">
-          <source src="<?php echo esc_url(cr8v_mod("cta_video_mp4", get_template_directory_uri() . "/assets/img/download.mp4")); ?>" type="video/mp4">
-          <source src="<?php echo esc_url(cr8v_mod("cta_video_webm", get_template_directory_uri() . "/assets/img/seven_circular_badges.webm")); ?>" type="video/webm">
-        </video>
+        <img 
+          src="<?php echo esc_url(cr8v_mod("cta_badges_webp", get_template_directory_uri() . "/assets/img/seven_badges_transparent.webp")); ?>" 
+          alt="Creative Stacks Badges" 
+          class="cta-arc-video"
+          loading="lazy"
+          decoding="async"
+        >
       </div>
 
       <div class="cta-content-group">

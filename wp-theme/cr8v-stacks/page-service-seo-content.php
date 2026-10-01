@@ -201,32 +201,32 @@ get_header();
       </div>
       <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
         <div class="c8isv-portfolio-img">
-          <img src="<?php echo esc_url(cr8v_mod('seo_work_cs_img', 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop')); ?>" alt="blvck Hair NG — built by Cr8v Stacks" data-customizer="seo_work_cs_img">
+          <img src="<?php echo esc_url(cr8v_mod('seo_work_cs_img', get_template_directory_uri() . '/assets/img/case_studies/cs_duch_hero_vertical.webp')); ?>" alt="The Duch Apartments — built by Cr8v Stacks" data-customizer="seo_work_cs_img">
         </div>
         <div class="c8isv-portfolio-info">
-          <span class="c8isv-portfolio-client" data-customizer="seo_work_cs_client"><?php echo esc_html(cr8v_mod('seo_work_cs_client', 'Case Study — blvck Hair NG')); ?></span>
-          <h3 class="c8isv-portfolio-title" data-customizer="seo_work_cs_title"><?php echo esc_html(cr8v_mod('seo_work_cs_title', 'Organic Revenue & Entity Search Architecture')); ?></h3>
-          <p class="c8isv-portfolio-desc" data-customizer="seo_work_cs_desc"><?php echo wp_kses_post(cr8v_mod('seo_work_cs_desc', 'blvck Hair NG needed sustainable organic search traffic without relying strictly on paid Instagram ads. We built an entity-mapped keyword strategy, technical schema architecture, and high-converting product buyer guides.')); ?></p>
+          <span class="c8isv-portfolio-client" data-customizer="seo_work_cs_client"><?php echo esc_html(cr8v_mod('seo_work_cs_client', 'Case Study — The Duch Apartments')); ?></span>
+          <h3 class="c8isv-portfolio-title" data-customizer="seo_work_cs_title"><?php echo esc_html(cr8v_mod('seo_work_cs_title', 'Direct Booking Architecture & Organic Search Optimization')); ?></h3>
+          <p class="c8isv-portfolio-desc" data-customizer="seo_work_cs_desc"><?php echo wp_kses_post(cr8v_mod('seo_work_cs_desc', 'The Duch Apartments needed an independent direct booking engine combined with technical SEO to bypass 25% third-party OTA commissions. We engineered high-ranking localized landing pages, automated availability calendars, and schema markup.')); ?></p>
           <div class="c8isv-portfolio-stats">
             <div>
-              <span class="c8isv-portfolio-stat-val" data-customizer="seo_work_cs_stat1_val"><?php echo esc_html(cr8v_mod('seo_work_cs_stat1_val', '280%')); ?></span>
-              <span class="c8isv-portfolio-stat-lbl" data-customizer="seo_work_cs_stat1_lbl"><?php echo esc_html(cr8v_mod('seo_work_cs_stat1_lbl', 'Organic Search Traffic Growth')); ?></span>
+              <span class="c8isv-portfolio-stat-val" data-customizer="seo_work_cs_stat1_val"><?php echo esc_html(cr8v_mod('seo_work_cs_stat1_val', '+340%')); ?></span>
+              <span class="c8isv-portfolio-stat-lbl" data-customizer="seo_work_cs_stat1_lbl"><?php echo esc_html(cr8v_mod('seo_work_cs_stat1_lbl', 'Direct Bookings Growth')); ?></span>
             </div>
             <div>
-              <span class="c8isv-portfolio-stat-val" data-customizer="seo_work_cs_stat2_val"><?php echo esc_html(cr8v_mod('seo_work_cs_stat2_val', '#1')); ?></span>
-              <span class="c8isv-portfolio-stat-lbl" data-customizer="seo_work_cs_stat2_lbl"><?php echo esc_html(cr8v_mod('seo_work_cs_stat2_lbl', 'Rank for Core Product Keywords')); ?></span>
+              <span class="c8isv-portfolio-stat-val" data-customizer="seo_work_cs_stat2_val"><?php echo esc_html(cr8v_mod('seo_work_cs_stat2_val', '0%')); ?></span>
+              <span class="c8isv-portfolio-stat-lbl" data-customizer="seo_work_cs_stat2_lbl"><?php echo esc_html(cr8v_mod('seo_work_cs_stat2_lbl', 'OTA Commission Loss')); ?></span>
             </div>
           </div>
           <div class="c8isv-portfolio-deliverables" style="grid-column: span 2; margin-top: 0.5rem;">
             <span class="c8isv-portfolio-stat-lbl" style="margin-bottom: 0.5rem; display: block;">Key Deliverables</span>
             <div class="c8isv-portfolio-pills">
-              <span class="c8isv-portfolio-pill" data-customizer="seo_work_cs_pill1"><?php echo esc_html(cr8v_mod('seo_work_cs_pill1', 'Semantic Keyword Mapping')); ?></span>
-              <span class="c8isv-portfolio-pill" data-customizer="seo_work_cs_pill2"><?php echo esc_html(cr8v_mod('seo_work_cs_pill2', 'Entity SEO & Schema Architecture')); ?></span>
+              <span class="c8isv-portfolio-pill" data-customizer="seo_work_cs_pill1"><?php echo esc_html(cr8v_mod('seo_work_cs_pill1', 'Direct Booking Engine')); ?></span>
+              <span class="c8isv-portfolio-pill" data-customizer="seo_work_cs_pill2"><?php echo esc_html(cr8v_mod('seo_work_cs_pill2', 'Local & Entity SEO')); ?></span>
               <span class="c8isv-portfolio-pill" data-customizer="seo_work_cs_pill3"><?php echo esc_html(cr8v_mod('seo_work_cs_pill3', 'Technical Site Audit')); ?></span>
-              <span class="c8isv-portfolio-pill" data-customizer="seo_work_cs_pill4"><?php echo esc_html(cr8v_mod('seo_work_cs_pill4', 'Content Strategy Engine')); ?></span>
+              <span class="c8isv-portfolio-pill" data-customizer="seo_work_cs_pill4"><?php echo esc_html(cr8v_mod('seo_work_cs_pill4', 'Schema JSON-LD')); ?></span>
             </div>
           </div>
-          <a href="<?php echo esc_url(cr8v_mod('seo_work_cs_btn_url', home_url('/case-studies/blvck-hair-ng/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="seo_work_cs_btn_text"><?php echo esc_html(cr8v_mod('seo_work_cs_btn_text', 'View Case Study →')); ?></a>
+          <a href="<?php echo esc_url(cr8v_mod('seo_work_cs_btn_url', home_url('/case-studies/the-duch-apartments/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="seo_work_cs_btn_text"><?php echo esc_html(cr8v_mod('seo_work_cs_btn_text', 'View Case Study →')); ?></a>
         </div>
       </div>
       <div class="c8isv-portfolio-footer">

@@ -168,32 +168,39 @@ get_header();
       </div>
       <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
         <div class="c8isv-portfolio-img" data-customizer="swd_work_cs_img">
-          <img src="<?php echo esc_url(cr8v_mod('swd_work_cs_img', get_template_directory_uri() . '/assets/img/case_studies/cs_duch_hero_vertical.webp')); ?>" alt="The Duch Apartments — built by Cr8v Stacks">
+          <?php
+            $swd_cs_def = get_template_directory_uri() . '/assets/img/case_studies/cs_crux_nxtion_hero_vertical.webp';
+            $swd_cs_src = cr8v_mod('swd_work_cs_img', $swd_cs_def);
+            if (empty($swd_cs_src) || strpos($swd_cs_src, 'unsplash') !== false || strpos($swd_cs_src, 'cs_duch_hero_vertical') !== false) {
+              $swd_cs_src = $swd_cs_def;
+            }
+          ?>
+          <img src="<?php echo esc_url($swd_cs_src); ?>" alt="Crux Nxtion Ltd — engineered by Cr8v Stacks">
         </div>
         <div class="c8isv-portfolio-info">
-          <span class="c8isv-portfolio-client" data-customizer="swd_work_cs_client"><?php echo esc_html(cr8v_mod('swd_work_cs_client', 'Case Study — The Duch Apartments')); ?></span>
-          <h3 class="c8isv-portfolio-title" data-customizer="swd_work_cs_title"><?php echo esc_html(cr8v_mod('swd_work_cs_title', 'Website Design With SEO Built In From Day One')); ?></h3>
-          <p class="c8isv-portfolio-desc" data-customizer="swd_work_cs_desc"><?php echo wp_kses_post(cr8v_mod('swd_work_cs_desc', 'A full website design for The Duch Apartments, a Nigeria-based service apartment company — with SEO folded into the build from the start rather than added afterward.')); ?></p>
+          <span class="c8isv-portfolio-client" data-customizer="swd_work_cs_client"><?php echo esc_html(cr8v_mod('swd_work_cs_client', 'Case Study — Crux Nxtion Ltd')); ?></span>
+          <h3 class="c8isv-portfolio-title" data-customizer="swd_work_cs_title"><?php echo esc_html(cr8v_mod('swd_work_cs_title', 'Dual-Wing Platform & Intelligent Switcher Architecture')); ?></h3>
+          <p class="c8isv-portfolio-desc" data-customizer="swd_work_cs_desc"><?php echo wp_kses_post(cr8v_mod('swd_work_cs_desc', 'A custom dual-wing digital platform for Crux Nxtion (Sheffield, UK) — unifying cultural live events with commercial business consultancy through a hardware-accelerated theme switcher and zero-dependency WordPress engine.')); ?></p>
           <div class="c8isv-portfolio-stats">
             <div>
-              <span class="c8isv-portfolio-stat-val" data-customizer="swd_work_cs_stat1_val"><?php echo esc_html(cr8v_mod('swd_work_cs_stat1_val', '1')); ?></span>
-              <span class="c8isv-portfolio-stat-lbl" data-customizer="swd_work_cs_stat1_lbl"><?php echo esc_html(cr8v_mod('swd_work_cs_stat1_lbl', 'Design & SEO Handled As One')); ?></span>
+              <span class="c8isv-portfolio-stat-val" data-customizer="swd_work_cs_stat1_val"><?php echo esc_html(cr8v_mod('swd_work_cs_stat1_val', '2 Wings')); ?></span>
+              <span class="c8isv-portfolio-stat-lbl" data-customizer="swd_work_cs_stat1_lbl"><?php echo esc_html(cr8v_mod('swd_work_cs_stat1_lbl', 'Unified In One System')); ?></span>
             </div>
             <div>
               <span class="c8isv-portfolio-stat-val" data-customizer="swd_work_cs_stat2_val"><?php echo esc_html(cr8v_mod('swd_work_cs_stat2_val', '100%')); ?></span>
-              <span class="c8isv-portfolio-stat-lbl" data-customizer="swd_work_cs_stat2_lbl"><?php echo esc_html(cr8v_mod('swd_work_cs_stat2_lbl', 'Custom Layout Base')); ?></span>
+              <span class="c8isv-portfolio-stat-lbl" data-customizer="swd_work_cs_stat2_lbl"><?php echo esc_html(cr8v_mod('swd_work_cs_stat2_lbl', 'Domain Authority Preserved')); ?></span>
             </div>
           </div>
           <div class="c8isv-portfolio-deliverables" style="grid-column: span 2; margin-top: 0.5rem;">
             <span class="c8isv-portfolio-stat-lbl" style="margin-bottom: 0.5rem; display: block;">Key Deliverables</span>
             <div class="c8isv-portfolio-pills">
-              <span class="c8isv-portfolio-pill" data-customizer="swd_work_cs_pill1"><?php echo esc_html(cr8v_mod('swd_work_cs_pill1', 'Apartment Catalog')); ?></span>
-              <span class="c8isv-portfolio-pill" data-customizer="swd_work_cs_pill2"><?php echo esc_html(cr8v_mod('swd_work_cs_pill2', 'Direct Booking Engine')); ?></span>
-              <span class="c8isv-portfolio-pill" data-customizer="swd_work_cs_pill3"><?php echo esc_html(cr8v_mod('swd_work_cs_pill3', 'Entity SEO Structure')); ?></span>
-              <span class="c8isv-portfolio-pill" data-customizer="swd_work_cs_pill4"><?php echo esc_html(cr8v_mod('swd_work_cs_pill4', 'Local Search Optimization')); ?></span>
+              <span class="c8isv-portfolio-pill" data-customizer="swd_work_cs_pill1"><?php echo esc_html(cr8v_mod('swd_work_cs_pill1', 'Dual-Wing Switcher')); ?></span>
+              <span class="c8isv-portfolio-pill" data-customizer="swd_work_cs_pill2"><?php echo esc_html(cr8v_mod('swd_work_cs_pill2', '10-Service Form Routing')); ?></span>
+              <span class="c8isv-portfolio-pill" data-customizer="swd_work_cs_pill3"><?php echo esc_html(cr8v_mod('swd_work_cs_pill3', 'Parallelogram UI Tokens')); ?></span>
+              <span class="c8isv-portfolio-pill" data-customizer="swd_work_cs_pill4"><?php echo esc_html(cr8v_mod('swd_work_cs_pill4', 'Custom WP Companion Plugin')); ?></span>
             </div>
           </div>
-          <a href="<?php echo esc_url(home_url(cr8v_mod('swd_work_cs_btn_url', '/case-study/the-duch-apartments/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="swd_work_cs_btn_text"><?php echo esc_html(cr8v_mod('swd_work_cs_btn_text', 'View Case Study →')); ?></a>
+          <a href="<?php echo esc_url(home_url(cr8v_mod('swd_work_cs_btn_url', '/case-studies/crux-nxtion/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="swd_work_cs_btn_text"><?php echo esc_html(cr8v_mod('swd_work_cs_btn_text', 'View Case Study →')); ?></a>
         </div>
       </div>
       <div class="c8isv-portfolio-footer">

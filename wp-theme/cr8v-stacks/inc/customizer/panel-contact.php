@@ -38,4 +38,4 @@ $wp_customize->add_section('cr8v_contact_form_sec', [
 ]);
 
 _cr8v_text($wp_customize, 'contact_form_label', 'cr8v_contact_form_sec', 'Form Section Label', 'FILL OUT THE PROJECT FORM BELOW');
-_cr8v_textarea($wp_customize, 'contact_form_shortcode', 'cr8v_contact_form_sec', 'Booking / Contact Form Shortcode', '[sb_booking_form]');
+_cr8v_textarea($wp_customize, 'contact_form_shortcode', 'cr8v_contact_form_sec', 'Contact Form or Booking Shortcode', '[contact-form-7 id="70c8d19" title="Contact Page"]');

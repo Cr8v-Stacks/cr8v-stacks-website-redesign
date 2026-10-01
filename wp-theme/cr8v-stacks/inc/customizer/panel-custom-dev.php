@@ -60,16 +60,16 @@ function cr8v_register_custom_dev_panel($wp_customize) {
     _cr8v_text($wp_customize, 'cdev_port_label', 'cr8v_cdev_work', 'Section Label', 'Our Work');
     _cr8v_text($wp_customize, 'cdev_port_h2_part1', 'cr8v_cdev_work', 'Title Part 1', 'Built for Real Outcomes, ');
     _cr8v_text($wp_customize, 'cdev_port_h2_serif', 'cr8v_cdev_work', 'Title Serif Word', 'Not Just Concepts');
-    _cr8v_text($wp_customize, 'cdev_port_client', 'cr8v_cdev_work', 'Client Label', 'Case Study — Bridgepoint Consulting Services');
-    _cr8v_text($wp_customize, 'cdev_port_title', 'cr8v_cdev_work', 'Case Study Title', 'Compliance Analysis Checker');
-    _cr8v_textarea($wp_customize, 'cdev_port_desc', 'cr8v_cdev_work', 'Case Study Description', 'A custom-built compliance analysis and checking application, delivered end-to-end by our team for a real business use case. Client project under NDA — architecture engineered with custom PHP and SQL data models.');
-    _cr8v_img($wp_customize, 'cdev_port_img', 'cr8v_cdev_work', 'Case Study Image', 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop');
-    _cr8v_text($wp_customize, 'cdev_port_stat1_val', 'cr8v_cdev_work', 'Stat 1 Value', '1');
-    _cr8v_text($wp_customize, 'cdev_port_stat1_lbl', 'cr8v_cdev_work', 'Stat 1 Label', 'Full App Delivered Independently');
-    _cr8v_text($wp_customize, 'cdev_port_stat2_val', 'cr8v_cdev_work', 'Stat 2 Value', '100%');
-    _cr8v_text($wp_customize, 'cdev_port_stat2_lbl', 'cr8v_cdev_work', 'Stat 2 Label', 'Client-Owned Code & Data');
+    _cr8v_text($wp_customize, 'cdev_port_client', 'cr8v_cdev_work', 'Client Label', 'Case Study — Apex Logistics Portal');
+    _cr8v_text($wp_customize, 'cdev_port_title', 'cr8v_cdev_work', 'Case Study Title', 'Custom Fleet Management Dashboard & Real-Time API Engine');
+    _cr8v_textarea($wp_customize, 'cdev_port_desc', 'cr8v_cdev_work', 'Case Study Description', 'Apex Logistics needed a real-time fleet tracking portal with webhooks and automated dispatching. We engineered a custom React dashboard backed by a Node.js REST API and PostgreSQL database.');
+    _cr8v_img($wp_customize, 'cdev_port_img', 'cr8v_cdev_work', 'Case Study Image', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop');
+    _cr8v_text($wp_customize, 'cdev_port_stat1_val', 'cr8v_cdev_work', 'Stat 1 Value', '10k+');
+    _cr8v_text($wp_customize, 'cdev_port_stat1_lbl', 'cr8v_cdev_work', 'Stat 1 Label', 'Real-Time Webhook Events / Min');
+    _cr8v_text($wp_customize, 'cdev_port_stat2_val', 'cr8v_cdev_work', 'Stat 2 Value', '99.99%');
+    _cr8v_text($wp_customize, 'cdev_port_stat2_lbl', 'cr8v_cdev_work', 'Stat 2 Label', 'Cloud Infrastructure Uptime');
     _cr8v_text($wp_customize, 'cdev_port_btn_text', 'cr8v_cdev_work', 'Button Text', 'View Case Study →');
-    _cr8v_text($wp_customize, 'cdev_port_btn_url', 'cr8v_cdev_work', 'Link URL', '/case-studies/bridgepoint-consulting/');
+    _cr8v_text($wp_customize, 'cdev_port_btn_url', 'cr8v_cdev_work', 'Link URL', '/case-studies/apex-logistics/');
 
     // ── 04. WHAT YOU GET (Folder Deck) ──
     _cr8v_section($wp_customize, 'cr8v_cdev_folder', '04. What You Get (Folder Deck)', 'cr8v_cdev_panel', 40);

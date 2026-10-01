@@ -412,8 +412,123 @@ $hero_intro   = cr8v_mod('cs_hero_intro',        'A detailed trace of brand stra
       </div>
     </div>
 
+    <?php if (current_user_can('edit_posts')) : ?>
+      <div style="margin-bottom: 2.5rem; padding: 12px 18px; background: rgba(0, 71, 225, 0.04); border: 1px solid rgba(0, 71, 225, 0.15); border-radius: 4px; display: flex; align-items: center; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; color: #333333;">
+        <span>⚡ <strong>Admin Mode:</strong> Showing 10 published case studies (2 unfinished drafts hidden by default).</span>
+        <?php if (empty($_GET['preview_drafts'])) : ?>
+          <a href="<?php echo esc_url(add_query_arg('preview_drafts', '1')); ?>" style="color: #0047E1; font-weight: 700; text-decoration: underline;">Preview Incomplete Drafts (12 total) →</a>
+        <?php else : ?>
+          <a href="<?php echo esc_url(remove_query_arg('preview_drafts')); ?>" style="color: #D97706; font-weight: 700; text-decoration: underline;">Hide Drafts (Show 10 Live) →</a>
+        <?php endif; ?>
+      </div>
+    <?php endif; ?>
+
     <!-- CREATIVE PROJECT GRID -->
     <div class="c8pf-projects-grid" id="c8pf-grid">
+
+      <!-- Card: Crux Nxtion Ltd -->
+      <div class="c8pf-card-outer" data-c8pf-categories="web dev">
+        <div class="c8pf-card-media">
+          <div class="c8pf-card-tags">
+            <span class="c8pf-tag-badge is-service">Web Design</span>
+            <span class="c8pf-tag-badge">Dual-Wing UX</span>
+          </div>
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_crux_nxtion.webp'); ?>" alt="Crux Nxtion Platform">
+        </div>
+        <div class="c8pf-card-details">
+          <div class="c8pf-card-client">Crux Nxtion Ltd</div>
+          <h3 class="c8pf-card-title">Dual-Wing Platform &amp; Switcher</h3>
+          <p class="c8pf-card-desc">Architecting an innovative dual-wing web platform unifying cultural live event production with executive business consultancy via a custom slanted capsule switcher.</p>
+          
+          <div class="c8pf-card-deliverables">
+            <div class="c8pf-deliv-title">Deliverables</div>
+            <div class="c8pf-deliv-list">
+              <span class="c8pf-deliv-item">Dual-Wing Switcher</span>
+              <span class="c8pf-deliv-item">10-Service Form Routing</span>
+              <span class="c8pf-deliv-item">Custom WP Plugin</span>
+            </div>
+          </div>
+
+          <div class="c8pf-card-metrics-row">
+            <div class="c8pf-card-metric">
+              <div class="c8pf-card-metric-val">2 Wings</div>
+              <div class="c8pf-card-metric-lbl">Unified Platform</div>
+            </div>
+            <div class="c8pf-card-metric">
+              <div class="c8pf-card-metric-val">100%</div>
+              <div class="c8pf-card-metric-lbl">Domain Authority</div>
+            </div>
+            <div class="c8pf-card-metric">
+              <div class="c8pf-card-metric-val">Live</div>
+              <div class="c8pf-card-metric-lbl">UK Production</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="c8pf-card-hover-drawer">
+          <h4 class="c8pf-drawer-title">Crux Nxtion Ltd</h4>
+          <p class="c8pf-drawer-body">The Sheffield UK enterprise expanded from cultural events into commercial consultancy. We built a hardware-accelerated theme switcher, mobile sticky navigation, and automated inquiry routing without splintering domain equity.</p>
+          <div class="c8pf-drawer-footer">
+            <div class="c8pf-status-indicator">
+              <span class="c8pf-status-dot is-live"></span>
+              <span>Active Live Link</span>
+            </div>
+            <a href="<?php echo esc_url(home_url('/case-studies/crux-nxtion/')); ?>" class="c8pf-explore-btn">Read Case Study →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card: Red Cap Entertainment -->
+      <div class="c8pf-card-outer" data-c8pf-categories="brand web dev">
+        <div class="c8pf-card-media">
+          <div class="c8pf-card-tags">
+            <span class="c8pf-tag-badge is-service">Brand Identity</span>
+            <span class="c8pf-tag-badge">Event CPT</span>
+          </div>
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_red_cap_entertainment.webp'); ?>" alt="Red Cap Entertainment">
+        </div>
+        <div class="c8pf-card-details">
+          <div class="c8pf-card-client">Red Cap Entertainment</div>
+          <h3 class="c8pf-card-title">Live Production Engine</h3>
+          <p class="c8pf-card-desc">End-to-end brand creation and bespoke WordPress theme development for a premier UK live event producer with custom event loops, schema markup, and dynamic calendar sync.</p>
+          
+          <div class="c8pf-card-deliverables">
+            <div class="c8pf-deliv-title">Deliverables</div>
+            <div class="c8pf-deliv-list">
+              <span class="c8pf-deliv-item">Vector Brand Identity</span>
+              <span class="c8pf-deliv-item">Event CPT Loop</span>
+              <span class="c8pf-deliv-item">.ics Calendar Sync</span>
+            </div>
+          </div>
+
+          <div class="c8pf-card-metrics-row">
+            <div class="c8pf-card-metric">
+              <div class="c8pf-card-metric-val">150+</div>
+              <div class="c8pf-card-metric-lbl">Live Productions</div>
+            </div>
+            <div class="c8pf-card-metric">
+              <div class="c8pf-card-metric-val">&lt;1.0s</div>
+              <div class="c8pf-card-metric-lbl">Mobile Speed</div>
+            </div>
+            <div class="c8pf-card-metric">
+              <div class="c8pf-card-metric-val">Live</div>
+              <div class="c8pf-card-metric-lbl">Touring UK</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="c8pf-card-hover-drawer">
+          <h4 class="c8pf-drawer-title">Red Cap Entertainment</h4>
+          <p class="c8pf-drawer-body">"We build the night, not just one part of it." We created the complete brand mark from line one and engineered a rapid-loading custom WordPress platform featuring event query filters and zero-plugin calendar tools.</p>
+          <div class="c8pf-drawer-footer">
+            <div class="c8pf-status-indicator">
+              <span class="c8pf-status-dot is-live"></span>
+              <span>Active Live Link</span>
+            </div>
+            <a href="<?php echo esc_url(home_url('/case-studies/red-cap-entertainment/')); ?>" class="c8pf-explore-btn">Read Case Study →</a>
+          </div>
+        </div>
+      </div>
 
       <!-- Card 1: The Duch Apartments -->
       <div class="c8pf-card-outer" data-c8pf-categories="web seo">
@@ -467,26 +582,26 @@ $hero_intro   = cr8v_mod('cs_hero_intro',        'A detailed trace of brand stra
         </div>
       </div>
 
-      <!-- Card 2: Bridgepoint Advisory Services (Brand Identity) -->
+      <!-- Card 2: BridgePoint Advisory Services (Brand Identity) [PUBLISHED] -->
       <div class="c8pf-card-outer" data-c8pf-categories="brand">
         <div class="c8pf-card-media">
           <div class="c8pf-card-tags">
             <span class="c8pf-tag-badge is-service">Brand Identity</span>
             <span class="c8pf-tag-badge">Vector Graphic</span>
           </div>
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_process_layers.jpg'); ?>" alt="Bridgepoint Visual Branding">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_bridgepoint_advisory.webp'); ?>" alt="BridgePoint Advisory Services Brand Identity">
         </div>
         <div class="c8pf-card-details">
-          <div class="c8pf-card-client">Bridgepoint Advisory Services</div>
-          <h3 class="c8pf-card-title">Corporate Visual Branding</h3>
-          <p class="c8pf-card-desc">Drawing a custom vector logo system, setting brand color swatches, and structuring typography constraints in a print-ready manual book.</p>
+          <div class="c8pf-card-client">BridgePoint Advisory Services</div>
+          <h3 class="c8pf-card-title">Corporate Visual Identity &amp; System</h3>
+          <p class="c8pf-card-desc">Architecting an institutional vector identity with 0.5px mathematical precision, multi-tone color ramps, brand governance standards, and executive boardroom collateral.</p>
           
           <div class="c8pf-card-deliverables">
             <div class="c8pf-deliv-title">Deliverables</div>
             <div class="c8pf-deliv-list">
-              <span class="c8pf-deliv-item">Bespoke Vector Logo</span>
-              <span class="c8pf-deliv-item">Type Scales Guide</span>
-              <span class="c8pf-deliv-item">Brand Style Book</span>
+              <span class="c8pf-deliv-item">0.5px Vector Emblem</span>
+              <span class="c8pf-deliv-item">Design System Tokens</span>
+              <span class="c8pf-deliv-item">Executive Collateral Suite</span>
             </div>
           </div>
 
@@ -501,174 +616,176 @@ $hero_intro   = cr8v_mod('cs_hero_intro',        'A detailed trace of brand stra
             </div>
             <div class="c8pf-card-metric">
               <div class="c8pf-card-metric-val">98%</div>
-              <div class="c8pf-card-metric-lbl">Alignment</div>
+              <div class="c8pf-card-metric-lbl">Board Consensus</div>
             </div>
           </div>
         </div>
 
         <div class="c8pf-card-hover-drawer">
-          <h4 class="c8pf-drawer-title">Bridgepoint Advisory</h4>
-          <p class="c8pf-drawer-body">Operating in high-tier corporate markets, the client required a visual identity that commanded trust. We built their logo, color system, and spacing guidelines from a blank canvas.</p>
+          <h4 class="c8pf-drawer-title">BridgePoint Advisory Services</h4>
+          <p class="c8pf-drawer-body">Operating across high-stakes corporate and M&amp;A advisory, BridgePoint required an identity that commanded trust. We engineered an authoritative soaring suspension arch mark, token design system, and luxury boardroom stationery suite.</p>
           <div class="c8pf-drawer-footer">
             <div class="c8pf-status-indicator">
               <span class="c8pf-status-dot is-live"></span>
-              <span>Brand Assets Delivered</span>
+              <span>Published Live Case Study</span>
             </div>
-            <a href="<?php echo esc_url(home_url('/case-studies/bridgepoint-compliance/')); ?>" class="c8pf-explore-btn">Read Case Study →</a>
+            <a href="<?php echo esc_url(home_url('/case-studies/bridgepoint-advisory/')); ?>" class="c8pf-explore-btn">Read Case Study →</a>
           </div>
         </div>
       </div>
 
-      <!-- Card 3: Bridgepoint Compliance -->
+      <!-- Card 3: Compliance Analysis Platform (RegTech Full-Stack Portal) [PUBLISHED] -->
       <div class="c8pf-card-outer" data-c8pf-categories="dev ai">
         <div class="c8pf-card-media">
           <div class="c8pf-card-tags">
             <span class="c8pf-tag-badge is-service">Custom Dev</span>
-            <span class="c8pf-tag-badge">AI MVP</span>
+            <span class="c8pf-tag-badge">RegTech Web App</span>
+            <span class="c8pf-tag-badge">Full-Stack Portal</span>
           </div>
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/ai_wp_tree_workflow.jpg'); ?>" alt="Compliance Analysis Checker">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_bridgepoint_compliance.webp'); ?>" alt="Compliance Analysis Platform — RegTech Web Application">
         </div>
         <div class="c8pf-card-details">
-          <div class="c8pf-card-client">Bridgepoint Compliance</div>
-          <h3 class="c8pf-card-title">Compliance Analysis Checker</h3>
-          <p class="c8pf-card-desc">Engineering frontend screens, payment gateways, and queue routes for a secure, paywalled compliance auditing application under strict NDA.</p>
+          <div class="c8pf-card-client">Compliance Analysis Platform</div>
+          <h3 class="c8pf-card-title">Automated Regulatory Audit Engine</h3>
+          <p class="c8pf-card-desc">Engineering multi-step assessment wizards, automated payment paywalls, and asynchronous queue workers for an enterprise regulatory compliance application.</p>
           
           <div class="c8pf-card-deliverables">
             <div class="c8pf-deliv-title">Deliverables</div>
             <div class="c8pf-deliv-list">
+              <span class="c8pf-deliv-item">4-Step Assessment Wizard</span>
               <span class="c8pf-deliv-item">Payment Paywall API</span>
-              <span class="c8pf-deliv-item">Document Upload UX</span>
-              <span class="c8pf-deliv-item">Live Booking Route</span>
+              <span class="c8pf-deliv-item">Encrypted PDF Generator</span>
             </div>
           </div>
 
           <div class="c8pf-card-metrics-row">
             <div class="c8pf-card-metric">
+              <div class="c8pf-card-metric-val">72h</div>
+              <div class="c8pf-card-metric-lbl">Turnaround</div>
+            </div>
+            <div class="c8pf-card-metric">
               <div class="c8pf-card-metric-val">75%</div>
-              <div class="c8pf-card-metric-lbl">Audit Reduction</div>
+              <div class="c8pf-card-metric-lbl">Time Saved</div>
             </div>
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">14 Days</div>
-              <div class="c8pf-card-metric-lbl">MVP Sprint</div>
-            </div>
-            <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">NDA</div>
-              <div class="c8pf-card-metric-lbl">Privacy Code</div>
+              <div class="c8pf-card-metric-val">100%</div>
+              <div class="c8pf-card-metric-lbl">Supervisory Ready</div>
             </div>
           </div>
         </div>
 
         <div class="c8pf-card-hover-drawer">
-          <h4 class="c8pf-drawer-title">Compliance Checker</h4>
-          <p class="c8pf-drawer-body">We built a regulatory audit portal. The flow guides users through document submission, payment validation via a secure paywall, backend queue analysis, and automated report exports.</p>
+          <h4 class="c8pf-drawer-title">Compliance Analysis Platform</h4>
+          <p class="c8pf-drawer-body">We engineered an automated supervisory audit platform for payment service providers (PSPs) and FinTech platforms. The system guides regulated entities through secure document vaults, automated payment paywalls, and board-ready encrypted PDF audit reports delivered in 72 hours.</p>
           <div class="c8pf-drawer-footer">
             <div class="c8pf-status-indicator">
-              <span class="c8pf-status-dot is-nda"></span>
-              <span>NDA Project (Private Link)</span>
+              <span class="c8pf-status-dot is-live"></span>
+              <span>Published Live Case Study</span>
             </div>
             <a href="<?php echo esc_url(home_url('/case-studies/bridgepoint-compliance/')); ?>" class="c8pf-explore-btn">Read Case Study →</a>
           </div>
         </div>
       </div>
 
-      <!-- Card 4: Kiri City Stays -->
+      <!-- Card 4: Kiri City Stays (Digital Marketing & Social Campaigns) [PUBLISHED] -->
       <div class="c8pf-card-outer" data-c8pf-categories="marketing brand">
         <div class="c8pf-card-media">
           <div class="c8pf-card-tags">
             <span class="c8pf-tag-badge is-service">Digital Marketing</span>
-            <span class="c8pf-tag-badge">Campaign Setup</span>
+            <span class="c8pf-tag-badge">Google Ads &amp; GTM</span>
+            <span class="c8pf-tag-badge">Social Media</span>
           </div>
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_process_visual.jpg'); ?>" alt="Kiri City Stays">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_kiri_city_stays.webp'); ?>" alt="Kiri City Stays — Digital Marketing, Google Ads & Social Content">
         </div>
         <div class="c8pf-card-details">
           <div class="c8pf-card-client">Kiri City Stays</div>
-          <h3 class="c8pf-card-title">Attribution &amp; Ad Funnel Launch</h3>
-          <p class="c8pf-card-desc">Establishing visual branding, GTM tag triggers, conversion landing pages, and targeted Google Ads and Facebook campaigns for UK serviced apartments.</p>
+          <h3 class="c8pf-card-title">Attribution &amp; Paid Acquisition Launch</h3>
+          <p class="c8pf-card-desc">Establishing brand visual identity, Google Search ad campaigns, GTM conversion attribution triggers, and multi-slide Instagram carousels and reels for UK urban serviced apartments.</p>
           
           <div class="c8pf-card-deliverables">
             <div class="c8pf-deliv-title">Deliverables</div>
             <div class="c8pf-deliv-list">
-              <span class="c8pf-deliv-item">Google Tag Triggers</span>
-              <span class="c8pf-deliv-item">Landing Pages UI</span>
               <span class="c8pf-deliv-item">Google Search Ads</span>
+              <span class="c8pf-deliv-item">GTM Event Attribution</span>
+              <span class="c8pf-deliv-item">Instagram Carousels &amp; Reels</span>
             </div>
           </div>
 
           <div class="c8pf-card-metrics-row">
             <div class="c8pf-card-metric">
               <div class="c8pf-card-metric-val">+280%</div>
-              <div class="c8pf-card-metric-lbl">Direct Growth</div>
+              <div class="c8pf-card-metric-lbl">Direct Inquiries</div>
             </div>
             <div class="c8pf-card-metric">
               <div class="c8pf-card-metric-val">99.4%</div>
               <div class="c8pf-card-metric-lbl">Attribution</div>
             </div>
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">0%</div>
-              <div class="c8pf-card-metric-lbl">OTA Loss</div>
+              <div class="c8pf-card-metric-val">5-Star</div>
+              <div class="c8pf-card-metric-lbl">Social Proof</div>
             </div>
           </div>
         </div>
 
         <div class="c8pf-card-hover-drawer">
           <h4 class="c8pf-drawer-title">Kiri City Stays</h4>
-          <p class="c8pf-drawer-body">The client needed to capture high-intent travelers directly. We developed a refined identity system, built high-converting booking landing pages, and executed high-yield Google/Facebook ad campaigns.</p>
+          <p class="c8pf-drawer-body">Operating in Manchester, UK, Kiri City Stays required an end-to-end paid acquisition and creative strategy. We created their brand logo, built targeted Google Search ad campaigns for matchday and business travelers, configured GTM conversion attribution, and produced multi-slide Instagram carousels and vertical video reels.</p>
           <div class="c8pf-drawer-footer">
             <div class="c8pf-status-indicator">
               <span class="c8pf-status-dot is-live"></span>
-              <span>Campaign Executed</span>
+              <span>Published Live Case Study</span>
             </div>
             <a href="<?php echo esc_url(home_url('/case-studies/kiri-city-stays/')); ?>" class="c8pf-explore-btn">Read Case Study →</a>
           </div>
         </div>
       </div>
 
-      <!-- Card 5: blvck Hair NG -->
+      <!-- Card 5: BLVCK Hair NG -->
       <div class="c8pf-card-outer" data-c8pf-categories="ecommerce seo">
         <div class="c8pf-card-media">
           <div class="c8pf-card-tags">
             <span class="c8pf-tag-badge is-service">E-Commerce</span>
-            <span class="c8pf-tag-badge">Shopify</span>
+            <span class="c8pf-tag-badge">Shopify Liquid</span>
           </div>
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hww_tools_creative.jpg'); ?>" alt="blvck Hair NG">
+          <img src="<?php echo esc_url(cr8v_cs_img_src('case_study_blvck_hair.webp')); ?>" alt="BLVCK Hair NG">
         </div>
         <div class="c8pf-card-details">
-          <div class="c8pf-card-client">blvck Hair NG</div>
-          <h3 class="c8pf-card-title">Shopify Storefront &amp; SEO</h3>
-          <p class="c8pf-card-desc">Executing liquid theme customization, catalog taxonomy structuring, and writing SEO-rich articles to scale organic traffic across regions.</p>
+          <div class="c8pf-card-client">BLVCK Hair NG</div>
+          <h3 class="c8pf-card-title">Luxury Storefront &amp; Entity SEO Engine</h3>
+          <p class="c8pf-card-desc">Bespoke Shopify Liquid storefront architecture, Paystack multi-currency checkout routing, and dominant Google entity SEO visibility across Nigeria and the UK.</p>
           
           <div class="c8pf-card-deliverables">
             <div class="c8pf-deliv-title">Deliverables</div>
             <div class="c8pf-deliv-list">
               <span class="c8pf-deliv-item">Shopify Liquid Code</span>
-              <span class="c8pf-deliv-item">Catalog Taxonomy</span>
-              <span class="c8pf-deliv-item">Cart Drawer UX</span>
+              <span class="c8pf-deliv-item">Paystack Multi-Currency</span>
+              <span class="c8pf-deliv-item">Entity SEO Schemas</span>
             </div>
           </div>
 
           <div class="c8pf-card-metrics-row">
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">+210%</div>
-              <div class="c8pf-card-metric-lbl">Mobile Checkout</div>
+              <div class="c8pf-card-metric-val">+240%</div>
+              <div class="c8pf-card-metric-lbl">Organic Revenue</div>
             </div>
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">3.2x</div>
-              <div class="c8pf-card-metric-lbl">AOV Growth</div>
+              <div class="c8pf-card-metric-val">Top 3</div>
+              <div class="c8pf-card-metric-lbl">Google SERP Rank</div>
             </div>
             <div class="c8pf-card-metric">
               <div class="c8pf-card-metric-val">Live</div>
-              <div class="c8pf-card-metric-lbl">Search Status</div>
+              <div class="c8pf-card-metric-lbl">Launch Status</div>
             </div>
           </div>
         </div>
 
         <div class="c8pf-card-hover-drawer">
-          <h4 class="c8pf-drawer-title">blvck Hair NG</h4>
-          <p class="c8pf-drawer-body">The client wanted to capture buyers organically and convert mobile traffic. We overhauled their Shopify theme, mapped high-intent category terms, and published targeted content.</p>
+          <h4 class="c8pf-drawer-title">BLVCK Hair NG</h4>
+          <p class="c8pf-drawer-body">The client needed to scale an international direct-to-consumer presence. We architected a bespoke Shopify Liquid storefront with slide-out cart drawers, seamless Paystack multi-currency payments, and entity SEO dominance.</p>
           <div class="c8pf-drawer-footer">
             <div class="c8pf-status-indicator">
               <span class="c8pf-status-dot is-live"></span>
-              <span>Live Shopify Store</span>
+              <span>Active Live Link</span>
             </div>
             <a href="<?php echo esc_url(home_url('/case-studies/blvck-hair-ng/')); ?>" class="c8pf-explore-btn">Read Case Study →</a>
           </div>
@@ -676,51 +793,51 @@ $hero_intro   = cr8v_mod('cs_hero_intro',        'A detailed trace of brand stra
       </div>
 
       <!-- Card 6: Victoria's Lane -->
-      <div class="c8pf-card-outer" data-c8pf-categories="ecommerce brand">
+      <div class="c8pf-card-outer" data-c8pf-categories="ecommerce brand dev">
         <div class="c8pf-card-media">
           <div class="c8pf-card-tags">
-            <span class="c8pf-tag-badge is-service">Shopify Development</span>
-            <span class="c8pf-tag-badge">Liquid Code</span>
+            <span class="c8pf-tag-badge is-service">Shopify Liquid</span>
+            <span class="c8pf-tag-badge">AJAX Cart</span>
           </div>
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/wwa_studio_visual.jpg'); ?>" alt="Victoria's Lane">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_victorias_lane.webp'); ?>" alt="Victoria's Lane">
         </div>
         <div class="c8pf-card-details">
           <div class="c8pf-card-client">Victoria's Lane</div>
-          <h3 class="c8pf-card-title">Liquid Storefront Rebuild</h3>
-          <p class="c8pf-card-desc">Upgrading a basic Shopify theme base with hand-coded Liquid components, multi-store geolocation tags, Klaviyo integrations, and optimized checkouts.</p>
+          <h3 class="c8pf-card-title">Handcrafted Statement Bags &amp; Shopify Liquid Dev</h3>
+          <p class="c8pf-card-desc">Hand-coded a bespoke Shopify Liquid storefront featuring custom variant swatches, an app-free AJAX cart drawer, and high-ROAS fashion acquisition funnels.</p>
           
           <div class="c8pf-card-deliverables">
             <div class="c8pf-deliv-title">Deliverables</div>
             <div class="c8pf-deliv-list">
-              <span class="c8pf-deliv-item">Shopify Liquid Code</span>
-              <span class="c8pf-deliv-item">Klaviyo Campaigns</span>
-              <span class="c8pf-deliv-item">Geolocation Tags</span>
+              <span class="c8pf-deliv-item">Bespoke Liquid Code</span>
+              <span class="c8pf-deliv-item">AJAX Cart Drawer</span>
+              <span class="c8pf-deliv-item">Multi-Currency Geolocation</span>
             </div>
           </div>
 
           <div class="c8pf-card-metrics-row">
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">99.8%</div>
-              <div class="c8pf-card-metric-lbl">PageSpeed Score</div>
+              <div class="c8pf-card-metric-val">+42%</div>
+              <div class="c8pf-card-metric-lbl">Checkout Conversion</div>
             </div>
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">+280%</div>
-              <div class="c8pf-card-metric-lbl">Revenue Growth</div>
+              <div class="c8pf-card-metric-val">$0/mo</div>
+              <div class="c8pf-card-metric-lbl">App Bloat</div>
             </div>
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">&lt; 0.9s</div>
-              <div class="c8pf-card-metric-lbl">Load Speed</div>
+              <div class="c8pf-card-metric-val">0.7s</div>
+              <div class="c8pf-card-metric-lbl">Mobile LCP</div>
             </div>
           </div>
         </div>
 
         <div class="c8pf-card-hover-drawer">
           <h4 class="c8pf-drawer-title">Victoria's Lane</h4>
-          <p class="c8pf-drawer-body">The client sought to escape slow templates. We utilized custom liquid code to build product grids, cart drawers, and geolocation tools that streamlined cross-border luxury sales.</p>
+          <p class="c8pf-drawer-body">The handcrafted statement accessories brand needed to bypass commercial Shopify app dependencies. We hand-coded native Liquid templates, dynamic shipping threshold bars, and instant Shop Pay drawers for global buyers.</p>
           <div class="c8pf-drawer-footer">
             <div class="c8pf-status-indicator">
               <span class="c8pf-status-dot is-live"></span>
-              <span>Build Completed</span>
+              <span>Live Flagship Case Study</span>
             </div>
             <a href="<?php echo esc_url(home_url('/case-studies/victorias-lane/')); ?>" class="c8pf-explore-btn">Read Case Study →</a>
           </div>
@@ -728,51 +845,51 @@ $hero_intro   = cr8v_mod('cs_hero_intro',        'A detailed trace of brand stra
       </div>
 
       <!-- Card 7: SweeterMen NG -->
-      <div class="c8pf-card-outer" data-c8pf-categories="ecommerce dev">
+      <div class="c8pf-card-outer" data-c8pf-categories="ecommerce dev marketing">
         <div class="c8pf-card-media">
           <div class="c8pf-card-tags">
             <span class="c8pf-tag-badge is-service">WooCommerce</span>
-            <span class="c8pf-tag-badge">Store Build</span>
+            <span class="c8pf-tag-badge">Paid Ads</span>
           </div>
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/c4_tools_bg.jpg'); ?>" alt="SweeterMen NG">
+          <img src="<?php echo esc_url(cr8v_cs_img_src('case_study_sweetermen.webp')); ?>" alt="SweeterMen NG Luxury Horology WooCommerce Store">
         </div>
         <div class="c8pf-card-details">
           <div class="c8pf-card-client">SweeterMen NG</div>
-          <h3 class="c8pf-card-title">WooCommerce Build &amp; Ads</h3>
-          <p class="c8pf-card-desc">Designing and deploying a luxury watch catalog store on WooCommerce, paired with Google Search ads and Facebook campaigns.</p>
+          <h3 class="c8pf-card-title">Bespoke Horology &amp; WooCommerce Engine</h3>
+          <p class="c8pf-card-desc">Custom WooCommerce theme architecture, 1-step Paystack checkout drawer, horology catalog matrix, and high-ROAS Meta advertising funnels.</p>
           
           <div class="c8pf-card-deliverables">
             <div class="c8pf-deliv-title">Deliverables</div>
             <div class="c8pf-deliv-list">
-              <span class="c8pf-deliv-item">Product Grid Design</span>
-              <span class="c8pf-deliv-item">WooCommerce Setup</span>
-              <span class="c8pf-deliv-item">Google Search Campaigns</span>
+              <span class="c8pf-deliv-item">Bespoke PHP Theme</span>
+              <span class="c8pf-deliv-item">1-Step Paystack Drawer</span>
+              <span class="c8pf-deliv-item">Meta Paid Ad Funnels</span>
             </div>
           </div>
 
           <div class="c8pf-card-metrics-row">
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">1</div>
-              <div class="c8pf-card-metric-lbl">Unified Team</div>
+              <div class="c8pf-card-metric-val">4.2x</div>
+              <div class="c8pf-card-metric-lbl">Paid Ad ROAS</div>
             </div>
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">40+</div>
-              <div class="c8pf-card-metric-lbl">Watch Products</div>
+              <div class="c8pf-card-metric-val">+68%</div>
+              <div class="c8pf-card-metric-lbl">Cart Completion</div>
             </div>
             <div class="c8pf-card-metric">
-              <div class="c8pf-card-metric-val">2.1s</div>
-              <div class="c8pf-card-metric-lbl">Mobile Speed</div>
+              <div class="c8pf-card-metric-val">0.8s</div>
+              <div class="c8pf-card-metric-lbl">Catalog Speed</div>
             </div>
           </div>
         </div>
 
         <div class="c8pf-card-hover-drawer">
           <h4 class="c8pf-drawer-title">SweeterMen NG</h4>
-          <p class="c8pf-drawer-body">The client wanted to bypass multi-agency friction. We handled both the WordPress WooCommerce build and the digital marketing campaigns, configuring direct checkout funnels.</p>
+          <p class="c8pf-drawer-body">We engineered a bespoke, lightweight WooCommerce storefront with an AJAX 1-step checkout drawer, direct Paystack authorization, and targeted Meta ad funnels achieving 4.2x ROAS.</p>
           <div class="c8pf-drawer-footer">
             <div class="c8pf-status-indicator">
               <span class="c8pf-status-dot is-live"></span>
-              <span>Build Completed</span>
+              <span>Active Live Link</span>
             </div>
             <a href="<?php echo esc_url(home_url('/case-studies/sweetermen-ng/')); ?>" class="c8pf-explore-btn">Read Case Study →</a>
           </div>
@@ -786,7 +903,7 @@ $hero_intro   = cr8v_mod('cs_hero_intro',        'A detailed trace of brand stra
             <span class="c8pf-tag-badge is-service">WordPress</span>
             <span class="c8pf-tag-badge">Real Estate</span>
           </div>
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/services_visual_montage.jpg'); ?>" alt="Mkenny Properties">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_mkenny_properties.webp'); ?>" alt="Mkenny Properties">
         </div>
         <div class="c8pf-card-details">
           <div class="c8pf-card-client">Mkenny Properties</div>
@@ -831,10 +948,12 @@ $hero_intro   = cr8v_mod('cs_hero_intro',        'A detailed trace of brand stra
         </div>
       </div>
 
-      <!-- Card 9: Stride Plus Media -->
-      <div class="c8pf-card-outer" data-c8pf-categories="strategy web">
+      <!-- Card 9: Stride Plus Media [DRAFT] -->
+      <?php if (current_user_can('edit_posts') && !empty($_GET['preview_drafts'])) : ?>
+      <div class="c8pf-card-outer" data-c8pf-categories="strategy web" style="border: 1px dashed #F59E0B;">
         <div class="c8pf-card-media">
           <div class="c8pf-card-tags">
+            <span class="c8pf-tag-badge" style="background: #F59E0B; color: #080808; font-weight: 700;">DRAFT</span>
             <span class="c8pf-tag-badge is-service">Brand Strategy</span>
             <span class="c8pf-tag-badge">SEO Foundation</span>
           </div>
@@ -871,17 +990,18 @@ $hero_intro   = cr8v_mod('cs_hero_intro',        'A detailed trace of brand stra
         </div>
 
         <div class="c8pf-card-hover-drawer">
-          <h4 class="c8pf-drawer-title">Stride Plus Media</h4>
+          <h4 class="c8pf-drawer-title">Stride Plus Media (Draft)</h4>
           <p class="c8pf-drawer-body">The client wanted to launch Stride Radio. We designed their brand strategy and organic SEO foundations, built their streaming site, and configured backend streaming connections.</p>
           <div class="c8pf-drawer-footer">
             <div class="c8pf-status-indicator">
-              <span class="c8pf-status-dot is-live"></span>
-              <span>Build Completed</span>
+              <span class="c8pf-status-dot is-nda"></span>
+              <span>Draft Mode (Admin Only)</span>
             </div>
             <a href="<?php echo esc_url(home_url('/case-studies/stride-plus-media/')); ?>" class="c8pf-explore-btn">Read Case Study →</a>
           </div>
         </div>
       </div>
+      <?php endif; ?>
 
       <!-- Card 10: WP Publishion AI -->
       <div class="c8pf-card-outer" data-c8pf-categories="ai brand">
@@ -890,7 +1010,7 @@ $hero_intro   = cr8v_mod('cs_hero_intro',        'A detailed trace of brand stra
             <span class="c8pf-tag-badge is-service">AI MVP</span>
             <span class="c8pf-tag-badge">Product Design</span>
           </div>
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/ai_wp_tree_workflow.jpg'); ?>" alt="WP Publishion AI">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/case_studies/case_study_wp_publishion.webp'); ?>" alt="WP Publishion AI">
         </div>
         <div class="c8pf-card-details">
           <div class="c8pf-card-client">Cr8v Stacks (Proprietary Product)</div>
@@ -1013,6 +1133,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // 3. Update pagination UI controls
+    var pagWrap = document.getElementById('c8pf-pagination');
+    if (pagWrap) {
+      pagWrap.style.display = (totalPages <= 1) ? 'none' : 'flex';
+    }
+
     paginationButtons.forEach(function (btn) {
       var p = btn.getAttribute('data-page');
       if (p === 'next') {

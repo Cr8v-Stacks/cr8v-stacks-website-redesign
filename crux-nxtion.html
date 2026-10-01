@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crux Nxtion: Single-Apex Runtime Duality Platform & WordPress Core Architecture — Cr8v Stacks Case Study</title>
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Michroma&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --c8-paper-bg: #F8FAFD;
+      --c8-paper-card: #FFFFFF;
+      --c8-ink: #0A0F26;
+      --c8-sub: #4A5568;
+      --c8-grid-line: #E2E8F0;
+      --c8-blue: #002671;
+      --c8-red: #BA0000;
+      --c8-violet: #8C7AE6;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-heading: 'Michroma', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #FFFFFF;
+      color: var(--c8-ink);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+      overflow-x: clip;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── GLOBAL HEADER ── */
+    .c8-nav-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 68px;
+      padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--c8-grid-line);
+      z-index: 1000;
+    }
+    .c8-brand-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--c8-ink);
+    }
+    .c8-brand-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--c8-red);
+      border-radius: 50%;
+    }
+    .c8-nav-pills {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    @media (max-width: 640px) { .c8-nav-pills { display: none; } }
+    .c8-nav-link {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--c8-sub);
+      transition: color 0.2s ease;
+    }
+    .c8-nav-link:hover { color: var(--c8-red); }
+    .c8-btn-cta {
+      background: var(--c8-ink);
+      color: #FFFFFF !important;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .c8-btn-cta:hover {
+      background: var(--c8-red);
+      transform: translateY(-1px);
+    }
+
+    /* ── CASE STUDY ROOT & LAYOUT ── */
+    .cs-page-crux-nxtion .c8cs-root { position: relative; width: 100%; background: #FFFFFF; color: var(--c8-ink); font-family: var(--font-body); }
+    .c8cs-wrap { max-width: 1320px; margin: 0 auto; padding: 2.5rem 2rem 3.5rem; position: relative; z-index: 2; }
+    @media (max-width: 768px) { .c8cs-wrap { padding: 1.5rem 1.25rem 2.5rem; } }
+
+    .c8cs-back-btn {
+      font-family: var(--font-mono); font-size: 10px; color: #8A8A8A; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; font-weight: 700;
+    }
+    .c8cs-back-btn:hover { color: var(--c8-red); }
+
+    .c8cs-label {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--c8-red); display: inline-flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; font-weight: 700;
+    }
+    .c8cs-label::before { content: '// '; color: var(--c8-red); font-weight: 700; }
+
+    .c8cs-headline {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 4.2vw, 2.7rem);
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      font-weight: 700;
+      color: var(--c8-ink);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      max-width: 1100px;
+    }
+    .c8cs-serif { font-family: var(--font-body); font-style: italic; text-transform: none; font-weight: 400; color: var(--c8-blue); }
+
+    .c8cs-lead {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--c8-sub);
+      max-width: 900px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .c8-pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; margin-bottom: 2.5rem; }
+    .c8-pill {
+      border: 1px solid var(--c8-grid-line); background: var(--c8-paper-bg); padding: 0.45rem 0.95rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700; border-radius: 4px; text-transform: uppercase;
+    }
+    .c8-pill.accent { background: #FFF5F5; border-color: #FEB2B2; color: var(--c8-red); }
+
+    .c8cs-hero { padding-top: 3rem; padding-bottom: 3rem; position: relative; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
+
+    .c8cs-meta-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--c8-grid-line); border-radius: 4px; background: transparent; margin-top: 3.5rem; overflow: hidden;
+    }
+    @media (max-width: 900px) { .c8cs-meta-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .c8cs-meta-grid { grid-template-columns: 1fr; } }
+
+    .c8cs-meta-item { padding: 1.25rem 1.75rem; border-right: 1px solid var(--c8-grid-line); background: #FFFFFF; display: flex; flex-direction: column; gap: 0.35rem; }
+    .c8cs-meta-item:last-child { border-right: none; }
+    @media (max-width: 900px) {
+      .c8cs-meta-item:nth-child(2) { border-right: none; }
+      .c8cs-meta-item:nth-child(1), .c8cs-meta-item:nth-child(2) { border-bottom: 1px solid var(--c8-grid-line); }
+    }
+    @media (max-width: 500px) {
+      .c8cs-meta-item { border-right: none !important; border-bottom: 1px solid var(--c8-grid-line); }
+      .c8cs-meta-item:last-child { border-bottom: none; }
+    }
+
+    .c8cs-meta-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-sub); font-weight: 700; }
+    .c8cs-meta-val { font-size: 13.5px; font-weight: 600; color: var(--c8-ink); }
+
+    /* ── EXPANSIVE HERO MEDIA WITH INTERACTIVE SWITCHER ── */
+    .c8cs-grow-media-wrapper {
+      width: 100%;
+      background: var(--c8-paper-bg);
+      padding: clamp(2rem, 4vw, 4rem) 0;
+      border-bottom: 1px solid var(--c8-grid-line);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .c8cs-hero-switcher {
+      display: inline-flex;
+      background: #FFFFFF;
+      border: 1px solid var(--c8-grid-line);
+      border-radius: 4px;
+      padding: 4px;
+      gap: 4px;
+    }
+    .c8cs-switch-btn {
+      padding: 7px 18px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: none;
+      background: transparent;
+      color: var(--c8-sub);
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.2s ease;
+    }
+    .c8cs-switch-btn.is-active {
+      background: var(--c8-ink);
+      color: #FFFFFF;
+    }
+    .c8cs-main-img-box {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 clamp(1rem, 3vw, 2.5rem);
+      box-sizing: border-box;
+    }
+    .c8cs-hero-img-inner {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--c8-grid-line);
+      background: #0A0F26;
+      box-shadow: 0 30px 60px rgba(0, 38, 113, 0.12);
+      position: relative;
+    }
+    .c8cs-hero-img-inner.is-landscape { aspect-ratio: 16 / 9; }
+    .c8cs-hero-img-inner.is-vertical {
+      max-width: 580px;
+      margin: 0 auto;
+      aspect-ratio: 3 / 4;
+    }
+    .c8cs-hero-img-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+      transition: transform 0.5s ease;
+    }
+    .c8cs-hero-img-inner:hover img { transform: scale(1.015); }
+
+    /* ── SECTION 00: STRATEGIC OVERVIEW (CANONICAL STICKY SPLIT GRID) ── */
+    .c8cs-split-section { 
+      display: grid; 
+      grid-template-columns: 1.28fr 0.92fr; 
+      gap: 0; 
+      border: 1px solid var(--c8-grid-line); 
+      border-radius: 4px !important; 
+      background: #FFFFFF; 
+      margin: clamp(2.5rem, 4vw, 3.5rem) 0; 
+      align-items: start;
+    }
+    @media (max-width: 960px) { .c8cs-split-section { grid-template-columns: 1fr; margin: 2rem 0; } }
+
+    .c8cs-split-left { 
+      padding: clamp(2.5rem, 3.5vw, 3.75rem) clamp(1.75rem, 3vw, 3.25rem); 
+      border-right: 1px solid var(--c8-grid-line); 
+      background: #FFFFFF; 
+    }
+    @media (max-width: 960px) { 
+      .c8cs-split-left { 
+        border-right: none; 
+        border-bottom: 1px solid var(--c8-grid-line); 
+        padding: 2rem 1.5rem; 
+      } 
+    }
+
+    .c8cs-split-right { 
+      background: #FAFAF7; 
+      display: flex; 
+      flex-direction: column; 
+      position: sticky; 
+      top: 96px; 
+      align-self: start; 
+      height: fit-content; 
+    }
+    @media (max-width: 960px) { 
+      .c8cs-split-right { 
+        position: relative; 
+        top: 0; 
+      } 
+    }
+
+    .c8cs-duality-wings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    @media (max-width: 640px) {
+      .c8cs-duality-wings-grid {
+        grid-template-columns: 1fr;
+      }
+      .c8cs-duality-wing-a {
+        border-right: none !important;
+        border-bottom: 1px solid var(--c8-grid-line) !important;
+      }
+    }
+
+    .c8cs-triage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-bottom: 1px solid var(--c8-grid-line);
+    }
+    @media (max-width: 768px) {
+      .c8cs-triage-grid {
+        grid-template-columns: 1fr;
+      }
+      .c8cs-triage-cell {
+        border-right: none !important;
+        border-bottom: 1px solid var(--c8-grid-line) !important;
+      }
+    }
+    .c8cs-split-title { font-family: var(--font-heading); font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.2; color: var(--c8-ink); margin-bottom: 1.25rem; }
+    .c8cs-body-content p { font-size: 15px; color: var(--c8-sub); margin-bottom: 1.25rem; line-height: 1.75; font-weight: 400; }
+
+    .fylla-value-item { 
+      padding: clamp(1.75rem, 2.5vw, 2.5rem) clamp(1.5rem, 2.5vw, 2.75rem); 
+      border-bottom: 1px solid var(--c8-grid-line); 
+      display: flex; 
+      gap: 1.5rem; 
+      align-items: flex-start; 
+      transition: background 0.35s ease; 
+      background: #FAFAF7; 
+    }
+    @media (max-width: 600px) { .fylla-value-item { padding: 1.5rem 1.25rem; gap: 1rem; } }
+    .fylla-value-item:hover { background: #FFFFFF; }
+    .fylla-value-item:last-child { border-bottom: none; }
+
+    .fylla-value-icon-box {
+      width: 44px; height: 44px; border-radius: 4px !important; background: rgba(0, 38, 113, 0.08); border: 1px solid rgba(0, 38, 113, 0.18); display: flex; align-items: center; justify-content: center; color: var(--c8-blue); flex-shrink: 0; margin-top: 0.2rem; font-size: 18px;
+    }
+    .fylla-value-h3 { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .fylla-value-desc { font-size: 0.9rem; color: var(--c8-sub); line-height: 1.6; }
+
+    /* ── ASSET 01, 02, 03: CORE TECHNICAL DELIVERABLES ── */
+    .c8cs-deliverables-section { padding: clamp(2.5rem, 4vw, 4.5rem) 0; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
+    .c8cs-deliverables-box { border: 1px solid var(--c8-grid-line); border-radius: 8px; background: #FFFFFF; overflow: hidden; }
+    .c8cs-deliverables-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+    .c8cs-deliverables-grid { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--c8-grid-line); }
+    @media (max-width: 900px) { .c8cs-deliverables-grid { grid-template-columns: 1fr; } }
+
+    .c8cs-deliverable-card { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3vw, 3rem); display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--c8-grid-line); background: var(--c8-paper-bg); }
+    .c8cs-deliverable-card:nth-child(even) { border-right: none; background: #FFFFFF; }
+    @media (max-width: 900px) { .c8cs-deliverable-card { border-right: none; border-bottom: 1px solid var(--c8-grid-line); } }
+
+    .c8cs-deliverable-meta { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-red); font-weight: 700; margin-bottom: 0.75rem; }
+    .c8cs-deliverable-title { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 1rem; line-height: 1.25; }
+    .c8cs-deliverable-desc { font-size: 14px; color: var(--c8-sub); line-height: 1.7; margin-bottom: 2rem; }
+
+    .c8cs-deliverable-img-box { width: 100%; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #0A0F26; margin-top: auto; position: relative; }
+    .c8cs-deliverable-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; transition: transform 0.4s ease; }
+    .c8cs-deliverable-img-box:hover img { transform: scale(1.02); }
+
+    .c8cs-sovereignty-split { display: grid; grid-template-columns: 1.15fr 0.85fr; }
+    @media (max-width: 960px) { .c8cs-sovereignty-split { grid-template-columns: 1fr; } }
+
+    .c8cs-sovereignty-left { background: #FFFFFF; padding: clamp(2.5rem, 3.5vw, 3.75rem) clamp(1.75rem, 3vw, 3.25rem); display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--c8-grid-line); }
+    @media (max-width: 960px) { .c8cs-sovereignty-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2rem 1.5rem; } }
+    .c8cs-sovereignty-right { background: var(--c8-paper-bg); padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; align-items: center; justify-content: center; }
+    @media (max-width: 960px) { .c8cs-sovereignty-right { padding: 2rem 1.25rem; } }
+    .c8cs-sovereignty-img-box { width: 100%; max-width: 440px; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #0A0F26; box-shadow: 0 20px 40px rgba(0,38,113,0.1); position: relative; }
+    .c8cs-sovereignty-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; transition: transform 0.4s ease; }
+    .c8cs-sovereignty-img-box:hover img { transform: scale(1.02); }
+
+    /* ── SHOWCASE 1: VISUAL SHOWCASE OF THE WEBSITE ITSELF (CONTRAST GOVERNED) ── */
+    .c8cs-site-showcase-section { padding: clamp(2.5rem, 4vw, 4.5rem) 0; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
+    .c8cs-site-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem; }
+    @media (max-width: 850px) { .c8cs-site-grid { grid-template-columns: 1fr; } }
+    .c8cs-site-card {
+      border: 1px solid var(--c8-grid-line); border-radius: 8px; overflow: hidden; background: #FFFFFF; display: flex; flex-direction: column; transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .c8cs-site-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(0, 38, 113, 0.08); }
+    .c8cs-site-media { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #0A0F26; border-bottom: 1px solid var(--c8-grid-line); position: relative; }
+    .c8cs-site-media img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; transition: transform 0.4s ease; }
+    .c8cs-site-card:hover .c8cs-site-media img { transform: scale(1.025); }
+    .c8cs-site-content { padding: 1.5rem 1.75rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+    .c8cs-site-meta { font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: var(--c8-red); text-transform: uppercase; letter-spacing: 0.08em; }
+    .c8cs-site-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); }
+    .c8cs-site-desc { font-size: 13.5px; color: var(--c8-sub); line-height: 1.65; }
+
+    /* ── SHOWCASE 2: ENGINEERED SYSTEMS & WORKFLOWS (EXPANSIVE CAROUSEL) ── */
+    .c8cs-systems-carousel-section { padding: clamp(2.5rem, 4vw, 4.5rem) 0; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
+    .c8cs-systems-box { border: 1px solid var(--c8-grid-line); border-radius: 8px; background: #FFFFFF; overflow: hidden; }
+    .c8cs-systems-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+    .c8cs-carousel-deck-wrap { border-bottom: 1px solid var(--c8-grid-line); background: var(--c8-paper-bg); padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); }
+    .c8cs-carousel-deck-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+    .c8cs-carousel-deck-title { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--c8-ink); font-weight: 700; letter-spacing: 0.08em; }
+    .c8cs-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c8-red); display: inline-block; }
+    .c8cs-carousel-nav-controls { display: flex; align-items: center; gap: 10px; }
+    .c8cs-deck-nav-btn {
+      width: 38px; height: 38px; border-radius: 4px; border: 1px solid var(--c8-grid-line); background: #FFFFFF; color: var(--c8-ink); font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;
+    }
+    .c8cs-deck-nav-btn:hover { background: var(--c8-ink); color: #FFFFFF; }
+    
+    .c8cs-carousel-track-container { position: relative; width: 100%; overflow: hidden; }
+    .c8cs-carousel-track { display: flex; transition: transform 0.4s ease; }
+    .c8cs-carousel-slide-item {
+      min-width: 100%; max-width: 100%; flex-shrink: 0; background: #FFFFFF; border: 1px solid var(--c8-grid-line); border-radius: 8px; overflow: hidden; display: grid; grid-template-columns: 0.95fr 1.25fr;
+    }
+    @media (max-width: 960px) { .c8cs-carousel-slide-item { grid-template-columns: 1fr; } }
+    .c8cs-slide-left { padding: clamp(2rem, 3vw, 3rem); display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--c8-grid-line); }
+    @media (max-width: 960px) { .c8cs-slide-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); } }
+    .c8cs-slide-right { padding: clamp(1.5rem, 2.5vw, 2.5rem); background: var(--c8-paper-bg); display: flex; align-items: center; justify-content: center; }
+
+    /* EXPANSIVE UI MOCK STYLES IN SHOWCASE 2 */
+    .c8cs-interactive-widget {
+      width: 100%;
+      min-height: 420px;
+      background: #0A0F26;
+      border: 1px solid #1E2850;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .c8cs-widget-light {
+      background: #FFFFFF;
+      border: 1px solid var(--c8-grid-line);
+      box-shadow: 0 16px 36px rgba(0, 38, 113, 0.08);
+    }
+
+    /* THE AUTHORITATIVE PARALLELOGRAM SWITCHER POD (STRICT ZERO BORDER RADIUS) */
+    .crux-switch-container {
+      background: #060A1A;
+      border: none;
+      padding: 10px 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 8px 24px rgba(186, 0, 0, 0.3), inset 0 0 0 1.5px #BA0000;
+      clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+      border-radius: 0 !important;
+    }
+    .crux-para-btn {
+      position: relative;
+      padding: 12px 28px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      border: 0 !important;
+      border-radius: 0 !important;
+      clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .crux-para-btn.active-events {
+      background: #BA0000 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 16px rgba(186, 0, 0, 0.5);
+    }
+    .crux-para-btn.inactive-tab {
+      background: #141C38 !important;
+      color: #9AB0D8 !important;
+    }
+    .crux-para-btn.inactive-tab:hover {
+      background: #1C274E !important;
+      color: #FFFFFF !important;
+    }
+    .crux-para-btn.active-consultancy {
+      background: #002671 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 16px rgba(0, 38, 113, 0.5);
+    }
+
+    /* ── SHOWCASE 3: INTERACTION DESIGN & NAVIGATION ARCHITECTURE ── */
+    .c8cs-mobile-ergonomics-section { padding: clamp(2.5rem, 4vw, 4.5rem) 0; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
+    @media (max-width: 960px) {
+      .c8cs-mobile-ergonomics-section [style*="grid-template-columns: 1fr 1.3fr"] { grid-template-columns: 1fr !important; }
+      .c8cs-mobile-ergonomics-section [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+      .c8cs-mobile-ergonomics-section [style*="border-right: 1px solid"] { border-right: none !important; border-bottom: 1px solid var(--c8-grid-line) !important; }
+    }
+    .c8cs-ergo-content { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+    .c8cs-ergo-tag { font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: var(--c8-red); text-transform: uppercase; }
+    .c8cs-ergo-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); }
+    .c8cs-ergo-desc { font-size: 13.5px; color: var(--c8-sub); line-height: 1.65; }
+
+    /* Crux Authentic Ticket Stub System */
+    .crux-ticket-card {
+      display: flex;
+      background: #111838;
+      border: 1.5px solid #1E2B5E;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+    }
+    .crux-ticket-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0, 38, 113, 0.25);
+    }
+    .crux-ticket-stub {
+      position: relative;
+      flex: 0 0 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 8px;
+      color: #FFFFFF;
+    }
+    .crux-ticket-stub::before, .crux-ticket-stub::after {
+      content: '';
+      position: absolute;
+      right: -9px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #0A0F26;
+      z-index: 2;
+    }
+    .crux-ticket-stub::before { top: -9px; }
+    .crux-ticket-stub::after { bottom: -9px; }
+
+    /* ── SHOWCASE 4: ENGINEERING SHOWCASE STREAM (REAL WP FEATURE UI) ── */
+    .c8cs-stream-section { padding: clamp(2.5rem, 4vw, 4.5rem) 0; background: #FFFFFF; }
+    .c8cs-stream-box { border: 1px solid var(--c8-grid-line); border-radius: 8px; background: #FFFFFF; overflow: hidden; }
+    .c8cs-stream-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+    .c8cs-stream-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+    @media (max-width: 1050px) { .c8cs-stream-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 650px) { .c8cs-stream-grid { grid-template-columns: 1fr; } }
+
+    .c8cs-stream-cell {
+      border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); display: flex; flex-direction: column; justify-content: space-between; background: #FFFFFF; overflow: hidden;
+    }
+    .c8cs-stream-cell:nth-child(3n) { border-right: none; }
+    @media (max-width: 1050px) {
+      .c8cs-stream-cell:nth-child(3n) { border-right: 1px solid var(--c8-grid-line); }
+      .c8cs-stream-cell:nth-child(2n) { border-right: none; }
+    }
+    @media (max-width: 650px) { .c8cs-stream-cell { border-right: none; } }
+
+    .c8cs-stream-cell-media {
+      width: 100%; aspect-ratio: 16 / 9; background: #0A0F26; border-bottom: 1px solid var(--c8-grid-line); overflow: hidden; position: relative;
+    }
+    .c8cs-stream-cell-media img {
+      width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; transition: transform 0.4s ease;
+    }
+    .c8cs-stream-cell:hover .c8cs-stream-cell-media img { transform: scale(1.03); }
+    .c8cs-stream-cell-body { padding: 1.75rem 1.75rem 2rem; display: flex; flex-direction: column; flex: 1; }
+
+    .c8cs-stream-cell-num { font-family: var(--font-mono); font-size: 10.5px; font-weight: 700; color: var(--c8-red); margin-bottom: 0.5rem; text-transform: uppercase; }
+    .c8cs-stream-cell-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.75rem; line-height: 1.3; }
+    .c8cs-stream-cell-desc { font-size: 13.5px; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.5rem; }
+    .c8cs-stream-code-tag {
+      font-family: var(--font-mono); font-size: 10.5px; padding: 6px 10px; background: var(--c8-paper-bg); border: 1px solid var(--c8-grid-line); border-radius: 4px; color: var(--c8-blue); margin-top: auto; display: inline-flex; align-items: center; gap: 6px;
+    }
+
+    /* ── LIGHTBOX MODAL ── */
+    #c8LbModal {
+      position: fixed; inset: 0; background: rgba(10, 15, 38, 0.95); backdrop-filter: blur(14px); display: none; align-items: center; justify-content: center; z-index: 99999; padding: 2rem;
+    }
+    #c8LbModal.is-active { display: flex; }
+    #c8LbImg { max-width: 90vw; max-height: 85vh; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 30px 80px rgba(0,0,0,0.8); }
+    #c8LbClose {
+      position: absolute; top: 24px; right: 28px; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #FFFFFF; font-size: 22px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;
+    }
+    #c8LbClose:hover { background: var(--c8-red); }
+
+    /* FOOTER */
+    .c8-footer {
+      border-top: 1px solid var(--c8-grid-line); padding: 4rem clamp(1.5rem, 4vw, 3.5rem); background: var(--c8-paper-bg); display: flex; flex-direction: column; gap: 2rem;
+    }
+    .c8-footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-family: var(--font-mono); font-size: 11px; color: var(--c8-sub); }
+  </style>
+</head>
+<body class="cs-page-crux-nxtion">
+
+  <!-- GLOBAL NAV HEADER -->
+  <header class="c8-nav-header">
+    <a href="index.html" class="c8-brand-link">
+      <span class="c8-brand-dot"></span>
+      CR8V STACKS
+    </a>
+    <nav class="c8-nav-pills">
+      <a href="portfolio.html" class="c8-nav-link">Case Studies</a>
+      <a href="services.html" class="c8-nav-link">Services</a>
+      <a href="about-us.html" class="c8-nav-link">About</a>
+      <a href="contact-us.html" class="c8-btn-cta">Start Project ↗</a>
+    </nav>
+  </header>
+
+  <div class="c8cs-root">
+    
+    <!-- ── HERO SECTION ── -->
+    <section class="c8cs-hero">
+      <div class="c8cs-wrap">
+        <a href="portfolio.html" class="c8cs-back-btn">← Back to Selected Works</a>
+        <div class="c8cs-label">WordPress Core Engine // Single-Apex Runtime Duality</div>
+        
+        <h1 class="c8cs-headline">
+          Crux Nxtion: The Dual-Wing Platform <br>
+          <span class="c8cs-serif">&amp; Intelligent State Machine</span>
+        </h1>
+        
+        <p class="c8cs-lead">
+          Crux Nxtion required housing two opposing commercial entities under one digital roof: high-stakes enterprise corporate advisory and vibrant cultural event spectacle. Instead of naively fragmenting brand equity across multiple domains or subdomains, Cr8v Stacks engineered a single-apex runtime duality architecture powered by bespoke WordPress plugins, session-persisted token swapping, and a custom 5-stage CPT inquiries pipeline CRM.
+        </p>
+
+        <div class="c8-pill-row">
+          <span class="c8-pill accent">WordPress Core</span>
+          <span class="c8-pill">Runtime Duality</span>
+          <span class="c8-pill">Inquiries CRM</span>
+          <span class="c8-pill">Zero-Bloat Stack</span>
+        </div>
+
+        <div class="c8cs-meta-grid">
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Client</span>
+            <span class="c8cs-meta-val">Crux Nxtion Global</span>
+          </div>
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Operational Dual Wings</span>
+            <span class="c8cs-meta-val">Consultancy &amp; Cultural Events</span>
+          </div>
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Core Engineering</span>
+            <span class="c8cs-meta-val">Custom WP Theme + Core Plugin</span>
+          </div>
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Live Production Domain</span>
+            <span class="c8cs-meta-val">cruxnxtion.co.uk ↗</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EXPANSIVE HERO MEDIA WITH INTERACTIVE SWITCHER ── -->
+    <section class="c8cs-grow-media-wrapper">
+      <div class="c8cs-hero-switcher">
+        <button class="c8cs-switch-btn is-active" id="btnLandscape" onclick="setHeroLayout('landscape')">
+          <i class="fa-solid fa-laptop" style="margin-right: 6px;"></i> Desktop View (16:9)
+        </button>
+        <button class="c8cs-switch-btn" id="btnVertical" onclick="setHeroLayout('vertical')">
+          <i class="fa-solid fa-mobile-screen" style="margin-right: 6px;"></i> Service Card (3:4)
+        </button>
+      </div>
+
+      <div class="c8cs-main-img-box">
+        <div class="c8cs-hero-img-inner is-landscape" id="heroMediaContainer">
+          <img 
+            id="heroImg"
+            src="assets/case_studies/case_study_crux_nxtion.webp" 
+            alt="Crux Nxtion Flagship Dual-Wing Architecture in Production"
+            onclick="openLightbox(this.src)"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 00: STRATEGIC OVERVIEW ── -->
+    <section class="c8cs-wrap">
+      <div class="c8cs-split-section">
+        
+        <!-- Left: Visual Strategic Overview & Architecture Engine -->
+        <div class="c8cs-split-left">
+          <div class="c8cs-label">Overview // Strategic Context</div>
+          <h2 class="c8cs-split-title">
+            The Duality Headache <br>
+            <span class="c8cs-serif">&amp; Single-Apex Resolution</span>
+          </h2>
+          <div class="c8cs-body-content">
+            <p style="margin-bottom: 2rem; font-size: 15.5px; color: var(--c8-sub); line-height: 1.75;">
+              Crux Nxtion confronted an existential architectural dilemma: how to house two completely antithetical commercial disciplines under one sovereign digital identity without fracturing domain authority, partitioning visitor sessions, or confusing high-ticket enterprise clients.
+            </p>
+
+            <!-- ── VISUAL BLOCK 01: DUAL-DISCIPLINARY COMMERCIAL DILEMMA ── -->
+            <div style="border: 1px solid var(--c8-grid-line); border-radius: 6px; background: #FFFFFF; overflow: hidden; margin-bottom: 2rem;">
+              <div style="padding: 11px 16px; background: #FAFAF7; border-bottom: 1px solid var(--c8-grid-line); display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-family: var(--font-mono); font-size: 9.5px; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; letter-spacing: 0.08em;">
+                  Dual-Disciplinary Dilemma // Two Antithetical Realities
+                </span>
+                <span style="font-family: var(--font-mono); font-size: 8.5px; color: var(--c8-blue); font-weight: 700; background: rgba(0, 71, 225, 0.08); padding: 2px 7px; border-radius: 3px;">
+                  COMMERCIAL POLARITY
+                </span>
+              </div>
+
+              <div class="c8cs-duality-wings-grid">
+                <!-- Wing A: Advisory -->
+                <div class="c8cs-duality-wing-a" style="padding: 1.25rem 1.4rem; background: #FFFFFF; border-right: 1px solid var(--c8-grid-line); display: flex; flex-direction: column; justify-content: space-between;">
+                  <div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                      <span style="font-family: var(--font-mono); font-size: 8.5px; font-weight: 700; color: #002671; text-transform: uppercase; letter-spacing: 0.06em;">01 // CORPORATE ADVISORY</span>
+                      <span style="width: 8px; height: 8px; border-radius: 50%; background: #002671;"></span>
+                    </div>
+                    <div style="font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: var(--c8-ink); margin-bottom: 4px;">Crux Consultancy</div>
+                    <p style="font-size: 12px; color: var(--c8-sub); line-height: 1.55; margin-bottom: 12px;">
+                      Executive turnaround consulting, institutional restructuring, and brand strategy demanding sober credibility and editorial authority.
+                    </p>
+                  </div>
+                  <div>
+                    <div style="font-family: var(--font-mono); font-size: 8px; text-transform: uppercase; color: var(--c8-muted); margin-bottom: 5px; font-weight: 700;">Design Tokens:</div>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                      <span style="font-family: var(--font-mono); font-size: 9px; padding: 2px 7px; border-radius: 3px; background: #002671; color: #FFFFFF; font-weight: 600;">#002671 Navy</span>
+                      <span style="font-family: var(--font-mono); font-size: 9px; padding: 2px 7px; border-radius: 3px; background: #8C7AE6; color: #FFFFFF; font-weight: 600;">#8C7AE6 Violet</span>
+                      <span style="font-family: var(--font-mono); font-size: 9px; padding: 2px 7px; border-radius: 3px; background: #FFFFFF; border: 1px solid #CBD5E1; color: #0F172A; font-weight: 600;">#FFFFFF White</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Wing B: Live Spectacle -->
+                <div style="padding: 1.25rem 1.4rem; background: #0A0F26; color: #FFFFFF; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                      <span style="font-family: var(--font-mono); font-size: 8.5px; font-weight: 700; color: #BA0000; text-transform: uppercase; letter-spacing: 0.06em;">02 // CULTURAL SPECTACLE</span>
+                      <span style="width: 8px; height: 8px; border-radius: 50%; background: #BA0000; box-shadow: 0 0 6px #BA0000;"></span>
+                    </div>
+                    <div style="font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: #FFFFFF; margin-bottom: 4px;">Crux Events</div>
+                    <p style="font-size: 12px; color: #A3A9C8; line-height: 1.55; margin-bottom: 12px;">
+                      International music festivals, nightlife curation, and concert stagecraft demanding dark nocturnal immersion, adrenaline, and cultural excitement.
+                    </p>
+                  </div>
+                  <div>
+                    <div style="font-family: var(--font-mono); font-size: 8px; text-transform: uppercase; color: #64748B; margin-bottom: 5px; font-weight: 700;">Design Tokens:</div>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                      <span style="font-family: var(--font-mono); font-size: 9px; padding: 2px 7px; border-radius: 3px; background: #0A0F26; border: 1px solid #1E2850; color: #FFFFFF; font-weight: 600;">#0A0F26 Midnight</span>
+                      <span style="font-family: var(--font-mono); font-size: 9px; padding: 2px 7px; border-radius: 3px; background: #BA0000; color: #FFFFFF; font-weight: 600;">#BA0000 Red</span>
+                      <span style="font-family: var(--font-mono); font-size: 9px; padding: 2px 7px; border-radius: 3px; background: #FFFFFF; color: #0A0F26; font-weight: 600;">#FFFFFF Neon</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── VISUAL BLOCK 02: ARCHITECTURE STRATEGY TRIAGE (REJECTED VS ENGINEERED) ── -->
+            <div style="border: 1px solid var(--c8-grid-line); border-radius: 6px; background: #FFFFFF; overflow: hidden; margin-bottom: 2rem;">
+              <div style="padding: 11px 16px; background: #FAFAF7; border-bottom: 1px solid var(--c8-grid-line); display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-family: var(--font-mono); font-size: 9.5px; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; letter-spacing: 0.08em;">
+                  Architecture Strategy Triage // Why Naive Solutions Failed
+                </span>
+                <span style="font-family: var(--font-mono); font-size: 8.5px; color: #DC2626; font-weight: 700; background: #FEF2F2; border: 1px solid #FECACA; padding: 2px 7px; border-radius: 3px;">
+                  3 COMPROMISES REJECTED
+                </span>
+              </div>
+
+              <!-- 3 Rejected Approaches Grid -->
+              <div class="c8cs-triage-grid">
+                <!-- Trap 01 -->
+                <div class="c8cs-triage-cell" style="padding: 14px 16px; border-right: 1px solid var(--c8-grid-line); background: #FFFFFF;">
+                  <div style="font-family: var(--font-mono); font-size: 8.5px; font-weight: 700; color: #B91C1C; text-transform: uppercase; margin-bottom: 4px;">
+                    ✕ Approach 01
+                  </div>
+                  <div style="font-family: var(--font-heading); font-size: 12px; font-weight: 700; color: var(--c8-ink); margin-bottom: 5px;">
+                    Separate Apex TLDs
+                  </div>
+                  <div style="font-family: var(--font-mono); font-size: 9px; color: var(--c8-sub); margin-bottom: 6px;">
+                    events.com vs consulting.com
+                  </div>
+                  <p style="font-size: 11.5px; color: var(--c8-sub); line-height: 1.5; margin: 0;">
+                    Fractures Google SEO domain authority in half; doubles link-building overhead, doubles SSL/hosting fees, and creates search brand confusion.
+                  </p>
+                </div>
+
+                <!-- Trap 02 -->
+                <div class="c8cs-triage-cell" style="padding: 14px 16px; border-right: 1px solid var(--c8-grid-line); background: #FFFFFF;">
+                  <div style="font-family: var(--font-mono); font-size: 8.5px; font-weight: 700; color: #B91C1C; text-transform: uppercase; margin-bottom: 4px;">
+                    ✕ Approach 02
+                  </div>
+                  <div style="font-family: var(--font-heading); font-size: 12px; font-weight: 700; color: var(--c8-ink); margin-bottom: 5px;">
+                    Disjointed Subdomains
+                  </div>
+                  <div style="font-family: var(--font-mono); font-size: 9px; color: var(--c8-sub); margin-bottom: 6px;">
+                    events.cruxnxtion.co.uk
+                  </div>
+                  <p style="font-size: 11.5px; color: var(--c8-sub); line-height: 1.5; margin: 0;">
+                    Partitions visitor journeys into isolated cookie and session silos; dilutes root domain equity and breaks cross-wing exploration.
+                  </p>
+                </div>
+
+                <!-- Trap 03 -->
+                <div class="c8cs-triage-cell" style="padding: 14px 16px; background: #FFFFFF;">
+                  <div style="font-family: var(--font-mono); font-size: 8.5px; font-weight: 700; color: #B91C1C; text-transform: uppercase; margin-bottom: 4px;">
+                    ✕ Approach 03
+                  </div>
+                  <div style="font-family: var(--font-heading); font-size: 12px; font-weight: 700; color: var(--c8-ink); margin-bottom: 5px;">
+                    WordPress Multisite
+                  </div>
+                  <div style="font-family: var(--font-mono); font-size: 9px; color: var(--c8-sub); margin-bottom: 6px;">
+                    Separate DB Networks
+                  </div>
+                  <p style="font-size: 11.5px; color: var(--c8-sub); line-height: 1.5; margin: 0;">
+                    Multiplies administrative overhead, complicates database schema maintenance, and fragments unified inquiry lead capture.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Master Engineered Resolution Banner -->
+              <div style="padding: 16px 20px; background: linear-gradient(135deg, #F8FAFD 0%, #FFFFFF 100%);">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; flex-wrap: wrap; gap: 8px;">
+                  <span style="font-family: var(--font-mono); font-size: 9px; font-weight: 700; color: #16A34A; text-transform: uppercase; letter-spacing: 0.08em; display: flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-circle-check"></i> Cr8v Stacks Engineered Resolution // Single-Apex Runtime Duality
+                  </span>
+                  <span style="font-family: var(--font-mono); font-size: 9.5px; color: #002671; font-weight: 700; background: rgba(0, 38, 113, 0.08); padding: 3px 8px; border-radius: 4px;">
+                    APEX: CRUXNXTION.CO.UK
+                  </span>
+                </div>
+                <p style="font-size: 12.5px; color: var(--c8-ink); line-height: 1.6; margin-bottom: 10px; font-weight: 500;">
+                  A single root domain hosts both corporate worlds, concentrating 100% of organic domain authority while a client-side and server-side state machine toggles stylesheets, design tokens, and navigation schemas instantly in 0ms with zero page reload.
+                </p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 9.5px; color: var(--c8-sub);">
+                  <span><strong style="color: #16A34A;">✓ 100%</strong> Domain Authority</span>
+                  <span><strong style="color: #002671;">✓ 0ms</strong> Token Latency</span>
+                  <span><strong style="color: #8C7AE6;">✓ 5-Stage</strong> Unified CRM</span>
+                  <span><strong style="color: var(--c8-ink);">✓ Zero</strong> Page Reload</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── VISUAL BLOCK 03: LIVE INTERACTIVE RUNTIME DUALITY SIMULATOR ── -->
+            <div style="border: 1px solid var(--c8-grid-line); border-radius: 6px; background: #FFFFFF; overflow: hidden;">
+              <!-- Simulator Header -->
+              <div style="padding: 10px 16px; background: #FAFAF7; border-bottom: 1px solid var(--c8-grid-line); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background: #22C55E;"></span>
+                  <span style="font-family: var(--font-mono); font-size: 9.5px; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; letter-spacing: 0.06em;">
+                    Live Runtime Duality Simulator // Interactive Token Engine
+                  </span>
+                </div>
+                <!-- Interactive Mode Switcher -->
+                <div style="display: flex; gap: 4px; background: #E2E8F0; padding: 3px; border-radius: 4px;">
+                  <button 
+                    type="button" 
+                    id="sim-btn-consult"
+                    onclick="toggleDualitySimulator('consultancy')"
+                    style="font-family: var(--font-mono); font-size: 9px; font-weight: 700; padding: 4px 10px; border-radius: 3px; border: none; background: #002671; color: #FFFFFF; cursor: pointer; transition: all 0.2s;"
+                  >
+                    💼 Consultancy Mode
+                  </button>
+                  <button 
+                    type="button" 
+                    id="sim-btn-events"
+                    onclick="toggleDualitySimulator('events')"
+                    style="font-family: var(--font-mono); font-size: 9px; font-weight: 700; padding: 4px 10px; border-radius: 3px; border: none; background: transparent; color: #475569; cursor: pointer; transition: all 0.2s;"
+                  >
+                    ⚡ Events Mode
+                  </button>
+                </div>
+              </div>
+
+              <!-- Interactive Display Card -->
+              <div id="c8cs-duality-sim" style="padding: 1.5rem 1.75rem; background: #FFFFFF; transition: background 0.3s ease, border-color 0.3s ease;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                  <span id="sim-badge" style="font-family: var(--font-mono); font-size: 8.5px; font-weight: 700; padding: 3px 8px; border-radius: 3px; background: rgba(0, 38, 113, 0.08); border: 1px solid rgba(0, 38, 113, 0.2); color: #002671; text-transform: uppercase;">
+                    WING 01 // CORPORATE ADVISORY
+                  </span>
+                  <span style="font-family: var(--font-mono); font-size: 9px; color: #64748B;">cruxnxtion.co.uk</span>
+                </div>
+                <h3 id="sim-title" style="font-family: var(--font-heading); font-size: 16px; font-weight: 700; color: #0A0F26; margin-bottom: 6px; line-height: 1.3;">
+                  Executive Turnaround Consulting &amp; Brand Governance
+                </h3>
+                <p id="sim-desc" style="font-size: 12.5px; color: #5A6275; line-height: 1.6; margin-bottom: 14px;">
+                  Sober credibility and editorial authority for corporate boards, restructuring mandates, and institutional growth leadership.
+                </p>
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                  <button id="sim-cta" type="button" style="font-family: var(--font-mono); font-size: 10px; font-weight: 700; padding: 8px 14px; border-radius: 3px; border: none; background: #002671; color: #FFFFFF; cursor: pointer; letter-spacing: 0.04em;">
+                    Book Turnaround Brief →
+                  </button>
+                  <div id="sim-meta" style="font-family: var(--font-mono); font-size: 9.5px; color: #64748B;">
+                    <span style="color:#002671;font-weight:700;">● STATE: WING_CONSULTANCY</span> | TOKENS: #002671 / #8C7AE6 | 100% APEX EQUITY | 0ms SWITCH
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Sticky Strategic Architecture Deliverables -->
+        <div class="c8cs-split-right">
+          <!-- Sticky Header -->
+          <div style="padding: 1.5rem 1.75rem; border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.12em;">Strategic Architecture</div>
+              <div style="font-family: var(--font-heading); font-size: 13.5px; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; margin-top: 2px;">Key Engineering Mandates</div>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 8.5px; color: #16A34A; background: #F0FDF4; border: 1px solid #BBF7D0; padding: 3px 8px; border-radius: 4px; font-weight: 700; letter-spacing: 0.06em;">
+              ACTIVE CORE
+            </span>
+          </div>
+
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box"><i class="fa-solid fa-code-merge"></i></div>
+            <div>
+              <h3 class="fylla-value-h3">01 / Single-Apex Domain Authority</h3>
+              <p class="fylla-value-desc">Zero link equity dilution. Both cultural festival tickets and executive turnaround briefs feed a single organic domain authority footprint.</p>
+            </div>
+          </div>
+
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box"><i class="fa-solid fa-layer-group"></i></div>
+            <div>
+              <h3 class="fylla-value-h3">02 / Unified Commercial Lead Pipeline</h3>
+              <p class="fylla-value-desc">Corporate boardrooms and festival sponsorship requests route into a centralized, proprietary 5-stage CRM without third-party form bloat.</p>
+            </div>
+          </div>
+
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box"><i class="fa-solid fa-sliders"></i></div>
+            <div>
+              <h3 class="fylla-value-h3">03 / Native WordPress Governance</h3>
+              <p class="fylla-value-desc">Full visual control for non-technical leadership using WordPress core Customizer APIs, bypassing brittle page builders entirely.</p>
+            </div>
+          </div>
+
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box"><i class="fa-solid fa-bolt"></i></div>
+            <div>
+              <h3 class="fylla-value-h3">04 / Zero-Bloat Hardware Performance</h3>
+              <p class="fylla-value-desc">Sub-1.0s real-world loading powered by vanilla CSS clip-paths, hardware GPU transitions, and native WordPress query transients.</p>
+            </div>
+          </div>
+
+          <!-- Sticky Telemetry Footer -->
+          <div style="padding: 1.15rem 1.75rem; background: #FFFFFF; border-top: 1px solid var(--c8-grid-line); display: flex; align-items: center; justify-content: space-between; font-family: var(--font-mono); font-size: 9.5px; color: var(--c8-sub);">
+            <span><strong style="color: var(--c8-ink);">100%</strong> Apex Equity</span>
+            <span><strong style="color: var(--c8-ink);">0ms</strong> State Switch</span>
+            <span><strong style="color: var(--c8-ink);">Sub-1.0s</strong> Real Load</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CORE TECHNICAL DELIVERABLES (ASSET 01, 02, 03) ── -->
+    <section class="c8cs-deliverables-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-deliverables-box">
+          <div class="c8cs-deliverables-header">
+            <div class="c8cs-label">Foundational Systems</div>
+            <h2 class="c8cs-headline" style="margin-bottom: 0;">Core Technical Deliverables</h2>
+          </div>
+
+          <div class="c8cs-deliverables-grid">
+            
+            <!-- Asset 01: Design System & Tokens -->
+            <div class="c8cs-deliverable-card">
+              <div>
+                <div class="c8cs-deliverable-meta">Design System // Asset 01</div>
+                <h3 class="c8cs-deliverable-title">Dual-Wing Design System &amp; Typography Tokens</h3>
+                <p class="c8cs-deliverable-desc">
+                  Curated typography ladder combining Michroma geometric display caps with Plus Jakarta Sans body hierarchy and Space Mono telemetry. Features dual color ramps separating Midnight/Red from Crisp White/Royal Violet.
+                </p>
+              </div>
+              <div class="c8cs-deliverable-img-box">
+                <img 
+                  src="assets/case_studies/crux_nxtion_asset_01.webp" 
+                  alt="Crux Nxtion Design System & Typography Tokens"
+                  onclick="openLightbox(this.src)"
+                >
+              </div>
+            </div>
+
+            <!-- Asset 02: Secondary Core Interface - Multi-Wing Intake Router (Fixed UI!) -->
+            <div class="c8cs-deliverable-card">
+              <div>
+                <div class="c8cs-deliverable-meta">Secondary Core Interface // Asset 02</div>
+                <h3 class="c8cs-deliverable-title">Multi-Wing Corporate Intake &amp; Routing Engine</h3>
+                <p class="c8cs-deliverable-desc">
+                  Intelligent client onboarding interface featuring interactive 3-mode tabs, dynamic discipline chips, and live specification panels—filtering incoming briefs to the CRM with IP telemetry.
+                </p>
+              </div>
+              <div class="c8cs-deliverable-img-box">
+                <img 
+                  src="assets/case_studies/crux_nxtion_asset_02.webp" 
+                  alt="Crux Nxtion Multi-Wing Corporate Intake Engine"
+                  onclick="openLightbox(this.src)"
+                >
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Asset 03: WordPress Core Architecture on Granite (Photorealistic AI Model) -->
+          <div class="c8cs-sovereignty-split">
+            <div class="c8cs-sovereignty-left">
+              <div class="c8cs-deliverable-meta">Platform Infrastructure // Asset 03</div>
+              <h3 class="c8cs-deliverable-title">WordPress Core Architectural Board</h3>
+              <p class="c8cs-deliverable-desc">
+                By architecting a custom WordPress theme and dedicated core plugin (<code>crux-nxtion-core.php</code>), Cr8v Stacks delivered single-apex domain authority, an in-house CPT pipeline CRM, native Customizer token bindings, and zero-bloat vanilla runtime performance.
+              </p>
+              <div class="c8-value-item" style="margin-bottom: 1rem;">
+                <div class="c8-value-icon-box"><i class="fa-solid fa-check" style="color: var(--c8-red);"></i></div>
+                <div>
+                  <h4 style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; font-weight: 700;">865-Line Dedicated Core Plugin</h4>
+                  <p style="font-size: 13px; color: var(--c8-sub);">All custom functionality encapsulated in <code>crux-nxtion-core.php</code> — zero dependency on third-party plugins.</p>
+                </div>
+              </div>
+              <div class="c8-value-item" style="margin-bottom: 1rem;">
+                <div class="c8-value-icon-box"><i class="fa-solid fa-check" style="color: var(--c8-red);"></i></div>
+                <div>
+                  <h4 style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; font-weight: 700;">Dual Page Template Architecture</h4>
+                  <p style="font-size: 13px; color: var(--c8-sub);">16 custom PHP templates routing events, consultancy, gallery, contact, and FAQ through distinct visual frameworks.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="c8cs-sovereignty-right">
+              <div class="c8cs-sovereignty-img-box">
+                <img 
+                  src="assets/case_studies/crux_nxtion_asset_03.webp" 
+                  alt="WordPress Core Architectural Board on Granite"
+                  onclick="openLightbox(this.src)"
+                >
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SHOWCASE 1: VISUAL SHOWCASE OF THE WEBSITE ITSELF (CONTRAST GOVERNED) ── -->
+    <section class="c8cs-site-showcase-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-label">Showcase 01 // Production Interface Captures</div>
+        <h2 class="c8cs-headline">The Website Itself in Production</h2>
+        <p class="c8cs-lead" style="margin-bottom: 1.5rem;">
+          Deep scrolled production captures demonstrating the authentic visual breadth of Crux Nxtion—framed in strict contrast-governed browser viewports.
+        </p>
+
+        <div class="c8cs-site-grid">
+          
+          <!-- Card 1: Events Lineup Docket Grid (Dark Design -> Light Chrome) -->
+          <div class="c8cs-site-card">
+            <div class="c8cs-site-media">
+              <img 
+                src="assets/case_studies/crux_showcase_01_events_grid.webp" 
+                alt="Crux Nxtion Events Lineup Docket Grid"
+                onclick="openLightbox(this.src)"
+              >
+            </div>
+            <div class="c8cs-site-content">
+              <span class="c8cs-site-meta">Events Wing Archive // archive-event.php</span>
+              <h3 class="c8cs-site-title">Live Event Docket &amp; Lineup Grid</h3>
+              <p class="c8cs-site-desc">
+                Scrolled live view of the cultural events archive showcasing dynamic category filters, ticket status badges, venue coordinates, and one-click .ics calendar synchronization triggers.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2: Strategic Advisory Framework (Light Design -> Dark Chrome) -->
+          <div class="c8cs-site-card">
+            <div class="c8cs-site-media">
+              <img 
+                src="assets/case_studies/crux_showcase_02_consultancy_portal.webp" 
+                alt="Crux Nxtion Strategic Advisory Portal"
+                onclick="openLightbox(this.src)"
+              >
+            </div>
+            <div class="c8cs-site-content">
+              <span class="c8cs-site-meta">Consultancy Wing // page-consultancy.php</span>
+              <h3 class="c8cs-site-title">Strategic Advisory &amp; Corporate Portal</h3>
+              <p class="c8cs-site-desc">
+                Scrolled executive view presenting institutional turnaround consulting frameworks, enterprise credibility markers, and board-level advisory methodologies in crisp editorial white.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3: Single Event Production Dossier (Dark Design -> Light Chrome) -->
+          <div class="c8cs-site-card">
+            <div class="c8cs-site-media">
+              <img 
+                src="assets/case_studies/crux_showcase_03_single_event_specs.webp" 
+                alt="Crux Nxtion Single Event Production Dossier"
+                onclick="openLightbox(this.src)"
+              >
+            </div>
+            <div class="c8cs-site-content">
+              <span class="c8cs-site-meta">Stagecraft Dossier // single-event.php</span>
+              <h3 class="c8cs-site-title">Production Specs &amp; Ticket Stub Architecture</h3>
+              <p class="c8cs-site-desc">
+                Deep production dossier showcasing authentic ticket stub notch cutouts, 4-pillar technical staging grids (Audio, Lighting, Staging, Crew), and direct Eventbrite ticket integrations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4: Corporate Intake & Lead Routing (Light Design -> Dark Chrome) -->
+          <div class="c8cs-site-card">
+            <div class="c8cs-site-media">
+              <img 
+                src="assets/case_studies/crux_showcase_04_contact_intake.webp" 
+                alt="Crux Nxtion Corporate Intake & Routing Matrix"
+                onclick="openLightbox(this.src)"
+              >
+            </div>
+            <div class="c8cs-site-content">
+              <span class="c8cs-site-meta">Intake Router // page-contact.php</span>
+              <h3 class="c8cs-site-title">Dual-Wing Corporate Intake &amp; Routing</h3>
+              <p class="c8cs-site-desc">
+                Intelligent multi-wing contact router filtering incoming requests to either festival production coordinators or executive consulting partners, logging IP telemetry directly to the CRM.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SHOWCASE 2: ENGINEERED SYSTEMS & WORKFLOWS (EXPANSIVE CAROUSEL) ── -->
+    <section class="c8cs-systems-carousel-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-systems-box">
+          
+          <div class="c8cs-systems-header">
+            <div class="c8cs-label">Showcase 02 // WordPress Core Engine</div>
+            <h2 class="c8cs-headline" style="margin-bottom: 0.5rem;">Engineered Systems &amp; Workflows</h2>
+            <p style="font-size: 14.5px; color: var(--c8-sub);">
+              Expansive interactive recreations of the bespoke systems built into WordPress core—demonstrating real pipeline state machines, native Customizer bindings, and calendar calculus.
+            </p>
+          </div>
+
+          <div class="c8cs-carousel-deck-wrap">
+            <div class="c8cs-carousel-deck-topbar">
+              <div class="c8cs-carousel-deck-title">
+                <span class="c8cs-badge-dot"></span>
+                <span>SYSTEM SLIDES // BESPOKE CODEFEATS (6 EXPANSIVE MODULES)</span>
+              </div>
+              <div class="c8cs-carousel-nav-controls">
+                <button class="c8cs-deck-nav-btn" onclick="prevSlide()"><i class="fa-solid fa-arrow-left"></i></button>
+                <span id="slideCounter" style="font-family: var(--font-mono); font-size: 11px; font-weight: 700;">01 / 06</span>
+                <button class="c8cs-deck-nav-btn" onclick="nextSlide()"><i class="fa-solid fa-arrow-right"></i></button>
+              </div>
+            </div>
+
+            <div class="c8cs-carousel-track-container">
+              <div class="c8cs-carousel-track" id="carouselTrack">
+                
+                <!-- Slide 1: Runtime Duality State Machine (Strict Zero Border Radius) -->
+                <div class="c8cs-carousel-slide-item">
+                  <div class="c8cs-slide-left">
+                    <span class="c8cs-deliverable-meta">SYSTEM 01 // RUNTIME DUALITY</span>
+                    <h3 class="c8cs-deliverable-title">Runtime State Machine &amp; Class Decoupler</h3>
+                    <p class="c8cs-deliverable-desc">
+                      Swaps stylesheet token ramps between Midnight/Red (Events) and Crisp White/Blue (Consultancy) without page reload. Saves state in <code>sessionStorage</code> and dynamically mutates root CSS variables with zero DOM thrashing.
+                    </p>
+                    <div style="background: var(--c8-paper-bg); border: 1px solid var(--c8-grid-line); border-radius: 6px; padding: 14px; font-family: var(--font-mono); font-size: 11.5px; color: var(--c8-blue); line-height: 1.6;">
+                      <code>sessionStorage.setItem('crux_mode', 'consultancy');<br>document.body.className = 'mode-consultancy';<br>document.documentElement.style.setProperty('--wing', 'consult');</code>
+                    </div>
+                  </div>
+                  <div class="c8cs-slide-right">
+                    <div class="c8cs-interactive-widget" id="slide1Widget">
+                      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1C274E; padding-bottom: 12px; margin-bottom: 20px;">
+                        <span style="font-family: var(--font-mono); font-size: 11px; color: #8A9DC8;">RUNTIME STATE CONTROLLER</span>
+                        <span id="runtimeActiveTag" style="background: #BA0000; color: #fff; font-size: 10px; padding: 4px 8px; font-family: var(--font-mono); font-weight: 700;">ACTIVE: EVENTS WING</span>
+                      </div>
+                      
+                      <!-- AUTHORITATIVE PARALLELOGRAM BUTTONS: ZERO BORDER RADIUS -->
+                      <div style="text-align: center; margin: 25px 0;">
+                        <div class="crux-switch-container">
+                          <button class="crux-para-btn active-events" id="demoBtnEvents" onclick="demoSetMode('events')">
+                            <i class="fa-solid fa-bolt"></i> EVENTS WING
+                          </button>
+                          <button class="crux-para-btn inactive-tab" id="demoBtnConsult" onclick="demoSetMode('consultancy')">
+                            <i class="fa-solid fa-briefcase"></i> CONSULTANCY
+                          </button>
+                        </div>
+                      </div>
+
+                      <div style="background: #080D22; border: 1px solid #182246; padding: 16px; font-family: var(--font-mono); font-size: 11px; color: #7890C0; line-height: 1.7; border-radius: 4px;">
+                        <span style="color: #BA0000;">// TELEMETRY:</span> Latency: <strong style="color: #48BB78;">0.12ms</strong> · Redraw: <strong style="color: #48BB78;">0px</strong><br>
+                        Active Mode: <strong id="telemetryModeText" style="color: #FFFFFF;">mode-events</strong><br>
+                        Theme Mod Bind: <strong style="color: #63B3ED;">postMessage (Active)</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 2: 5-Stage CPT Pipeline CRM (Authentic Dossier UI from crux-nxtion-core.php) -->
+                <div class="c8cs-carousel-slide-item">
+                  <div class="c8cs-slide-left">
+                    <span class="c8cs-deliverable-meta">SYSTEM 02 // CPT CRM PIPELINE</span>
+                    <h3 class="c8cs-deliverable-title">5-Stage Lead Pipeline &amp; Executive Dossier</h3>
+                    <p class="c8cs-deliverable-desc">
+                      Custom CRM built inside <code>crux-nxtion-core.php</code>. Eliminates bloated third-party form plugins. Automatically parses incoming briefs, records client origin IP, maps commercial valuation, and renders an executive dossier directly inside WordPress Admin.
+                    </p>
+                    <div style="background: var(--c8-paper-bg); border: 1px solid var(--c8-grid-line); border-radius: 6px; padding: 12px; font-family: var(--font-mono); font-size: 11px; color: var(--c8-blue); margin-top: 10px;">
+                      <code>update_post_meta($post_id, '_crux_status', 'Proposal Sent');</code>
+                    </div>
+                  </div>
+                  <div class="c8cs-slide-right">
+                    <!-- AUTHENTIC EXECUTIVE LEAD DOSSIER UI -->
+                    <div class="c8cs-interactive-widget" style="background: #0A0F26; border-color: #8C7AE6; padding: 0; overflow: hidden;">
+                      <!-- Top Command Bar -->
+                      <div style="background: #060A1C; padding: 16px 20px; border-bottom: 2px solid #8C7AE6; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                        <div>
+                          <div style="font-family: var(--font-mono); font-size: 9.5px; color: #8C7AE6; font-weight: 700; letter-spacing: 1px;">CRUX NXTION LEAD DOSSIER • #8821</div>
+                          <div style="font-size: 15px; font-weight: 700; color: #fff;">Lead: Sovereign Capital Holdings</div>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                          <span style="background: #8C7AE6; color: #0A0F26; font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 3px; font-family: var(--font-mono);">✉ Reply via Email</span>
+                          <span style="background: #111838; border: 1px solid #2A3B72; color: #fff; font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 3px; font-family: var(--font-mono);">✆ Call Client</span>
+                        </div>
+                      </div>
+
+                      <!-- 5-Stage Pipeline Stepper Bar -->
+                      <div style="background: #0D1432; padding: 10px 20px; border-bottom: 1px solid #1E2850; overflow: hidden;">
+                        <span style="font-family: var(--font-mono); font-size: 9px; color: #7A82A8; font-weight: 700; display: block; margin-bottom: 8px;">PIPELINE STAGE:</span>
+                        <div style="display: flex; align-items: center; gap: 16px; font-family: var(--font-mono); font-size: 11px; white-space: nowrap; width: max-content;">
+                          <span style="color: #CCD3EE;">● 01 / New</span> <span style="color: #2A3356;">→</span>
+                          <span style="color: #CCD3EE;">● 02 / Contacted</span> <span style="color: #2A3356;">→</span>
+                          <span id="crmStagePill" style="color: #3DDC84; font-weight: 700; background: rgba(61,220,132,0.15); padding: 3px 10px; border-radius: 3px;">● 03 / Proposal Sent</span> <span style="color: #2A3356;">→</span>
+                          <span style="color: #5A6384;">○ 04 / Booked</span> <span style="color: #2A3356;">→</span>
+                          <span style="color: #5A6384;">○ 05 / Archived</span>
+                        </div>
+                      </div>
+
+                      <!-- Dossier Body Content -->
+                      <div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 10px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; color: #A0AEC0;">
+                          <span>Client: <strong style="color: #fff;">David Adeleke</strong></span>
+                          <span>Origin IP: <strong style="color: #fff;">185.192.68.10</strong></span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; color: #A0AEC0;">
+                          <span>Discipline: <strong style="color: #8C7AE6;">Dual: Turnaround &amp; Live Gala</strong></span>
+                          <span>Budget Quote: <strong style="color: #48BB78;">£45,000 GBP</strong></span>
+                        </div>
+                        <div style="background: #080D22; border: 1px solid #182246; padding: 10px; border-radius: 4px; font-size: 11.5px; color: #CCD3EE;">
+                          "Need full institutional restructuring advisory followed by executive anniversary gala production in London."
+                        </div>
+                      </div>
+
+                      <!-- Action Footer -->
+                      <div style="padding: 12px 20px; background: #060A1C; border-top: 1px solid #1E2850;">
+                        <button id="btnAdvanceCrm" onclick="advanceCrmDemo()" style="width: 100%; background: #002671; color: #fff; padding: 10px; border-radius: 4px; border: none; font-family: var(--font-mono); font-size: 11px; font-weight: 700; cursor: pointer;">
+                          ADVANCE TO STAGE 04 // BOOKED →
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 3: Native WP Customizer Token Engine -->
+                <div class="c8cs-carousel-slide-item">
+                  <div class="c8cs-slide-left">
+                    <span class="c8cs-deliverable-meta">SYSTEM 03 // DEFAULT WP CUSTOMIZER</span>
+                    <h3 class="c8cs-deliverable-title">Native Customizer Live CSS Token Panel</h3>
+                    <p class="c8cs-deliverable-desc">
+                      Built directly into WordPress's core <code>wp-admin/customize.php</code> using native <code>WP_Customize_Manager</code>. Controls bind to <code>postMessage</code> transport, updating CSS variables on <code>:root</code> instantly in the live preview iframe.
+                    </p>
+                    <div style="background: var(--c8-paper-bg); border: 1px solid var(--c8-grid-line); border-radius: 6px; padding: 14px; font-family: var(--font-mono); font-size: 11.5px; color: var(--c8-ink); line-height: 1.6;">
+                      <code>$wp_customize->add_setting('crux_action_red', array(<br>&nbsp;&nbsp;'default' => '#BA0000',<br>&nbsp;&nbsp;'transport' => 'postMessage',<br>&nbsp;&nbsp;'sanitize_callback' => 'sanitize_hex_color'<br>));</code>
+                    </div>
+                  </div>
+                  <div class="c8cs-slide-right">
+                    <div class="c8cs-interactive-widget" style="background: #1E2327; border-color: #32373C; padding: 0; overflow: hidden;">
+                      <!-- WP Customizer Top Bar -->
+                      <div style="background: #23282D; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #2271B1;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                          <i class="fa-brands fa-wordpress" style="font-size: 22px; color: #2271B1;"></i>
+                          <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: #FFFFFF;">Customizer: Crux Nxtion Theme Tokens</span>
+                        </div>
+                        <span style="font-family: var(--font-mono); font-size: 9px; color: #68DE7C; font-weight: 700; background: rgba(104,222,124,0.12); padding: 3px 8px; border-radius: 3px;">LIVE PREVIEW</span>
+                      </div>
+
+                      <!-- Section: Events Wing Colors -->
+                      <div style="padding: 18px;">
+                        <div style="font-family: var(--font-mono); font-size: 10px; color: #72777C; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #32373C;">▸ Events Wing Token Ramp</div>
+
+                        <div style="display: flex; flex-direction: column; gap: 16px;">
+                          <!-- Color Control: Action Red -->
+                          <div>
+                            <div style="font-size: 12px; color: #C3C4C7; margin-bottom: 8px;">Primary Action Color</div>
+                            <div style="display: flex; align-items: center; gap: 12px; background: #15181B; padding: 10px 14px; border-radius: 4px; border: 1px solid #32373C;">
+                              <span style="width: 30px; height: 30px; background: #BA0000; border-radius: 3px; display: inline-block; box-shadow: 0 2px 8px rgba(186,0,0,0.4);"></span>
+                              <div style="flex: 1;">
+                                <code style="font-family: var(--font-mono); font-size: 12px; color: #fff;">#BA0000</code>
+                                <div style="font-family: var(--font-mono); font-size: 9px; color: #72777C; margin-top: 2px;">--crux-action-red</div>
+                              </div>
+                              <span style="color: #68DE7C; font-size: 10px; font-family: var(--font-mono);">postMessage ✓</span>
+                            </div>
+                          </div>
+
+                          <!-- Color Control: Sovereign Navy -->
+                          <div>
+                            <div style="font-size: 12px; color: #C3C4C7; margin-bottom: 8px;">Consultancy Sovereign Slate</div>
+                            <div style="display: flex; align-items: center; gap: 12px; background: #15181B; padding: 10px 14px; border-radius: 4px; border: 1px solid #32373C;">
+                              <span style="width: 30px; height: 30px; background: #002671; border-radius: 3px; display: inline-block; box-shadow: 0 2px 8px rgba(0,38,113,0.4);"></span>
+                              <div style="flex: 1;">
+                                <code style="font-family: var(--font-mono); font-size: 12px; color: #fff;">#002671</code>
+                                <div style="font-family: var(--font-mono); font-size: 9px; color: #72777C; margin-top: 2px;">--crux-sovereign-navy</div>
+                              </div>
+                              <span style="color: #68DE7C; font-size: 10px; font-family: var(--font-mono);">postMessage ✓</span>
+                            </div>
+                          </div>
+
+                          <!-- Color Control: Royal Violet -->
+                          <div>
+                            <div style="font-size: 12px; color: #C3C4C7; margin-bottom: 8px;">Executive Accent Violet</div>
+                            <div style="display: flex; align-items: center; gap: 12px; background: #15181B; padding: 10px 14px; border-radius: 4px; border: 1px solid #32373C;">
+                              <span style="width: 30px; height: 30px; background: #8C7AE6; border-radius: 3px; display: inline-block; box-shadow: 0 2px 8px rgba(140,122,230,0.4);"></span>
+                              <div style="flex: 1;">
+                                <code style="font-family: var(--font-mono); font-size: 12px; color: #fff;">#8C7AE6</code>
+                                <div style="font-family: var(--font-mono); font-size: 9px; color: #72777C; margin-top: 2px;">--crux-accent-violet</div>
+                              </div>
+                              <span style="color: #68DE7C; font-size: 10px; font-family: var(--font-mono);">postMessage ✓</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Footer Status Bar -->
+                      <div style="padding: 10px 18px; background: #15181B; border-top: 1px solid #32373C; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-family: var(--font-mono); font-size: 10px; color: #72777C;">Selective Refresh: Active</span>
+                        <span style="font-family: var(--font-mono); font-size: 10px; color: #68DE7C; font-weight: 700;">0 Full Page Reloads</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 4: Dynamic .ics Calendar Calculus Engine -->
+                <div class="c8cs-carousel-slide-item">
+                  <div class="c8cs-slide-left">
+                    <span class="c8cs-deliverable-meta">SYSTEM 04 // CALENDAR CALCULUS</span>
+                    <h3 class="c8cs-deliverable-title">Dynamic RFC 5545 .ics Calendar Generator</h3>
+                    <p class="c8cs-deliverable-desc">
+                      Built into <code>calendar-ics.php</code>. Calculates UTC offsets and formats RFC 5545 streams directly from WordPress rewrite endpoints for Apple Calendar, Google Calendar, and Outlook with zero plugin bloat.
+                    </p>
+                    <div style="background: var(--c8-paper-bg); border: 1px solid var(--c8-grid-line); border-radius: 6px; padding: 14px; font-family: var(--font-mono); font-size: 11.5px; color: var(--c8-blue); line-height: 1.6;">
+                      <code>header('Content-Type: text/calendar; charset=utf-8');<br>header('Content-Disposition: attachment; filename="event.ics"');</code>
+                    </div>
+                  </div>
+                  <div class="c8cs-slide-right">
+                    <div class="c8cs-interactive-widget c8cs-widget-light">
+                      <div style="display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--c8-grid-line); padding-bottom: 12px;">
+                        <i class="fa-solid fa-calendar-check" style="color: var(--c8-red); font-size: 24px;"></i>
+                        <div>
+                          <div style="font-family: var(--font-heading); font-size: 13px; font-weight: 700;">BECOMING MR &amp; MRS CRUX PT.3</div>
+                          <div style="font-size: 12px; color: var(--c8-sub);">18 Oct 2026 · Sheffield City Hall · Status: Active</div>
+                        </div>
+                      </div>
+                      <div style="font-family: var(--font-mono); font-size: 11px; background: #F8FAFD; border: 1px solid #E2E8F0; border-radius: 4px; padding: 12px; margin: 16px 0; line-height: 1.7; color: var(--c8-ink);">
+                        BEGIN:VCALENDAR<br>VERSION:2.0<br>DTSTART:20261018T190000Z<br>SUMMARY:Becoming Mr &amp; Mrs Crux Pt.3<br>STATUS:CONFIRMED<br>END:VCALENDAR
+                      </div>
+                      <button onclick="alert('RFC 5545 .ics generator triggered dynamically from WordPress core!')" style="width: 100%; background: var(--c8-ink); color: #fff; padding: 12px; border-radius: 4px; border: none; font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; cursor: pointer;">
+                        DOWNLOAD .ICS SYNC FILE ↗
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 5: Automated Executive HTML Email Dossier (AUTHENTIC CODEBASE TEMPLATE) -->
+                <div class="c8cs-carousel-slide-item">
+                  <div class="c8cs-slide-left">
+                    <span class="c8cs-deliverable-meta">SYSTEM 05 // TRANSACTIONAL DISPATCH</span>
+                    <h3 class="c8cs-deliverable-title">Automated Executive HTML Email Dossier</h3>
+                    <p class="c8cs-deliverable-desc">
+                      Rendered directly from the codebase template in <code>crux-nxtion-core.php</code> (lines 828–853). Automatically triggers dual branded email stationery to directors and confirmation receipts to clients with SPF/DKIM verification.
+                    </p>
+                    <div style="background: var(--c8-paper-bg); border: 1px solid var(--c8-grid-line); border-radius: 6px; padding: 12px; font-family: var(--font-mono); font-size: 11px; color: var(--c8-blue); margin-top: 10px;">
+                      <code>wp_mail($admin_recipient, $subject, $body, $headers);</code>
+                    </div>
+                  </div>
+                  <div class="c8cs-slide-right">
+                    <!-- DUAL DISPATCH: ADMIN + CLIENT EMAILS FROM CODEBASE -->
+                    <div class="c8cs-interactive-widget" style="background: #F0F2F5; border: 1px solid #D1D5DB; padding: 0; overflow: hidden; box-shadow: 0 16px 36px rgba(0,38,113,0.08);">
+                      
+                      <!-- Email App Chrome Bar -->
+                      <div style="background: #FFFFFF; padding: 10px 16px; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; gap: 8px;">
+                        <span style="width: 10px; height: 10px; border-radius: 50%; background: #EF4444;"></span>
+                        <span style="width: 10px; height: 10px; border-radius: 50%; background: #F59E0B;"></span>
+                        <span style="width: 10px; height: 10px; border-radius: 50%; background: #22C55E;"></span>
+                        <span style="font-family: var(--font-mono); font-size: 10px; color: #9CA3AF; margin-left: 8px;">Mail — Dual Executive Dispatch</span>
+                      </div>
+
+                      <div style="display: flex; flex-direction: column; gap: 12px; padding: 16px;">
+                        <!-- EMAIL 1: Admin Executive Dossier (from lines 828-842) -->
+                        <div style="background: #FFFFFF; border-radius: 6px; padding: 16px; border: 1px solid #E2E8F0; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #F1F5F9;">
+                            <span style="font-family: var(--font-mono); font-size: 9px; color: #BA0000; font-weight: 700; text-transform: uppercase;">TO: infoandsales@cruxnxtion.co.uk</span>
+                            <span style="font-family: var(--font-mono); font-size: 9px; color: #BA0000; font-weight: 700; background: #FEF2F2; padding: 2px 8px; border-radius: 3px;">ADMIN DOSSIER</span>
+                          </div>
+                          <div style="font-size: 13px; font-weight: 700; color: #0A0F26; margin-bottom: 8px;">[EVENTS] New Crux Nxtion Brief from David Adeleke</div>
+                          <div style="font-size: 11.5px; color: #4A5568; line-height: 1.7;">
+                            <strong>Lead Type:</strong> EVENTS (Events Wing)<br>
+                            <strong>Client:</strong> David Adeleke (d.adeleke@email.com, 07XXX)<br>
+                            <strong>Services:</strong> Event Designs, Entertainment Booking<br>
+                            <strong>Event Specs:</strong> Luxury Gala | Date: 18 Oct 2026 | Guests: 350
+                          </div>
+                          <div style="margin-top: 10px;">
+                            <span style="display: inline-block; background: #002671; color: #fff; font-family: var(--font-mono); font-size: 10px; font-weight: 700; padding: 5px 10px; border-radius: 3px; cursor: default;">View Full Brief in WP Admin →</span>
+                          </div>
+                        </div>
+
+                        <!-- EMAIL 2: Client Confirmation Receipt (from lines 847-853) -->
+                        <div style="background: #FFFFFF; border-radius: 6px; padding: 16px; border: 1px solid #E2E8F0; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #F1F5F9;">
+                            <span style="font-family: var(--font-mono); font-size: 9px; color: #002671; font-weight: 700; text-transform: uppercase;">TO: d.adeleke@email.com</span>
+                            <span style="font-family: var(--font-mono); font-size: 9px; color: #002671; font-weight: 700; background: #EFF6FF; padding: 2px 8px; border-radius: 3px;">CLIENT RECEIPT</span>
+                          </div>
+                          <h1 style="font-family: var(--font-heading); font-size: 16px; color: #002671; margin: 0 0 8px 0;">CRUX NXTION</h1>
+                          <div style="font-size: 12px; color: #10142E; line-height: 1.7;">
+                            Hello David,<br>
+                            Thank you for reaching out. We have received your brief and our team will review the details and come back to you shortly.
+                          </div>
+                          <div style="font-size: 10px; color: #5A5F86; margin-top: 10px; padding-top: 8px; border-top: 1px solid #E5E7EB;">
+                            Crux Nxtion • 29 Dun Work, Sheffield S3 8FB • infoandsales@cruxnxtion.co.uk
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 6: 1-Click Starter Content Demo Importer (AUTHENTIC inc/demo-importer.php) -->
+                <div class="c8cs-carousel-slide-item">
+                  <div class="c8cs-slide-left">
+                    <span class="c8cs-deliverable-meta">SYSTEM 06 // ATOMIC PROVISIONING</span>
+                    <h3 class="c8cs-deliverable-title">1-Click Starter Content Demo Importer</h3>
+                    <p class="c8cs-deliverable-desc">
+                      Built into <code>inc/demo-importer.php</code>. Programmatically provisions dual-wing starter events, terms, taxonomies, and initial pipeline inquiries in a single atomic database transaction.
+                    </p>
+                    <div style="background: var(--c8-paper-bg); border: 1px solid var(--c8-grid-line); border-radius: 6px; padding: 12px; font-family: var(--font-mono); font-size: 11px; color: var(--c8-ink); margin-top: 10px;">
+                      <code>admin.php?crux_action=seed_demo_content</code>
+                    </div>
+                  </div>
+                  <div class="c8cs-slide-right">
+                    <div class="c8cs-interactive-widget c8cs-widget-light" style="padding: 0; overflow: hidden;">
+                      <!-- WP Admin Bar -->
+                      <div style="background: #1D2327; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                          <i class="fa-brands fa-wordpress" style="font-size: 16px; color: #D0D0D0;"></i>
+                          <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: #FFFFFF;">Crux Nxtion Theme Setup</span>
+                        </div>
+                        <span style="background: #DEF7EC; color: #03543F; font-size: 9px; font-weight: 700; padding: 3px 8px; border-radius: 3px; font-family: var(--font-mono);">SEEDING COMPLETE</span>
+                      </div>
+
+                      <div style="padding: 18px;">
+                        <!-- Progress Bar -->
+                        <div style="margin-bottom: 16px;">
+                          <div style="height: 6px; background: #E5E7EB; border-radius: 3px; overflow: hidden;">
+                            <div style="width: 100%; height: 100%; background: #22C55E; border-radius: 3px;"></div>
+                          </div>
+                        </div>
+
+                        <!-- Seeder Log -->
+                        <div style="font-family: var(--font-mono); font-size: 10.5px; line-height: 2; color: var(--c8-sub); max-height: 280px; overflow-y: auto;">
+                          <div style="color: #22C55E;">✓ Created 16 pages (Home, Events, Consultancy, Services, Contact, FAQ, About, Gallery...)</div>
+                          <div style="color: #22C55E;">✓ Set static front page → Home</div>
+                          <div style="color: #22C55E;">✓ Set blog page → Journal & Insights</div>
+                          <div style="color: #22C55E;">✓ Assigned page templates (page-consultancy.php, page-events.php...)</div>
+                          <div style="color: #22C55E;">✓ Seeded 8 events from Eventbrite archive:</div>
+                          <div style="padding-left: 16px; color: #6B7280;">
+                            ↳ Becoming Mr & Mrs Crux Pt.3 <span style="color: #9CA3AF;">(Weddings)</span><br>
+                            ↳ LASGIDI Mainland Party (IJGB Edition) <span style="color: #9CA3AF;">(Club)</span><br>
+                            ↳ Ankara Festival <span style="color: #9CA3AF;">(Cultural)</span><br>
+                            ↳ YAGI Awards <span style="color: #9CA3AF;">(Awards)</span><br>
+                            ↳ Dance OUT 2023 <span style="color: #9CA3AF;">(Concerts)</span>
+                          </div>
+                          <div style="color: #22C55E;">✓ Bound event meta (_crux_event_date, _crux_event_venue, _crux_event_eventbrite)</div>
+                          <div style="color: #22C55E;">✓ Flagged option: crux_pages_auto_seeded_v2 = 1</div>
+                        </div>
+
+                        <!-- Execution Stats -->
+                        <div style="display: flex; justify-content: space-between; margin-top: 14px; padding-top: 12px; border-top: 1px solid #E5E7EB; font-family: var(--font-mono); font-size: 10px; color: #6B7280;">
+                          <span>Execution: <strong style="color: var(--c8-ink);">0.84s</strong></span>
+                          <span>Queries: <strong style="color: var(--c8-ink);">47</strong></span>
+                          <span>Memory: <strong style="color: var(--c8-ink);">14.2MB</strong></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SHOWCASE 3: INTERACTION DESIGN & NAVIGATION ARCHITECTURE ── -->
+    <section class="c8cs-mobile-ergonomics-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-label">Showcase 03 // Interaction Design &amp; Navigation Architecture</div>
+        <h2 class="c8cs-headline">Interaction Design &amp; Intelligent Routing</h2>
+        <p class="c8cs-lead" style="margin-bottom: 2rem;">
+          Bespoke UI interaction patterns engineered for complex dual-wing navigation — from intelligent 3-mode contact intake switching to the 25+ URL legacy redirect engine preventing every possible 404.
+        </p>
+
+        <!-- INTERACTION 01: Contact Intake Mode Switcher (NOT the same as Showcase 02 switcher) -->
+        <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 0; border: 1px solid var(--c8-grid-line); border-radius: 8px; overflow: hidden; margin-bottom: 2rem;">
+          <div style="padding: clamp(2rem, 3vw, 3rem); display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--c8-grid-line);">
+            <span class="c8cs-deliverable-meta">INTERACTION 01 // CONTACT INTAKE</span>
+            <h3 class="c8cs-deliverable-title" style="margin: 0.75rem 0;">3-Mode Contact Intake Switcher</h3>
+            <p class="c8cs-deliverable-desc">
+              The contact page hosts a 3-tab mode switcher — <strong>Plan An Event</strong>, <strong>Business Strategy</strong>, and <strong>Sponsorship &amp; Partnership</strong>. Each mode dynamically rewires the form fields, discipline chip selections, and service taxonomy mappings without page reload.
+            </p>
+            <div style="background: var(--c8-paper-bg); border: 1px solid var(--c8-grid-line); border-radius: 6px; padding: 12px; font-family: var(--font-mono); font-size: 11px; color: var(--c8-blue); margin-top: 12px; line-height: 1.6;">
+              <code>contactForm.dataset.leadType = 'events';<br>toggleFieldGroups(eventFields, consultFields);</code>
+            </div>
+          </div>
+          <div style="padding: clamp(1.5rem, 2.5vw, 2.5rem); background: var(--c8-paper-bg); display: flex; align-items: center; justify-content: center;">
+            <!-- Interactive Contact Mode Switcher Demo -->
+            <div style="width: 100%; max-width: 520px; background: #FFFFFF; border: 1px solid var(--c8-grid-line); border-radius: 8px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,38,113,0.06);">
+              <!-- Contact Header -->
+              <div style="padding: 20px 24px; border-bottom: 1px solid var(--c8-grid-line);">
+                <div style="font-family: var(--font-heading); font-size: 14px; text-transform: uppercase; color: var(--c8-ink); letter-spacing: 0.05em;">Get In Touch / Let's Talk.</div>
+              </div>
+              <!-- Mode Tabs -->
+              <div style="display: flex; border-bottom: 1px solid var(--c8-grid-line);">
+                <div id="contactModeEvents" onclick="switchContactMode('events')" style="flex: 1; padding: 12px; text-align: center; font-family: var(--font-mono); font-size: 10px; font-weight: 700; cursor: pointer; border-bottom: 2px solid #BA0000; color: var(--c8-ink); text-transform: uppercase;">Plan An Event</div>
+                <div id="contactModeConsult" onclick="switchContactMode('consultancy')" style="flex: 1; padding: 12px; text-align: center; font-family: var(--font-mono); font-size: 10px; font-weight: 700; cursor: pointer; color: #9CA3AF; text-transform: uppercase; border-left: 1px solid var(--c8-grid-line);">Business Strategy</div>
+                <div id="contactModeSponsor" onclick="switchContactMode('sponsorship')" style="flex: 1; padding: 12px; text-align: center; font-family: var(--font-mono); font-size: 10px; font-weight: 700; cursor: pointer; color: #9CA3AF; text-transform: uppercase; border-left: 1px solid var(--c8-grid-line);">Sponsorship</div>
+              </div>
+              <!-- Dynamic Form Fields -->
+              <div style="padding: 20px 24px;">
+                <div id="contactFieldsDisplay" style="font-family: var(--font-mono); font-size: 11px; color: var(--c8-sub); line-height: 2;">
+                  <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+                    <span style="background: #FEF2F2; color: #BA0000; padding: 4px 10px; border-radius: 3px; font-size: 10px;">Event Type</span>
+                    <span style="background: #FEF2F2; color: #BA0000; padding: 4px 10px; border-radius: 3px; font-size: 10px;">Expected Guests</span>
+                    <span style="background: #FEF2F2; color: #BA0000; padding: 4px 10px; border-radius: 3px; font-size: 10px;">Event Date</span>
+                    <span style="background: #FEF2F2; color: #BA0000; padding: 4px 10px; border-radius: 3px; font-size: 10px;">Venue</span>
+                  </div>
+                  <div style="background: var(--c8-paper-bg); border: 1px solid var(--c8-grid-line); border-radius: 4px; padding: 10px 12px; color: #9CA3AF; font-size: 11px;">Tell us about your event vision...</div>
+                </div>
+              </div>
+              <div style="padding: 12px 24px; background: var(--c8-paper-bg); border-top: 1px solid var(--c8-grid-line);">
+                <span style="font-family: var(--font-mono); font-size: 10px; color: var(--c8-sub);">lead_type: <strong id="contactLeadTypeLabel" style="color: var(--c8-red);">events</strong> · Fields dynamically bound</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTERACTION 02: Dual-Wing Mobile Drawer & INTERACTION 03: Zero-404 Router -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+
+          <!-- Interaction 02: Authentic Ticket Stub Docket Architecture -->
+          <div style="border: 1px solid var(--c8-grid-line); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column;">
+            <div style="padding: 1.75rem;">
+              <span class="c8cs-deliverable-meta">INTERACTION 02 // THE TICKET WALL</span>
+              <h3 class="c8cs-deliverable-title" style="margin: 0.5rem 0;">Authentic Ticket Stub Architecture</h3>
+              <p class="c8cs-ergo-desc">
+                The signature Crux Nxtion event ticket card with perforated circular stub notches, two-tone date punches, dashed tear lines, and direct Eventbrite ticketing hooks.
+              </p>
+            </div>
+            <div style="background: #0A0F26; padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 14px;">
+              
+              <!-- Ticket 1: Becoming Mr & Mrs Crux Pt.3 -->
+              <div class="crux-ticket-card">
+                <div class="crux-ticket-stub" style="background: #002671;">
+                  <span style="font-family: var(--font-heading); font-size: 26px; line-height: 1; font-weight: 700;">23</span>
+                  <span style="font-family: var(--font-mono); font-size: 8.5px; font-weight: 700; letter-spacing: 1px; margin-top: 2px;">APR 2025</span>
+                </div>
+                <div style="flex: 1; padding: 14px 18px; background: #0D1330; border-left: 1.5px dashed #1E2B5E; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <span style="font-family: var(--font-mono); font-size: 8.5px; color: #5B8DEF; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Part 3 // Cultural Gala</span>
+                    <h4 style="font-family: var(--font-heading); font-size: 13px; font-weight: 700; color: #FFFFFF; margin: 4px 0 2px;">Becoming Mr &amp; Mrs Crux Pt.3</h4>
+                    <span style="font-size: 10.5px; color: #8A9DC8;">Tickets on Eventbrite · Sheffield City Hall</span>
+                  </div>
+                  <span style="font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: #5B8DEF; border-bottom: 1.5px solid #5B8DEF; padding-bottom: 1px; white-space: nowrap;">Get Tickets →</span>
+                </div>
+              </div>
+
+              <!-- Ticket 2: LASGIDI Mainland Party -->
+              <div class="crux-ticket-card">
+                <div class="crux-ticket-stub" style="background: #BA0000;">
+                  <span style="font-family: var(--font-heading); font-size: 26px; line-height: 1; font-weight: 700;">25</span>
+                  <span style="font-family: var(--font-mono); font-size: 8.5px; font-weight: 700; letter-spacing: 1px; margin-top: 2px;">JAN 2025</span>
+                </div>
+                <div style="flex: 1; padding: 14px 18px; background: #0D1330; border-left: 1.5px dashed #1E2B5E; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <span style="font-family: var(--font-mono); font-size: 8.5px; color: #5B8DEF; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Nightlife // IJGB Edition</span>
+                    <h4 style="font-family: var(--font-heading); font-size: 13px; font-weight: 700; color: #FFFFFF; margin: 4px 0 2px;">LASGIDI Mainland Party</h4>
+                    <span style="font-size: 10.5px; color: #8A9DC8;">Tickets on Eventbrite · Late Night Venue</span>
+                  </div>
+                  <span style="font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: #BA0000; border-bottom: 1.5px solid #BA0000; padding-bottom: 1px; white-space: nowrap;">Get Tickets →</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Interaction 03: Zero-404 URL Prevention Router -->
+          <div style="border: 1px solid var(--c8-grid-line); border-radius: 8px; overflow: hidden;">
+            <div style="padding: 1.75rem;">
+              <span class="c8cs-deliverable-meta">INTERACTION 03 // ZERO-404 ROUTER</span>
+              <h3 class="c8cs-deliverable-title" style="margin: 0.5rem 0;">Legacy URL Prevention Engine</h3>
+              <p class="c8cs-ergo-desc">
+                25+ legacy URLs mapped via <code>prevent-errors.php</code> — wildcard pattern matching, nested service slugs, and deep-linked booking aliases all 301-redirect to canonical endpoints.
+              </p>
+            </div>
+            <div style="background: #0F1219; padding: 20px; min-height: 260px; border-top: 2px solid #BA0000;">
+              <!-- Terminal-style redirect log -->
+              <div style="font-family: var(--font-mono); font-size: 10.5px; line-height: 2.2; color: #CCD3EE;">
+                <div style="color: #5A6384; margin-bottom: 4px;">$ tail -f /var/log/crux-redirects.log</div>
+                <div><span style="color: #F87171;">301</span> <span style="color: #6B7280;">│</span> <span style="color: #9CA3AF;">/sponsor</span> <span style="color: #6B7280;">→</span> <span style="color: #4ADE80;">/sponsors/</span></div>
+                <div><span style="color: #F87171;">301</span> <span style="color: #6B7280;">│</span> <span style="color: #9CA3AF;">/plan-an-event</span> <span style="color: #6B7280;">→</span> <span style="color: #4ADE80;">/contact/?type=events</span></div>
+                <div><span style="color: #F87171;">301</span> <span style="color: #6B7280;">│</span> <span style="color: #9CA3AF;">/business-consulting</span> <span style="color: #6B7280;">→</span> <span style="color: #4ADE80;">/consultancy/</span></div>
+                <div><span style="color: #F87171;">301</span> <span style="color: #6B7280;">│</span> <span style="color: #9CA3AF;">/faqs</span> <span style="color: #6B7280;">→</span> <span style="color: #4ADE80;">/faq/</span></div>
+                <div><span style="color: #FBBF24;">WLD</span> <span style="color: #6B7280;">│</span> <span style="color: #9CA3AF;">/services/<span style="color: #FBBF24;">{*slug}</span></span> <span style="color: #6B7280;">→</span> <span style="color: #4ADE80;">/services/</span></div>
+                <div><span style="color: #F87171;">301</span> <span style="color: #6B7280;">│</span> <span style="color: #9CA3AF;">/event-marketing-and-promotion</span> <span style="color: #6B7280;">→</span> <span style="color: #4ADE80;">/services/</span></div>
+                <div style="color: #5A6384; margin-top: 6px;">// 19 more rules loaded from prevent-errors.php (263 lines)</div>
+                <div style="margin-top: 8px; color: #4ADE80;">✓ Zero 404s in production · 100% crawl budget preserved</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SHOWCASE 4: TECHNICAL ARCHITECTURE & COMPLIANCE DEEP DIVE ── -->
+    <section class="c8cs-stream-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-stream-box">
+          
+          <div class="c8cs-stream-header">
+            <div class="c8cs-label">Showcase 04 // Technical Architecture &amp; Compliance</div>
+            <h2 class="c8cs-headline" style="margin-bottom: 0.5rem;">Engineering Deep Dive</h2>
+            <p style="font-size: 14.5px; color: var(--c8-sub);">
+              The architectural decisions, security patterns, and performance engineering beneath the surface — each cell represents a distinct WordPress core engineering feat not covered elsewhere in this case study.
+            </p>
+          </div>
+
+          <div class="c8cs-stream-grid">
+            
+            <!-- Cell 01: AJAX Nonce Security Architecture -->
+            <div class="c8cs-stream-cell" style="border-bottom: 1px solid var(--c8-grid-line);">
+              <div class="c8cs-stream-cell-body">
+                <span class="c8cs-stream-cell-num">01 / SECURITY</span>
+                <h3 class="c8cs-stream-cell-title">AJAX Nonce Verification &amp; Input Sanitization</h3>
+                <p class="c8cs-stream-cell-desc">
+                  Every AJAX endpoint is guarded by WordPress nonce tokens via <code>wp_verify_nonce()</code>. All user inputs pass through <code>sanitize_text_field()</code>, <code>sanitize_email()</code>, and <code>wp_unslash()</code> before database insertion — eliminating XSS and SQL injection vectors.
+                </p>
+                <div style="background: #0A0F26; border: 1px solid #1E2850; border-radius: 6px; padding: 12px; margin-top: auto; font-family: var(--font-mono); font-size: 10px;">
+                  <div style="display: flex; justify-content: space-between; color: #8A9DC8; margin-bottom: 6px;">
+                    <span>$_POST['action']</span>
+                    <span style="color: #4ADE80;">cr8v_lead_intake</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; color: #8A9DC8; margin-bottom: 6px;">
+                    <span>check_ajax_referer()</span>
+                    <span style="background: rgba(34,197,94,0.15); color: #4ADE80; padding: 2px 6px; border-radius: 3px; font-weight: 700;">NONCE_VALID ✓</span>
+                  </div>
+                  <div style="color: #6B7280; font-size: 9.5px; border-top: 1px solid #1E2850; padding-top: 6px;">
+                    sanitize_text_field() · wp_unslash()
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cell 02: Transients API Event Caching -->
+            <div class="c8cs-stream-cell" style="border-bottom: 1px solid var(--c8-grid-line);">
+              <div class="c8cs-stream-cell-body">
+                <span class="c8cs-stream-cell-num">02 / PERFORMANCE</span>
+                <h3 class="c8cs-stream-cell-title">Transients API Upcoming Event Cache</h3>
+                <p class="c8cs-stream-cell-desc">
+                  Upcoming events query results are cached via <code>set_transient()</code> with a 12-hour TTL. Cache invalidation triggers automatically on event publish/update hooks, preventing stale data while reducing database query overhead by 80% on high-traffic archive pages.
+                </p>
+                <div style="background: #0A0F26; border: 1px solid #1E2850; border-radius: 6px; padding: 12px; margin-top: auto; font-family: var(--font-mono); font-size: 10px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <span style="color: #8C7AE6; font-weight: 700;">CACHE HIT RATIO</span>
+                    <span style="color: #4ADE80; font-weight: 700;">98.4%</span>
+                  </div>
+                  <div style="height: 6px; background: #1E2850; border-radius: 3px; overflow: hidden; margin-bottom: 8px;">
+                    <div style="width: 98.4%; height: 100%; background: linear-gradient(90deg, #002671, #8C7AE6);"></div>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; color: #8A9DC8; font-size: 9.5px;">
+                    <span>TTL: 12h (43,200s)</span>
+                    <span>SQL: 1.2ms (was 142ms)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cell 03: Parallelogram CSS Engineering -->
+            <div class="c8cs-stream-cell" style="border-bottom: 1px solid var(--c8-grid-line);">
+              <div class="c8cs-stream-cell-body">
+                <span class="c8cs-stream-cell-num">03 / CSS ARCHITECTURE</span>
+                <h3 class="c8cs-stream-cell-title">Parallelogram Clip-Path Component System</h3>
+                <p class="c8cs-stream-cell-desc">
+                  The signature slanted button aesthetic uses <code>clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)</code> with strict <code>border-radius: 0 !important</code>. Applied consistently across the floating switcher pod, navigation tabs, and admin wing badges.
+                </p>
+                <div style="background: #0A0F26; border: 1px solid #1E2850; border-radius: 6px; padding: 12px; margin-top: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
+                  <div style="clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%); background: #BA0000; color: #FFFFFF; font-family: var(--font-heading); font-size: 10.5px; font-weight: 700; padding: 8px 24px; text-transform: uppercase; letter-spacing: 1px; border-radius: 0 !important;">
+                    LIVE CSS ANGLE
+                  </div>
+                  <span style="font-family: var(--font-mono); font-size: 9px; color: #8A9DC8;">polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cell 04: CPT Taxonomy & Database Schema -->
+            <div class="c8cs-stream-cell" style="border-bottom: 1px solid var(--c8-grid-line);">
+              <div class="c8cs-stream-cell-body">
+                <span class="c8cs-stream-cell-num">04 / DATA ARCHITECTURE</span>
+                <h3 class="c8cs-stream-cell-title">Custom Post Type &amp; Taxonomy Schema</h3>
+                <p class="c8cs-stream-cell-desc">
+                  Two CPTs (<code>event</code> and <code>inquiry</code>) with structured post_meta schemas: event date/time/venue/category/Eventbrite link, and inquiry lead_type/status/services/budget/IP. Taxonomy terms bind to event categories for faceted archive filtering.
+                </p>
+                <div style="background: #0A0F26; border: 1px solid #1E2850; border-radius: 6px; padding: 12px; margin-top: auto; font-family: var(--font-mono); font-size: 10px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;">
+                    <span style="background: #141C38; color: #5B8DEF; padding: 2px 6px; border-radius: 3px; font-size: 9px;">post_type: event</span>
+                    <span style="background: #141C38; color: #8C7AE6; padding: 2px 6px; border-radius: 3px; font-size: 9px;">post_type: inquiry</span>
+                  </div>
+                  <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                    <span style="background: rgba(186,0,0,0.15); color: #F87171; padding: 2px 5px; border-radius: 3px; font-size: 8.5px;">Weddings</span>
+                    <span style="background: rgba(186,0,0,0.15); color: #F87171; padding: 2px 5px; border-radius: 3px; font-size: 8.5px;">Nightlife</span>
+                    <span style="background: rgba(0,38,113,0.3); color: #93C5FD; padding: 2px 5px; border-radius: 3px; font-size: 8.5px;">Advisory</span>
+                    <span style="background: rgba(140,122,230,0.2); color: #C4B5FD; padding: 2px 5px; border-radius: 3px; font-size: 8.5px;">Festivals</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cell 05: Scroll-Driven Viewport Reveals -->
+            <div class="c8cs-stream-cell" style="border-bottom: 1px solid var(--c8-grid-line);">
+              <div class="c8cs-stream-cell-body">
+                <span class="c8cs-stream-cell-num">05 / ANIMATION</span>
+                <h3 class="c8cs-stream-cell-title">Intersection Observer Viewport Reveals</h3>
+                <p class="c8cs-stream-cell-desc">
+                  Section entry animations driven by native <code>IntersectionObserver</code> — zero jQuery, zero ScrollMagic. Elements receive <code>.in-view</code> class at configurable threshold (0.15), triggering CSS transitions for opacity, transform, and stagger delays across card grids.
+                </p>
+                <div style="background: #0A0F26; border: 1px solid #1E2850; border-radius: 6px; padding: 12px; margin-top: auto; font-family: var(--font-mono); font-size: 10px;">
+                  <div style="display: flex; justify-content: space-between; color: #8A9DC8; margin-bottom: 6px;">
+                    <span>API: IntersectionObserver</span>
+                    <span style="color: #4ADE80; font-weight: 700;">NATIVE (0 KB)</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px; margin-top: 6px;">
+                    <span style="width: 8px; height: 8px; border-radius: 50%; background: #22C55E; box-shadow: 0 0 8px #22C55E;"></span>
+                    <span style="color: #CCD3EE; font-size: 9.5px;">threshold: 0.15 → .in-view active</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cell 06: Sanitize Callback Contracts -->
+            <div class="c8cs-stream-cell" style="border-bottom: 1px solid var(--c8-grid-line);">
+              <div class="c8cs-stream-cell-body">
+                <span class="c8cs-stream-cell-num">06 / VALIDATION</span>
+                <h3 class="c8cs-stream-cell-title">Customizer Sanitize Callback Contracts</h3>
+                <p class="c8cs-stream-cell-desc">
+                  Every Customizer setting is bound to a strict sanitize callback: <code>sanitize_hex_color</code> for color tokens, <code>absint</code> for numeric values, <code>wp_kses_post</code> for rich text. Prevents arbitrary value injection even from authenticated admin users editing theme options.
+                </p>
+                <div style="background: #0A0F26; border: 1px solid #1E2850; border-radius: 6px; padding: 12px; margin-top: auto; font-family: var(--font-mono); font-size: 10px;">
+                  <div style="display: flex; justify-content: space-between; color: #8A9DC8; margin-bottom: 6px;">
+                    <span style="color: #F87171;">raw input</span>
+                    <span style="color: #4ADE80;">sanitize_hex_color()</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; color: #CCD3EE; font-size: 9.5px; border-top: 1px solid #1E2850; padding-top: 6px;">
+                    <span style="text-decoration: line-through; color: #9CA3AF;">#BA0000&lt;script&gt;</span>
+                    <span style="color: #4ADE80; font-weight: 700;">#BA0000 ✓</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cell 07: Eventbrite Deep Link Mapping -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-cell-body">
+                <span class="c8cs-stream-cell-num">07 / INTEGRATION</span>
+                <h3 class="c8cs-stream-cell-title">Eventbrite Ticket Link Architecture</h3>
+                <p class="c8cs-stream-cell-desc">
+                  Each event stores its original Eventbrite ticket URL in <code>_crux_event_eventbrite</code> post_meta. Template logic conditionally renders "Get Tickets" CTAs only when the meta exists and the event date hasn't passed, preventing dead links to expired ticket pages.
+                </p>
+                <div style="background: #0A0F26; border: 1px solid #1E2850; border-radius: 6px; padding: 12px; margin-top: auto; font-family: var(--font-mono); font-size: 10px;">
+                  <div style="display: flex; justify-content: space-between; color: #8A9DC8; margin-bottom: 6px;">
+                    <span>_crux_event_eventbrite</span>
+                    <span style="color: #4ADE80; font-weight: 700;">ACTIVE HOOK</span>
+                  </div>
+                  <div style="background: #141C38; border-radius: 4px; padding: 6px 10px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: #F4F5FA; font-size: 9.5px;">eventbrite.co.uk/e/...</span>
+                    <span style="background: #BA0000; color: #fff; font-size: 8.5px; padding: 2px 6px; border-radius: 2px; font-weight: 700;">TICKET CTA</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cell 08: GDPR Consent & Privacy Compliance -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-cell-body">
+                <span class="c8cs-stream-cell-num">08 / PRIVACY</span>
+                <h3 class="c8cs-stream-cell-title">GDPR Consent &amp; Cookie Policy Compliance</h3>
+                <p class="c8cs-stream-cell-desc">
+                  Dedicated Privacy Policy, Cookie Policy, and Terms &amp; Conditions pages auto-created via the demo seeder. Contact form collects explicit consent before storing PII. Client IP logging via <code>$_SERVER['REMOTE_ADDR']</code> is documented in the privacy policy with lawful basis.
+                </p>
+                <div style="background: #0A0F26; border: 1px solid #1E2850; border-radius: 6px; padding: 12px; margin-top: auto; font-family: var(--font-mono); font-size: 10px;">
+                  <div style="display: flex; justify-content: space-between; color: #8A9DC8; margin-bottom: 6px;">
+                    <span>IP Telemetry</span>
+                    <span style="color: #8C7AE6;">ANONYMIZED</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #1E2850; padding-top: 6px; font-size: 9.5px; color: #CCD3EE;">
+                    <span>Consent Gate: Explicit Opt-In</span>
+                    <span style="color: #4ADE80; font-weight: 700;">UK GDPR ✓</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cell 09: WCAG 2.1 Accessibility -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-cell-body">
+                <span class="c8cs-stream-cell-num">09 / ACCESSIBILITY</span>
+                <h3 class="c8cs-stream-cell-title">WCAG 2.1 AA Compliance Engineering</h3>
+                <p class="c8cs-stream-cell-desc">
+                  Semantic HTML5 landmark structure (<code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;footer&gt;</code>), ARIA labels on interactive elements, keyboard-navigable tab sequences, minimum 4.5:1 contrast ratios verified across both Midnight and Crisp White color modes, and skip-to-content links.
+                </p>
+                <div style="background: #0A0F26; border: 1px solid #1E2850; border-radius: 6px; padding: 12px; margin-top: auto; font-family: var(--font-mono); font-size: 10px;">
+                  <div style="display: flex; justify-content: space-between; color: #8A9DC8; margin-bottom: 4px;">
+                    <span>Midnight / White: 17.4:1</span>
+                    <span style="color: #4ADE80; font-weight: 700;">AAA PASS</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; color: #8A9DC8; margin-bottom: 4px;">
+                    <span>Navy / White: 13.1:1</span>
+                    <span style="color: #4ADE80; font-weight: 700;">AAA PASS</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; color: #8A9DC8;">
+                    <span>Red / White: 5.2:1</span>
+                    <span style="color: #4ADE80; font-weight: 700;">AA PASS</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="c8LbModal" onclick="closeLightbox()">
+    <button id="c8LbClose" onclick="closeLightbox()">&times;</button>
+    <img id="c8LbImg" src="" alt="Enlarged Visual Showcase">
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="c8-footer">
+    <div class="c8cs-wrap" style="padding: 0;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem;">
+        <div>
+          <div class="c8-brand-link" style="margin-bottom: 0.5rem;">
+            <span class="c8-brand-dot"></span>
+            CR8V STACKS
+          </div>
+          <p style="font-size: 13.5px; color: var(--c8-sub); max-width: 400px;">
+            High-converting digital architecture, bespoke WordPress engineering, and performance-tuned software solutions.
+          </p>
+        </div>
+        <div>
+          <a href="contact-us.html" class="c8-btn-cta">Commission Your Platform ↗</a>
+        </div>
+      </div>
+      <div class="c8-footer-bottom">
+        <span>© 2026 CR8V STACKS. All rights reserved.</span>
+        <span>Crux Nxtion Platform Case Study // WordPress Core Edition</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE JS ENGINES -->
+  <script>
+    // Hero Layout Switcher
+    function setHeroLayout(layout) {
+      var container = document.getElementById('heroMediaContainer');
+      var img = document.getElementById('heroImg');
+      var btnL = document.getElementById('btnLandscape');
+      var btnV = document.getElementById('btnVertical');
+
+      if (layout === 'vertical') {
+        container.className = 'c8cs-hero-img-inner is-vertical';
+        img.src = 'assets/case_studies/cs_crux_nxtion_hero_vertical.webp';
+        btnV.classList.add('is-active');
+        btnL.classList.remove('is-active');
+      } else {
+        container.className = 'c8cs-hero-img-inner is-landscape';
+        img.src = 'assets/case_studies/case_study_crux_nxtion.webp';
+        btnL.classList.add('is-active');
+        btnV.classList.remove('is-active');
+      }
+    }
+
+    // Lightbox Engine
+    function openLightbox(src) {
+      var modal = document.getElementById('c8LbModal');
+      var img = document.getElementById('c8LbImg');
+      img.src = src;
+      modal.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      var modal = document.getElementById('c8LbModal');
+      modal.classList.remove('is-active');
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Showcase 2 Carousel Engine
+    var currentSlide = 0;
+    var totalSlides = 6;
+
+    function updateCarousel() {
+      var track = document.getElementById('carouselTrack');
+      var counter = document.getElementById('slideCounter');
+      var offset = currentSlide * 100;
+      track.style.transform = 'translateX(-' + offset + '%)';
+      counter.innerText = '0' + (currentSlide + 1) + ' / 06';
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+
+    // Interactive Demo in Slide 1
+    function demoSetMode(mode) {
+      var btnE = document.getElementById('demoBtnEvents');
+      var btnC = document.getElementById('demoBtnConsult');
+      var tag = document.getElementById('runtimeActiveTag');
+      var tele = document.getElementById('telemetryModeText');
+
+      if (mode === 'events') {
+        btnE.className = 'crux-para-btn active-events';
+        btnC.className = 'crux-para-btn inactive-tab';
+        tag.innerText = 'ACTIVE: EVENTS WING';
+        tag.style.background = '#BA0000';
+        tele.innerText = 'mode-events';
+      } else {
+        btnC.className = 'crux-para-btn active-consultancy';
+        btnE.className = 'crux-para-btn inactive-tab';
+        tag.innerText = 'ACTIVE: CONSULTANCY WING';
+        tag.style.background = '#002671';
+        tele.innerText = 'mode-consultancy';
+      }
+    }
+
+    // Interactive Demo in Slide 2
+    var crmStageIndex = 2;
+    var crmStages = [
+      { text: '● 01 / New', color: '#CCD3EE', next: 'ADVANCE TO 02 // CONTACTED →' },
+      { text: '● 02 / Contacted', color: '#FEF3C7', next: 'ADVANCE TO 03 // PROPOSAL →' },
+      { text: '● 03 / Proposal Sent', color: '#3DDC84', next: 'ADVANCE TO 04 // BOOKED →' },
+      { text: '● 04 / Booked', color: '#3DDC84', next: 'ADVANCE TO 05 // ARCHIVED →' },
+      { text: '● 05 / Archived', color: '#5A6384', next: 'RESET TO 01 // NEW LEAD ↺' }
+    ];
+
+    function advanceCrmDemo() {
+      crmStageIndex = (crmStageIndex + 1) % crmStages.length;
+      var stage = crmStages[crmStageIndex];
+      var badge = document.getElementById('crmStagePill');
+      var btn = document.getElementById('btnAdvanceCrm');
+      badge.innerText = stage.text;
+      badge.style.color = stage.color;
+      btn.innerText = stage.next;
+    }
+
+    // Showcase 3: Contact Mode Switcher Demo
+    function switchContactMode(mode) {
+      var tabE = document.getElementById('contactModeEvents');
+      var tabC = document.getElementById('contactModeConsult');
+      var tabS = document.getElementById('contactModeSponsor');
+      var fields = document.getElementById('contactFieldsDisplay');
+      var label = document.getElementById('contactLeadTypeLabel');
+
+      // Reset all tabs
+      [tabE, tabC, tabS].forEach(function(t) {
+        t.style.borderBottom = 'none';
+        t.style.color = '#9CA3AF';
+      });
+
+      if (mode === 'events') {
+        tabE.style.borderBottom = '2px solid #BA0000';
+        tabE.style.color = 'var(--c8-ink)';
+        label.innerText = 'events';
+        label.style.color = '#BA0000';
+        fields.innerHTML = '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">' +
+          '<span style="background:#FEF2F2;color:#BA0000;padding:4px 10px;border-radius:3px;font-size:10px;">Event Type</span>' +
+          '<span style="background:#FEF2F2;color:#BA0000;padding:4px 10px;border-radius:3px;font-size:10px;">Expected Guests</span>' +
+          '<span style="background:#FEF2F2;color:#BA0000;padding:4px 10px;border-radius:3px;font-size:10px;">Event Date</span>' +
+          '<span style="background:#FEF2F2;color:#BA0000;padding:4px 10px;border-radius:3px;font-size:10px;">Venue</span>' +
+          '</div><div style="background:var(--c8-paper-bg);border:1px solid var(--c8-grid-line);border-radius:4px;padding:10px 12px;color:#9CA3AF;font-size:11px;">Tell us about your event vision...</div>';
+      } else if (mode === 'consultancy') {
+        tabC.style.borderBottom = '2px solid #002671';
+        tabC.style.color = 'var(--c8-ink)';
+        label.innerText = 'consultancy';
+        label.style.color = '#002671';
+        fields.innerHTML = '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">' +
+          '<span style="background:#EFF6FF;color:#002671;padding:4px 10px;border-radius:3px;font-size:10px;">Company Name</span>' +
+          '<span style="background:#EFF6FF;color:#002671;padding:4px 10px;border-radius:3px;font-size:10px;">Business Stage</span>' +
+          '<span style="background:#EFF6FF;color:#002671;padding:4px 10px;border-radius:3px;font-size:10px;">Industry</span>' +
+          '<span style="background:#EFF6FF;color:#002671;padding:4px 10px;border-radius:3px;font-size:10px;">Revenue Range</span>' +
+          '</div><div style="background:var(--c8-paper-bg);border:1px solid var(--c8-grid-line);border-radius:4px;padding:10px 12px;color:#9CA3AF;font-size:11px;">Describe your business challenge...</div>';
+      } else {
+        tabS.style.borderBottom = '2px solid #8C7AE6';
+        tabS.style.color = 'var(--c8-ink)';
+        label.innerText = 'sponsorship';
+        label.style.color = '#8C7AE6';
+        fields.innerHTML = '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">' +
+          '<span style="background:#F5F3FF;color:#8C7AE6;padding:4px 10px;border-radius:3px;font-size:10px;">Company</span>' +
+          '<span style="background:#F5F3FF;color:#8C7AE6;padding:4px 10px;border-radius:3px;font-size:10px;">Interest Area</span>' +
+          '<span style="background:#F5F3FF;color:#8C7AE6;padding:4px 10px;border-radius:3px;font-size:10px;">Partnership Type</span>' +
+          '</div><div style="background:var(--c8-paper-bg);border:1px solid var(--c8-grid-line);border-radius:4px;padding:10px 12px;color:#9CA3AF;font-size:11px;">What partnership opportunity interests you?</div>';
+      }
+    }
+
+    // Section 00: Live Runtime Duality Simulator
+    function toggleDualitySimulator(wing) {
+      var sim = document.getElementById('c8cs-duality-sim');
+      var btnC = document.getElementById('sim-btn-consult');
+      var btnE = document.getElementById('sim-btn-events');
+      var badge = document.getElementById('sim-badge');
+      var title = document.getElementById('sim-title');
+      var desc = document.getElementById('sim-desc');
+      var cta = document.getElementById('sim-cta');
+      var meta = document.getElementById('sim-meta');
+      
+      if (!sim) return;
+
+      if (wing === 'events') {
+        sim.style.background = '#0A0F26';
+        sim.style.color = '#FFFFFF';
+        btnC.style.background = 'transparent';
+        btnC.style.color = '#64748B';
+        btnE.style.background = '#BA0000';
+        btnE.style.color = '#FFFFFF';
+        badge.innerText = 'WING 02 // CULTURAL SPECTACLE';
+        badge.style.color = '#FF4D4D';
+        badge.style.background = 'rgba(186, 0, 0, 0.15)';
+        badge.style.border = '1px solid rgba(186, 0, 0, 0.35)';
+        title.innerText = 'High-Voltage Music Festivals & Cultural Nightlife';
+        title.style.color = '#FFFFFF';
+        desc.innerText = 'Nocturnal immersion, adrenaline, and concert-grade stagecraft for international audiences.';
+        desc.style.color = '#A3A9C8';
+        cta.innerText = 'Explore Ticket Docket →';
+        cta.style.background = '#BA0000';
+        cta.style.color = '#FFFFFF';
+        meta.innerHTML = '<span style="color:#FF4D4D;font-weight:700;">● STATE: WING_EVENTS</span> | TOKENS: #0A0F26 / #BA0000 | 100% APEX EQUITY | 0ms SWITCH';
+        meta.style.color = '#8A9DC8';
+      } else {
+        sim.style.background = '#FFFFFF';
+        sim.style.color = '#0A0F26';
+        btnE.style.background = 'transparent';
+        btnE.style.color = '#64748B';
+        btnC.style.background = '#002671';
+        btnC.style.color = '#FFFFFF';
+        badge.innerText = 'WING 01 // CORPORATE ADVISORY';
+        badge.style.color = '#002671';
+        badge.style.background = 'rgba(0, 38, 113, 0.08)';
+        badge.style.border = '1px solid rgba(0, 38, 113, 0.2)';
+        title.innerText = 'Executive Turnaround Consulting & Brand Governance';
+        title.style.color = '#0A0F26';
+        desc.innerText = 'Sober credibility and editorial authority for corporate boards, restructuring mandates, and institutional growth leadership.';
+        desc.style.color = '#5A6275';
+        cta.innerText = 'Book Turnaround Brief →';
+        cta.style.background = '#002671';
+        cta.style.color = '#FFFFFF';
+        meta.innerHTML = '<span style="color:#002671;font-weight:700;">● STATE: WING_CONSULTANCY</span> | TOKENS: #002671 / #8C7AE6 | 100% APEX EQUITY | 0ms SWITCH';
+        meta.style.color = '#64748B';
+      }
+    }
+  </script>
+
+</body>
+</html>

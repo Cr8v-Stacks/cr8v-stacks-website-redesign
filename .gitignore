@@ -1,0 +1,12 @@
+# Scratch and temporary calibration assets
+scratch/
+scratch_*
+*.tmp
+secomply_scrapes/
+
+# Archives (GitHub 100MB hard limit)
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db

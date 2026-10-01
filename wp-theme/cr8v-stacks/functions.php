@@ -169,12 +169,30 @@ add_action('after_switch_theme', function () {
                 wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Services', 'menu-item-url' => home_url('/services/'), 'menu-item-status' => 'publish']);
                 wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Case Studies', 'menu-item-url' => home_url('/case-studies/'), 'menu-item-status' => 'publish']);
                 wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Scope Estimator', 'menu-item-url' => home_url('/discovery-call/'), 'menu-item-status' => 'publish']);
-                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Dev Playground', 'menu-item-url' => home_url('/#dev-playground'), 'menu-item-status' => 'publish']);
+                wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Dev Playground', 'menu-item-url' => home_url('/dev-playground/'), 'menu-item-status' => 'publish']);
                 wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'About', 'menu-item-url' => home_url('/about/'), 'menu-item-status' => 'publish']);
                 wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Blog', 'menu-item-url' => home_url('/blog/'), 'menu-item-status' => 'publish']);
                 wp_update_nav_menu_item($menu_id, 0, ['menu-item-title' => 'Contact Us', 'menu-item-url' => home_url('/contact/'), 'menu-item-status' => 'publish']);
                 $locations['mobile-drawer'] = $menu_id;
                 set_theme_mod('nav_menu_locations', $locations);
+            }
+        }
+    }
+});
+
+// Auto-heal existing menu items pointing to /#dev-playground
+add_action('init', function () {
+    if (is_admin() || wp_doing_ajax()) {
+        $locations = get_theme_mod('nav_menu_locations');
+        $menu_id = $locations['mobile-drawer'] ?? 0;
+        if ($menu_id) {
+            $items = wp_get_nav_menu_items($menu_id);
+            if (!empty($items)) {
+                foreach ($items as $item) {
+                    if (strpos($item->url, '#dev-playground') !== false) {
+                        update_post_meta($item->ID, '_menu_item_url', home_url('/dev-playground/'));
+                    }
+                }
             }
         }
     }
@@ -253,22 +271,245 @@ add_action('wp_enqueue_scripts', function () {
 });
 
 
-/* ─── 9. AUTOMATIC PAGE & CASE STUDY TEMPLATE ROUTER ──────────── */
-// Prevents 404s and automatically maps URLs, slugs, & CPT items to dedicated templates
+/* ─── 9. CANONICAL REDIRECT SUPPRESSION & TEMPLATE ROUTER ──────────── */
+
+// 9A-1. Suppress Rank Math & 3rd party redirect plugins from hijacking virtual routes & case studies
+add_filter('rank_math/redirection/pre_search', function ($pre, $uri = '') {
+    $req = !empty($uri) ? $uri : ($_SERVER['REQUEST_URI'] ?? '');
+    $raw = strtolower(trim(parse_url($req, PHP_URL_PATH), '/'));
+    $parts = explode('/', $raw);
+    $first = $parts[0] ?? '';
+    $last  = end($parts) ?: '';
+    if (in_array($first, ['case-studies', 'case-study', 'portfolio', 'discovery-call', 'book-a-call', 'book', 'services', 'dev-playground', 'about', 'about-us', 'contact', 'contact-us', 'blog'], true)
+        || in_array($last, ['web-design', 'shopify', 'wordpress', 'custom-dev', 'ai-mvp', 'ecommerce', 'digital-marketing', 'brand-identity', 'brand-strategy', 'woocommerce', 'seo-content'], true)) {
+        return false;
+    }
+    return $pre;
+}, 1, 2);
+
+add_filter('rank_math/redirection/do_redirection', function ($redirect, $uri = '') {
+    $req = !empty($uri) ? $uri : ($_SERVER['REQUEST_URI'] ?? '');
+    $raw = strtolower(trim(parse_url($req, PHP_URL_PATH), '/'));
+    $parts = explode('/', $raw);
+    $first = $parts[0] ?? '';
+    $last  = end($parts) ?: '';
+    if (in_array($first, ['case-studies', 'case-study', 'portfolio', 'discovery-call', 'book-a-call', 'book', 'services', 'dev-playground', 'about', 'about-us', 'contact', 'contact-us', 'blog'], true)
+        || in_array($last, ['web-design', 'shopify', 'wordpress', 'custom-dev', 'ai-mvp', 'ecommerce', 'digital-marketing', 'brand-identity', 'brand-strategy', 'woocommerce', 'seo-content'], true)) {
+        return false;
+    }
+    return $redirect;
+}, 1, 2);
+
+// 9A-2. Priority 1 Early Router: Serves case study, service, and core URLs BEFORE Rank Math priority 10 redirect can fire
+add_action('template_redirect', function () {
+    $raw_uri   = strtolower(trim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH), '/'));
+    $uri_parts = !empty($raw_uri) ? explode('/', $raw_uri) : [];
+    $first_seg = !empty($uri_parts) ? $uri_parts[0] : '';
+    $uri_slug  = !empty($uri_parts) ? end($uri_parts) : '';
+
+    $case_study_slugs = [
+        'the-duch-apartments', 'duch-apartments', 'the-duch', 'duch', 'vanguard-architecture',
+        'mkenny-properties', 'mkenny', 'mkennyproperties', 'mkenny-real-estate',
+        'bridgepoint-compliance', 'bridgepoint-consulting', 'bridgepoint', 'compliance-analysis', 'compliance-checker',
+        'bridgepoint-advisory', 'bridgepoint-brand', 'bridgepoints',
+        'blvck-hair-ng', 'blvck-hair', 'blvckhair', 'luxe-apparel',
+        'victorias-lane', 'victoria-lane', 'victoriaslane',
+        'kiri-city-stays', 'kiri-city', 'kiricitystays',
+        'stride-plus-media', 'stride-plus', 'stride', 'strideradio', 'fintech-growth',
+        'sweetermen-ng', 'sweetermen',
+        'wp-publishion-ai', 'wp-publishion', 'cognitive-ai'
+    ];
+
+    // Single Case Study Route: /case-studies/{slug}/ or /portfolio/{slug}/
+    if (($first_seg === 'case-studies' || $first_seg === 'case-study' || $first_seg === 'portfolio') && count($uri_parts) >= 2) {
+        if (in_array($uri_slug, $case_study_slugs, true)) {
+            global $wp_query;
+            if ($wp_query) {
+                $wp_query->is_404 = false;
+                $wp_query->is_single = true;
+                $wp_query->is_singular = true;
+                $wp_query->is_page = false;
+                $wp_query->is_archive = false;
+                $wp_query->post_count = 1;
+            }
+            status_header(200);
+            $template = locate_template('single-case_study.php');
+            if ($template) {
+                include $template;
+                exit;
+            }
+        }
+    }
+
+    // Case Studies Archive: /case-studies/
+    if (($first_seg === 'case-studies' || $first_seg === 'portfolio') && count($uri_parts) === 1) {
+        global $wp_query;
+        if ($wp_query) {
+            $wp_query->is_404 = false;
+            $wp_query->is_archive = true;
+            $wp_query->is_page = false;
+            $wp_query->is_single = false;
+            $wp_query->is_singular = false;
+        }
+        status_header(200);
+        $template = locate_template('archive-case_study.php');
+        if ($template) {
+            include $template;
+            exit;
+        }
+    }
+
+    // Individual Service Pages: /services/{slug}/ or /{slug}/
+    $service_template_map = [
+        'web-design'                 => 'page-service-web-design.php',
+        'website-design'             => 'page-service-web-design.php',
+        'shopify'                    => 'page-service-shopify.php',
+        'shopify-storefronts'        => 'page-service-shopify.php',
+        'wordpress'                  => 'page-service-wordpress.php',
+        'wordpress-development'      => 'page-service-wordpress.php',
+        'wp-development'             => 'page-service-wordpress.php',
+        'custom-dev'                 => 'page-service-custom-dev.php',
+        'custom-development'         => 'page-service-custom-dev.php',
+        'custom-web-development'     => 'page-service-custom-dev.php',
+        'ai-mvp'                     => 'page-service-ai-mvp.php',
+        'ai-mvp-engineering'         => 'page-service-ai-mvp.php',
+        'ai-development'             => 'page-service-ai-mvp.php',
+        'ecommerce'                  => 'page-service-ecommerce.php',
+        'e-commerce'                 => 'page-service-ecommerce.php',
+        'ecommerce-solutions'        => 'page-service-ecommerce.php',
+        'digital-marketing'          => 'page-service-digital-marketing.php',
+        'search-marketing'           => 'page-service-digital-marketing.php',
+        'seo-marketing'              => 'page-service-digital-marketing.php',
+        'brand-identity'             => 'page-service-brand-identity.php',
+        'brand-identity-design'      => 'page-service-brand-identity.php',
+        'visual-identity'            => 'page-service-brand-identity.php',
+        'brand-strategy'             => 'page-service-brand-strategy.php',
+        'brand-positioning'          => 'page-service-brand-strategy.php',
+        'woocommerce'                => 'page-service-woocommerce.php',
+        'woocommerce-development'    => 'page-service-woocommerce.php',
+        'woo-development'            => 'page-service-woocommerce.php',
+        'seo-content'                => 'page-service-seo-content.php',
+        'seo-and-content'            => 'page-service-seo-content.php',
+        'search-engine-optimization' => 'page-service-seo-content.php',
+        'seo'                        => 'page-service-seo-content.php',
+    ];
+
+    if ($first_seg === 'services' && count($uri_parts) >= 2 && isset($service_template_map[$uri_slug])) {
+        global $wp_query;
+        if ($wp_query) { $wp_query->is_404 = false; $wp_query->is_page = true; }
+        status_header(200);
+        $template = locate_template($service_template_map[$uri_slug]);
+        if ($template) {
+            include $template;
+            exit;
+        }
+    }
+
+    if (count($uri_parts) === 1 && isset($service_template_map[$first_seg])) {
+        global $wp_query;
+        if ($wp_query) { $wp_query->is_404 = false; $wp_query->is_page = true; }
+        status_header(200);
+        $template = locate_template($service_template_map[$first_seg]);
+        if ($template) {
+            include $template;
+            exit;
+        }
+    }
+
+    // Services Directory: /services/
+    if (($first_seg === 'services' && count($uri_parts) === 1) || in_array($uri_slug, ['services', 'our-services', 'all-services'], true)) {
+        global $wp_query;
+        if ($wp_query) { $wp_query->is_404 = false; $wp_query->is_page = true; }
+        status_header(200);
+        $template = locate_template('page-services.php');
+        if ($template) {
+            include $template;
+            exit;
+        }
+    }
+
+    // Core Pages: Discovery Call, About Us, Contact Us
+    if (in_array($first_seg, ['discovery-call', 'book-a-call', 'book'], true) || in_array($uri_slug, ['discovery-call', 'book-a-call', 'book'], true)) {
+        global $wp_query;
+        if ($wp_query) { $wp_query->is_404 = false; $wp_query->is_page = true; }
+        status_header(200);
+        $template = locate_template('page-discovery-call.php');
+        if ($template) {
+            include $template;
+            exit;
+        }
+    }
+
+    if (in_array($first_seg, ['about', 'about-us', 'studio'], true) || in_array($uri_slug, ['about', 'about-us', 'studio'], true)) {
+        global $wp_query;
+        if ($wp_query) { $wp_query->is_404 = false; $wp_query->is_page = true; }
+        status_header(200);
+        $template = locate_template('page-about.php');
+        if ($template) {
+            include $template;
+            exit;
+        }
+    }
+
+    if (in_array($first_seg, ['contact', 'contact-us'], true) || in_array($uri_slug, ['contact', 'contact-us'], true)) {
+        global $wp_query;
+        if ($wp_query) { $wp_query->is_404 = false; $wp_query->is_page = true; }
+        status_header(200);
+        $template = locate_template('page-contact.php');
+        if ($template) {
+            include $template;
+            exit;
+        }
+    }
+}, 1);
+
+// 9A. Prevent WordPress from guessing/redirecting virtual routes & clean service URLs to similar-named blog posts
+add_filter('redirect_canonical', function ($redirect_url, $requested_url) {
+    $raw_uri   = trim(parse_url($requested_url, PHP_URL_PATH), '/');
+    $uri_parts = !empty($raw_uri) ? explode('/', $raw_uri) : [];
+    $first_seg = !empty($uri_parts) ? $uri_parts[0] : '';
+    $uri_slug  = !empty($uri_parts) ? end($uri_parts) : '';
+
+    $intercept_first_segs = [
+        'services', 'discovery-call', 'book-a-call', 'book',
+        'blog', 'about', 'contact', 'case-studies', 'case-study', 'portfolio', 'dev-playground'
+    ];
+    if (in_array($first_seg, $intercept_first_segs, true)) {
+        return false;
+    }
+
+    $intercept_slugs = [
+        'web-design', 'shopify', 'wordpress', 'custom-dev', 'ai-mvp', 'ecommerce',
+        'digital-marketing', 'brand-identity', 'brand-strategy', 'woocommerce', 'seo-content',
+        'discovery-call', 'book-a-call', 'book', 'dev-playground', 'case-studies', 'portfolio'
+    ];
+    if (in_array($uri_slug, $intercept_slugs, true)) {
+        return false;
+    }
+
+    return $redirect_url;
+}, 10, 2);
+
+// 9B. Prevents 404s and automatically intercepts all core virtual routes
 add_filter('pre_handle_404', function ($handled, $wp_query) {
     $raw_uri   = trim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH), '/');
     $uri_parts = !empty($raw_uri) ? explode('/', $raw_uri) : [];
     $uri_slug  = !empty($uri_parts) ? end($uri_parts) : '';
     $first_seg = !empty($uri_parts) ? $uri_parts[0] : '';
 
-    if (in_array($first_seg, ['case-studies', 'case-study', 'portfolio'], true)) {
-        return true; // Intercept and allow template_include to render
+    $routes_to_handle = [
+        'services', 'discovery-call', 'book-a-call', 'book',
+        'blog', 'about', 'contact', 'case-studies', 'case-study', 'portfolio', 'dev-playground'
+    ];
+
+    if (in_array($first_seg, $routes_to_handle, true)) {
+        return true;
     }
 
     $case_study_slugs = [
         'the-duch-apartments', 'duch-apartments', 'the-duch', 'duch', 'vanguard-architecture',
         'mkenny-properties', 'mkenny', 'mkennyproperties', 'mkenny-real-estate',
-        'bridgepoint-compliance', 'bridgepoint-consulting', 'bridgepoint', 'apex-logistics',
+        'bridgepoint-compliance', 'bridgepoint-consulting', 'bridgepoint', 'compliance-analysis',
         'bridgepoint-advisory', 'bridgepoint-brand', 'bridgepoints',
         'blvck-hair-ng', 'blvck-hair', 'blvckhair', 'luxe-apparel',
         'victorias-lane', 'victoria-lane', 'victoriaslane',
@@ -282,9 +523,28 @@ add_filter('pre_handle_404', function ($handled, $wp_query) {
         return true;
     }
 
+    $service_slugs = [
+        'web-design', 'website-design', 'webdesign',
+        'shopify', 'shopify-storefronts',
+        'wordpress', 'wordpress-development', 'wp-development',
+        'custom-dev', 'custom-development', 'custom-web-development',
+        'ai-mvp', 'ai-mvp-engineering', 'ai-development',
+        'ecommerce', 'e-commerce', 'ecommerce-solutions',
+        'digital-marketing', 'search-marketing', 'seo-marketing',
+        'brand-identity', 'brand-identity-design', 'visual-identity',
+        'brand-strategy', 'brand-positioning',
+        'woocommerce', 'woocommerce-development', 'woo-development',
+        'seo-content', 'seo-and-content', 'search-engine-optimization', 'seo'
+    ];
+
+    if (in_array($uri_slug, $service_slugs, true)) {
+        return true;
+    }
+
     return $handled;
 }, 10, 2);
 
+// 9C. Virtual & Physical Template Mapping Engine
 add_filter('template_include', function ($template) {
     global $wp_query;
 
@@ -296,15 +556,54 @@ add_filter('template_include', function ($template) {
     $uri_slug  = !empty($uri_parts) ? end($uri_parts) : '';
     $first_seg = !empty($uri_parts) ? $uri_parts[0] : '';
 
-    // Check Case Studies Archive / Portfolio
+    // 1. BLOG ROUTE: Route /blog/ and /blog/page/X/ directly to home.php and populate posts query
+    if ($slug === 'blog' || $uri_slug === 'blog' || $first_seg === 'blog') {
+        if ($wp_query) {
+            $paged = 1;
+            if (!empty($wp_query->query_vars['paged'])) {
+                $paged = $wp_query->query_vars['paged'];
+            } elseif (!empty($wp_query->query_vars['page'])) {
+                $paged = $wp_query->query_vars['page'];
+            } elseif (isset($_GET['paged'])) {
+                $paged = (int) $_GET['paged'];
+            } elseif (count($uri_parts) >= 3 && $uri_parts[1] === 'page' && is_numeric($uri_parts[2])) {
+                $paged = (int) $uri_parts[2];
+            }
+            $count = cr8v_mod('blog_posts_per_page', '9');
+            $wp_query->query([
+                'post_type'      => 'post',
+                'post_status'    => 'publish',
+                'posts_per_page' => (int) $count,
+                'paged'          => $paged,
+                'orderby'        => 'date',
+                'order'          => 'DESC',
+            ]);
+            $wp_query->is_404      = false;
+            $wp_query->is_page     = false;
+            $wp_query->is_home     = true;
+            $wp_query->is_archive  = false;
+            $wp_query->is_single   = false;
+            $wp_query->is_singular = false;
+        }
+        status_header(200);
+        $t = locate_template('home.php');
+        if ($t) return $t;
+    }
+
+    // 2. CASE STUDIES ARCHIVE / PORTFOLIO
     if (($first_seg === 'case-studies' && count($uri_parts) === 1) || ($first_seg === 'case-study' && count($uri_parts) === 1) || in_array($slug, ['case-studies', 'portfolio'], true) || in_array($uri_slug, ['case-studies', 'portfolio'], true) || is_post_type_archive('case_study')) {
-        if ($wp_query) { $wp_query->is_404 = false; }
+        if ($wp_query) {
+            $wp_query->is_404 = false;
+            $wp_query->is_page = false;
+            $wp_query->is_singular = false;
+            $wp_query->is_archive = true;
+        }
         status_header(200);
         $t = locate_template('archive-case_study.php');
         if ($t) return $t;
     }
 
-    // Universal Case Study Router — All portfolio pages use the dynamic single-case_study.php controller
+    // 3. UNIVERSAL CASE STUDY ROUTER — All portfolio pages use dynamic single-case_study.php controller
     $case_study_slugs = [
         'the-duch-apartments', 'duch-apartments', 'the-duch', 'duch', 'vanguard-architecture',
         'mkenny-properties', 'mkenny', 'mkennyproperties', 'mkenny-real-estate',
@@ -346,8 +645,6 @@ add_filter('template_include', function ($template) {
                 $wp_query->is_singular = true;
                 $wp_query->is_single = true;
             } else {
-                // For virtual routes that do not have a database post:
-                // Do NOT set is_single or is_page to true, which triggers get_permalink() on null in core link-template.php
                 $wp_query->is_404 = false;
                 $wp_query->is_single = false;
                 $wp_query->is_page = false;
@@ -378,103 +675,135 @@ add_filter('template_include', function ($template) {
         return $canonical_url;
     }, 10, 2);
 
-    if (is_page() || $post_id) {
-        // About Us
-        if (in_array($slug, ['about', 'about-us', 'studio'], true) || in_array($uri_slug, ['about', 'about-us', 'studio'], true)) {
-            $t = locate_template('page-about.php');
-            if ($t) return $t;
-        }
-        
-        // Contact Us
-        if (in_array($slug, ['contact', 'contact-us'], true) || in_array($uri_slug, ['contact', 'contact-us'], true) || is_page_template('page-contact.php') || is_page_template('page-contact-us.php')) {
-            $t = locate_template('page-contact.php');
-            if ($t) return $t;
-        }
-
-        // Discovery Call
-        if (in_array($slug, ['discovery-call', 'book-a-call', 'book'], true) || in_array($uri_slug, ['discovery-call', 'book-a-call', 'book'], true) || is_page_template('page-discovery-call.php')) {
-            $t = locate_template('page-discovery-call.php');
-            if ($t) return $t;
-        }
-
-        // Services Overview / Directory
-        if (in_array($slug, ['services', 'our-services', 'all-services'], true) || in_array($uri_slug, ['services', 'our-services', 'all-services'], true)) {
-            $t = locate_template('page-services.php');
-            if ($t) return $t;
-        }
-
-        // Web Design & UX
-        if (in_array($slug, ['web-design', 'website-design', 'webdesign'], true) || in_array($uri_slug, ['web-design', 'website-design', 'webdesign'], true) || is_page_template('page-web-design.php') || is_page_template('page-service-web-design.php')) {
-            $t = locate_template('page-service-web-design.php');
-            if ($t) return $t;
-        }
-
-        // Shopify Storefronts
-        if (in_array($slug, ['shopify', 'shopify-storefronts'], true) || in_array($uri_slug, ['shopify', 'shopify-storefronts'], true) || is_page_template('page-shopify.php') || is_page_template('page-service-shopify.php')) {
-            $t = locate_template('page-service-shopify.php');
-            if ($t) return $t;
-        }
-
-        // WordPress Development
-        if (in_array($slug, ['wordpress', 'wordpress-development', 'wp-development'], true) || in_array($uri_slug, ['wordpress', 'wordpress-development', 'wp-development'], true) || is_page_template('page-wordpress.php') || is_page_template('page-service-wordpress.php')) {
-            $t = locate_template('page-service-wordpress.php');
-            if ($t) return $t;
-        }
-
-        // Custom Web Development
-        if (in_array($slug, ['custom-dev', 'custom-development', 'custom-web-development'], true) || in_array($uri_slug, ['custom-dev', 'custom-development', 'custom-web-development'], true) || is_page_template('page-custom-dev.php') || is_page_template('page-service-custom-dev.php')) {
-            $t = locate_template('page-service-custom-dev.php');
-            if ($t) return $t;
-        }
-
-        // AI MVP Engineering
-        if (in_array($slug, ['ai-mvp', 'ai-mvp-engineering', 'ai-development'], true) || in_array($uri_slug, ['ai-mvp', 'ai-mvp-engineering', 'ai-development'], true) || is_page_template('page-ai-mvp.php') || is_page_template('page-service-ai-mvp.php')) {
-            $t = locate_template('page-service-ai-mvp.php');
-            if ($t) return $t;
-        }
-
-        // E-Commerce Solutions
-        if (in_array($slug, ['ecommerce', 'e-commerce', 'ecommerce-solutions'], true) || in_array($uri_slug, ['ecommerce', 'e-commerce', 'ecommerce-solutions'], true) || is_page_template('page-ecommerce.php') || is_page_template('page-e-commerce.php') || is_page_template('page-service-ecommerce.php')) {
-            $t = locate_template('page-service-ecommerce.php');
-            if ($t) return $t;
-        }
-
-        // Digital Marketing
-        if (in_array($slug, ['digital-marketing', 'search-marketing', 'seo-marketing'], true) || in_array($uri_slug, ['digital-marketing', 'search-marketing', 'seo-marketing'], true) || is_page_template('page-digital-marketing.php') || is_page_template('page-service-digital-marketing.php')) {
-            $t = locate_template('page-service-digital-marketing.php');
-            if ($t) return $t;
-        }
-
-        // Brand Identity Design
-        if (in_array($slug, ['brand-identity', 'brand-identity-design', 'visual-identity'], true) || in_array($uri_slug, ['brand-identity', 'brand-identity-design', 'visual-identity'], true) || is_page_template('page-brand-identity.php') || is_page_template('page-service-brand-identity.php')) {
-            $t = locate_template('page-service-brand-identity.php');
-            if ($t) return $t;
-        }
-
-        // Brand Strategy
-        if (in_array($slug, ['brand-strategy', 'brand-positioning'], true) || in_array($uri_slug, ['brand-strategy', 'brand-positioning'], true) || is_page_template('page-brand-strategy.php') || is_page_template('page-service-brand-strategy.php')) {
-            $t = locate_template('page-service-brand-strategy.php');
-            if ($t) return $t;
-        }
-
-        // WooCommerce Development
-        if (in_array($slug, ['woocommerce', 'woocommerce-development', 'woo-development'], true) || in_array($uri_slug, ['woocommerce', 'woocommerce-development', 'woo-development'], true) || is_page_template('page-woocommerce.php') || is_page_template('page-service-woocommerce.php')) {
-            $t = locate_template('page-service-woocommerce.php');
-            if ($t) return $t;
-        }
-
-        // SEO & Content Strategy
-        if (in_array($slug, ['seo-content', 'seo-and-content', 'search-engine-optimization', 'seo'], true) || in_array($uri_slug, ['seo-content', 'seo-and-content', 'search-engine-optimization', 'seo'], true) || is_page_template('page-seo-content.php') || is_page_template('page-service-seo-content.php')) {
-            $t = locate_template('page-service-seo-content.php');
-            if ($t) return $t;
-        }
-
-        // Case Studies Archive
-        if (in_array($slug, ['case-studies', 'portfolio'], true) || in_array($uri_slug, ['case-studies', 'portfolio'], true)) {
-            $t = locate_template('archive-case_study.php');
-            if ($t) return $t;
-        }
+    // 4. CORE PAGES & SERVICES (Works for both physical pages and virtual URL routes)
+    // About Us
+    if (in_array($slug, ['about', 'about-us', 'studio'], true) || in_array($uri_slug, ['about', 'about-us', 'studio'], true) || $first_seg === 'about') {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('page-about.php');
+        if ($t) return $t;
     }
+
+    // Contact Us
+    if (in_array($slug, ['contact', 'contact-us'], true) || in_array($uri_slug, ['contact', 'contact-us'], true) || $first_seg === 'contact' || is_page_template('page-contact.php') || is_page_template('page-contact-us.php')) {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('page-contact.php');
+        if ($t) return $t;
+    }
+
+    // Discovery Call
+    if (in_array($slug, ['discovery-call', 'book-a-call', 'book'], true) || in_array($uri_slug, ['discovery-call', 'book-a-call', 'book'], true) || in_array($first_seg, ['discovery-call', 'book-a-call', 'book'], true) || is_page_template('page-discovery-call.php')) {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('page-discovery-call.php');
+        if ($t) return $t;
+    }
+
+    // Services Overview / Directory
+    if (($first_seg === 'services' && count($uri_parts) === 1) || in_array($slug, ['services', 'our-services', 'all-services'], true) || in_array($uri_slug, ['services', 'our-services', 'all-services'], true) || is_page_template('page-services.php')) {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('page-services.php');
+        if ($t) return $t;
+    }
+
+    // Web Design & UX
+    if (in_array($slug, ['web-design', 'website-design', 'webdesign'], true) || in_array($uri_slug, ['web-design', 'website-design', 'webdesign'], true) || is_page_template('page-web-design.php') || is_page_template('page-service-web-design.php')) {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('page-service-web-design.php');
+        if ($t) return $t;
+    }
+
+    // Shopify Storefronts
+    if (in_array($slug, ['shopify', 'shopify-storefronts'], true) || in_array($uri_slug, ['shopify', 'shopify-storefronts'], true) || is_page_template('page-shopify.php') || is_page_template('page-service-shopify.php')) {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('page-service-shopify.php');
+        if ($t) return $t;
+    }
+
+    // WordPress Development
+    if (in_array($slug, ['wordpress', 'wordpress-development', 'wp-development'], true) || in_array($uri_slug, ['wordpress', 'wordpress-development', 'wp-development'], true) || is_page_template('page-wordpress.php') || is_page_template('page-service-wordpress.php')) {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('page-service-wordpress.php');
+        if ($t) return $t;
+    }
+
+    // Custom Web Development
+    if (in_array($slug, ['custom-dev', 'custom-development', 'custom-web-development'], true) || in_array($uri_slug, ['custom-dev', 'custom-development', 'custom-web-development'], true) || is_page_template('page-custom-dev.php') || is_page_template('page-service-custom-dev.php')) {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('page-service-custom-dev.php');
+        if ($t) return $t;
+    }
+
+    // AI MVP Engineering
+    if (in_array($slug, ['ai-mvp', 'ai-mvp-engineering', 'ai-development'], true) || in_array($uri_slug, ['ai-mvp', 'ai-mvp-engineering', 'ai-development'], true) || is_page_template('page-ai-mvp.php') || is_page_template('page-service-ai-mvp.php')) {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('page-service-ai-mvp.php');
+        if ($t) return $t;
+    }
+
+    // E-Commerce Solutions
+    if (in_array($slug, ['ecommerce', 'e-commerce', 'ecommerce-solutions'], true) || in_array($uri_slug, ['ecommerce', 'e-commerce', 'ecommerce-solutions'], true) || is_page_template('page-ecommerce.php') || is_page_template('page-e-commerce.php') || is_page_template('page-service-ecommerce.php')) {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('page-service-ecommerce.php');
+        if ($t) return $t;
+    }
+
+    // Digital Marketing
+    if (in_array($slug, ['digital-marketing', 'search-marketing', 'seo-marketing'], true) || in_array($uri_slug, ['digital-marketing', 'search-marketing', 'seo-marketing'], true) || is_page_template('page-digital-marketing.php') || is_page_template('page-service-digital-marketing.php')) {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('page-service-digital-marketing.php');
+        if ($t) return $t;
+    }
+
+    // Brand Identity Design
+    if (in_array($slug, ['brand-identity', 'brand-identity-design', 'visual-identity'], true) || in_array($uri_slug, ['brand-identity', 'brand-identity-design', 'visual-identity'], true) || is_page_template('page-brand-identity.php') || is_page_template('page-service-brand-identity.php')) {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('page-service-brand-identity.php');
+        if ($t) return $t;
+    }
+
+    // Brand Strategy
+    if (in_array($slug, ['brand-strategy', 'brand-positioning'], true) || in_array($uri_slug, ['brand-strategy', 'brand-positioning'], true) || is_page_template('page-brand-strategy.php') || is_page_template('page-service-brand-strategy.php')) {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('page-service-brand-strategy.php');
+        if ($t) return $t;
+    }
+
+    // WooCommerce Development
+    if (in_array($slug, ['woocommerce', 'woocommerce-development', 'woo-development'], true) || in_array($uri_slug, ['woocommerce', 'woocommerce-development', 'woo-development'], true) || is_page_template('page-woocommerce.php') || is_page_template('page-service-woocommerce.php')) {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('page-service-woocommerce.php');
+        if ($t) return $t;
+    }
+
+    // SEO & Content Strategy
+    if (in_array($slug, ['seo-content', 'seo-and-content', 'search-engine-optimization', 'seo'], true) || in_array($uri_slug, ['seo-content', 'seo-and-content', 'search-engine-optimization', 'seo'], true) || is_page_template('page-seo-content.php') || is_page_template('page-service-seo-content.php')) {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('page-service-seo-content.php');
+        if ($t) return $t;
+    }
+
+    // Case Studies Archive
+    if (in_array($slug, ['case-studies', 'portfolio'], true) || in_array($uri_slug, ['case-studies', 'portfolio'], true)) {
+        if ($wp_query) { $wp_query->is_404 = false; }
+        status_header(200);
+        $t = locate_template('archive-case_study.php');
+        if ($t) return $t;
+    }
+
     return $template;
 });
 
@@ -486,5 +815,123 @@ if ( ! function_exists( 'cr8v_mod' ) ) {
         return get_theme_mod( $setting, $default );
     }
 }
+
+/**
+ * Global helper to locate theme case study images safely with automatic modification timestamp cache-busting.
+ * Bypasses aggressive browser and CDN caches whenever an asset is updated.
+ */
+if ( ! function_exists( 'cr8v_cs_img_src' ) ) {
+    function cr8v_cs_img_src( $filename, $fallback = '' ) {
+        if ( empty( $filename ) ) return '';
+        if ( filter_var( $filename, FILTER_VALIDATE_URL ) ) return $filename;
+        $theme_dir = get_template_directory();
+        $theme_uri = get_template_directory_uri();
+        $rel = '/assets/img/case_studies/' . ltrim( $filename, '/' );
+        if ( file_exists( $theme_dir . $rel ) ) {
+            $ver = filemtime( $theme_dir . $rel );
+            return $theme_uri . $rel . '?v=' . $ver;
+        }
+        if ( ! empty( $fallback ) ) {
+            $rel_fb = '/assets/img/case_studies/' . ltrim( $fallback, '/' );
+            if ( file_exists( $theme_dir . $rel_fb ) ) {
+                $ver = filemtime( $theme_dir . $rel_fb );
+                return $theme_uri . $rel_fb . '?v=' . $ver;
+            }
+        }
+        return $theme_uri . $rel;
+    }
+}
+
+/**
+ * ─────────────────────────────────────────────────────────────────────────────
+ * RAW HTML / ELEMENTOR MIGRATION CONTENT SANITIZER
+ * Fixes broken CSS, JS, and layouts in blog posts and pages migrated from Elementor:
+ * 1. Elementor data fallback: if Elementor is deactivated and post_content is empty,
+ *    extracts HTML and text widgets directly from _elementor_data JSON.
+ * 2. wpautop / wptexturize cleanup: strips injected <br /> and <p> from inside
+ *    <style> and <script> tags, and decodes broken curly quotes.
+ * 3. Removes phantom <p> wrappers from around block-level HTML tags.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+// 1. Elementor Deactivated Fallback: extract HTML/text widgets from _elementor_data if post_content is empty
+add_filter( 'the_content', function( $content ) {
+    if ( empty( trim( strip_tags( $content, '<img><style><script><video><iframe><section><article><div>' ) ) ) ) {
+        $post_id = get_the_ID();
+        if ( $post_id && ! did_action( 'elementor/loaded' ) ) {
+            $el_data_raw = get_post_meta( $post_id, '_elementor_data', true );
+            if ( ! empty( $el_data_raw ) ) {
+                $el_data = is_array( $el_data_raw ) ? $el_data_raw : json_decode( $el_data_raw, true );
+                if ( is_array( $el_data ) ) {
+                    $extracted = cr8v_extract_elementor_html_recursive( $el_data );
+                    if ( ! empty( $extracted ) ) {
+                        $content = $extracted;
+                    }
+                }
+            }
+        }
+    }
+    return $content;
+}, 1 );
+
+function cr8v_extract_elementor_html_recursive( $elements ) {
+    $out = '';
+    if ( ! is_array( $elements ) ) return $out;
+    foreach ( $elements as $el ) {
+        if ( ! empty( $el['widgetType'] ) ) {
+            if ( $el['widgetType'] === 'html' && ! empty( $el['settings']['html'] ) ) {
+                $out .= $el['settings']['html'] . "\n";
+            } elseif ( $el['widgetType'] === 'text-editor' && ! empty( $el['settings']['editor'] ) ) {
+                $out .= $el['settings']['editor'] . "\n";
+            } elseif ( $el['widgetType'] === 'heading' && ! empty( $el['settings']['title'] ) ) {
+                $tag = ! empty( $el['settings']['header_size'] ) ? esc_attr( $el['settings']['header_size'] ) : 'h2';
+                $out .= "<{$tag}>" . esc_html( $el['settings']['title'] ) . "</{$tag}>\n";
+            }
+        }
+        if ( ! empty( $el['elements'] ) && is_array( $el['elements'] ) ) {
+            $out .= cr8v_extract_elementor_html_recursive( $el['elements'] );
+        }
+    }
+    return $out;
+}
+
+// 2. Clean up wpautop and wptexturize damage on HTML, style, and script tags (run at priority 999)
+add_filter( 'the_content', function( $content ) {
+    if ( empty( $content ) ) return $content;
+
+    // A. Clean <style> blocks: remove <br />, <br>, <p>, </p>, and replace smart quotes
+    $content = preg_replace_callback( '/<style\b[^>]*>(.*?)<\/style>/is', function( $matches ) {
+        $css = $matches[1];
+        $css = str_ireplace( [ '<br />', '<br>', '<p>', '</p>' ], '', $css );
+        $css = str_replace( [ "\r\n\r\n", "\n\n" ], "\n", $css );
+        // Replace smart quotes that break CSS font-family or selectors
+        $css = str_replace(
+            [ '&#8216;', '&#8217;', '&#8220;', '&#8221;', '&rsquo;', '&lsquo;', '&rdquo;', '&ldquo;', '‘', '’', '“', '”' ],
+            [ "'", "'", '"', '"', "'", "'", '"', '"', "'", "'", '"', '"' ],
+            $css
+        );
+        return '<style>' . $css . '</style>';
+    }, $content );
+
+    // B. Clean <script> blocks: remove <br />, <br>, <p>, </p>, and fix quotes/entities
+    $content = preg_replace_callback( '/<script\b[^>]*>(.*?)<\/script>/is', function( $matches ) {
+        $js = $matches[1];
+        $js = str_ireplace( [ '<br />', '<br>', '<p>', '</p>' ], '', $js );
+        $js = str_replace(
+            [ '&#8216;', '&#8217;', '&#8220;', '&#8221;', '&rsquo;', '&lsquo;', '&rdquo;', '&ldquo;', '‘', '’', '“', '”', '&amp;&amp;', '&lt;', '&gt;' ],
+            [ "'", "'", '"', '"', "'", "'", '"', '"', "'", "'", '"', '"', '&&', '<', '>' ],
+            $js
+        );
+        return '<script>' . $js . '</script>';
+    }, $content );
+
+    // C. Remove accidental <p> tags wrapping block-level tags
+    $block_tags = 'section|article|header|footer|nav|aside|div|style|script|pre|table|ul|ol|blockquote';
+    $content = preg_replace( '/<p>\s*(<\/?(?:' . $block_tags . ')[^>]*>)\s*<\/p>/i', '$1', $content );
+    $content = preg_replace( '/<p>\s*(<(?:' . $block_tags . ')[^>]*>)/i', '$1', $content );
+    $content = preg_replace( '/(<\/(?:' . $block_tags . ')>)\s*<\/p>/i', '$1', $content );
+
+    return $content;
+}, 999 );
 
 

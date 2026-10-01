@@ -187,7 +187,7 @@ get_header();
       </div>
       <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
         <div class="c8isv-portfolio-img">
-          <img src="<?php echo esc_url(cr8v_mod('wc_work_cs_img', 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop')); ?>" alt="SweeterMen NG WooCommerce store — built by Cr8v Stacks" data-customizer="wc_work_cs_img">
+          <img src="<?php echo esc_url(cr8v_mod('wc_work_cs_img', cr8v_cs_img_src('cs_sweetermen_hero_vertical.webp'))); ?>" alt="SweeterMen NG WooCommerce store — built by Cr8v Stacks" data-customizer="wc_work_cs_img">
         </div>
         <div class="c8isv-portfolio-info">
           <span class="c8isv-portfolio-client" data-customizer="wc_work_cs_client"><?php echo esc_html(cr8v_mod('wc_work_cs_client', 'Case Study — SweeterMen NG')); ?></span>
@@ -195,24 +195,24 @@ get_header();
           <p class="c8isv-portfolio-desc" data-customizer="wc_work_cs_desc"><?php echo esc_html(cr8v_mod('wc_work_cs_desc', 'We built SweeterMen NG\'s online watch store on WooCommerce with custom checkout hooks, then ran the Google and Meta ad campaigns that drove traffic to it — one team handling both the build and the growth.')); ?></p>
           <div class="c8isv-portfolio-stats">
             <div>
-              <span class="c8isv-portfolio-stat-val" data-customizer="wc_work_cs_stat1_val"><?php echo esc_html(cr8v_mod('wc_work_cs_stat1_val', '40+')); ?></span>
-              <span class="c8isv-portfolio-stat-lbl" data-customizer="wc_work_cs_stat1_lbl"><?php echo esc_html(cr8v_mod('wc_work_cs_stat1_lbl', 'Products Catalogued')); ?></span>
+              <span class="c8isv-portfolio-stat-val" data-customizer="wc_work_cs_stat1_val"><?php echo esc_html(cr8v_mod('wc_work_cs_stat1_val', '4.2x')); ?></span>
+              <span class="c8isv-portfolio-stat-lbl" data-customizer="wc_work_cs_stat1_lbl"><?php echo esc_html(cr8v_mod('wc_work_cs_stat1_lbl', 'Paid Meta ROAS')); ?></span>
             </div>
             <div>
-              <span class="c8isv-portfolio-stat-val" data-customizer="wc_work_cs_stat2_val"><?php echo esc_html(cr8v_mod('wc_work_cs_stat2_val', '2.1s')); ?></span>
-              <span class="c8isv-portfolio-stat-lbl" data-customizer="wc_work_cs_stat2_lbl"><?php echo esc_html(cr8v_mod('wc_work_cs_stat2_lbl', 'Mobile Speed')); ?></span>
+              <span class="c8isv-portfolio-stat-val" data-customizer="wc_work_cs_stat2_val"><?php echo esc_html(cr8v_mod('wc_work_cs_stat2_val', '0.8s')); ?></span>
+              <span class="c8isv-portfolio-stat-lbl" data-customizer="wc_work_cs_stat2_lbl"><?php echo esc_html(cr8v_mod('wc_work_cs_stat2_lbl', 'Catalog Speed')); ?></span>
             </div>
           </div>
           <div class="c8isv-portfolio-deliverables">
             <span class="c8isv-portfolio-stat-lbl">Key Deliverables</span>
             <div class="c8isv-portfolio-pills">
-              <span class="c8isv-portfolio-pill" data-customizer="wc_work_cs_pill1"><?php echo esc_html(cr8v_mod('wc_work_cs_pill1', 'WooCommerce Setup')); ?></span>
-              <span class="c8isv-portfolio-pill" data-customizer="wc_work_cs_pill2"><?php echo esc_html(cr8v_mod('wc_work_cs_pill2', 'Paystack Gateway')); ?></span>
-              <span class="c8isv-portfolio-pill" data-customizer="wc_work_cs_pill3"><?php echo esc_html(cr8v_mod('wc_work_cs_pill3', 'Product Variant Filters')); ?></span>
+              <span class="c8isv-portfolio-pill" data-customizer="wc_work_cs_pill1"><?php echo esc_html(cr8v_mod('wc_work_cs_pill1', 'Bespoke PHP Theme')); ?></span>
+              <span class="c8isv-portfolio-pill" data-customizer="wc_work_cs_pill2"><?php echo esc_html(cr8v_mod('wc_work_cs_pill2', '1-Step Paystack Drawer')); ?></span>
+              <span class="c8isv-portfolio-pill" data-customizer="wc_work_cs_pill3"><?php echo esc_html(cr8v_mod('wc_work_cs_pill3', 'Horology Spec Matrix')); ?></span>
               <span class="c8isv-portfolio-pill" data-customizer="wc_work_cs_pill4"><?php echo esc_html(cr8v_mod('wc_work_cs_pill4', 'Meta Ad Strategy')); ?></span>
             </div>
           </div>
-          <a href="<?php echo esc_url(cr8v_mod('wc_work_cs_btn_url', home_url('/case-studies/sweetermen/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="wc_work_cs_btn_text"><?php echo esc_html(cr8v_mod('wc_work_cs_btn_text', 'View Case Study →')); ?></a>
+          <a href="<?php echo esc_url(cr8v_mod('wc_work_cs_btn_url', home_url('/case-studies/sweetermen-ng/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="wc_work_cs_btn_text"><?php echo esc_html(cr8v_mod('wc_work_cs_btn_text', 'View Case Study →')); ?></a>
         </div>
       </div>
       <div class="c8isv-portfolio-footer">

@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiri City Stays: Attribution & Paid Acquisition Launch — Cr8v Stacks Case Study</title>
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --c8-paper-bg: #F9F9F8;
+      --c8-paper-card: #FFFFFF;
+      --c8-ink: #080808;
+      --c8-sub: #555555;
+      --c8-grid-line: rgba(8, 8, 8, 0.14);
+      --c8-blue: #0047E1;
+      --c8-blue-hi: #3D6BFF;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-heading: 'Michroma', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #FFFFFF;
+      color: var(--c8-ink);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── GLOBAL HEADER ── */
+    .c8-nav-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 68px;
+      padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--c8-grid-line);
+      z-index: 1000;
+    }
+    .c8-brand-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--c8-ink);
+    }
+    .c8-brand-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--c8-blue);
+      border-radius: 50%;
+    }
+    .c8-nav-pills {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    @media (max-width: 640px) {
+      .c8-nav-pills { display: none; }
+    }
+    .c8-nav-link {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--c8-sub);
+      transition: color 0.2s ease;
+    }
+    .c8-nav-link:hover { color: var(--c8-blue); }
+    .c8-btn-cta {
+      background: var(--c8-ink);
+      color: #FFFFFF !important;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .c8-btn-cta:hover {
+      background: var(--c8-blue);
+      transform: translateY(-1px);
+    }
+
+    /* ── CASE STUDY ROOT & LAYOUT ── */
+    .c8cs-root { position: relative; width: 100%; background: #FFFFFF; color: var(--c8-ink); font-family: var(--font-body); }
+    .c8cs-wrap { max-width: 1340px; margin: 0 auto; padding: 2.5rem 2rem 3.5rem; position: relative; z-index: 2; }
+    @media (max-width: 768px) { .c8cs-wrap { padding: 1.5rem 1.25rem 2.5rem; } }
+
+    .c8cs-back-btn {
+      font-family: var(--font-mono); font-size: 10px; color: #8A8A8A; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; text-decoration: none; font-weight: 700; position: relative; z-index: 2;
+    }
+    .c8cs-back-btn:hover { color: var(--c8-blue); }
+
+    .c8cs-label {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--c8-blue); display: inline-flex; align-items: center; gap: 10px; margin-bottom: 1.25rem;
+    }
+    .c8cs-label::before { content: '// '; color: var(--c8-blue); font-weight: 700; }
+
+    .c8cs-headline {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 4.5vw, 2.6rem);
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      font-weight: 700;
+      color: var(--c8-ink);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      max-width: 1050px;
+    }
+    .c8cs-serif { font-family: var(--font-body); font-style: italic; text-transform: none; font-weight: 400; color: var(--c8-blue); }
+
+    .c8cs-lead {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--c8-sub);
+      max-width: 880px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .fylla-pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; margin-bottom: 2.5rem; }
+    .fylla-pill {
+      border: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: 0.4rem 0.9rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--c8-ink); font-weight: 700; border-radius: 4px !important; text-transform: uppercase;
+    }
+
+    .c8cs-hero { padding-top: 4rem; padding-bottom: 4rem; position: relative; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
+
+    .c8cs-meta-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: transparent; margin-top: 3.5rem; position: relative; z-index: 2; overflow: hidden;
+    }
+    @media (max-width: 900px) { .c8cs-meta-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .c8cs-meta-grid { grid-template-columns: 1fr; } }
+
+    .c8cs-meta-item { padding: 1.25rem 1.75rem; border-right: 1px solid var(--c8-grid-line); background: #FFFFFF; display: flex; flex-direction: column; gap: 0.35rem; }
+    .c8cs-meta-item:last-child { border-right: none; }
+    @media (max-width: 900px) {
+      .c8cs-meta-item:nth-child(2) { border-right: none; }
+      .c8cs-meta-item:nth-child(1), .c8cs-meta-item:nth-child(2) { border-bottom: 1px solid var(--c8-grid-line); }
+    }
+    @media (max-width: 500px) {
+      .c8cs-meta-item { border-right: none !important; border-bottom: 1px solid var(--c8-grid-line); }
+      .c8cs-meta-item:last-child { border-bottom: none; }
+    }
+
+    .c8cs-meta-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-sub); font-weight: 700; }
+    .c8cs-meta-val { font-size: 13.5px; font-weight: 600; color: var(--c8-ink); }
+
+    /* ── FULL-WIDTH EXPANSIVE HERO MEDIA ── */
+    .c8cs-grow-media-wrapper {
+      width: 100%;
+      background: #FAFAF7;
+      padding: clamp(2rem, 4vw, 4rem) 0;
+      border-bottom: 1px solid var(--c8-grid-line);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .c8cs-hero-switcher {
+      display: inline-flex;
+      background: #FFFFFF;
+      border: 1px solid var(--c8-grid-line);
+      border-radius: 4px;
+      padding: 4px;
+      gap: 4px;
+    }
+    .c8cs-switch-btn {
+      padding: 6px 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: none;
+      background: transparent;
+      color: var(--c8-sub);
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.2s ease;
+    }
+    .c8cs-switch-btn.is-active {
+      background: var(--c8-blue);
+      color: #FFFFFF;
+    }
+    .c8cs-main-img-box {
+      width: 100%;
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 0 clamp(1rem, 3vw, 2.5rem);
+      box-sizing: border-box;
+    }
+    .c8cs-hero-img-inner {
+      width: 100%;
+      border-radius: 4px !important;
+      overflow: hidden;
+      border: 1px solid var(--c8-grid-line);
+      background: #080808;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+    .c8cs-hero-img-inner.is-landscape {
+      aspect-ratio: 16 / 9;
+    }
+    .c8cs-hero-img-inner.is-vertical {
+      max-width: 580px;
+      margin: 0 auto;
+      aspect-ratio: 3 / 4;
+    }
+    .c8cs-hero-img-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+      transition: transform 0.5s ease;
+    }
+    .c8cs-hero-img-inner:hover img {
+      transform: scale(1.02);
+    }
+
+    /* ── SECTION 3: STRATEGIC OVERVIEW ── */
+    .c8cs-split-section { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 5vw, 6rem); align-items: flex-start; padding: 2rem 0; }
+    @media (max-width: 900px) { .c8cs-split-section { grid-template-columns: 1fr; gap: 3rem; } }
+
+    .c8cs-split-title { font-family: var(--font-heading); font-size: clamp(1.6rem, 3vw, 2.4rem); text-transform: uppercase; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; }
+    .c8cs-body-content p { font-size: 15px; color: var(--c8-sub); line-height: 1.8; margin-bottom: 1.25rem; font-weight: 300; }
+
+    .fylla-value-item { display: flex; gap: 1.25rem; margin-bottom: 2rem; align-items: flex-start; }
+    .fylla-value-icon-box { width: 42px; height: 42px; border-radius: 4px; background: #FAFAF7; border: 1px solid var(--c8-grid-line); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--c8-blue); }
+    .fylla-value-icon-box svg { width: 20px; height: 20px; stroke-width: 2; }
+    .fylla-value-h3 { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.35rem; color: var(--c8-ink); line-height: 1.3; }
+    .fylla-value-desc { font-size: 13.5px; color: var(--c8-sub); line-height: 1.6; font-weight: 300; }
+
+    /* ── SECTION 4: CORE TECHNICAL DELIVERABLES ── */
+    .c8cs-deliverables-section { padding: clamp(2rem, 3.5vw, 3.5rem) 0; background: #FFFFFF; }
+    .c8cs-deliverables-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+    .c8cs-deliverables-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+    .c8cs-deliverables-grid { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--c8-grid-line); }
+    @media (max-width: 900px) { .c8cs-deliverables-grid { grid-template-columns: 1fr; } }
+
+    .c8cs-deliverable-card { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3vw, 3rem); display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--c8-grid-line); background: #FAFAF7; }
+    .c8cs-deliverable-card:nth-child(even) { border-right: none; background: #FFFFFF; }
+    @media (max-width: 900px) { .c8cs-deliverable-card { border-right: none; border-bottom: 1px solid var(--c8-grid-line); } }
+
+    .c8cs-deliverable-meta { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; margin-bottom: 0.75rem; }
+    .c8cs-deliverable-title { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 1rem; line-height: 1.25; }
+    .c8cs-deliverable-desc { font-size: 14px; color: var(--c8-sub); line-height: 1.6; font-weight: 300; margin-bottom: 2rem; }
+
+    .c8cs-deliverable-img-box { width: 100%; aspect-ratio: 16 / 9; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; margin-top: auto; position: relative; }
+    .c8cs-deliverable-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; transition: transform 0.4s ease; }
+    .c8cs-deliverable-img-box:hover img { transform: scale(1.03); }
+
+    .c8cs-sovereignty-split { display: grid; grid-template-columns: 1.15fr 0.85fr; }
+    @media (max-width: 960px) { .c8cs-sovereignty-split { grid-template-columns: 1fr; } }
+
+    .c8cs-sovereignty-left { background: #FFFFFF; padding: clamp(2.5rem, 3.5vw, 3.75rem) clamp(1.75rem, 3vw, 3.25rem); display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--c8-grid-line); }
+    @media (max-width: 960px) { .c8cs-sovereignty-left { border-right: none; border-bottom: 1px solid var(--c8-grid-line); padding: 2rem 1.5rem; } }
+    .c8cs-sovereignty-right { background: #FAFAF7; padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; align-items: center; justify-content: center; }
+    @media (max-width: 960px) { .c8cs-sovereignty-right { padding: 2rem 1.25rem; } }
+    .c8cs-sovereignty-img-box { width: 100%; max-width: 440px; aspect-ratio: 3 / 4; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; box-shadow: 0 20px 40px rgba(0,0,0,0.08); position: relative; }
+    .c8cs-sovereignty-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; transition: transform 0.4s ease; }
+    .c8cs-sovereignty-img-box:hover img { transform: scale(1.03); }
+
+    /* ── SECTION 5.5: SOCIAL MEDIA CAMPAIGN & CAROUSEL DECK ── */
+    .c8cs-social-campaign-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+    .c8cs-social-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+    .c8cs-social-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+    @media (max-width: 600px) { .c8cs-social-header { padding: 1.75rem 1.25rem; } }
+
+    .c8cs-carousel-deck-wrap { border-bottom: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); }
+    @media (max-width: 600px) { .c8cs-carousel-deck-wrap { padding: 1.5rem 1rem; } }
+    .c8cs-carousel-deck-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+    .c8cs-carousel-deck-title { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--c8-ink); font-weight: 700; letter-spacing: 0.08em; }
+    .c8cs-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #0072CE; display: inline-block; }
+    .c8cs-carousel-nav-controls { display: flex; align-items: center; gap: 10px; }
+    .c8cs-deck-nav-btn {
+      width: 38px; height: 38px; border-radius: 4px; border: 1px solid var(--c8-grid-line); background: #FFFFFF; color: var(--c8-ink); font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;
+    }
+    .c8cs-deck-nav-btn:hover { background: var(--c8-blue); color: #FFFFFF; border-color: var(--c8-blue); }
+    .c8cs-deck-counter { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--c8-sub); letter-spacing: 0.1em; padding: 0 4px; }
+    
+    .c8cs-carousel-deck-track {
+      display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 1rem; scrollbar-width: thin;
+    }
+    .c8cs-carousel-deck-track::-webkit-scrollbar { height: 6px; }
+    .c8cs-carousel-deck-track::-webkit-scrollbar-track { background: rgba(0,0,0,0.04); border-radius: 3px; }
+    .c8cs-carousel-deck-track::-webkit-scrollbar-thumb { background: rgba(0,114,206,0.3); border-radius: 3px; }
+    
+    .c8cs-carousel-slide-item {
+      flex: 0 0 clamp(280px, 32vw, 380px); scroll-snap-align: start; background: #FFFFFF; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .c8cs-carousel-slide-item:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.06); }
+    .c8cs-slide-media { position: relative; width: 100%; aspect-ratio: 1 / 1; background: #0F172A; overflow: hidden; }
+    .c8cs-slide-media img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
+    .c8cs-slide-num-badge {
+      position: absolute; top: 10px; right: 10px; background: rgba(15,23,42,0.85); backdrop-filter: blur(4px); color: #FFFFFF; font-family: var(--font-mono); font-size: 9px; font-weight: 700; padding: 4px 8px; border-radius: 4px; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .c8cs-slide-caption { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; }
+    .c8cs-slide-tag { font-family: var(--font-mono); font-size: 8.5px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.12em; }
+    .c8cs-slide-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; line-height: 1.3; }
+    .c8cs-slide-desc { font-size: 13px; color: var(--c8-sub); font-weight: 300; line-height: 1.5; }
+
+    /* 9:16 Video Reels Stage (4 Reels Grid) */
+    .c8cs-reels-stage-wrap { padding: clamp(2.5rem, 3.5vw, 3.5rem) clamp(1.75rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+    @media (max-width: 600px) { .c8cs-reels-stage-wrap { padding: 1.75rem 1.25rem; } }
+    .c8cs-reels-stage-header { margin-bottom: 2rem; }
+    .c8cs-reels-tag { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.14em; display: block; margin-bottom: 0.5rem; }
+    .c8cs-reels-title { font-family: var(--font-heading); font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 700; text-transform: uppercase; color: var(--c8-ink); }
+    
+    .c8cs-reels-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    @media (max-width: 900px) { .c8cs-reels-grid { grid-template-columns: 1fr; } }
+    
+    .c8cs-reel-card { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FAFAF7; padding: clamp(1.5rem, 2vw, 2rem); display: grid; grid-template-columns: 240px 1fr; gap: 1.75rem; align-items: center; }
+    @media (max-width: 650px) { .c8cs-reel-card { grid-template-columns: 1fr; } }
+    
+    .c8cs-phone-frame { width: 100%; max-width: 240px; aspect-ratio: 9 / 16; border-radius: 24px; background: #0F172A; padding: 8px; box-shadow: 0 16px 36px rgba(0,0,0,0.12); border: 2px solid #E2E8F0; position: relative; margin: 0 auto; }
+    .c8cs-phone-notch { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 60px; height: 10px; background: #0F172A; border-radius: 6px; z-index: 10; }
+    .c8cs-phone-screen { width: 100%; height: 100%; border-radius: 18px; overflow: hidden; position: relative; background: #000000; }
+    .c8cs-reel-video { width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer; }
+    
+    .c8cs-reel-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.25); transition: opacity 0.2s ease; cursor: pointer; }
+    .c8cs-reel-card.is-playing .c8cs-reel-overlay { opacity: 0; pointer-events: none; }
+    .c8cs-reel-play-btn { width: 50px; height: 50px; border-radius: 50%; background: rgba(255,255,255,0.9); border: none; color: var(--c8-ink); font-size: 18px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s ease; padding-left: 4px; }
+    .c8cs-reel-play-btn:hover { transform: scale(1.1); }
+    
+    .c8cs-reel-details { display: flex; flex-direction: column; gap: 0.75rem; }
+    .c8cs-reel-sub { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.12em; }
+    .c8cs-reel-h4 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); line-height: 1.3; }
+    .c8cs-reel-quote-box { background: #FFFFFF; border: 1px solid var(--c8-grid-line); border-radius: 4px; padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .c8cs-reel-quote { font-size: 13.5px; color: var(--c8-sub); font-style: italic; line-height: 1.6; }
+    .c8cs-reel-author { font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: var(--c8-blue); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* ── SECTION 6: PURE VISUAL GALLERY ── */
+    .c8cs-stream-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+    .c8cs-stream-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+    .c8cs-stream-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+    @media (max-width: 600px) { .c8cs-stream-header { padding: 1.75rem 1.25rem; } }
+    .c8cs-stream-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: var(--c8-grid-line); }
+    @media (max-width: 992px) { .c8cs-stream-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .c8cs-stream-grid { grid-template-columns: 1fr; } }
+    .c8cs-stream-cell { background: #FFFFFF; padding: clamp(1.25rem, 2vw, 1.75rem); display: flex; flex-direction: column; border-right: 1px solid var(--c8-grid-line); border-bottom: 1px solid var(--c8-grid-line); transition: background 0.35s ease; }
+    .c8cs-stream-cell:nth-child(3n) { border-right: none; }
+    @media (max-width: 992px) { .c8cs-stream-cell:nth-child(3n) { border-right: 1px solid var(--c8-grid-line); } .c8cs-stream-cell:nth-child(2n) { border-right: none; } }
+    @media (max-width: 600px) { .c8cs-stream-cell { border-right: none; padding: 1.25rem 1.25rem 1.5rem; } }
+    .c8cs-stream-cell:hover { background: #FAFAF7; }
+    .c8cs-stream-img-box { width: 100%; aspect-ratio: 16 / 9; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; margin-bottom: 1rem; position: relative; }
+    .c8cs-stream-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; cursor: zoom-in; transition: transform 0.5s ease; }
+    .c8cs-stream-cell:hover .c8cs-stream-img-box img { transform: scale(1.03); }
+    .c8cs-stream-cell-info { display: flex; flex-direction: column; gap: 0.2rem; }
+    .c8cs-stream-cell-tag { font-family: var(--font-mono); font-size: 8.5px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.12em; }
+    .c8cs-stream-cell-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; letter-spacing: 0.01em; }
+
+    /* ── SECTION 7: METRICS ── */
+    .c8cs-metrics-bg { background: #FFFFFF; padding: clamp(3rem, 5vw, 5rem) 0; }
+    .c8cs-metrics-outer-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+    .c8cs-metrics-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+    @media (max-width: 600px) { .c8cs-metrics-header { padding: 1.75rem 1.25rem; } }
+    .c8cs-metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+    @media (max-width: 768px) { .c8cs-metrics-grid { grid-template-columns: 1fr; } }
+
+    .c8cs-metric-card { background: #FAFAF7; border-right: 1px solid var(--c8-grid-line); padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; flex-direction: column; transition: background 0.35s ease; }
+    .c8cs-metric-card:nth-child(even) { background: #FFFFFF; }
+    .c8cs-metric-card:hover { background: #F4F5F7; }
+    .c8cs-metric-card:last-child { border-right: none; }
+    @media (max-width: 768px) {
+      .c8cs-metric-card { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
+      .c8cs-metric-card:last-child { border-bottom: none; }
+    }
+
+    .c8cs-metric-val { font-family: var(--font-heading); font-size: clamp(2.4rem, 4vw, 3rem); font-weight: 700; color: var(--c8-blue); line-height: 1; margin-bottom: 1rem; }
+    .c8cs-metric-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.65rem; font-weight: 700; }
+    .c8cs-metric-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; }
+
+    /* ── SECTION 8: RELATED PROJECTS ── */
+    .c8cs-related-paper-outer { background: #FFFFFF; padding: clamp(3rem, 5vw, 5rem) 0; width: 100%; }
+    .c8cs-related-matrix-box { max-width: 1340px; margin: 0 auto; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+    .c8cs-related-matrix-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+    @media (max-width: 600px) { .c8cs-related-matrix-header { padding: 1.75rem 1.25rem; } }
+    .c8cs-related-matrix-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+    @media (max-width: 900px) { .c8cs-related-matrix-grid { grid-template-columns: 1fr; } }
+
+    .c8cs-related-cell { padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); border-right: 1px solid var(--c8-grid-line); background: #FAFAF7; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: var(--c8-ink); transition: background 0.35s ease; }
+    .c8cs-related-cell:nth-child(even) { background: #FFFFFF; }
+    .c8cs-related-cell:last-child { border-right: none; }
+    .c8cs-related-cell:hover { background: #F4F5F7; }
+    @media (max-width: 900px) {
+      .c8cs-related-cell { border-right: none; border-bottom: 1px solid var(--c8-grid-line); }
+      .c8cs-related-cell:last-child { border-bottom: none; }
+    }
+
+    .c8cs-related-cell-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; margin-bottom: 0.65rem; }
+    .c8cs-related-cell-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); margin-bottom: 0.75rem; line-height: 1.3; }
+    .c8cs-related-cell-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 1.75rem; }
+    .c8cs-related-cell-link { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s ease; }
+    .c8cs-related-cell:hover .c8cs-related-cell-link { gap: 10px; }
+
+    /* ── FOOTER ── */
+    .c8-footer {
+      background: #080808;
+      color: #FFFFFF;
+      padding: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 4vw, 3.5rem);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .c8-footer-inner {
+      max-width: 1340px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .c8-footer-brand {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .c8-footer-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #888888;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── INTERACTIVE LIGHTBOX INSPECTOR MODAL ── */
+    .c8-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 8, 8, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 99999;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .c8-lightbox.is-open {
+      display: flex;
+      opacity: 1;
+    }
+    .c8-lb-topbar {
+      width: 100%;
+      max-width: 1400px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #FFFFFF;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      font-family: var(--font-mono);
+      font-size: 11px;
+    }
+    .c8-lb-title {
+      color: #FFFFFF;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .c8-lb-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .c8-lb-open-btn {
+      color: #3D6BFF;
+      text-decoration: underline;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 700;
+    }
+    .c8-lb-close-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      transition: background 0.2s ease;
+    }
+    .c8-lb-close-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .c8-lb-stage {
+      position: relative;
+      flex: 1;
+      width: 100%;
+      max-width: 1400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 0;
+      overflow: hidden;
+    }
+    .c8-lb-stage img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      cursor: zoom-out;
+      transition: transform 0.2s ease;
+    }
+    .c8-lb-phone-wrap {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      max-height: 82vh;
+      width: auto;
+    }
+    .c8-lightbox.is-mobile-view .c8-lb-phone-wrap {
+      display: flex;
+    }
+    .c8-lightbox.is-mobile-view > .c8-lb-stage > img,
+    .c8-lightbox.is-mobile-view #c8LbImg {
+      display: none !important;
+    }
+    .c8-lb-phone-frame {
+      height: 80vh;
+      max-height: 760px;
+      width: calc(80vh * 9 / 18.5);
+      max-width: 370px;
+      border-radius: 42px;
+      background: #0B0F19;
+      padding: 10px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.18), inset 0 0 0 2px #1E293B;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .c8-lb-phone-notch {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 18px;
+      background: #000000;
+      border-radius: 10px;
+      z-index: 10;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    }
+    .c8-lb-phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 32px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: relative;
+      background: #000000;
+      -webkit-overflow-scrolling: touch;
+    }
+    .c8-lb-phone-screen img {
+      width: 100% !important;
+      height: 100% !important;
+      max-height: none !important;
+      object-fit: cover !important;
+      object-position: top center !important;
+      display: block !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      border: none !important;
+      cursor: default !important;
+    }
+    .c8-lb-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .c8-lb-nav:hover {
+      background: var(--c8-blue);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .c8-lb-nav.prev { left: 1rem; }
+    .c8-lb-nav.next { right: 1rem; }
+    .c8-lb-caption {
+      color: #AAAAAA;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-align: center;
+      letter-spacing: 0.06em;
+      padding-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="c8-nav-header">
+    <a href="#" class="c8-brand-link">
+      <span class="c8-brand-dot"></span>
+      <span>Cr8v Stacks</span>
+    </a>
+    <nav class="c8-nav-pills">
+      <a href="#" class="c8-nav-link">Case Studies</a>
+      <a href="#" class="c8-nav-link">Services</a>
+      <a href="#" class="c8-nav-link">Framework</a>
+      <a href="#" class="c8-btn-cta">Book Discovery Call</a>
+    </nav>
+  </header>
+
+  <div class="c8cs-root">
+    
+    <!-- Section 1: Hero Section -->
+    <section class="c8cs-hero">
+      <div class="c8cs-wrap" style="padding-top: 1rem; padding-bottom: 2rem;">
+        <a href="#" class="c8cs-back-btn">&larr; Back to Portfolio Archive</a>
+        
+        <div class="c8cs-label">Case Study // Digital Marketing // Google Ads, Tracking Infrastructure & Social Content</div>
+        <h1 class="c8cs-headline">Kiri City Stays: Attribution & <span class="c8cs-serif">Paid Acquisition Launch</span></h1>
+        <p class="c8cs-lead">Kiri City Stays operates premium urban serviced apartments in Manchester, United Kingdom (near Old Trafford and MediaCityUK). We engineered their visual brand identity and logo, established Google Ads search campaign architectures, deployed precision Google Tag Manager event attribution triggers, and produced engaging social media campaigns—including multi-slide Instagram carousels and vertical video reels highlighting guest reviews and city culture.</p>
+        
+        <div class="fylla-pill-row">
+          <span class="fylla-pill">Digital Marketing</span>
+          <span class="fylla-pill">Google Ads</span>
+          <span class="fylla-pill">GTM Attribution</span>
+          <span class="fylla-pill">Social Media Management</span>
+          <span class="fylla-pill">Brand Identity</span>
+        </div>
+
+        <div class="c8cs-meta-grid">
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Client</span>
+            <span class="c8cs-meta-val">Kiri City Stays</span>
+          </div>
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Services</span>
+            <span class="c8cs-meta-val">Digital Marketing, Google Ads & Social Content</span>
+          </div>
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Stack</span>
+            <span class="c8cs-meta-val">Google Ads · GTM · Meta Creative Suite · Analytics</span>
+          </div>
+          <div class="c8cs-meta-item">
+            <span class="c8cs-meta-lbl">Link</span>
+            <span class="c8cs-meta-val">
+              <span style="color: #64748B; font-weight: 500;">Archived Campaign (Offline)</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Full-Width Expansive Hero Media (AI Creative Desk Suite) -->
+    <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
+      <div class="c8cs-hero-switcher">
+        <button type="button" class="c8cs-switch-btn is-active" id="btnHeroLandscape" data-target="landscape">Portfolio Landscape (16:9)</button>
+        <button type="button" class="c8cs-switch-btn" id="btnHeroVertical" data-target="vertical">Service Page Portrait (3:4)</button>
+      </div>
+
+      <div class="c8cs-main-img-box" id="c8cs-grow-target">
+        <!-- Landscape Featured Image -->
+        <div class="c8cs-hero-img-inner is-landscape" id="heroBoxLandscape" title="Click to Inspect Full-Resolution Landscape Hero">
+          <img src="wp-theme/cr8v-stacks/assets/img/case_studies/case_study_kiri_city_stays.webp" alt="Kiri City Stays - Portfolio Featured Visual" data-inspect-img data-inspect-title="Portfolio Featured Image (1376x768) // AI Creative Direction Desk Suite">
+        </div>
+        <!-- Vertical Service Page Hero -->
+        <div class="c8cs-hero-img-inner is-vertical" id="heroBoxVertical" style="display: none;" title="Click to Inspect Full-Resolution Vertical Hero">
+          <img src="wp-theme/cr8v-stacks/assets/img/case_studies/cs_kiri_city_stays_hero_vertical.webp" alt="Kiri City Stays - Service Page Vertical Hero" data-inspect-img data-inspect-title="Service Page Hero (896x1200) // AI Creative Direction Vertical Desk Suite">
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Strategic Overview -->
+    <section class="c8cs-wrap">
+      <div class="c8cs-split-section">
+        <div class="c8cs-split-left">
+          <div class="c8cs-label">Overview</div>
+          <h2 class="c8cs-split-title">The Growth Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span></h2>
+          <div class="c8cs-body-content">
+            <p>Operating in a competitive UK urban hospitality market, Kiri City Stays needed to capture high-intent travelers visiting Manchester for Premier League football fixtures, corporate business, and city events without relying solely on passive third-party listing platforms.</p>
+            <p>Cr8v Stacks executed an end-to-end growth and creative strategy: designing their official brand identity and regal crest logo, building targeted Google Search ad campaigns, establishing rigorous Google Tag Manager conversion attribution triggers, and producing multi-slide Instagram carousel series and vertical video reels that drive direct guest inquiry engagement.</p>
+          </div>
+        </div>
+
+        <div class="c8cs-split-right">
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3 class="fylla-value-h3">01 / Brand Identity & Regal Crest Monogram</h3>
+              <p class="fylla-value-desc">Crafted the official CK monogram with architectural house rooftop crests and authoritative typography.</p>
+            </div>
+          </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3 class="fylla-value-h3">02 / Google Ads Search Campaign Architecture</h3>
+              <p class="fylla-value-desc">Structured high-intent search ad groups capturing Manchester United matchday travel, business short-stays, and event accommodation.</p>
+            </div>
+          </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3 class="fylla-value-h3">03 / GTM Event Tracking & Attribution Engine</h3>
+              <p class="fylla-value-desc">Deployed Google Tag Manager triggers tracking direct booking button clicks, contact inquiries, and return on ad spend (ROAS).</p>
+            </div>
+          </div>
+          <div class="fylla-value-item">
+            <div class="fylla-value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3 class="fylla-value-h3">04 / Social Media Creative Content Engine</h3>
+              <p class="fylla-value-desc">Produced branded Instagram carousel series, seasonal greeting campaigns, and vertical video reels featuring verified 5-star guest reviews and local Manchester dining highlights.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Core Technical Deliverables (01, 02, 03) -->
+    <section class="c8cs-deliverables-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-deliverables-box">
+          <div class="c8cs-deliverables-header">
+            <div class="c8cs-label">Design &amp; Engineering</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Core Technical Deliverables</h2>
+          </div>
+
+          <div class="c8cs-deliverables-grid">
+            <!-- Deliverable 01 -->
+            <div class="c8cs-deliverable-card">
+              <div>
+                <div class="c8cs-deliverable-meta">Brand Identity // Asset 01</div>
+                <h3 class="c8cs-deliverable-title">Brand Identity, Regal Monogram & Social Guidelines</h3>
+                <p class="c8cs-deliverable-desc">Designed the official Kiri City Stays visual identity—featuring the regal CK monogram crowned with architectural rooftop crests, royal blue and deep navy color ramp tokens, and strict social media grid specifications.</p>
+              </div>
+              <div class="c8cs-deliverable-img-box" title="Click to Inspect Asset 01">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_asset_01_design_system.webp" alt="Kiri City Stays Brand Guidelines" data-inspect-img data-inspect-title="Asset 01 // Brand Identity, Monogram & Social Guidelines">
+              </div>
+            </div>
+
+            <!-- Deliverable 02 -->
+            <div class="c8cs-deliverable-card">
+              <div>
+                <div class="c8cs-deliverable-meta">Search Infrastructure // Asset 02</div>
+                <h3 class="c8cs-deliverable-title">Google Ads Campaign Matrix & GTM Event Attribution Flow</h3>
+                <p class="c8cs-deliverable-desc">Engineered high-converting Google Search ad groups targeting Manchester matchday travelers and business visitors, paired with rigorous GTM event triggers measuring direct inquiries.</p>
+              </div>
+              <div class="c8cs-deliverable-img-box" title="Click to Inspect Asset 02">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_asset_02_experience.webp" alt="Kiri City Stays Search Infrastructure" data-inspect-img data-inspect-title="Asset 02 // Google Ads Matrix & GTM Event Attribution Flow">
+              </div>
+            </div>
+          </div>
+
+          <!-- Deliverable 03: Architectural Board Model on Granite (Approved 3:4 Vertical Standard) -->
+          <div class="c8cs-sovereignty-split" style="border-top: 1px solid var(--c8-grid-line);">
+            <div class="c8cs-sovereignty-left">
+              <div class="c8cs-deliverable-meta">Growth Architecture // Asset 03</div>
+              <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 1.25rem;">Platform Architecture: Paid Search & Attribution Engine</h2>
+              <p style="font-size: 15px; color: var(--c8-sub); line-height: 1.7; margin-bottom: 1.5rem; font-weight: 300;">The white architectural system model board: tactile 3D relief blocks detailing the paid acquisition funnel—from Google Search ad intent targeting and matchday sports tourism geo-acquisition to GTM event triggers and direct booking attribution.</p>
+              <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;">
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">01</span>
+                  <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;">Google Search & Intent Targeting: High-converting search ad groups capturing Manchester matchday visitors and business travelers.</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">02</span>
+                  <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;">99.4% Attribution Precision: End-to-end GTM event tagging tracking exact click-to-inquiry conversion paths.</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: var(--c8-blue); font-weight: 700; font-family: var(--font-mono); font-size: 13px;">03</span>
+                  <span style="font-size: 14px; color: var(--c8-ink); line-height: 1.5;">+280% Direct Inquiries: Compounding direct traveler engagement driven by consistent social campaigns and paid search.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="c8cs-sovereignty-right">
+              <div class="c8cs-sovereignty-img-box" title="Click to Inspect Asset 03 (3:4 Architectural Board Model)">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_asset_03_ecosystem.webp" alt="Kiri City Stays Ecosystem Architectural Model" data-inspect-img data-inspect-title="Asset 03 // White Architectural Board Model on Granite (896x1200)">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5.5: Dedicated Social Campaign & Creative Suite -->
+    <section class="c8cs-social-campaign-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-social-box">
+          
+          <!-- Section Header -->
+          <div class="c8cs-social-header">
+            <div class="c8cs-label">Social Media & Content Engine</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0.75rem;">Campaign Creative Suite</h2>
+            <p style="font-size: 15px; color: var(--c8-sub); max-width: 820px; line-height: 1.7; font-weight: 300; margin: 0;">A multi-tier social media content engine combining high-converting Instagram carousel slides with vertical 9:16 video reels spotlighting verified UK traveler reviews, Manchester cultural attractions, and matchday travel proximity.</p>
+          </div>
+
+          <!-- Component A: 5-Slide Instagram Carousel Deck (With Marketing Psychology Descriptions) -->
+          <div class="c8cs-carousel-deck-wrap">
+            <div class="c8cs-carousel-deck-topbar">
+              <div class="c8cs-carousel-deck-title">
+                <span class="c8cs-badge-dot"></span>
+                <span>Instagram Multi-Slide Carousel Deck // 5 Authentic Creative Assets</span>
+              </div>
+              <div class="c8cs-carousel-nav-controls">
+                <button type="button" class="c8cs-deck-nav-btn" data-carousel-btn="prev" aria-label="Previous Slide">&larr;</button>
+                <span class="c8cs-deck-counter" data-carousel-counter>01 / 05</span>
+                <button type="button" class="c8cs-deck-nav-btn" data-carousel-btn="next" aria-label="Next Slide">&rarr;</button>
+              </div>
+            </div>
+
+            <div class="c8cs-carousel-deck-track" data-carousel-track>
+              <!-- Slide 1 -->
+              <div class="c8cs-carousel-slide-item">
+                <div class="c8cs-slide-media" title="Click to Inspect Slide 01">
+                  <img src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_carousel_01.webp" alt="Merry Christmas Greeting" data-inspect-img data-inspect-title="Slide 01 // Merry Christmas Holiday Greeting">
+                  <span class="c8cs-slide-num-badge">SLIDE 01</span>
+                </div>
+                <div class="c8cs-slide-caption">
+                  <span class="c8cs-slide-tag">01 / Holiday Brand Equity</span>
+                  <h4 class="c8cs-slide-title">Merry Christmas Greeting</h4>
+                  <p class="c8cs-slide-desc">Strengthening emotional rapport during peak holiday travel by positioning Kiri City Stays as a warm, welcoming home-away-from-home rather than a cold commercial hotel room.</p>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="c8cs-carousel-slide-item">
+                <div class="c8cs-slide-media" title="Click to Inspect Slide 02">
+                  <img src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_carousel_02.webp" alt="Welcome to the Month of Love" data-inspect-img data-inspect-title="Slide 02 // Welcome to the Month of Love">
+                  <span class="c8cs-slide-num-badge">SLIDE 02</span>
+                </div>
+                <div class="c8cs-slide-caption">
+                  <span class="c8cs-slide-tag">02 / Romance Demand Priming</span>
+                  <h4 class="c8cs-slide-title">Welcome to the Month of Love</h4>
+                  <p class="c8cs-slide-desc">Priming romantic couple interest at the start of February, encouraging advance weekend bookings for anniversary and Valentine getaways in central Manchester.</p>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="c8cs-carousel-slide-item">
+                <div class="c8cs-slide-media" title="Click to Inspect Slide 03">
+                  <img src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_carousel_03.webp" alt="Book With Us Directly" data-inspect-img data-inspect-title="Slide 03 // Direct Booking Incentive">
+                  <span class="c8cs-slide-num-badge">SLIDE 03</span>
+                </div>
+                <div class="c8cs-slide-caption">
+                  <span class="c8cs-slide-tag">03 / Direct Booking Incentive</span>
+                  <h4 class="c8cs-slide-title">Book With Us Directly</h4>
+                  <p class="c8cs-slide-desc">Overcoming OTA dependency by communicating clear financial and hospitality advantages when booking directly—guaranteeing best nightly rates and dedicated concierge service.</p>
+                </div>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="c8cs-carousel-slide-item">
+                <div class="c8cs-slide-media" title="Click to Inspect Slide 04">
+                  <img src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_carousel_04.webp" alt="Happy Valentine's Day" data-inspect-img data-inspect-title="Slide 04 // Happy Valentine's Day Manchester Skyline">
+                  <span class="c8cs-slide-num-badge">SLIDE 04</span>
+                </div>
+                <div class="c8cs-slide-caption">
+                  <span class="c8cs-slide-tag">04 / Urban Romance Hook</span>
+                  <h4 class="c8cs-slide-title">Happy Valentine's Day</h4>
+                  <p class="c8cs-slide-desc">Pairing iconic Manchester skyline visuals with tailored couple hospitality packages, tapping into last-minute romantic staycation demand.</p>
+                </div>
+              </div>
+
+              <!-- Slide 5 -->
+              <div class="c8cs-carousel-slide-item">
+                <div class="c8cs-slide-media" title="Click to Inspect Slide 05">
+                  <img src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_carousel_05.webp" alt="Hello March — Make Memories" data-inspect-img data-inspect-title="Slide 05 // Spring Travel Momentum">
+                  <span class="c8cs-slide-num-badge">SLIDE 05</span>
+                </div>
+                <div class="c8cs-slide-caption">
+                  <span class="c8cs-slide-tag">05 / Seasonal Momentum</span>
+                  <h4 class="c8cs-slide-title">Hello March — Make Memories</h4>
+                  <p class="c8cs-slide-desc">Transitioning seasonal demand into spring, targeting corporate business travelers, conference attendees, and weekend tourists exploring Manchester.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Component B: 9:16 Vertical Video Reels Stage (ALL 4 REELS WITH AUTHENTIC EXTRACTED POSTERS) -->
+          <div class="c8cs-reels-stage-wrap">
+            <div class="c8cs-reels-stage-header">
+              <span class="c8cs-reels-tag">Mobile Production // 9:16 Vertical Video (4-Reel Suite)</span>
+              <h3 class="c8cs-reels-title">Social Proof &amp; Event Proximity Video Reels</h3>
+            </div>
+            <div class="c8cs-reels-grid">
+              
+              <!-- Reel 1: Kate 5-Star Testimonial -->
+              <div class="c8cs-reel-card" data-reel-card>
+                <div class="c8cs-phone-frame">
+                  <div class="c8cs-phone-notch"></div>
+                  <div class="c8cs-phone-screen">
+                    <video 
+                      class="c8cs-reel-video" 
+                      src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_reel_01_testimonial.mp4" 
+                      poster="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_reel_01_poster.webp"
+                      playsinline 
+                      loop 
+                      preload="metadata">
+                    </video>
+                    <div class="c8cs-reel-overlay" data-reel-play-trigger title="Click to Play / Pause Video">
+                      <button type="button" class="c8cs-reel-play-btn" aria-label="Play Video">&#9654;</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="c8cs-reel-details">
+                  <span class="c8cs-reel-sub">Social Proof // 9:16 Vertical Reel</span>
+                  <h4 class="c8cs-reel-h4">Verified Guest Testimonial & Host Review</h4>
+                  <div class="c8cs-reel-quote-box">
+                    <p class="c8cs-reel-quote">&ldquo;A very convenient location close to great restaurants, local shops and the tram station. Very responsive helpful host, everything we needed in the apartment for a short business trip.&rdquo;</p>
+                    <span class="c8cs-reel-author">Kate · Codford, United Kingdom</span>
+                  </div>
+                  <p style="font-size: 13px; color: var(--c8-sub); line-height: 1.5; font-weight: 300;">Eliminating traveler booking anxiety by spotlighting unvarnished guest feedback praising prime Manchester location, cleanliness, and rapid host communication.</p>
+                </div>
+              </div>
+
+              <!-- Reel 2: Matchday Sports Tourism -->
+              <div class="c8cs-reel-card" data-reel-card>
+                <div class="c8cs-phone-frame">
+                  <div class="c8cs-phone-notch"></div>
+                  <div class="c8cs-phone-screen">
+                    <video 
+                      class="c8cs-reel-video" 
+                      src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_reel_02_matchday.mp4" 
+                      poster="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_reel_02_poster.webp"
+                      playsinline 
+                      loop 
+                      preload="metadata">
+                    </video>
+                    <div class="c8cs-reel-overlay" data-reel-play-trigger title="Click to Play / Pause Video">
+                      <button type="button" class="c8cs-reel-play-btn" aria-label="Play Video">&#9654;</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="c8cs-reel-details">
+                  <span class="c8cs-reel-sub">Sports Tourism // 9:16 Vertical Reel</span>
+                  <h4 class="c8cs-reel-h4">Premier League Matchday Accommodation Spotlight</h4>
+                  <div class="c8cs-reel-quote-box">
+                    <p class="c8cs-reel-quote">&ldquo;Capturing domestic and international football fans traveling to Manchester for Premier League fixtures, offering luxury serviced accommodation near stadium transit corridors.&rdquo;</p>
+                    <span class="c8cs-reel-author">Old Trafford & Etihad Stadium Proximity</span>
+                  </div>
+                  <p style="font-size: 13px; color: var(--c8-sub); line-height: 1.5; font-weight: 300;">Tapping into surging sports tourism demand. When hotel availability collapses during major fixture weekends, this reel directly captures high-intent match-going fans flying into Manchester.</p>
+                </div>
+              </div>
+
+              <!-- Reel 3: Couples Weekend & Cultural Dining -->
+              <div class="c8cs-reel-card" data-reel-card>
+                <div class="c8cs-phone-frame">
+                  <div class="c8cs-phone-notch"></div>
+                  <div class="c8cs-phone-screen">
+                    <video 
+                      class="c8cs-reel-video" 
+                      src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_reel_03_couples.mp4" 
+                      poster="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_reel_03_poster.webp"
+                      playsinline 
+                      loop 
+                      preload="metadata">
+                    </video>
+                    <div class="c8cs-reel-overlay" data-reel-play-trigger title="Click to Play / Pause Video">
+                      <button type="button" class="c8cs-reel-play-btn" aria-label="Play Video">&#9654;</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="c8cs-reel-details">
+                  <span class="c8cs-reel-sub">Leisure & Romance // 9:16 Vertical Reel</span>
+                  <h4 class="c8cs-reel-h4">Romantic City Breaks & Cultural Dining Getaways</h4>
+                  <div class="c8cs-reel-quote-box">
+                    <p class="c8cs-reel-quote">&ldquo;Targeting high-yield couples and anniversary travelers with tailored weekend getaway packages highlighting fine dining and cultural nightlife.&rdquo;</p>
+                    <span class="c8cs-reel-author">Manchester City Center & Dining Proximity</span>
+                  </div>
+                  <p style="font-size: 13px; color: var(--c8-sub); line-height: 1.5; font-weight: 300;">Showcasing romantic ambiance and proximity to premier restaurants positions Kiri City Stays as a bespoke romantic destination rather than generic corporate lodging.</p>
+                </div>
+              </div>
+
+              <!-- Reel 4: Seasonal Holiday Engagement -->
+              <div class="c8cs-reel-card" data-reel-card>
+                <div class="c8cs-phone-frame">
+                  <div class="c8cs-phone-notch"></div>
+                  <div class="c8cs-phone-screen">
+                    <video 
+                      class="c8cs-reel-video" 
+                      src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_reel_04_holiday.mp4" 
+                      poster="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_reel_04_poster.webp"
+                      playsinline 
+                      loop 
+                      preload="metadata">
+                    </video>
+                    <div class="c8cs-reel-overlay" data-reel-play-trigger title="Click to Play / Pause Video">
+                      <button type="button" class="c8cs-reel-play-btn" aria-label="Play Video">&#9654;</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="c8cs-reel-details">
+                  <span class="c8cs-reel-sub">Seasonal Campaign // 9:16 Vertical Reel</span>
+                  <h4 class="c8cs-reel-h4">Festive Seasonal Campaign & Direct Booking Perks</h4>
+                  <div class="c8cs-reel-quote-box">
+                    <p class="c8cs-reel-quote">&ldquo;Leveraging seasonal holiday warmth to capture winter travel demand, incentivizing direct reservations with festive welcome packages and guaranteed late checkout.&rdquo;</p>
+                    <span class="c8cs-reel-author">Winter Hospitality & Holiday Travel</span>
+                  </div>
+                  <p style="font-size: 13px; color: var(--c8-sub); line-height: 1.5; font-weight: 300;">Capitalizing on holiday cheer to secure early winter travel reservations, driving travelers directly to the brand's reservation channels to bypass OTA commission leakage.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Pure Visual Gallery Stream (6 Assets — Fully Balanced) -->
+    <section class="c8cs-stream-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-stream-box">
+          <div class="c8cs-stream-header">
+            <div class="c8cs-label">Campaign Showcase</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Campaign Creative Suite & Social Production</h2>
+          </div>
+
+          <div class="c8cs-stream-grid">
+            <!-- Gallery 01 (Rebuilt Balanced Full Canvas) -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box" title="Click to Inspect Gallery 01">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_gallery_01.webp" alt="Branded Multi-Slide Instagram Carousel Sequence" data-inspect-img data-inspect-title="Gallery 01 // Multi-Slide Instagram Carousel Sequence (Full Canvas)">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag">Social Carousel</span>
+                <h3 class="c8cs-stream-cell-title">Branded Multi-Slide Instagram Carousel Sequence</h3>
+              </div>
+            </div>
+
+            <!-- Gallery 02 -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box" title="Click to Inspect Gallery 02">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_gallery_02.webp" alt="9:16 Guest Testimonial & Apartment Showcase Reels" data-inspect-img data-inspect-title="Gallery 02 // 9:16 Guest Testimonial & Apartment Showcase Reels">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag">Video Reels</span>
+                <h3 class="c8cs-stream-cell-title">9:16 Guest Testimonial & Apartment Showcase Reels</h3>
+              </div>
+            </div>
+
+            <!-- Gallery 03 (Psychology-Driven Matchday Title) -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box" title="Click to Inspect Gallery 03">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_gallery_03.webp" alt="Matchday Accommodation & Event Travel Acquisition" data-inspect-img data-inspect-title="Gallery 03 // Matchday Accommodation & Event Travel Acquisition">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag">Event Marketing</span>
+                <h3 class="c8cs-stream-cell-title">Matchday Accommodation & Event Travel Acquisition</h3>
+              </div>
+            </div>
+
+            <!-- Gallery 04 -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box" title="Click to Inspect Gallery 04">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_gallery_04.webp" alt="Search Campaign Structure & Keyword Match Matrix" data-inspect-img data-inspect-title="Gallery 04 // Google Ads Search Campaign Structure">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag">Google Ads</span>
+                <h3 class="c8cs-stream-cell-title">Search Campaign Structure & Keyword Match Matrix</h3>
+              </div>
+            </div>
+
+            <!-- Gallery 05 -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box" title="Click to Inspect Gallery 05">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_gallery_05.webp" alt="GTM Container Triggers & GA4 Conversion Pipeline" data-inspect-img data-inspect-title="Gallery 05 // GTM Container Triggers & GA4 Pipeline">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag">Attribution</span>
+                <h3 class="c8cs-stream-cell-title">GTM Container Triggers & GA4 Conversion Pipeline</h3>
+              </div>
+            </div>
+
+            <!-- Gallery 06 -->
+            <div class="c8cs-stream-cell">
+              <div class="c8cs-stream-img-box" title="Click to Inspect Gallery 06">
+                <img src="wp-theme/cr8v-stacks/assets/img/case_studies/kiri_gallery_06.webp" alt="Seasonal Brand Campaigns & Holiday Engagement Suite" data-inspect-img data-inspect-title="Gallery 06 // Seasonal Brand Campaigns & Holiday Suite">
+              </div>
+              <div class="c8cs-stream-cell-info">
+                <span class="c8cs-stream-cell-tag">Seasonal Creative</span>
+                <h3 class="c8cs-stream-cell-title">Seasonal Brand Campaigns & Holiday Engagement Suite</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Measured Outcomes (Verified Metrics) -->
+    <section class="c8cs-metrics-bg">
+      <div class="c8cs-wrap">
+        <div class="c8cs-metrics-outer-box">
+          <div class="c8cs-metrics-header">
+            <div class="c8cs-label">Impact</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Measured Outcomes &amp; Campaign Performance</h2>
+          </div>
+
+          <div class="c8cs-metrics-grid">
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-val">+280%</div>
+              <div class="c8cs-metric-lbl">Direct Inquiries</div>
+              <p class="c8cs-metric-desc">Surge in direct guest inquiries generated across targeted Google Search and social campaigns.</p>
+            </div>
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-val">99.4%</div>
+              <div class="c8cs-metric-lbl">Attribution Accuracy</div>
+              <p class="c8cs-metric-desc">Rigorous GTM event tracking connecting ad clicks directly to verified guest inquiries.</p>
+            </div>
+            <div class="c8cs-metric-card">
+              <div class="c8cs-metric-val">4.6x</div>
+              <div class="c8cs-metric-lbl">Ad Engagement Lift</div>
+              <p class="c8cs-metric-desc">Elevated interaction and click-through rates driven by tailored matchday and video reel creatives.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Related Projects Matrix -->
+    <section class="c8cs-related-paper-outer">
+      <div class="c8cs-wrap">
+        <div class="c8cs-related-matrix-box">
+          <div class="c8cs-related-matrix-header">
+            <div class="c8cs-label">Selected Work</div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0;">Explore Related Case Studies</h2>
+          </div>
+
+          <div class="c8cs-related-matrix-grid">
+            <a href="#" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag">Luxury Hospitality // Lekki Phase 1, Lagos</div>
+                <h3 class="c8cs-related-cell-title">The Duch Apartments</h3>
+                <p class="c8cs-related-cell-desc">Engineering an independent direct booking engine, custom room availability calendar, and entity SEO architecture reducing reliance on third-party OTAs.</p>
+              </div>
+              <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
+            </a>
+            <a href="#" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag">Financial Technology // RegTech Platform</div>
+                <h3 class="c8cs-related-cell-title">Compliance Analysis Platform</h3>
+                <p class="c8cs-related-cell-desc">Engineering multi-step assessment wizards, automated payment paywalls, and asynchronous queue workers for regulatory compliance.</p>
+              </div>
+              <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
+            </a>
+            <a href="#" class="c8cs-related-cell">
+              <div>
+                <div class="c8cs-related-cell-tag">Luxury E-Commerce // Headless Storefront</div>
+                <h3 class="c8cs-related-cell-title">SweeterMen NG</h3>
+                <p class="c8cs-related-cell-desc">High-performance custom WooCommerce storefront with zero plugin bloat, 1-step checkout drawer, and Paystack multi-payment routing.</p>
+              </div>
+              <span class="c8cs-related-cell-link">Explore Case Study &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="c8-footer">
+      <div class="c8-footer-inner">
+        <div class="c8-footer-brand">Cr8v Stacks Studio</div>
+        <div class="c8-footer-meta">Manchester Campaign Archive · Digital Marketing, Google Ads & Social Content Production</div>
+      </div>
+    </footer>
+
+  </div><!-- End c8cs-root -->
+
+  <!-- Interactive Lightbox Modal -->
+  <div class="c8-lightbox" id="c8Lightbox" role="dialog" aria-modal="true">
+    <div class="c8-lb-topbar">
+      <div class="c8-lb-title" id="c8LbTitle">Visual Inspector</div>
+      <div class="c8-lb-actions">
+        <a href="#" target="_blank" class="c8-lb-open-btn" id="c8LbDirectLink">Open Raw File &nearr;</a>
+        <button type="button" class="c8-lb-close-btn" id="c8LbCloseBtn">Close [ESC]</button>
+      </div>
+    </div>
+    <div class="c8-lb-stage">
+      <button type="button" class="c8-lb-nav prev" id="c8LbPrev" aria-label="Previous Image">&larr;</button>
+      <img src="" alt="Visual Detail" id="c8LbImg">
+      <div class="c8-lb-phone-wrap" id="c8LbPhoneWrap">
+        <div class="c8-lb-phone-frame">
+          <div class="c8-lb-phone-notch"></div>
+          <div class="c8-lb-phone-screen">
+            <img src="" alt="" id="c8LbPhoneImg">
+          </div>
+        </div>
+      </div>
+      <button type="button" class="c8-lb-nav next" id="c8LbNext" aria-label="Next Image">&rarr;</button>
+    </div>
+    <div class="c8-lb-caption" id="c8LbCaption">Click anywhere outside or hit ESC to exit</div>
+  </div>
+
+  <!-- Interactive JavaScript Engine -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // 0. Hero Switcher (Landscape 16:9 vs Vertical 3:4)
+      var btnLand = document.getElementById('btnHeroLandscape');
+      var btnVert = document.getElementById('btnHeroVertical');
+      var boxLand = document.getElementById('heroBoxLandscape');
+      var boxVert = document.getElementById('heroBoxVertical');
+
+      if (btnLand && btnVert && boxLand && boxVert) {
+        btnLand.addEventListener('click', function () {
+          btnLand.classList.add('is-active');
+          btnVert.classList.remove('is-active');
+          boxLand.style.display = 'block';
+          boxVert.style.display = 'none';
+        });
+        btnVert.addEventListener('click', function () {
+          btnVert.classList.add('is-active');
+          btnLand.classList.remove('is-active');
+          boxLand.style.display = 'none';
+          boxVert.style.display = 'block';
+        });
+      }
+
+      // 1. Social Campaign Carousel Track Controls & Counter
+      var track = document.querySelector('[data-carousel-track]');
+      var counter = document.querySelector('[data-carousel-counter]');
+      var prevBtn = document.querySelector('[data-carousel-btn="prev"]');
+      var nextBtn = document.querySelector('[data-carousel-btn="next"]');
+      var slides = document.querySelectorAll('.c8cs-carousel-slide-item');
+
+      if (track && slides.length > 0) {
+        var totalSlides = slides.length;
+
+        function updateCounter() {
+          if (!counter) return;
+          var slideWidth = slides[0].offsetWidth + 24;
+          var currentIdx = Math.round(track.scrollLeft / slideWidth);
+          if (currentIdx < 0) currentIdx = 0;
+          if (currentIdx >= totalSlides) currentIdx = totalSlides - 1;
+          var num = (currentIdx + 1) < 10 ? '0' + (currentIdx + 1) : (currentIdx + 1);
+          var total = totalSlides < 10 ? '0' + totalSlides : totalSlides;
+          counter.textContent = num + ' / ' + total;
+        }
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', function () {
+            var step = slides[0].offsetWidth + 24;
+            track.scrollBy({ left: -step, behavior: 'smooth' });
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', function () {
+            var step = slides[0].offsetWidth + 24;
+            track.scrollBy({ left: step, behavior: 'smooth' });
+          });
+        }
+
+        var scrollTimer = null;
+        track.addEventListener('scroll', function () {
+          if (scrollTimer) clearTimeout(scrollTimer);
+          scrollTimer = setTimeout(updateCounter, 60);
+        }, { passive: true });
+      }
+
+      // 2. 9:16 Video Reel Play/Pause Toggle (For ALL 4 Reels)
+      var reelCards = document.querySelectorAll('[data-reel-card]');
+      reelCards.forEach(function (card) {
+        var video = card.querySelector('.c8cs-reel-video');
+        var trigger = card.querySelector('[data-reel-play-trigger]');
+        if (!video) return;
+
+        function togglePlay() {
+          if (video.paused) {
+            // Pause all other reels
+            document.querySelectorAll('.c8cs-reel-video').forEach(function (v) {
+              if (v !== video && !v.paused) {
+                v.pause();
+                var pCard = v.closest('[data-reel-card]');
+                if (pCard) pCard.classList.remove('is-playing');
+              }
+            });
+            video.play().then(function () {
+              card.classList.add('is-playing');
+            }).catch(function (err) {
+              console.log('Video playback error:', err);
+            });
+          } else {
+            video.pause();
+            card.classList.remove('is-playing');
+          }
+        }
+
+        if (trigger) {
+          trigger.addEventListener('click', togglePlay);
+        }
+        video.addEventListener('click', togglePlay);
+        video.addEventListener('pause', function () { card.classList.remove('is-playing'); });
+        video.addEventListener('ended', function () { card.classList.remove('is-playing'); });
+      });
+
+      // 3. Click-to-Inspect Lightbox Engine (For All Visuals)
+      var inspectImages = Array.from(document.querySelectorAll('[data-inspect-img]'));
+      var lightbox = document.getElementById('c8Lightbox');
+      var lbImg = document.getElementById('c8LbImg');
+      var lbPhoneImg = document.getElementById('c8LbPhoneImg');
+      var lbTitle = document.getElementById('c8LbTitle');
+      var lbLink = document.getElementById('c8LbDirectLink');
+      var lbClose = document.getElementById('c8LbCloseBtn');
+      var lbPrev = document.getElementById('c8LbPrev');
+      var lbNext = document.getElementById('c8LbNext');
+      var currentLbIndex = 0;
+
+      function openLightbox(index) {
+        if (index < 0) index = inspectImages.length - 1;
+        if (index >= inspectImages.length) index = 0;
+        currentLbIndex = index;
+        var el = inspectImages[currentLbIndex];
+        var src = el.getAttribute('src');
+        var title = el.getAttribute('data-inspect-title') || el.getAttribute('alt') || 'Case Study Visual Detail';
+        var isMobile = el.getAttribute('data-is-mobile') === 'true' || 
+                       el.closest('.c8cs-phone-frame') !== null ||
+                       el.closest('[data-is-mobile="true"]') !== null;
+
+        if (isMobile && lbPhoneImg) {
+          lightbox.classList.add('is-mobile-view');
+          lbPhoneImg.src = src;
+          lbPhoneImg.alt = title;
+        } else {
+          lightbox.classList.remove('is-mobile-view');
+          lbImg.src = src;
+          lbImg.alt = title;
+        }
+
+        lbTitle.textContent = '[' + (currentLbIndex + 1) + '/' + inspectImages.length + '] ' + title;
+        lbLink.href = src;
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      inspectImages.forEach(function (img, idx) {
+        img.addEventListener('click', function (e) {
+          e.preventDefault();
+          openLightbox(idx);
+        });
+      });
+
+      if (lbClose) lbClose.addEventListener('click', closeLightbox);
+      if (lbPrev) lbPrev.addEventListener('click', function () { openLightbox(currentLbIndex - 1); });
+      if (lbNext) lbNext.addEventListener('click', function () { openLightbox(currentLbIndex + 1); });
+
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox || e.target.classList.contains('c8-lb-stage')) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') openLightbox(currentLbIndex - 1);
+        if (e.key === 'ArrowRight') openLightbox(currentLbIndex + 1);
+      });
+    });
+  </script>
+</body>
+</html>

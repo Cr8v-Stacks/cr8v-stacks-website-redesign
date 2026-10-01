@@ -52,17 +52,6 @@ $wp_customize->add_control('blog_posts_per_page', [
 ]);
 
 
-// ── SECTION 2: DISCOVERY CTA SECTION ───────────────────────────
-$wp_customize->add_section('cr8v_blog_cta_sec', [
-    'title'    => __('2. Blog Discovery CTA', 'cr8v-stacks'),
-    'panel'    => 'cr8v_blog_panel',
-    'priority' => 20,
-]);
-
-_cr8v_text($wp_customize, 'blog_cta_eyebrow', 'cr8v_blog_cta_sec', 'CTA Eyebrow', '↳ READY TO SCALE YOUR PLATFORM?');
-_cr8v_text($wp_customize, 'blog_cta_h2', 'cr8v_blog_cta_sec', 'CTA Heading', 'Book A Discovery Call');
-_cr8v_textarea($wp_customize, 'blog_cta_sub', 'cr8v_blog_cta_sec', 'CTA Subtitle', 'Speak directly with our technical architecture team to scope your custom website build, WooCommerce system, or AI platform integration.');
-_cr8v_text($wp_customize, 'blog_cta_shortcode', 'cr8v_blog_cta_sec', 'Embedded Shortcode', '[sb_booking_form]');
 
 
 // ── SECTION 3: SINGLE POST MASTER SETTINGS ──────────────────────

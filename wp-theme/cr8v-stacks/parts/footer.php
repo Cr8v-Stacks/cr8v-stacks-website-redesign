@@ -130,6 +130,8 @@ $facebook  = cr8v_mod('footer_facebook',  'https://www.facebook.com/cr8vstacks')
         <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8ft-site-link">Contact Us <span class="c8ft-site-link-arr">→</span></a>
         <a href="<?php echo esc_url(home_url('/discovery-call/')); ?>" class="c8ft-site-link">Discovery Call <span class="c8ft-site-link-arr">→</span></a>
       <?php } ?>
+      <!-- Always guaranteed Contact Us in sitemap -->
+      <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8ft-site-link" style="border-top:1px solid rgba(255,255,255,0.12)!important;margin-top:6px!important;padding-top:10px!important;color:var(--c8ft-blue-hi)!important;font-weight:600!important;">Contact Us <span class="c8ft-site-link-arr" style="opacity:1!important;color:var(--c8ft-blue-hi)!important;">→</span></a>
     </div>
 
     <!-- Card 2: Services chips — driven by WP footer services menu (with fallback) -->
@@ -179,6 +181,11 @@ $facebook  = cr8v_mod('footer_facebook',  'https://www.facebook.com/cr8vstacks')
           <div class="c8ft-touch-icon"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg></div>
           <div><strong>Address</strong>Ogudu, Lagos State, Nigeria</div>
         </div>
+      </div>
+      <div style="margin-bottom: 1.25rem;">
+        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8ft-site-link" style="color: var(--c8ft-blue-hi) !important; font-weight: 600; padding: 0;">
+          Submit Project Brief <span class="c8ft-site-link-arr" style="opacity: 1 !important; color: var(--c8ft-blue-hi) !important;">→</span>
+        </a>
       </div>
       <div class="c8ft-social-row">
         <?php if ($instagram) : ?>

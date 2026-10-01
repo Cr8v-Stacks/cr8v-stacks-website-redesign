@@ -51,19 +51,19 @@ $wp_customize->add_section('cr8v_shp_work', ['title' => __('03. Case Study Showc
 _cr8v_text($wp_customize, 'shp_work_label', 'cr8v_shp_work', 'Section Label', 'Our Work');
 _cr8v_text($wp_customize, 'shp_work_h2_part1', 'cr8v_shp_work', 'Title Part 1', 'Built for Real Outcomes,');
 _cr8v_text($wp_customize, 'shp_work_h2_serif', 'cr8v_shp_work', 'Title Serif', 'Not Just Concepts');
-_cr8v_text($wp_customize, 'shp_work_cs_client', 'cr8v_shp_work', 'Case Study Client Tag', 'Case Study — Victoria\'s Lane');
-_cr8v_text($wp_customize, 'shp_work_cs_title', 'cr8v_shp_work', 'Case Study Title', 'Handbag & Purse E-Commerce, Rebuilt on Shopify');
-_cr8v_textarea($wp_customize, 'shp_work_cs_desc', 'cr8v_shp_work', 'Case Study Description', 'Victoria\'s Lane came to us running on a generic, slow theme that wasn\'t built for how people actually shop for luxury handbags online. We rebuilt the entire storefront in Shopify, hand-coded in Liquid, with a checkout designed around impulse and gift-buying behavior.');
-_cr8v_text($wp_customize, 'shp_work_cs_stat1_val', 'cr8v_shp_work', 'Metric 1 Value', '1.4s');
-_cr8v_text($wp_customize, 'shp_work_cs_stat1_lbl', 'cr8v_shp_work', 'Metric 1 Label', 'Mobile Load Time');
-_cr8v_text($wp_customize, 'shp_work_cs_stat2_val', 'cr8v_shp_work', 'Metric 2 Value', '+38%');
-_cr8v_text($wp_customize, 'shp_work_cs_stat2_lbl', 'cr8v_shp_work', 'Metric 2 Label', 'Add-to-Cart Rate');
-_cr8v_text($wp_customize, 'shp_work_cs_pill1', 'cr8v_shp_work', 'Deliverable Pill 1', 'Shopify Liquid Theme');
-_cr8v_text($wp_customize, 'shp_work_cs_pill2', 'cr8v_shp_work', 'Deliverable Pill 2', 'Custom JSON Templates');
-_cr8v_text($wp_customize, 'shp_work_cs_pill3', 'cr8v_shp_work', 'Deliverable Pill 3', 'Cart & Checkout Tuning');
-_cr8v_text($wp_customize, 'shp_work_cs_pill4', 'cr8v_shp_work', 'Deliverable Pill 4', 'Sub-Second Mobile Load');
+_cr8v_text($wp_customize, 'shp_work_cs_client', 'cr8v_shp_work', 'Case Study Client Tag', 'Case Study — BLVCK Hair NG');
+_cr8v_text($wp_customize, 'shp_work_cs_title', 'cr8v_shp_work', 'Case Study Title', 'Luxury E-Commerce & Shopify Storefront');
+_cr8v_textarea($wp_customize, 'shp_work_cs_desc', 'cr8v_shp_work', 'Case Study Description', 'We engineered a bespoke Shopify Liquid storefront with slide-out cart drawers, dynamic length variant matrices, Paystack multi-currency checkout, and dominant entity SEO search rankings.');
+_cr8v_text($wp_customize, 'shp_work_cs_stat1_val', 'cr8v_shp_work', 'Metric 1 Value', '+240%');
+_cr8v_text($wp_customize, 'shp_work_cs_stat1_lbl', 'cr8v_shp_work', 'Metric 1 Label', 'Organic Revenue');
+_cr8v_text($wp_customize, 'shp_work_cs_stat2_val', 'cr8v_shp_work', 'Metric 2 Value', 'Top 3');
+_cr8v_text($wp_customize, 'shp_work_cs_stat2_lbl', 'cr8v_shp_work', 'Metric 2 Label', 'Google SERP Rank');
+_cr8v_text($wp_customize, 'shp_work_cs_pill1', 'cr8v_shp_work', 'Deliverable Pill 1', 'Shopify Liquid');
+_cr8v_text($wp_customize, 'shp_work_cs_pill2', 'cr8v_shp_work', 'Deliverable Pill 2', 'Paystack Multi-Currency');
+_cr8v_text($wp_customize, 'shp_work_cs_pill3', 'cr8v_shp_work', 'Deliverable Pill 3', 'Dynamic Variant Selector');
+_cr8v_text($wp_customize, 'shp_work_cs_pill4', 'cr8v_shp_work', 'Deliverable Pill 4', 'Sub-1.2s TTFB');
 _cr8v_text($wp_customize, 'shp_work_cs_btn_text', 'cr8v_shp_work', 'Case Study Link Text', 'View Case Study →');
-_cr8v_text($wp_customize, 'shp_work_cs_btn_url', 'cr8v_shp_work', 'Case Study Link URL', '/case-studies/victorias-lane/');
+_cr8v_text($wp_customize, 'shp_work_cs_btn_url', 'cr8v_shp_work', 'Case Study Link URL', '/case-studies/blvck-hair-ng/');
 
 // Section 4: Deliverables Folder Deck
 $wp_customize->add_section('cr8v_shp_deck', ['title' => __('04. Deliverables Folder Deck', 'cr8v-stacks'), 'panel' => 'cr8v_shp_panel']);
@@ -200,7 +200,7 @@ _cr8v_text($wp_customize, 'shp_rel3_url', 'cr8v_shp_rel', 'Related 3 URL', '/ser
 // ── GAP FILLS: Images, CTA Links, CDN Logos, FAQ Q&As ──────────────────
 
 // S3 Case Study Photo & Links
-_cr8v_img($wp_customize, 'shp_work_cs_img', 'cr8v_shp_work', 'Case Study Photo', 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop');
+_cr8v_img($wp_customize, 'shp_work_cs_img', 'cr8v_shp_work', 'Case Study Photo', get_template_directory_uri() . '/assets/img/case_studies/cs_blvck_hero_vertical.webp');
 
 // S4 Folder Deck — Card Images & CTA links (×5)
 _cr8v_img($wp_customize,  'shp_deck1_img',      'cr8v_shp_deck', 'Card 1 Image', 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800&auto=format&fit=crop');

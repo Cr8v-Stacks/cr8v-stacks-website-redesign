@@ -51,19 +51,19 @@ $wp_customize->add_section('cr8v_seo_work', ['title' => __('03. Case Study Showc
 _cr8v_text($wp_customize, 'seo_work_label', 'cr8v_seo_work', 'Section Label', 'Our Work');
 _cr8v_text($wp_customize, 'seo_work_h2_part1', 'cr8v_seo_work', 'Title Part 1', 'Built for Real Outcomes,');
 _cr8v_text($wp_customize, 'seo_work_h2_serif', 'cr8v_seo_work', 'Title Serif', 'Not Just Concepts');
-_cr8v_text($wp_customize, 'seo_work_cs_client', 'cr8v_seo_work', 'Case Study Client Tag', 'Case Study — blvck Hair NG');
-_cr8v_text($wp_customize, 'seo_work_cs_title', 'cr8v_seo_work', 'Case Study Title', 'Organic Revenue & Entity Search Architecture');
-_cr8v_textarea($wp_customize, 'seo_work_cs_desc', 'cr8v_seo_work', 'Case Study Description', 'blvck Hair NG needed sustainable organic search traffic without relying strictly on paid Instagram ads. We built an entity-mapped keyword strategy, technical schema architecture, and high-converting product buyer guides.');
-_cr8v_text($wp_customize, 'seo_work_cs_stat1_val', 'cr8v_seo_work', 'Metric 1 Value', '280%');
-_cr8v_text($wp_customize, 'seo_work_cs_stat1_lbl', 'cr8v_seo_work', 'Metric 1 Label', 'Organic Search Traffic Growth');
-_cr8v_text($wp_customize, 'seo_work_cs_stat2_val', 'cr8v_seo_work', 'Metric 2 Value', '#1');
-_cr8v_text($wp_customize, 'seo_work_cs_stat2_lbl', 'cr8v_seo_work', 'Metric 2 Label', 'Rank for Core Product Keywords');
-_cr8v_text($wp_customize, 'seo_work_cs_pill1', 'cr8v_seo_work', 'Deliverable Pill 1', 'Semantic Keyword Mapping');
-_cr8v_text($wp_customize, 'seo_work_cs_pill2', 'cr8v_seo_work', 'Deliverable Pill 2', 'Entity SEO & Schema Architecture');
+_cr8v_text($wp_customize, 'seo_work_cs_client', 'cr8v_seo_work', 'Case Study Client Tag', 'Case Study — The Duch Apartments');
+_cr8v_text($wp_customize, 'seo_work_cs_title', 'cr8v_seo_work', 'Case Study Title', 'Direct Booking Architecture & Organic Search Optimization');
+_cr8v_textarea($wp_customize, 'seo_work_cs_desc', 'cr8v_seo_work', 'Case Study Description', 'The Duch Apartments needed an independent direct booking engine combined with technical SEO to bypass 25% third-party OTA commissions. We engineered high-ranking localized landing pages, automated availability calendars, and schema markup.');
+_cr8v_text($wp_customize, 'seo_work_cs_stat1_val', 'cr8v_seo_work', 'Metric 1 Value', '+340%');
+_cr8v_text($wp_customize, 'seo_work_cs_stat1_lbl', 'cr8v_seo_work', 'Metric 1 Label', 'Direct Bookings Growth');
+_cr8v_text($wp_customize, 'seo_work_cs_stat2_val', 'cr8v_seo_work', 'Metric 2 Value', '0%');
+_cr8v_text($wp_customize, 'seo_work_cs_stat2_lbl', 'cr8v_seo_work', 'Metric 2 Label', 'OTA Commission Loss');
+_cr8v_text($wp_customize, 'seo_work_cs_pill1', 'cr8v_seo_work', 'Deliverable Pill 1', 'Direct Booking Engine');
+_cr8v_text($wp_customize, 'seo_work_cs_pill2', 'cr8v_seo_work', 'Deliverable Pill 2', 'Local & Entity SEO');
 _cr8v_text($wp_customize, 'seo_work_cs_pill3', 'cr8v_seo_work', 'Deliverable Pill 3', 'Technical Site Audit');
-_cr8v_text($wp_customize, 'seo_work_cs_pill4', 'cr8v_seo_work', 'Deliverable Pill 4', 'Content Strategy Engine');
+_cr8v_text($wp_customize, 'seo_work_cs_pill4', 'cr8v_seo_work', 'Deliverable Pill 4', 'Schema JSON-LD');
 _cr8v_text($wp_customize, 'seo_work_cs_btn_text', 'cr8v_seo_work', 'Case Study Link Text', 'View Case Study →');
-_cr8v_text($wp_customize, 'seo_work_cs_btn_url', 'cr8v_seo_work', 'Case Study Link URL', '/case-studies/blvck-hair-ng/');
+_cr8v_text($wp_customize, 'seo_work_cs_btn_url', 'cr8v_seo_work', 'Case Study Link URL', '/case-studies/the-duch-apartments/');
 
 // Section 4: Deliverables Deck (What You Get)
 $wp_customize->add_section('cr8v_seo_deck', ['title' => __('04. Deliverables Folder Deck', 'cr8v-stacks'), 'panel' => 'cr8v_seo_panel']);
@@ -202,7 +202,7 @@ _cr8v_text($wp_customize, 'seo_rel3_url', 'cr8v_seo_rel', 'Related 3 URL', '/wor
 // ── GAP FILLS: Images, CTA Links, CDN Logos, FAQ Q&As ──────────────────
 
 // S3 Portfolio — Case Study Image
-_cr8v_img($wp_customize, 'seo_work_cs_img', 'cr8v_seo_work', 'Case Study Photo', 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop');
+_cr8v_img($wp_customize, 'seo_work_cs_img', 'cr8v_seo_work', 'Case Study Photo', get_template_directory_uri() . '/assets/img/case_studies/cs_duch_hero_vertical.webp');
 
 // S4 Folder Deck — Card Images & CTA links (×5)
 _cr8v_img($wp_customize,  'seo_deck1_img',      'cr8v_seo_deck', 'Card 1 Image', 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop');

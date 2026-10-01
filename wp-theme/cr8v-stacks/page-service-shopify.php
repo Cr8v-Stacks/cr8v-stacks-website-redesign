@@ -169,32 +169,39 @@ get_header();
       </div>
       <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
         <div class="c8isv-portfolio-img">
-          <img src="<?php echo esc_url(cr8v_mod('shp_work_cs_img', 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop')); ?>" alt="Victoria's Lane Shopify storefront — built by Cr8v Stacks" data-customizer="shp_work_cs_img">
+          <?php
+            $shp_cs_def = cr8v_cs_img_src('cs_blvck_hero_vertical.webp');
+            $shp_cs_src = cr8v_mod('shp_work_cs_img', $shp_cs_def);
+            if (empty($shp_cs_src) || strpos($shp_cs_src, '.jpg') !== false || strpos($shp_cs_src, 'unsplash') !== false) {
+              $shp_cs_src = $shp_cs_def;
+            }
+          ?>
+          <img src="<?php echo esc_url($shp_cs_src); ?>" alt="BLVCK Hair NG Shopify storefront — built by Cr8v Stacks" data-customizer="shp_work_cs_img">
         </div>
         <div class="c8isv-portfolio-info">
-          <span class="c8isv-portfolio-client" data-customizer="shp_work_cs_client"><?php echo esc_html(cr8v_mod('shp_work_cs_client', 'Case Study — Victoria\'s Lane')); ?></span>
-          <h3 class="c8isv-portfolio-title" data-customizer="shp_work_cs_title"><?php echo esc_html(cr8v_mod('shp_work_cs_title', 'Handbag & Purse E-Commerce, Rebuilt on Shopify')); ?></h3>
-          <p class="c8isv-portfolio-desc" data-customizer="shp_work_cs_desc"><?php echo esc_html(cr8v_mod('shp_work_cs_desc', 'Victoria\'s Lane came to us running on a generic, slow theme that wasn\'t built for how people actually shop for luxury handbags online. We rebuilt the entire storefront in Shopify, hand-coded in Liquid, with a checkout designed around impulse and gift-buying behavior.')); ?></p>
+          <span class="c8isv-portfolio-client" data-customizer="shp_work_cs_client"><?php echo esc_html(cr8v_mod('shp_work_cs_client', 'Case Study — BLVCK Hair NG')); ?></span>
+          <h3 class="c8isv-portfolio-title" data-customizer="shp_work_cs_title"><?php echo esc_html(cr8v_mod('shp_work_cs_title', 'Luxury E-Commerce & Shopify Storefront')); ?></h3>
+          <p class="c8isv-portfolio-desc" data-customizer="shp_work_cs_desc"><?php echo esc_html(cr8v_mod('shp_work_cs_desc', 'We engineered a bespoke Shopify Liquid storefront with slide-out cart drawers, dynamic length variant matrices, Paystack multi-currency checkout, and dominant entity SEO search rankings.')); ?></p>
           <div class="c8isv-portfolio-stats">
             <div>
-              <span class="c8isv-portfolio-stat-val" data-customizer="shp_work_cs_stat1_val"><?php echo esc_html(cr8v_mod('shp_work_cs_stat1_val', '1.4s')); ?></span>
-              <span class="c8isv-portfolio-stat-lbl" data-customizer="shp_work_cs_stat1_lbl"><?php echo esc_html(cr8v_mod('shp_work_cs_stat1_lbl', 'Mobile Load Time')); ?></span>
+              <span class="c8isv-portfolio-stat-val" data-customizer="shp_work_cs_stat1_val"><?php echo esc_html(cr8v_mod('shp_work_cs_stat1_val', '+240%')); ?></span>
+              <span class="c8isv-portfolio-stat-lbl" data-customizer="shp_work_cs_stat1_lbl"><?php echo esc_html(cr8v_mod('shp_work_cs_stat1_lbl', 'Organic Revenue')); ?></span>
             </div>
             <div>
-              <span class="c8isv-portfolio-stat-val" data-customizer="shp_work_cs_stat2_val"><?php echo esc_html(cr8v_mod('shp_work_cs_stat2_val', '+38%')); ?></span>
-              <span class="c8isv-portfolio-stat-lbl" data-customizer="shp_work_cs_stat2_lbl"><?php echo esc_html(cr8v_mod('shp_work_cs_stat2_lbl', 'Add-to-Cart Rate')); ?></span>
+              <span class="c8isv-portfolio-stat-val" data-customizer="shp_work_cs_stat2_val"><?php echo esc_html(cr8v_mod('shp_work_cs_stat2_val', 'Top 3')); ?></span>
+              <span class="c8isv-portfolio-stat-lbl" data-customizer="shp_work_cs_stat2_lbl"><?php echo esc_html(cr8v_mod('shp_work_cs_stat2_lbl', 'Google SERP Rank')); ?></span>
             </div>
           </div>
           <div class="c8isv-portfolio-deliverables">
             <span class="c8isv-portfolio-stat-lbl">Key Deliverables</span>
             <div class="c8isv-portfolio-pills">
-              <span class="c8isv-portfolio-pill" data-customizer="shp_work_cs_pill1"><?php echo esc_html(cr8v_mod('shp_work_cs_pill1', 'Shopify Liquid Theme')); ?></span>
-              <span class="c8isv-portfolio-pill" data-customizer="shp_work_cs_pill2"><?php echo esc_html(cr8v_mod('shp_work_cs_pill2', 'Custom JSON Templates')); ?></span>
-              <span class="c8isv-portfolio-pill" data-customizer="shp_work_cs_pill3"><?php echo esc_html(cr8v_mod('shp_work_cs_pill3', 'Cart & Checkout Tuning')); ?></span>
-              <span class="c8isv-portfolio-pill" data-customizer="shp_work_cs_pill4"><?php echo esc_html(cr8v_mod('shp_work_cs_pill4', 'Sub-Second Mobile Load')); ?></span>
+              <span class="c8isv-portfolio-pill" data-customizer="shp_work_cs_pill1"><?php echo esc_html(cr8v_mod('shp_work_cs_pill1', 'Shopify Liquid')); ?></span>
+              <span class="c8isv-portfolio-pill" data-customizer="shp_work_cs_pill2"><?php echo esc_html(cr8v_mod('shp_work_cs_pill2', 'Paystack Multi-Currency')); ?></span>
+              <span class="c8isv-portfolio-pill" data-customizer="shp_work_cs_pill3"><?php echo esc_html(cr8v_mod('shp_work_cs_pill3', 'Dynamic Variant Selector')); ?></span>
+              <span class="c8isv-portfolio-pill" data-customizer="shp_work_cs_pill4"><?php echo esc_html(cr8v_mod('shp_work_cs_pill4', 'Sub-1.2s TTFB')); ?></span>
             </div>
           </div>
-          <a href="<?php echo esc_url(cr8v_mod('shp_work_cs_btn_url', home_url('/case-studies/victorias-lane/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="shp_work_cs_btn_text"><?php echo esc_html(cr8v_mod('shp_work_cs_btn_text', 'View Case Study →')); ?></a>
+          <a href="<?php echo esc_url(cr8v_mod('shp_work_cs_btn_url', home_url('/case-studies/blvck-hair-ng/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="shp_work_cs_btn_text"><?php echo esc_html(cr8v_mod('shp_work_cs_btn_text', 'Explore Case Study →')); ?></a>
         </div>
       </div>
       <div class="c8isv-portfolio-footer">

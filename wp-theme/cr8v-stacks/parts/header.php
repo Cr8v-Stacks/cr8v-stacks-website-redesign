@@ -574,6 +574,11 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
       <li class="c8-pnav-item">
         <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="c8-pnav-link">Blog</a>
       </li>
+
+      <!-- Contact -->
+      <li class="c8-pnav-item">
+        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c8-pnav-link">Contact</a>
+      </li>
     </ul>
   </nav>
 
@@ -721,7 +726,7 @@ body.admin-bar .c8hdr-root .c8-md-drawer,body.admin-bar .c8hdr-root .c8-md-overl
               <span class="c8-tool2-link">Browse the Directory →</span>
             </div>
           </a>
-          <a href="<?php echo esc_url(home_url('/#dev-playground')); ?>" class="c8-tool2-row">
+          <a href="<?php echo esc_url(home_url('/dev-playground/')); ?>" class="c8-tool2-row">
             <div class="c8-tool2-ico"><svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
             <div>
               <div class="c8-tool2-name">Dev Playground</div>

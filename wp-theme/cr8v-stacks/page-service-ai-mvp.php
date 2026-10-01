@@ -228,7 +228,7 @@ defined('ABSPATH') || exit;
             <span class="c8isv-portfolio-pill">Stripe SaaS Billing</span>
           </div>
         </div>
-        <a href="<?php echo esc_url(home_url(cr8v_mod('aimvp_port_btn_url', '/case-studies/cognitive-ai/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="aimvp_port_btn_text"><?php echo esc_html(cr8v_mod('aimvp_port_btn_text', 'View Case Study →')); ?></a>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('aimvp_port_btn_url', '/case-studies/wp-publishion-ai/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="aimvp_port_btn_text"><?php echo esc_html(cr8v_mod('aimvp_port_btn_text', 'View Case Study →')); ?></a>
       </div>
     </div>
     <div class="c8isv-portfolio-footer">

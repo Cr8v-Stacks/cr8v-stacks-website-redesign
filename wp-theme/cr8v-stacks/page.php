@@ -56,14 +56,27 @@ get_header();
 .art-body-text a { color: var(--c8-blue); text-decoration: none; border-bottom: 1px solid var(--c8-blue); }
 .art-body-text a:hover { color: #3D6BFF; }
 
-.blog-cta-section {
-  max-width: 1200px; margin: 0 auto; text-align: center; padding: 5rem 0 3rem 0;
-  border-top: 1px solid var(--c8-grid-line) !important;
+.art-body-text img { max-width: 100%; height: auto; border-radius: 4px; }
+.art-body-text iframe, .art-body-text embed, .art-body-text video { max-width: 100%; }
+.art-body-text table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+.art-body-text th, .art-body-text td { padding: 0.75rem 1rem; border: 1px solid var(--c8-grid-line); }
+.art-body-text th { background: rgba(8,8,8,0.04); font-family: var(--font-mono); font-size: 0.85rem; text-transform: uppercase; }
+
+/* Universal Full-Width Booking Widget Support in Page Content */
+.art-body-text iframe[src*="simplybook"],
+.art-body-text iframe[id*="sb_"],
+.art-body-text iframe[name*="sb_"],
+.art-body-text .simplybook-widget,
+.art-body-text #sb_widget_container,
+.art-body-text .sb-widget-content {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+  border: none !important;
+  margin: 1.5rem auto !important;
+  overflow: visible !important;
 }
-.blog-cta-inner { max-width: 760px; margin: 0 auto; }
-.cta-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.75rem; font-weight: 700; }
-.cta-h2 { font-family: var(--font-heading); font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 700; text-transform: uppercase; line-height: 1.25; margin-bottom: 0.85rem; color: var(--c8-ink); }
-.cta-sub { font-size: 0.9rem; color: var(--c8-sub); line-height: 1.6; margin-bottom: 2rem; }
 
 @media (max-width: 860px) {
   .c8-gen-page-frame { padding: 6.5rem 1.25rem 3.5rem 1.25rem; }
@@ -71,29 +84,33 @@ get_header();
 }
 </style>
 
-<main class="c8-gen-page-frame">
-  <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    <header class="c8-gen-header">
-      <div class="c8-gen-eyebrow">PAGE</div>
-      <h1 class="c8-gen-h1"><?php the_title(); ?></h1>
-    </header>
+<?php
+$raw_content = get_post_field('post_content', get_the_ID());
+$is_raw_html = (
+  strpos($raw_content, '<style') !== false ||
+  strpos($raw_content, '<section') !== false ||
+  strpos($raw_content, 'class="scene"') !== false ||
+  strpos($raw_content, 'class="ctc-') !== false
+);
+?>
 
-    <article class="c8-gen-body-card art-body-text">
-      <?php the_content(); ?>
-    </article>
-  <?php endwhile; endif; ?>
+<?php if ($is_raw_html) : ?>
+  <main class="c8-raw-page-canvas" style="width: 100%; min-height: 100vh; margin: 0; padding: 0; overflow-x: hidden;">
+    <?php while (have_posts()) : the_post(); the_content(); endwhile; ?>
+  </main>
+<?php else : ?>
+  <main class="c8-gen-page-frame">
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+      <header class="c8-gen-header">
+        <div class="c8-gen-eyebrow">PAGE</div>
+        <h1 class="c8-gen-h1"><?php the_title(); ?></h1>
+      </header>
 
-  <section class="blog-cta-section">
-    <div class="blog-cta-inner">
-      <div class="cta-eyebrow">↳ READY TO SCALE YOUR PLATFORM?</div>
-      <h2 class="cta-h2">Book A Discovery Call</h2>
-      <p class="cta-sub">Speak directly with our technical architecture team to scope your custom website build, WooCommerce system, or AI platform integration.</p>
-      
-      <div class="cta-embed-box">
-        <?php echo do_shortcode('[sb_booking_form]'); ?>
-      </div>
-    </div>
-  </section>
-</main>
+      <article class="c8-gen-body-card art-body-text">
+        <?php the_content(); ?>
+      </article>
+    <?php endwhile; endif; ?>
+  </main>
+<?php endif; ?>
 
 <?php get_footer(); ?>

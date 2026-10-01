@@ -211,36 +211,43 @@ defined('ABSPATH') || exit;
     </div>
     <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
       <div class="c8isv-portfolio-img">
-        <img src="<?php echo esc_url(cr8v_mod('cdev_port_img', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop')); ?>" alt="Enterprise Web App — built by Cr8v Stacks" data-customizer="cdev_port_img">
+        <?php
+          $cdev_cs_def = get_template_directory_uri() . '/assets/img/case_studies/cs_compliance_platform_hero_vertical.webp';
+          $cdev_cs_src = cr8v_mod('cdev_port_img', $cdev_cs_def);
+          if (empty($cdev_cs_src) || strpos($cdev_cs_src, 'unsplash') !== false || strpos($cdev_cs_src, 'apex') !== false) {
+            $cdev_cs_src = $cdev_cs_def;
+          }
+        ?>
+        <img src="<?php echo esc_url($cdev_cs_src); ?>" alt="Compliance Analysis Platform — built by Cr8v Stacks" data-customizer="cdev_port_img">
       </div>
       <div class="c8isv-portfolio-info">
-        <span class="c8isv-portfolio-client" data-customizer="cdev_port_client"><?php echo esc_html(cr8v_mod('cdev_port_client', 'Case Study — Apex Logistics Portal')); ?></span>
-        <h3 class="c8isv-portfolio-title" data-customizer="cdev_port_title"><?php echo esc_html(cr8v_mod('cdev_port_title', 'Custom Fleet Management Dashboard & Real-Time API Engine')); ?></h3>
-        <p class="c8isv-portfolio-desc" data-customizer="cdev_port_desc"><?php echo wp_kses_post(cr8v_mod('cdev_port_desc', 'Apex Logistics needed a real-time fleet tracking portal with webhooks and automated dispatching. We engineered a custom React dashboard backed by a Node.js REST API and PostgreSQL database.')); ?></p>
+        <span class="c8isv-portfolio-client" data-customizer="cdev_port_client"><?php echo esc_html(cr8v_mod('cdev_port_client', 'Case Study — Compliance Analysis Platform')); ?></span>
+        <h3 class="c8isv-portfolio-title" data-customizer="cdev_port_title"><?php echo esc_html(cr8v_mod('cdev_port_title', 'Automated Regulatory Audit Engine')); ?></h3>
+        <p class="c8isv-portfolio-desc" data-customizer="cdev_port_desc"><?php echo wp_kses_post(cr8v_mod('cdev_port_desc', 'Engineered an automated supervisory audit platform for regulated payment service providers and FinTechs, featuring multi-step assessment wizards, automated paywalls, and 72-hour board-ready encrypted PDF audits.')); ?></p>
         <div class="c8isv-portfolio-stats">
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="cdev_port_stat1_val"><?php echo esc_html(cr8v_mod('cdev_port_stat1_val', '10k+')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="cdev_port_stat1_lbl"><?php echo esc_html(cr8v_mod('cdev_port_stat1_lbl', 'Real-Time Webhook Events / Min')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="cdev_port_stat1_val"><?php echo esc_html(cr8v_mod('cdev_port_stat1_val', '72h')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="cdev_port_stat1_lbl"><?php echo esc_html(cr8v_mod('cdev_port_stat1_lbl', 'Audit Turnaround')); ?></span>
           </div>
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="cdev_port_stat2_val"><?php echo esc_html(cr8v_mod('cdev_port_stat2_val', '99.99%')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="cdev_port_stat2_lbl"><?php echo esc_html(cr8v_mod('cdev_port_stat2_lbl', 'Cloud Infrastructure Uptime')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="cdev_port_stat2_val"><?php echo esc_html(cr8v_mod('cdev_port_stat2_val', '75%')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="cdev_port_stat2_lbl"><?php echo esc_html(cr8v_mod('cdev_port_stat2_lbl', 'Time Saved per Intake')); ?></span>
           </div>
         </div>
         <div class="c8isv-portfolio-deliverables">
           <span class="c8isv-portfolio-stat-lbl">Key Deliverables</span>
           <div class="c8isv-portfolio-pills">
-            <span class="c8isv-portfolio-pill">React SPA Dashboard</span>
-            <span class="c8isv-portfolio-pill">Node.js API Suite</span>
-            <span class="c8isv-portfolio-pill">PostgreSQL Database</span>
-            <span class="c8isv-portfolio-pill">Docker &amp; AWS DevOps</span>
+            <span class="c8isv-portfolio-pill">4-Step Assessment Wizard</span>
+            <span class="c8isv-portfolio-pill">Payment Paywall API</span>
+            <span class="c8isv-portfolio-pill">Encrypted PDF Generator</span>
+            <span class="c8isv-portfolio-pill">Async Queue Workers</span>
           </div>
         </div>
-        <a href="<?php echo esc_url(home_url(cr8v_mod('cdev_port_btn_url', '/case-studies/apex-logistics/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="cdev_port_btn_text"><?php echo esc_html(cr8v_mod('cdev_port_btn_text', 'View Case Study →')); ?></a>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('cdev_port_btn_url', '/case-studies/bridgepoint-compliance/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="cdev_port_btn_text"><?php echo esc_html(cr8v_mod('cdev_port_btn_text', 'View Case Study →')); ?></a>
       </div>
     </div>
     <div class="c8isv-portfolio-footer">
-      <a href="<?php echo esc_url(home_url('/portfolio/')); ?>" class="c8isv-explore">See All Projects →</a>
+      <a href="<?php echo esc_url(home_url('/case-studies/')); ?>" class="c8isv-explore">See All Projects →</a>
     </div>
   </div>
 </div>

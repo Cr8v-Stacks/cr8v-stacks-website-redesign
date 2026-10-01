@@ -373,7 +373,7 @@ body {
 
 /* Slanted Card Stack (Growth Layer) */
 .c8srv-root .c8srv-folder-section {
-  padding: 3rem 0rem !important;
+  padding: 0 !important;
   position: relative !important;
   z-index: 2 !important;
 }
@@ -381,7 +381,7 @@ body {
   position: relative !important;
   display: block !important;
   margin-top: 5rem !important;
-  padding-bottom: 120px !important; /* Extra scrollable space for 3rd card to stack fully on desktop */
+  padding-bottom: 0 !important;
   margin-bottom: 6rem !important; /* Spacing below the folder deck */
 }
 .c8srv-root .c8srv-folder-card {
@@ -885,7 +885,7 @@ body {
 }
 
 /* WooCommerce vs Shopify comparison (unchanged) */
-.c8srv-root .c8srv-vs { position: relative !important; z-index: 2 !important; margin-bottom: 1rem !important; }
+.c8srv-root .c8srv-vs { position: relative !important; z-index: 2 !important; margin-bottom: 8rem !important; }
 .c8srv-root .c8srv-vs-priority-row { display: flex !important; flex-wrap: wrap !important; gap: 0.6rem !important; margin: 2rem 0 3rem 0 !important; }
 .c8srv-root .c8srv-vs-priority-btn { font-family: 'Space Mono', monospace !important; font-size: 11px !important; letter-spacing: .06em !important; text-transform: uppercase !important; padding: 12px 18px !important; background: #FFFFFF !important; border: 1px solid rgba(8,8,8,0.15) !important; color: #080808 !important; }
 .c8srv-root .c8srv-vs-priority-btn.is-active { background: #0047E1 !important; color: #FFFFFF !important; border-color: #0047E1 !important; }

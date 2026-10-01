@@ -203,36 +203,43 @@ defined('ABSPATH') || exit;
     </div>
     <div class="c8isv-portfolio-card" data-c8isv-portfolio-card>
       <div class="c8isv-portfolio-img">
-        <img src="<?php echo esc_url(cr8v_mod('brind_port_img', 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop')); ?>" alt="Vanguard Rebrand — built by Cr8v Stacks" data-customizer="brind_port_img">
+        <?php
+          $brind_cs_def = get_template_directory_uri() . '/assets/img/case_studies/cs_bridgepoint_advisory_hero_vertical.webp';
+          $brind_cs_src = cr8v_mod('brind_port_img', $brind_cs_def);
+          if (empty($brind_cs_src) || strpos($brind_cs_src, 'unsplash') !== false || strpos($brind_cs_src, 'vanguard') !== false) {
+            $brind_cs_src = $brind_cs_def;
+          }
+        ?>
+        <img src="<?php echo esc_url($brind_cs_src); ?>" alt="BridgePoint Advisory Services Brand Identity — built by Cr8v Stacks" data-customizer="brind_port_img">
       </div>
       <div class="c8isv-portfolio-info">
-        <span class="c8isv-portfolio-client" data-customizer="brind_port_client"><?php echo esc_html(cr8v_mod('brind_port_client', 'Case Study — Vanguard Architecture')); ?></span>
-        <h3 class="c8isv-portfolio-title" data-customizer="brind_port_title"><?php echo esc_html(cr8v_mod('brind_port_title', 'Complete Rebrand & Custom Visual Identity System')); ?></h3>
-        <p class="c8isv-portfolio-desc" data-customizer="brind_port_desc"><?php echo wp_kses_post(cr8v_mod('brind_port_desc', 'Vanguard needed a premium brand identity that matched their high-end architectural projects. We designed a vector logomark, custom typography guidelines, and a digital style guide.')); ?></p>
+        <span class="c8isv-portfolio-client" data-customizer="brind_port_client"><?php echo esc_html(cr8v_mod('brind_port_client', 'Case Study — BridgePoint Advisory Services')); ?></span>
+        <h3 class="c8isv-portfolio-title" data-customizer="brind_port_title"><?php echo esc_html(cr8v_mod('brind_port_title', 'Corporate Visual Identity &amp; System')); ?></h3>
+        <p class="c8isv-portfolio-desc" data-customizer="brind_port_desc"><?php echo wp_kses_post(cr8v_mod('brind_port_desc', 'Architected an institutional visual identity with 0.5px mathematical precision, sovereign color ramp tokens, brand governance standards, and executive boardroom collateral.')); ?></p>
         <div class="c8isv-portfolio-stats">
           <div>
             <span class="c8isv-portfolio-stat-val" data-customizer="brind_port_stat1_val"><?php echo esc_html(cr8v_mod('brind_port_stat1_val', '0.5px')); ?></span>
             <span class="c8isv-portfolio-stat-lbl" data-customizer="brind_port_stat1_lbl"><?php echo esc_html(cr8v_mod('brind_port_stat1_lbl', 'Vector Precision Grid')); ?></span>
           </div>
           <div>
-            <span class="c8isv-portfolio-stat-val" data-customizer="brind_port_stat2_val"><?php echo esc_html(cr8v_mod('brind_port_stat2_val', '45 Page')); ?></span>
-            <span class="c8isv-portfolio-stat-lbl" data-customizer="brind_port_stat2_lbl"><?php echo esc_html(cr8v_mod('brind_port_stat2_lbl', 'Brand Guidelines Book')); ?></span>
+            <span class="c8isv-portfolio-stat-val" data-customizer="brind_port_stat2_val"><?php echo esc_html(cr8v_mod('brind_port_stat2_val', '42+')); ?></span>
+            <span class="c8isv-portfolio-stat-lbl" data-customizer="brind_port_stat2_lbl"><?php echo esc_html(cr8v_mod('brind_port_stat2_lbl', 'Executive Brand Assets')); ?></span>
           </div>
         </div>
         <div class="c8isv-portfolio-deliverables">
           <span class="c8isv-portfolio-stat-lbl">Key Deliverables</span>
           <div class="c8isv-portfolio-pills">
-            <span class="c8isv-portfolio-pill">Vector Logomark Suite</span>
-            <span class="c8isv-portfolio-pill">Color Palette Tokens</span>
-            <span class="c8isv-portfolio-pill">Typography Rules</span>
-            <span class="c8isv-portfolio-pill">Brand Guidelines PDF</span>
+            <span class="c8isv-portfolio-pill">0.5px Vector Emblem</span>
+            <span class="c8isv-portfolio-pill">Design System Tokens</span>
+            <span class="c8isv-portfolio-pill">Executive Collateral Suite</span>
+            <span class="c8isv-portfolio-pill">Brand Governance Guidelines</span>
           </div>
         </div>
-        <a href="<?php echo esc_url(home_url(cr8v_mod('brind_port_btn_url', '/case-studies/vanguard-architecture/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="brind_port_btn_text"><?php echo esc_html(cr8v_mod('brind_port_btn_text', 'View Case Study →')); ?></a>
+        <a href="<?php echo esc_url(home_url(cr8v_mod('brind_port_btn_url', '/case-studies/bridgepoint-advisory/'))); ?>" class="c8isv-explore" style="margin-top: 1.5rem;" data-customizer="brind_port_btn_text"><?php echo esc_html(cr8v_mod('brind_port_btn_text', 'View Case Study →')); ?></a>
       </div>
     </div>
     <div class="c8isv-portfolio-footer">
-      <a href="<?php echo esc_url(home_url('/portfolio/')); ?>" class="c8isv-explore">See All Projects →</a>
+      <a href="<?php echo esc_url(home_url('/case-studies/')); ?>" class="c8isv-explore">See All Projects →</a>
     </div>
   </div>
 </div>

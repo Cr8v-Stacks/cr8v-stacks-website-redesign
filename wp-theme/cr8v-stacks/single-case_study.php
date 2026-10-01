@@ -34,12 +34,14 @@ $slug_match_rules = [
   'mkenny-properties'      => ['mkenny-properties', 'mkennyproperties', 'mkenny'],
   'wp-publishion-ai'       => ['wp-publishion-ai', 'wp-publishion', 'publishion'],
   'blvck-hair-ng'          => ['blvck-hair-ng', 'blvck-hair', 'blvckhair', 'blvck'],
-  'bridgepoint-compliance' => ['bridgepoint-compliance', 'bridgepoint-consulting', 'compliance-analysis'],
+  'bridgepoint-compliance' => ['bridgepoint-compliance', 'bridgepoint-consulting', 'compliance-analysis', 'compliance-checker'],
   'bridgepoint-advisory'   => ['bridgepoint-advisory', 'bridgepoint-brand', 'bridgepoints'],
   'victorias-lane'         => ['victorias-lane', 'victoria-lane', 'victoriaslane'],
   'sweetermen-ng'          => ['sweetermen-ng', 'sweetermen'],
   'stride-plus-media'      => ['stride-plus-media', 'stride-plus', 'strideradio', 'stride'],
   'kiri-city-stays'        => ['kiri-city-stays', 'kiri-city', 'kiricitystays', 'kiri'],
+  'crux-nxtion'            => ['crux-nxtion', 'cruxnxtion', 'crux-nation', 'crux'],
+  'red-cap-entertainment'  => ['red-cap-entertainment', 'red-cap', 'redcap-entertainment', 'redcap'],
 ];
 
 foreach ($slug_match_rules as $canonical_key => $patterns) {
@@ -56,6 +58,7 @@ foreach ($slug_match_rules as $canonical_key => $patterns) {
 // Canonical Data Matrix for all 10 Portfolio Projects
 $portfolio_data_matrix = [
   'the-duch-apartments' => [
+    'status'        => 'published',
     'client_name'   => 'The Duch Apartments',
     'industry'      => 'Hospitality // Direct Booking & Web Engineering',
     'headline_main' => 'The Duch Apartments: Direct Booking &',
@@ -112,6 +115,7 @@ $portfolio_data_matrix = [
   ],
 
   'mkenny-properties' => [
+    'status'        => 'published',
     'client_name'   => 'Mkenny Properties',
     'industry'      => 'Real Estate // Manchester UK Property Development & WordPress Widgets',
     'headline_main' => 'Mkenny Properties: Property Archive &',
@@ -168,6 +172,7 @@ $portfolio_data_matrix = [
   ],
 
   'wp-publishion-ai' => [
+    'status'        => 'published',
     'client_name'   => 'WP Publishion AI',
     'industry'      => 'AI MVP // Autonomous Multi-LLM Content Engine',
     'headline_main' => 'WP Publishion AI: Autonomous Editorial &',
@@ -176,8 +181,8 @@ $portfolio_data_matrix = [
     'pills'         => ['AI MVP', 'Multi-LLM Pipeline', 'WordPress REST API', 'Brave Search API'],
     'meta_services' => 'AI System Architecture, Full-Stack SaaS Engineering',
     'meta_stack'    => 'WordPress · Python · Claude / OpenAI / Gemini APIs',
-    'meta_link_url' => 'https://devplayground.local/dev-playground/wp-publishion-ai/',
-    'meta_link_text'=> 'devplayground.local ↗',
+    'meta_link_url' => home_url('/dev-playground/wp-publishion-ai/'),
+    'meta_link_text'=> 'cr8vstacks.com ↗',
     'hero_img'      => 'case_study_wp_publishion.webp',
     'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
     'overview_p1'   => 'Publishers and agencies struggle with generic AI content that hallucinates facts, lacks structured schema markup, and requires extensive manual copy-pasting into CMS workflows.',
@@ -220,10 +225,11 @@ $portfolio_data_matrix = [
       ['val' => '5.4x', 'lbl' => 'Publishing Velocity', 'desc' => 'Reduction in editorial drafting hours from outline to WordPress block staging.'],
       ['val' => '99.2%', 'lbl' => 'API Reliability', 'desc' => 'Self-hosted API orchestration with automatic model fallback redundancy.']
     ],
-    'live_url'      => 'https://devplayground.local/dev-playground/wp-publishion-ai/'
+    'live_url'      => home_url('/dev-playground/wp-publishion-ai/')
   ],
 
   'blvck-hair-ng' => [
+    'status'        => 'published',
     'client_name'   => 'BLVCK Hair NG',
     'industry'      => 'E-Commerce // Luxury Hair Extensions & Organic Search Domination',
     'headline_main' => 'BLVCK Hair NG: Luxury Storefront &',
@@ -244,9 +250,9 @@ $portfolio_data_matrix = [
       ['title' => '03 / Frictionless Checkout Pipeline', 'desc' => 'Integrated Paystack and international payment gateways with automated SMS/email order tracking.'],
       ['title' => '04 / Multi-Store International Scale', 'desc' => 'Architected dual-storefront currency localization supporting Nigerian and UK shoppers.'],
     ],
-    'asset_01_meta' => 'Brand Identity // Asset 01',
-    'asset_01_title'=> 'Brand Identity & Creative Direction System Dossier',
-    'asset_01_desc' => 'Constructed the complete brand identity book: Playfair Display serif typography scales, luxury color palettes (Matte Obsidian, Warm Mocha, Champagne Gold), and photography lighting standards for melanin tones.',
+    'asset_01_meta' => 'Liquid Storefront Architecture // Asset 01',
+    'asset_01_title'=> 'Custom Shopify Liquid Storefront & Product PDP Architecture',
+    'asset_01_desc' => 'Engineered a bespoke Shopify Liquid storefront featuring high-converting product detail templates, dynamic variant matrices (length, texture, density), real-time stock availability, and sub-1.2s TTFB mobile performance.',
     'asset_01_img'  => 'blvck_asset_01_design_system.webp',
     'asset_02_meta' => 'Conversion Flow // Asset 02',
     'asset_02_title'=> 'High-Converting Slide-Out Cart & Dynamic Tiered Upsells',
@@ -264,11 +270,11 @@ $portfolio_data_matrix = [
     'gallery_header'=> 'Omnichannel Campaign & Conversion Flow in Production',
     'gallery'       => [
       ['img' => 'blvck_gallery_01.webp', 'tag' => 'Mobile UX', 'title' => 'Mobile Storefront Discovery & Multi-Currency Routing'],
-      ['img' => 'blvck_gallery_02.webp', 'tag' => 'Customizer UI', 'title' => 'Interactive 3-Bundle Customizer & Length Matrix'],
+      ['img' => 'blvck_gallery_02.webp', 'tag' => 'Collection Matrix', 'title' => 'Curated Collections & Hair Texture Filter Matrix'],
       ['img' => 'blvck_gallery_03.webp', 'tag' => 'Checkout Gateway', 'title' => 'Paystack Multi-Currency Instant Checkout Gateway'],
-      ['img' => 'blvck_gallery_04.webp', 'tag' => 'Search Equity', 'title' => 'Flat Graphic Organic SEO Sovereignty & Entity Dominance'],
-      ['img' => 'blvck_gallery_05.webp', 'tag' => 'Social Proof', 'title' => 'Customer Community & Verified UGC Social Proof Mosaic'],
-      ['img' => 'blvck_gallery_06.webp', 'tag' => 'Brand Packaging', 'title' => 'Luxury Product Unboxing & Physical Brand Touchpoint Suite']
+      ['img' => 'blvck_gallery_04.webp', 'tag' => 'Search Equity', 'title' => 'Entity SEO Architecture & Google SERP Rich Snippets'],
+      ['img' => 'blvck_gallery_05.webp', 'tag' => 'Social Proof', 'title' => 'Customer Reviews & Verified UGC Social Proof Engine'],
+      ['img' => 'blvck_gallery_06.webp', 'tag' => 'Brand Packaging', 'title' => 'Luxury Satin Packaging & Brand Touchpoint Suite']
     ],
     'metrics'       => [
       ['val' => '2', 'lbl' => 'Regional Storefronts', 'desc' => 'Localized multi-currency Shopify storefronts operating across Nigeria & UK.'],
@@ -279,214 +285,231 @@ $portfolio_data_matrix = [
   ],
 
   'bridgepoint-compliance' => [
-    'client_name'   => 'Bridgepoint Advisory',
-    'industry'      => 'Corporate // Compliance & Relational Database App',
-    'headline_main' => 'Bridgepoint Advisory: Custom Compliance',
-    'headline_serif'=> '& SQL App',
-    'lead'          => 'Bridgepoint Advisory Services required a high-security internal compliance web portal to streamline corporate auditing. We engineered a zero-template React and Node.js solution with custom relational database queries and role-based data encryption.',
-    'pills'         => ['Custom Dev', 'React & Node', 'PostgreSQL', 'Data Security'],
-    'meta_services' => 'Custom Development',
-    'meta_stack'    => 'React · Node.js · SQL',
-    'meta_link_url' => 'https://bridgepoints.ng/',
-    'meta_link_text'=> 'bridgepoints.ng ↗',
-    'hero_img'      => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop',
-    'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
-    'overview_p1'   => 'Operating in high-tier financial consulting, Bridgepoint faced major bottlenecks managing client compliance audits using manual spreadsheets and generic cloud forms.',
-    'overview_p2'   => 'They needed a dedicated internal compliance portal capable of parsing complex financial data models securely while maintaining zero latency across multi-user sessions.',
+    'status'        => 'published',
+    'client_name'   => 'Compliance Analysis Platform',
+    'industry'      => 'RegTech // Enterprise FinTech Compliance & Full-Stack Audit Engine',
+    'headline_main' => 'Compliance Analysis Platform: Automated',
+    'headline_serif'=> 'Regulatory Audit Engine',
+    'lead'          => 'A specialized regulatory compliance platform designed to streamline supervisory audits for payment service providers (PSPs) and FinTech platforms. We engineered a secure, full-stack web application featuring a 4-step assessment wizard, multi-document PDF dropzone, automated payment paywalls, and board-ready encrypted audit reports.',
+    'pills'         => ['Custom Dev', 'RegTech Web App', 'Payment Paywall API', 'Full-Stack Portal'],
+    'meta_services' => 'Custom Development & RegTech Engineering',
+    'meta_stack'    => 'React · Node.js · REST API · AES-256',
+    'meta_link_url' => '#',
+    'meta_link_text'=> 'Enterprise Portal Demo ↗',
+    'hero_img'      => 'case_study_bridgepoint_compliance.webp',
+    'overview_title'=> 'The Regulatory Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
+    'overview_p1'   => 'Payment service providers and financial institutions face rigorous operational risk management frameworks and funds safeguarding criteria under tight regulatory compliance deadlines.',
+    'overview_p2'   => 'The client required an authoritative, zero-trust digital platform capable of collecting client compliance documents, gating specialist reviews through automated payment paywalls, and generating board-ready audit reports within a guaranteed 72-hour turnaround.',
     'overview_items'=> [
-      ['title' => '01 / Relational Database Architecture', 'desc' => 'Designed normalized PostgreSQL relational schemas optimized for high-speed audit record indexing.'],
-      ['title' => '02 / Secure Authentication & RBAC', 'desc' => 'Configured JWT multi-factor authentication with granular role-based access control for corporate compliance officers.'],
-      ['title' => '03 / Custom Frontend Dashboard', 'desc' => 'Hand-coded a dark glassmorphic React admin interface featuring real-time data visualizers.'],
-      ['title' => '04 / Automated Audit Reporting', 'desc' => 'Engineered background worker threads to automatically generate encrypted PDF compliance reports.']
+      ['title' => '01 / 4-Step Regulatory Assessment Wizard', 'desc' => 'Engineered a multi-step client onboarding flow with secure multi-file PDF upload dropzones and validation.'],
+      ['title' => '02 / Automated Payment Paywall Gateway', 'desc' => 'Integrated frictionless card and corporate wire payment APIs directly gating expert audit reviews.'],
+      ['title' => '03 / Supervisory Compliance Rule Matrix', 'desc' => 'Configured comprehensive supervisory gap analysis evaluating ORMF, funds safeguarding, and incident response.'],
+      ['title' => '04 / Encrypted PDF Report Generation Engine', 'desc' => 'Engineered automated background workers compiling board-ready executive summaries with cryptographic verification.']
     ],
-    'asset_01_meta' => 'Backend Architecture // Asset 01',
-    'asset_01_title'=> 'Engineered Database & Compliance System',
-    'asset_01_desc' => 'Custom SQL database queries, data security encryption, and automated audit logging dashboard.',
-    'asset_01_img'  => 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop',
-    'asset_02_meta' => 'Interface // Asset 02',
-    'asset_02_title'=> 'Platform Experience Page',
-    'asset_02_desc' => 'Designing custom user interfaces, pricing breakdowns, and direct conversion triggers.',
-    'asset_02_img'  => 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop',
-    'asset_03_meta' => 'Mobile Flow // Asset 03',
-    'asset_03_title'=> 'Responsive Mobile Flow',
-    'asset_03_desc' => 'Optimizing touch targets and instant contact forms for mobile users discovering the platform online.',
+    'asset_01_meta' => 'Assessment Pipeline // Asset 01',
+    'asset_01_title'=> '4-Step Regulatory Assessment & Multi-Document Upload Wizard',
+    'asset_01_desc' => 'Engineered a secure client onboarding flow with multi-file PDF dropzones, in-transit AES-256 encryption, and instant policy document validation against supervisory criteria.',
+    'asset_01_img'  => 'compliance_asset_01_assessment.webp',
+    'asset_02_meta' => 'Commercial Paywall // Asset 02',
+    'asset_02_title'=> 'Frictionless Payment Paywall & Secure Checkout Gateway',
+    'asset_02_desc' => 'Engineered an enterprise checkout paywall integrating credit card and wire payment gateways with automated invoice dispatch, gating specialist compliance review queues.',
+    'asset_02_img'  => 'compliance_asset_02_paywall.webp',
+    'asset_03_meta' => 'Full-Stack Architecture // Asset 03',
+    'asset_03_title'=> 'RegTech System Architecture & Automated Audit Pipeline',
+    'asset_03_desc' => 'The white architectural system board: tactile 3D relief blocks detailing the 4-step intake vault, PCI-DSS paywall gateway, automated policy evaluation engine, and board-ready encrypted PDF compilation with comparative 72-hour delivery metrics.',
     'asset_03_points'=> [
-      'Multi-Factor Auth: Enterprise JWT security with automated session expiry.',
-      'Sub-Second Audits: Optimized PostgreSQL queries across 10,000+ compliance records.',
-      'Automated Encrypted PDF: Instant one-click audit report generation.'
+      '72-Hour Delivery SLA: Rapid turnaround reducing manual audit discovery cycles from weeks to 3 business days.',
+      '75% Time Reduction: Automated policy intake and gap analysis drastically accelerating compliance readiness.',
+      '100% Supervisory Alignment: Purpose-built for Payment Service Provider (PSP) operational risk and safeguarding frameworks.'
     ],
-    'asset_03_img'  => 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop',
-    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'asset_03_img'  => 'compliance_asset_03_architecture.webp',
+    'gallery_header'=> 'Platform Architecture & Supervisory Engine in Production',
     'gallery'       => [
-      ['img' => 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop', 'tag' => 'Database Architecture', 'title' => 'PostgreSQL Query Pipeline'],
-      ['img' => 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop', 'tag' => 'Admin Interface', 'title' => 'Real-Time Compliance Visualizer'],
-      ['img' => 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop', 'tag' => 'Mobile Flow', 'title' => 'Responsive Auditor Interface']
+      ['img' => 'compliance_gallery_01.webp', 'tag' => 'Gap Matrix', 'title' => 'Policy Compliance & Risk Assessment Matrix'],
+      ['img' => 'compliance_gallery_02.webp', 'tag' => 'Audit Trail', 'title' => 'Regulatory Audit Log & Review History'],
+      ['img' => 'compliance_gallery_03.webp', 'tag' => 'Mobile UX', 'title' => 'Mobile Compliance Assessment & Responsive Intake'],
+      ['img' => 'compliance_gallery_04.webp', 'tag' => 'Report Engine', 'title' => 'Automated Encrypted PDF Audit Report Preview'],
+      ['img' => 'compliance_gallery_05.webp', 'tag' => 'Security & RBAC', 'title' => 'Multi-Factor Auth & Granular Role Permissions'],
+      ['img' => 'compliance_gallery_06.webp', 'tag' => 'Sector Modules', 'title' => 'Tailored Compliance Modules for Regulated Sectors']
     ],
     'metrics'       => [
-      ['val' => '99.6%', 'lbl' => 'Audit Accuracy', 'desc' => 'Flawless record verification across enterprise client portfolios.'],
-      ['val' => '0', 'lbl' => 'Security Incidents', 'desc' => 'Role-based access control and token encryption safeguarding sensitive corporate filings.'],
-      ['val' => '85%', 'lbl' => 'Time Saved', 'desc' => 'Reduction in manual compliance auditing hours per quarterly cycle.']
+      ['val' => '72 Hours', 'lbl' => 'Audit Turnaround', 'desc' => 'Guaranteed rapid review turnaround compared to weeks of manual legal review.'],
+      ['val' => '75%', 'lbl' => 'Time Reduction', 'desc' => 'Drastic decrease in internal staff hours spent on policy gap discovery.'],
+      ['val' => '100%', 'lbl' => 'Supervisory Alignment', 'desc' => 'Full-scope operational risk and funds safeguarding regulatory compliance readiness.']
     ],
-    'live_url'      => 'https://bridgepoints.ng/'
+    'live_url'      => '#'
   ],
 
   'bridgepoint-advisory' => [
-    'client_name'   => 'Bridgepoint Advisory',
-    'industry'      => 'Brand Identity // Vector Design & Corporate Guidelines',
-    'headline_main' => 'BridgePoints: Corporate Visual',
-    'headline_serif'=> 'Brand Identity',
-    'lead'          => 'Bridgepoint Advisory Services needed a visual identity system that commanded authority in corporate financial markets. We crafted an original vector logo mark, set color swatch tokens, and compiled a comprehensive brand manual for digital and print collateral.',
-    'pills'         => ['Brand Identity', 'Vector Logo', 'Design Tokens', 'Brand Manual'],
-    'meta_services' => 'Brand Identity Design',
-    'meta_stack'    => 'Figma · Vector Assets',
+    'status'        => 'published',
+    'client_name'   => 'BridgePoint Advisory Services',
+    'industry'      => 'Brand Identity // Corporate Design System & Institutional Governance',
+    'headline_main' => 'BridgePoint: Sovereign Vector Identity &',
+    'headline_serif'=> 'Corporate Design System',
+    'lead'          => 'BridgePoint Advisory Services is a premier financial and strategic management advisory firm in Lagos and London. We engineered an authoritative corporate brand identity rooted in mathematical vector precision (0.5px), curated a multi-tier token design system, audited iterative concept directions, and published a 42-asset brand manual spanning physical stationery to boardroom roadshow presentations.',
+    'pills'         => ['Brand Identity', '0.5px Vector Grid', 'Design System', 'Executive Stationery'],
+    'meta_services' => 'Corporate Brand Identity & Governance',
+    'meta_stack'    => 'Vector Architecture · Figma · Print & Digital Collateral',
     'meta_link_url' => 'https://bridgepoints.ng/',
     'meta_link_text'=> 'bridgepoints.ng ↗',
-    'hero_img'      => 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1600&auto=format&fit=crop',
+    'hero_img'      => 'case_study_bridgepoint_advisory.webp',
     'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
-    'overview_p1'   => 'Bridgepoint Advisory Services required a modern, institutional corporate visual identity to distinguish itself in competitive advisory markets.',
-    'overview_p2'   => 'Cr8v Stacks crafted an authoritative vector emblem, complete typography hierarchy guidelines, digital color ramps, and corporate stationeries.',
+    'overview_p1'   => 'BridgePoint Advisory Services required an authoritative corporate visual identity capable of commanding trust in high-stakes boardrooms, institutional capital syndications, and cross-border M&A transactions across West Africa and global financial centers.',
+    'overview_p2'   => 'We conducted a comprehensive concept iteration audit—testing and rejecting early letterform-integrated monograms in favor of a monumental soaring suspension arch emblem—backed by strict vector clear-space rules, digital token ramps, and luxury physical stationery.',
     'overview_items'=> [
-      ['title' => '01 / Geometric Logo System', 'desc' => 'Engineered a precision vector mark conveying stability, strategic growth, and corporate precision.'],
-      ['title' => '02 / Brand Manual & Token Rules', 'desc' => 'Documented exact spacing parameters, minimum clear space, and typography scale hierarchies.'],
-      ['title' => '03 / Color System Architecture', 'desc' => 'Curated a bespoke institutional color palette pairing Royal Blue with warm architectural neutrals.'],
-      ['title' => '04 / Corporate Collateral Suite', 'desc' => 'Designed print-ready stationery, executive pitch decks, and digital media assets.']
+      ['title' => '01 / Vector Precision Architecture', 'desc' => 'Engineered a 0.5px grid-aligned suspension arch emblem symbolizing a trusted conduit between capital, corporate strategy, and sustainable growth.'],
+      ['title' => '02 / Concept Evolution & Diagnostic Audit', 'desc' => 'Subjected iterative prototypes to micro-scale legibility and foil stamping tests, rigorously documenting why letterform pier monograms failed print reproduction.'],
+      ['title' => '03 / Comprehensive Design System Matrix', 'desc' => 'Formulated a full multi-tone color ramp (Midnight Navy #131A24, Advisory Cyan #0091C9, Petrol Teal #0B3A4A), typography ladder, spacing scale, and live client portal UI states.'],
+      ['title' => '04 / Luxury Boardroom Collateral Suite', 'desc' => 'Designed 600gsm duplexed business cards with electric cyan painted edge gilding, executive letterhead, and 16:9 investor pitch deck architectures.']
     ],
-    'asset_01_meta' => 'Brand Identity // Asset 01',
-    'asset_01_title'=> 'Corporate Brand Guidelines & Token Swatches',
-    'asset_01_desc' => 'Vector geometry, typography scale rules, and institutional color token scales.',
-    'asset_01_img'  => 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop',
-    'asset_02_meta' => 'Identity // Asset 02',
-    'asset_02_title'=> 'Vector Precision & Logo Construction',
-    'asset_02_desc' => 'Grid-aligned vector construction ensuring legibility across corporate signage and app icons.',
-    'asset_02_img'  => 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop',
-    'asset_03_meta' => 'Collateral // Asset 03',
-    'asset_03_title'=> 'Executive Stationery & Pitch Architecture',
-    'asset_03_desc' => 'Consistent brand collateral projecting institutional authority in high-stakes investor meetings.',
+    'asset_01_meta' => 'Design System // Asset 01',
+    'asset_01_title'=> 'Corporate Design System Tokens & Component Library Matrix',
+    'asset_01_desc' => 'Engineered an institutional design system specification comprising 16 typography styles (Michroma bold headlines, DM Sans body), 40 multi-shade color ramps, mathematical spacing scale tokens, and auto-layout button/badge components applied directly to a client briefing intake portal.',
+    'asset_01_img'  => 'bridgepoints_asset_01_design_system.webp',
+    'asset_02_meta' => 'Concept Audit // Asset 02',
+    'asset_02_title'=> 'Concept Evolution — Iteration 02 Monogram vs Soaring Arch Mark',
+    'asset_02_desc' => 'An authentic diagnostic case audit contrasting the rejected Iteration 02 (pier and cable monogram integrated into letterform stems, rejected due to micro-scale legibility collapse below 32px and ink-spread during hot-stamping) against the approved monumental suspension arch delivering flawless multi-scale authority.',
+    'asset_02_img'  => 'bridgepoints_asset_02_stationery.webp',
+    'asset_03_meta' => 'Platform Architecture // Asset 03',
+    'asset_03_title'=> 'Brand Identity Architecture & Institutional Governance Model',
+    'asset_03_desc' => 'Showcases the physical brand governance architecture model standing on an executive boardroom table: tactile 3D modules codifying Core Vector Geometry (0.5px), Typography Tokens, Corporate Brand Manual (42+ Multi-Channel Standards), and comparative 3D bar blocks demonstrating +98% executive alignment versus unbranded visual disconnect.',
     'asset_03_points'=> [
-      'Comprehensive Brand Manual: Complete usage rules across print and digital media.',
-      'Vector Precision: Scalable SVG assets optimized for high-DPI displays.',
-      'Institutional Authority: Unified typography and color systems across corporate presentations.'
+      '0.5px Vector Precision: Absolute mathematical alignment across Bezier arcs and wordmark baseline kerning.',
+      '42+ Multi-Channel Assets: Standardized collateral spanning blind debossed stationery to responsive web avatars.',
+      '+98% Executive Alignment: Unanimous boardroom adoption and rapid multi-market rollout with zero downtime.'
     ],
-    'asset_03_img'  => 'https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=1200&auto=format&fit=crop',
-    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'asset_03_img'  => 'bridgepoints_asset_03_growth.webp',
+    'gallery_header'=> 'Brand Identity Standards & Corporate Touchpoints in Production',
     'gallery'       => [
-      ['img' => 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop', 'tag' => 'Brand Manual', 'title' => 'Design System Specification'],
-      ['img' => 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop', 'tag' => 'Vector Geometry', 'title' => 'Logo Grid Construction'],
-      ['img' => 'https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=1200&auto=format&fit=crop', 'tag' => 'Collateral', 'title' => 'Executive Presentation Suite']
+      ['img' => 'bridgepoints_gallery_01.webp', 'tag' => 'Identity Standards', 'title' => 'Master Identity Variations Matrix (Primary Navy, Inverted Alabaster, Petrol Blue, Metallic Foil)'],
+      ['img' => 'bridgepoints_gallery_02.webp', 'tag' => 'Stationery Suite', 'title' => 'Executive Stationery Suite — 120gsm Letterhead & 600gsm Duplexed Business Cards with Cyan Painted Edges'],
+      ['img' => 'bridgepoints_gallery_03.webp', 'tag' => 'Pitch Architecture', 'title' => '16:9 Boardroom Presentation Suite — Cover Slide, Advisory Framework & Performance Telemetry'],
+      ['img' => 'bridgepoints_gallery_04.webp', 'tag' => 'Digital Identity', 'title' => 'Digital Identity Architecture & Multi-Scale Favicon Ladder (16px to 512px App Icon)'],
+      ['img' => 'bridgepoints_gallery_05.webp', 'tag' => 'Governance CRO', 'title' => 'Executive Stakeholder Alignment & Governance Scorecard (+98% Unanimous Adoption)'],
+      ['img' => 'bridgepoints_gallery_06.webp', 'tag' => 'Luxury Collateral', 'title' => 'Photorealistic Luxury Stationery Suite — Debossed Arch Letterhead, Presentation Folder & Foil Cards']
     ],
     'metrics'       => [
-      ['val' => '0.5px', 'lbl' => 'Vector Precision', 'desc' => 'Pixel-perfect geometry across every digital and print touchpoint.'],
-      ['val' => '42+', 'lbl' => 'Brand Assets', 'desc' => 'Comprehensive design tokens, icon sets, and presentation slide templates.'],
-      ['val' => '98%', 'lbl' => 'Executive Alignment', 'desc' => 'Seamless executive stakeholder alignment and immediate brand rollout.']
+      ['val' => '0.5px', 'lbl' => 'Vector Precision', 'desc' => 'Sub-pixel geometry alignment across digital displays, high-DPI viewports, and corporate signage.'],
+      ['val' => '42+', 'lbl' => 'Brand Assets', 'desc' => 'Comprehensive multi-channel design tokens, stationery templates, pitch decks, and digital favicons.'],
+      ['val' => '98%', 'lbl' => 'Board Consensus', 'desc' => 'Unanimous executive stakeholder approval achieved on Milestone 3 with zero brand fragmentation.']
     ],
     'live_url'      => 'https://bridgepoints.ng/'
   ],
 
   'victorias-lane' => [
+    'status'        => 'published',
     'client_name'   => "Victoria's Lane",
-    'industry'      => 'Fashion // Luxury Leather & Shopify Liquid Storefront',
-    'headline_main' => "Victoria's Lane: Shopify Storefront",
-    'headline_serif'=> '& Liquid Dev',
-    'lead'          => "Victoria's Lane is an exclusive luxury handbag brand. We hand-coded a bespoke Shopify Liquid storefront featuring custom product filters, an app-free AJAX cart drawer, and high-converting PDP visual showcases.",
+    'industry'      => 'Fashion // Handcrafted Statement Bags & Shopify Liquid Storefront',
+    'headline_main' => "Victoria's Lane: Handcrafted Beaded Bags &",
+    'headline_serif'=> 'Shopify Liquid Dev',
+    'lead'          => "Victoria's Lane is an artisanal luxury accessories brand specializing in handcrafted crystal and beaded evening bags with signature solid brass nameplates. Sister brand to @blvckhair_ng with worldwide shipping across Nigeria and the United States, we hand-coded a bespoke Shopify Liquid storefront featuring custom variant swatches, an app-free AJAX slide-out cart drawer, and high-velocity mobile CRO.",
     'pills'         => ['Shopify Liquid', 'Custom Theme', 'AJAX Cart', 'Fashion CRO'],
     'meta_services' => 'Shopify Storefront & CRO',
     'meta_stack'    => 'Shopify · Liquid · JavaScript',
     'meta_link_url' => 'https://victoriaslane.com/',
     'meta_link_text'=> 'victoriaslane.com ↗',
-    'hero_img'      => 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1600&auto=format&fit=crop',
+    'hero_img'      => 'case_study_victorias_lane.webp',
     'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
-    'overview_p1'   => "Victoria's Lane needed a storefront that reflected high fashion elegance without falling into generic Shopify theme templates or app bloat fees.",
-    'overview_p2'   => 'They required custom Liquid template logic for variant swatches, high-resolution product video showcases, and instant cart drawer slideouts.',
+    'overview_p1'   => "Victoria's Lane needed a bespoke digital flagship that showcased the intricate brilliance of hand-strung crystal beadwork without falling prey to sluggish commercial theme bloat or recurring third-party Shopify app subscriptions.",
+    'overview_p2'   => 'We engineered a bespoke, lightweight Shopify Liquid theme from scratch featuring sub-second AJAX cart slideouts, dynamic free-shipping progress calculators, multi-currency routing (NGN & USD), and targeted Meta editorial acquisition funnels.',
     'overview_items'=> [
-      ['title' => '01 / Custom Liquid Architecture', 'desc' => 'Engineered a bespoke theme from scratch with zero recurring third-party Shopify app subscription fees.'],
-      ['title' => '02 / App-Free AJAX Cart Drawer', 'desc' => 'Hand-coded sub-second cart slideout with dynamic free-shipping progress indicators.'],
-      ['title' => '03 / Luxury PDP Visual Experience', 'desc' => 'Designed high-converting product pages with zoomable leather textures and variant color chips.'],
-      ['title' => '04 / Multi-Currency International Checkout', 'desc' => 'Integrated automated location-based currency conversion for global luxury shoppers.']
+      ['title' => '01 / Bespoke Liquid Architecture', 'desc' => 'Engineered a lightweight theme bypassing third-party app dependencies to achieve 0.7s LCP mobile page loads.'],
+      ['title' => '02 / App-Free AJAX Cart Drawer', 'desc' => 'Hand-coded sub-second cart slideout with dynamic free-shipping threshold indicators and 1-click Shop Pay checkout.'],
+      ['title' => '03 / Handcrafted Visual Experience', 'desc' => 'Designed high-converting PDPs with interactive crystal colorway swatches and craftsmanship spec matrices.'],
+      ['title' => '04 / Multi-Currency International Checkout', 'desc' => 'Integrated automated location-based currency conversion (NGN ₦ and USD $) with worldwide express courier delivery hooks.']
     ],
     'asset_01_meta' => 'Design System // Asset 01',
-    'asset_01_title'=> 'Haute Couture Design System & Tokens',
-    'asset_01_desc' => 'Curated editorial typography, rich neutral color ramps, and minimalist luxury product badges.',
-    'asset_01_img'  => 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop',
+    'asset_01_title'=> 'Haute Couture Accessories System & Craftsmanship Matrix',
+    'asset_01_desc' => 'Engineered an editorial luxury design system anchored on warm alabaster studio backgrounds (#F8F6F4), brushed 24k gold accents (#C89E55), dusty rose (#D89299), serif typography, and tactile beadwork spec chips (faceted crystal glass beads, solid brass nameplates, satin lining with card pockets).',
+    'asset_01_img'  => 'victorias_lane_asset_01_design_system.webp',
     'asset_02_meta' => 'E-Commerce UX // Asset 02',
-    'asset_02_title'=> 'AJAX Slide-Out Cart & Upsell Engine',
-    'asset_02_desc' => 'Instant cart drawer with cross-sell recommendation modules and 1-click checkout trigger.',
-    'asset_02_img'  => 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop',
-    'asset_03_meta' => 'Conversion // Asset 03',
-    'asset_03_title'=> 'High-Converting PDP & Variant Selector',
-    'asset_03_desc' => 'Mobile-optimized product page architecture capturing luxury buyer intent with zero lag.',
+    'asset_02_title'=> 'App-Free AJAX Cart Drawer & High-Ticket Upsell Engine',
+    'asset_02_desc' => 'Eliminated 4.2s third-party app lag with a native Liquid AJAX slide-out cart drawer featuring dynamic free-shipping progress indicators, cross-sell beaded micro bag modules, and 1-click Shop Pay integration driving a +42% checkout conversion lift.',
+    'asset_02_img'  => 'victorias_lane_asset_02_experience.webp',
+    'asset_03_meta' => 'Platform Architecture // Asset 03',
+    'asset_03_title'=> 'Physical Growth Model & Sovereign Shopify Architecture',
+    'asset_03_desc' => 'Architected an integrated physical-to-digital luxury pipeline combining bespoke Shopify Liquid speed, zero recurring SaaS app bloat ($0/mo), and targeted Meta fashion acquisition funnels.',
     'asset_03_points'=> [
-      'Zero App Subscriptions: Pure native Liquid architecture eliminating app conflicts.',
-      'Sub-Second Load Times: Optimized asset loading across international mobile networks.',
-      '+42% Mobile Conversion: Seamless slideout cart driving immediate checkout completion.'
+      'Zero App Subscriptions: Replaced 6 monthly third-party apps with native Liquid templates and vanilla JS.',
+      'Sub-0.7s Mobile LCP: Instantaneous catalog browsing across London, Atlanta, and Nigerian cellular networks.',
+      '+42% Checkout Conversion: Frictionless slide-out cart drawer capturing high-ticket impulse fashion purchases.'
     ],
-    'asset_03_img'  => 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop',
+    'asset_03_img'  => 'victorias_lane_asset_03_growth.webp',
     'gallery_header'=> 'Platform Showcase & Production Gallery',
     'gallery'       => [
-      ['img' => 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop', 'tag' => 'Product Page', 'title' => 'Luxury Handbag Detail View'],
-      ['img' => 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop', 'tag' => 'Mobile Checkout', 'title' => 'AJAX Slideout Cart Drawer'],
-      ['img' => 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop', 'tag' => 'Collection Grid', 'title' => 'Responsive Lookbook Archive']
+      ['img' => 'victorias_lane_gallery_01.webp', 'tag' => 'Collection Matrix', 'title' => 'Curated Statement Bags Matrix (Triangle Pouch, Amber Crescent, Butterfly & Micro)'],
+      ['img' => 'victorias_lane_gallery_02.webp', 'tag' => 'Mobile CRO', 'title' => 'Mobile Storefront Discovery & Sub-Second AJAX Drawer'],
+      ['img' => 'victorias_lane_gallery_03.webp', 'tag' => 'Paid Acquisition', 'title' => 'Meta Feed Ad Creative & 4.8x ROAS Telemetry'],
+      ['img' => 'victorias_lane_gallery_04.webp', 'tag' => 'Speed Architecture', 'title' => 'Google PageSpeed Scorecard & Zero App Bloat Benchmark'],
+      ['img' => 'victorias_lane_gallery_05.webp', 'tag' => 'Client Social Proof', 'title' => 'Verified Client Reviews & "Our Babes" Community Proof'],
+      ['img' => 'victorias_lane_gallery_06.webp', 'tag' => 'Unboxing Experience', 'title' => 'Luxury Presentation Packaging & Certificate of Authenticity']
     ],
     'metrics'       => [
       ['val' => '+42%', 'lbl' => 'Checkout Conversion', 'desc' => 'Increase in completed purchases following bespoke AJAX cart deployment.'],
       ['val' => '$0/mo', 'lbl' => 'App Subscription Bloat', 'desc' => 'Zero monthly SaaS fees by replacing 6 Shopify apps with native Liquid code.'],
-      ['val' => '97/100', 'lbl' => 'Mobile UX Score', 'desc' => 'Flawless responsive browsing across iOS and Android luxury shoppers.']
+      ['val' => '0.7s', 'lbl' => 'Mobile LCP', 'desc' => 'Sub-second mobile rendering across cellular networks in Nigeria, UK, and US.']
     ],
     'live_url'      => 'https://victoriaslane.com/'
   ],
 
   'sweetermen-ng' => [
+    'status'        => 'published',
     'client_name'   => 'SweeterMen NG',
-    'industry'      => 'E-Commerce // Luxury Horology & WooCommerce Custom Theme',
-    'headline_main' => 'SweeterMen NG: Full-Stack',
-    'headline_serif'=> 'WooCommerce Store',
-    'lead'          => "SweeterMen NG required a high-conversion e-commerce platform for luxury men's accessories. We engineered a custom WooCommerce theme with zero plugin bloat, custom checkout hooks, and integrated paid Meta ad campaigns.",
-    'pills'         => ['WooCommerce', 'Custom PHP', 'Paid Growth', 'Checkout CRO'],
-    'meta_services' => 'WooCommerce & Paid Ads',
-    'meta_stack'    => 'WordPress · WooCommerce · Meta Ads',
+    'industry'      => 'E-Commerce // Luxury Horology & Custom WooCommerce Engine',
+    'headline_main' => 'SweeterMen NG: Bespoke Horology &',
+    'headline_serif'=> 'WooCommerce Engine',
+    'lead'          => "SweeterMen NG is an exclusive luxury horology and men's accessories brand in Lagos. We engineered a high-performance custom WooCommerce storefront with zero plugin bloat, a 1-step checkout drawer, Paystack multi-payment routing, and profitable Meta advertising funnels.",
+    'pills'         => ['WooCommerce', 'Custom PHP', 'Paystack Gateway', 'Checkout CRO'],
+    'meta_services' => 'WooCommerce Engineering & Paid Growth',
+    'meta_stack'    => 'WordPress · WooCommerce · Paystack · Meta Ads',
     'meta_link_url' => 'https://sweetermen.ng/',
     'meta_link_text'=> 'sweetermen.ng ↗',
-    'hero_img'      => 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1600&auto=format&fit=crop',
+    'hero_img'      => 'case_study_sweetermen.webp',
     'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
-    'overview_p1'   => 'SweeterMen NG was struggling with high cart abandonment rates and slow page loading times on their legacy WooCommerce setup.',
-    'overview_p2'   => 'They needed a sleek custom storefront with an app-free 1-step checkout drawer, seamless mobile payment gateway wiring, and targeted ad funnels.',
+    'overview_p1'   => 'SweeterMen NG was struggling with high cart abandonment rates and slow page loading times on their legacy WooCommerce setup, losing high-ticket timepiece buyers at the checkout gate.',
+    'overview_p2'   => 'We engineered a bespoke, lightweight WooCommerce theme with an AJAX 1-step checkout drawer, direct Paystack authorization, mobile installment calculators, and targeted Meta ad funnels.',
     'overview_items'=> [
-      ['title' => '01 / Custom WooCommerce Theme', 'desc' => 'Hand-coded lightweight PHP templates with zero third-party page builder bloat.'],
-      ['title' => '02 / One-Page Instant Checkout', 'desc' => 'Engineered a streamlined single-step checkout flow reducing friction for impulse buyers.'],
-      ['title' => '03 / Mobile-First PDP Layouts', 'desc' => 'High-impact product visual cards with dynamic installment payment calculations.'],
-      ['title' => '04 / High-ROAS Meta Ads Funnels', 'desc' => 'Structured lookalike audience segmentation and dynamic product catalog retargeting campaigns.']
+      ['title' => '01 / Custom WooCommerce Theme', 'desc' => 'Hand-coded lightweight PHP templates bypassing heavy page builders to achieve sub-0.8s catalog loads.'],
+      ['title' => '02 / One-Page Instant Checkout Drawer', 'desc' => 'Engineered a streamlined single-step slideout checkout flow reducing friction for high-ticket impulse buyers.'],
+      ['title' => '03 / Mobile-First PDP & Installments', 'desc' => 'High-impact product visual cards with dynamic 3-month Paystack installment calculations (₦483,333/mo).'],
+      ['title' => '04 / High-ROAS Meta Ads Funnels', 'desc' => 'Structured lookalike audience segmentation and dynamic product catalog retargeting campaigns achieving 4.2x ROAS.']
     ],
     'asset_01_meta' => 'Design System // Asset 01',
-    'asset_01_title'=> 'Luxury Horology Design System',
-    'asset_01_desc' => 'Dark obsidian surfaces, refined serif headers, and high-contrast gold price callouts.',
-    'asset_01_img'  => 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop',
+    'asset_01_title'=> 'Luxury Horology Design System & Component Library',
+    'asset_01_desc' => 'Engineered a bespoke dark luxury design system anchored on obsidian surfaces (#0B0D10), imperial gold accents (#D4AF37), editorial typography, and high-contrast horology spec chips (Miyota automatic movement, 316L stainless steel, sapphire crystal).',
+    'asset_01_img'  => 'sweetermen_asset_01_design_system.webp',
     'asset_02_meta' => 'Checkout CRO // Asset 02',
-    'asset_02_title'=> '1-Step Checkout Engine',
-    'asset_02_desc' => 'Fast single-page checkout modal with instant Paystack payment triggers.',
-    'asset_02_img'  => 'https://images.unsplash.com/photo-1508615039623-a25605d2b022?q=80&w=800&auto=format&fit=crop',
-    'asset_03_meta' => 'Growth // Asset 03',
-    'asset_03_title'=> 'Multi-Channel Paid Acquisition Engine',
-    'asset_03_desc' => 'Targeted Meta and Google ad funnels generating consistent profitable ROAS for watch collections.',
+    'asset_02_title'=> '1-Step Slide-Out Checkout & Express Dispatch Hook',
+    'asset_02_desc' => 'Bypassed default multi-page WooCommerce friction with an AJAX slide-out checkout modal featuring 1-click Paystack authorization, bank transfer verification, and Lagos express dispatch routing.',
+    'asset_02_img'  => 'sweetermen_asset_02_checkout.webp',
+    'asset_03_meta' => 'Ecosystem Architecture // Asset 03',
+    'asset_03_title'=> 'Physical Growth Model & Omnichannel Funnel Architecture',
+    'asset_03_desc' => 'Architected an integrated physical-to-digital growth pipeline combining bespoke WooCommerce speed, localized Nigerian payment security, and high-ROAS targeted Meta acquisition campaigns.',
     'asset_03_points'=> [
-      'Sub-1s Load Time: Lightweight custom WooCommerce code accelerating checkout.',
-      '4.2x ROAS: Profitable paid Meta campaigns targeting luxury timepiece buyers.',
-      '+68% Cart Completion: Frictionless single-step mobile checkout.'
+      'Sub-1s Server Response: Hand-coded PHP templates bypassing heavy page builders for sub-0.8s catalog loads.',
+      '4.2x Meta Ad ROAS: High-converting video creative funnels driving affluent watch collectors to direct checkout.',
+      '+68% Cart Completion: Frictionless 1-step checkout drawer reducing luxury mobile drop-off.'
     ],
-    'asset_03_img'  => 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop',
-    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'asset_03_img'  => 'sweetermen_asset_03_growth.webp',
+    'gallery_header'=> 'Timepiece Storefront & Acquisition Funnels in Production',
     'gallery'       => [
-      ['img' => 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop', 'tag' => 'Timepiece Showcase', 'title' => 'Luxury Watch Catalog Detail'],
-      ['img' => 'https://images.unsplash.com/photo-1508615039623-a25605d2b022?q=80&w=800&auto=format&fit=crop', 'tag' => 'Checkout Flow', 'title' => 'Instant Mobile Checkout'],
-      ['img' => 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop', 'tag' => 'Ad Funnel', 'title' => 'Paid Acquisition Campaign']
+      ['img' => 'sweetermen_gallery_01.webp', 'tag' => 'Catalog Matrix', 'title' => 'Curated Luxury Timepiece Grid & Specification Chips'],
+      ['img' => 'sweetermen_gallery_02.webp', 'tag' => 'Mobile Discovery', 'title' => 'Mobile Storefront & Paystack PayLater Installment Engine'],
+      ['img' => 'sweetermen_gallery_03.webp', 'tag' => 'Paid Acquisition', 'title' => 'Meta Feed Ad Creative & 4.2x ROAS Telemetry'],
+      ['img' => 'sweetermen_gallery_04.webp', 'tag' => 'Core Web Vitals', 'title' => 'PageSpeed 99/100 Audit & Sub-0.8s Waterfall Benchmark'],
+      ['img' => 'sweetermen_gallery_05.webp', 'tag' => 'Social Proof', 'title' => 'Verified Collector Reviews & Horology Trust Architecture'],
+      ['img' => 'sweetermen_gallery_06.webp', 'tag' => 'Brand Packaging', 'title' => 'Luxury Unboxing Suite, Warranty Card & Travel Pouch']
     ],
     'metrics'       => [
       ['val' => '4.2x', 'lbl' => 'Paid Ad ROAS', 'desc' => 'Return on ad spend across targeted Meta advertising campaigns.'],
       ['val' => '+68%', 'lbl' => 'Checkout Completion', 'desc' => 'Reduction in mobile cart drop-off following 1-step checkout deployment.'],
-      ['val' => '0.8s', 'lbl' => 'Page Load Speed', 'desc' => 'Instantaneous product catalog browsing with lightweight custom PHP code.']
+      ['val' => '0.8s', 'lbl' => 'Catalog Load Time', 'desc' => 'Sub-second page speeds achieved through hand-coded PHP WooCommerce templates.']
     ],
     'live_url'      => 'https://sweetermen.ng/'
   ],
 
   'stride-plus-media' => [
+    'status'        => 'draft',
     'client_name'   => 'Stride Radio',
     'industry'      => 'Media // Digital Marketing & Broadcast Growth',
     'headline_main' => 'Stride Plus Media: Brand Strategy',
@@ -539,71 +562,399 @@ $portfolio_data_matrix = [
   ],
 
   'kiri-city-stays' => [
+    'status'        => 'published',
     'client_name'   => 'Kiri City Stays',
-    'industry'      => 'Hospitality // Urban Short-Let & Direct Booking Platform',
-    'headline_main' => 'Kiri City Stays: Direct Booking',
-    'headline_serif'=> '& Luxury Stays',
-    'lead'          => 'Kiri City Stays is a premier short-let apartment management agency. We engineered their direct booking web application, created their visual identity, and integrated local SEO frameworks to capture direct guest bookings.',
-    'pills'         => ['Web Design', 'Booking Engine', 'Local SEO', 'Hospitality'],
-    'meta_services' => 'Web Design & Booking',
-    'meta_stack'    => 'WordPress · Custom Code',
-    'meta_link_url' => 'https://kiricitystays.com/',
-    'meta_link_text'=> 'kiricitystays.com ↗',
-    'hero_img'      => 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1600&auto=format&fit=crop',
-    'overview_title'=> 'The Strategic Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
-    'overview_p1'   => 'Kiri City Stays wanted to reduce reliance on third-party OTA booking platforms and build a premium direct reservation portal for executive guests.',
-    'overview_p2'   => 'They needed a clean mobile-first catalog showcasing luxury short-let suites, transparent night rates, and instant booking reservation forms.',
+    'industry'      => 'Digital Marketing // Google Ads, Tracking Infrastructure & Social Content',
+    'headline_main' => 'Kiri City Stays: Attribution &',
+    'headline_serif'=> 'Paid Acquisition Launch',
+    'lead'          => 'Kiri City Stays operates premium urban serviced apartments in Manchester, United Kingdom (near Old Trafford and MediaCityUK). We engineered their visual brand identity and logo, established Google Ads search campaign architectures, deployed precision Google Tag Manager event attribution triggers, and produced engaging social media campaigns—including multi-slide Instagram carousels and vertical video reels highlighting guest reviews and city culture.',
+    'pills'         => ['Digital Marketing', 'Google Ads', 'GTM Attribution', 'Social Media Management', 'Brand Identity'],
+    'meta_services' => 'Digital Marketing, Google Ads & Social Content',
+    'meta_stack'    => 'Google Ads · GTM · Meta Creative Suite · Analytics',
+    'meta_link_url' => '',
+    'meta_link_text'=> 'Archived Campaign',
+    'hero_img'      => 'case_study_kiri_city_stays.webp',
+    'overview_title'=> 'The Growth Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
+    'overview_p1'   => 'Operating in a competitive UK urban hospitality market, Kiri City Stays needed to capture high-intent travelers visiting Manchester for Premier League football fixtures, corporate business, and city events without relying solely on passive third-party listing platforms.',
+    'overview_p2'   => 'Cr8v Stacks executed an end-to-end growth and creative strategy: designing their official brand identity and regal crest logo, building targeted Google Search ad campaigns, establishing rigorous Google Tag Manager conversion attribution triggers, and producing multi-slide Instagram carousel series and vertical video reels that drive direct guest inquiry engagement.',
     'overview_items'=> [
-      ['title' => '01 / Bespoke Direct Booking Portal', 'desc' => 'Engineered an in-house room reservation pipeline with instant availability checks.'],
-      ['title' => '02 / High-Trust Brand Identity', 'desc' => 'Crafted an urban luxury aesthetic with dark slate tones and crisp typography.'],
-      ['title' => '03 / Multi-Property Dynamic Catalog', 'desc' => 'Constructed responsive suite showcase pages with floor plan layouts and amenity filters.'],
-      ['title' => '04 / Local SEO & Map Integration', 'desc' => 'Embedded Google Business schema and localized neighborhood guides driving organic searches.']
+      ['title' => '01 / Brand Identity & Regal Crest Monogram', 'desc' => 'Crafted the official CK monogram with architectural house rooftop crests and authoritative typography.'],
+      ['title' => '02 / Google Ads Search Campaign Architecture', 'desc' => 'Structured high-intent search ad groups capturing Manchester United matchday travel, business short-stays, and event accommodation.'],
+      ['title' => '03 / GTM Event Tracking & Attribution Engine', 'desc' => 'Deployed Google Tag Manager triggers tracking direct booking button clicks, contact inquiries, and return on ad spend (ROAS).'],
+      ['title' => '04 / Social Media Creative Content Engine', 'desc' => 'Produced branded Instagram carousel series, seasonal greeting campaigns, and vertical video reels featuring verified 5-star guest reviews and local Manchester dining highlights.']
     ],
-    'asset_01_meta' => 'Design System // Asset 01',
-    'asset_01_title'=> 'Urban Hospitality Design Tokens',
-    'asset_01_desc' => 'Slate grey, warm gold, and crisp bone white color ramps with modern typography.',
-    'asset_01_img'  => 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop',
-    'asset_02_meta' => 'Booking Engine // Asset 02',
-    'asset_02_title'=> 'Instant Suite Reservation Engine',
-    'asset_02_desc' => 'Interactive date picker and real-time room availability calendar.',
-    'asset_02_img'  => 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop',
-    'asset_03_meta' => 'Autonomy // Asset 03',
-    'asset_03_title'=> 'Direct Booking Sovereignty Pipeline',
-    'asset_03_desc' => 'Reclaiming pricing power and guest relationship data from third-party booking intermediaries.',
+    'asset_01_meta' => 'Brand Identity // Asset 01',
+    'asset_01_title'=> 'Brand Identity, Regal Monogram & Social Guidelines',
+    'asset_01_desc' => 'Designed the official Kiri City Stays visual identity—featuring the regal CK monogram crowned with architectural rooftop crests, royal blue and deep navy color ramp tokens, and strict social media grid specifications.',
+    'asset_01_img'  => 'kiri_asset_01_design_system.webp',
+    'asset_02_meta' => 'Search Infrastructure // Asset 02',
+    'asset_02_title'=> 'Google Ads Campaign Matrix & GTM Event Attribution Flow',
+    'asset_02_desc' => 'Engineered high-converting Google Search ad groups targeting Manchester matchday travelers and business visitors, paired with rigorous GTM event triggers measuring direct inquiries.',
+    'asset_02_img'  => 'kiri_asset_02_experience.webp',
+    'asset_03_meta' => 'Growth Architecture // Asset 03',
+    'asset_03_title'=> 'Platform Architecture: Paid Search & Attribution Engine',
+    'asset_03_desc' => 'The white architectural system model board: tactile 3D relief blocks detailing the paid acquisition funnel—from Google Search ad intent targeting and matchday sports tourism geo-acquisition to GTM event triggers and direct booking attribution.',
     'asset_03_points'=> [
-      'Zero OTA Commissions: Maximized retained room margin with zero intermediary cuts.',
-      'Automated Check-In: Instant direct messaging confirmation with digital keycard access.',
-      'Local Dominance: Top 3 search visibility for executive Lagos short-lets.'
+      'Google Search & Intent Targeting: High-converting search ad groups capturing Manchester matchday visitors and business travelers.',
+      '99.4% Attribution Precision: End-to-end GTM event tagging tracking exact click-to-inquiry conversion paths.',
+      '+280% Direct Inquiries: Compounding direct traveler engagement driven by consistent social campaigns and paid search.'
     ],
-    'asset_03_img'  => 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop',
-    'gallery_header'=> 'Platform Showcase & Production Gallery',
+    'asset_03_img'  => 'kiri_asset_03_ecosystem.webp',
+    'social_campaign'=> [
+      'label'       => 'Social Media & Content Engine',
+      'title'       => 'Instagram Carousel Series & Social Video Content Suite',
+      'desc'        => 'A multi-tier social media content engine combining high-converting Instagram carousel slides with vertical 9:16 video reels spotlighting verified UK traveler reviews, Manchester cultural attractions, and matchday travel proximity.',
+      'carousel'    => [
+        [
+          'img'   => 'kiri_carousel_01.webp',
+          'tag'   => '01 / Holiday Brand Equity',
+          'title' => 'Merry Christmas Greeting',
+          'desc'  => 'Strengthening emotional rapport during peak holiday travel by positioning Kiri City Stays as a warm, welcoming home-away-from-home rather than a cold commercial hotel room.'
+        ],
+        [
+          'img'   => 'kiri_carousel_02.webp',
+          'tag'   => '02 / Romance Demand Priming',
+          'title' => 'Welcome to the Month of Love',
+          'desc'  => 'Priming romantic couple interest at the start of February, encouraging advance weekend bookings for anniversary and Valentine getaways in central Manchester.'
+        ],
+        [
+          'img'   => 'kiri_carousel_03.webp',
+          'tag'   => '03 / Direct Booking Incentive',
+          'title' => 'Book With Us Directly',
+          'desc'  => 'Overcoming OTA dependency by communicating clear financial and hospitality advantages when booking directly—guaranteeing best nightly rates and dedicated concierge service.'
+        ],
+        [
+          'img'   => 'kiri_carousel_04.webp',
+          'tag'   => '04 / Urban Romance Hook',
+          'title' => 'Happy Valentine\'s Day',
+          'desc'  => 'Pairing iconic Manchester skyline visuals with tailored couple hospitality packages, tapping into last-minute romantic staycation demand.'
+        ],
+        [
+          'img'   => 'kiri_carousel_05.webp',
+          'tag'   => '05 / Seasonal Momentum',
+          'title' => 'Hello March — Make Memories',
+          'desc'  => 'Transitioning seasonal demand into spring, targeting corporate business travelers, conference attendees, and weekend tourists exploring Manchester.'
+        ],
+      ],
+      'reels'       => [
+        [
+          'video'  => 'kiri_reel_01_testimonial.mp4',
+          'poster' => 'kiri_reel_01_poster.webp',
+          'tag'    => 'Social Proof // 9:16 Vertical Reel',
+          'title'  => 'Verified Guest Testimonial & Host Review',
+          'author' => 'Kate · Codford, United Kingdom',
+          'quote'  => 'A very convenient location close to great restaurants, local shops and the tram station. Very responsive helpful host, everything we needed in the apartment for a short business trip.'
+        ],
+        [
+          'video'  => 'kiri_reel_02_matchday.mp4',
+          'poster' => 'kiri_reel_02_poster.webp',
+          'tag'    => 'Sports Tourism // 9:16 Vertical Reel',
+          'title'  => 'Premier League Matchday Accommodation Spotlight',
+          'author' => 'Old Trafford & Etihad Stadium Proximity',
+          'quote'  => 'Capturing domestic and international football fans traveling to Manchester for Premier League fixtures, offering luxury serviced accommodation near stadium transit corridors.'
+        ],
+        [
+          'video'  => 'kiri_reel_03_couples.mp4',
+          'poster' => 'kiri_reel_03_poster.webp',
+          'tag'    => 'Leisure & Romance // 9:16 Vertical Reel',
+          'title'  => 'Romantic City Breaks & Cultural Dining Getaways',
+          'author' => 'Manchester City Center & Dining Proximity',
+          'quote'  => 'Targeting high-yield couples and anniversary travelers with tailored weekend getaway packages highlighting fine dining and cultural nightlife.'
+        ],
+        [
+          'video'  => 'kiri_reel_04_holiday.mp4',
+          'poster' => 'kiri_reel_04_poster.webp',
+          'tag'    => 'Seasonal Campaign // 9:16 Vertical Reel',
+          'title'  => 'Festive Seasonal Campaign & Direct Booking Perks',
+          'author' => 'Winter Hospitality & Holiday Travel',
+          'quote'  => 'Leveraging seasonal holiday warmth to capture winter travel demand, incentivizing direct reservations with festive welcome packages and guaranteed late checkout.'
+        ]
+      ]
+    ],
+    'gallery_header'=> 'Campaign Creative Suite & Social Production',
+    'gallery_label' => 'Campaign Showcase',
     'gallery'       => [
-      ['img' => 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop', 'tag' => 'Suite Showcase', 'title' => 'Executive Short-Let Living Room'],
-      ['img' => 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop', 'tag' => 'Booking Engine', 'title' => 'Mobile Date Selection Flow'],
-      ['img' => 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop', 'tag' => 'Property Overview', 'title' => 'Responsive Suite Archive']
+      ['img' => 'kiri_gallery_01.webp', 'tag' => 'Social Carousel', 'title' => 'Branded Multi-Slide Instagram Carousel Sequence'],
+      ['img' => 'kiri_gallery_02.webp', 'tag' => 'Video Reels', 'title' => '9:16 Guest Testimonial & Apartment Showcase Reels'],
+      ['img' => 'kiri_gallery_03.webp', 'tag' => 'Event Marketing', 'title' => 'Matchday Accommodation & Event Travel Acquisition'],
+      ['img' => 'kiri_gallery_04.webp', 'tag' => 'Google Ads', 'title' => 'Search Campaign Structure & Keyword Match Matrix'],
+      ['img' => 'kiri_gallery_05.webp', 'tag' => 'Attribution', 'title' => 'GTM Container Triggers & GA4 Conversion Pipeline'],
+      ['img' => 'kiri_gallery_06.webp', 'tag' => 'Seasonal Creative', 'title' => 'Seasonal Brand Campaigns & Holiday Engagement Suite']
     ],
     'metrics'       => [
-      ['val' => '+280%', 'lbl' => 'Direct Reservations', 'desc' => 'Shift toward direct website bookings within 90 days of launch.'],
-      ['val' => '0%', 'lbl' => 'OTA Commission Loss', 'desc' => 'Zero intermediary fees on direct website customer transactions.'],
-      ['val' => '94.8%', 'lbl' => 'Direct Guest Retention', 'desc' => 'Full guest contact details captured for automated repeat booking offers.']
+      ['val' => '+280%', 'lbl' => 'Direct Inquiries', 'desc' => 'Surge in direct guest inquiries generated across targeted Google Search and social campaigns.'],
+      ['val' => '99.4%', 'lbl' => 'Attribution Accuracy', 'desc' => 'Rigorous GTM event tracking connecting ad clicks directly to verified guest inquiries.'],
+      ['val' => '4.6x', 'lbl' => 'Ad Engagement Lift', 'desc' => 'Elevated interaction and click-through rates driven by tailored matchday and video reel creatives.']
     ],
-    'live_url'      => 'https://kiricitystays.com/'
+    'live_url'      => ''
+  ],
+
+  'crux-nxtion' => [
+    'status'        => 'published',
+    'client_name'   => 'Crux Nxtion Ltd',
+    'industry'      => 'Web Design // Dual-Wing Brand Platform & Intelligent Switcher Architecture',
+    'headline_main' => 'Crux Nxtion: Dual-Wing Platform &',
+    'headline_serif'=> 'Intelligent Switcher Architecture',
+    'lead'          => 'Crux Nxtion is a prominent Sheffield, UK entertainment and commercial advisory enterprise. Following an expansive brand evolution into executive business consultancy, Cr8v Stacks engineered an innovative dual-wing web architecture uniting high-energy cultural event production with crisp corporate strategy through an intelligent header and mobile sticky switcher, unified 10-service intake routing, and a zero-dependency custom WordPress engine.',
+    'pills'         => ['Web Design', 'Dual-Wing Switcher', 'UI/UX Architecture', 'cr8v-inquiries', 'WordPress Engineering'],
+    'meta_services' => 'Web Design, Dual-Wing UI/UX Architecture & Custom WordPress Platform',
+    'meta_stack'    => 'Custom WordPress · Slanted Parallelogram CSS · Inquiries CPT · 301 Fallback Router',
+    'meta_link_url' => 'https://cruxnxtion.co.uk/',
+    'meta_link_text'=> 'cruxnxtion.co.uk ↗',
+    'hero_img'      => 'case_study_crux_nxtion.webp',
+    'hero_vertical_img' => 'cs_crux_nxtion_hero_vertical.webp',
+    'client_logo'   => 'crux_logo.webp',
+    'overview_title'=> 'The Rebranding Dilemma <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
+    'overview_p1'   => 'Founded by Olabamidele "Bambad" Badmos in Sheffield, UK, Crux Nxtion faced a critical digital architecture challenge: how to expand from a high-energy UK nightlife and cultural events powerhouse ("WE PLAN IT. WE BOOK IT. WE RUN IT.") into a serious commercial growth consultancy without splitting domain authority across messy subdomains or confusing corporate clients with concert posters.',
+    'overview_p2'   => 'Cr8v Stacks engineered a bespoke dual-wing hybrid platform featuring a hardware-accelerated slanted capsule switcher (desktop header + persistent mobile sticky toggle), unified 10-discipline inquiry intake, and coordinated Dark Mode (Events) and Light Mode (Consultancy) design systems.',
+    'overview_items'=> [
+      ['title' => '01 / Intelligent Dual-Wing Switcher Architecture', 'desc' => 'Engineered a seamless theme and mode switcher enabling visitors to toggle between Crux Events (Dark Mode #0A0F26) and Crux Consultancy (Light Mode #FFFFFF) with zero page reload latency.'],
+      ['title' => '02 / Signature Slanted Parallelogram Design System', 'desc' => 'Crafted mathematical CSS polygon clipping tokens (clip-path: polygon) powering custom angled action buttons, segmented badges, and content frames.'],
+      ['title' => '03 / Unified 10-Service Routing & Inquiries CPT', 'desc' => 'Consolidated 5 event services and 5 consultancy offerings into a single tabbed inquiry intake engine with automated wing tagging ([EVENTS], [CONSULTANCY], [BOTH]).'],
+      ['title' => '04 / Zero-Error Protection & Automated 301 Router', 'desc' => 'Programmed an autonomous URL migration engine redirecting legacy site traffic, coupled with honeypot anti-spam defense and transient IP rate limiting.']
+    ],
+    'asset_01_meta' => 'Brand Architecture // Asset 01',
+    'asset_01_title'=> 'Dual-Wing Design System & Typography Tokens',
+    'asset_01_desc' => 'High-contrast Dark Mode (Ink #0A0F26, Brand Blue #002671, Action Red #BA0000, Bebas Neue) for Cultural Live Events paired with Crisp Light Mode (Pure White, Lilac #F3F1FC, Royal Purple #8C7AE6, Space Grotesk) for Corporate Consultancy.',
+    'asset_01_img'  => 'crux_asset_01_tokens.webp',
+    'asset_02_meta' => 'Interface Engineering // Asset 02',
+    'asset_02_title'=> 'Slanted Capsule Switcher & Responsive Mobile Toggle',
+    'asset_02_desc' => 'Engineered hardware-accelerated CSS polygon cuts that morph from an elegant desktop header capsule into a persistent thumb-friendly mobile bottom switcher bar with instantaneous view switching.',
+    'asset_02_img'  => 'crux_asset_02_switcher.webp',
+    'asset_03_meta' => 'Platform Architecture // Asset 03',
+    'asset_03_title'=> 'Platform Architecture: WordPress Core Engine & Dual-Wing Ecosystem',
+    'asset_03_desc' => 'The white architectural system model board: tactile 3D relief blocks detailing the full-stack WordPress architecture—from the Dual-Wing Domain Sovereignty core branching through slanted polygon scenography, native Customizer token engine, and the universal cr8v-inquiries matrix.',
+    'asset_03_points'=> [
+      'Native Customizer Token Engine: Direct CSS custom property manipulation via postMessage transport on :root, enabling instant live visual editing with zero page-builder overhead.',
+      'Universal cr8v-inquiries CRM: Custom Post Type cr8v_inquiry database with 4-stage pipeline CRM (admin.php?page=cr8v-inquiries), quote value telemetry (£), and 10-discipline smart lead routing.',
+      'Dual-Wing Domain Sovereignty: Single domain (cruxnxtion.co.uk) capturing high-intent searches for both live entertainment and executive corporate consulting with zero cannibalization.'
+    ],
+    'asset_03_img'  => 'crux_asset_03_ecosystem.webp',
+    'showcase_suite'=> [
+      'label'          => 'Dual-Wing Platform & Enterprise Intake Architecture',
+      'title'          => 'Engineered Systems & Workflows',
+      'desc'           => 'A comprehensive technical breakdown of the custom systems engineered for Crux Nxtion—unifying two distinct business models under one domain authority with mathematical polygon geometry, zero-bloat Customizer tooling, and enterprise inquiry routing.',
+      'carousel_title' => 'System Architecture Carousel Deck // 5 Core Engineering Milestones',
+      'carousel'       => [
+        [
+          'img'   => 'crux_gallery_03_switcher.webp',
+          'tag'   => '01 / Switcher Architecture',
+          'title' => 'Slanted Parallelogram Switcher Pod',
+          'desc'  => 'Constructed with mathematical CSS polygons (clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)), delivering instantaneous context switching between Events and Consultancy wings with 0ms reload latency.'
+        ],
+        [
+          'img'   => 'crux_gallery_04_inquiries.webp',
+          'tag'   => '02 / Intake Matrix',
+          'title' => '10-Discipline Service Intake Matrix',
+          'desc'  => 'A unified specification intake form spanning 10 discrete offerings (from talent booking to corporate advisory), routing structured briefs directly to the right internal leadership desk.'
+        ],
+        [
+          'img'   => 'crux_gallery_06_customizer.webp',
+          'tag'   => '03 / Customizer Core',
+          'title' => 'Native Customizer Token Engine',
+          'desc'  => 'Direct CSS custom property manipulation via postMessage transport on :root, registering lazy-mode scoped controls based on the actively previewed domain wing.'
+        ],
+        [
+          'img'   => 'crux_gallery_07_production_logistics.webp',
+          'tag'   => '04 / Production Logistics',
+          'title' => 'Single Event Production Logistics & Talent Lineup',
+          'desc'  => 'Structured event docket managing headline DJ procurement, concert-grade line-array sound staging, and on-site VIP floor coordination for major UK cultural activations.'
+        ],
+        [
+          'img'   => 'crux_gallery_02_consultancy.webp',
+          'tag'   => '05 / Executive UI',
+          'title' => 'Consultancy Wing Enterprise Portal',
+          'desc'  => 'Dedicated executive advisory landing environment featuring corporate setup frameworks, brand growth blueprints, and UK Global Talent / Founder Visa guidance.'
+        ],
+        [
+          'img'   => 'crux_gallery_08_executive_dossier.webp',
+          'tag'   => '06 / Executive Dispatch',
+          'title' => 'Dual-Tier Automated Email Dispatch',
+          'desc'  => 'Engineered automated HTML briefing dossiers delivered directly to principal Bambad and lead project managers, formatted with selected discipline tags and client contact parameters.'
+        ]
+      ],
+      'reels_tag'      => 'Mobile Engineering // Responsive Touch Ergonomics',
+      'reels_title'    => 'Mobile Switcher & Navigation Ergonomics',
+      'reels'          => [
+        [
+          'img'   => 'crux_gallery_06_mobile_drawer.webp',
+          'tag'   => 'Ergonomic UX // Full-Screen Drawer',
+          'title' => 'Dual-Wing Mobile Drawer Accordion',
+          'desc'  => 'Engineered independent accordion trees for Events and Consultancy, with direct sub-links to booking desks, commercial advisory, and corporate growth strategy.'
+        ],
+        [
+          'img'   => 'crux_gallery_07_mobile_switcher.webp',
+          'tag'   => 'Thumb-Zone UX // Fixed Floating Switcher',
+          'title' => 'Fixed Bottom Switcher Pod',
+          'desc'  => 'On mobile screens below 900px, the slanted switcher docks gracefully to the bottom viewport edge, allowing users to toggle between cultural events and corporate advisory with one thumb tap.'
+        ]
+      ]
+    ],
+    'gallery_label' => 'Engineering Showcase Stream',
+    'gallery_header'=> 'Platform Infrastructure in Production',
+    'gallery'       => [
+      ['img' => 'crux_gallery_01_events.webp', 'tag' => 'Events Wing', 'title' => 'Dual-Wing Events Portal Architecture'],
+      ['img' => 'crux_gallery_02_consultancy.webp', 'tag' => 'Consultancy Wing', 'title' => 'Corporate Advisory & Strategy Portal'],
+      ['img' => 'crux_gallery_03_switcher.webp', 'tag' => 'Switcher Architecture', 'title' => 'Slanted Parallelogram Switcher Pod Architecture'],
+      ['img' => 'crux_gallery_04_inquiries.webp', 'tag' => 'Inquiries Engine', 'title' => 'Universal Inquiries CRM Dashboard'],
+      ['img' => 'crux_gallery_05_intake_matrix.webp', 'tag' => 'Intake Matrix', 'title' => 'Enterprise 10-Discipline Service Intake Matrix'],
+      ['img' => 'crux_gallery_06_customizer.webp', 'tag' => 'Customizer Core', 'title' => 'Native Customizer Token Engine & Scoped Controls'],
+      ['img' => 'crux_gallery_07_production_logistics.webp', 'tag' => 'Production Logistics', 'title' => 'Single Event Production Logistics & Talent Roster'],
+      ['img' => 'crux_gallery_08_executive_dossier.webp', 'tag' => 'Executive Workflow', 'title' => 'Executive HTML Email Briefing Dossier'],
+      ['img' => 'crux_gallery_09_admin_theme.webp', 'tag' => 'Admin Scenography', 'title' => 'Dual-Wing WP Admin Workspace & Management Surface']
+    ],
+    'metrics'       => [
+      ['val' => '2 Wings', 'lbl' => 'Unified Ecosystem', 'desc' => 'Cultural live events and executive business consultancy harmonized under a single digital engine.'],
+      ['val' => '100%', 'lbl' => 'Domain Authority', 'desc' => 'Zero fragmented subdomains; complete organic search equity consolidated on cruxnxtion.co.uk.'],
+      ['val' => '0.0s', 'lbl' => 'Switch Latency', 'desc' => 'Hardware-accelerated CSS polygon switcher providing instantaneous UI mode transitions.']
+    ],
+    'live_url'      => 'https://cruxnxtion.co.uk/'
+  ],
+
+  'red-cap-entertainment' => [
+    'status'        => 'published',
+    'client_name'   => 'Red Cap Entertainment',
+    'industry'      => 'Live Event Production // Brand Identity, Custom WP Theme & CPT Architecture',
+    'headline_main' => 'Red Cap Entertainment: Live Spectacle &',
+    'headline_serif'=> 'African Cultural Staging',
+    'lead'          => 'Under the creative direction of Farida Atanda (Scream Honours 2026 AFRI-BALL Producer of the Year), Red Cap Entertainment produces live cultural experiences, festivals, visual arts exhibitions, and traditional matrimonial showcases across the UK and internationally ("CULTURE. IN MOTION. WE STAGE NIGHTS PEOPLE NEVER FORGET."). Cr8v Stacks designed Red Cap\'s bold brand identity and logo from scratch, and engineered a bespoke WordPress theme with custom post type event loops, automated upcoming/past date splits, native Schema.org Event JSON-LD, real-time .ics calendar generator, and the universal cr8v-inquiries engine.',
+    'pills'         => ['Brand Identity', 'Custom WP Theme', 'Event CPT Loop', 'Dynamic Calendar (.ics)', 'cr8v-inquiries', 'AI-to-Customizer'],
+    'meta_services' => 'Brand Identity, Live Spectacle Architecture & Custom WP Engine',
+    'meta_stack'    => 'WordPress Customizer · Event CPT · Schema.org JSON-LD · Dynamic .ics',
+    'meta_link_url' => 'https://redcapentertainment.co.uk/',
+    'meta_link_text'=> 'redcapentertainment.co.uk ↗',
+    'hero_img'      => 'case_study_red_cap_entertainment.webp',
+    'hero_vertical_img' => 'cs_red_cap_entertainment_hero_vertical.webp',
+    'client_logo'   => 'rc_logo-light.webp',
+    'overview_title'=> 'The Cultural Staging Challenge <br><span class="c8cs-serif">&amp; Engineered Solution</span>',
+    'overview_p1'   => 'Under the creative direction of Farida Atanda, Red Cap Entertainment produces major live cultural experiences, festivals, visual arts exhibitions, and traditional matrimonial showcases spanning London, Sheffield, Lagos, and Accra. Operating across sovereign traditions like the Pan-African Royal Nuptials (Alaga Showcase) and institutional museum exhibitions like Beyond the Bronze, the platform required a high-velocity digital presence that captured the grandeur of live African spectacle.',
+    'overview_p2'   => 'Rather than wrestling with bloated page-builder JSON that breaks under mobile load, Cr8v Stacks engineered a clean, dependency-free system: converting semantic HTML/CSS directly into a native WordPress Customizer-powered theme, deploying an automated Event CPT docket with real-time past-event calculus, and integrating the universal cr8v-inquiries engine to route high-value production commissions directly into executive briefing dossiers.',
+    'overview_items'=> [
+      ['title' => '01 / Bespoke Brand Identity & Cultural Seal', 'desc' => 'Designed the complete vector brand identity, typography scale, and circular scalloped rosette emblem embodying live stage energy across London, Sheffield, and Accra.'],
+      ['title' => '02 / The Proprietary AI-to-Customizer Pipeline', 'desc' => 'Converted modular semantic HTML into native WP_Customize_Manager controls, enabling real-time visual copy/date updates with 0ms runtime builder overhead.'],
+      ['title' => '03 / Custom Post Type Loop & Past-Date Calculus', 'desc' => 'Programmed the informational event docket with automated cr8v_is_event_past() calculus, auto-disabling concluded bookings without manual intervention.'],
+      ['title' => '04 / Universal cr8v-inquiries Intake Router', 'desc' => 'Deployed the core companion plugin with a 3-tier anti-spam gate, custom admin inquiries manager, and dual branded HTML email dossier generation.']
+    ],
+    'asset_01_meta' => 'Brand Identity & Docket Engine // Asset 01',
+    'asset_01_title'=> 'Visual Identity System & Cultural Event Docket Loop',
+    'asset_01_desc' => 'Crafted the official Red Cap Entertainment vector emblem, Anton display typography, and live event docket loops with real-time upcoming/past status filters.',
+    'asset_01_img'  => 'rc_asset_01_brand.webp',
+    'asset_02_meta' => 'Proprietary Pipeline // Asset 02',
+    'asset_02_title'=> 'The 2026 AI-to-Customizer Rapid Build Architecture',
+    'asset_02_desc' => 'Pioneered an agile deployment framework: converting semantic HTML/CSS directly into native WordPress Customizer controls (WP_Customize_Section, selective refresh partials, and postMessage live transports) for instant visual client editing with 0.65s load times.',
+    'asset_02_img'  => 'rc_asset_02_customizer.webp',
+    'asset_03_meta' => 'Ecosystem Architecture // Asset 03',
+    'asset_03_title'=> 'Universal Event Data Core & Dynamic Calendar Calculus',
+    'asset_03_desc' => 'The White Architectural System Model Board on Granite: 3D relief blocks detailing the Event CPT data core, automated past-event timestamp filter, native .ics calendar generator, and universal cr8v-inquiries intake router with zero page-builder overhead.',
+    'asset_03_points'=> [
+      'Event CPT & Customizer Data Core: Structured schema registering title, date, venue, category, and external ticket links with instant live customizer preview.',
+      'Dynamic Past-Event Calculus: Automated cr8v_is_event_past() routine that transitions concluded events into archives and disables calendar downloads.',
+      'Universal Inquiries & Spam Shield: The cr8v-inquiries companion plugin with honeypot, time-gate, and rate-limiter routing leads into executive HTML email dossiers.'
+    ],
+    'asset_03_img'  => 'rc_asset_03_ecosystem.webp',
+    'showcase_suite'=> [
+      'label'          => 'Production Engine & Administrative Architecture',
+      'title'          => 'Engineered Systems & Workflows',
+      'desc'           => 'A comprehensive technical breakdown of the bespoke systems engineered for Red Cap Entertainment—combining the native Customizer control surface, dynamic event calendar logic, and the universal multi-discipline inquiries engine.',
+      'carousel_title' => 'System Architecture Carousel Deck // 5 Core Engineering Milestones',
+      'carousel'       => [
+        [
+          'img'   => 'rc_gallery_04_customizer.webp',
+          'tag'   => '01 / Zero-Bloat Control',
+          'title' => 'Native Customizer Control Surface',
+          'desc'  => 'Registering modular theme settings via selective refresh partials, enabling the client to update event schedules, phone numbers, and hero copy with instant live visual feedback.'
+        ],
+        [
+          'img'   => 'rc_gallery_02_inquiries.webp',
+          'tag'   => '02 / Client CRM',
+          'title' => '4-Stage Inquiries Pipeline CRM Dashboard',
+          'desc'  => 'Bespoke admin.php?page=cr8v-inquiries interface tracking lead lifecycle, quote values (£), and conversion telemetry with zero third-party form plugin dependencies.'
+        ],
+        [
+          'img'   => 'rc_asset_02_customizer.webp',
+          'tag'   => '03 / Modular Architecture',
+          'title' => 'Multi-Variant Page Template Library',
+          'desc'  => 'Native WordPress Page Attributes selector with lazy-mode scoped customizer controls, allowing rapid deployment of new festival layouts from a modular template library.'
+        ],
+        [
+          'img'   => 'rc_gallery_03_single_event.webp',
+          'tag'   => '04 / Calendar Calculus',
+          'title' => 'Dynamic .ics Calendar Generator',
+          'desc'  => 'Generating real-time .ics calendar files directly from event post metadata. Once an event date passes, the download control automatically transforms into a disabled \'Event Concluded\' badge.'
+        ],
+        [
+          'img'   => 'rc_gallery_08_demo_seeder.webp',
+          'tag'   => '05 / Rapid Seeding',
+          'title' => '1-Click Starter Content Demo Importer',
+          'desc'  => 'Bundled demo importer (inc/demo-importer.php) that checks for empty tables upon theme activation and seeds sample cultural festivals spanning 2024 to 2026 instantly.'
+        ],
+        [
+          'img'   => 'rc_gallery_04_email_dossier.webp',
+          'tag'   => '06 / Executive Dispatch',
+          'title' => 'Dual Executive HTML Email Engine',
+          'desc'  => 'Automated generation of dark-mode executive briefing worksheets for internal production staff alongside branded editorial confirmation receipts for commissioning clients.'
+        ]
+      ],
+      'reels_tag'      => 'Mobile Engineering // Responsive Touch Ergonomics',
+      'reels_title'    => 'Mobile Navigation & Ticket Interaction',
+      'reels'          => [
+        [
+          'img'   => 'rc_gallery_06_mobile_drawer.webp',
+          'tag'   => 'Ergonomic UX // Full-Screen Drawer',
+          'title' => 'Dual-Accordion Mobile Menu Architecture',
+          'desc'  => 'Engineered independent accordion trees for Productions and Recognition, ensuring deep cultural archives and press credentials remain accessible on mobile viewports without endless scrolling.'
+        ],
+        [
+          'img'   => 'rc_gallery_07_mobile_docket.webp',
+          'tag'   => 'Mobile Staging // Ticket Interaction',
+          'title' => 'Mobile Event Docket & Ticket Action',
+          'desc'  => 'Authentic mobile viewport presentation featuring live African cultural event dockets, dynamic calendar triggers, and ticket stub micro-interactions formatted for thumb ergonomics.'
+        ]
+      ]
+    ],
+    'gallery_label' => 'Engineering Showcase Stream',
+    'gallery_header'=> 'Platform Infrastructure in Production',
+    'gallery'       => [
+      ['img' => 'rc_gallery_01_docket.webp', 'tag' => 'CPT Architecture', 'title' => 'Event CPT Archive & Docket Loop'],
+      ['img' => 'rc_gallery_02_inquiries.webp', 'tag' => 'Inquiries Engine', 'title' => 'Universal Inquiries CRM Dashboard'],
+      ['img' => 'rc_gallery_03_single_event.webp', 'tag' => 'Single Production', 'title' => 'Single Event Production Logistics & .ics Trigger'],
+      ['img' => 'rc_gallery_04_email_dossier.webp', 'tag' => 'Executive Workflow', 'title' => 'Executive HTML Email Briefing Worksheet'],
+      ['img' => 'rc_gallery_04_customizer.webp', 'tag' => 'Customizer Core', 'title' => 'Native Customizer Live Panel & Selective Refresh'],
+      ['img' => 'rc_gallery_06_inquiries_brief.webp', 'tag' => 'Inquiries Matrix', 'title' => 'Production Commissioning Brief & Anti-Spam Triple Gate'],
+      ['img' => 'rc_gallery_07_press_portal.webp', 'tag' => 'Credentials Docket', 'title' => 'Press & Award Verification Portal'],
+      ['img' => 'rc_gallery_08_demo_seeder.webp', 'tag' => 'Automated Seeder', 'title' => '1-Click Starter Content Demo Importer'],
+      ['img' => 'rc_gallery_09_admin_theme.webp', 'tag' => 'Admin Scenography', 'title' => 'Bespoke Deep Obsidian & Crimson WP Admin Theme']
+    ],
+    'metrics'       => [
+      ['val' => '0ms', 'lbl' => 'Page-Builder Runtime Overhead', 'desc' => 'Eliminated Elementor and heavy builder bloat entirely through native Customizer settings and semantic HTML rendering.'],
+      ['val' => '100%', 'lbl' => 'Native Customizer Control', 'desc' => 'Every critical headline, event date, phone number, and venue parameter directly manageable via selective refresh partials.'],
+      ['val' => '0.65s', 'lbl' => 'Mobile Core Web Vitals LCP', 'desc' => 'Instantaneous responsive delivery across UK mobile networks with zero unminified script dependencies.']
+    ],
+    'live_url'      => 'https://redcapentertainment.co.uk/'
   ]
 ];
 
-// Helper to locate theme image safely
-function cr8v_cs_img_src($filename, $fallback = '') {
-  if (empty($filename)) return '';
-  if (filter_var($filename, FILTER_VALIDATE_URL)) return $filename;
-  $theme_dir = get_template_directory();
-  $theme_uri = get_template_directory_uri();
-  if (file_exists($theme_dir . '/assets/img/case_studies/' . $filename)) {
-    return $theme_uri . '/assets/img/case_studies/' . esc_attr($filename);
+// Helper to locate theme image safely (delegates to global helper in functions.php)
+if (!function_exists('cr8v_cs_img_src')) {
+  function cr8v_cs_img_src($filename, $fallback = '') {
+    if (empty($filename)) return '';
+    if (filter_var($filename, FILTER_VALIDATE_URL)) return $filename;
+    $theme_dir = get_template_directory();
+    $theme_uri = get_template_directory_uri();
+    $rel = '/assets/img/case_studies/' . ltrim($filename, '/');
+    if (file_exists($theme_dir . $rel)) {
+      $ver = filemtime($theme_dir . $rel);
+      return $theme_uri . $rel . '?v=' . $ver;
+    }
+    if (!empty($fallback)) {
+      $rel_fb = '/assets/img/case_studies/' . ltrim($fallback, '/');
+      if (file_exists($theme_dir . $rel_fb)) {
+        $ver = filemtime($theme_dir . $rel_fb);
+        return $theme_uri . $rel_fb . '?v=' . $ver;
+      }
+    }
+    return $theme_uri . $rel;
   }
-  if (!empty($fallback) && file_exists($theme_dir . '/assets/img/case_studies/' . $fallback)) {
-    return $theme_uri . '/assets/img/case_studies/' . esc_attr($fallback);
-  }
-  return $theme_uri . '/assets/img/case_studies/' . esc_attr($filename);
 }
 
 // Fallback for unconfigured or dynamic slugs — NEVER DUMP DUCH DATA ON OTHER POSTS
@@ -651,8 +1002,20 @@ if ($matched_slug && isset($portfolio_data_matrix[$matched_slug])) {
   ];
 }
 
+$is_cs_draft = (($active_data['status'] ?? 'published') === 'draft');
+if ($is_cs_draft && !current_user_can('edit_posts')) {
+  wp_safe_redirect(home_url('/case-studies/'), 302);
+  exit;
+}
+
 get_header();
 ?>
+
+<?php if (!empty($is_cs_draft)): ?>
+  <aside style="background: #111111; border-bottom: 2px solid #F59E0B; padding: 14px 24px; color: #F59E0B; font-family: 'Space Mono', monospace; font-size: 11px; text-align: center; letter-spacing: 0.1em; z-index: 9999; position: relative; font-weight: 700;">
+    ⚠ DRAFT MODE // ADMIN PREVIEW: This case study is hidden from the public until bespoke visual assets are complete.
+  </aside>
+<?php endif; ?>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
@@ -741,8 +1104,68 @@ get_header();
   .c8cs-meta-lbl { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); margin-bottom: 0.4rem; letter-spacing: 0.14em; font-weight: 700; }
   .c8cs-meta-val { font-size: 14.5px; font-weight: 700; color: var(--c8-ink); }
 
-  .c8cs-grow-media-wrapper { width: 100%; padding: 1.5rem 0; display: flex; justify-content: center; background: transparent; overflow: hidden; }
-  @media (max-width: 768px) { .c8cs-grow-media-wrapper { padding: 1rem 0; } }
+  .c8cs-grow-media-wrapper {
+    width: 100%;
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    background: transparent;
+    overflow: hidden;
+  }
+  @media (max-width: 768px) { .c8cs-grow-media-wrapper { padding: 1rem 0; gap: 1rem; } }
+
+  .c8cs-hero-switcher {
+    display: inline-flex;
+    background: #FFFFFF;
+    border: 1px solid var(--c8-grid-line);
+    border-radius: 4px;
+    padding: 4px;
+    gap: 4px;
+    z-index: 5;
+  }
+  .c8cs-switch-btn {
+    padding: 6px 16px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: transparent;
+    border: none;
+    color: var(--c8-sub);
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+  }
+  .c8cs-switch-btn.is-active {
+    background: var(--c8-blue);
+    color: #FFFFFF;
+  }
+  .c8cs-hero-img-inner.is-landscape img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  .c8cs-hero-img-inner.is-vertical {
+    display: flex;
+    justify-content: center;
+    background: #FAFAF7;
+    padding: 2rem;
+  }
+  .c8cs-hero-img-inner.is-vertical img {
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 3 / 4;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  }
 
   .c8cs-main-img-box {
     width: 85%; max-width: 1200px; border-radius: 4px !important; overflow: hidden; box-shadow: 0 20px 50px rgba(8, 8, 8, 0.08); border: 1px solid var(--c8-grid-line); position: relative; z-index: 2; transition: width 0.15s cubic-bezier(0.16, 1, 0.3, 1);
@@ -801,7 +1224,67 @@ get_header();
   .c8cs-sovereignty-right { background: #FAFAF7; padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem); display: flex; align-items: center; justify-content: center; }
   @media (max-width: 960px) { .c8cs-sovereignty-right { padding: 2rem 1.25rem; } }
   .c8cs-sovereignty-img-box { width: 100%; max-width: 440px; aspect-ratio: 3 / 4; border-radius: 4px !important; overflow: hidden; border: 1px solid var(--c8-grid-line); background: #080808; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-  .c8cs-sovereignty-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  /* ── SECTION 5.5: SOCIAL MEDIA CAMPAIGN & CAROUSEL DECK ── */
+  .c8cs-social-campaign-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+  .c8cs-social-box { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FFFFFF; overflow: hidden; }
+  .c8cs-social-header { padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); border-bottom: 1px solid var(--c8-grid-line); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-social-header { padding: 1.75rem 1.25rem; } }
+
+  .c8cs-carousel-deck-wrap { border-bottom: 1px solid var(--c8-grid-line); background: #FAFAF7; padding: clamp(2rem, 3vw, 3rem) clamp(1.75rem, 3.5vw, 3.5rem); }
+  @media (max-width: 600px) { .c8cs-carousel-deck-wrap { padding: 1.5rem 1rem; } }
+  .c8cs-carousel-deck-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+  .c8cs-carousel-deck-title { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--c8-ink); font-weight: 700; letter-spacing: 0.08em; }
+  .c8cs-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #0072CE; display: inline-block; }
+  .c8cs-carousel-nav-controls { display: flex; align-items: center; gap: 10px; }
+  .c8cs-deck-nav-btn {
+    width: 38px; height: 38px; border-radius: 4px; border: 1px solid var(--c8-grid-line); background: #FFFFFF; color: var(--c8-ink); font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;
+  }
+  .c8cs-deck-nav-btn:hover { background: var(--c8-blue); color: #FFFFFF; border-color: var(--c8-blue); }
+  .c8cs-deck-counter { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--c8-sub); letter-spacing: 0.1em; padding: 0 4px; }
+  .c8cs-carousel-deck-track {
+    display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 1rem; scrollbar-width: thin;
+  }
+  .c8cs-carousel-deck-track::-webkit-scrollbar { height: 6px; }
+  .c8cs-carousel-deck-track::-webkit-scrollbar-track { background: rgba(0,0,0,0.04); border-radius: 3px; }
+  .c8cs-carousel-deck-track::-webkit-scrollbar-thumb { background: rgba(0,114,206,0.3); border-radius: 3px; }
+  .c8cs-carousel-slide-item {
+    flex: 0 0 clamp(260px, 30vw, 360px); scroll-snap-align: start; background: #FFFFFF; border: 1px solid var(--c8-grid-line); border-radius: 4px !important; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .c8cs-carousel-slide-item:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.06); }
+  .c8cs-slide-media { position: relative; width: 100%; aspect-ratio: 1 / 1; background: #0F172A; overflow: hidden; }
+  .c8cs-slide-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .c8cs-slide-num-badge {
+    position: absolute; top: 10px; right: 10px; background: rgba(15,23,42,0.85); backdrop-filter: blur(4px); color: #FFFFFF; font-family: var(--font-mono); font-size: 9px; font-weight: 700; padding: 4px 8px; border-radius: 4px; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .c8cs-slide-caption { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; }
+  .c8cs-slide-tag { font-family: var(--font-mono); font-size: 8.5px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.12em; }
+  .c8cs-slide-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; line-height: 1.3; }
+  .c8cs-slide-desc { font-size: 13px; color: var(--c8-sub); font-weight: 300; line-height: 1.5; }
+
+  /* 9:16 Video Reels Stage */
+  .c8cs-reels-stage-wrap { padding: clamp(2.5rem, 3.5vw, 3.5rem) clamp(1.75rem, 3.5vw, 3.5rem); background: #FFFFFF; }
+  @media (max-width: 600px) { .c8cs-reels-stage-wrap { padding: 1.75rem 1.25rem; } }
+  .c8cs-reels-stage-header { margin-bottom: 2rem; }
+  .c8cs-reels-tag { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.14em; display: block; margin-bottom: 0.5rem; }
+  .c8cs-reels-title { font-family: var(--font-heading); font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 700; text-transform: uppercase; color: var(--c8-ink); }
+  .c8cs-reels-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  @media (max-width: 900px) { .c8cs-reels-grid { grid-template-columns: 1fr; } }
+  .c8cs-reel-card { border: 1px solid var(--c8-grid-line); border-radius: 4px !important; background: #FAFAF7; padding: clamp(1.5rem, 2vw, 2rem); display: grid; grid-template-columns: 240px 1fr; gap: 1.75rem; align-items: center; }
+  @media (max-width: 650px) { .c8cs-reel-card { grid-template-columns: 1fr; } }
+  .c8cs-phone-frame { width: 100%; max-width: 240px; aspect-ratio: 9 / 16; border-radius: 24px; background: #0F172A; padding: 8px; box-shadow: 0 16px 36px rgba(0,0,0,0.12); border: 2px solid #E2E8F0; position: relative; margin: 0 auto; }
+  .c8cs-phone-notch { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 60px; height: 10px; background: #0F172A; border-radius: 6px; z-index: 10; }
+  .c8cs-phone-screen { width: 100%; height: 100%; border-radius: 18px; overflow: hidden; position: relative; background: #000000; }
+  .c8cs-reel-video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .c8cs-reel-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.25); transition: opacity 0.2s ease; cursor: pointer; }
+  .c8cs-reel-card.is-playing .c8cs-reel-overlay { opacity: 0; pointer-events: none; }
+  .c8cs-reel-play-btn { width: 50px; height: 50px; border-radius: 50%; background: rgba(255,255,255,0.9); border: none; color: var(--c8-ink); font-size: 18px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s ease; padding-left: 4px; }
+  .c8cs-reel-play-btn:hover { transform: scale(1.1); }
+  .c8cs-reel-details { display: flex; flex-direction: column; gap: 0.75rem; }
+  .c8cs-reel-sub { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; letter-spacing: 0.12em; }
+  .c8cs-reel-h4 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; color: var(--c8-ink); line-height: 1.3; }
+  .c8cs-reel-quote-box { background: #FFFFFF; border: 1px solid var(--c8-grid-line); border-radius: 4px; padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .c8cs-reel-quote { font-size: 13.5px; color: var(--c8-sub); font-style: italic; line-height: 1.6; }
+  .c8cs-reel-author { font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: var(--c8-blue); letter-spacing: 0.08em; text-transform: uppercase; }
 
   /* ── SECTION 6: PURE VISUAL GALLERY (CLEAN STREAM — NO SLOP) ── */
   .c8cs-stream-section { padding: 0 0 clamp(2rem, 3.5vw, 3.5rem); background: #FFFFFF; }
@@ -874,6 +1357,101 @@ get_header();
   .c8cs-related-cell-desc { font-size: 14px; color: var(--c8-sub); font-weight: 300; line-height: 1.6; margin-bottom: 1.75rem; }
   .c8cs-related-cell-link { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c8-blue); font-weight: 700; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s ease; }
   .c8cs-related-cell:hover .c8cs-related-cell-link { gap: 10px; }
+
+  /* ── INTERACTIVE LIGHTBOX INSPECTOR MODAL ── */
+  .c8-lightbox {
+    position: fixed; inset: 0; background: rgba(8, 8, 8, 0.94);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    z-index: 99999; display: none; flex-direction: column;
+    align-items: center; justify-content: space-between; padding: 1.5rem;
+    opacity: 0; transition: opacity 0.25s ease;
+  }
+  .c8-lightbox.is-open { display: flex; opacity: 1; }
+  .c8-lb-topbar {
+    width: 100%; max-width: 1400px; display: flex; align-items: center;
+    justify-content: space-between; color: #FFFFFF; padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12); font-family: var(--font-mono); font-size: 11px;
+  }
+  .c8-lb-title { color: #FFFFFF; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .c8-lb-actions { display: flex; align-items: center; gap: 1.25rem; }
+  .c8-lb-close-btn {
+    background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FFFFFF; padding: 6px 14px; border-radius: 4px; cursor: pointer;
+    font-family: var(--font-mono); font-size: 11px; font-weight: 700; transition: background 0.2s ease;
+  }
+  .c8-lb-close-btn:hover { background: rgba(255, 255, 255, 0.25); }
+  .c8-lb-stage {
+    position: relative; flex: 1; width: 100%; max-width: 1400px;
+    display: flex; align-items: center; justify-content: center; padding: 1.5rem 0; overflow: hidden;
+  }
+  .c8-lb-stage img {
+    max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: 4px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.15);
+    cursor: zoom-out; transition: transform 0.2s ease;
+  }
+  .c8-lb-phone-wrap {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    max-height: 82vh;
+    width: auto;
+  }
+  .c8-lightbox.is-mobile-view .c8-lb-phone-wrap {
+    display: flex;
+  }
+  .c8-lightbox.is-mobile-view > .c8-lb-stage > img,
+  .c8-lightbox.is-mobile-view #c8LbImg {
+    display: none !important;
+  }
+  .c8-lb-phone-frame {
+    height: 80vh;
+    max-height: 760px;
+    width: calc(80vh * 9 / 18.5);
+    max-width: 370px;
+    border-radius: 42px;
+    background: #0B0F19;
+    padding: 10px;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.18), inset 0 0 0 2px #1E293B;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .c8-lb-phone-notch {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 18px;
+    background: #000000;
+    border-radius: 10px;
+    z-index: 10;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  }
+  .c8-lb-phone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 32px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    background: #000000;
+    -webkit-overflow-scrolling: touch;
+  }
+  .c8-lb-phone-screen img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    display: block !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    cursor: default !important;
+  }
+  [data-inspect-img] { cursor: zoom-in; }
 </style>
 
 <div class="c8cs-root">
@@ -936,7 +1514,13 @@ get_header();
         </div>
         <div class="c8cs-meta-item">
           <span class="c8cs-meta-lbl">Link</span>
-          <span class="c8cs-meta-val"><a href="<?php echo esc_url($active_data['meta_link_url']); ?>" target="_blank" rel="noopener" style="color: #0047E1; text-decoration: underline;"><?php echo esc_html($active_data['meta_link_text']); ?></a></span>
+          <span class="c8cs-meta-val">
+            <?php if (!empty($active_data['meta_link_url'])): ?>
+              <a href="<?php echo esc_url($active_data['meta_link_url']); ?>" target="_blank" rel="noopener" style="color: #0047E1; text-decoration: underline;"><?php echo esc_html($active_data['meta_link_text']); ?></a>
+            <?php else: ?>
+              <span style="color: #64748B; font-weight: 500;"><?php echo esc_html($active_data['meta_link_text'] ?: 'Archived Campaign'); ?></span>
+            <?php endif; ?>
+          </span>
         </div>
       </div>
     </div>
@@ -945,8 +1529,26 @@ get_header();
   <!-- Section 2: Scroll-Grow Media (Conditional) -->
   <?php if (!empty($active_data['hero_img'])): ?>
     <div class="c8cs-grow-media-wrapper" id="c8cs-grow-trigger">
+      <?php if (!empty($active_data['hero_vertical_img'])): ?>
+        <div class="c8cs-hero-switcher">
+          <button type="button" class="c8cs-switch-btn is-active" id="btnHeroLandscape" data-target="landscape">Portfolio Landscape (16:9)</button>
+          <button type="button" class="c8cs-switch-btn" id="btnHeroVertical" data-target="vertical">Service Page Portrait (3:4)</button>
+        </div>
+      <?php endif; ?>
+
       <div class="c8cs-main-img-box" id="c8cs-grow-target">
-        <img src="<?php echo cr8v_cs_img_src($active_data['hero_img']); ?>" alt="<?php echo esc_attr($active_data['client_name']); ?> case study hero showcase">
+        <?php if (!empty($active_data['hero_vertical_img'])): ?>
+          <!-- Landscape Featured Image -->
+          <div class="c8cs-hero-img-inner is-landscape" id="heroBoxLandscape" title="Click to Inspect Full-Resolution Landscape Hero">
+            <img src="<?php echo cr8v_cs_img_src($active_data['hero_img']); ?>" alt="<?php echo esc_attr($active_data['client_name']); ?> case study hero showcase" data-inspect-img data-inspect-title="<?php echo esc_attr($active_data['client_name']); ?> - Portfolio Featured Visual (16:9)">
+          </div>
+          <!-- Vertical Service Page Hero -->
+          <div class="c8cs-hero-img-inner is-vertical" id="heroBoxVertical" style="display: none;" title="Click to Inspect Full-Resolution Vertical Hero">
+            <img src="<?php echo cr8v_cs_img_src($active_data['hero_vertical_img']); ?>" alt="<?php echo esc_attr($active_data['client_name']); ?> service page vertical hero" data-inspect-img data-inspect-title="<?php echo esc_attr($active_data['client_name']); ?> - Service Page Vertical Hero (3:4)">
+          </div>
+        <?php else: ?>
+          <img src="<?php echo cr8v_cs_img_src($active_data['hero_img']); ?>" alt="<?php echo esc_attr($active_data['client_name']); ?> case study hero showcase">
+        <?php endif; ?>
       </div>
     </div>
   <?php endif; ?>
@@ -1002,7 +1604,7 @@ get_header();
                   </div>
                   <?php if (!empty($active_data['asset_01_img'])): ?>
                     <div class="c8cs-deliverable-img-box">
-                      <img src="<?php echo cr8v_cs_img_src($active_data['asset_01_img']); ?>" alt="<?php echo esc_attr($active_data['asset_01_title']); ?>">
+                      <img src="<?php echo cr8v_cs_img_src($active_data['asset_01_img']); ?>" alt="<?php echo esc_attr($active_data['asset_01_title']); ?>" data-inspect-img data-inspect-title="<?php echo esc_attr($active_data['asset_01_title']); ?>">
                     </div>
                   <?php endif; ?>
                 </div>
@@ -1017,7 +1619,7 @@ get_header();
                   </div>
                   <?php if (!empty($active_data['asset_02_img'])): ?>
                     <div class="c8cs-deliverable-img-box">
-                      <img src="<?php echo cr8v_cs_img_src($active_data['asset_02_img']); ?>" alt="<?php echo esc_attr($active_data['asset_02_title']); ?>">
+                      <img src="<?php echo cr8v_cs_img_src($active_data['asset_02_img']); ?>" alt="<?php echo esc_attr($active_data['asset_02_title']); ?>" data-inspect-img data-inspect-title="<?php echo esc_attr($active_data['asset_02_title']); ?>">
                     </div>
                   <?php endif; ?>
                 </div>
@@ -1046,10 +1648,123 @@ get_header();
               <?php if (!empty($active_data['asset_03_img'])): ?>
                 <div class="c8cs-sovereignty-right">
                   <div class="c8cs-sovereignty-img-box">
-                    <img src="<?php echo cr8v_cs_img_src($active_data['asset_03_img']); ?>" alt="<?php echo esc_attr($active_data['asset_03_title']); ?>">
+                    <img src="<?php echo cr8v_cs_img_src($active_data['asset_03_img']); ?>" alt="<?php echo esc_attr($active_data['asset_03_title']); ?>" data-inspect-img data-inspect-title="<?php echo esc_attr($active_data['asset_03_title']); ?>">
                   </div>
                 </div>
               <?php endif; ?>
+            </div>
+          <?php endif; ?>
+
+        </div>
+      </div>
+    </section>
+  <?php endif; ?>
+
+  <!-- Section 5.5: Dedicated Engineering Showcase & Creative Suite (Conditional) -->
+  <?php 
+  $sc = !empty($active_data['showcase_suite']) ? $active_data['showcase_suite'] : (!empty($active_data['social_campaign']) ? $active_data['social_campaign'] : null);
+  if (!empty($sc)): 
+  ?>
+    <section class="c8cs-social-campaign-section">
+      <div class="c8cs-wrap">
+        <div class="c8cs-social-box">
+          
+          <!-- Section Header -->
+          <div class="c8cs-social-header">
+            <div class="c8cs-label"><?php echo esc_html(!empty($sc['label']) ? $sc['label'] : 'Production Engine & Administrative Architecture'); ?></div>
+            <h2 class="c8cs-headline" style="font-size: 2.2rem; margin-bottom: 0.75rem;"><?php echo esc_html(!empty($sc['title']) ? $sc['title'] : 'Engineered Systems & Workflows'); ?></h2>
+            <?php if (!empty($sc['desc'])): ?>
+              <p style="font-size: 15px; color: var(--c8-sub); max-width: 820px; line-height: 1.7; font-weight: 300; margin: 0;"><?php echo esc_html($sc['desc']); ?></p>
+            <?php endif; ?>
+          </div>
+
+          <!-- Component A: 5-Slide Carousel Deck -->
+          <?php if (!empty($sc['carousel'])): ?>
+            <div class="c8cs-carousel-deck-wrap">
+              <div class="c8cs-carousel-deck-topbar">
+                <div class="c8cs-carousel-deck-title">
+                  <span class="c8cs-badge-dot"></span>
+                  <span><?php echo esc_html(!empty($sc['carousel_title']) ? $sc['carousel_title'] : 'System Architecture Carousel Deck // 5 Core Engineering Milestones'); ?></span>
+                </div>
+                <div class="c8cs-carousel-nav-controls">
+                  <button type="button" class="c8cs-deck-nav-btn" data-carousel-btn="prev" aria-label="Previous Slide">&larr;</button>
+                  <span class="c8cs-deck-counter" data-carousel-counter>01 / <?php echo sprintf('%02d', count($sc['carousel'])); ?></span>
+                  <button type="button" class="c8cs-deck-nav-btn" data-carousel-btn="next" aria-label="Next Slide">&rarr;</button>
+                </div>
+              </div>
+
+              <div class="c8cs-carousel-deck-track" data-carousel-track>
+                <?php foreach ($sc['carousel'] as $c_idx => $c_slide): ?>
+                  <div class="c8cs-carousel-slide-item" data-slide-index="<?php echo $c_idx; ?>">
+                    <div class="c8cs-slide-media" title="Click to Inspect Slide 0<?php echo $c_idx + 1; ?>">
+                      <img src="<?php echo cr8v_cs_img_src($c_slide['img']); ?>" alt="<?php echo esc_attr($c_slide['title'] ?? ''); ?>" loading="lazy" data-inspect-img data-inspect-title="Slide 0<?php echo $c_idx + 1; ?> // <?php echo esc_attr($c_slide['title'] ?? ''); ?>">
+                      <span class="c8cs-slide-num-badge">SLIDE 0<?php echo $c_idx + 1; ?></span>
+                    </div>
+                    <div class="c8cs-slide-caption">
+                      <?php if (!empty($c_slide['tag'])): ?>
+                        <span class="c8cs-slide-tag"><?php echo esc_html($c_slide['tag']); ?></span>
+                      <?php endif; ?>
+                      <h4 class="c8cs-slide-title"><?php echo esc_html($c_slide['title']); ?></h4>
+                      <?php if (!empty($c_slide['desc'])): ?>
+                        <p class="c8cs-slide-desc"><?php echo esc_html($c_slide['desc']); ?></p>
+                      <?php endif; ?>
+                    </div>
+                  </div>
+                <?php endforeach; ?>
+              </div>
+            </div>
+          <?php endif; ?>
+
+          <!-- Component B: Mobile Ergonomics Inspection Stage / Video Reels -->
+          <?php if (!empty($sc['reels'])): ?>
+            <div class="c8cs-reels-stage-wrap">
+              <div class="c8cs-reels-stage-header">
+                <span class="c8cs-reels-tag"><?php echo esc_html(!empty($sc['reels_tag']) ? $sc['reels_tag'] : 'Mobile Engineering // Responsive Touch Ergonomics'); ?></span>
+                <h3 class="c8cs-reels-title"><?php echo esc_html(!empty($sc['reels_title']) ? $sc['reels_title'] : 'Mobile Navigation & Interface Inspection'); ?></h3>
+              </div>
+              <div class="c8cs-reels-grid">
+                <?php foreach ($sc['reels'] as $r_idx => $reel): ?>
+                  <div class="c8cs-reel-card" <?php if (!empty($reel['video'])) echo 'data-reel-card'; ?>>
+                    <div class="c8cs-phone-frame">
+                      <div class="c8cs-phone-notch"></div>
+                      <div class="c8cs-phone-screen">
+                        <?php if (!empty($reel['video'])): ?>
+                          <video 
+                            class="c8cs-reel-video" 
+                            src="<?php echo cr8v_cs_img_src($reel['video']); ?>" 
+                            poster="<?php echo !empty($reel['poster']) ? cr8v_cs_img_src($reel['poster']) : ''; ?>"
+                            playsinline 
+                            loop 
+                            preload="metadata">
+                          </video>
+                          <div class="c8cs-reel-overlay" data-reel-play-trigger title="Click to Play / Pause">
+                            <button type="button" class="c8cs-reel-play-btn" aria-label="Play Video">&#9654;</button>
+                          </div>
+                        <?php elseif (!empty($reel['img'])): ?>
+                          <img src="<?php echo cr8v_cs_img_src($reel['img']); ?>" alt="<?php echo esc_attr($reel['title'] ?? ''); ?>" style="width: 100%; height: 100%; object-fit: cover; display: block;" data-inspect-img data-is-mobile="true" data-inspect-title="<?php echo esc_attr($reel['title'] ?? ''); ?>">
+                        <?php endif; ?>
+                      </div>
+                    </div>
+                    <div class="c8cs-reel-details">
+                      <?php if (!empty($reel['tag'])): ?>
+                        <span class="c8cs-reel-sub"><?php echo esc_html($reel['tag']); ?></span>
+                      <?php endif; ?>
+                      <h4 class="c8cs-reel-h4"><?php echo esc_html($reel['title']); ?></h4>
+                      <?php if (!empty($reel['desc'])): ?>
+                        <p style="font-size: 13.5px; color: var(--c8-sub); line-height: 1.6; font-weight: 300; margin: 0;"><?php echo esc_html($reel['desc']); ?></p>
+                      <?php endif; ?>
+                      <?php if (!empty($reel['quote'])): ?>
+                        <div class="c8cs-reel-quote-box">
+                          <p class="c8cs-reel-quote">&ldquo;<?php echo esc_html($reel['quote']); ?>&rdquo;</p>
+                          <?php if (!empty($reel['author'])): ?>
+                            <span class="c8cs-reel-author"><?php echo esc_html($reel['author']); ?></span>
+                          <?php endif; ?>
+                        </div>
+                      <?php endif; ?>
+                    </div>
+                  </div>
+                <?php endforeach; ?>
+              </div>
             </div>
           <?php endif; ?>
 
@@ -1072,7 +1787,7 @@ get_header();
             <?php foreach ($active_data['gallery'] as $gItem): ?>
               <div class="c8cs-stream-cell">
                 <div class="c8cs-stream-img-box">
-                  <img src="<?php echo cr8v_cs_img_src($gItem['img']); ?>" alt="<?php echo esc_attr($gItem['title']); ?>">
+                  <img src="<?php echo cr8v_cs_img_src($gItem['img']); ?>" alt="<?php echo esc_attr($gItem['title']); ?>" data-inspect-img data-inspect-title="<?php echo esc_attr($gItem['title']); ?>">
                 </div>
                 <div class="c8cs-stream-cell-info">
                   <span class="c8cs-stream-cell-tag"><?php echo esc_html($gItem['tag']); ?></span>
@@ -1140,7 +1855,12 @@ get_header();
 
         <div class="c8cs-related-matrix-grid">
           <?php
-          $related_keys = ['the-duch-apartments', 'mkenny-properties', 'wp-publishion-ai', 'blvck-hair-ng', 'bridgepoint-compliance', 'victorias-lane'];
+          $related_keys = [];
+          foreach ($portfolio_data_matrix as $k => $item) {
+            if (($item['status'] ?? 'published') === 'published') {
+              $related_keys[] = $k;
+            }
+          }
           $rendered = 0;
           foreach ($related_keys as $rKey):
             if ($rKey === $matched_slug) continue;
@@ -1167,6 +1887,25 @@ get_header();
   <?php get_template_part('parts/prototype-cta'); ?>
 
 </div><!-- End c8cs-root -->
+
+<!-- Lightbox Inspector Modal -->
+<div class="c8-lightbox" id="c8Lightbox" role="dialog" aria-modal="true" aria-label="Image Inspector">
+  <div class="c8-lb-topbar">
+    <span class="c8-lb-title" id="c8LbTitle">Image Inspector</span>
+    <button type="button" class="c8-lb-close-btn" id="c8LbClose" aria-label="Close Inspector">Esc / Close &times;</button>
+  </div>
+  <div class="c8-lb-stage">
+    <img src="" alt="" id="c8LbImg">
+    <div class="c8-lb-phone-wrap" id="c8LbPhoneWrap">
+      <div class="c8-lb-phone-frame">
+        <div class="c8-lb-phone-notch"></div>
+        <div class="c8-lb-phone-screen">
+          <img src="" alt="" id="c8LbPhoneImg">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Parity JavaScript -->
 <script>
@@ -1210,6 +1949,174 @@ get_header();
       window.addEventListener('scroll', handleGrowScroll);
       window.addEventListener('resize', handleGrowScroll);
       handleGrowScroll();
+    }
+
+    // Section 5.5: Social Campaign Carousel Track Controls & Counter
+    var deckWraps = document.querySelectorAll('.c8cs-carousel-deck-wrap');
+    deckWraps.forEach(function (wrap) {
+      var track = wrap.querySelector('[data-carousel-track]');
+      var counter = wrap.querySelector('[data-carousel-counter]');
+      var prevBtn = wrap.querySelector('[data-carousel-btn="prev"]');
+      var nextBtn = wrap.querySelector('[data-carousel-btn="next"]');
+      var slides = wrap.querySelectorAll('.c8cs-carousel-slide-item');
+      if (!track || slides.length === 0) return;
+
+      var totalSlides = slides.length;
+
+      function updateCounter() {
+        if (!counter) return;
+        var slideWidth = slides[0].offsetWidth + 24;
+        var currentIdx = Math.round(track.scrollLeft / slideWidth);
+        if (currentIdx < 0) currentIdx = 0;
+        if (currentIdx >= totalSlides) currentIdx = totalSlides - 1;
+        var num = (currentIdx + 1) < 10 ? '0' + (currentIdx + 1) : (currentIdx + 1);
+        var total = totalSlides < 10 ? '0' + totalSlides : totalSlides;
+        counter.textContent = num + ' / ' + total;
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+          var step = slides[0].offsetWidth + 24;
+          track.scrollBy({ left: -step, behavior: 'smooth' });
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+          var step = slides[0].offsetWidth + 24;
+          track.scrollBy({ left: step, behavior: 'smooth' });
+        });
+      }
+
+      var scrollTimer = null;
+      track.addEventListener('scroll', function () {
+        if (scrollTimer) clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(updateCounter, 60);
+      }, { passive: true });
+    });
+
+    // Section 5.5: 9:16 Video Reel Play/Pause Toggle
+    var reelCards = document.querySelectorAll('[data-reel-card]');
+    reelCards.forEach(function (card) {
+      var video = card.querySelector('.c8cs-reel-video');
+      var trigger = card.querySelector('[data-reel-play-trigger]');
+      if (!video) return;
+
+      function togglePlay() {
+        if (video.paused) {
+          // Pause any other playing reels
+          document.querySelectorAll('.c8cs-reel-video').forEach(function (v) {
+            if (v !== video && !v.paused) {
+              v.pause();
+              var pCard = v.closest('[data-reel-card]');
+              if (pCard) pCard.classList.remove('is-playing');
+            }
+          });
+          video.play().then(function () {
+            card.classList.add('is-playing');
+          }).catch(function (err) {
+            console.log('Video play prevented:', err);
+          });
+        } else {
+          video.pause();
+          card.classList.remove('is-playing');
+        }
+      }
+
+      if (trigger) {
+        trigger.addEventListener('click', togglePlay);
+      }
+      video.addEventListener('click', togglePlay);
+      video.addEventListener('pause', function () { card.classList.remove('is-playing'); });
+      video.addEventListener('ended', function () { card.classList.remove('is-playing'); });
+    });
+
+    // Hero Switcher Logic (Landscape 16:9 vs Vertical 3:4)
+    var btnLandscape = document.getElementById('btnHeroLandscape');
+    var btnVertical = document.getElementById('btnHeroVertical');
+    var boxLandscape = document.getElementById('heroBoxLandscape');
+    var boxVertical = document.getElementById('heroBoxVertical');
+
+    if (btnLandscape && btnVertical && boxLandscape && boxVertical) {
+      btnLandscape.addEventListener('click', function () {
+        btnLandscape.classList.add('is-active');
+        btnVertical.classList.remove('is-active');
+        boxLandscape.style.display = 'block';
+        boxVertical.style.display = 'none';
+      });
+      btnVertical.addEventListener('click', function () {
+        btnVertical.classList.add('is-active');
+        btnLandscape.classList.remove('is-active');
+        boxLandscape.style.display = 'none';
+        boxVertical.style.display = 'block';
+      });
+    }
+
+    // Interactive Lightbox Inspector Engine
+    var lightbox = document.getElementById('c8Lightbox');
+    var lbImg = document.getElementById('c8LbImg');
+    var lbPhoneImg = document.getElementById('c8LbPhoneImg');
+    var lbTitle = document.getElementById('c8LbTitle');
+    var lbClose = document.getElementById('c8LbClose');
+
+    if (lightbox && lbImg && lbTitle) {
+      var inspectImages = Array.from(document.querySelectorAll('[data-inspect-img]'));
+      var currentLbIndex = 0;
+
+      function openLightbox(index) {
+        if (index < 0) index = inspectImages.length - 1;
+        if (index >= inspectImages.length) index = 0;
+        currentLbIndex = index;
+        var el = inspectImages[currentLbIndex];
+        if (!el) return;
+        var title = el.getAttribute('data-inspect-title') || el.alt || 'Asset Inspection';
+        var isMobile = el.getAttribute('data-is-mobile') === 'true' || 
+                       el.closest('.c8cs-phone-frame') !== null ||
+                       el.closest('[data-is-mobile="true"]') !== null;
+
+        if (isMobile && lbPhoneImg) {
+          lightbox.classList.add('is-mobile-view');
+          lbPhoneImg.src = el.src;
+          lbPhoneImg.alt = title;
+        } else {
+          lightbox.classList.remove('is-mobile-view');
+          lbImg.src = el.src;
+          lbImg.alt = title;
+        }
+
+        lbTitle.textContent = title;
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      inspectImages.forEach(function (imgEl, idx) {
+        imgEl.addEventListener('click', function (e) {
+          e.preventDefault();
+          openLightbox(idx);
+        });
+      });
+
+      if (lbClose) {
+        lbClose.addEventListener('click', closeLightbox);
+      }
+
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox || e.target.classList.contains('c8-lb-stage')) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') openLightbox(currentLbIndex - 1);
+        if (e.key === 'ArrowRight') openLightbox(currentLbIndex + 1);
+      });
     }
   });
 </script>

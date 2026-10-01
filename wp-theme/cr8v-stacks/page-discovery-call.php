@@ -61,6 +61,11 @@ get_header();
   border-radius: var(--radius) !important;
   overflow: visible;
 }
+@media (min-width: 1200px) {
+  .c8dc-card {
+    max-width: 1140px;
+  }
+}
 
 .c8dc-stamp {
   position: absolute;
@@ -143,6 +148,23 @@ get_header();
   display: block;
   text-align: left;
   position: relative;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+}
+
+.c8dc-booking-card iframe,
+.c8dc-booking-card .simplybook-widget,
+.c8dc-booking-card #sb_widget_container,
+.c8dc-booking-card .sb-widget-content {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+  border: none !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
 }
 
 .c8dc-tear {
