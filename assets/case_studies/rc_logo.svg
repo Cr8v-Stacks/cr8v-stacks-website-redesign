@@ -1,0 +1,51 @@
+<svg width="240" height="52" viewBox="0 0 240 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<!-- Red Cap & Feather Icon -->
+	<g transform="translate(2, 4)">
+		<!-- Drop shadow / glow -->
+		<ellipse cx="24" cy="40" rx="20" ry="3" fill="#C81E3A" opacity="0.25"/>
+		
+		<!-- Red Cap Body -->
+		<path d="M8 36 C8 24 14 16 24 16 C34 16 40 24 40 36 C40 38 38 40 24 40 C10 40 8 38 8 36 Z" fill="url(#rceCapGrad)" stroke="#9B1B30" stroke-width="1"/>
+		
+		<!-- Traditional Geometrics on Cap -->
+		<path d="M12 28 L16 32 L20 28 L24 32 L28 28 L32 32 L36 28" stroke="#E63956" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+		<path d="M12 33 L16 37 L20 33 L24 37 L28 33 L32 37 L36 33" stroke="#E63956" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+		
+		<!-- Gold Trim Rim -->
+		<path d="M8 36 C8 34 14 33 24 33 C34 33 40 34 40 36 C40 38 34 40 24 40 C14 40 8 38 8 36 Z" fill="url(#rceGoldGrad)" stroke="#B8860B" stroke-width="0.8"/>
+		
+		<!-- Golden Eagle Feather (Abuba Ugo) -->
+		<path d="M18 36 C18 30 14 20 22 6 C24 14 30 18 25 28 C23 32 20 35 18 36 Z" fill="url(#rceFeatherGrad)" stroke="#D4AF37" stroke-width="0.8"/>
+		<path d="M18 36 C19 28 21 18 22 6" stroke="#996515" stroke-width="0.9" stroke-linecap="round"/>
+		<!-- Feather vanes -->
+		<path d="M20 18 L16 16 M21 22 L17 21 M22 26 L18 26 M23 15 L26 13 M23 20 L27 18 M23 24 L26 23" stroke="#FFF8DC" stroke-width="0.7" stroke-linecap="round" opacity="0.7"/>
+	</g>
+	
+	<!-- Brand Typography -->
+	<g transform="translate(56, 12)">
+		<!-- RED CAP Wordmark -->
+		<text x="0" y="20" font-family="'Cinzel', 'Playfair Display', 'Georgia', serif" font-size="21" font-weight="800" fill="#FAF5EE" letter-spacing="2.8">RED CAP</text>
+		<!-- ENTERTAINMENT Subtitle -->
+		<text x="1" y="32" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="8" font-weight="700" fill="url(#rceGoldGrad)" letter-spacing="3.8">ENTERTAINMENT</text>
+	</g>
+
+	<defs>
+		<linearGradient id="rceCapGrad" x1="8" y1="16" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#E61E43"/>
+			<stop offset="0.6" stop-color="#C81E3A"/>
+			<stop offset="1" stop-color="#8B0018"/>
+		</linearGradient>
+		<linearGradient id="rceGoldGrad" x1="8" y1="33" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#FDF0CD"/>
+			<stop offset="0.4" stop-color="#E8B62C"/>
+			<stop offset="0.8" stop-color="#D4AF37"/>
+			<stop offset="1" stop-color="#AA771C"/>
+		</linearGradient>
+		<linearGradient id="rceFeatherGrad" x1="14" y1="6" x2="30" y2="36" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#FFF3D1"/>
+			<stop offset="0.3" stop-color="#F2C84B"/>
+			<stop offset="0.7" stop-color="#D4AF37"/>
+			<stop offset="1" stop-color="#996515"/>
+		</linearGradient>
+	</defs>
+</svg>

@@ -69,16 +69,21 @@
 - [x] **Showcase 3 Interaction Design**: 3-Mode Contact Intake Switcher (interactive Events/Consultancy/Sponsorship tabs with dynamic field chips), Authentic Crux Nxtion Ticket Stub Architecture (`.ticket-stub` with circular cutout notches, dashed tear lines, and Eventbrite ticketing hooks), Zero-404 Legacy URL Prevention Engine (25+ real redirect rules from prevent-errors.php in dark console view). Zero mobile drawer, zero accent left borders.
 - [x] **Showcase 4 Engineering Deep Dive**: 9-cell grid (3×3) equipped with bespoke, interactive inline HTML/CSS telemetry & validation widgets (AJAX Nonce validator, Transients API cache meter, Parallelogram polygon angle tester, CPT taxonomy chips, IntersectionObserver threshold trigger, Customizer hex sanitizer, Eventbrite ticket hook, GDPR consent toggle, WCAG 2.1 contrast ratio scorecard). Zero code dump images, zero AI slop borders. Zero duplication with Showcase 02.
 
-### Red Cap Entertainment (Black & White Craft) Asset Roster [NEXT IN QUEUE]
-- [ ] **Hero Landscape** (`assets/case_studies/case_study_red_cap_entertainment.webp`, 16:9): Flagship staging hero with authentic pinned visual slider.
-- [ ] **Hero Vertical** (`assets/case_studies/cs_red_cap_entertainment_hero_vertical.webp`, 3:4): Dedicated vertical card for service page.
-- [ ] **Asset 01** (`assets/case_studies/red_cap_asset_01.webp`, 16:9): Curatorial Brand Standards & Vector Identity.
-- [ ] **Asset 02** (`assets/case_studies/red_cap_asset_02.webp`, 16:9): Staging Capabilities & Production Docket (No mobile screenshots).
-- [ ] **Asset 03** (`assets/case_studies/red_cap_asset_03.webp`, 3:4): WordPress Core Plugin Architecture Board (`cr8v-events-core`).
-- [ ] **Showcase 1 Captures**: Scrolled Events docket, 5 Disciplines grid, Single Event production specs, Project Brief intake.
-- [ ] **Showcase 2 HTML/CSS Components**: White Studio Inquiries CRM Dashboard (`#F8FAFC`), Event CPT past/upcoming toggle, `.ics` RFC 5545 generator, Triple-gate anti-spam visualizer.
-- [ ] **Showcase 3 Ergonomics**: Pinned visual slider with paperclip & stamp badge, interactive filter pills, hole-punched spec cards.
-- [ ] **Showcase 4 Stream Cards**: 6–8 deep technical cards focused on WordPress hooks, transients, and database architecture.
+### Red Cap Entertainment (Black & White Craft) Asset Roster [COMPLETED & VERIFIED]
+- [x] **Hero Landscape** (`assets/case_studies/case_study_red_cap_entertainment.webp`, 16:9): Flagship staging hero with authentic pinned visual slider.
+- [x] **Hero Vertical** (`assets/case_studies/cs_red_cap_entertainment_hero_vertical.webp`, 3:4): Dedicated vertical card for service page.
+- [x] **Asset 01** (`assets/case_studies/rc_asset_01_brand.webp`, 16:9): Curatorial Brand Standards & Vector Identity.
+- [x] **Asset 02** (`assets/case_studies/rc_asset_02_customizer.webp`, 16:9): Staging Capabilities & Production Docket (No mobile screenshots).
+- [x] **Asset 03** (`assets/case_studies/rc_asset_03_ecosystem.webp`, 3:4): WordPress Core Plugin Architecture Board (`cr8v-events-core`).
+- [x] **Showcase 1 Captures**: Scrolled Events docket, 5 Disciplines grid, Single Event production specs, Project Brief intake.
+- [x] **Showcase 2 HTML/CSS Components**: White Studio Inquiries CRM Dashboard (`#F8FAFC`), Event CPT past/upcoming toggle, `.ics` RFC 5545 generator, Triple-gate anti-spam visualizer, Native Customizer panel, Dual Executive email dispatch.
+- [x] **Showcase 3 Ergonomics**: Pinned visual slider with paperclip & stamp badge, interactive 5-discipline filter pills, hole-punched spec cards, Brief configurator.
+- [x] **Showcase 4 Stream Cards**: 9 deep technical cards focused on WordPress hooks, transients, and database architecture.
+
+### Kiri City Stays [COMPLETED & VERIFIED]
+- [x] **Canonical Line-Grid Split Overview**: Section 00 with sticky acquisition mandates column (>600px pinned travel), 4-segment traveler matrix, and live interactive GTM attribution simulator.
+- [x] **Layout Isolation**: Dedicated `.cs-page-kiri-city` parent wrapper ensuring zero CSS leakage.
+- [x] **Creative Suite**: 5-slide Instagram carousel deck, 4-reel 9:16 vertical video suite, and 6-item campaign gallery.
 
 ---
 
@@ -88,5 +93,7 @@
 - [x] Step 3: Source authentic screenshot variations from local themes and live sites.
 - [x] Step 4: Generate new, approved Crux Nxtion visual assets under strict quota ratio.
 - [x] Step 5: Implement overhauled Crux Nxtion presentation page (`crux-nxtion.html`).
-- [ ] Step 6: User review of Crux Nxtion before proceeding to Red Cap Entertainment.
-- [ ] Step 7: Generate Red Cap visual assets and implement `red-cap-entertainment.html`.
+- [x] Step 6: Overhaul Red Cap Entertainment presentation page (`red-cap-entertainment.html`).
+- [x] Step 7: Overhaul Kiri City Stays presentation page (`kiri-city-stays.html`).
+- [x] Step 8: Push all clean commits and assets to remote GitHub repository.
+
