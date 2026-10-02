@@ -264,9 +264,9 @@
       border: 1px solid var(--c8-grid-line);
       border-radius: 4px;
       background: #FFFFFF;
-      overflow: hidden;
       display: grid;
       grid-template-columns: 1.4fr 1fr;
+      align-items: start;
     }
     @media (max-width: 1024px) {
       .c8cs-split-container { grid-template-columns: 1fr; }
@@ -550,6 +550,48 @@
       transform: rotate(-1.5deg);
     }
 
+
+    /* ── TICKET STUB ARCHITECTURE (Shared with Showcase 03 Docket Wall) ── */
+    .crux-ticket-card {
+      display: flex;
+      background: #111838;
+      border: 1.5px solid #1E2B5E;
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+    }
+    .crux-ticket-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(180, 40, 45, 0.2);
+    }
+    .crux-ticket-stub {
+      position: relative;
+      flex: 0 0 78px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 8px;
+      color: #FFFFFF;
+    }
+    .crux-ticket-stub::before, .crux-ticket-stub::after {
+      content: '';
+      position: absolute;
+      right: -9px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #0A0F26;
+      z-index: 2;
+    }
+    .crux-ticket-stub::before { top: -9px; }
+    .crux-ticket-stub::after { bottom: -9px; }
+
+    /* ── SHOWCASE 3: INTERACTION DESIGN SECTION ── */
+    .c8cs-mobile-ergonomics-section { padding: clamp(2.5rem, 4vw, 4.5rem) 0; background: #FAFAF7; border-bottom: 1px solid var(--c8-grid-line); }
+    .c8cs-ergo-desc { font-size: 13.5px; color: var(--c8-sub); line-height: 1.65; font-weight: 300; margin-bottom: 0; }
+
     /* ── SHOWCASE 4: TECHNICAL ARCHITECTURE STREAM (9 CELLS) ── */
     .c8cs-stream-section { padding: clamp(2.5rem, 4vw, 4.5rem) 0; background: #FFFFFF; border-bottom: 1px solid var(--c8-grid-line); }
     .c8cs-stream-box { border: 1px solid var(--c8-grid-line); border-radius: 4px; background: #FFFFFF; overflow: hidden; }
@@ -565,8 +607,9 @@
       flex-direction: column;
       justify-content: space-between;
       background: #FFFFFF;
-      padding: 1.75rem;
+      padding: 1.5rem 1.5rem 1.25rem;
       transition: background 0.2s ease;
+      overflow: hidden;
     }
     .c8cs-stream-cell:hover { background: #FDFDFB; }
     .c8cs-stream-cell:nth-child(3n) { border-right: none; }
@@ -823,141 +866,54 @@
               </div>
             </div>
 
-            <!-- VISUAL BLOCK 02: ARCHITECTURE STRATEGY TRIAGE (REJECTED APPROACHES) -->
-            <div style="border: 1px solid var(--c8-grid-line); border-radius: 4px; background: #FFFFFF; overflow: hidden;">
+            <!-- VISUAL BLOCK 02: ARCHITECTURE TRIAGE (COMPACT) -->
+            <div style="border: 1px solid var(--c8-grid-line); background: #FFFFFF; overflow: hidden;">
               <div style="padding: 10px 16px; background: #FAFAF7; border-bottom: 1px solid var(--c8-grid-line); display: flex; align-items: center; justify-content: space-between;">
-                <span style="font-family: var(--font-mono); font-size: 9.5px; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; letter-spacing: 0.08em;">
-                  Architecture Strategy Triage // Why Naive Solutions Failed
-                </span>
-                <span style="font-family: var(--font-mono); font-size: 8.5px; color: #DC2626; font-weight: 700; background: #FEF2F2; border: 1px solid #FECACA; padding: 2px 7px; border-radius: 3px;">
-                  3 COMPROMISES REJECTED
-                </span>
+                <span style="font-family: var(--font-mono); font-size: 9.5px; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; letter-spacing: 0.08em;">Strategy Triage // Why Naive Solutions Failed</span>
+                <span style="font-family: var(--font-mono); font-size: 8.5px; color: #DC2626; font-weight: 700; background: #FEF2F2; padding: 2px 7px;">3 REJECTED</span>
               </div>
-
-              <div style="display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--c8-grid-line);">
-                <!-- Trap 01 -->
-                <div style="padding: 14px 16px; border-right: 1px solid var(--c8-grid-line); background: #FFFFFF;">
-                  <div style="font-family: var(--font-mono); font-size: 8.5px; font-weight: 700; color: #B91C1C; text-transform: uppercase; margin-bottom: 4px;">
-                    ✕ Approach 01
-                  </div>
-                  <div style="font-family: var(--font-heading); font-size: 12px; font-weight: 700; color: var(--c8-ink); margin-bottom: 5px;">
-                    Page-Builder Monolith
-                  </div>
-                  <div style="font-family: var(--font-mono); font-size: 9px; color: var(--c8-sub); margin-bottom: 6px;">
-                    Elementor / Divi Overhead
-                  </div>
-                  <p style="font-size: 11.5px; color: var(--c8-sub); line-height: 1.5; margin: 0;">
-                    4.8MB runtime payload, heavy DOM nesting, and fragile mobile responsiveness that degrades under outdoor festival cellular conditions.
-                  </p>
+              <div style="display: flex; flex-direction: column;">
+                <div style="display: flex; align-items: baseline; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--c8-grid-line);">
+                  <span style="font-family: var(--font-mono); font-size: 9px; color: #B91C1C; font-weight: 700; white-space: nowrap;">&#10005; BUILDER</span>
+                  <span style="font-size: 12px; color: var(--c8-sub);">4.8MB Elementor payload — degrades under outdoor festival cellular load</span>
                 </div>
-
-                <!-- Trap 02 -->
-                <div style="padding: 14px 16px; border-right: 1px solid var(--c8-grid-line); background: #FFFFFF;">
-                  <div style="font-family: var(--font-mono); font-size: 8.5px; font-weight: 700; color: #B91C1C; text-transform: uppercase; margin-bottom: 4px;">
-                    ✕ Approach 02
-                  </div>
-                  <div style="font-family: var(--font-heading); font-size: 12px; font-weight: 700; color: var(--c8-ink); margin-bottom: 5px;">
-                    Generic Ticket Silos
-                  </div>
-                  <div style="font-family: var(--font-mono); font-size: 9px; color: var(--c8-sub); margin-bottom: 6px;">
-                    Third-Party Ticketing Silos
-                  </div>
-                  <p style="font-size: 11.5px; color: var(--c8-sub); line-height: 1.5; margin: 0;">
-                    12% ticket fee extraction, loss of patron data ownership, zero custom intake brief capture, and brand equity dilution.
-                  </p>
+                <div style="display: flex; align-items: baseline; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--c8-grid-line);">
+                  <span style="font-family: var(--font-mono); font-size: 9px; color: #B91C1C; font-weight: 700; white-space: nowrap;">&#10005; TICKETING</span>
+                  <span style="font-size: 12px; color: var(--c8-sub);">12% fee extraction, zero custom brief intake, patron data loss</span>
                 </div>
-
-                <!-- Trap 03 -->
-                <div style="padding: 14px 16px; background: #FFFFFF;">
-                  <div style="font-family: var(--font-mono); font-size: 8.5px; font-weight: 700; color: #B91C1C; text-transform: uppercase; margin-bottom: 4px;">
-                    ✕ Approach 03
-                  </div>
-                  <div style="font-family: var(--font-heading); font-size: 12px; font-weight: 700; color: var(--c8-ink); margin-bottom: 5px;">
-                    Generic Form Plugins
-                  </div>
-                  <div style="font-family: var(--font-mono); font-size: 9px; color: var(--c8-sub); margin-bottom: 6px;">
-                    CF7 / Gravity Form Bloat
-                  </div>
-                  <p style="font-size: 11.5px; color: var(--c8-sub); line-height: 1.5; margin: 0;">
-                    Unstructured submission tables, persistent bot spam vulnerabilities, and no integrated calendar timestamp coordination.
-                  </p>
+                <div style="display: flex; align-items: baseline; gap: 12px; padding: 10px 16px;">
+                  <span style="font-family: var(--font-mono); font-size: 9px; color: #B91C1C; font-weight: 700; white-space: nowrap;">&#10005; CF7/GF</span>
+                  <span style="font-size: 12px; color: var(--c8-sub);">Bot vulnerabilities, no calendar coordination, unstructured submissions</span>
                 </div>
               </div>
-
-              <!-- Master Resolution Banner -->
-              <div style="padding: 16px 20px; background: linear-gradient(135deg, #FAFAF7 0%, #FFFFFF 100%);">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; flex-wrap: wrap; gap: 8px;">
-                  <span style="font-family: var(--font-mono); font-size: 9px; font-weight: 700; color: #16A34A; text-transform: uppercase; letter-spacing: 0.08em; display: flex; align-items: center; gap: 6px;">
-                    <i class="fa-solid fa-circle-check"></i> Cr8v Stacks Engineered Resolution // Bespoke Event Core &amp; White Studio CRM
-                  </span>
-                  <span style="font-family: var(--font-mono); font-size: 9.5px; color: var(--c8-rc-crimson); font-weight: 700; background: var(--c8-rc-crimson-subtle); padding: 3px 8px; border-radius: 4px;">
-                    PLUGIN: CR8V-EVENTS-CORE
-                  </span>
-                </div>
-                <p style="font-size: 12.5px; color: var(--c8-ink); line-height: 1.6; margin-bottom: 10px; font-weight: 500;">
-                  A tailored WordPress core theme and standalone companion plugin provide high-velocity Event CPT loops, real-time past-event calculus, direct RFC 5545 calendar streaming, and an executive White Studio Inquiries CRM running with zero page-builder dependencies.
-                </p>
-                <div style="display: flex; gap: 12px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 9.5px; color: var(--c8-sub);">
-                  <span><strong style="color: #16A34A;">✓ 100%</strong> Native Customizer</span>
-                  <span><strong style="color: var(--c8-rc-crimson);">✓ 0ms</strong> Builder Bloat</span>
-                  <span><strong style="color: var(--c8-rc-gold);">✓ RFC 5545</strong> Dynamic Stream</span>
-                  <span><strong style="color: var(--c8-ink);">✓ Bespoke</strong> White Studio CRM</span>
-                </div>
+              <div style="padding: 10px 16px; background: #F0FDF4; border-top: 1px solid #BBF7D0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                <i class="fa-solid fa-circle-check" style="color: #16A34A; font-size: 11px;"></i>
+                <span style="font-family: var(--font-mono); font-size: 9px; font-weight: 700; color: #16A34A;">RESOLUTION: cr8v-events-core plugin</span>
+                <span style="font-family: var(--font-mono); font-size: 9px; color: var(--c8-sub);">— Event CPT + RFC 5545 + White Studio CRM + 0ms builder overhead</span>
               </div>
             </div>
 
             <!-- VISUAL BLOCK 03: LIVE EVENT STATUS & TIMESTAMP CALCULUS SIMULATOR -->
-            <div style="border: 1px solid var(--c8-grid-line); border-radius: 4px; background: #FFFFFF; overflow: hidden;">
-              <!-- Header -->
+            <div style="border: 1px solid var(--c8-grid-line); background: #FFFFFF; overflow: hidden;">
               <div style="padding: 10px 16px; background: #FAFAF7; border-bottom: 1px solid var(--c8-grid-line); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
                 <div style="display: flex; align-items: center; gap: 8px;">
                   <span style="width: 8px; height: 8px; border-radius: 50%; background: #22C55E;"></span>
-                  <span style="font-family: var(--font-mono); font-size: 9.5px; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; letter-spacing: 0.06em;">
-                    Live Event Status &amp; Timestamp Calculus Simulator
-                  </span>
+                  <span style="font-family: var(--font-mono); font-size: 9.5px; font-weight: 700; color: var(--c8-ink); text-transform: uppercase; letter-spacing: 0.06em;">Event Timestamp Calculus Simulator</span>
                 </div>
-                <!-- Interactive Mode Switcher -->
                 <div style="display: flex; gap: 4px; background: #E2E8F0; padding: 3px; border-radius: 4px;">
-                  <button 
-                    type="button" 
-                    id="rc-sim-btn-upcoming"
-                    onclick="toggleRcEventSimulator('upcoming')"
-                    style="font-family: var(--font-mono); font-size: 9px; font-weight: 700; padding: 4px 10px; border-radius: 3px; border: none; background: #B4282D; color: #FFFFFF; cursor: pointer; transition: all 0.2s;"
-                  >
-                    ● Upcoming Production
-                  </button>
-                  <button 
-                    type="button" 
-                    id="rc-sim-btn-concluded"
-                    onclick="toggleRcEventSimulator('concluded')"
-                    style="font-family: var(--font-mono); font-size: 9px; font-weight: 700; padding: 4px 10px; border-radius: 3px; border: none; background: transparent; color: #475569; cursor: pointer; transition: all 0.2s;"
-                  >
-                    ○ Archived / Concluded
-                  </button>
+                  <button type="button" id="rc-sim-btn-upcoming" onclick="toggleRcEventSimulator('upcoming')" style="font-family: var(--font-mono); font-size: 9px; font-weight: 700; padding: 4px 10px; border-radius: 3px; border: none; background: #B4282D; color: #FFFFFF; cursor: pointer;">&#9679; Upcoming</button>
+                  <button type="button" id="rc-sim-btn-concluded" onclick="toggleRcEventSimulator('concluded')" style="font-family: var(--font-mono); font-size: 9px; font-weight: 700; padding: 4px 10px; border-radius: 3px; border: none; background: transparent; color: #475569; cursor: pointer;">&#9675; Archived</button>
                 </div>
               </div>
-
-              <!-- Simulator Display Card -->
-              <div id="rc-event-sim-card" style="padding: 1.5rem 1.75rem; background: #FFFFFF; transition: all 0.3s ease;">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-                  <span id="rc-sim-badge" style="font-family: var(--font-mono); font-size: 8.5px; font-weight: 700; padding: 3px 8px; border-radius: 3px; background: rgba(180, 40, 45, 0.08); border: 1px solid rgba(180, 40, 45, 0.2); color: #B4282D; text-transform: uppercase;">
-                    STATUS: UPCOMING PRODUCTION
-                  </span>
-                  <span id="rc-sim-date" style="font-family: var(--font-mono); font-size: 9.5px; color: #64748B; font-weight: 700;">OCTOBER 24, 2026 // 18:00 BST</span>
+              <div id="rc-event-sim-card" style="padding: 1.25rem 1.5rem; background: #FFFFFF; transition: all 0.3s ease;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                  <span id="rc-sim-badge" style="font-family: var(--font-mono); font-size: 8.5px; font-weight: 700; padding: 3px 8px; background: rgba(180, 40, 45, 0.08); border: 1px solid rgba(180, 40, 45, 0.2); color: #B4282D; text-transform: uppercase;">STATUS: UPCOMING PRODUCTION</span>
+                  <span id="rc-sim-date" style="font-family: var(--font-mono); font-size: 9.5px; color: #64748B; font-weight: 700;">OCT 24, 2026 // 18:00 BST</span>
                 </div>
-                <h3 id="rc-sim-title" style="font-family: var(--font-heading); font-size: 16px; font-weight: 700; color: #111215; margin-bottom: 6px; line-height: 1.3;">
-                  Pan-African Royal Nuptials (The Sovereign Alaga Showcase)
-                </h3>
-                <p id="rc-sim-desc" style="font-size: 12.5px; color: #55575D; line-height: 1.6; margin-bottom: 14px;">
-                  A majestic celebration of West African traditional matrimony, royal ceremonial attire, and live testimonial dramaturgy staged at Sheffield City Hall.
-                </p>
-                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-                  <button id="rc-sim-cta" type="button" style="font-family: var(--font-mono); font-size: 10px; font-weight: 700; padding: 8px 14px; border-radius: 3px; border: none; background: #B4282D; color: #FFFFFF; cursor: pointer; letter-spacing: 0.04em;">
-                    Download .ics Calendar Invite ↓
-                  </button>
-                  <div id="rc-sim-telemetry" style="font-family: var(--font-mono); font-size: 9.5px; color: #64748B;">
-                    <span style="color:#B4282D;font-weight:700;">● cr8v_is_event_past() = FALSE</span> | ACTION: CALENDAR_DOWNLOAD_ACTIVE | LATENCY: 0.08ms
-                  </div>
+                <h3 id="rc-sim-title" style="font-family: var(--font-heading); font-size: 15px; font-weight: 700; color: #111215; margin-bottom: 4px; line-height: 1.3;">Pan-African Royal Nuptials (The Sovereign Alaga Showcase)</h3>
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                  <button id="rc-sim-cta" type="button" style="font-family: var(--font-mono); font-size: 10px; font-weight: 700; padding: 7px 13px; border: none; background: #B4282D; color: #FFFFFF; cursor: pointer; letter-spacing: 0.04em;">Download .ics Calendar Invite &#8595;</button>
+                  <span id="rc-sim-telemetry" style="font-family: var(--font-mono); font-size: 9px; color: #64748B;"><span style="color:#B4282D;font-weight:700;">&#9679; cr8v_is_event_past() = FALSE</span> | CALENDAR_ACTIVE</span>
                 </div>
               </div>
             </div>
@@ -1500,7 +1456,7 @@
             <span class="c8cs-deliverable-meta">INTERACTION 01 // COMMISSIONING INTAKE</span>
             <h3 class="c8cs-deliverable-title" style="margin: 0.75rem 0;">3-Mode Production Commissioning Intake</h3>
             <p class="c8cs-deliverable-desc">
-              The contact page hosts a 3-tab mode switcher — <strong>Plan a Cultural Event</strong>, <strong>Book Royal Matrimonials</strong>, and <strong>Sponsorship &amp; Partnership</strong>. Each mode dynamically rewires the form fields, discipline chip groups, and production taxonomy mappings without page reload.
+              The production commissioning page features a context-aware intake form purpose-built for Red Cap's three distinct patron journeys — <strong>cultural event commissioning</strong>, <strong>royal matrimonial production</strong>, and <strong>sponsorship partnerships</strong>. The prototype below demonstrates how each mode dynamically surfaces relevant field taxonomy without page reload.
             </p>
             <div style="background: var(--c8-paper-bg); border: 1px solid var(--c8-grid-line); padding: 12px; font-family: var(--font-mono); font-size: 11px; color: var(--c8-rc-crimson); margin-top: 12px; line-height: 1.6;">
               <code>contactForm.dataset.leadType = 'cultural';<br>toggleRcFieldGroups(culturalFields, matrimonialFields);</code>
@@ -1640,6 +1596,9 @@
               <p class="c8cs-stream-cell-desc">
                 Event CPT and Gallery CPT registered on <code>init</code> with priority 0. Activation hooks execute atomic <code>flush_rewrite_rules()</code> only on state transition, preventing runtime database writes on production pageviews.
               </p>
+              <div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-bottom: 12px; background: #0A0F26;">
+                <img src="assets/case_studies/rc_gallery_01_docket.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.92; cursor: zoom-in;" onclick="openLightbox(this.src)">
+              </div>
               <div style="background: #FAFAF7; border: 1px solid var(--c8-grid-line); border-radius: 4px; padding: 10px; font-family: var(--font-mono); font-size: 10px; color: var(--c8-rc-crimson);">
                 <code>add_action('init', 'cr8v_register_events_cpt', 0);</code>
               </div>
@@ -1652,6 +1611,10 @@
               <p class="c8cs-stream-cell-desc">
                 Custom rewrite endpoint <code>/event-ics/{id}/</code> intercepts query variables and terminates template parsing, streaming raw iCalendar data directly to user devices with zero plugin memory overhead.
               </p>
+              
+              <div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-bottom: 12px; background: #0A0F26;">
+                <img src="assets/case_studies/rc_gallery_03_single_event.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.92; cursor: zoom-in;" onclick="openLightbox(this.src)">
+              </div>
               <div style="background: #FAFAF7; border: 1px solid var(--c8-grid-line); border-radius: 4px; padding: 10px; font-family: var(--font-mono); font-size: 10px; color: var(--c8-ink);">
                 <code>Content-Type: text/calendar; charset=utf-8</code>
               </div>
@@ -1664,6 +1627,10 @@
               <p class="c8cs-stream-cell-desc">
                 Intake submissions verified against WordPress cryptographic nonces, CSS-hidden honeypot traps, and a 2.5-second minimum interaction timer, stopping 100% of headless spam bots without CAPTCHA friction.
               </p>
+              
+              <div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-bottom: 12px; background: #0A0F26;">
+                <img src="assets/case_studies/rc_gallery_06_inquiries_brief.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.92; cursor: zoom-in;" onclick="openLightbox(this.src)">
+              </div>
               <div style="background: #FAFAF7; border: 1px solid var(--c8-grid-line); border-radius: 4px; padding: 10px; font-family: var(--font-mono); font-size: 10px; color: #16A34A; font-weight: 700;">
                 ✓ 100% Zero-Spam Verification
               </div>
@@ -1676,6 +1643,10 @@
               <p class="c8cs-stream-cell-desc">
                 Registered <code>WP_Customize_Section</code> elements bind directly to selective refresh DOM partials, allowing non-technical marketing directors to update event schedules without triggering full iframe reloads.
               </p>
+              
+              <div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-bottom: 12px; background: #0A0F26;">
+                <img src="assets/case_studies/rc_gallery_04_customizer.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.92; cursor: zoom-in;" onclick="openLightbox(this.src)">
+              </div>
               <div style="background: #FAFAF7; border: 1px solid var(--c8-grid-line); border-radius: 4px; padding: 10px; font-family: var(--font-mono); font-size: 10px; color: var(--c8-ink);">
                 <code>$wp_customize->selective_refresh->add_partial()</code>
               </div>
@@ -1688,6 +1659,10 @@
               <p class="c8cs-stream-cell-desc">
                 Dedicated <code>cr8v_inquiry</code> internal storage schema with structured metadata: budget tier, creative discipline, contact phone, client origin IP, and streaming direct-to-browser CSV exports.
               </p>
+              
+              <div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-bottom: 12px; background: #0A0F26;">
+                <img src="assets/case_studies/rc_gallery_02_inquiries.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.92; cursor: zoom-in;" onclick="openLightbox(this.src)">
+              </div>
               <div style="background: #FAFAF7; border: 1px solid var(--c8-grid-line); border-radius: 4px; padding: 10px; font-family: var(--font-mono); font-size: 10px; color: var(--c8-ink);">
                 <code>fputcsv($output, array($id, $title, $email...));</code>
               </div>
@@ -1700,6 +1675,10 @@
               <p class="c8cs-stream-cell-desc">
                 Bundled seeder logic in <code>inc/demo-importer.php</code> provisions production templates, sample cultural festivals spanning 2024–2026, and initial CRM briefing dossiers in a single atomic database run.
               </p>
+              
+              <div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-bottom: 12px; background: #0A0F26;">
+                <img src="assets/case_studies/rc_gallery_08_demo_seeder.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.92; cursor: zoom-in;" onclick="openLightbox(this.src)">
+              </div>
               <div style="background: #FAFAF7; border: 1px solid var(--c8-grid-line); border-radius: 4px; padding: 10px; font-family: var(--font-mono); font-size: 10px; color: #16A34A; font-weight: 700;">
                 ✓ 47 Queries in 0.62 Seconds
               </div>
@@ -1712,6 +1691,10 @@
               <p class="c8cs-stream-cell-desc">
                 CSS architecture based entirely on hardware-accelerated transforms, <code>clamp()</code> fluid sizing ladders, and design token scopes. Zero utility CSS frameworks or runtime dependencies required.
               </p>
+              
+              <div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-bottom: 12px; background: #0A0F26;">
+                <img src="assets/case_studies/rc_asset_01_brand.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.92; cursor: zoom-in;" onclick="openLightbox(this.src)">
+              </div>
               <div style="background: #FAFAF7; border: 1px solid var(--c8-grid-line); border-radius: 4px; padding: 10px; font-family: var(--font-mono); font-size: 10px; color: var(--c8-ink);">
                 <code>--c8-rc-crimson: #B4282D; --c8-rc-gold: #D19228;</code>
               </div>
@@ -1724,6 +1707,10 @@
               <p class="c8cs-stream-cell-desc">
                 Typography contrast ladders tested for strict compliance: Crimson on Ivory (7.4:1), Obsidian on Ivory (18.2:1), and Warm Gold (5.1:1). Fully keyboard navigable with visible focus states across all interactive dockets.
               </p>
+              
+              <div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-bottom: 12px; background: #0A0F26;">
+                <img src="assets/case_studies/rc_gallery_05_curatorial.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.92; cursor: zoom-in;" onclick="openLightbox(this.src)">
+              </div>
               <div style="background: #FAFAF7; border: 1px solid var(--c8-grid-line); border-radius: 4px; padding: 10px; font-family: var(--font-mono); font-size: 10px; color: #16A34A; font-weight: 700;">
                 ✓ AAA &amp; AA Contrast Verified
               </div>
@@ -1736,6 +1723,10 @@
               <p class="c8cs-stream-cell-desc">
                 With page builders bypassed completely, initial HTML payload weighs under 45KB uncompressed, delivering an ultra-fast Time to First Byte of 180ms and a 100% PageSpeed performance score.
               </p>
+              
+              <div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--c8-grid-line); margin-bottom: 12px; background: #0A0F26;">
+                <img src="assets/case_studies/rc_gallery_09_admin_theme.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.92; cursor: zoom-in;" onclick="openLightbox(this.src)">
+              </div>
               <div style="background: #FAFAF7; border: 1px solid var(--c8-grid-line); border-radius: 4px; padding: 10px; font-family: var(--font-mono); font-size: 10px; color: #16A34A; font-weight: 700;">
                 ✓ 100/100 Core Web Vitals
               </div>
